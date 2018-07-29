@@ -1,0 +1,101 @@
+#------------------------------------#
+#   OxShmolli2   #
+#------------------------------------#
+
+# TODO: how about configuring cmake to install instead of copying the executable?
+# TODO: it would be nice to 'addons: apt: sources:' conditional. Unfortunately if (like the one below) does not work:
+#       if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ]; then
+
+sudo: false
+language: cpp
+
+os:
+  # - linux
+  - osx
+
+compiler:
+  - gcc
+  # - clang
+
+branches:
+  # Blacklist the documentation branch
+  except:
+    - gh-pages
+
+# Environment variables
+env:
+  global:
+    # used in documentation script
+    - GH_REPO_NAME: OxShmolli2
+    - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile
+    - INPUT_FOR_DOXY: "'. ./app ./lib ./tests'"
+    - OUTPUT_FOR_DOXY: "'$(TRAVIS_BUILD_DIR)/code_docs/$(GH_REPO_NAME)'"
+    - GH_REPO_REF: github.com/MRKonrad/OxShmolli2.git
+
+addons:
+  apt:
+    sources:
+      ubuntu-toolchain-r-test;
+    packages:
+      - doxygen
+      - doxygen-doc
+      - doxygen-latex
+      - doxygen-gui
+      - graphviz
+
+before_install:
+  - cd ${TRAVIS_BUILD_DIR}
+
+  # install coveralls only in linux g++
+  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ]; then
+      pip install --user cpp-coveralls;
+    fi
+
+script:
+  # configure and generate
+  - cmake .
+
+  # add coverage option for coveralls (only in linux g++)
+  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ]; then
+      cmake -DCOVERAGE=1 . ;
+    fi
+
+  # this is make
+  - make -j8
+
+  # needed to get the coverage
+  - ./tests/OxShmolli2Tests
+
+after_success:
+  # Run coverage analysis only in linux g++
+  # Generate and deploy documentation only in linux g++
+  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ]; then
+      coveralls --root . --exclude thirdParty -E ".*CMakeFiles.*" ;
+      chmod +x generateDocumentationAndDeploy.sh;
+      ./generateDocumentationAndDeploy.sh;
+    fi
+
+before_deploy:
+  - echo "Ready to deploy?"
+
+  - export exe_extended_name=OxShmolli2Exe_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
+  # Problem: when deploying an executable as it is, somewhere in the process its permission to execute (-x) is lost.
+  # Solution: zip it and deploy the archive
+  - mkdir deployment
+  - cp OxShmolli2Exe ${exe_extended_name}
+  - cd deployment
+  - zip -r ${exe_extended_name}.zip ../${exe_extended_name}
+  - cd ..
+
+
+deploy:
+  provider: releases # GitHub
+  api_key:
+    secure: hktHPt7mF39LVJhyABALXqMLv0XSrifhYSqi3pV/1shHgsNvMSx63igUKMZBZPnuxsclV8i0PGxKZxScu2Mh28PFJtyfEcD1W+FZURmOS9Fr3FhvlNuiH4SEbVacc0sS8DJEsV8uCeJZj/+cIJMFDmuEiKuSaGNTpFykh8gxJE2tHL7nkijOFUl7PDHWOE7oTGaYd+N0vntk5E26dZ8W8rDDcf8iKhxkGM8wyqDKgrZyp53a6AoadhxrPwUyoM0zuiQWp8pzQAyGMp828dWDxl+NJ/tpz/XtdKMJrLtiD+4ecVHg9gX37r86pTOpfTLDeedfPwIGhjja03G/ED9ZqgySnT3aEdpwae9WQfH6rYmCwg/RKvmnI1y9cFINO8hxwx/GcgusvIibkiKJqPamKkHBTTN9qbHipXXZj+KupPN8Qf0xj8sZRqYEV9eJQaBjKLw8dbi93JtpPRepBmCL8+jGZ7mCDZEJBeUDhXksAMTuecsR2UeKX9+2IydZpj1oEDsgVsL8kC3m1DR2mAZUdxCrjIcwjhosyUNO3GHqKkpnmRkqnF9zPEglPs4RuE8gTGTskpOPd0E/0wQRQAlcCZaCxgrt5a2t7d4qHz4fy7cKeM7nt73eW11I4/ZLgYiXcFk9T7dJuqtHFqOWpi64tV8NYtibbamib9D07zmhiS0=
+  file_glob: true # to use wildcards
+  file:
+    - deployment/*
+  skip_cleanup: true
+  on:
+    tags: true
+    condition: ${CXX} == "g++" # I guess I have to pick one compiler

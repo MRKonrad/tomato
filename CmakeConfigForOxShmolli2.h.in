@@ -1,0 +1,9 @@
+// the configured options and settings for Tutorial
+#define OxShmolli2_VERSION_MAJOR @OxShmolli2_VERSION_MAJOR@
+#define OxShmolli2_VERSION_MINOR @OxShmolli2_VERSION_MINOR@
+
+#cmakedefine USE_ONLY_CPP98
+#cmakedefine USE_VTK
+#cmakedefine USE_NR2
+#cmakedefine USE_NR3
+#cmakedefine USE_GSL

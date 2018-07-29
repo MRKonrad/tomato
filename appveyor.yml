@@ -1,0 +1,69 @@
+#------------------------------------#
+#   OxShmolli2   #
+#------------------------------------#
+
+#version: '0.9.{build}'
+
+os:
+  - Visual Studio 2017
+#  - Visual Studio 2015
+
+init:
+  - git config --global core.autocrlf input
+  # Set build version to git commit-hash
+  - ps: Update-AppveyorBuild -Version "$($env:APPVEYOR_REPO_BRANCH) - $($env:APPVEYOR_REPO_COMMIT)"
+
+environment:
+  EXE_EXTENDED_NAME: OxShmolli2Exe_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
+
+install:
+  - git submodule update --init --recursive
+
+platform:
+  - Win32
+  - x64
+
+configuration:
+#  - Debug
+  - Release
+
+before_build:
+  - cmake . -Bbin -A%PLATFORM%
+
+build:
+  project: bin\OxShmolli2.sln  # path to Visual Studio solution or project
+  parallel: true                                   # enable MSBuild parallel builds
+  verbosity: normal                                # MSBuild verbosity level {quiet|minimal|normal|detailed}
+
+after_build:
+  # change the name of the exe, zip it and copy the zip to the deployment folderś
+  - cd bin\%CONFIGURATION%\
+  - copy OxShmolli2Exe.exe %EXE_EXTENDED_NAME%.exe
+  - 7z a %EXE_EXTENDED_NAME%.zip %EXE_EXTENDED_NAME%.exe # zip
+  - cd ..
+  - cd ..
+  - mkdir deployment
+  - copy bin\%CONFIGURATION%\%EXE_EXTENDED_NAME%.zip deployment\%EXE_EXTENDED_NAME%.zip
+
+test_script:
+  # TODO: should I add sth like this? https://github.com/mgerhardy/caveexpress/blob/master/appveyor.yml
+  - bin\tests\%CONFIGURATION%\OxShmolli2Tests.exe
+
+artifacts:
+  - path: deployment\*.*
+
+before_deploy:
+  - echo "Ready to deploy?"
+
+deploy:
+  # release: OxShmolli2-v$(appveyor_build_version)
+  description: 'Release description'
+  provider: GitHub
+  auth_token:
+    secure: Nmbbo4JCoK5AuN1ugWmE/c8/BAXlpz8Lb7piWDcAAWnT/GFa7fwL20GbXyU9AZSn
+  draft: false
+  prerelease: false
+  force_update: true
+  on:
+    appveyor_repo_tag: true        # deploy on tag push only
+    configuration: Release
