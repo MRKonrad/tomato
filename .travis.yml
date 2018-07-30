@@ -64,7 +64,9 @@ script:
   - make -j8
 
   # needed to get the coverage
-  - ./tests/OxShmolli2Tests
+  - cd tests
+  - ./OxShmolli2Tests
+  - cd ..
 
 after_success:
   # Run coverage analysis only in linux g++

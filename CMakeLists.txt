@@ -41,6 +41,7 @@ add_library(OxShmolli2Lib ${APP_FILES} ${LIB_FILES})
 
 set(BUILD_TESTING OFF)
 add_subdirectory(thirdParty/libyaml)
+include_directories(${PROJECT_BINARY_DIR}/thirdParty/libyaml/include)
 target_link_libraries(OxShmolli2Exe yaml)
 
 ###############
