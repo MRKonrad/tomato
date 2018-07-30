@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../thirdParty/libyaml/include/yaml.h
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+
+/Users/kwerys/Code/OxShmolli2/app/main.cpp
+iostream
+-
+yaml.h
+/Users/kwerys/Code/OxShmolli2/app/yaml.h
+

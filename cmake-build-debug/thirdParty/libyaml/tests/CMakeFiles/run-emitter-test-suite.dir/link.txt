@@ -1,0 +1,1 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/run-emitter-test-suite.dir/run-emitter-test-suite.c.o  -o ../run-emitter-test-suite ../libyaml_static.a 

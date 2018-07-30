@@ -1,0 +1,87 @@
+\hypertarget{class_ox_1_1_functions_t1_basic}{}\section{Ox\+:\+:Functions\+T1\+Basic$<$ Measure\+Type $>$ Class Template Reference}
+\label{class_ox_1_1_functions_t1_basic}\index{Ox\+::\+Functions\+T1\+Basic$<$ Measure\+Type $>$@{Ox\+::\+Functions\+T1\+Basic$<$ Measure\+Type $>$}}
+
+
+Container for a basic model function $\sqrt{A-B\exp(t/T_1^*)}$, cost function and Least-\/\+Squares function and derivatives.  
+
+
+
+
+{\ttfamily \#include $<$Ox\+Functions\+T1\+Basic.\+h$>$}
+
+
+
+Inheritance diagram for Ox\+:\+:Functions\+T1\+Basic$<$ Measure\+Type $>$\+:
+% FIG 0
+
+
+Collaboration diagram for Ox\+:\+:Functions\+T1\+Basic$<$ Measure\+Type $>$\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_ad23b00edd74fdf78c7d21fa82bb66e6e}\label{class_ox_1_1_functions_t1_basic_ad23b00edd74fdf78c7d21fa82bb66e6e}} 
+virtual Measure\+Type {\bfseries calc\+Model\+Value} (Measure\+Type time)
+\item 
+\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_ac9f77d95d7b39f2333b520d3a2e639e9}\label{class_ox_1_1_functions_t1_basic_ac9f77d95d7b39f2333b520d3a2e639e9}} 
+virtual void {\bfseries calc\+L\+S\+Residuals} (Measure\+Type $\ast$residuals)
+\item 
+\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_ac1f9d36e4a6f3459228351178e9c1296}\label{class_ox_1_1_functions_t1_basic_ac1f9d36e4a6f3459228351178e9c1296}} 
+virtual void {\bfseries calc\+L\+S\+Jacobian} (Measure\+Type $\ast$$\ast$jacobian)
+\item 
+\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_adee7b03ad49d28e5dc08a80b2c948da1}\label{class_ox_1_1_functions_t1_basic_adee7b03ad49d28e5dc08a80b2c948da1}} 
+virtual Measure\+Type {\bfseries calc\+Cost\+Value} ()
+\item 
+\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_aa6a067295d09882f70eeb34b260c37b7}\label{class_ox_1_1_functions_t1_basic_aa6a067295d09882f70eeb34b260c37b7}} 
+virtual void {\bfseries calc\+Cost\+Derivative} (Measure\+Type $\ast$derivative)
+\item 
+\mbox{\hyperlink{class_ox_1_1_functions_t1_basic_aa7dc56ceda03a3f9b9263683ea0865e7}{Functions\+T1\+Basic}} (int \+\_\+n\+Samples)
+\begin{DoxyCompactList}\small\item\em The only right constructor is the one that is defining the number of samples that are processed in all the member variables. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_a0ef373041804c4fd403b0b252bb2661c}\label{class_ox_1_1_functions_t1_basic_a0ef373041804c4fd403b0b252bb2661c}} 
+\mbox{\hyperlink{class_ox_1_1_functions_t1_basic_a0ef373041804c4fd403b0b252bb2661c}{$\sim$\+Functions\+T1\+Basic}} ()
+\begin{DoxyCompactList}\small\item\em do not forget about the virtual destructor, see \href{https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors}{\tt https\+://stackoverflow.\+com/questions/461203/when-\/to-\/use-\/virtual-\/destructors} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_ac6ddf49f7adb6415fa3f4f1df291b06d}\label{class_ox_1_1_functions_t1_basic_ac6ddf49f7adb6415fa3f4f1df291b06d}} 
+\mbox{\hyperlink{class_ox_1_1_functions_t1_basic_ac6ddf49f7adb6415fa3f4f1df291b06d}{Functions\+T1\+Basic}} ()
+\begin{DoxyCompactList}\small\item\em We do not want the default constructor to be called. Ever. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Measure\+Type$>$\newline
+class Ox\+::\+Functions\+T1\+Basic$<$ Measure\+Type $>$}
+
+Container for a basic model function $\sqrt{A-B\exp(t/T_1^*)}$, cost function and Least-\/\+Squares function and derivatives. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Measure\+Type} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_aa7dc56ceda03a3f9b9263683ea0865e7}\label{class_ox_1_1_functions_t1_basic_aa7dc56ceda03a3f9b9263683ea0865e7}} 
+\index{Ox\+::\+Functions\+T1\+Basic@{Ox\+::\+Functions\+T1\+Basic}!Functions\+T1\+Basic@{Functions\+T1\+Basic}}
+\index{Functions\+T1\+Basic@{Functions\+T1\+Basic}!Ox\+::\+Functions\+T1\+Basic@{Ox\+::\+Functions\+T1\+Basic}}
+\subsubsection{\texorpdfstring{Functions\+T1\+Basic()}{FunctionsT1Basic()}}
+{\footnotesize\ttfamily template$<$typename Measure\+Type $>$ \\
+\mbox{\hyperlink{class_ox_1_1_functions_t1_basic}{Ox\+::\+Functions\+T1\+Basic}}$<$ Measure\+Type $>$\+::\mbox{\hyperlink{class_ox_1_1_functions_t1_basic}{Functions\+T1\+Basic}} (\begin{DoxyParamCaption}\item[{int}]{\+\_\+n\+Samples }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The only right constructor is the one that is defining the number of samples that are processed in all the member variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+n\+Samples} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\mbox{\hyperlink{_ox_functions_t1_basic_8h}{Ox\+Functions\+T1\+Basic.\+h}}\item 
+lib/\mbox{\hyperlink{_ox_functions_t1_basic_8hxx}{Ox\+Functions\+T1\+Basic.\+hxx}}\end{DoxyCompactItemize}
