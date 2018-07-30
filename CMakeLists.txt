@@ -35,9 +35,21 @@ include_directories(lib)
 add_executable(OxShmolli2Exe ${APP_FILES} ${LIB_FILES})
 add_library(OxShmolli2Lib ${APP_FILES} ${LIB_FILES})
 
+############
+### YAML ###
+############
+
+set(BUILD_TESTING OFF)
+add_subdirectory(thirdParty/libyaml)
+target_link_libraries(OxShmolli2Exe yaml)
+
 ###############
 ### TESTING ###
 ###############
 
 add_subdirectory(tests)
+
+
+
+
 

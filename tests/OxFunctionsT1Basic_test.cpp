@@ -5,32 +5,136 @@
  */
 
 #include "gtest/gtest.h"
+#include "OxTestData.h"
+
 #include "OxFunctionsT1Basic.h"
 
 TEST(OxShmolli2, calcModelValueTest) {
 
-    double params[3] = {100, 200, 1000};
+    typedef double TYPE;
 
-    Ox::FunctionsT1Basic<double> FunctionsObject;
-    FunctionsObject.setParameters(params);
+    TYPE params[3] = {100, 200, 1000};
 
-    EXPECT_DOUBLE_EQ(FunctionsObject.calcModelValue(0), -100);
+    Ox::FunctionsT1Basic<TYPE> functionsObject(0);
+    functionsObject.setParameters(params);
 
+    EXPECT_DOUBLE_EQ(functionsObject.calcModelValue(0), -100);
 }
 
 TEST(OxShmolli2, calcLSResidualsTest) {
-    EXPECT_EQ(1, 0);
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/blood.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    double params[3] = {0, 0, 0};
+
+    Ox::FunctionsT1Basic<TYPE> functionsObject(nSamples);
+    functionsObject.setParameters(params);
+    functionsObject.setInvTimes(testData.getInvTimesPtr());
+    functionsObject.setSignal(testData.getSignalMagPtr());
+
+    TYPE *residuals = new TYPE[nSamples];
+    functionsObject.calcLSResiduals(residuals);
+
+    for (int i = 0; i < nSamples; i++){
+        EXPECT_DOUBLE_EQ(residuals[i], -testData.getSignalMag()[i]);
+    }
+
+    delete [] residuals;
 }
 
 TEST(OxShmolli2, calcLSJacobianTest) {
-    EXPECT_EQ(1, 0);
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/blood.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    double params[3] = {0, 0, 1200};
+
+    Ox::FunctionsT1Basic<TYPE> functionsObject(nSamples);
+    functionsObject.setParameters(params);
+    functionsObject.setInvTimes(testData.getInvTimesPtr());
+    functionsObject.setSignal(testData.getSignalMagPtr());
+
+    TYPE *jacobian[7];
+    jacobian[0] = new TYPE[3];
+    jacobian[1] = new TYPE[3];
+    jacobian[2] = new TYPE[3];
+    jacobian[3] = new TYPE[3];
+    jacobian[4] = new TYPE[3];
+    jacobian[5] = new TYPE[3];
+    jacobian[6] = new TYPE[3];
+
+    functionsObject.calcLSJacobian(jacobian);
+
+    TYPE correct[7][3] = {
+            {1, -0.920044,   0},
+            {1, -0.860708,   0},
+            {1, -0.805198,   0},
+            {1, -0.239508,   0},
+            {1, -0.0619868,  0},
+            {1, -0.0167532,  0},
+            {1, -0.00461166, 0},
+    };
+
+    for (int iSample = 0; iSample < nSamples; iSample++) {
+        for (int iDim = 0; iDim < 3; iDim++) {
+            EXPECT_NEAR(jacobian[iSample][iDim], correct[iSample][iDim], 1e-3);
+        }
+    }
+    delete [] jacobian[0];
+    delete [] jacobian[1];
+    delete [] jacobian[2];
+    delete [] jacobian[3];
+    delete [] jacobian[4];
+    delete [] jacobian[5];
+    delete [] jacobian[6];
 }
 
 TEST(OxShmolli2, calcCostValueTest) {
-    EXPECT_EQ(1, 0);
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/blood.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    TYPE params[3] = {0, 0, 0};
+
+    Ox::FunctionsT1Basic<TYPE> functionsObject(nSamples);
+    functionsObject.setParameters(params);
+    functionsObject.setInvTimes(testData.getInvTimesPtr());
+    functionsObject.setSignal(testData.getSignalMagPtr());
+
+    EXPECT_DOUBLE_EQ(functionsObject.calcCostValue(), 17169);
 }
 
 TEST(OxShmolli2, calcCostDerivativeTest) {
-    EXPECT_EQ(1, 0);
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/blood.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    TYPE params[3] = {100, 200, 1200};
+
+    Ox::FunctionsT1Basic<TYPE> functionsObject(nSamples);
+    functionsObject.setParameters(params);
+    functionsObject.setInvTimes(testData.getInvTimesPtr());
+    functionsObject.setSignal(testData.getSignalMagPtr());
+
+    TYPE derivative[] = {0, 0, 0};
+    functionsObject.calcCostDerivative(derivative);
+
+    EXPECT_NEAR(derivative[0], -425.52433072265057, 1e-3);
+    EXPECT_NEAR(derivative[1],  588.84996553808264, 1e-3);
+    EXPECT_NEAR(derivative[2],    7.36064616633549, 1e-3);
+
 }
 

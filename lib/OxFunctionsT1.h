@@ -15,6 +15,8 @@ namespace Ox {
      * \details Here model function is defined - calcModelValue(). Fitting algorithms based on optimisation need a cost
      * function - calcCostValue(). Fitting algorithms based on least squares need a residuals calculation -
      * calcLSResiduals(). Some fitting algorithms use derivatives, hence calcLSJacobian() and calcCostDerivative().
+     * The memeber variables are pointers to c-arrays, we need to know how many samples we want to process. Thats the
+     * nSamples defined in the constructor.
      * @tparam MeasureType
      */
     template< typename MeasureType >
@@ -28,33 +30,49 @@ namespace Ox {
         virtual void calcCostDerivative(MeasureType* derivative) = 0;
         virtual void calcLSJacobian(MeasureType** jacobian) = 0;
 
-        virtual MeasureType *getInvTimes() const { return _InvTimes; }
-        virtual MeasureType *getSatTimes() const { return _SatTimes; }
-        virtual MeasureType *getRepTimes() const { return _RepTimes; }
-        virtual MeasureType *getRelAcqTimes() const { return _RelAcqTimes; }
-        virtual MeasureType *getSignal() const { return _Signal; }
-        virtual MeasureType *getParameters() const { return _Parameters; }
+        virtual const MeasureType *getInvTimes() const { return _InvTimes; }
+        virtual const MeasureType *getSatTimes() const { return _SatTimes; }
+        virtual const MeasureType *getRepTimes() const { return _RepTimes; }
+        virtual const MeasureType *getRelAcqTimes() const { return _RelAcqTimes; }
+        virtual const MeasureType *getSignal() const { return _Signal; }
+        virtual const MeasureType *getParameters() const { return _Parameters; }
 
-        virtual void setInvTimes(MeasureType *_InvTimes) { FunctionsT1::_InvTimes = _InvTimes; }
-        virtual void setSatTimes(MeasureType *_SatTimes) { FunctionsT1::_SatTimes = _SatTimes; }
-        virtual void setRepTimes(MeasureType *_RepTimes) { FunctionsT1::_RepTimes = _RepTimes; }
-        virtual void setRelAcqTimes(MeasureType *_RelAcqTimes) { FunctionsT1::_RelAcqTimes = _RelAcqTimes; }
-        virtual void setSignal(MeasureType *_Signal) { FunctionsT1::_Signal = _Signal; }
-        virtual void setParameters(MeasureType *_Parameters) { FunctionsT1::_Parameters = _Parameters; }
+        virtual void setInvTimes(const MeasureType *_InvTimes) { FunctionsT1::_InvTimes = _InvTimes; }
+        virtual void setSatTimes(const MeasureType *_SatTimes) { FunctionsT1::_SatTimes = _SatTimes; }
+        virtual void setRepTimes(const MeasureType *_RepTimes) { FunctionsT1::_RepTimes = _RepTimes; }
+        virtual void setRelAcqTimes(const MeasureType *_RelAcqTimes) { FunctionsT1::_RelAcqTimes = _RelAcqTimes; }
+        virtual void setSignal(const MeasureType *_Signal) {FunctionsT1::_Signal = _Signal; }
+        virtual void setParameters(const MeasureType *_Parameters) { FunctionsT1::_Parameters = _Parameters; }
+
+        /**
+         * \brief The only right constructor is the one that is defining the number of samples that are processed in
+         * all the member variables.
+         * @param _nSamples
+         */
+        FunctionsT1(int _nSamples){
+            this->_nSamples = _nSamples;
+        };
 
         /**
          * \brief do not forget about the virtual destructor, see
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
-        ~FunctionsT1(){};
+        virtual ~FunctionsT1(){};
 
     protected:
-        MeasureType* _InvTimes;
-        MeasureType* _SatTimes;
-        MeasureType* _RepTimes;
-        MeasureType* _RelAcqTimes;
-        MeasureType* _Signal;
-        MeasureType* _Parameters;
+
+        /**
+         * \brief We do not want the default constructor to be called. Ever.
+         */
+        FunctionsT1(){};
+
+        int _nSamples;
+        const MeasureType* _InvTimes;
+        const MeasureType* _SatTimes;
+        const MeasureType* _RepTimes;
+        const MeasureType* _RelAcqTimes;
+        const MeasureType* _Signal;
+        const MeasureType* _Parameters;
     };
 } //namespace Ox
 
