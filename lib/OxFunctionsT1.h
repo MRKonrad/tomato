@@ -31,7 +31,11 @@ namespace Ox {
         virtual void calcLSResiduals(MeasureType* residuals) = 0;
         virtual MeasureType calcCostValue() = 0;
         virtual void calcCostDerivative(MeasureType* derivative) = 0;
-        virtual void calcLSJacobian(MeasureType** jacobian) = 0;
+        /**
+         * calcLSJacobian
+         * @param jacobian - 2d matrix stored as 1d array
+         */
+        virtual void calcLSJacobian(MeasureType* jacobian) = 0;
 
 
         virtual const MeasureType *getInvTimes() const { return _InvTimes; }

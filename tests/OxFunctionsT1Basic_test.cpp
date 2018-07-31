@@ -29,7 +29,7 @@ TEST(OxShmolli2, calcLSResidualsTest) {
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
-    double params[3] = {0, 0, 0};
+    TYPE params[3] = {0, 0, 0};
 
     Ox::FunctionsT1Basic<TYPE> functionsObject(nSamples);
     functionsObject.setParameters(params);
@@ -54,46 +54,32 @@ TEST(OxShmolli2, calcLSJacobianTest) {
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
-    double params[3] = {0, 0, 1200};
+    TYPE params[3] = {0, 0, 1200};
 
     Ox::FunctionsT1Basic<TYPE> functionsObject(nSamples);
     functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
-    TYPE *jacobian[7];
-    jacobian[0] = new TYPE[3];
-    jacobian[1] = new TYPE[3];
-    jacobian[2] = new TYPE[3];
-    jacobian[3] = new TYPE[3];
-    jacobian[4] = new TYPE[3];
-    jacobian[5] = new TYPE[3];
-    jacobian[6] = new TYPE[3];
+    TYPE jacobian[7*3];
 
     functionsObject.calcLSJacobian(jacobian);
 
-    TYPE correct[7][3] = {
-            {1, -0.920044,   0},
-            {1, -0.860708,   0},
-            {1, -0.805198,   0},
-            {1, -0.239508,   0},
-            {1, -0.0619868,  0},
-            {1, -0.0167532,  0},
-            {1, -0.00461166, 0},
+    TYPE correct[7*3] = {
+            1, -0.920044,   0,
+            1, -0.860708,   0,
+            1, -0.805198,   0,
+            1, -0.239508,   0,
+            1, -0.0619868,  0,
+            1, -0.0167532,  0,
+            1, -0.00461166, 0,
     };
 
     for (int iSample = 0; iSample < nSamples; iSample++) {
         for (int iDim = 0; iDim < 3; iDim++) {
-            EXPECT_NEAR(jacobian[iSample][iDim], correct[iSample][iDim], 1e-3);
+            EXPECT_NEAR(jacobian[iSample*3+iDim], correct[iSample*3+iDim], 1e-3);
         }
     }
-    delete [] jacobian[0];
-    delete [] jacobian[1];
-    delete [] jacobian[2];
-    delete [] jacobian[3];
-    delete [] jacobian[4];
-    delete [] jacobian[5];
-    delete [] jacobian[6];
 }
 
 TEST(OxShmolli2, calcCostValueTest) {

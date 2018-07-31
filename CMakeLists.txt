@@ -1,6 +1,6 @@
-######################################
+##################
 ### OxShmolli2 ###
-######################################
+##################
 
 cmake_minimum_required (VERSION 2.8)
 
@@ -32,31 +32,32 @@ set(LIB_FILES ${LIB_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForOxShmolli2.h")
 
 include_directories(lib)
 
-add_executable(OxShmolli2Exe ${APP_FILES} ${LIB_FILES})
 add_library(OxShmolli2Lib ${APP_FILES} ${LIB_FILES})
+add_executable(OxShmolli2Exe ${APP_FILES} ${LIB_FILES})
+add_dependencies(OxShmolli2Exe OxShmolli2Lib)
 
 ############
 ### YAML ###
 ############
 
-set(BUILD_TESTING OFF)
+set(BUILD_TESTING OFF CACHE INTERNAL "" FORCE)
 add_subdirectory(thirdParty/libyaml)
 include_directories(${yaml_BINARY_DIR}/include ${yaml_SOURCE_DIR}/include) # for windows
-target_link_libraries(OxShmolli2Exe yaml)
+target_link_libraries(OxShmolli2Exe PUBLIC yaml)
 
 ###############
 ### Fitting ###
 ###############
 
-set(BUILD_TESTING OFF)
-set(BUILD_CORE_GEOMETRY OFF)
-set(BUILD_CORE_IMAGING: OFF)
-set(BUILD_CORE_NUMERICS ON)
-set(BUILD_CORE_SERIALISATION OFF)
-set(BUILD_CORE_UTILITIES OFF)
-set(VXL_USE_GEOTIFF OFF)
-set(VXL_USE_DCMTK OFF)
-set(VXL_USE_LFS OFF)
+set(BUILD_TESTING OFF CACHE INTERNAL "" FORCE)
+set(BUILD_CORE_GEOMETRY OFF CACHE INTERNAL "" FORCE)
+set(BUILD_CORE_IMAGING OFF CACHE INTERNAL "" FORCE)
+set(BUILD_CORE_NUMERICS ON CACHE INTERNAL "" FORCE)
+set(BUILD_CORE_SERIALISATION OFF CACHE INTERNAL "" FORCE)
+set(BUILD_CORE_UTILITIES OFF CACHE INTERNAL "" FORCE)
+set(VXL_USE_GEOTIFF OFF CACHE INTERNAL "" FORCE)
+set(VXL_USE_DCMTK OFF CACHE INTERNAL "" FORCE)
+set(VXL_USE_LFS OFF CACHE INTERNAL "" FORCE)
 
 add_subdirectory(thirdParty/vxl)
 
@@ -69,12 +70,14 @@ include_directories(${vcl_BINARY_DIR})
 include_directories(${vgl_SOURCE_DIR})
 
 set(VNL_LIBRARIES
-        ${VXL_LIBRARY_PATH}/libnetlib.a
+#        ${VXL_LIBRARY_PATH}/libnetlib.a
         ${VXL_LIBRARY_PATH}/libv3p_netlib.a
-        ${VXL_LIBRARY_PATH}/libvcl.a
+#        ${VXL_LIBRARY_PATH}/libvcl.a
         ${VXL_LIBRARY_PATH}/libvnl_algo.a
         ${VXL_LIBRARY_PATH}/libvnl.a)
-target_link_libraries(OxShmolli2Exe ${VNL_LIBRARIES})
+
+target_link_libraries (OxShmolli2Lib PUBLIC ${VNL_LIBRARIES})
+add_dependencies(OxShmolli2Lib vnl vnl_algo)
 
 
 ###############

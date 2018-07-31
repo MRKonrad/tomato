@@ -55,7 +55,7 @@ namespace Ox {
          * \brief do not forget about the virtual destructor, see
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
-        ~CalculatorT1(){};
+        virtual ~CalculatorT1(){};
 
     };
 } //namespace Ox

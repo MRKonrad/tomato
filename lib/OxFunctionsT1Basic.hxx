@@ -47,7 +47,7 @@ namespace Ox {
     template< typename MeasureType >
     void
     FunctionsT1Basic<MeasureType>
-    ::calcLSJacobian(MeasureType** jacobian){
+    ::calcLSJacobian(MeasureType* jacobian){
         unsigned int nSamples = this->_nSamples;
 
         //MeasureType A = this->_Parameters[0];
@@ -60,9 +60,9 @@ namespace Ox {
             myexp = exp(-invTime/T1star);
 
             // calculated in matlab (syms A B T1 t), f=A-B*exp(-t./T1); diff(f,A), diff(f,B), diff(calcCostValue,T1)
-            jacobian[i][0] = 1.0;
-            jacobian[i][1] = -myexp;
-            jacobian[i][2] = -B*invTime*myexp/(T1star*T1star);
+            jacobian[i*3+0] = 1.0;
+            jacobian[i*3+1] = -myexp;
+            jacobian[i*3+2] = -B*invTime*myexp/(T1star*T1star);
         }
     }
 

@@ -57,7 +57,7 @@ namespace Ox {
         virtual void setVerbose(const bool _Verbose) { Fitter::_Verbose = _Verbose; }
         virtual void setTrace(const bool _Trace) { Fitter::_Trace = _Trace; }
 
-        ~Fitter(){};
+        virtual ~Fitter(){};
 
     protected:
         FunctionsT1<MeasureType>* _FunctionsT1;

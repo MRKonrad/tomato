@@ -35,10 +35,10 @@ TEST(OxFunctionsT1AdapterVnlCost, f) {
             functionsAdaptedToVnl.f(temp),
             functionsObject.calcCostValue()
     );
-
 }
 
 TEST(OxFunctionsT1AdapterVnlCost, gradf) {
+
     typedef double TYPE;
 
     char filePath [] = "testData/blood.yaml";
@@ -94,5 +94,4 @@ TEST(OxFunctionsT1AdapterVnlCost, fitting) {
     EXPECT_NEAR(paramsVnl[0], testData.getResultsMolli()[0], 1e-2);
     EXPECT_NEAR(paramsVnl[1], testData.getResultsMolli()[1], 1e-2);
     EXPECT_NEAR(paramsVnl[2], testData.getResultsMolli()[2], 1e-2);
-
 }

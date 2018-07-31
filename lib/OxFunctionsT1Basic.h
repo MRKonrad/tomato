@@ -26,7 +26,7 @@ namespace Ox {
 
         virtual MeasureType calcModelValue(MeasureType time);
         virtual void calcLSResiduals(MeasureType* residuals);
-        virtual void calcLSJacobian(MeasureType** jacobian);
+        virtual void calcLSJacobian(MeasureType* jacobian);
         virtual MeasureType calcCostValue();
         virtual void calcCostDerivative(MeasureType* derivative);
 
