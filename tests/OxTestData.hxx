@@ -65,6 +65,9 @@ namespace Ox {
                     if (lastKeyTokenValue == "signs")     copyStrVectorToMemberVector(temp, _signs);
                     if (lastKeyTokenValue == "invTimes")  copyStrVectorToMemberVector(temp, _invTimes);
 
+                    if (lastKeyTokenValue == "resultsMolli")    copyStrVectorToMemberVector(temp, _resultsMolli);
+                    if (lastKeyTokenValue == "resultsShMolli")  copyStrVectorToMemberVector(temp, _resultsShMolli);
+
                     _nSamples = _invTimes.size();
 
                     temp.clear();
@@ -77,6 +80,7 @@ namespace Ox {
                 }
                 case YAML_SCALAR_TOKEN: {
                     std::string scalar((char*)token.data.scalar.value);
+
                     if (flagKeyToken){
                         flagKeyToken = false;
                         lastKeyTokenValue = scalar;
@@ -92,8 +96,8 @@ namespace Ox {
                 default:
                     break;
             }
-            if(token.type != YAML_STREAM_END_TOKEN)
-                yaml_token_delete(&token);
+            if(token.type != YAML_STREAM_END_TOKEN) yaml_token_delete(&token);
+
         } while(token.type != YAML_STREAM_END_TOKEN);
         yaml_token_delete(&token);
         /* END new code */
@@ -101,6 +105,18 @@ namespace Ox {
         /* Cleanup */
         yaml_parser_delete(&parser);
         fclose(fh);
+
+        calcSignal();
+    }
+
+    template< typename MeasureType >
+    void
+    TestData<MeasureType>
+    ::calcSignal(){
+        _signal.resize(_nSamples);
+        for (int i = 0; i < _nSamples; ++i){
+            _signal[i] = _signalMag[i] * _signs[i];
+        }
     }
 
     template< typename MeasureType >
@@ -110,7 +126,7 @@ namespace Ox {
     ::printVector(std::vector<TYPE> myVector, std::string myVectorName){
         std::cout << myVectorName << " =";
         for (int i = 0; i < myVector.size(); ++i) {
-            std::cout << std::setw(6) << myVector[i];
+            std::cout << std::setw(7) << myVector[i];
         }
         std::cout << std::endl;
     }
@@ -136,6 +152,9 @@ namespace Ox {
         printVector<MeasureType>(_signalPha, "signalPha ");
         printVector<MeasureType>(_signs,     "signs     ");
         printVector<MeasureType>(_invTimes,  "invTimes  ");
+
+        printVector<MeasureType>(_resultsMolli,   "resultsMolli    ");
+        printVector<MeasureType>(_resultsShMolli, "resultsShMolli  ");
     };
 
 } // namespace Ox
