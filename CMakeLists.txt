@@ -34,7 +34,6 @@ include_directories(lib)
 
 add_library(OxShmolli2Lib ${APP_FILES} ${LIB_FILES})
 add_executable(OxShmolli2Exe ${APP_FILES} ${LIB_FILES})
-add_dependencies(OxShmolli2Exe OxShmolli2Lib)
 
 ############
 ### YAML ###
@@ -77,8 +76,9 @@ set(VNL_LIBRARIES
         ${VXL_LIBRARY_PATH}/libvnl.a)
 
 target_link_libraries (OxShmolli2Lib PUBLIC ${VNL_LIBRARIES})
+target_link_libraries (OxShmolli2Exe PUBLIC ${VNL_LIBRARIES})
 add_dependencies(OxShmolli2Lib vnl vnl_algo)
-
+add_dependencies(OxShmolli2Exe vnl vnl_algo)
 
 ###############
 ### TESTING ###
