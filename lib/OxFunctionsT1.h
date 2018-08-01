@@ -27,25 +27,47 @@ namespace Ox {
 
     public:
 
-        virtual MeasureType calcModelValue(MeasureType time) = 0;
-        virtual void calcLSResiduals(MeasureType* residuals) = 0;
-        virtual MeasureType calcCostValue() = 0;
-        virtual void calcCostDerivative(MeasureType* derivative) = 0;
         /**
-         * calcLSJacobian
+         * calcModelValue the most important function of this class
+         * @param time
+         * @return model(time)
+         */
+        virtual MeasureType calcModelValue(MeasureType time) = 0;
+
+        /**
+         * calcLSResiduals the most important function of this class
+         * @param residuals
+         */
+        virtual void calcLSResiduals(MeasureType* residuals) = 0;
+
+        /**
+         * calcCostValue the most important function of this class
+         * @return
+         */
+        virtual MeasureType calcCostValue() = 0;
+
+        /**
+         * calcCostDerivative the most important function of this class
+         * @param derivative
+         */
+        virtual void calcCostDerivative(MeasureType* derivative) = 0;
+
+        /**
+         * calcLSJacobian the most important function of this class
          * @param jacobian - 2d matrix stored as 1d array
          */
         virtual void calcLSJacobian(MeasureType* jacobian) = 0;
 
-
+        // getters
         virtual const MeasureType *getInvTimes() const { return _InvTimes; }
         virtual const MeasureType *getSatTimes() const { return _SatTimes; }
         virtual const MeasureType *getRepTimes() const { return _RepTimes; }
         virtual const MeasureType *getRelAcqTimes() const { return _RelAcqTimes; }
         virtual const MeasureType *getSignal() const { return _Signal; }
-        virtual const MeasureType *getParameters() const { return _Parameters; }
+        virtual MeasureType *getParameters() { return _Parameters; }
         virtual int getNSamples() { return _nSamples; }
 
+        // setters
         virtual void setInvTimes(const MeasureType *_InvTimes) { FunctionsT1::_InvTimes = _InvTimes; }
         virtual void setSatTimes(const MeasureType *_SatTimes) { FunctionsT1::_SatTimes = _SatTimes; }
         virtual void setRepTimes(const MeasureType *_RepTimes) { FunctionsT1::_RepTimes = _RepTimes; }
@@ -54,19 +76,17 @@ namespace Ox {
         virtual void setParameters(MeasureType *Parameters) { FunctionsT1::_Parameters = Parameters; }
         void setNSamples(int _nSamples) { FunctionsT1::_nSamples = _nSamples; }
 
-        virtual void copyPtrToParameters(const MeasureType *ptrFrom) {
-            for (int i = 0; i < _nSamples; ++i){
-                FunctionsT1::_Parameters[i] = ptrFrom[i];
-            }
-        }
-
         /**
-         * \brief The only right constructor is the one that is defining the number of samples that are processed in
-         * all the member variables.
-         * @param _nSamples
+         * \brief default constructor
          */
-        FunctionsT1(int _nSamples) : FunctionsT1(){
-            this->_nSamples = _nSamples;
+        FunctionsT1(){
+            _InvTimes = 0;
+            _SatTimes = 0;
+            _RepTimes = 0;
+            _RelAcqTimes = 0;
+            _Signal = 0;
+            _Parameters = 0;
+            _nSamples = 0;
         };
 
         /**
@@ -77,29 +97,13 @@ namespace Ox {
 
     protected:
 
-        /**
-         * \brief We do not want the default constructor to be called. Ever.
-         */
-        FunctionsT1(){
-            _InvTimes = 0;
-            _SatTimes = 0;
-            _RepTimes = 0;
-            _RelAcqTimes = 0;
-            _Signal = 0;
-            _Parameters = 0;
-        };
-
-        int _nSamples;
-    public:
-
-
-    protected:
         const MeasureType* _InvTimes;
         const MeasureType* _SatTimes;
         const MeasureType* _RepTimes;
         const MeasureType* _RelAcqTimes;
         const MeasureType* _Signal;
         MeasureType* _Parameters;
+        int _nSamples;
     };
 } //namespace Ox
 

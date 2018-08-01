@@ -31,25 +31,12 @@ namespace Ox {
         virtual void calcCostDerivative(MeasureType* derivative);
 
         /**
-         * \brief The only right constructor is the one that is defining the number of samples that are processed in
-         * all the member variables.
-         * @param _nSamples
-         */
-        FunctionsT1Basic(int _nSamples){
-            this->_nSamples = _nSamples;
-        };
-
-        /**
          * \brief do not forget about the virtual destructor, see
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
         virtual ~FunctionsT1Basic(){};
 
     protected:
-        /**
-         * \brief We do not want the default constructor to be called. Ever.
-         */
-        FunctionsT1Basic(){};
     };
 } //namespace Ox
 

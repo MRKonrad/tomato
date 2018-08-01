@@ -20,7 +20,8 @@ TEST(OxFitterAmoebaVnl, calcModelValueTest) {
 
     double params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject(nSamples);
+    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
 

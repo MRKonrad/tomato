@@ -11,8 +11,9 @@
 
 #include <iostream>
 #include <iomanip>
-#include <stdarg.h>
-#include <math.h>
+#include <cstdarg>
+#define _USE_MATH_DEFINES
+#include <cmath>
 #include <vector>
 #include <string>
 #include <sstream>

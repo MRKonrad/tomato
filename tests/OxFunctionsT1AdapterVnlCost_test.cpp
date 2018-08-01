@@ -21,7 +21,8 @@ TEST(OxFunctionsT1AdapterVnlCost, f) {
 
     TYPE params[3] = {0, 0, 0};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject(nSamples);
+    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    functionsObject.setNSamples(nSamples);
     functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
@@ -47,7 +48,8 @@ TEST(OxFunctionsT1AdapterVnlCost, gradf) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject(nSamples);
+    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    functionsObject.setNSamples(nSamples);
     functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
@@ -79,7 +81,8 @@ TEST(OxFunctionsT1AdapterVnlCost, fitting) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject(nSamples);
+    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    functionsObject.setNSamples(nSamples);
     //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());

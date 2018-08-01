@@ -15,7 +15,7 @@ TEST(OxShmolli2, calcModelValueTest) {
 
     TYPE params[3] = {100, 200, 1000};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject(0);
+    Ox::FunctionsT1Basic<TYPE> functionsObject;
     functionsObject.setParameters(params);
 
     EXPECT_DOUBLE_EQ(functionsObject.calcModelValue(0), -100);
@@ -31,7 +31,8 @@ TEST(OxShmolli2, calcLSResidualsTest) {
 
     TYPE params[3] = {0, 0, 0};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject(nSamples);
+    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    functionsObject.setNSamples(nSamples);
     functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
@@ -56,7 +57,8 @@ TEST(OxShmolli2, calcLSJacobianTest) {
 
     TYPE params[3] = {0, 0, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject(nSamples);
+    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    functionsObject.setNSamples(nSamples);
     functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
@@ -92,7 +94,8 @@ TEST(OxShmolli2, calcCostValueTest) {
 
     TYPE params[3] = {0, 0, 0};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject(nSamples);
+    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    functionsObject.setNSamples(nSamples);
     functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
@@ -110,7 +113,8 @@ TEST(OxShmolli2, calcCostDerivativeTest) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject(nSamples);
+    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    functionsObject.setNSamples(nSamples);
     functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());

@@ -77,6 +77,12 @@ namespace Ox {
             _nSamples = 0;
         };
 
+        /**
+         * \brief do not forget about the virtual destructor, see
+         * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
+         */
+        virtual ~SignCalculator(){};
+
     protected:
         const MeasureType* _InvTimes;
         const MeasureType* _SigMag; // original one
@@ -84,12 +90,6 @@ namespace Ox {
         MeasureType* _Signal; // we will be working with this one
         MeasureType* _Signs;  // we will be working with this one
         int _nSamples;
-
-        /**
-         * \brief do not forget about the virtual destructor, see
-         * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
-         */
-        virtual ~SignCalculator(){};
 
     };
 } //namespace Ox

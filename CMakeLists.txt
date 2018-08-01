@@ -75,12 +75,8 @@ else(WIN32)
     set (MY_VXL_LIBRARY_PATH ${VXL_LIBRARY_PATH})
 endif(WIN32)
 
-set (VNL_LIBRARIES
-#        ${MY_VXL_LIBRARY_PATH}/libnetlib.a
-        ${MY_VXL_LIBRARY_PATH}/libv3p_netlib.a
-#        ${MY_VXL_LIBRARY_PATH}/libvcl.a
-        ${MY_VXL_LIBRARY_PATH}/libvnl_algo.a
-        ${MY_VXL_LIBRARY_PATH}/libvnl.a)
+link_directories (${MY_VXL_LIBRARY_PATH})
+link_libraries (netlib v3p_netlib vcl vnl vnl_algo )
 
 target_link_libraries (OxShmolli2Lib PUBLIC ${VNL_LIBRARIES})
 target_link_libraries (OxShmolli2Exe PUBLIC ${VNL_LIBRARIES})
