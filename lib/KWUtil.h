@@ -146,6 +146,7 @@ public:
     /***********************/
     /* files               */
     /***********************/
+
     static std::string PathSeparator(){
 #if defined(WIN32) || defined(_WIN32) || defined __CYGWIN__
         return std::string("\\");
@@ -168,7 +169,7 @@ public:
         std::string line;
 
         try {
-            std::ifstream myfile(filePath);
+            std::ifstream myfile(filePath.c_str());
             if (myfile.is_open()) {
                 while (getline(myfile, line)) {
                     fileContent.push_back(line);
