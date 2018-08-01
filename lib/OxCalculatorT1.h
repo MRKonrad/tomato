@@ -1,7 +1,7 @@
 /*!
  * \file OxCalculator.h
  * \author Konrad Werys
- * \date 2018/08/29
+ * \date 2018/07/29
  */
 
 #ifndef OXSHMOLLI2_OXCALCULATORT1_H
@@ -34,12 +34,12 @@ namespace Ox {
         SignCalculator<MeasureType>* _SignCalculator;
         StartPointCalculator<MeasureType>* _StartPointCalculator;
 
-        MeasureType* _InvTimes;
-        MeasureType* _SatTimes;
-        MeasureType* _RepTimes;
-        MeasureType* _RelAcqTimes;
-        MeasureType* _SigMag; // original one
-        MeasureType* _SigPha; // original one
+        const MeasureType* _InvTimes;
+        const MeasureType* _SatTimes;
+        const MeasureType* _RepTimes;
+        const MeasureType* _RelAcqTimes;
+        const MeasureType* _SigMag; // original one
+        const MeasureType* _SigPha; // original one
         MeasureType* _Signal; // we will be working with this one
         MeasureType* _Signs;  // we will be working with this one
 

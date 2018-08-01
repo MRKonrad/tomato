@@ -1,7 +1,7 @@
 /*!
  * \file OxFunctionsT1AdapterVnlLeastSquares_test.cpp
  * \author Konrad Werys
- * \date 2018/08/31
+ * \date 2018/07/31
  */
 
 #include "gtest/gtest.h"

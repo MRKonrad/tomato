@@ -1,7 +1,7 @@
 /*!
  * \file OxFitter.h
  * \author Konrad Werys
- * \date 2018/08/29
+ * \date 2018/07/29
  */
 
 #ifndef OXSHMOLLI2_OXFITTER_H
@@ -34,7 +34,7 @@ namespace Ox {
         }
 
         /**
-         * the function that is doing all the heavy lifting
+         * the most important function of this class
          * @return success/failure
          */
         virtual int performFitting() = 0;

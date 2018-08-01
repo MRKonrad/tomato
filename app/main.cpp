@@ -3,7 +3,7 @@
  * \brief A Documented file with main.
  * \details Details of the file should be here.
  * \author Konrad Werys
- * \date 2018/08/24
+ * \date 2018/07/24
  */
 
 #include <iostream>

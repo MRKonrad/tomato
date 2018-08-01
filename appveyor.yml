@@ -36,7 +36,9 @@ build:
   verbosity: normal                                # MSBuild verbosity level {quiet|minimal|normal|detailed}
 
 after_build:
-  # change the name of the exe, zip it and copy the zip to the deployment folderś
+
+  # FOR DEPLOYMENT
+  # change the name of the exe, zip it and copy the zip to the deployment folders
   - cd bin\%CONFIGURATION%\
   - copy OxShmolli2Exe.exe %EXE_EXTENDED_NAME%.exe
   - 7z a %EXE_EXTENDED_NAME%.zip %EXE_EXTENDED_NAME%.exe # zip

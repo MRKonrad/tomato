@@ -23,77 +23,90 @@ include_directories ("${PROJECT_BINARY_DIR}")
 ####################
 
 # list of source files
-file(GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)
-file(GLOB_RECURSE LIB_FILES lib/*.c* lib/*.h* lib/*.t*)
-set(LIB_FILES ${LIB_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForOxShmolli2.h")
+file (GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)
+file (GLOB_RECURSE LIB_FILES lib/*.c* lib/*.h* lib/*.t*)
+set (LIB_FILES ${LIB_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForOxShmolli2.h")
 
 #message("APP_FILES:" ${APP_FILES})
 #message("LIB_FILES:" ${LIB_FILES})
 
-include_directories(lib)
+include_directories (lib)
 
-add_library(OxShmolli2Lib ${APP_FILES} ${LIB_FILES})
-add_executable(OxShmolli2Exe ${APP_FILES} ${LIB_FILES})
+add_library (OxShmolli2Lib ${APP_FILES} ${LIB_FILES})
+add_executable (OxShmolli2Exe ${APP_FILES} ${LIB_FILES})
 
 ############
 ### YAML ###
 ############
 
-set(BUILD_TESTING OFF CACHE INTERNAL "" FORCE)
-add_subdirectory(thirdParty/libyaml)
-include_directories(${yaml_BINARY_DIR}/include ${yaml_SOURCE_DIR}/include) # for windows
-target_link_libraries(OxShmolli2Exe PUBLIC yaml)
+set (BUILD_TESTING OFF CACHE INTERNAL "" FORCE)
+add_subdirectory (thirdParty/libyaml)
+include_directories (${yaml_BINARY_DIR}/include ${yaml_SOURCE_DIR}/include) # for windows
+target_link_libraries (OxShmolli2Exe PUBLIC yaml)
 
 ###############
 ### Fitting ###
 ###############
 
-set(BUILD_TESTING OFF CACHE INTERNAL "" FORCE)
-set(BUILD_CORE_GEOMETRY OFF CACHE INTERNAL "" FORCE)
-set(BUILD_CORE_IMAGING OFF CACHE INTERNAL "" FORCE)
-set(BUILD_CORE_NUMERICS ON CACHE INTERNAL "" FORCE)
-set(BUILD_CORE_SERIALISATION OFF CACHE INTERNAL "" FORCE)
-set(BUILD_CORE_UTILITIES OFF CACHE INTERNAL "" FORCE)
-set(VXL_USE_GEOTIFF OFF CACHE INTERNAL "" FORCE)
-set(VXL_USE_DCMTK OFF CACHE INTERNAL "" FORCE)
-set(VXL_USE_LFS OFF CACHE INTERNAL "" FORCE)
+set (BUILD_TESTING OFF CACHE INTERNAL "" FORCE)
+set (BUILD_CORE_GEOMETRY OFF CACHE INTERNAL "" FORCE)
+set (BUILD_CORE_IMAGING OFF CACHE INTERNAL "" FORCE)
+set (BUILD_CORE_NUMERICS ON CACHE INTERNAL "" FORCE)
+set (BUILD_CORE_SERIALISATION OFF CACHE INTERNAL "" FORCE)
+set (BUILD_CORE_UTILITIES OFF CACHE INTERNAL "" FORCE)
+set (VXL_USE_GEOTIFF OFF CACHE INTERNAL "" FORCE)
+set (VXL_USE_DCMTK OFF CACHE INTERNAL "" FORCE)
+set (VXL_USE_LFS OFF CACHE INTERNAL "" FORCE)
 
-add_subdirectory(thirdParty/vxl)
+add_subdirectory (thirdParty/vxl)
 
-include_directories(${vxlcore_SOURCE_DIR}) # includes vnl
-include_directories(${vxlcore_BINARY_DIR}) # includes vnl
+include_directories (${vxlcore_SOURCE_DIR}) # includes vnl
+include_directories (${vxlcore_BINARY_DIR}) # includes vnl
 
-include_directories(${vcl_SOURCE_DIR})
-include_directories(${vcl_BINARY_DIR})
+include_directories (${vcl_SOURCE_DIR})
+include_directories (${vcl_BINARY_DIR})
 
-include_directories(${vgl_SOURCE_DIR})
+include_directories (${vgl_SOURCE_DIR})
 
-set(VNL_LIBRARIES
-#        ${VXL_LIBRARY_PATH}/libnetlib.a
-        ${VXL_LIBRARY_PATH}/libv3p_netlib.a
-#        ${VXL_LIBRARY_PATH}/libvcl.a
-        ${VXL_LIBRARY_PATH}/libvnl_algo.a
-        ${VXL_LIBRARY_PATH}/libvnl.a)
+if(WIN32)
+    set (MY_VXL_LIBRARY_PATH ${VXL_LIBRARY_PATH}/${CMAKE_BUILD_TYPE})
+else(WIN32)
+    set (MY_VXL_LIBRARY_PATH ${VXL_LIBRARY_PATH})
+endif(WIN32)
+
+set (VNL_LIBRARIES
+#        ${MY_VXL_LIBRARY_PATH}/libnetlib.a
+        ${MY_VXL_LIBRARY_PATH}/libv3p_netlib.a
+#        ${MY_VXL_LIBRARY_PATH}/libvcl.a
+        ${MY_VXL_LIBRARY_PATH}/libvnl_algo.a
+        ${MY_VXL_LIBRARY_PATH}/libvnl.a)
 
 target_link_libraries (OxShmolli2Lib PUBLIC ${VNL_LIBRARIES})
 target_link_libraries (OxShmolli2Exe PUBLIC ${VNL_LIBRARIES})
-add_dependencies(OxShmolli2Lib vnl vnl_algo)
-add_dependencies(OxShmolli2Exe vnl vnl_algo)
+add_dependencies (OxShmolli2Lib vnl vnl_algo)
+add_dependencies (OxShmolli2Exe vnl vnl_algo)
+
+# install
+set (CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}" CACHE INTERNAL "" FORCE)
+install (TARGETS OxShmolli2Lib DESTINATION ${CMAKE_INSTALL_PREFIX}/install/lib)
+install (FILES ${LIB_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/install/include/OxShmolli)
+install (TARGETS OxShmolli2Exe DESTINATION ${CMAKE_INSTALL_PREFIX}/install/bin)
+
 
 ###############
 ### TESTING ###
 ###############
 
-add_subdirectory(tests)
+add_subdirectory (tests)
 
 #############################
 ### DISPLAY ALL VARIABLES ###
 #############################
 
-get_cmake_property(_variableNames VARIABLES)
+get_cmake_property (_variableNames VARIABLES)
 list (SORT _variableNames)
 foreach (_variableName ${_variableNames})
-    message(STATUS "${_variableName}=${${_variableName}}")
+    message (STATUS "${_variableName}=${${_variableName}}")
 endforeach()
 
 

@@ -1,7 +1,7 @@
 /*!
  * \file OxFunctionsT1.h
  * \author Konrad Werys
- * \date 2018/08/29
+ * \date 2018/07/29
  */
 
 #ifndef OXSHMOLLI2_OXFUNCTIONST1_H
@@ -52,6 +52,7 @@ namespace Ox {
         virtual void setRelAcqTimes(const MeasureType *_RelAcqTimes) { FunctionsT1::_RelAcqTimes = _RelAcqTimes; }
         virtual void setSignal(const MeasureType *_Signal) {FunctionsT1::_Signal = _Signal; }
         virtual void setParameters(MeasureType *Parameters) { FunctionsT1::_Parameters = Parameters; }
+        void setNSamples(int _nSamples) { FunctionsT1::_nSamples = _nSamples; }
 
         virtual void copyPtrToParameters(const MeasureType *ptrFrom) {
             for (int i = 0; i < _nSamples; ++i){
@@ -89,6 +90,10 @@ namespace Ox {
         };
 
         int _nSamples;
+    public:
+
+
+    protected:
         const MeasureType* _InvTimes;
         const MeasureType* _SatTimes;
         const MeasureType* _RepTimes;

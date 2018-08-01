@@ -2,7 +2,6 @@
 #   OxShmolli2   #
 #------------------------------------#
 
-# TODO: how about configuring cmake to install instead of copying the executable?
 # TODO: it would be nice to 'addons: apt: sources:' conditional. Unfortunately if (like the one below) does not work:
 #       if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ]; then
 
@@ -62,11 +61,12 @@ script:
 
   # this is make
   - make -j8
+  - make install
 
-  # needed to get the coverage
-  - cd tests
+  # tests. Also needed to get the coverage
+  - cd install/tests
   - ./OxShmolli2Tests
-  - cd ..
+  - cd $TRAVIS_BUILD_DIR
 
 after_success:
   # Run coverage analysis only in linux g++

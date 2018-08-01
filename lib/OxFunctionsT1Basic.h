@@ -1,7 +1,7 @@
 /*!
  * \file OxFunctionsT1Basic.h
  * \author Konrad Werys
- * \date 2018/08/29
+ * \date 2018/07/29
  */
 
 #ifndef OXSHMOLLI2_OXFUNCTIONST1BASIC_H
@@ -43,7 +43,7 @@ namespace Ox {
          * \brief do not forget about the virtual destructor, see
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
-        ~FunctionsT1Basic(){};
+        virtual ~FunctionsT1Basic(){};
 
     protected:
         /**

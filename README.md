@@ -3,7 +3,7 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 
 | Travis (OSX/Linux) | AppVeyor (Windows) | Coveralls (test coverage) |
 |:-------------:|:-------------:|:-------------:|
-![Travis (.org)](https://img.shields.io/travis/MRKonrad/OxShmolli2.svg?style=for-the-badge) | ![AppVeyor](https://img.shields.io/appveyor/ci/MRKonrad/OxShmolli2.svg?style=for-the-badge)| ![Coveralls](https://img.shields.io/coveralls/github/MRKonrad/OxShmolli2.svg?style=for-the-badge)
+[![Travis (.org)][travis_badge]][travis_link] | [![AppVeyor][appveyor_badge]][appveyor_link]| [![Coveralls][coveralls_badge]][coveralls_link]
 
 # Coding style
 
@@ -14,3 +14,10 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 * **Documentation** in doxygen can be found [here]();
 * **Continuous integration** was tested [in this repo](https://github.com/MRKonrad/ContinousIntegrationPlayground).
 * **Gitmodules** - after `git clone` run `git submodule update --init --recursive` to get the submodules code
+
+[travis_badge]: https://img.shields.io/travis/MRKonrad/OxShmolli2.svg?style=for-the-badge
+[travis_link]: https://travis-ci.org/MRKonrad/OxShmolli2
+[appveyor_badge]: https://img.shields.io/appveyor/ci/MRKonrad/OxShmolli2.svg?style=for-the-badge
+[appveyor_link]: https://ci.appveyor.com/project/MRKonrad/oxshmolli2/
+[coveralls_badge]: https://img.shields.io/coveralls/github/MRKonrad/OxShmolli2.svg?style=for-the-badge
+[coveralls_link]: https://coveralls.io/github/MRKonrad/OxShmolli2

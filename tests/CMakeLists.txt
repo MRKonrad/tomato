@@ -21,7 +21,12 @@ target_link_libraries (OxShmolli2Tests PUBLIC ${VNL_LIBRARIES})
 add_dependencies(OxShmolli2Tests OxShmolli2Lib)
 
 add_test(NAME ctest_tests COMMAND OxShmolli2Tests)
-file(COPY testData DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+
+#file(COPY testData DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(GLOB_RECURSE TESTDATA ${PROJECT_SOURCE_DIR}/tests/testData/*.*)
+
+install (TARGETS OxShmolli2Tests DESTINATION ${CMAKE_INSTALL_PREFIX}/install/tests)
+install (FILES ${TESTDATA} DESTINATION ${CMAKE_INSTALL_PREFIX}/install/tests/testData/)
 
 ########################
 ### TESTING COVERAGE ###

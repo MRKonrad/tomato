@@ -1,7 +1,7 @@
 /*!
  * \file OxFitterLevenbergMarquardtVnl.h
  * \author Konrad Werys
- * \date 2018/08/31
+ * \date 2018/07/31
  */
 
 #ifndef OXSHMOLLI2_OXFITTERLevenbergMarquardtVNL_H

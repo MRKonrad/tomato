@@ -1,7 +1,7 @@
 /*!
  * \file OxTestData.h
  * \author Konrad Werys
- * \date 2018/08/30
+ * \date 2018/07/30
  */
 
 #ifndef OXSHMOLLI2_OXTESTDATA_H
