@@ -34,6 +34,9 @@ TEST(SignCalculatorShmolli, calculateSign) {
     for (int iSample = 0; iSample < nSamples; iSample++) {
         EXPECT_EQ(testData.getSigns()[iSample], signs[iSample]);
     }
+
+    delete [] signal;
+    delete [] signs;
 }
 
 TEST(SignCalculatorShmolli, calculateSign_throw) {
@@ -58,6 +61,8 @@ TEST(SignCalculatorShmolli, calculateSign_throw) {
 
     EXPECT_ANY_THROW(signCalculator.calculateSign());
 
+    delete [] signal;
+    delete [] signs;
 }
 
 

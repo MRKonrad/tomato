@@ -63,7 +63,15 @@ namespace Ox {
          * the most important function of this class
          * @return success/failure
          */
-        virtual int calculateSign() = 0;
+        virtual int calculateSign(){
+
+            for (int i = 0; i < getNSamples(); ++i) {
+                getSignal()[i] = getSigMag()[i];
+                getSigns() [i] = 0;
+            }
+
+            return 0; // EXIT_SUCCESS
+        }
 
         /**
          * \brief default constructor

@@ -23,19 +23,14 @@ namespace Ox {
 
         // cost function problem formulation
         double f(vnl_vector<double> const& params){ // override
-
-            double tempParams[3];
-            params.copy_out(tempParams);
-            _FunctionsT1->setParameters(tempParams);
+            _FunctionsT1->copyToParameters(params.data_block());
             return _FunctionsT1->calcCostValue();
         }
 
         // cost function gradient
         void gradf (vnl_vector< double > const &params, vnl_vector< double > &gradient){ // override
 
-            double tempParams[3];
-            params.copy_out(tempParams);
-            _FunctionsT1->setParameters(tempParams);
+            _FunctionsT1->copyToParameters(params.data_block());
             _FunctionsT1->calcCostDerivative(gradient.data_block());
         }
 

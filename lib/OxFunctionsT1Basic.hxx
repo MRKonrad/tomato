@@ -38,7 +38,7 @@ namespace Ox {
             MeasureType measured = this->_Signal[i];
             MeasureType calculated = 0;
 
-            calculated = calcModelValue(this->_InvTimes[i]);
+            calculated = calcModelValue(invTime);
 
             residuals[i] = calculated - measured;
         }

@@ -73,8 +73,16 @@ namespace Ox {
         virtual void setRepTimes(const MeasureType *_RepTimes) { FunctionsT1::_RepTimes = _RepTimes; }
         virtual void setRelAcqTimes(const MeasureType *_RelAcqTimes) { FunctionsT1::_RelAcqTimes = _RelAcqTimes; }
         virtual void setSignal(const MeasureType *_Signal) {FunctionsT1::_Signal = _Signal; }
-        virtual void setParameters(MeasureType *Parameters) { FunctionsT1::_Parameters = Parameters; }
+        virtual void setParameters( MeasureType *_Parameters) { FunctionsT1::_Parameters = _Parameters; }
         void setNSamples(int _nSamples) { FunctionsT1::_nSamples = _nSamples; }
+
+        virtual void copyToParameters(const MeasureType *ptrFrom){
+            for (int i = 0; i < 3; ++i){
+                _Parameters[0] = ptrFrom[0];
+                _Parameters[1] = ptrFrom[1];
+                _Parameters[2] = ptrFrom[2];
+            }
+        }
 
         /**
          * \brief default constructor

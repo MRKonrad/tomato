@@ -25,7 +25,6 @@ namespace Ox {
         virtual int calculateSign(){
             return RealMagPhase2Signs(
                     this->getNSamples(),
-                    this->getInvTimes(),
                     this->getSigMag(),
                     this->getSigPha(),
                     this->getSignal(),
@@ -34,7 +33,6 @@ namespace Ox {
 
         static int RealMagPhase2Signs(
                 int nSamples,
-                const MeasureType* invTimes,
                 const MeasureType* sigMag,
                 const MeasureType* sigPha,
                 MeasureType* signal,
@@ -47,16 +45,15 @@ namespace Ox {
     SignCalculatorRealImag<MeasureType>
     ::RealMagPhase2Signs(
             int nSamples,
-            const MeasureType* invTimes,
             const MeasureType* sigMag,
             const MeasureType* sigPha,
             MeasureType* signal,
             MeasureType* signs) {
 
-        for (int i = 0; i < nSamples; ++i) {
-            signal[i] = sigMag[i];
-            signs[i] = 0;
-        }
+//        for (int i = 0; i < nSamples; ++i) {
+//            signal[i] = sigMag[i];
+//            signs[i] = 0;
+//        }
 
         if (sigPha) { // if phase available
 

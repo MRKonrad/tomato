@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include "yaml.h"
-#include <vnl/vnl_cost_function.h>
 
 using namespace std;
 
@@ -19,7 +18,6 @@ using namespace std;
 int main() {
     cout << "Hello, World!" << endl;
 
-    vnl_cost_function aaa(2);
     return 0;
 
 }

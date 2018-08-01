@@ -24,18 +24,14 @@ namespace Ox {
         // least squares function problem formulation
         void f(vnl_vector<double> const& params, vnl_vector<double> &residuals){
 
-            double tempParams[3];
-            params.copy_out(tempParams);
-            _FunctionsT1->setParameters(tempParams);
+            _FunctionsT1->copyToParameters(params.data_block());
             _FunctionsT1->calcLSResiduals(residuals.data_block());
         }
 
         // least squares function gradient
         void gradf (vnl_vector< double > const &params, vnl_matrix< double > &jacobianVNL){
 
-            double tempParams[3];
-            params.copy_out(tempParams);
-            _FunctionsT1->setParameters(tempParams);
+            _FunctionsT1->copyToParameters(params.data_block());
             _FunctionsT1->calcLSJacobian(jacobianVNL.data_block());
         }
 

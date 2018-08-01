@@ -25,7 +25,6 @@ TEST(SignCalculatorRealImag, calculateSign) {
     signCalculator.setNSamples(testData.getNSamples());
     signCalculator.setSigMag(testData.getSignalMagPtr());
     signCalculator.setSigPha(testData.getSignalPhaPtr());
-    signCalculator.setInvTimes(testData.getInvTimesPtr());
     signCalculator.setSignal(signal);
     signCalculator.setSigns(signs);
 
@@ -34,6 +33,9 @@ TEST(SignCalculatorRealImag, calculateSign) {
     for (int iSample = 0; iSample < nSamples; iSample++) {
         EXPECT_EQ(testData.getSigns()[iSample], signs[iSample]);
     }
+
+    delete [] signal;
+    delete [] signs;
 }
 
 TEST(SignCalculatorRealImag, calculateSign_throw) {
@@ -51,13 +53,14 @@ TEST(SignCalculatorRealImag, calculateSign_throw) {
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     signCalculator.setNSamples(testData.getNSamples());
     signCalculator.setSigMag(testData.getSignalMagPtr());
-    signCalculator.setSigPha(testData.getSignalPhaPtr());
-    // signCalculator.setInvTimes(testData.getInvTimesPtr());
+    // signCalculator.setSigPha(testData.getSignalPhaPtr());
     signCalculator.setSignal(signal);
     signCalculator.setSigns(signs);
 
     EXPECT_ANY_THROW(signCalculator.calculateSign());
 
+    delete [] signal;
+    delete [] signs;
 }
 
 
