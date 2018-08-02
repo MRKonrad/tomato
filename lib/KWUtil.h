@@ -9,6 +9,14 @@
 #ifndef KWUtil_h
 #define KWUtil_h
 
+//#ifndef EXIT_SUCCESS
+//#define EXIT_SUCCESS 0
+//#endif
+//
+//#ifndef EXIT_FAILURE
+//#define EXIT_FAILURE 1
+//#endif
+
 #include <iostream>
 #include <iomanip>
 #include <cstdarg>
@@ -185,6 +193,7 @@ public:
                 printf("Unable to open file: %s", filePath.c_str() );
             }
         } catch (const std::exception& e) {
+            std::cout << e.what() << std::endl;
             printf("Unable to read the file: %s", filePath.c_str() );
         }
         return fileContent;

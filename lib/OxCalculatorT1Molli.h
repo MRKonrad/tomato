@@ -21,25 +21,40 @@ namespace Ox {
     class CalculatorT1Molli : public CalculatorT1<MeasureType> {
     public:
 
+        CalculatorT1Molli() : CalculatorT1<MeasureType>(){
+            MaxTIForSignInvert = this->MAX_T1_TRESHOLD * 0.67;
+        }
+
+        virtual int calculate(){
+            MeasureType results[3];
+            this->_Results = calculateMolli(this->getNSamples(),
+                                             this->getInvTimes(),
+                                             this->getSignal(),
+                                             this->getSigns());
+
+            return 0; // EXIT_SUCCESS
+        }
+
         /**
          * the most important function of this class
          * @return success/failure
          */
-        virtual int calculate(){
+        virtual CalculatorT1Results<MeasureType> calculateMolli(int nSamples, const MeasureType* invTimes, MeasureType* signal, MeasureType* signs){
 
             // some initialisation
-            const double MaxTIForSignInvert = (this->MAX_T1_TRESHOLD * 0.67);
             MeasureType lastValue = 1e32;
-            MeasureType lastValueTemp = lastValue;
+            MeasureType lastValueTemp = 1e32;
             MeasureType tempParameters[3];
+            MeasureType tempResults[3];
+            CalculatorT1Results<MeasureType> restulsStruct;
 
             // get ready
             this->prepareToCalculate();
 
             // configure Functions object and fitter object
-            this->getFunctionsT1()->setNSamples(this->getNSamples());
-            this->getFunctionsT1()->setSignal(this->_Signal);
-            this->getFunctionsT1()->setInvTimes(this->getInvTimes());
+            this->getFunctionsT1()->setNSamples(nSamples);
+            this->getFunctionsT1()->setSignal(signal);
+            this->getFunctionsT1()->setInvTimes(invTimes);
             this->getFunctionsT1()->setParameters(tempParameters);
             this->getFunctionsT1()->copyToParameters(this->_StartPoint); // start from the starting point
 
@@ -48,21 +63,21 @@ namespace Ox {
             // fit
             this->getFitter()->performFitting();
 
-            // save the results at the best results
-            KWUtil::copyArrayToArray(3, this->_Results, this->getFunctionsT1()->getParameters());
+            // save the tempResults at the best tempResults
+            KWUtil::copyArrayToArray(3, tempResults, this->getFunctionsT1()->getParameters());
             lastValue = this->getFunctionsT1()->calcCostValue();
 
             // look for better solutions than the above one
-            for (int iSwap = 0; iSwap < this->getNSamples(); iSwap++) {
+            for (int iSwap = 0; iSwap < nSamples; iSwap++) {
 
                 // continue only if TI in reasonable range
-                if (this->_InvTimes[iSwap] > MaxTIForSignInvert) continue;
+                if (invTimes[iSwap] > this->MaxTIForSignInvert) continue;
 
                 // continue if sign was already calculated before
-                if (this->_Signs[iSwap] != 0) continue;
+                if (signs[iSwap] != 0) continue;
 
                 // in each iteration change the sign of one of the signal elements
-                this->_Signal[iSwap] = -fabs(this->getSigMag()[iSwap]);
+                signal[iSwap] = -fabs(signal[iSwap]);
 
                 // start from the starting point
                 this->getFunctionsT1()->copyToParameters(this->_StartPoint);
@@ -71,16 +86,44 @@ namespace Ox {
                 this->getFitter()->performFitting();
                 lastValueTemp = this->getFunctionsT1()->calcCostValue();
 
-                // are these the best results?
+                // are these the best tempResults?
                 if (lastValueTemp < lastValue) {
-                    // save the results at the best results
-                    KWUtil::copyArrayToArray(3, this->_Results, this->getFunctionsT1()->getParameters());
+                    // save the tempResults at the best tempResults
+                    KWUtil::copyArrayToArray(3, tempResults, this->getFunctionsT1()->getParameters());
                     lastValue = lastValueTemp;
                 }
             }
 
-            return 0; // EXIT_SUCCESS
+
+            if (lastValue != 1e32 && tempResults[0] != 0) {
+                restulsStruct.T1 = tempResults[2] * (tempResults[1] / tempResults[0] - 1.);
+                // tempResults.R2 = this->CalculateR2AbsFromModel(invTimes, sigMag, curPos); //TODO
+                restulsStruct.A      = tempResults[0];
+                restulsStruct.B      = tempResults[1];
+                restulsStruct.T1star = tempResults[2];
+                restulsStruct.ChiSqrt = KWUtil::getChiSqrt(lastValue, nSamples);
+                restulsStruct.SNR =  (restulsStruct.B - restulsStruct.A) / (restulsStruct.ChiSqrt + 0.001);
+                restulsStruct.LastValue = lastValue;
+                //vecType residuals(nSamples); //TODO
+                //this->m_Minimizer->GetFunctor()->calcLSResiduals(residuals); //TODO
+                //vnl_matrix<MeasureType> invCovarianceMatrix = this->CalculateInvCovarianceMatrix(invTimes, residuals, curPos); //TODO
+                //vnl_matrix<MeasureType> covarianceMatrix(3,3,0); //TODO
+                //if (vnl_determinant(invCovarianceMatrix) > 1e-12){ //TODO
+                //    covarianceMatrix = vnl_matrix_inverse<MeasureType> (invCovarianceMatrix); //TODO
+                //}
+
+                //tempResults.SD_A = covarianceMatrix(1,1); //TODO
+                //tempResults.SD_B = covarianceMatrix(2,2); //TODO
+                //tempResults.SD_T1 = covarianceMatrix(0,0); //TODO
+
+                //std::cout << tempResults.SD_A << " " << tempResults.SD_B << " " << tempResults.SD_T1 << " " << std::endl;
+            }
+
+            return restulsStruct; // EXIT_SUCCESS
         }
+
+    protected:
+        double MaxTIForSignInvert;
     };
 
 } //namespace Ox

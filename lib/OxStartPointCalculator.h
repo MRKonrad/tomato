@@ -22,7 +22,6 @@ namespace Ox {
 
         // getters
         MeasureType *getCalculatedStartPoint() const {
-            // TODO: valgrind says _CalculatedStartPoint is not initialised. It is in the constructor, right?
             if (!_CalculatedStartPoint) {
                 std::cerr << "_CalculatedStartPoint equals 0. Set _CalculatedStartPoint" << std::endl;
                 throw std::exception();
@@ -30,10 +29,16 @@ namespace Ox {
             return _CalculatedStartPoint;
         }
 
+        const MeasureType *getDefaultStartPoint() const {
+            return _DefaultStartPoint;
+        }
+
+        int getNStartFitPoints() const { return _nStartFitPoints; }
+
         //setters
         virtual void setInvTimes(const MeasureType *_InvTimes) { StartPointCalculator::_InvTimes = _InvTimes; }
-        virtual void setSignal(MeasureType *_Signal) { StartPointCalculator::_Signal = _Signal; }
-        virtual void setSigns(MeasureType *_Signs) { StartPointCalculator::_Signs = _Signs; }
+        virtual void setSignal(const MeasureType *_Signal) { StartPointCalculator::_Signal = _Signal; }
+        virtual void setSigns(const MeasureType *_Signs) { StartPointCalculator::_Signs = _Signs; }
         virtual void setCalculatedStartPoint(MeasureType *_CalculatedStartPoint) { StartPointCalculator::_CalculatedStartPoint = _CalculatedStartPoint; }
         virtual void setNSamples(int _nSamples) { StartPointCalculator::_nSamples = _nSamples; }
 
@@ -42,13 +47,17 @@ namespace Ox {
          * @return success/failure
          */
         virtual int calculateStartPoint(){
+            setStartPointToDefault();
+            return 0; // EXIT_SUCCESS
+        };
 
+        int setStartPointToDefault(){
             getCalculatedStartPoint()[0] = _DefaultStartPoint[0];
             getCalculatedStartPoint()[1] = _DefaultStartPoint[1];
             getCalculatedStartPoint()[2] = _DefaultStartPoint[2];
 
             return 0; // EXIT_SUCCESS
-        };
+        }
 
         /**
           * \brief default constructor
@@ -63,6 +72,7 @@ namespace Ox {
             _Signal = 0;
             _Signs = 0;
             _nSamples = 0;
+            _nStartFitPoints = 3;
         }
 
         /**
@@ -74,10 +84,13 @@ namespace Ox {
     protected:
         MeasureType _DefaultStartPoint[3];
         MeasureType* _CalculatedStartPoint;
+
         const MeasureType* _InvTimes;
         const MeasureType* _Signal;
         const MeasureType* _Signs;
+
         int _nSamples;
+        int _nStartFitPoints; // special ShMOLLI parameter
 
     };
 } //namespace Ox

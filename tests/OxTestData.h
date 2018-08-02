@@ -4,8 +4,8 @@
  * \date 2018/07/30
  */
 
-#ifndef OXSHMOLLI2_OXTESTDATA_H
-#define OXSHMOLLI2_OXTESTDATA_H
+#ifndef OXShmolli2_OXTESTDATA_H
+#define OXShmolli2_OXTESTDATA_H
 
 #include "KWUtil.h"
 
@@ -27,7 +27,7 @@ namespace Ox {
         virtual std::vector<MeasureType> getSignal()    const { return _signal; }
         virtual std::vector<MeasureType> getInvTimes()  const { return _invTimes; }
         virtual std::vector<MeasureType> getResultsMolli()    const { return _resultsMolli; }
-        virtual std::vector<MeasureType> getResultsShMolli()  const { return _resultsShMolli; }
+        virtual std::vector<MeasureType> getResultsShmolli()  const { return _resultsShmolli; }
 
 
         virtual const MeasureType* getSignalMagPtr() const { return &_signalMag.at(0); }
@@ -36,7 +36,7 @@ namespace Ox {
         virtual const MeasureType* getSignalPtr()    const { return &_signal.at(0); }
         virtual const MeasureType* getInvTimesPtr()  const { return &_invTimes.at(0); }
         virtual const MeasureType* getResultsMolliPtr()    const { return &_resultsMolli.at(0); }
-        virtual const MeasureType* getResultsShMolliPtr()  const { return &_resultsShMolli.at(0); }
+        virtual const MeasureType* getResultsShmolliPtr()  const { return &_resultsShmolli.at(0); }
 
         virtual int getNSamples()  const { return _nSamples; }
 
@@ -56,7 +56,7 @@ namespace Ox {
         std::vector<MeasureType> _invTimes;
 
         std::vector<MeasureType> _resultsMolli;
-        std::vector<MeasureType> _resultsShMolli;
+        std::vector<MeasureType> _resultsShmolli;
 
         void calcSignal();
     };
@@ -64,4 +64,4 @@ namespace Ox {
 
 #include "OxTestData.hxx"
 
-#endif //OXSHMOLLI2_OXTESTDATA_H
+#endif //OXShmolli2_OXTESTDATA_H

@@ -7,6 +7,7 @@
 #ifndef OXSHMOLLI2_OXCALCULATORT1_H
 #define OXSHMOLLI2_OXCALCULATORT1_H
 
+#include "OxCalculatorResults.h"
 #include "OxFitter.h"
 #include "OxFunctionsT1.h"
 #include "OxSignCalculator.h"
@@ -25,7 +26,10 @@ namespace Ox {
 
     public:
 
-        // getters
+        /**
+         * /throw exception if _FunctionsT1 == 0
+         * @return
+         */
         FunctionsT1<MeasureType> *getFunctionsT1() const {
             if (!_FunctionsT1) {
                 std::cerr << "_FunctionsT1 equals 0. Set _FunctionsT1" << std::endl;
@@ -34,6 +38,10 @@ namespace Ox {
             return _FunctionsT1;
         }
 
+        /**
+         * /throw exception if _Fitter == 0
+         * @return
+         */
         Fitter<MeasureType> *getFitter() const {
             if (!_Fitter) {
                 std::cerr << "_Fitter equals 0. Set _Fitter" << std::endl;
@@ -42,6 +50,10 @@ namespace Ox {
             return _Fitter;
         }
 
+        /**
+         * /throw exception if _StartPointCalculator == 0
+         * @return
+         */
         StartPointCalculator<MeasureType> *getStartPointCalculator() const {
             if (!_StartPointCalculator) {
                 std::cerr << "_StartPointCalculator equals 0. Set _StartPointCalculator" << std::endl;
@@ -50,6 +62,10 @@ namespace Ox {
             return _StartPointCalculator;
         }
 
+        /**
+         * /throw exception if _SignCalculator == 0
+         * @return
+         */
         SignCalculator<MeasureType> *getSignCalculator() const {
             if (!_SignCalculator) {
                 std::cerr << "_SignCalculator equals 0. Set _SignCalculator" << std::endl;
@@ -58,6 +74,10 @@ namespace Ox {
             return _SignCalculator;
         }
 
+        /**
+         * /throw exception if _InvTimes == 0
+         * @return
+         */
         const MeasureType *getInvTimes() const {
             if (!_InvTimes) {
                 std::cerr << "_InvTimes equals 0. Set _InvTimes" << std::endl;
@@ -66,6 +86,10 @@ namespace Ox {
             return _InvTimes;
         }
 
+        /**
+         * /throw exception if _SigMag == 0
+         * @return
+         */
         const MeasureType *getSigMag() const {
             if (!_SigMag) {
                 std::cerr << "_SigMag equals 0. Set _SigMag" << std::endl;
@@ -74,15 +98,14 @@ namespace Ox {
             return _SigMag;
         }
 
-        const MeasureType *getSigPha() const {
-            if (!_SigPha) {
-                std::cerr << "_SigPha equals 0. Set _SigPha" << std::endl;
-                throw std::exception();
-            };
-            return _SigPha;
-        }
-
-        const MeasureType *getResults() const { return _Results; }
+        /**
+         * does not have to be set
+         * @return SigPha pointer, can be 0 (NULL)
+         */
+        const MeasureType *getSigPha() const { return _SigPha; }
+        MeasureType *getSignal() const { return _Signal; }
+        MeasureType *getSigns() const { return _Signs; }
+        const CalculatorT1Results<MeasureType> getResults() const { return _Results; }
 
         int getNSamples() const {
             if (!_nSamples) {
@@ -102,10 +125,11 @@ namespace Ox {
         virtual void setInvTimes(const MeasureType *_InvTimes) { CalculatorT1::_InvTimes = _InvTimes; }
         virtual void setSigMag(const MeasureType *_SigMag) { CalculatorT1::_SigMag = _SigMag; }
         virtual void setSigPha(const MeasureType *_SigPha) { CalculatorT1::_SigPha = _SigPha; }
-        //virtual void setSignal(MeasureType *_Signal) { CalculatorT1::_Signal = _Signal; }
-        //virtual void setSigns(MeasureType *_Signs) { CalculatorT1::_Signs = _Signs; }
-        //virtual void setParameters(MeasureType *_Parameters) { CalculatorT1::_Parameters = _Parameters; }
 
+        /**
+         * _Signal and _Signs are allocated here!!!
+         * @param _nSamples
+         */
         virtual void setNSamples(int _nSamples) {
 
             delete [] _Signal; _Signal = 0;
@@ -123,6 +147,19 @@ namespace Ox {
          */
         virtual int prepareToCalculate(){
 
+            // if fitter does not have to iterate, do not calculate
+            if (this->getFitter()->getMaxFunctionEvals() == 0){
+                return 1; // EXIT_FAILURE
+            }
+
+            // verify invTimes are sorted
+            for (int i = 0; i < getNSamples()-1; i++){
+                if (getInvTimes()[i] > getInvTimes()[i+1]){
+                    throw std::runtime_error("InvTimes have to be sorted!");
+                }
+            }
+
+            // calculate sign
             getSignCalculator()->setNSamples(getNSamples());
             getSignCalculator()->setInvTimes(getInvTimes());
             getSignCalculator()->setSigMag(getSigMag());
@@ -132,6 +169,7 @@ namespace Ox {
 
             getSignCalculator()->calculateSign();
 
+            // calculate start point
             getStartPointCalculator()->setCalculatedStartPoint(_StartPoint);
             getStartPointCalculator()->calculateStartPoint();
 
@@ -147,7 +185,6 @@ namespace Ox {
         /**
          * \brief default constructor
          */
-
         CalculatorT1(){
             _FunctionsT1 = 0;
             _Fitter = 0;
@@ -161,10 +198,12 @@ namespace Ox {
             _SigPha = 0; // original one
             _Signal = 0; // we will be working with this one
             _Signs = 0;  // we will be working with this one
-            _TRRaverageHB = 0;
             _MeanCutOff = 0;
             _nSamples = 0;
 
+            _StartPoint[0] = 0;
+            _StartPoint[1] = 0;
+            _StartPoint[2] = 0;
         };
 
         /**
@@ -178,6 +217,8 @@ namespace Ox {
          };
 
     protected:
+        CalculatorT1Results<MeasureType> _Results; // we will be working with this one
+
         FunctionsT1<MeasureType>* _FunctionsT1;
         Fitter<MeasureType>* _Fitter;
         SignCalculator<MeasureType>* _SignCalculator;
@@ -192,9 +233,8 @@ namespace Ox {
         MeasureType* _Signal; // we will be working with this one
         MeasureType* _Signs;  // we will be working with this one
         MeasureType _StartPoint[3]; // we will be working with this one
-        MeasureType _Results[3]; // we will be working with this one
+
         int _nSamples;
-        MeasureType _TRRaverageHB;
         MeasureType _MeanCutOff;
 
         const static int MAX_T1_TRESHOLD = 4000;

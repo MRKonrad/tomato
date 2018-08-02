@@ -54,6 +54,7 @@ namespace Ox {
 //            signal[i] = sigMag[i];
 //            signs[i] = 0;
 //        }
+        //TODO: introduce arbitrary scaling, not only /4096
 
         if (sigPha) { // if phase available
 

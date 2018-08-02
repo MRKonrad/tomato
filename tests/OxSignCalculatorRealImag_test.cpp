@@ -38,7 +38,7 @@ TEST(SignCalculatorRealImag, calculateSign) {
     delete [] signs;
 }
 
-TEST(SignCalculatorRealImag, calculateSign_throw) {
+TEST(SignCalculatorRealImag, calculateSign_throwIfSignalPhaNotSet) {
 
     typedef double TYPE;
 
@@ -57,7 +57,7 @@ TEST(SignCalculatorRealImag, calculateSign_throw) {
     signCalculator.setSignal(signal);
     signCalculator.setSigns(signs);
 
-    EXPECT_ANY_THROW(signCalculator.calculateSign());
+    EXPECT_THROW(signCalculator.calculateSign(), std::exception);
 
     delete [] signal;
     delete [] signs;

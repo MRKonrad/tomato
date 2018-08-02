@@ -48,7 +48,7 @@ namespace Ox {
     void
     FunctionsT1Basic<MeasureType>
     ::calcLSJacobian(MeasureType* jacobian){
-        unsigned int nSamples = this->_nSamples;
+        int nSamples = this->_nSamples;
 
         //MeasureType A = this->_Parameters[0];
         MeasureType B = this->_Parameters[1];
@@ -91,7 +91,7 @@ namespace Ox {
     ::calcCostDerivative(MeasureType* derivative){
         //std::cout << "calcCostDerivative" << std::endl;
 
-        unsigned int nSamples = this->_nSamples;
+        int nSamples = this->_nSamples;
 
         derivative[0] = 0;
         derivative[1] = 0;

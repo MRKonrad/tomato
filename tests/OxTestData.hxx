@@ -4,8 +4,8 @@
  * \date 2018/07/30
  */
 
-#ifndef OXSHMOLLI2_OXTESTDATA_HXX
-#define OXSHMOLLI2_OXTESTDATA_HXX
+#ifndef OXShmolli2_OXTESTDATA_HXX
+#define OXShmolli2_OXTESTDATA_HXX
 
 //#include "OxTestData.h"
 
@@ -66,7 +66,7 @@ namespace Ox {
                     if (lastKeyTokenValue == "invTimes")  copyStrVectorToMemberVector(temp, _invTimes);
 
                     if (lastKeyTokenValue == "resultsMolli")    copyStrVectorToMemberVector(temp, _resultsMolli);
-                    if (lastKeyTokenValue == "resultsShMolli")  copyStrVectorToMemberVector(temp, _resultsShMolli);
+                    if (lastKeyTokenValue == "resultsShmolli")  copyStrVectorToMemberVector(temp, _resultsShmolli);
 
                     _nSamples = _invTimes.size();
 
@@ -137,9 +137,8 @@ namespace Ox {
     ::copyStrVectorToMemberVector(std::vector<std::string> strVector, std::vector<MeasureType> &memberVector) {
 
         //memberVector.resize(strVector.size());
-        for (int i = 0; i < strVector.size(); ++i) {
+        for (unsigned int i = 0; i < strVector.size(); ++i) {
             memberVector.push_back(KWUtil::StringToNumber<MeasureType>(strVector[i]));
-//            memberVector[i] = KWUtil::StringToNumber<MeasureType>(strVector[i]);
         }
     }
 
@@ -154,11 +153,11 @@ namespace Ox {
         printVector<MeasureType>(_invTimes,  "invTimes  ");
 
         printVector<MeasureType>(_resultsMolli,   "resultsMolli    ");
-        printVector<MeasureType>(_resultsShMolli, "resultsShMolli  ");
+        printVector<MeasureType>(_resultsShmolli, "resultsShmolli  ");
     };
 
 } // namespace Ox
 
 
 
-#endif //OXSHMOLLI2_OXTESTDATA_HXX
+#endif //OXShmolli2_OXTESTDATA_HXX
