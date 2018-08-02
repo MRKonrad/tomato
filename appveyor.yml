@@ -32,11 +32,15 @@ before_build:
 
 build:
   project: bin\OxShmolli2.sln  # path to Visual Studio solution or project
-  parallel: true                                   # enable MSBuild parallel builds
-  verbosity: normal                                # MSBuild verbosity level {quiet|minimal|normal|detailed}
+  parallel: true               # enable MSBuild parallel builds
+  verbosity: normal            # MSBuild verbosity level {quiet|minimal|normal|detailed}
 
 after_build:
-    - mkdir deployment
+  # install the files
+  - cd bin
+  - cmake --build . --target INSTALL
+  - cd ..
+  - mkdir deployment
 
 test_script:
   # TODO: should I add sth like this? https://github.com/mgerhardy/caveexpress/blob/master/appveyor.yml
