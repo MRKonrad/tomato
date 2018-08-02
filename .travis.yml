@@ -28,7 +28,7 @@ env:
     - GH_REPO_NAME: OxShmolli2
     - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile
     - INPUT_FOR_DOXY: "'. ./app ./lib ./tests'"
-    - OUTPUT_FOR_DOXY: "'$(TRAVIS_BUILD_DIR)/code_docs/$(GH_REPO_NAME)'"
+    - OUTPUT_FOR_DOXY: "${TRAVIS_BUILD_DIR}/code_docs/${GH_REPO_NAME}"
     - GH_REPO_REF: github.com/MRKonrad/OxShmolli2.git
 
 addons:
@@ -70,9 +70,11 @@ script:
 
 after_success:
   # Run coverage analysis only in linux g++
-  # Generate and deploy documentation only in linux g++
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ]; then
       coveralls --root . --exclude thirdParty -E ".*CMakeFiles.*" ;
+    fi
+  # Generate and deploy documentation only in linux g++
+  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ]; then
       chmod +x generateDocumentationAndDeploy.sh;
       ./generateDocumentationAndDeploy.sh;
     fi

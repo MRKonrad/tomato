@@ -36,26 +36,27 @@ build:
   verbosity: normal                                # MSBuild verbosity level {quiet|minimal|normal|detailed}
 
 after_build:
-
-  # FOR DEPLOYMENT
-  # change the name of the exe, zip it and copy the zip to the deployment folders
-  - cd bin\%CONFIGURATION%\
-  - copy OxShmolli2Exe.exe %EXE_EXTENDED_NAME%.exe
-  - 7z a %EXE_EXTENDED_NAME%.zip %EXE_EXTENDED_NAME%.exe # zip
-  - cd ..
-  - cd ..
-  - mkdir deployment
-  - copy bin\%CONFIGURATION%\%EXE_EXTENDED_NAME%.zip deployment\%EXE_EXTENDED_NAME%.zip
+    - mkdir deployment
 
 test_script:
   # TODO: should I add sth like this? https://github.com/mgerhardy/caveexpress/blob/master/appveyor.yml
-  - bin\tests\%CONFIGURATION%\OxShmolli2Tests.exe
+  # - bin\tests\%CONFIGURATION%\OxShmolli2Tests.exe
+  - cd bin\install\tests
+  - OxShmolli2Tests.exe
+  - cd ..\..\..
 
 artifacts:
   - path: deployment\*.*
 
 before_deploy:
   - echo "Ready to deploy?"
+  # FOR DEPLOYMENT
+  # change the name of the exe, zip it and copy the zip to the deployment folders
+  - cd bin\%CONFIGURATION%\
+  - copy OxShmolli2Exe.exe %EXE_EXTENDED_NAME%.exe
+  - 7z a %EXE_EXTENDED_NAME%.zip %EXE_EXTENDED_NAME%.exe # zip
+  - cd ..\..
+  - copy bin\%CONFIGURATION%\%EXE_EXTENDED_NAME%.zip deployment\%EXE_EXTENDED_NAME%.zip
 
 deploy:
   # release: OxShmolli2-v$(appveyor_build_version)
