@@ -21,8 +21,8 @@ namespace Ox {
         typedef FunctionsT1AdapterVnlCost FunctionsAdaptedToVnlType;
 
         FitterAmoebaVnl() {
-            _VnlFitter = 0; // nullpointer
-            _FunctionsAdaptedToVnl = 0; // nullpointer
+            _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType();
+            _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);
         };
 
         virtual ~FitterAmoebaVnl() {
@@ -38,7 +38,7 @@ namespace Ox {
             _VnlFitter->minimize(temp);
 
             if (temp.size() != 0) {
-                this->_FunctionsT1->setParameters(temp.data_block());
+                temp.copy_out(this->_FunctionsT1->getParameters());
             }
             if (this->getVerbose()) {
                 std::cout << "Results: " << temp << " Cost: " << this->_FunctionsT1->calcCostValue() << std::endl;
@@ -50,22 +50,15 @@ namespace Ox {
     protected:
 
         virtual void configureMinimizer() {
-            if (!_VnlFitter) {
                 if (!this->_FunctionsT1) {
                     std::cerr << "Set the OxFunctions object" << std::endl;
                     throw std::exception();
-                } else {
-                    delete _FunctionsAdaptedToVnl;
-                    delete _VnlFitter;
-                    _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType();
-                    _FunctionsAdaptedToVnl->setFunctionsT1(this->_FunctionsT1);
-                    _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);
                 }
+                _FunctionsAdaptedToVnl->setFunctionsT1(this->_FunctionsT1);
                 _VnlFitter->set_x_tolerance(this->getXTolerance());
                 _VnlFitter->set_f_tolerance(this->getFTolerance());
                 //m_LocalFitter->set_g_tolerance(this->GetGTolerance());
                 _VnlFitter->set_max_iterations(this->getMaxFunctionEvals());
-            }
         };
 
     private:

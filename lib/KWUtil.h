@@ -12,13 +12,18 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdarg>
-#define _USE_MATH_DEFINES
 #include <cmath>
 #include <vector>
 #include <string>
 #include <sstream>
 #include <sys/stat.h>
 #include <fstream>
+
+// MS stuff problems
+// https://stackoverflow.com/questions/26065359/m-pi-flagged-as-undeclared-identifier
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 
 
 class KWUtil{

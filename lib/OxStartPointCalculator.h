@@ -22,6 +22,7 @@ namespace Ox {
 
         // getters
         MeasureType *getCalculatedStartPoint() const {
+            // TODO: valgrind says _CalculatedStartPoint is not initialised. It is in the constructor, right?
             if (!_CalculatedStartPoint) {
                 std::cerr << "_CalculatedStartPoint equals 0. Set _CalculatedStartPoint" << std::endl;
                 throw std::exception();

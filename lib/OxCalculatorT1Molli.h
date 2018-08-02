@@ -20,58 +20,62 @@ namespace Ox {
     template< typename MeasureType >
     class CalculatorT1Molli : public CalculatorT1<MeasureType> {
     public:
+
         /**
          * the most important function of this class
          * @return success/failure
          */
         virtual int calculate(){
 
-            //const int MAX_T1_TRESHOLD = 4000;
-            //double MaxTIForSignInvert = (MAX_T1_TRESHOLD * 0.67);
-
-            this->prepareToCalculate();
-
-            // configure
+            // some initialisation
+            const double MaxTIForSignInvert = (this->MAX_T1_TRESHOLD * 0.67);
             MeasureType lastValue = 1e32;
             MeasureType lastValueTemp = lastValue;
+            MeasureType tempParameters[3];
 
-            // start from the starting point
-            KWUtil::copyArrayToArray(3, this->_Results, this->_StartPoint);
+            // get ready
+            this->prepareToCalculate();
 
-            this->getNSamples();
+            // configure Functions object and fitter object
             this->getFunctionsT1()->setNSamples(this->getNSamples());
             this->getFunctionsT1()->setSignal(this->_Signal);
             this->getFunctionsT1()->setInvTimes(this->getInvTimes());
-            this->getFunctionsT1()->setParameters(this->_Results);
+            this->getFunctionsT1()->setParameters(tempParameters);
+            this->getFunctionsT1()->copyToParameters(this->_StartPoint); // start from the starting point
 
             this->getFitter()->setFunctionsT1(this->getFunctionsT1());
 
             // fit
             this->getFitter()->performFitting();
+
+            // save the results at the best results
+            KWUtil::copyArrayToArray(3, this->_Results, this->getFunctionsT1()->getParameters());
             lastValue = this->getFunctionsT1()->calcCostValue();
 
-            for (int iswap = 0; iswap < this->getNSamples(); iswap++) {
+            // look for better solutions than the above one
+            for (int iSwap = 0; iSwap < this->getNSamples(); iSwap++) {
 
-                //if (this->_InvTimes[iswap] > MaxTIForSignInvert) continue; // continue only if sign is undefined (0)
+                // continue only if TI in reasonable range
+                if (this->_InvTimes[iSwap] > MaxTIForSignInvert) continue;
+
                 // continue if sign was already calculated before
-                if (this->_Signs[iswap] != 0) continue;
+                if (this->_Signs[iSwap] != 0) continue;
 
-                // change the sign of the signal
-                this->_Signal[iswap] = -fabs(this->getSigMag()[iswap]);
+                // in each iteration change the sign of one of the signal elements
+                this->_Signal[iSwap] = -fabs(this->getSigMag()[iSwap]);
 
                 // start from the starting point
-                MeasureType currentResults[3] = {0, 0, 0};
-                KWUtil::copyArrayToArray(3, currentResults, this->_StartPoint);
-                this->getFunctionsT1()->setParameters(currentResults);
+                this->getFunctionsT1()->copyToParameters(this->_StartPoint);
 
                 // fit
                 this->getFitter()->performFitting();
-
                 lastValueTemp = this->getFunctionsT1()->calcCostValue();
 
+                // are these the best results?
                 if (lastValueTemp < lastValue) {
+                    // save the results at the best results
+                    KWUtil::copyArrayToArray(3, this->_Results, this->getFunctionsT1()->getParameters());
                     lastValue = lastValueTemp;
-                    KWUtil::copyArrayToArray(3, this->_Results, currentResults);
                 }
             }
 

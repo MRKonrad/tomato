@@ -38,7 +38,6 @@ TEST(OxCalculatorT1Molli, calculateWithoutSigns) {
     calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
     calculatorT1Molli.setSigPha(testData.getSignalPhaPtr());
     calculatorT1Molli.setSigMag(testData.getSignalMagPtr());
-    calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
 
     calculatorT1Molli.calculate();
 

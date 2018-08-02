@@ -161,10 +161,10 @@ namespace Ox {
             _SigPha = 0; // original one
             _Signal = 0; // we will be working with this one
             _Signs = 0;  // we will be working with this one
-            //_Parameters = 0;
             _TRRaverageHB = 0;
             _MeanCutOff = 0;
             _nSamples = 0;
+
         };
 
         /**
@@ -175,7 +175,7 @@ namespace Ox {
             std::cout << "in ~CalculatorT1" << std::endl;
             delete [] _Signal; _Signal = 0;
             delete [] _Signs; _Signs = 0;
-        };
+         };
 
     protected:
         FunctionsT1<MeasureType>* _FunctionsT1;
@@ -191,12 +191,14 @@ namespace Ox {
         const MeasureType* _SigPha; // original one
         MeasureType* _Signal; // we will be working with this one
         MeasureType* _Signs;  // we will be working with this one
-        MeasureType _StartPoint[3];
-        MeasureType _Results[3];
-        //MeasureType* _Parameters;
+        MeasureType _StartPoint[3]; // we will be working with this one
+        MeasureType _Results[3]; // we will be working with this one
         int _nSamples;
         MeasureType _TRRaverageHB;
         MeasureType _MeanCutOff;
+
+        const static int MAX_T1_TRESHOLD = 4000;
+
 
     };
 } //namespace Ox
