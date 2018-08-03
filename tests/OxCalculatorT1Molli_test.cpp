@@ -42,9 +42,9 @@ TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
 
     CalculatorT1Shmolli.calculate();
 
-    EXPECT_EQ(CalculatorT1Shmolli.getResults().A, 0);
-    EXPECT_EQ(CalculatorT1Shmolli.getResults().B, 0);
-    EXPECT_EQ(CalculatorT1Shmolli.getResults().T1star, 0);
+    EXPECT_DOUBLE_EQ(CalculatorT1Shmolli.getResults().A, 0);
+    EXPECT_DOUBLE_EQ(CalculatorT1Shmolli.getResults().B, 0);
+    EXPECT_DOUBLE_EQ(CalculatorT1Shmolli.getResults().T1star, 0);
 }
 
 TEST(OxCalculatorT1Molli, calculate_throwIfInvTimesNotSorted) {

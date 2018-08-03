@@ -14,7 +14,7 @@ namespace Ox {
 
     /**
      * \class FunctionsT1Basic
-     * \brief Container for a basic model function \f$\sqrt{A-B\exp(t/T_1^*)}\f$, cost function and Least-Squares
+     * \brief Container for a basic model function \f$ A-B\exp(t/T_1^*) \f$, cost function and Least-Squares
      * function and derivatives.
      * \details
      * @tparam MeasureType
@@ -35,8 +35,6 @@ namespace Ox {
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
         virtual ~FunctionsT1Basic(){};
-
-    protected:
     };
 } //namespace Ox
 

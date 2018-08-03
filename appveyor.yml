@@ -28,7 +28,7 @@ configuration:
   - Release
 
 before_build:
-  - cmake . -Bbin -A%PLATFORM%
+  - cmake . -Bbin -A%PLATFORM% -DUSE_NR2=OFF -DUSE_NR3=OFF
 
 build:
   project: bin\OxShmolli2.sln  # path to Visual Studio solution or project

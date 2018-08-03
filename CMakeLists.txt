@@ -27,9 +27,6 @@ file (GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)
 file (GLOB_RECURSE LIB_FILES lib/*.c* lib/*.h* lib/*.t*)
 set (LIB_FILES ${LIB_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForOxShmolli2.h")
 
-#message("APP_FILES:" ${APP_FILES})
-#message("LIB_FILES:" ${LIB_FILES})
-
 include_directories (lib)
 
 add_library (OxShmolli2Lib ${APP_FILES} ${LIB_FILES})
@@ -42,69 +39,63 @@ add_executable (OxShmolli2Exe ${APP_FILES} ${LIB_FILES})
 set (BUILD_TESTING OFF CACHE INTERNAL "" FORCE)
 add_subdirectory (thirdParty/libyaml)
 include_directories (${yaml_BINARY_DIR}/include ${yaml_SOURCE_DIR}/include) # for windows
-target_link_libraries (OxShmolli2Exe PUBLIC yaml)
+set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} yaml)
+#target_link_libraries (OxShmolli2Exe PUBLIC yaml)
 
 ###############
 ### Fitting ###
 ###############
 
-set (BUILD_TESTING OFF CACHE INTERNAL "" FORCE)
-set (BUILD_CORE_GEOMETRY OFF CACHE INTERNAL "" FORCE)
-set (BUILD_CORE_IMAGING OFF CACHE INTERNAL "" FORCE)
-set (BUILD_CORE_NUMERICS ON CACHE INTERNAL "" FORCE)
-set (BUILD_CORE_SERIALISATION OFF CACHE INTERNAL "" FORCE)
-set (BUILD_CORE_UTILITIES OFF CACHE INTERNAL "" FORCE)
-set (VXL_USE_GEOTIFF OFF CACHE INTERNAL "" FORCE)
-set (VXL_USE_DCMTK OFF CACHE INTERNAL "" FORCE)
-set (VXL_USE_LFS OFF CACHE INTERNAL "" FORCE)
+# VNL TODO: code behaviour with VNL off
+set(USE_VNL ON CACHE BOOL "Do you want to use VNL numerics library?")
+include(cmake/vnl.cmake)
 
-add_subdirectory (thirdParty/vxl)
+#target_link_libraries (OxShmolli2Lib PUBLIC ${VNL_LIBRARIES})
+#target_link_libraries (OxShmolli2Exe PUBLIC ${VNL_LIBRARIES})
+#add_dependencies (OxShmolli2Lib vnl vnl_algo)
+#add_dependencies (OxShmolli2Exe vnl vnl_algo)
 
-include_directories (${vxlcore_SOURCE_DIR}) # includes vnl
-include_directories (${vxlcore_BINARY_DIR}) # includes vnl
+# Numerical Recipes v2
+set(USE_NR2 ON CACHE BOOL "Do you want to use Numerical Recipes 2 code?")
+include(cmake/nr2.cmake)
+#target_link_libraries (OxShmolli2Lib PUBLIC NR2)
 
-include_directories (${vcl_SOURCE_DIR})
-include_directories (${vcl_BINARY_DIR})
+# Numerical Recipes v3
+set(USE_NR3 OFF CACHE BOOL "Do you want to use Numerical Recipes 3 code?")
+include(cmake/nr3.cmake)
 
-include_directories (${vgl_SOURCE_DIR})
+###############
+### Linking ###
+###############
+target_link_libraries (OxShmolli2Lib PUBLIC ${OxSmolli2_LIBS_TO_LINK})
+set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} OxShmolli2Lib)
+target_link_libraries (OxShmolli2Exe PUBLIC ${OxSmolli2_LIBS_TO_LINK})
 
-if(WIN32)
-    set (MYCONFIG $ENV{CONFIGURATION})
-    set (MY_VXL_LIBRARY_PATH ${VXL_LIBRARY_PATH}/${MYCONFIG})
-else(WIN32)
-    set (MY_VXL_LIBRARY_PATH ${VXL_LIBRARY_PATH})
-endif(WIN32)
+##################
+### Installing ###
+##################
 
-link_directories (${MY_VXL_LIBRARY_PATH})
-link_libraries (netlib v3p_netlib vcl vnl vnl_algo )
-
-target_link_libraries (OxShmolli2Lib PUBLIC ${VNL_LIBRARIES})
-target_link_libraries (OxShmolli2Exe PUBLIC ${VNL_LIBRARIES})
-add_dependencies (OxShmolli2Lib vnl vnl_algo)
-add_dependencies (OxShmolli2Exe vnl vnl_algo)
-
-# install
 set (CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}" CACHE INTERNAL "" FORCE)
 install (TARGETS OxShmolli2Lib DESTINATION ${CMAKE_INSTALL_PREFIX}/install/lib)
 install (FILES ${LIB_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/install/include/OxShmolli)
 install (TARGETS OxShmolli2Exe DESTINATION ${CMAKE_INSTALL_PREFIX}/install/bin)
 
-
 ###############
 ### TESTING ###
 ###############
 
+set(OxShmolli2_BUILD_TESTING ON CACHE BOOL "Do you want to build OxShmolli2 tests?")
 add_subdirectory (tests)
 
 #############################
 ### DISPLAY ALL VARIABLES ###
 #############################
 
-get_cmake_property (_variableNames VARIABLES)
-list (SORT _variableNames)
-foreach (_variableName ${_variableNames})
-    message (STATUS "${_variableName}=${${_variableName}}")
-endforeach()
+#get_cmake_property (_variableNames VARIABLES)
+#list (SORT _variableNames)
+#foreach (_variableName ${_variableNames})
+#    message (STATUS "${_variableName}=${${_variableName}}")
+#endforeach()
 
 
 

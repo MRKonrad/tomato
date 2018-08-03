@@ -2,44 +2,48 @@
 ### TESTING ###
 ###############
 
-include(gtest.cmake)
+if(OxShmolli2_BUILD_TESTING)
 
-enable_testing ()
+    include(../cmake/gtest.cmake)
 
-# Threads are needed for testing
-find_package (Threads REQUIRED)
-target_link_libraries(gtest ${CMAKE_THREAD_LIBS_INIT})
+    enable_testing ()
 
-# Test executable
-file(GLOB_RECURSE TESTS_FILES ${PROJECT_SOURCE_DIR}/tests/*.c* ${PROJECT_SOURCE_DIR}/tests/*.h* ${PROJECT_SOURCE_DIR}/tests/*.t*)
-message("TESTS_FILES:" ${TESTS_FILES})
+    # Threads are needed for testing
+    find_package (Threads REQUIRED)
+    target_link_libraries(gtest ${CMAKE_THREAD_LIBS_INIT})
 
-add_executable(OxShmolli2Tests ${TESTS_FILES})
-target_link_libraries (OxShmolli2Tests PUBLIC gtest)
-target_link_libraries (OxShmolli2Tests PUBLIC yaml)
-target_link_libraries (OxShmolli2Tests PUBLIC ${VNL_LIBRARIES})
-add_dependencies(OxShmolli2Tests OxShmolli2Lib)
+    # Test executable
+    file(GLOB_RECURSE TESTS_FILES ${PROJECT_SOURCE_DIR}/tests/*.c* ${PROJECT_SOURCE_DIR}/tests/*.h* ${PROJECT_SOURCE_DIR}/tests/*.t*)
+    #message("TESTS_FILES:" ${TESTS_FILES})
 
-add_test(NAME ctest_tests COMMAND OxShmolli2Tests)
+    add_executable(OxShmolli2Tests ${TESTS_FILES})
+    target_link_libraries (OxShmolli2Tests PUBLIC gtest)
+    target_link_libraries (OxShmolli2Tests PUBLIC ${OxSmolli2_LIBS_TO_LINK})
+    #target_link_libraries (OxShmolli2Tests PUBLIC NR2)
+    #add_dependencies(OxShmolli2Tests OxShmolli2Lib)
 
-file(COPY testData DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-file(GLOB_RECURSE TESTDATA ${PROJECT_SOURCE_DIR}/tests/testData/*.*)
+    add_test(NAME ctest_tests COMMAND OxShmolli2Tests)
 
-install (TARGETS OxShmolli2Tests DESTINATION ${CMAKE_INSTALL_PREFIX}/install/tests)
-install (FILES ${TESTDATA} DESTINATION ${CMAKE_INSTALL_PREFIX}/install/tests/testData/)
+    file(COPY testData DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+    file(GLOB_RECURSE TESTDATA ${PROJECT_SOURCE_DIR}/tests/testData/*.*)
 
-########################
-### TESTING COVERAGE ###
-########################
+    install (TARGETS OxShmolli2Tests DESTINATION ${CMAKE_INSTALL_PREFIX}/install/tests)
+    install (FILES ${TESTDATA} DESTINATION ${CMAKE_INSTALL_PREFIX}/install/tests/testData/)
 
-# Compiler flags for coveralls, only in linux
-if (UNIX AND NOT APPLE)
-    set (CMAKE_CXX_FLAGS "-fprofile-arcs -ftest-coverage")
-endif(UNIX AND NOT APPLE)
+    ########################
+    ### TESTING COVERAGE ###
+    ########################
 
-# Coveralls
-SET(COVERAGE OFF CACHE BOOL "Coverage")
-if (COVERAGE)
-    target_compile_options(OxShmolli2Tests PRIVATE --coverage)
-    target_link_libraries(OxShmolli2Tests PRIVATE --coverage)
-endif()
+    # Compiler flags for coveralls, only in linux
+    if (UNIX AND NOT APPLE)
+        set (CMAKE_CXX_FLAGS "-fprofile-arcs -ftest-coverage")
+    endif(UNIX AND NOT APPLE)
+
+    # Coveralls
+    SET(COVERAGE OFF CACHE BOOL "Coverage")
+    if (COVERAGE)
+        target_compile_options(OxShmolli2Tests PRIVATE --coverage)
+        target_link_libraries(OxShmolli2Tests PRIVATE --coverage)
+    endif()
+
+endif(OxShmolli2_BUILD_TESTING)
