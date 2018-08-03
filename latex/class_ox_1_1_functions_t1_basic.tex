@@ -1,87 +1,151 @@
-\hypertarget{class_ox_1_1_functions_t1_basic}{}\section{Ox\+:\+:Functions\+T1\+Basic$<$ Measure\+Type $>$ Class Template Reference}
-\label{class_ox_1_1_functions_t1_basic}\index{Ox\+::\+Functions\+T1\+Basic$<$ Measure\+Type $>$@{Ox\+::\+Functions\+T1\+Basic$<$ Measure\+Type $>$}}
+\hypertarget{class_ox_1_1_functions_t1_basic}{\section{Ox\-:\-:Functions\-T1\-Basic$<$ Measure\-Type $>$ Class Template Reference}
+\label{class_ox_1_1_functions_t1_basic}\index{Ox\-::\-Functions\-T1\-Basic$<$ Measure\-Type $>$@{Ox\-::\-Functions\-T1\-Basic$<$ Measure\-Type $>$}}
+}
 
 
-Container for a basic model function $\sqrt{A-B\exp(t/T_1^*)}$, cost function and Least-\/\+Squares function and derivatives.  
-
-
-
-
-{\ttfamily \#include $<$Ox\+Functions\+T1\+Basic.\+h$>$}
+Container for a basic model function $\sqrt{A-B\exp(t/T_1^*)}$, cost function and Least-\/\-Squares function and derivatives.  
 
 
 
-Inheritance diagram for Ox\+:\+:Functions\+T1\+Basic$<$ Measure\+Type $>$\+:
-% FIG 0
+
+{\ttfamily \#include $<$Ox\-Functions\-T1\-Basic.\-h$>$}
 
 
-Collaboration diagram for Ox\+:\+:Functions\+T1\+Basic$<$ Measure\+Type $>$\+:
-% FIG 1
+
+Inheritance diagram for Ox\-:\-:Functions\-T1\-Basic$<$ Measure\-Type $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{class_ox_1_1_functions_t1_basic__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ox\-:\-:Functions\-T1\-Basic$<$ Measure\-Type $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{class_ox_1_1_functions_t1_basic__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_ad23b00edd74fdf78c7d21fa82bb66e6e}\label{class_ox_1_1_functions_t1_basic_ad23b00edd74fdf78c7d21fa82bb66e6e}} 
-virtual Measure\+Type {\bfseries calc\+Model\+Value} (Measure\+Type time)
+virtual Measure\-Type \hyperlink{class_ox_1_1_functions_t1_basic_ad23b00edd74fdf78c7d21fa82bb66e6e}{calc\-Model\-Value} (Measure\-Type time)
 \item 
-\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_ac9f77d95d7b39f2333b520d3a2e639e9}\label{class_ox_1_1_functions_t1_basic_ac9f77d95d7b39f2333b520d3a2e639e9}} 
-virtual void {\bfseries calc\+L\+S\+Residuals} (Measure\+Type $\ast$residuals)
+virtual void \hyperlink{class_ox_1_1_functions_t1_basic_ac9f77d95d7b39f2333b520d3a2e639e9}{calc\-L\-S\-Residuals} (Measure\-Type $\ast$residuals)
 \item 
-\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_ac1f9d36e4a6f3459228351178e9c1296}\label{class_ox_1_1_functions_t1_basic_ac1f9d36e4a6f3459228351178e9c1296}} 
-virtual void {\bfseries calc\+L\+S\+Jacobian} (Measure\+Type $\ast$$\ast$jacobian)
+virtual void \hyperlink{class_ox_1_1_functions_t1_basic_a3beaaac6e2e1be4f9bd2e7cba7c51057}{calc\-L\-S\-Jacobian} (Measure\-Type $\ast$jacobian)
 \item 
-\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_adee7b03ad49d28e5dc08a80b2c948da1}\label{class_ox_1_1_functions_t1_basic_adee7b03ad49d28e5dc08a80b2c948da1}} 
-virtual Measure\+Type {\bfseries calc\+Cost\+Value} ()
+virtual Measure\-Type \hyperlink{class_ox_1_1_functions_t1_basic_adee7b03ad49d28e5dc08a80b2c948da1}{calc\-Cost\-Value} ()
 \item 
-\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_aa6a067295d09882f70eeb34b260c37b7}\label{class_ox_1_1_functions_t1_basic_aa6a067295d09882f70eeb34b260c37b7}} 
-virtual void {\bfseries calc\+Cost\+Derivative} (Measure\+Type $\ast$derivative)
+virtual void \hyperlink{class_ox_1_1_functions_t1_basic_aa6a067295d09882f70eeb34b260c37b7}{calc\-Cost\-Derivative} (Measure\-Type $\ast$derivative)
 \item 
-\mbox{\hyperlink{class_ox_1_1_functions_t1_basic_aa7dc56ceda03a3f9b9263683ea0865e7}{Functions\+T1\+Basic}} (int \+\_\+n\+Samples)
-\begin{DoxyCompactList}\small\item\em The only right constructor is the one that is defining the number of samples that are processed in all the member variables. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_a0ef373041804c4fd403b0b252bb2661c}\label{class_ox_1_1_functions_t1_basic_a0ef373041804c4fd403b0b252bb2661c}} 
-\mbox{\hyperlink{class_ox_1_1_functions_t1_basic_a0ef373041804c4fd403b0b252bb2661c}{$\sim$\+Functions\+T1\+Basic}} ()
-\begin{DoxyCompactList}\small\item\em do not forget about the virtual destructor, see \href{https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors}{\tt https\+://stackoverflow.\+com/questions/461203/when-\/to-\/use-\/virtual-\/destructors} \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Protected Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_ac6ddf49f7adb6415fa3f4f1df291b06d}\label{class_ox_1_1_functions_t1_basic_ac6ddf49f7adb6415fa3f4f1df291b06d}} 
-\mbox{\hyperlink{class_ox_1_1_functions_t1_basic_ac6ddf49f7adb6415fa3f4f1df291b06d}{Functions\+T1\+Basic}} ()
-\begin{DoxyCompactList}\small\item\em We do not want the default constructor to be called. Ever. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\hypertarget{class_ox_1_1_functions_t1_basic_ae3f94c1426a8e6f569b8c70f86122c0b}{virtual \hyperlink{class_ox_1_1_functions_t1_basic_ae3f94c1426a8e6f569b8c70f86122c0b}{$\sim$\-Functions\-T1\-Basic} ()}\label{class_ox_1_1_functions_t1_basic_ae3f94c1426a8e6f569b8c70f86122c0b}
+
+\begin{DoxyCompactList}\small\item\em do not forget about the virtual destructor, see \href{https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors}{\tt https\-://stackoverflow.\-com/questions/461203/when-\/to-\/use-\/virtual-\/destructors} \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
-\subsubsection*{template$<$typename Measure\+Type$>$\newline
-class Ox\+::\+Functions\+T1\+Basic$<$ Measure\+Type $>$}
+\subsubsection*{template$<$typename Measure\-Type$>$class Ox\-::\-Functions\-T1\-Basic$<$ Measure\-Type $>$}
 
-Container for a basic model function $\sqrt{A-B\exp(t/T_1^*)}$, cost function and Least-\/\+Squares function and derivatives. 
+Container for a basic model function $\sqrt{A-B\exp(t/T_1^*)}$, cost function and Least-\/\-Squares function and derivatives. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Measure\+Type} & \\
+{\em Measure\-Type} & \\
 \hline
 \end{DoxyTemplParams}
 
 
-\subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_ox_1_1_functions_t1_basic_aa7dc56ceda03a3f9b9263683ea0865e7}\label{class_ox_1_1_functions_t1_basic_aa7dc56ceda03a3f9b9263683ea0865e7}} 
-\index{Ox\+::\+Functions\+T1\+Basic@{Ox\+::\+Functions\+T1\+Basic}!Functions\+T1\+Basic@{Functions\+T1\+Basic}}
-\index{Functions\+T1\+Basic@{Functions\+T1\+Basic}!Ox\+::\+Functions\+T1\+Basic@{Ox\+::\+Functions\+T1\+Basic}}
-\subsubsection{\texorpdfstring{Functions\+T1\+Basic()}{FunctionsT1Basic()}}
-{\footnotesize\ttfamily template$<$typename Measure\+Type $>$ \\
-\mbox{\hyperlink{class_ox_1_1_functions_t1_basic}{Ox\+::\+Functions\+T1\+Basic}}$<$ Measure\+Type $>$\+::\mbox{\hyperlink{class_ox_1_1_functions_t1_basic}{Functions\+T1\+Basic}} (\begin{DoxyParamCaption}\item[{int}]{\+\_\+n\+Samples }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-The only right constructor is the one that is defining the number of samples that are processed in all the member variables. 
-
-
+\subsection{Member Function Documentation}
+\hypertarget{class_ox_1_1_functions_t1_basic_aa6a067295d09882f70eeb34b260c37b7}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!calc\-Cost\-Derivative@{calc\-Cost\-Derivative}}
+\index{calc\-Cost\-Derivative@{calc\-Cost\-Derivative}!Ox::FunctionsT1Basic@{Ox\-::\-Functions\-T1\-Basic}}
+\subsubsection[{calc\-Cost\-Derivative}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ void {\bf Ox\-::\-Functions\-T1\-Basic}$<$ Measure\-Type $>$\-::calc\-Cost\-Derivative (
+\begin{DoxyParamCaption}
+\item[{Measure\-Type $\ast$}]{derivative}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_functions_t1_basic_aa6a067295d09882f70eeb34b260c37b7}
+calc\-Cost\-Derivative the most important function of this class 
 \begin{DoxyParams}{Parameters}
-{\em \+\_\+n\+Samples} & \\
+{\em derivative} & \\
 \hline
 \end{DoxyParams}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+Implements \hyperlink{class_ox_1_1_functions_t1_a413b0afca183b88613070ae87121ca66}{Ox\-::\-Functions\-T1$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_functions_t1_basic_adee7b03ad49d28e5dc08a80b2c948da1}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!calc\-Cost\-Value@{calc\-Cost\-Value}}
+\index{calc\-Cost\-Value@{calc\-Cost\-Value}!Ox::FunctionsT1Basic@{Ox\-::\-Functions\-T1\-Basic}}
+\subsubsection[{calc\-Cost\-Value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ Measure\-Type {\bf Ox\-::\-Functions\-T1\-Basic}$<$ Measure\-Type $>$\-::calc\-Cost\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_functions_t1_basic_adee7b03ad49d28e5dc08a80b2c948da1}
+calc\-Cost\-Value the most important function of this class \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_ox_1_1_functions_t1_af1475834e89c9304a96c776f3d5aacbf}{Ox\-::\-Functions\-T1$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_functions_t1_basic_a3beaaac6e2e1be4f9bd2e7cba7c51057}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!calc\-L\-S\-Jacobian@{calc\-L\-S\-Jacobian}}
+\index{calc\-L\-S\-Jacobian@{calc\-L\-S\-Jacobian}!Ox::FunctionsT1Basic@{Ox\-::\-Functions\-T1\-Basic}}
+\subsubsection[{calc\-L\-S\-Jacobian}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ void {\bf Ox\-::\-Functions\-T1\-Basic}$<$ Measure\-Type $>$\-::calc\-L\-S\-Jacobian (
+\begin{DoxyParamCaption}
+\item[{Measure\-Type $\ast$}]{jacobian}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_functions_t1_basic_a3beaaac6e2e1be4f9bd2e7cba7c51057}
+calc\-L\-S\-Jacobian the most important function of this class 
+\begin{DoxyParams}{Parameters}
+{\em jacobian} & -\/ 2d matrix stored as 1d array \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_ox_1_1_functions_t1_a84e268911eb64919129c8a0cea39344d}{Ox\-::\-Functions\-T1$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_functions_t1_basic_ac9f77d95d7b39f2333b520d3a2e639e9}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!calc\-L\-S\-Residuals@{calc\-L\-S\-Residuals}}
+\index{calc\-L\-S\-Residuals@{calc\-L\-S\-Residuals}!Ox::FunctionsT1Basic@{Ox\-::\-Functions\-T1\-Basic}}
+\subsubsection[{calc\-L\-S\-Residuals}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ void {\bf Ox\-::\-Functions\-T1\-Basic}$<$ Measure\-Type $>$\-::calc\-L\-S\-Residuals (
+\begin{DoxyParamCaption}
+\item[{Measure\-Type $\ast$}]{residuals}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_functions_t1_basic_ac9f77d95d7b39f2333b520d3a2e639e9}
+calc\-L\-S\-Residuals the most important function of this class 
+\begin{DoxyParams}{Parameters}
+{\em residuals} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_ox_1_1_functions_t1_a6c69a4159a92c4ddb71ecba97fcdf6de}{Ox\-::\-Functions\-T1$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_functions_t1_basic_ad23b00edd74fdf78c7d21fa82bb66e6e}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!calc\-Model\-Value@{calc\-Model\-Value}}
+\index{calc\-Model\-Value@{calc\-Model\-Value}!Ox::FunctionsT1Basic@{Ox\-::\-Functions\-T1\-Basic}}
+\subsubsection[{calc\-Model\-Value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ Measure\-Type {\bf Ox\-::\-Functions\-T1\-Basic}$<$ Measure\-Type $>$\-::calc\-Model\-Value (
+\begin{DoxyParamCaption}
+\item[{Measure\-Type}]{time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_functions_t1_basic_ad23b00edd74fdf78c7d21fa82bb66e6e}
+calc\-Model\-Value the most important function of this class 
+\begin{DoxyParams}{Parameters}
+{\em time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+model(time) 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_ox_1_1_functions_t1_a2d5f4c9296daf3531e30a562348ad474}{Ox\-::\-Functions\-T1$<$ Measure\-Type $>$}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-lib/\mbox{\hyperlink{_ox_functions_t1_basic_8h}{Ox\+Functions\+T1\+Basic.\+h}}\item 
-lib/\mbox{\hyperlink{_ox_functions_t1_basic_8hxx}{Ox\+Functions\+T1\+Basic.\+hxx}}\end{DoxyCompactItemize}
+lib/\hyperlink{_ox_functions_t1_basic_8h}{Ox\-Functions\-T1\-Basic.\-h}\item 
+lib/\hyperlink{_ox_functions_t1_basic_8hxx}{Ox\-Functions\-T1\-Basic.\-hxx}\end{DoxyCompactItemize}
