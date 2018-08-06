@@ -57,7 +57,7 @@ script:
 
   # add coverage option for coveralls (only in linux g++)
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ]; then
-      cmake -DCOVERAGE=1 .
+      cmake -DCOVERAGE=1 . ;
     fi
 
   # this is make

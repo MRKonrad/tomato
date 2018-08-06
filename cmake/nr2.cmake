@@ -16,7 +16,8 @@ if(USE_NR2)
                 ${NR2_OTHER_DIR}/nrutil.c
                 ${PROJECT_SOURCE_DIR}/thirdParty/nr2/nr_modified.h
                 ${NR2_RECIPES_DIR}/amoeba.c
-                ${NR2_RECIPES_DIR}/amotry.c)
+                ${NR2_RECIPES_DIR}/amotry.c
+                ${NR2_RECIPES_DIR}/bessj0.c)
         message(${NR2_SOURCE_FILES})
         include_directories(${NR2_RECIPES_DIR} ${NR2_OTHER_DIR})
         add_library(NR2 ${NR2_SOURCE_FILES})

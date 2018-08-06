@@ -27,7 +27,7 @@ namespace Ox {
 
         virtual int calculate(){
             MeasureType results[3];
-            this->_Results = calculateMolli(this->getNSamples(),
+            this->_Results = calculateMolli( this->getNSamples(),
                                              this->getInvTimes(),
                                              this->getSignal(),
                                              this->getSigns());
@@ -48,8 +48,10 @@ namespace Ox {
             MeasureType tempResults[3];
             CalculatorT1Results<MeasureType> restulsStruct;
 
-            // get ready
-            this->prepareToCalculate();
+            // get ready, continue if prepareToCalculate EXIT_SUCCESS
+            if (this->prepareToCalculate() == 1) {
+                return restulsStruct;
+            }
 
             // configure Functions object and fitter object
             this->getFunctionsT1()->setNSamples(nSamples);
@@ -119,7 +121,7 @@ namespace Ox {
                 //std::cout << tempResults.SD_A << " " << tempResults.SD_B << " " << tempResults.SD_T1 << " " << std::endl;
             }
 
-            return restulsStruct; // EXIT_SUCCESS
+            return restulsStruct;
         }
 
     protected:
