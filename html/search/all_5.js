@@ -5,6 +5,7 @@ var searchData=
   ['oxcalculatort1molli_2eh',['OxCalculatorT1Molli.h',['../_ox_calculator_t1_molli_8h.html',1,'']]],
   ['oxcalculatort1molli_5ftest_2ecpp',['OxCalculatorT1Molli_test.cpp',['../_ox_calculator_t1_molli__test_8cpp.html',1,'']]],
   ['oxfitter_2eh',['OxFitter.h',['../_ox_fitter_8h.html',1,'']]],
+  ['oxfitteramoebanr2_2eh',['OxFitterAmoebaNr2.h',['../_ox_fitter_amoeba_nr2_8h.html',1,'']]],
   ['oxfitteramoebavnl_2eh',['OxFitterAmoebaVnl.h',['../_ox_fitter_amoeba_vnl_8h.html',1,'']]],
   ['oxfitteramoebavnl_5ftest_2ecpp',['OxFitterAmoebaVnl_test.cpp',['../_ox_fitter_amoeba_vnl__test_8cpp.html',1,'']]],
   ['oxfitterlevenbergmarquardtvnl_2eh',['OxFitterLevenbergMarquardtVnl.h',['../_ox_fitter_levenberg_marquardt_vnl_8h.html',1,'']]],

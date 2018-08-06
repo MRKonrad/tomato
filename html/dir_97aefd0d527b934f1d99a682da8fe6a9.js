@@ -10,6 +10,7 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "OxFitter.h", "_ox_fitter_8h.html", [
       [ "Fitter", "class_ox_1_1_fitter.html", "class_ox_1_1_fitter" ]
     ] ],
+    [ "OxFitterAmoebaNr2.h", "_ox_fitter_amoeba_nr2_8h.html", null ],
     [ "OxFitterAmoebaVnl.h", "_ox_fitter_amoeba_vnl_8h.html", [
       [ "FitterAmoebaVnl", "class_ox_1_1_fitter_amoeba_vnl.html", "class_ox_1_1_fitter_amoeba_vnl" ]
     ] ],

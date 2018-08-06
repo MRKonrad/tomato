@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"class_ox_1_1_test_data.html#a41f65fef5fa534f713cb8a229e5ae14d":[1,0,0,13,21],
+"class_ox_1_1_test_data.html#a4a72325aa7d38c4cac1762a47b7eed1a":[1,0,0,13,20],
 "class_ox_1_1_test_data.html#a4c5bb0b0296218d61c608a8592900c39":[1,0,0,13,2],
 "class_ox_1_1_test_data.html#a4e75699c035937ff96fa131505870208":[1,0,0,13,12],
 "class_ox_1_1_test_data.html#a5012bab7b7943d05b33151aae38efcc1":[1,0,0,13,26],
