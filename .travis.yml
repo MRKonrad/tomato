@@ -53,7 +53,7 @@ before_install:
 
 script:
   # configure and generate
-  - cmake . -DUSE_NR2=OFF -DUSE_NR3=OFF
+  - cmake . -DUSE_NR2=OFF -DUSE_NR3=OFF -DUSE_PRIVATE_NR2=OFF
 
   # add coverage option for coveralls (only in linux g++)
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ]; then
