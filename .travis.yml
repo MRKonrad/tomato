@@ -72,7 +72,7 @@ script:
 after_success:
   # Run coverage analysis only in linux g++
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ]; then
-      coveralls --root . -E ".*CMakeFiles.*" --exclude thirdParty --exclude CMakeTmp --exclude include --exclude install --exclude CmakeConfigForOxShmolli2.h;
+      coveralls --root . -E ".*CMakeFiles.*" --exclude CMakeTmp --exclude tests --exclude thirdParty --exclude include --exclude install --exclude CmakeConfigForOxShmolli2.h;
     fi
   # Generate and deploy documentation only in linux g++
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ]; then

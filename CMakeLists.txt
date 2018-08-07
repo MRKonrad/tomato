@@ -13,19 +13,31 @@ set (OxShmolli2_VERSION_MINOR 1)
 # Compiler flags
 set (CMAKE_CXX_STANDARD 98)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
+if (CMAKE_CXX_STANDARD EQUAL 98)
+    set (CXX_STANDARD_98 ON)
+endif()
 
 # configure a header file to pass some of the CMake settings to the source code
 configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForOxShmolli2.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForOxShmolli2.h")
 include_directories ("${PROJECT_BINARY_DIR}")
 
-####################
-### MAIN PROGRAM ###
-####################
-
 # list of source files
 file (GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)
 file (GLOB_RECURSE LIB_FILES lib/*.c* lib/*.h* lib/*.t*)
 set (LIB_FILES ${LIB_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForOxShmolli2.h")
+
+###############
+### PRIVATE ###
+###############
+
+# unfortunatelly I cannot publish numerical recipes code according to numerical recipes licence
+set(PRIVATE_NR2_DIR ../OxShmolli2_private CACHE PATH "")
+add_subdirectory(${PRIVATE_NR2_DIR} ${CMAKE_BINARY_DIR}/private)
+include_directories(${PRIVATE_NR2_DIR}/lib)
+
+####################
+### MAIN PROGRAM ###
+####################
 
 include_directories (lib)
 
@@ -63,6 +75,8 @@ include(cmake/nr2.cmake)
 # Numerical Recipes v3
 set(USE_NR3 OFF CACHE BOOL "Do you want to use Numerical Recipes 3 code?")
 include(cmake/nr3.cmake)
+
+
 
 ###############
 ### Linking ###

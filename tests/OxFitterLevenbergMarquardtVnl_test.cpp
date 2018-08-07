@@ -10,7 +10,7 @@
 #include "OxFunctionsT1Basic.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
 
-TEST(OxFitterLevenbergMarquardtVnl, calcModelValueTest) {
+TEST(OxFitterLevenbergMarquardtVnl, performFitting) {
 
     typedef double TYPE;
 

@@ -9,7 +9,7 @@
 
 #include "OxFunctionsT1Basic.h"
 
-TEST(OxShmolli2, calcModelValueTest) {
+TEST(OxFunctionsT1Basic, calcModelValueTest) {
 
     typedef double TYPE;
 
@@ -21,7 +21,7 @@ TEST(OxShmolli2, calcModelValueTest) {
     EXPECT_DOUBLE_EQ(functionsObject.calcModelValue(0), -100);
 }
 
-TEST(OxShmolli2, calcLSResidualsTest) {
+TEST(OxFunctionsT1Basic, calcLSResidualsTest) {
 
     typedef double TYPE;
 
@@ -47,7 +47,7 @@ TEST(OxShmolli2, calcLSResidualsTest) {
     delete [] residuals;
 }
 
-TEST(OxShmolli2, calcLSJacobianTest) {
+TEST(OxFunctionsT1Basic, calcLSJacobianTest) {
 
     typedef double TYPE;
 
@@ -84,7 +84,7 @@ TEST(OxShmolli2, calcLSJacobianTest) {
     }
 }
 
-TEST(OxShmolli2, calcCostValueTest) {
+TEST(OxFunctionsT1Basic, calcCostValueTest) {
 
     typedef double TYPE;
 
@@ -103,7 +103,7 @@ TEST(OxShmolli2, calcCostValueTest) {
     EXPECT_DOUBLE_EQ(functionsObject.calcCostValue(), 17169);
 }
 
-TEST(OxShmolli2, calcCostDerivativeTest) {
+TEST(OxFunctionsT1Basic, calcCostDerivativeTest) {
 
     typedef double TYPE;
 

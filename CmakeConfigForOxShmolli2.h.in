@@ -2,8 +2,9 @@
 #define OxShmolli2_VERSION_MAJOR @OxShmolli2_VERSION_MAJOR@
 #define OxShmolli2_VERSION_MINOR @OxShmolli2_VERSION_MINOR@
 
-#cmakedefine USE_ONLY_CPP98
+#cmakedefine CXX_STANDARD_98
 #cmakedefine USE_VNL
+#cmakedefine USE_PRIVATE_NR2
 #cmakedefine USE_NR2
 #cmakedefine USE_NR3
 #cmakedefine USE_ITK

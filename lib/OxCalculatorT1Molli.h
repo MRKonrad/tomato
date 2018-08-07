@@ -12,7 +12,7 @@
 namespace Ox {
 
     /**
-     * \class OxCalculatorT1Molli
+     * \class CalculatorT1Molli
      * \brief
      * \details
      * @tparam MeasureType

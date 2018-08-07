@@ -13,33 +13,33 @@
 #include "OxFitterAmoebaNr2.h"
 #include "OxFunctionsT1Basic.h"
 
-TEST(NumericalRecipes, doAnything) {
+TEST(OxFitterAmoebaNr2, performFitting) {
 
-    typedef double TYPE;
+    typedef float TYPE;
 
     char filePath [] = "testData/blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
-    double params[3] = {100, 200, 1200};
+    TYPE params[3] = {100, 200, 1200};
 
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
 
-    Ox::FitterAmoebaNr2<TYPE> fitterAmoebaVnl;
-    fitterAmoebaVnl.setFunctionsT1(&functionsObject);
+    Ox::FitterAmoebaNr2<TYPE> fitterAmoebaNr2;
+    fitterAmoebaNr2.setFunctionsT1(&functionsObject);
     functionsObject.setParameters(params);
 
-    fitterAmoebaVnl.setVerbose(true);
-    fitterAmoebaVnl.setTrace(true);
+    fitterAmoebaNr2.setVerbose(false);
+    fitterAmoebaNr2.setTrace(false);
 
-    fitterAmoebaVnl.performFitting();
+    fitterAmoebaNr2.performFitting();
 
-//    EXPECT_NEAR(params[0], testData.getResultsMolli()[0], 1e-2);
-//    EXPECT_NEAR(params[1], testData.getResultsMolli()[1], 1e-2);
-//    EXPECT_NEAR(params[2], testData.getResultsMolli()[2], 1e-2);
+    EXPECT_NEAR(params[0], testData.getResultsMolli()[0], 1e-0);
+    EXPECT_NEAR(params[1], testData.getResultsMolli()[1], 1e-0);
+    EXPECT_NEAR(params[2], testData.getResultsMolli()[2], 1e-0); // TODO: investigate why discrapancy is so big (0.13) compared with other fitting methods
 }
 
 #endif // USE_NR2
