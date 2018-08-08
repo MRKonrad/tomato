@@ -11,8 +11,13 @@ set (OxShmolli2_VERSION_MAJOR 0)
 set (OxShmolli2_VERSION_MINOR 1)
 
 # Compiler flags
+
+#set (CMAKE_CXX_STANDARD 11)
+#set (CMAKE_CXX_STANDARD_REQUIRED ON)
+
 set (CMAKE_CXX_STANDARD 98)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
+
 if (CMAKE_CXX_STANDARD EQUAL 98)
     set (CXX_STANDARD_98 ON)
 endif()
@@ -79,8 +84,6 @@ include(cmake/nr2.cmake)
 # Numerical Recipes v3
 set(USE_NR3 OFF CACHE BOOL "Do you want to use Numerical Recipes 3 code?")
 include(cmake/nr3.cmake)
-
-
 
 ###############
 ### Linking ###

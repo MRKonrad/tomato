@@ -8,7 +8,7 @@
 #define OXSHMOLLI2_OXIMAGECALCULATOR_H
 
 #include "CmakeConfigForOxShmolli2.h"
-#ifndef USE_ONLY_CPP98
+#ifndef CXX_STANDARD_98
 #include <thread>
 #endif
 
@@ -20,65 +20,39 @@ namespace Ox {
     class ImageCalculator {
     public:
 
-        ImageCalculator(){
-            _nCols = 0;
-            _nRows = 0;
-            _nSamples = 0;
-            _useThreads = true;
-        };
+        ImageCalculator();
         virtual ~ImageCalculator(){};
 
-        int calculateThreaded(){
+        void setUseThreads(bool _useThreads);
+        void setNCols(int _nCols);
+        void setNRows(int _nRows);
+        void setNSamples(int _nSamples);
+        void setInvTimes(MeasureType *_invTimes);
+        void setImageMag(MeasureType *_imageMag);
+        void setImagePha(MeasureType *_imagePha);
+        void setImageResults(MeasureType *_imageResults);
+        void setCalculatorT1(CalculatorT1<MeasureType> *_calculatorT1);
 
-            if (!_useThreads) {
-                int posStart = 0;
-                int posStop = _nCols * _nRows;
-                calculateOneThread(posStart, posStop);
-            }
-            else {
-#ifndef CXX_STANDARD_98
+        MeasureType *getImageResults() const;
 
-//                // get the threads ready
-//                std::vector<std::thread> threads;
-//                unsigned concurentThreadsSupported = std::thread::hardware_concurrency();
-//
-//                std::cout << "Number of threads: " << concurentThreadsSupported << std::endl;
-//
-//                // calc the range of pixels for each thread
-//                std::vector<int> limits = bounds(concurentThreadsSupported, _nCols * _nRows);
-//
-//                // threaded loop
-//                for (int i = 0; i < concurentThreadsSupported; ++i){
-//                    threads.push_back(std::thread(&OxCalculatorOld<TYPE>::calcT1MapOneThread, this, limits[i], limits[i+1]));
-//                }
-//
-//                // finish threads
-//                for(auto &t : threads){
-//                    t.join();
-//                }
-#else
-                std::cout << "Threads not supported in OxShmolli2 with C++98" << std::endl;
-#endif
-            }
-            return 0; // EXIT_SUCCESS
-        }
-
-
-        int calculateOneThread(int posStart, int posStop){
-            return 0; // EXIT_SUCCESS
-        };
+        virtual int calculate();
+        virtual int calculateOneThread(int posStart, int posStop);
 
     protected:
         bool _useThreads;
         int _nCols;
         int _nRows;
         int _nSamples;
-        MeasureType** _imagesMag;
-        MeasureType** _imagesPha;
+        MeasureType* _invTimes; // nSamples
+        MeasureType* _imageMag; // nCols * nRows * nSamples, address [iCol][iRow][iSam] iSample * (nCols*nRows) + iRow * nCols + iCol
+        MeasureType* _imagePha; // nCols * nRows * nSamples, address [iCol][iRow][iSam] iSample * (nCols*nRows) + iRow * nCols + iCol
+        MeasureType* _imageResults; // nCols * nRows * nDims, address [iCol][iRow][iDim] iDim * (nCols*nRows) + iRow * nCols + iCol
 
-        CalculatorT1<MeasureType> *calculatorT1;
+        CalculatorT1<MeasureType> *_calculatorT1;
     };
 
 } // namespace Ox
+
+#include "OxImageCalculator.hxx"
 
 #endif //OXSHMOLLI2_OXIMAGECALCULATOR_H

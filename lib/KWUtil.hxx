@@ -9,7 +9,7 @@
 #ifndef KWUtil_hxx
 #define KWUtil_hxx
 
-#include "KWUtil.h"
+//#include "KWUtil.h"
 
 /***********************/
 /* copyArrayToArray    */
@@ -430,7 +430,7 @@ TYPE KWUtil::dicomTime2Seconds(std::string dicomTimeString){
 
 // for threading
 // from https://solarianprogrammer.com/2012/02/27/cpp-11-thread-tutorial-part-2/
-template< typename TYPE >
+template < typename TYPE >
 std::vector<int> KWUtil::bounds(int parts, int mem) {
     std::vector<int>bnd;
     int delta = mem / parts;

@@ -7,8 +7,6 @@
 #ifndef OXShmolli2_OXTESTDATA_HXX
 #define OXShmolli2_OXTESTDATA_HXX
 
-//#include "OxTestData.h"
-
 
 namespace Ox {
 

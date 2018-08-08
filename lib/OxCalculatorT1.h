@@ -211,7 +211,7 @@ namespace Ox {
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
         virtual ~CalculatorT1(){
-            std::cout << "in ~CalculatorT1" << std::endl;
+            //std::cout << "in ~CalculatorT1" << std::endl;
             delete [] _Signal; _Signal = 0;
             delete [] _Signs; _Signs = 0;
          };

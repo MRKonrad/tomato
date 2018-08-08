@@ -154,7 +154,7 @@ public:
     /***********************/
     /* threading           */
     /***********************/
-    template< typename TYPE >
+    template < typename TYPE >
     static std::vector<int> bounds(int parts, int mem);
 
     /***********************/

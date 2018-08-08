@@ -1,0 +1,8 @@
+# cmake copies this file, so you better reload cmake if you change this file and you want everything to be working
+resultsMolli:   [62.4224,  122.522,  919.943]
+resultsShmolli: [62.95,  124.18,  964.57]
+
+signalMag: [   49,   40,   26,   42,   59,   62,   63]
+signalPha: [  918, 3560, 3587, -809, -729, -784, -795]
+signs:     [   -1,   -1,   -1,    1,    1,    1,    1]
+invTimes:  [  100,  180,  260, 1715, 3337, 4907, 6455]

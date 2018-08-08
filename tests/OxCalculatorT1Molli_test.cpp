@@ -25,26 +25,26 @@ TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculator<TYPE> signCalculator;
     Ox::StartPointCalculator<TYPE> startPointCalculator;
-    Ox::CalculatorT1Molli<TYPE> CalculatorT1Shmolli;
+    Ox::CalculatorT1Molli<TYPE> CalculatorT1Molli;
 
     // configure
     fitterAmoebaVnl.setMaxFunctionEvals(0); // I set the maxFunctionEvals to zero
-    CalculatorT1Shmolli.setFunctionsT1(&functionsObject);
-    CalculatorT1Shmolli.setFitter(&fitterAmoebaVnl);
-    CalculatorT1Shmolli.setSignCalculator(&signCalculator);
-    CalculatorT1Shmolli.setStartPointCalculator(&startPointCalculator);
+    CalculatorT1Molli.setFunctionsT1(&functionsObject);
+    CalculatorT1Molli.setFitter(&fitterAmoebaVnl);
+    CalculatorT1Molli.setSignCalculator(&signCalculator);
+    CalculatorT1Molli.setStartPointCalculator(&startPointCalculator);
 
     // set the data
-    CalculatorT1Shmolli.setNSamples(nSamples);
-    CalculatorT1Shmolli.setInvTimes(testData.getInvTimesPtr());
-    CalculatorT1Shmolli.setSigPha(testData.getSignalPhaPtr());
-    CalculatorT1Shmolli.setSigMag(testData.getSignalMagPtr());
+    CalculatorT1Molli.setNSamples(nSamples);
+    CalculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
+    CalculatorT1Molli.setSigPha(testData.getSignalPhaPtr());
+    CalculatorT1Molli.setSigMag(testData.getSignalMagPtr());
 
-    CalculatorT1Shmolli.calculate();
+    CalculatorT1Molli.calculate();
 
-    EXPECT_DOUBLE_EQ(CalculatorT1Shmolli.getResults().A, 0);
-    EXPECT_DOUBLE_EQ(CalculatorT1Shmolli.getResults().B, 0);
-    EXPECT_DOUBLE_EQ(CalculatorT1Shmolli.getResults().T1star, 0);
+    EXPECT_DOUBLE_EQ(CalculatorT1Molli.getResults().A, 0);
+    EXPECT_DOUBLE_EQ(CalculatorT1Molli.getResults().B, 0);
+    EXPECT_DOUBLE_EQ(CalculatorT1Molli.getResults().T1star, 0);
 }
 
 TEST(OxCalculatorT1Molli, calculate_throwIfInvTimesNotSorted) {
@@ -69,21 +69,21 @@ TEST(OxCalculatorT1Molli, calculate_throwIfInvTimesNotSorted) {
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculator<TYPE> signCalculator;
     Ox::StartPointCalculator<TYPE> startPointCalculator;
-    Ox::CalculatorT1Molli<TYPE> CalculatorT1Shmolli;
+    Ox::CalculatorT1Molli<TYPE> CalculatorT1Molli;
 
     // configure
-    CalculatorT1Shmolli.setFunctionsT1(&functionsObject);
-    CalculatorT1Shmolli.setFitter(&fitterAmoebaVnl);
-    CalculatorT1Shmolli.setSignCalculator(&signCalculator);
-    CalculatorT1Shmolli.setStartPointCalculator(&startPointCalculator);
+    CalculatorT1Molli.setFunctionsT1(&functionsObject);
+    CalculatorT1Molli.setFitter(&fitterAmoebaVnl);
+    CalculatorT1Molli.setSignCalculator(&signCalculator);
+    CalculatorT1Molli.setStartPointCalculator(&startPointCalculator);
 
     // set the data
-    CalculatorT1Shmolli.setNSamples(nSamples);
-    CalculatorT1Shmolli.setInvTimes(invTimesNotSorted);
-    CalculatorT1Shmolli.setSigPha(testData.getSignalPhaPtr());
-    CalculatorT1Shmolli.setSigMag(testData.getSignalMagPtr());
+    CalculatorT1Molli.setNSamples(nSamples);
+    CalculatorT1Molli.setInvTimes(invTimesNotSorted);
+    CalculatorT1Molli.setSigPha(testData.getSignalMagPtr());
+    CalculatorT1Molli.setSigMag(testData.getSignalPhaPtr());
 
-    EXPECT_THROW(CalculatorT1Shmolli.calculate(), std::runtime_error);
+    EXPECT_THROW(CalculatorT1Molli.calculate(), std::runtime_error);
 
     delete [] invTimesNotSorted;
 }
