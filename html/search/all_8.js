@@ -1,4 +1,9 @@
 var searchData=
 [
-  ['testdata',['TestData',['../class_ox_1_1_test_data.html',1,'Ox']]]
+  ['setnsamples',['setNSamples',['../class_ox_1_1_calculator_t1.html#ab49b849d3235e243f67118b57d232d46',1,'Ox::CalculatorT1']]],
+  ['signcalculator',['SignCalculator',['../class_ox_1_1_sign_calculator.html',1,'Ox']]],
+  ['signcalculator',['SignCalculator',['../class_ox_1_1_sign_calculator.html#a1b0a177a5f2c6080d6730ff5fdc384af',1,'Ox::SignCalculator']]],
+  ['signcalculatorrealimag',['SignCalculatorRealImag',['../class_ox_1_1_sign_calculator_real_imag.html',1,'Ox']]],
+  ['startpointcalculator',['StartPointCalculator',['../class_ox_1_1_start_point_calculator.html',1,'Ox']]],
+  ['startpointcalculator',['StartPointCalculator',['../class_ox_1_1_start_point_calculator.html#a408ce85b6fbf0ee69f4eca3176b814d6',1,'Ox::StartPointCalculator']]]
 ];

@@ -1,9 +1,11 @@
 <map id="lib/OxFitter.h" name="lib/OxFitter.h">
-<area shape="rect" id="node2" href="$_ox_calculator_t1_8h_source.html" title="lib/OxCalculatorT1.h" alt="" coords="28,88,168,115"/>
-<area shape="rect" id="node5" href="$_ox_fitter_amoeba_vnl_8h.html" title="lib/OxFitterAmoebaVnl.h" alt="" coords="213,88,376,115"/>
-<area shape="rect" id="node7" href="$_ox_fitter_levenberg_marquardt_vnl_8h.html" title="lib/OxFitterLevenbergMarquardt\lVnl.h" alt="" coords="439,81,643,122"/>
-<area shape="rect" id="node3" href="$_ox_calculator_t1_molli_8h.html" title="lib/OxCalculatorT1Molli.h" alt="" coords="5,179,173,205"/>
-<area shape="rect" id="node4" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="63,262,236,303"/>
-<area shape="rect" id="node6" href="$_ox_fitter_amoeba_vnl__test_8cpp.html" title="tests/OxFitterAmoebaVnl\l_test.cpp" alt="" coords="249,171,417,213"/>
-<area shape="rect" id="node8" href="$_ox_fitter_levenberg_marquardt_vnl__test_8cpp.html" title="tests/OxFitterLevenbergMarquardt\lVnl_test.cpp" alt="" coords="442,171,661,213"/>
+<area shape="rect" id="node2" href="$_ox_calculator_t1_8h_source.html" title="lib/OxCalculatorT1.h" alt="" coords="205,88,345,115"/>
+<area shape="rect" id="node7" href="$_ox_fitter_amoeba_vnl_8h.html" title="lib/OxFitterAmoebaVnl.h" alt="" coords="385,179,548,205"/>
+<area shape="rect" id="node9" href="$_ox_fitter_levenberg_marquardt_vnl_8h.html" title="lib/OxFitterLevenbergMarquardt\lVnl.h" alt="" coords="542,81,745,122"/>
+<area shape="rect" id="node3" href="$_ox_calculator_t1_molli_8h.html" title="lib/OxCalculatorT1Molli.h" alt="" coords="192,179,360,205"/>
+<area shape="rect" id="node6" href="$_ox_image_calculator_8h.html" title="lib/OxImageCalculator.h" alt="" coords="5,179,168,205"/>
+<area shape="rect" id="node4" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="287,262,460,303"/>
+<area shape="rect" id="node5" href="$_ox_image_calculator__test_8cpp.html" title="tests/OxImageCalculator\l_test.cpp" alt="" coords="95,262,261,303"/>
+<area shape="rect" id="node8" href="$_ox_fitter_amoeba_vnl__test_8cpp.html" title="tests/OxFitterAmoebaVnl\l_test.cpp" alt="" coords="485,262,653,303"/>
+<area shape="rect" id="node10" href="$_ox_fitter_levenberg_marquardt_vnl__test_8cpp.html" title="tests/OxFitterLevenbergMarquardt\lVnl_test.cpp" alt="" coords="573,171,792,213"/>
 </map>

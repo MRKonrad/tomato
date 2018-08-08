@@ -4,6 +4,7 @@ var searchData=
   ['oxcalculatort1molli_5ftest_2ecpp',['OxCalculatorT1Molli_test.cpp',['../_ox_calculator_t1_molli__test_8cpp.html',1,'']]],
   ['oxfitter_2eh',['OxFitter.h',['../_ox_fitter_8h.html',1,'']]],
   ['oxfitteramoebanr2_2eh',['OxFitterAmoebaNr2.h',['../_ox_fitter_amoeba_nr2_8h.html',1,'']]],
+  ['oxfitteramoebaprivatenr2_5ftest_2ecpp',['OxFitterAmoebaPrivateNr2_test.cpp',['../_ox_fitter_amoeba_private_nr2__test_8cpp.html',1,'']]],
   ['oxfitteramoebavnl_2eh',['OxFitterAmoebaVnl.h',['../_ox_fitter_amoeba_vnl_8h.html',1,'']]],
   ['oxfitteramoebavnl_5ftest_2ecpp',['OxFitterAmoebaVnl_test.cpp',['../_ox_fitter_amoeba_vnl__test_8cpp.html',1,'']]],
   ['oxfitterlevenbergmarquardtvnl_2eh',['OxFitterLevenbergMarquardtVnl.h',['../_ox_fitter_levenberg_marquardt_vnl_8h.html',1,'']]],
@@ -16,10 +17,15 @@ var searchData=
   ['oxfunctionst1basic_2eh',['OxFunctionsT1Basic.h',['../_ox_functions_t1_basic_8h.html',1,'']]],
   ['oxfunctionst1basic_2ehxx',['OxFunctionsT1Basic.hxx',['../_ox_functions_t1_basic_8hxx.html',1,'']]],
   ['oxfunctionst1basic_5ftest_2ecpp',['OxFunctionsT1Basic_test.cpp',['../_ox_functions_t1_basic__test_8cpp.html',1,'']]],
+  ['oximagecalculator_2eh',['OxImageCalculator.h',['../_ox_image_calculator_8h.html',1,'']]],
+  ['oximagecalculator_2ehxx',['OxImageCalculator.hxx',['../_ox_image_calculator_8hxx.html',1,'']]],
+  ['oximagecalculator_5ftest_2ecpp',['OxImageCalculator_test.cpp',['../_ox_image_calculator__test_8cpp.html',1,'']]],
   ['oxsigncalculator_2eh',['OxSignCalculator.h',['../_ox_sign_calculator_8h.html',1,'']]],
   ['oxsigncalculatorrealimag_2eh',['OxSignCalculatorRealImag.h',['../_ox_sign_calculator_real_imag_8h.html',1,'']]],
   ['oxsigncalculatorrealimag_5ftest_2ecpp',['OxSignCalculatorRealImag_test.cpp',['../_ox_sign_calculator_real_imag__test_8cpp.html',1,'']]],
   ['oxstartpointcalculator_2eh',['OxStartPointCalculator.h',['../_ox_start_point_calculator_8h.html',1,'']]],
   ['oxtestdata_2eh',['OxTestData.h',['../_ox_test_data_8h.html',1,'']]],
-  ['oxtestdata_2ehxx',['OxTestData.hxx',['../_ox_test_data_8hxx.html',1,'']]]
+  ['oxtestdata_2ehxx',['OxTestData.hxx',['../_ox_test_data_8hxx.html',1,'']]],
+  ['oxtestimage_2eh',['OxTestImage.h',['../_ox_test_image_8h.html',1,'']]],
+  ['oxtestimage_2ehxx',['OxTestImage.hxx',['../_ox_test_image_8hxx.html',1,'']]]
 ];

@@ -11,11 +11,12 @@ var annotated =
       [ "FunctionsT1AdapterVnlCost", "class_ox_1_1_functions_t1_adapter_vnl_cost.html", "class_ox_1_1_functions_t1_adapter_vnl_cost" ],
       [ "FunctionsT1AdapterVnlLeastSquares", "class_ox_1_1_functions_t1_adapter_vnl_least_squares.html", "class_ox_1_1_functions_t1_adapter_vnl_least_squares" ],
       [ "FunctionsT1Basic", "class_ox_1_1_functions_t1_basic.html", "class_ox_1_1_functions_t1_basic" ],
+      [ "ImageCalculator", "class_ox_1_1_image_calculator.html", "class_ox_1_1_image_calculator" ],
       [ "SignCalculator", "class_ox_1_1_sign_calculator.html", "class_ox_1_1_sign_calculator" ],
       [ "SignCalculatorRealImag", "class_ox_1_1_sign_calculator_real_imag.html", "class_ox_1_1_sign_calculator_real_imag" ],
       [ "StartPointCalculator", "class_ox_1_1_start_point_calculator.html", "class_ox_1_1_start_point_calculator" ],
-      [ "TestData", "class_ox_1_1_test_data.html", "class_ox_1_1_test_data" ]
+      [ "TestData", "class_ox_1_1_test_data.html", "class_ox_1_1_test_data" ],
+      [ "TestImage", "class_ox_1_1_test_image.html", "class_ox_1_1_test_image" ]
     ] ],
-    [ "KWUtil", "class_k_w_util.html", null ],
-    [ "OxCalculatorT1Molli", "class_ox_calculator_t1_molli.html", null ]
+    [ "KWUtil", "class_k_w_util.html", null ]
 ];

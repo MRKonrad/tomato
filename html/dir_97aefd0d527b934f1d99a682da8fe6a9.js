@@ -30,6 +30,10 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
       [ "FunctionsT1Basic", "class_ox_1_1_functions_t1_basic.html", "class_ox_1_1_functions_t1_basic" ]
     ] ],
     [ "OxFunctionsT1Basic.hxx", "_ox_functions_t1_basic_8hxx.html", null ],
+    [ "OxImageCalculator.h", "_ox_image_calculator_8h.html", [
+      [ "ImageCalculator", "class_ox_1_1_image_calculator.html", "class_ox_1_1_image_calculator" ]
+    ] ],
+    [ "OxImageCalculator.hxx", "_ox_image_calculator_8hxx.html", null ],
     [ "OxSignCalculator.h", "_ox_sign_calculator_8h.html", [
       [ "SignCalculator", "class_ox_1_1_sign_calculator.html", "class_ox_1_1_sign_calculator" ]
     ] ],

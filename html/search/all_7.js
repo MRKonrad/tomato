@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['setnsamples',['setNSamples',['../class_ox_1_1_calculator_t1.html#ab49b849d3235e243f67118b57d232d46',1,'Ox::CalculatorT1']]],
-  ['signcalculator',['SignCalculator',['../class_ox_1_1_sign_calculator.html',1,'Ox']]],
-  ['signcalculator',['SignCalculator',['../class_ox_1_1_sign_calculator.html#a1b0a177a5f2c6080d6730ff5fdc384af',1,'Ox::SignCalculator']]],
-  ['signcalculatorrealimag',['SignCalculatorRealImag',['../class_ox_1_1_sign_calculator_real_imag.html',1,'Ox']]],
-  ['startpointcalculator',['StartPointCalculator',['../class_ox_1_1_start_point_calculator.html',1,'Ox']]],
-  ['startpointcalculator',['StartPointCalculator',['../class_ox_1_1_start_point_calculator.html#a408ce85b6fbf0ee69f4eca3176b814d6',1,'Ox::StartPointCalculator']]]
+  ['performfitting',['performFitting',['../class_ox_1_1_fitter.html#a8f240f0da86d06b339ab2747e87f21b9',1,'Ox::Fitter::performFitting()'],['../class_ox_1_1_fitter_amoeba_vnl.html#a0c198974c2a95d0eb35cfe4c838e516c',1,'Ox::FitterAmoebaVnl::performFitting()'],['../class_ox_1_1_fitter_levenberg_marquardt_vnl.html#a533dee878077bfb6f4c9a88db47a15b9',1,'Ox::FitterLevenbergMarquardtVnl::performFitting()']]],
+  ['preparetocalculate',['prepareToCalculate',['../class_ox_1_1_calculator_t1.html#a528d2528b1814116bdc266a726dd2303',1,'Ox::CalculatorT1']]]
 ];

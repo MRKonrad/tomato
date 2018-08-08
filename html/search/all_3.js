@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kwutil',['KWUtil',['../class_k_w_util.html',1,'']]]
+  ['imagecalculator',['ImageCalculator',['../class_ox_1_1_image_calculator.html',1,'Ox']]]
 ];

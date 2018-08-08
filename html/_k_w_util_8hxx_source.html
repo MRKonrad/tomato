@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('_k_w_util_8hxx_source.html','');});
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef KWUtil_hxx</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define KWUtil_hxx</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;KWUtil.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//#include &quot;KWUtil.h&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/***********************/</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/* copyArrayToArray    */</span></div>
@@ -537,7 +537,7 @@ $(document).ready(function(){initNavTree('_k_w_util_8hxx_source.html','');});
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="comment">// for threading</span></div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="comment">// from https://solarianprogrammer.com/2012/02/27/cpp-11-thread-tutorial-part-2/</span></div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="keyword">template</span>&lt; <span class="keyword">typename</span> TYPE &gt;</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> TYPE &gt;</div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;std::vector&lt;int&gt; KWUtil::bounds(<span class="keywordtype">int</span> parts, <span class="keywordtype">int</span> mem) {</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    std::vector&lt;int&gt;bnd;</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    <span class="keywordtype">int</span> delta = mem / parts;</div>
