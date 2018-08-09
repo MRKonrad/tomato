@@ -12,15 +12,15 @@ set (OxShmolli2_VERSION_MINOR 1)
 
 # Compiler flags
 
-set (CMAKE_CXX_STANDARD 11)
+#set (CMAKE_CXX_STANDARD 11)
+#set (CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set (CMAKE_CXX_STANDARD 98)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
 
-#set (CMAKE_CXX_STANDARD 98)
-#set (CMAKE_CXX_STANDARD_REQUIRED ON)
-#
-#if (CMAKE_CXX_STANDARD EQUAL 98)
-#    set (CXX_STANDARD_98 ON)
-#endif()
+if (CMAKE_CXX_STANDARD EQUAL 98)
+    set (CXX_STANDARD_98 ON)
+endif()
 
 # configure a header file to pass some of the CMake settings to the source code
 configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForOxShmolli2.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForOxShmolli2.h")

@@ -82,6 +82,12 @@ namespace Ox {
         }
 
         /**
+         * cloning
+         * @return
+         */
+        virtual Fitter<MeasureType> *newByCloning() { return new FitterLevenbergMarquardtVnl<MeasureType>(*this); }
+
+        /**
          * \brief destructor
          */
         virtual ~FitterLevenbergMarquardtVnl() {
@@ -97,8 +103,8 @@ namespace Ox {
                     std::cerr << "Set the OxFunctions object" << std::endl;
                     throw std::exception();
                 } else {
-                    delete _FunctionsAdaptedToVnl;
-                    delete _VnlFitter;
+                    delete _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;
+                    delete _VnlFitter; _VnlFitter = 0;
                     int nSamples = this->_FunctionsT1->getNSamples();
                     _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nSamples, vnl_least_squares_function::use_gradient);
                     _FunctionsAdaptedToVnl->setFunctionsT1(this->_FunctionsT1);

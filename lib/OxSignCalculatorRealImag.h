@@ -38,6 +38,12 @@ namespace Ox {
                 MeasureType* signal,
                 MeasureType* signs);
 
+        /**
+         * cloning
+         * @return
+         */
+        virtual SignCalculator<MeasureType> *newByCloning() { return new SignCalculatorRealImag<MeasureType>(*this); }
+
     };
 
     template<typename MeasureType>

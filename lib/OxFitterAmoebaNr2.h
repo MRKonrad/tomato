@@ -73,6 +73,12 @@ namespace Ox {
 
     public:
 
+        /**
+         * cloning
+         * @return
+         */
+        virtual Fitter<MeasureType> *newByCloning() { return new FitterAmoebaNr2<MeasureType>(*this); }
+
         FitterAmoebaNr2() {
             _nDims = 3;
         }

@@ -93,7 +93,7 @@ namespace Ox {
             KWUtil::printArray((bool)getRepTimes(), nSamples, getRepTimes(),       (char*)"\nRepTimes:    ");
             KWUtil::printArray((bool)getRelAcqTimes(), nSamples, getRelAcqTimes(), (char*)"\nRelAcqTimes: ");
             KWUtil::printArray((bool)getSignal(), nSamples, getSignal(),           (char*)"\nSignal:      ");
-            KWUtil::printArray((bool)getParameters(), _nDims, getParameters(),          (char*)"\nParameters:  ");
+            KWUtil::printArray((bool)getParameters(), _nDims, getParameters(),     (char*)"\nParameters:  ");
             std::cout << std::endl;
         }
 
@@ -110,7 +110,7 @@ namespace Ox {
         }
 
         /**
-         * \brief default constructor
+         * \brief constructor
          */
         FunctionsT1(){
             //std::cout << "FunctionsT1 constructor" << std::endl;
@@ -124,11 +124,17 @@ namespace Ox {
          * @param old
          */
         FunctionsT1(const FunctionsT1 &old) {
-            std::cout<<"FunctionsT1 copy constructor "<<std::endl;
+            //std::cout<<"FunctionsT1 copy constructor "<<std::endl;
             _nSamples = old._nSamples;
             _nDims = old._nDims;
             init();
         }
+
+        /**
+         * cloning
+         * @return
+         */
+        virtual FunctionsT1<MeasureType> *newByCloning() = 0;
 
         /**
          * \brief do not forget about the virtual destructor, see
@@ -145,7 +151,7 @@ namespace Ox {
         const MeasureType* _Signal;
         MeasureType* _Parameters;
         int _nSamples;
-        int _nDims = 3;
+        int _nDims;
     };
 } //namespace Ox
 

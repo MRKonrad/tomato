@@ -56,7 +56,7 @@ namespace Ox {
             std::cout << "MaxFunctionEvals: " << getMaxFunctionEvals() << std::endl;
             std::cout << "ThreadId:         " << getThreadId() << std::endl;
             if(_FunctionsT1) {
-                std::cout << "This Fitter contains the followind FunctionsT1 object: ";
+                std::cout << "This Fitter contains the following FunctionsT1 object: ";
                 _FunctionsT1->disp();
             };
         }
@@ -89,6 +89,12 @@ namespace Ox {
             _Verbose = old._Verbose;
             _Trace = old._Trace;
         }
+
+        /**
+         * cloning
+         * @return
+         */
+        virtual Fitter<MeasureType> *newByCloning() = 0;
 
         /**
          * \brief do not forget about the virtual destructor, see

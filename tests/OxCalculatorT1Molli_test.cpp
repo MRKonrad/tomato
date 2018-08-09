@@ -157,3 +157,42 @@ TEST(OxCalculatorT1Molli, calculate_WithSigns) {
     EXPECT_NEAR(calculatorT1Molli.getResults().T1star, testData.getResultsMolli()[2], 1e-2);
 }
 
+TEST(OxCalculatorT1Molli, copyConstructor) {
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/blood.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    // init the necessary objects
+    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
+    Ox::SignCalculatorRealImag<TYPE> signCalculator;
+    Ox::StartPointCalculator<TYPE> startPointCalculator;
+    Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
+
+    // configure
+    calculatorT1Molli.setFunctionsT1(&functionsObject);
+    calculatorT1Molli.setFitter(&fitterAmoebaVnl);
+    calculatorT1Molli.setSignCalculator(&signCalculator);
+    calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
+
+    // set the data
+    calculatorT1Molli.setNSamples(nSamples);
+    calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
+    calculatorT1Molli.setSigPha(testData.getSignalPhaPtr());
+    calculatorT1Molli.setSigMag(testData.getSignalMagPtr());
+    calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
+
+    calculatorT1Molli.disp();
+
+    //EXPECT_EQ( 1, 0);
+
+//    calculatorT1Molli.calculate();
+//
+//    EXPECT_NEAR(calculatorT1Molli.getResults().A, testData.getResultsMolli()[0], 1e-2);
+//    EXPECT_NEAR(calculatorT1Molli.getResults().B, testData.getResultsMolli()[1], 1e-2);
+//    EXPECT_NEAR(calculatorT1Molli.getResults().T1star, testData.getResultsMolli()[2], 1e-2);
+}
+

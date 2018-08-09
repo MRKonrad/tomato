@@ -137,6 +137,22 @@ namespace Ox {
     ImageCalculator<MeasureType>
     ::calculateOneThread(int posStart, int posStop){
 
+        // perform all the calculations on the copies of original objects!!!
+
+        // clone the necessary objects
+        Ox::CalculatorT1<MeasureType> *calculatorT1 = _calculatorT1->newByCloning();
+        Ox::FunctionsT1<MeasureType> *functionsObject = _calculatorT1->getFunctionsT1()->newByCloning();
+        Ox::Fitter<MeasureType> *fitter = _calculatorT1->getFitter()->newByCloning();
+        Ox::SignCalculator<MeasureType> *signCalculator = _calculatorT1->getSignCalculator()->newByCloning();
+        Ox::StartPointCalculator<MeasureType> *startPointCalculator = _calculatorT1->getStartPointCalculator()->newByCloning();
+
+        // configure
+        calculatorT1->setFunctionsT1(functionsObject);
+        calculatorT1->setFitter(fitter);
+        calculatorT1->setSignCalculator(signCalculator);
+        calculatorT1->setStartPointCalculator(startPointCalculator);
+
+
         for (int pos = posStart; pos < posStop; ++pos) {
             // set the data
             MeasureType *sigMag = new MeasureType[_nSamples];
@@ -147,20 +163,27 @@ namespace Ox {
                 sigPha[iSample] = _imagePha[iSample * (_nCols * _nRows) + pos];
             }
 
-            _calculatorT1->setNSamples(_nSamples);
-            _calculatorT1->setInvTimes(_invTimes);
-            _calculatorT1->setSigMag(sigMag);
-            _calculatorT1->setSigPha(sigPha);
+            calculatorT1->setNSamples(_nSamples);
+            calculatorT1->setInvTimes(_invTimes);
+            calculatorT1->setSigMag(sigMag);
+            calculatorT1->setSigPha(sigPha);
 
-            _calculatorT1->calculate();
+            calculatorT1->calculate();
 
-            _imageResults[0 * (_nCols * _nRows) + pos] = _calculatorT1->getResults().A;
-            _imageResults[1 * (_nCols * _nRows) + pos] = _calculatorT1->getResults().B;
-            _imageResults[2 * (_nCols * _nRows) + pos] = _calculatorT1->getResults().T1star;
+            _imageResults[0 * (_nCols * _nRows) + pos] = calculatorT1->getResults().A;
+            _imageResults[1 * (_nCols * _nRows) + pos] = calculatorT1->getResults().B;
+            _imageResults[2 * (_nCols * _nRows) + pos] = calculatorT1->getResults().T1star;
 
             delete [] sigMag;
             delete [] sigPha;
         }
+
+        delete calculatorT1;
+        delete functionsObject;
+        delete fitter;
+        delete signCalculator;
+        delete startPointCalculator;
+
         return 0; // EXIT_SUCCESS
     }
 

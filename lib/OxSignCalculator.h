@@ -22,32 +22,32 @@ namespace Ox {
 
         // getters
         virtual const MeasureType *getInvTimes() const {
-            if (!_InvTimes) { std::cerr << "_InvTimes equals 0. Set _InvTimes" << std::endl; throw std::exception(); }
+            if (!_InvTimes) throw std::runtime_error("_InvTimes equals 0. Set _InvTimes");
             return _InvTimes;
         }
 
         virtual const MeasureType *getSigMag() const {
-            if (!_SigMag) { std::cerr << "_SigMag equals 0. Set _SigMag" << std::endl; throw std::exception(); }
+            if (!_SigMag) throw std::runtime_error("_SigMag equals 0. Set _SigMag");
             return _SigMag;
         }
 
         virtual const MeasureType *getSigPha() const {
-            if (!_SigPha) { std::cerr << "_SigPha equals 0. Set _SigPha" << std::endl; throw std::exception(); }
+            if (!_SigPha) throw std::runtime_error("_SigPha equals 0. Set _SigPha");
             return _SigPha;
         }
 
         virtual MeasureType *getSignal() {
-            if (!_Signal) { std::cerr << "_Signal equals 0. Set _Signal" << std::endl; throw std::exception(); }
+            if (!_Signal) throw std::runtime_error("_Signal equals 0. Set _Signal");
             return _Signal;
         }
 
         virtual MeasureType *getSigns() {
-            if (!_Signs) { std::cerr << "_Signs equals 0. Set _Signs" << std::endl; throw std::exception(); }
+            if (!_Signs) throw std::runtime_error("_Signs equals 0. Set _Signs");
             return _Signs;
         }
 
         virtual int getNSamples() {
-            if (!_nSamples) { std::cerr << "_nSamples equals 0. Set _nSamples" << std::endl; throw std::exception(); }
+            if (!_nSamples) throw std::runtime_error("_nSamples equals 0. Set _nSamples");
             return _nSamples;
         }
 
@@ -73,17 +73,42 @@ namespace Ox {
             return 0; // EXIT_SUCCESS
         }
 
+        void disp(){
+            std::cout << "\nTODO: implement SignCalculator disp " << this << std::endl;
+        }
+
         /**
-         * \brief default constructor
+         * \brief set all the pointers to zero
          */
-        SignCalculator(){
+        void init(){
             _InvTimes = 0;
             _SigMag = 0;
             _SigPha = 0;
             _Signal = 0;
             _Signs = 0;
+        }
+
+        /**
+         * \brief constructor
+         */
+        SignCalculator(){
+            init();
             _nSamples = 0;
         };
+
+        /**
+         * \brief copy constructor
+         */
+        SignCalculator(const SignCalculator &old){
+            init();
+            _nSamples = old._nSamples;
+        };
+
+        /**
+         * cloning
+         * @return
+         */
+        virtual SignCalculator<MeasureType> *newByCloning() { return new SignCalculator<MeasureType>(*this); }
 
         /**
          * \brief do not forget about the virtual destructor, see

@@ -25,6 +25,12 @@ namespace Ox {
             MaxTIForSignInvert = this->MAX_T1_TRESHOLD * 0.67;
         }
 
+        /**
+         * cloning
+         * @return
+         */
+        virtual CalculatorT1<MeasureType> *newByCloning() { return new CalculatorT1Molli<MeasureType>(*this); }
+
         virtual int calculate(){
             MeasureType results[3];
             this->_Results = calculateMolli( this->getNSamples(),

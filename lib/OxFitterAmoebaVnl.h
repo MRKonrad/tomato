@@ -51,7 +51,7 @@ namespace Ox {
          * \brief show me your Fitter
          */
         virtual void disp(){
-            std::cout << "\nYou called disp() on a FitterAmoebaVnl object" << this << "\n";
+            std::cout << "\nYou called disp() on a FitterAmoebaVnl object " << this << "\n";
             std::cout << "It has VnlFitter " << _VnlFitter << std::endl;
             std::cout << "It has FunctionsAdaptedToVnl " << _FunctionsAdaptedToVnl << std::endl;
             std::cout << "It's base class is as follows: ";
@@ -75,6 +75,12 @@ namespace Ox {
             _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(*old.getFunctionsAdaptedToVnl());
             _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);
         }
+
+        /**
+         * cloning
+         * @return
+         */
+        virtual Fitter<MeasureType> *newByCloning() { return new FitterAmoebaVnl<MeasureType>(*this); }
 
         /**
          * \brief destructor

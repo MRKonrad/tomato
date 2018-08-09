@@ -27,7 +27,7 @@ namespace Ox {
         bool hasBeenCalculated;
 
         /**
-         * default contructor
+         * constructor
          */
         CalculatorT1Results() {
             A = 0;
@@ -45,6 +45,27 @@ namespace Ox {
 
             hasBeenCalculated = false;
         };
+
+        void disp(){
+            std::cout << "CalculatorT1Results: " << this << std::endl;
+            std::cout << "A: " << A << std::endl;
+            std::cout << "B: " << B << std::endl;
+            std::cout << "T1star: " << T1star << std::endl;
+            std::cout << "T1: " << T1 << std::endl;
+            std::cout << "R2: " << R2 << std::endl;
+            std::cout << "ChiSqrt: " << ChiSqrt << std::endl;
+            std::cout << "SNR: " << SNR << std::endl;
+            std::cout << "LastValue: " << LastValue << std::endl;
+            std::cout << "NShmolliSamplesUsed: " << NShmolliSamplesUsed << std::endl;
+            std::cout << "SD_A: " << SD_A << std::endl;
+            std::cout << "SD_B: " << SD_B << std::endl;
+            std::cout << "SD_T1: " << SD_T1 << std::endl;
+            if (hasBeenCalculated) std::cout << "has been calculated" << std::endl;
+            else std::cout << "has NOT been calculated" << std::endl;
+
+            hasBeenCalculated = false;
+        }
+
     };
 } // namespace Ox
 

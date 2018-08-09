@@ -22,18 +22,13 @@ namespace Ox {
 
         // getters
         MeasureType *getCalculatedStartPoint() const {
-            if (!_CalculatedStartPoint) {
-                std::cerr << "_CalculatedStartPoint equals 0. Set _CalculatedStartPoint" << std::endl;
-                throw std::exception();
-            };
+            if (!_CalculatedStartPoint) throw std::runtime_error("_CalculatedStartPoint equals 0. Set _CalculatedStartPoint");
             return _CalculatedStartPoint;
         }
 
-        const MeasureType *getDefaultStartPoint() const {
-            return _DefaultStartPoint;
-        }
+        const MeasureType *getDefaultStartPoint() const { return _DefaultStartPoint; }
 
-        int getNStartFitPoints() const { return _nStartFitPoints; }
+        int getNStartFitPoints() const { return _nDims; }
 
         //setters
         virtual void setInvTimes(const MeasureType *_InvTimes) { StartPointCalculator::_InvTimes = _InvTimes; }
@@ -59,21 +54,52 @@ namespace Ox {
             return 0; // EXIT_SUCCESS
         }
 
-        /**
-          * \brief default constructor
-          */
-        StartPointCalculator(){
-            _DefaultStartPoint[0] = 100;
-            _DefaultStartPoint[1] = 200;
-            _DefaultStartPoint[2] = 1000;
+        void disp(){
+            std::cout << "\nTODO: implement StartPointCalculator disp " << this << std::endl;
+        }
 
+        /**
+         * \brief set all the pointers to zero
+         */
+        void init(){
             _CalculatedStartPoint = 0;
             _InvTimes = 0;
             _Signal = 0;
             _Signs = 0;
-            _nSamples = 0;
-            _nStartFitPoints = 3;
         }
+
+        /**
+          * \brief constructor
+          */
+        StartPointCalculator(){
+            init();
+
+            _DefaultStartPoint[0] = 100;
+            _DefaultStartPoint[1] = 200;
+            _DefaultStartPoint[2] = 1000;
+            _nSamples = 0;
+            _nDims = 3;
+        }
+
+        /**
+         * \brief copy constructor
+         */
+        StartPointCalculator(const StartPointCalculator &old){
+            init();
+
+            _DefaultStartPoint[0] = old._DefaultStartPoint[0];
+            _DefaultStartPoint[1] = old._DefaultStartPoint[1];
+            _DefaultStartPoint[2] = old._DefaultStartPoint[2];
+            _nSamples = old._nSamples;
+            _nDims = old._nDims;
+            _nSamples = old._nSamples;
+        };
+
+        /**
+         * cloning
+         * @return
+         */
+        virtual StartPointCalculator<MeasureType> *newByCloning() { return new StartPointCalculator<MeasureType>(*this); }
 
         /**
          * \brief do not forget about the virtual destructor, see
@@ -90,7 +116,7 @@ namespace Ox {
         const MeasureType* _Signs;
 
         int _nSamples;
-        int _nStartFitPoints; // special ShMOLLI parameter
+        int _nDims; // special ShMOLLI parameter
 
     };
 } //namespace Ox

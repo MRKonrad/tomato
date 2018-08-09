@@ -31,6 +31,12 @@ namespace Ox {
         virtual void calcCostDerivative(MeasureType* derivative);
 
         /**
+         * cloning
+         * @return
+         */
+        virtual FunctionsT1<MeasureType> *newByCloning() { return new FunctionsT1Basic<MeasureType>(*this); }
+
+        /**
          * \brief do not forget about the virtual destructor, see
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
