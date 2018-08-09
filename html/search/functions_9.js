@@ -1,0 +1,11 @@
+var searchData=
+[
+  ['_7ecalculatort1',['~CalculatorT1',['../class_ox_1_1_calculator_t1.html#af5d360f92d3c1b1c2f4241e528451f2e',1,'Ox::CalculatorT1']]],
+  ['_7efitter',['~Fitter',['../class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43',1,'Ox::Fitter']]],
+  ['_7efitteramoebavnl',['~FitterAmoebaVnl',['../class_ox_1_1_fitter_amoeba_vnl.html#a80f876905cc4f5019dbbcfdbec257f79',1,'Ox::FitterAmoebaVnl']]],
+  ['_7efitterlevenbergmarquardtvnl',['~FitterLevenbergMarquardtVnl',['../class_ox_1_1_fitter_levenberg_marquardt_vnl.html#ae210e0ae7b19f15170cb455d1bec0d9d',1,'Ox::FitterLevenbergMarquardtVnl']]],
+  ['_7efunctionst1',['~FunctionsT1',['../class_ox_1_1_functions_t1.html#a900d5602b3dd10fca760a304e41da9b5',1,'Ox::FunctionsT1']]],
+  ['_7efunctionst1basic',['~FunctionsT1Basic',['../class_ox_1_1_functions_t1_basic.html#ae3f94c1426a8e6f569b8c70f86122c0b',1,'Ox::FunctionsT1Basic']]],
+  ['_7esigncalculator',['~SignCalculator',['../class_ox_1_1_sign_calculator.html#a5143a172e360633d8df758756d146889',1,'Ox::SignCalculator']]],
+  ['_7estartpointcalculator',['~StartPointCalculator',['../class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a',1,'Ox::StartPointCalculator']]]
+];

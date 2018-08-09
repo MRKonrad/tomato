@@ -1,6 +1,7 @@
 var struct_ox_1_1_calculator_t1_results =
 [
     [ "CalculatorT1Results", "struct_ox_1_1_calculator_t1_results.html#a2ef9ec72b2f7e61bb442fe8e0f61d508", null ],
+    [ "disp", "struct_ox_1_1_calculator_t1_results.html#a95930b2a41a0caf402b254deaad2353c", null ],
     [ "A", "struct_ox_1_1_calculator_t1_results.html#ae36ed33002bfc4b2d8d194771369987f", null ],
     [ "B", "struct_ox_1_1_calculator_t1_results.html#a6cbc503c5793635828ffb3194a9998a8", null ],
     [ "ChiSqrt", "struct_ox_1_1_calculator_t1_results.html#a631f2067425a391d806f9a272261b22f", null ],

@@ -4,6 +4,7 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "KWUtil.hxx", "_k_w_util_8hxx_source.html", null ],
     [ "OxCalculatorResults.h", "_ox_calculator_results_8h_source.html", null ],
     [ "OxCalculatorT1.h", "_ox_calculator_t1_8h_source.html", null ],
+    [ "OxCalculatorT1.hxx", "_ox_calculator_t1_8hxx_source.html", null ],
     [ "OxCalculatorT1Molli.h", "_ox_calculator_t1_molli_8h.html", [
       [ "CalculatorT1Molli", "class_ox_1_1_calculator_t1_molli.html", "class_ox_1_1_calculator_t1_molli" ]
     ] ],

@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['_7ecalculatort1',['~CalculatorT1',['../class_ox_1_1_calculator_t1.html#af5d360f92d3c1b1c2f4241e528451f2e',1,'Ox::CalculatorT1']]],
-  ['_7efunctionst1',['~FunctionsT1',['../class_ox_1_1_functions_t1.html#a900d5602b3dd10fca760a304e41da9b5',1,'Ox::FunctionsT1']]],
-  ['_7efunctionst1basic',['~FunctionsT1Basic',['../class_ox_1_1_functions_t1_basic.html#ae3f94c1426a8e6f569b8c70f86122c0b',1,'Ox::FunctionsT1Basic']]],
-  ['_7esigncalculator',['~SignCalculator',['../class_ox_1_1_sign_calculator.html#a5143a172e360633d8df758756d146889',1,'Ox::SignCalculator']]],
-  ['_7estartpointcalculator',['~StartPointCalculator',['../class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a',1,'Ox::StartPointCalculator']]]
+  ['setnsamples',['setNSamples',['../class_ox_1_1_calculator_t1.html#af5d84e582c3793ebe168f24245f04de1',1,'Ox::CalculatorT1']]],
+  ['signcalculator',['SignCalculator',['../class_ox_1_1_sign_calculator.html',1,'Ox']]],
+  ['signcalculator',['SignCalculator',['../class_ox_1_1_sign_calculator.html#a1b0a177a5f2c6080d6730ff5fdc384af',1,'Ox::SignCalculator::SignCalculator()'],['../class_ox_1_1_sign_calculator.html#a118469032ecb643b93ba56f948fdce85',1,'Ox::SignCalculator::SignCalculator(const SignCalculator &amp;old)']]],
+  ['signcalculatorrealimag',['SignCalculatorRealImag',['../class_ox_1_1_sign_calculator_real_imag.html',1,'Ox']]],
+  ['startpointcalculator',['StartPointCalculator',['../class_ox_1_1_start_point_calculator.html',1,'Ox']]],
+  ['startpointcalculator',['StartPointCalculator',['../class_ox_1_1_start_point_calculator.html#a408ce85b6fbf0ee69f4eca3176b814d6',1,'Ox::StartPointCalculator::StartPointCalculator()'],['../class_ox_1_1_start_point_calculator.html#ab6b12ed8fa6b47b3335b5c7a92b94623',1,'Ox::StartPointCalculator::StartPointCalculator(const StartPointCalculator &amp;old)']]]
 ];

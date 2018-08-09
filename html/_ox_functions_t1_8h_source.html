@@ -147,45 +147,75 @@ $(document).ready(function(){initNavTree('_ox_functions_t1_8h_source.html','');}
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">void</span> setNSamples(<span class="keywordtype">int</span> _nSamples) { FunctionsT1::_nSamples = _nSamples; }</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> copyToParameters(<span class="keyword">const</span> MeasureType *ptrFrom){</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i){</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                _Parameters[0] = ptrFrom[0];</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                _Parameters[1] = ptrFrom[1];</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                _Parameters[2] = ptrFrom[2];</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="class_ox_1_1_functions_t1.html#a7dae9dc71ec97e9eef1308c9937aaaf0">   90</a></span>&#160;        <a class="code" href="class_ox_1_1_functions_t1.html#a7dae9dc71ec97e9eef1308c9937aaaf0">FunctionsT1</a>(){</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            _InvTimes = 0;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            _SatTimes = 0;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            _RepTimes = 0;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            _RelAcqTimes = 0;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            _Signal = 0;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            _Parameters = 0;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            _nSamples = 0;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        };</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; _nDims; ++i){</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                _Parameters[i] = ptrFrom[i];</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="class_ox_1_1_functions_t1.html#a21708a9d44f261ba53648c2e6fcdd3a5">   88</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_ox_1_1_functions_t1.html#a21708a9d44f261ba53648c2e6fcdd3a5">disp</a>(){</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordtype">int</span> nSamples = this-&gt;getNSamples();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;\nYou called disp() on a FunctionsT1 object &quot;</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; <span class="stringliteral">&quot; with nSamples: &quot;</span> &lt;&lt; getNSamples();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            KWUtil::printArray((<span class="keywordtype">bool</span>)getInvTimes(), nSamples, getInvTimes(),       (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nInvTimes:    &quot;</span>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            KWUtil::printArray((<span class="keywordtype">bool</span>)getSatTimes(), nSamples, getSatTimes(),       (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nSatTimes:    &quot;</span>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            KWUtil::printArray((<span class="keywordtype">bool</span>)getRepTimes(), nSamples, getRepTimes(),       (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nRepTimes:    &quot;</span>);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            KWUtil::printArray((<span class="keywordtype">bool</span>)getRelAcqTimes(), nSamples, getRelAcqTimes(), (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nRelAcqTimes: &quot;</span>);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            KWUtil::printArray((<span class="keywordtype">bool</span>)getSignal(), nSamples, getSignal(),           (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nSignal:      &quot;</span>);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            KWUtil::printArray((<span class="keywordtype">bool</span>)getParameters(), _nDims, getParameters(),     (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nParameters:  &quot;</span>);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            std::cout &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        }</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="class_ox_1_1_functions_t1.html#a900d5602b3dd10fca760a304e41da9b5">  104</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_functions_t1.html#a900d5602b3dd10fca760a304e41da9b5">~FunctionsT1</a>(){};</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keyword">const</span> MeasureType* _InvTimes;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keyword">const</span> MeasureType* _SatTimes;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keyword">const</span> MeasureType* _RepTimes;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keyword">const</span> MeasureType* _RelAcqTimes;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keyword">const</span> MeasureType* _Signal;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        MeasureType* _Parameters;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordtype">int</span> _nSamples;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    };</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;} <span class="comment">//namespace Ox</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">#endif //OXSHMOLLI2_OXFUNCTIONST1_H</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="class_ox_1_1_functions_t1.html#af417526f77ac0244be5bfa21ba39f7cb">  103</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_ox_1_1_functions_t1.html#af417526f77ac0244be5bfa21ba39f7cb">init</a>(){</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            _InvTimes = 0;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            _SatTimes = 0;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            _RepTimes = 0;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            _RelAcqTimes = 0;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            _Signal = 0;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            _Parameters = 0;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="class_ox_1_1_functions_t1.html#a7dae9dc71ec97e9eef1308c9937aaaf0">  115</a></span>&#160;        <a class="code" href="class_ox_1_1_functions_t1.html#a7dae9dc71ec97e9eef1308c9937aaaf0">FunctionsT1</a>(){</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="comment">//std::cout &lt;&lt; &quot;FunctionsT1 constructor&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            _nSamples = 0;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            _nDims = 3;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <a class="code" href="class_ox_1_1_functions_t1.html#af417526f77ac0244be5bfa21ba39f7cb">init</a>();</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        };</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="class_ox_1_1_functions_t1.html#a8b14d232e9136a64ea3ae8f7a162daad">  126</a></span>&#160;        <a class="code" href="class_ox_1_1_functions_t1.html#a8b14d232e9136a64ea3ae8f7a162daad">FunctionsT1</a>(<span class="keyword">const</span> <a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1</a> &amp;old) {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="comment">//std::cout&lt;&lt;&quot;FunctionsT1 copy constructor &quot;&lt;&lt;std::endl;</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            _nSamples = old._nSamples;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            _nDims = old._nDims;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <a class="code" href="class_ox_1_1_functions_t1.html#af417526f77ac0244be5bfa21ba39f7cb">init</a>();</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;MeasureType&gt;</a> *<a class="code" href="class_ox_1_1_functions_t1.html#a2246ea540016c650d5a18100697eacb8">newByCloning</a>() = 0;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="class_ox_1_1_functions_t1.html#a900d5602b3dd10fca760a304e41da9b5">  143</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_functions_t1.html#a900d5602b3dd10fca760a304e41da9b5">~FunctionsT1</a>(){};</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keyword">const</span> MeasureType* _InvTimes;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keyword">const</span> MeasureType* _SatTimes;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keyword">const</span> MeasureType* _RepTimes;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keyword">const</span> MeasureType* _RelAcqTimes;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keyword">const</span> MeasureType* _Signal;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        MeasureType* _Parameters;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordtype">int</span> _nSamples;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordtype">int</span> _nDims;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    };</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;} <span class="comment">//namespace Ox</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor">#endif //OXSHMOLLI2_OXFUNCTIONST1_H</span></div>
 <div class="ttc" id="class_ox_1_1_functions_t1_html_af1475834e89c9304a96c776f3d5aacbf"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#af1475834e89c9304a96c776f3d5aacbf">Ox::FunctionsT1::calcCostValue</a></div><div class="ttdeci">virtual MeasureType calcCostValue()=0</div></div>
 <div class="ttc" id="class_ox_1_1_functions_t1_html_a84e268911eb64919129c8a0cea39344d"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a84e268911eb64919129c8a0cea39344d">Ox::FunctionsT1::calcLSJacobian</a></div><div class="ttdeci">virtual void calcLSJacobian(MeasureType *jacobian)=0</div></div>
-<div class="ttc" id="class_ox_1_1_functions_t1_html_a900d5602b3dd10fca760a304e41da9b5"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a900d5602b3dd10fca760a304e41da9b5">Ox::FunctionsT1::~FunctionsT1</a></div><div class="ttdeci">virtual ~FunctionsT1()</div><div class="ttdoc">do not forget about the virtual destructor, see https://stackoverflow.com/questions/461203/when-to-us...</div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:104</div></div>
+<div class="ttc" id="class_ox_1_1_functions_t1_html_a8b14d232e9136a64ea3ae8f7a162daad"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a8b14d232e9136a64ea3ae8f7a162daad">Ox::FunctionsT1::FunctionsT1</a></div><div class="ttdeci">FunctionsT1(const FunctionsT1 &amp;old)</div><div class="ttdoc">copy constructor keeps only and _nDims </div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:126</div></div>
+<div class="ttc" id="class_ox_1_1_functions_t1_html_a900d5602b3dd10fca760a304e41da9b5"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a900d5602b3dd10fca760a304e41da9b5">Ox::FunctionsT1::~FunctionsT1</a></div><div class="ttdeci">virtual ~FunctionsT1()</div><div class="ttdoc">do not forget about the virtual destructor, see https://stackoverflow.com/questions/461203/when-to-us...</div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:143</div></div>
 <div class="ttc" id="class_ox_1_1_functions_t1_html_a6c69a4159a92c4ddb71ecba97fcdf6de"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a6c69a4159a92c4ddb71ecba97fcdf6de">Ox::FunctionsT1::calcLSResiduals</a></div><div class="ttdeci">virtual void calcLSResiduals(MeasureType *residuals)=0</div></div>
+<div class="ttc" id="class_ox_1_1_functions_t1_html_a21708a9d44f261ba53648c2e6fcdd3a5"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a21708a9d44f261ba53648c2e6fcdd3a5">Ox::FunctionsT1::disp</a></div><div class="ttdeci">virtual void disp()</div><div class="ttdoc">show me your FunctionsT1 </div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:88</div></div>
 <div class="ttc" id="class_ox_1_1_functions_t1_html_a413b0afca183b88613070ae87121ca66"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a413b0afca183b88613070ae87121ca66">Ox::FunctionsT1::calcCostDerivative</a></div><div class="ttdeci">virtual void calcCostDerivative(MeasureType *derivative)=0</div></div>
 <div class="ttc" id="class_ox_1_1_functions_t1_html"><div class="ttname"><a href="class_ox_1_1_functions_t1.html">Ox::FunctionsT1</a></div><div class="ttdoc">Container for a model function, cost function and Least-Squares function. And derivatives. </div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:26</div></div>
-<div class="ttc" id="class_ox_1_1_functions_t1_html_a7dae9dc71ec97e9eef1308c9937aaaf0"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a7dae9dc71ec97e9eef1308c9937aaaf0">Ox::FunctionsT1::FunctionsT1</a></div><div class="ttdeci">FunctionsT1()</div><div class="ttdoc">default constructor </div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:90</div></div>
+<div class="ttc" id="class_ox_1_1_functions_t1_html_af417526f77ac0244be5bfa21ba39f7cb"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#af417526f77ac0244be5bfa21ba39f7cb">Ox::FunctionsT1::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">set all the pointers to zero </div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:103</div></div>
+<div class="ttc" id="class_ox_1_1_functions_t1_html_a7dae9dc71ec97e9eef1308c9937aaaf0"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a7dae9dc71ec97e9eef1308c9937aaaf0">Ox::FunctionsT1::FunctionsT1</a></div><div class="ttdeci">FunctionsT1()</div><div class="ttdoc">constructor </div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:115</div></div>
+<div class="ttc" id="class_ox_1_1_functions_t1_html_a2246ea540016c650d5a18100697eacb8"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a2246ea540016c650d5a18100697eacb8">Ox::FunctionsT1::newByCloning</a></div><div class="ttdeci">virtual FunctionsT1&lt; MeasureType &gt; * newByCloning()=0</div></div>
 <div class="ttc" id="class_ox_1_1_functions_t1_html_a2d5f4c9296daf3531e30a562348ad474"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a2d5f4c9296daf3531e30a562348ad474">Ox::FunctionsT1::calcModelValue</a></div><div class="ttdeci">virtual MeasureType calcModelValue(MeasureType time)=0</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

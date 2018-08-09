@@ -161,10 +161,24 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setNSamples</
 <tr class="separator:a8a4f3f8b94fad53d444cf6f1c1191497"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7f0a44979db34b15a78a8b755f6c103"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_sign_calculator.html#ab7f0a44979db34b15a78a8b755f6c103">calculateSign</a> ()</td></tr>
 <tr class="separator:ab7f0a44979db34b15a78a8b755f6c103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19457e1c9204a3156f646ad11e1bfe1a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19457e1c9204a3156f646ad11e1bfe1a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>disp</b> ()</td></tr>
+<tr class="separator:a19457e1c9204a3156f646ad11e1bfe1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb2259d9a13f8d58945448923b63165a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb2259d9a13f8d58945448923b63165a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_sign_calculator.html#afb2259d9a13f8d58945448923b63165a">init</a> ()</td></tr>
+<tr class="memdesc:afb2259d9a13f8d58945448923b63165a"><td class="mdescLeft">&#160;</td><td class="mdescRight">set all the pointers to zero <br/></td></tr>
+<tr class="separator:afb2259d9a13f8d58945448923b63165a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b0a177a5f2c6080d6730ff5fdc384af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b0a177a5f2c6080d6730ff5fdc384af"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_sign_calculator.html#a1b0a177a5f2c6080d6730ff5fdc384af">SignCalculator</a> ()</td></tr>
-<tr class="memdesc:a1b0a177a5f2c6080d6730ff5fdc384af"><td class="mdescLeft">&#160;</td><td class="mdescRight">default constructor <br/></td></tr>
+<tr class="memdesc:a1b0a177a5f2c6080d6730ff5fdc384af"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor <br/></td></tr>
 <tr class="separator:a1b0a177a5f2c6080d6730ff5fdc384af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a118469032ecb643b93ba56f948fdce85"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a118469032ecb643b93ba56f948fdce85"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_sign_calculator.html#a118469032ecb643b93ba56f948fdce85">SignCalculator</a> (const <a class="el" href="class_ox_1_1_sign_calculator.html">SignCalculator</a> &amp;old)</td></tr>
+<tr class="memdesc:a118469032ecb643b93ba56f948fdce85"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy constructor <br/></td></tr>
+<tr class="separator:a118469032ecb643b93ba56f948fdce85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf05d957c2f3cf68e71224562bb053d8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_ox_1_1_sign_calculator.html">SignCalculator</a><br class="typebreak"/>
+&lt; MeasureType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_sign_calculator.html#aaf05d957c2f3cf68e71224562bb053d8">newByCloning</a> ()</td></tr>
+<tr class="separator:aaf05d957c2f3cf68e71224562bb053d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5143a172e360633d8df758756d146889"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5143a172e360633d8df758756d146889"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_sign_calculator.html#a5143a172e360633d8df758756d146889">~SignCalculator</a> ()</td></tr>
 <tr class="memdesc:a5143a172e360633d8df758756d146889"><td class="mdescLeft">&#160;</td><td class="mdescRight">do not forget about the virtual destructor, see <a href="https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors">https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors</a> <br/></td></tr>
@@ -206,7 +220,7 @@ class Ox::SignCalculator&lt; MeasureType &gt;</h3>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename MeasureType &gt; </div>
+template&lt;typename MeasureType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -228,6 +242,35 @@ template&lt;typename MeasureType &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>success/failure </dd></dl>
 
 <p>Reimplemented in <a class="el" href="class_ox_1_1_sign_calculator_real_imag.html#ae3f3c8f8e8ea994da7ad56f4a180cb36">Ox::SignCalculatorRealImag&lt; MeasureType &gt;</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaf05d957c2f3cf68e71224562bb053d8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MeasureType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="class_ox_1_1_sign_calculator.html">SignCalculator</a>&lt;MeasureType&gt;* <a class="el" href="class_ox_1_1_sign_calculator.html">Ox::SignCalculator</a>&lt; MeasureType &gt;::newByCloning </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>cloning </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_ox_1_1_sign_calculator_real_imag.html#ae3340d1ac5728efcaf3d5a9299f01f2c">Ox::SignCalculatorRealImag&lt; MeasureType &gt;</a>.</p>
 
 </div>
 </div>

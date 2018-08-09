@@ -1,14 +1,18 @@
 var class_ox_1_1_sign_calculator =
 [
     [ "SignCalculator", "class_ox_1_1_sign_calculator.html#a1b0a177a5f2c6080d6730ff5fdc384af", null ],
+    [ "SignCalculator", "class_ox_1_1_sign_calculator.html#a118469032ecb643b93ba56f948fdce85", null ],
     [ "~SignCalculator", "class_ox_1_1_sign_calculator.html#a5143a172e360633d8df758756d146889", null ],
     [ "calculateSign", "class_ox_1_1_sign_calculator.html#ab7f0a44979db34b15a78a8b755f6c103", null ],
+    [ "disp", "class_ox_1_1_sign_calculator.html#a19457e1c9204a3156f646ad11e1bfe1a", null ],
     [ "getInvTimes", "class_ox_1_1_sign_calculator.html#aeae2b269b870b515f9da0ecb9a0c9dda", null ],
     [ "getNSamples", "class_ox_1_1_sign_calculator.html#a6f1f77383cd088a1339ae91ce0b58e40", null ],
     [ "getSigMag", "class_ox_1_1_sign_calculator.html#abe5cfb287faab9e06e113bf33daa9b2e", null ],
     [ "getSignal", "class_ox_1_1_sign_calculator.html#ac4dc2ae5e3e5eee88d0a3a347a68a637", null ],
     [ "getSigns", "class_ox_1_1_sign_calculator.html#a04d65630c95cf94ee6198193a5c0c346", null ],
     [ "getSigPha", "class_ox_1_1_sign_calculator.html#a5d875d51f77739c61d8c6391d665ade9", null ],
+    [ "init", "class_ox_1_1_sign_calculator.html#afb2259d9a13f8d58945448923b63165a", null ],
+    [ "newByCloning", "class_ox_1_1_sign_calculator.html#aaf05d957c2f3cf68e71224562bb053d8", null ],
     [ "setInvTimes", "class_ox_1_1_sign_calculator.html#a184b9d2bd4b6677fef960aef40dbfe1c", null ],
     [ "setNSamples", "class_ox_1_1_sign_calculator.html#a8a4f3f8b94fad53d444cf6f1c1191497", null ],
     [ "setSigMag", "class_ox_1_1_sign_calculator.html#ad010dcfd41f343b7d9cad99a3c628468", null ],

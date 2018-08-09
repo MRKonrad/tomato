@@ -144,8 +144,8 @@ $(document).ready(function(){initNavTree('_ox_test_image_8hxx_source.html','');}
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">// allocate memory</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        _imageMag = <span class="keyword">new</span> MeasureType[_nRows*_nCols*_nSamples];</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        _imagePha = <span class="keyword">new</span> MeasureType[_nRows*_nCols*_nSamples];</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        _imageResultsMolli = <span class="keyword">new</span> MeasureType[_nSamples*_nRows*3];</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        _imageResultsShmolli = <span class="keyword">new</span> MeasureType[_nSamples*_nRows*3];</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        _imageResultsMolli = <span class="keyword">new</span> MeasureType[_nCols*_nRows*3];</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        _imageResultsShmolli = <span class="keyword">new</span> MeasureType[_nCols*_nRows*3];</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">// how to divide the memory?</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        std::vector&lt;int&gt; ranges = KWUtil::bounds&lt;int&gt;(nTissues, _nCols);</div>

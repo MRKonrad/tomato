@@ -10,7 +10,7 @@ var searchData=
   ['calculatesign',['calculateSign',['../class_ox_1_1_sign_calculator.html#ab7f0a44979db34b15a78a8b755f6c103',1,'Ox::SignCalculator::calculateSign()'],['../class_ox_1_1_sign_calculator_real_imag.html#ae3f3c8f8e8ea994da7ad56f4a180cb36',1,'Ox::SignCalculatorRealImag::calculateSign()']]],
   ['calculatestartpoint',['calculateStartPoint',['../class_ox_1_1_start_point_calculator.html#acd8fda33c7bf92f02e0915e9a900692d',1,'Ox::StartPointCalculator']]],
   ['calculatort1',['CalculatorT1',['../class_ox_1_1_calculator_t1.html',1,'Ox']]],
-  ['calculatort1',['CalculatorT1',['../class_ox_1_1_calculator_t1.html#aee286228db734cdd8c6c0686b85fa938',1,'Ox::CalculatorT1']]],
+  ['calculatort1',['CalculatorT1',['../class_ox_1_1_calculator_t1.html#aee286228db734cdd8c6c0686b85fa938',1,'Ox::CalculatorT1::CalculatorT1()'],['../class_ox_1_1_calculator_t1.html#a125d297d484d10d33b8cbe796b7a60c8',1,'Ox::CalculatorT1::CalculatorT1(const CalculatorT1 &amp;old)']]],
   ['calculatort1molli',['CalculatorT1Molli',['../class_ox_1_1_calculator_t1_molli.html',1,'Ox']]],
   ['calculatort1results',['CalculatorT1Results',['../struct_ox_1_1_calculator_t1_results.html#a2ef9ec72b2f7e61bb442fe8e0f61d508',1,'Ox::CalculatorT1Results']]],
   ['calculatort1results',['CalculatorT1Results',['../struct_ox_1_1_calculator_t1_results.html',1,'Ox']]]

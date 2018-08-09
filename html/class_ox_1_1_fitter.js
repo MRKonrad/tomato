@@ -1,7 +1,9 @@
 var class_ox_1_1_fitter =
 [
     [ "Fitter", "class_ox_1_1_fitter.html#a7b42acb389394bc4c496990eea8b9ac9", null ],
+    [ "Fitter", "class_ox_1_1_fitter.html#ac51130b722159f88a0dad59877b76417", null ],
     [ "~Fitter", "class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43", null ],
+    [ "disp", "class_ox_1_1_fitter.html#a0a9b45eb21ba174327f95a894e6331b6", null ],
     [ "getFTolerance", "class_ox_1_1_fitter.html#ac62bf275718aafc95b5e49d0aa9fc1ef", null ],
     [ "getFunctionsT1", "class_ox_1_1_fitter.html#a859dc8c25c99b37f47d41e086b97c897", null ],
     [ "getMaxFunctionEvals", "class_ox_1_1_fitter.html#a04f36e075f86c6a89df833d17b9f029d", null ],
@@ -9,6 +11,7 @@ var class_ox_1_1_fitter =
     [ "getTrace", "class_ox_1_1_fitter.html#a9c3401372be5c8698464deb05c0f5533", null ],
     [ "getVerbose", "class_ox_1_1_fitter.html#afeba16a2218db1f3fc646e2dde75f386", null ],
     [ "getXTolerance", "class_ox_1_1_fitter.html#a21f92547f664c9b6f3fa8da4c7d16965", null ],
+    [ "newByCloning", "class_ox_1_1_fitter.html#a665ec51e52ed351c9ef801acc83fbdea", null ],
     [ "performFitting", "class_ox_1_1_fitter.html#a8f240f0da86d06b339ab2747e87f21b9", null ],
     [ "setFTolerance", "class_ox_1_1_fitter.html#aca7109a663e737c46cb29483c2276f4a", null ],
     [ "setFunctionsT1", "class_ox_1_1_fitter.html#acf5be118a916c6b52034191f1bdaf790", null ],

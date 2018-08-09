@@ -1,6 +1,7 @@
 var class_ox_1_1_functions_t1 =
 [
     [ "FunctionsT1", "class_ox_1_1_functions_t1.html#a7dae9dc71ec97e9eef1308c9937aaaf0", null ],
+    [ "FunctionsT1", "class_ox_1_1_functions_t1.html#a8b14d232e9136a64ea3ae8f7a162daad", null ],
     [ "~FunctionsT1", "class_ox_1_1_functions_t1.html#a900d5602b3dd10fca760a304e41da9b5", null ],
     [ "calcCostDerivative", "class_ox_1_1_functions_t1.html#a413b0afca183b88613070ae87121ca66", null ],
     [ "calcCostValue", "class_ox_1_1_functions_t1.html#af1475834e89c9304a96c776f3d5aacbf", null ],
@@ -8,6 +9,7 @@ var class_ox_1_1_functions_t1 =
     [ "calcLSResiduals", "class_ox_1_1_functions_t1.html#a6c69a4159a92c4ddb71ecba97fcdf6de", null ],
     [ "calcModelValue", "class_ox_1_1_functions_t1.html#a2d5f4c9296daf3531e30a562348ad474", null ],
     [ "copyToParameters", "class_ox_1_1_functions_t1.html#ad2a24170cd7de14c49be27ac16dc7ac8", null ],
+    [ "disp", "class_ox_1_1_functions_t1.html#a21708a9d44f261ba53648c2e6fcdd3a5", null ],
     [ "getInvTimes", "class_ox_1_1_functions_t1.html#a71aafa53236bc1eed5b4d65ae25538c7", null ],
     [ "getNSamples", "class_ox_1_1_functions_t1.html#a70e137063cc2e6ef086046e596af4a15", null ],
     [ "getParameters", "class_ox_1_1_functions_t1.html#ae135536ab79b836d77286fec0efdc6c8", null ],
@@ -15,6 +17,8 @@ var class_ox_1_1_functions_t1 =
     [ "getRepTimes", "class_ox_1_1_functions_t1.html#afb89e35bedfd9d608b0afe189d976fa9", null ],
     [ "getSatTimes", "class_ox_1_1_functions_t1.html#a62b13782ff86b039cd24b29da47fdac4", null ],
     [ "getSignal", "class_ox_1_1_functions_t1.html#adf70d696e9da0fcdb45c4a4d02913d6c", null ],
+    [ "init", "class_ox_1_1_functions_t1.html#af417526f77ac0244be5bfa21ba39f7cb", null ],
+    [ "newByCloning", "class_ox_1_1_functions_t1.html#a2246ea540016c650d5a18100697eacb8", null ],
     [ "setInvTimes", "class_ox_1_1_functions_t1.html#a5a96e27da44213d1b4f4a7e91d8e0347", null ],
     [ "setNSamples", "class_ox_1_1_functions_t1.html#ac817cab2256c8495bc6979bb1fca2688", null ],
     [ "setParameters", "class_ox_1_1_functions_t1.html#a27bdccbcb4aa30b945453a33b25fdbf7", null ],
@@ -23,6 +27,7 @@ var class_ox_1_1_functions_t1 =
     [ "setSatTimes", "class_ox_1_1_functions_t1.html#a1acb713d0162afb45e0faa1b6252f921", null ],
     [ "setSignal", "class_ox_1_1_functions_t1.html#a73bd06989de4d204d8e654c583cd3ce3", null ],
     [ "_InvTimes", "class_ox_1_1_functions_t1.html#a4e92c3f06b7ef0327d6625a662db4d1c", null ],
+    [ "_nDims", "class_ox_1_1_functions_t1.html#a4d42b89cb62d20c80e3210b17a692ed1", null ],
     [ "_nSamples", "class_ox_1_1_functions_t1.html#a32038248ea53c223d9d99cd9cee36378", null ],
     [ "_Parameters", "class_ox_1_1_functions_t1.html#a6958f5841b785da10dcd1c1c777799c7", null ],
     [ "_RelAcqTimes", "class_ox_1_1_functions_t1.html#abfbc38cf7ea0bbc1b52f48a75f281246", null ],

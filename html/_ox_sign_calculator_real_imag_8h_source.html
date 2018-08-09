@@ -134,54 +134,57 @@ $(document).ready(function(){initNavTree('_ox_sign_calculator_real_imag_8h_sourc
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                MeasureType* signal,</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                MeasureType* signs);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    };</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> MeasureType&gt;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    SignCalculatorRealImag&lt;MeasureType&gt;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    ::RealMagPhase2Signs(</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordtype">int</span> nSamples,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keyword">const</span> MeasureType* sigMag,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keyword">const</span> MeasureType* sigPha,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            MeasureType* signal,</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            MeasureType* signs) {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">//        for (int i = 0; i &lt; nSamples; ++i) {</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">//            signal[i] = sigMag[i];</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">//            signs[i] = 0;</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">//        }</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">//TODO: introduce arbitrary scaling, not only /4096</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_ox_1_1_sign_calculator_real_imag.html#ae3340d1ac5728efcaf3d5a9299f01f2c">   45</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_sign_calculator.html">SignCalculator&lt;MeasureType&gt;</a> *<a class="code" href="class_ox_1_1_sign_calculator_real_imag.html#ae3340d1ac5728efcaf3d5a9299f01f2c">newByCloning</a>() { <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_ox_1_1_sign_calculator_real_imag.html">SignCalculatorRealImag&lt;MeasureType&gt;</a>(*this); }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    };</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> MeasureType&gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">int</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    SignCalculatorRealImag&lt;MeasureType&gt;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    ::RealMagPhase2Signs(</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordtype">int</span> nSamples,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keyword">const</span> MeasureType* sigMag,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keyword">const</span> MeasureType* sigPha,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            MeasureType* signal,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            MeasureType* signs) {</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">if</span> (sigPha) { <span class="comment">// if phase available</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordtype">double</span> sigPhaRefPi = M_PI * sigPha[nSamples - 1] / 4096; <span class="comment">//get REFERENCE phase</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nSamples; ++i) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">//        for (int i = 0; i &lt; nSamples; ++i) {</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">//            signal[i] = sigMag[i];</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">//            signs[i] = 0;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">//        }</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="comment">//TODO: introduce arbitrary scaling, not only /4096</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keywordtype">double</span> sigPhaPi = M_PI * sigPha[i] / 4096; <span class="comment">//get phase</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordtype">double</span> pha = sigPhaPi - sigPhaRefPi;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordtype">double</span> realSig = sigMag[i] * cos(pha); <span class="comment">//get real</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordtype">double</span> imagSig = -sigMag[i] * sin(pha); <span class="comment">//get imag</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                signal[i] = realSig;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">if</span> (realSig &lt; 0) {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                    signal[i] = -sigMag[i];</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    signs[i] = -1;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    signal[i] = sigMag[i];</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    signs[i] = 1;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">return</span> 1; <span class="comment">// failure</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">return</span> 0; <span class="comment">// success</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;} <span class="comment">//namespace Ox</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif //OXSHMOLLI2_OXSIGNCALCULATOR_H</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">if</span> (sigPha) { <span class="comment">// if phase available</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordtype">double</span> sigPhaRefPi = M_PI * sigPha[nSamples - 1] / 4096; <span class="comment">//get REFERENCE phase</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nSamples; ++i) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordtype">double</span> sigPhaPi = M_PI * sigPha[i] / 4096; <span class="comment">//get phase</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordtype">double</span> pha = sigPhaPi - sigPhaRefPi;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordtype">double</span> realSig = sigMag[i] * cos(pha); <span class="comment">//get real</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordtype">double</span> imagSig = -sigMag[i] * sin(pha); <span class="comment">//get imag</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                signal[i] = realSig;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">if</span> (realSig &lt; 0) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    signal[i] = -sigMag[i];</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    signs[i] = -1;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    signal[i] = sigMag[i];</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    signs[i] = 1;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">return</span> 1; <span class="comment">// failure</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> 0; <span class="comment">// success</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;} <span class="comment">//namespace Ox</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif //OXSHMOLLI2_OXSIGNCALCULATOR_H</span></div>
 <div class="ttc" id="class_ox_1_1_sign_calculator_real_imag_html_ae3f3c8f8e8ea994da7ad56f4a180cb36"><div class="ttname"><a href="class_ox_1_1_sign_calculator_real_imag.html#ae3f3c8f8e8ea994da7ad56f4a180cb36">Ox::SignCalculatorRealImag::calculateSign</a></div><div class="ttdeci">virtual int calculateSign()</div><div class="ttdef"><b>Definition:</b> OxSignCalculatorRealImag.h:25</div></div>
 <div class="ttc" id="_ox_sign_calculator_8h_html"><div class="ttname"><a href="_ox_sign_calculator_8h.html">OxSignCalculator.h</a></div></div>
 <div class="ttc" id="class_ox_1_1_sign_calculator_real_imag_html"><div class="ttname"><a href="class_ox_1_1_sign_calculator_real_imag.html">Ox::SignCalculatorRealImag</a></div><div class="ttdef"><b>Definition:</b> OxSignCalculatorRealImag.h:22</div></div>
+<div class="ttc" id="class_ox_1_1_sign_calculator_real_imag_html_ae3340d1ac5728efcaf3d5a9299f01f2c"><div class="ttname"><a href="class_ox_1_1_sign_calculator_real_imag.html#ae3340d1ac5728efcaf3d5a9299f01f2c">Ox::SignCalculatorRealImag::newByCloning</a></div><div class="ttdeci">virtual SignCalculator&lt; MeasureType &gt; * newByCloning()</div><div class="ttdef"><b>Definition:</b> OxSignCalculatorRealImag.h:45</div></div>
 <div class="ttc" id="class_ox_1_1_sign_calculator_html"><div class="ttname"><a href="class_ox_1_1_sign_calculator.html">Ox::SignCalculator</a></div><div class="ttdef"><b>Definition:</b> OxSignCalculator.h:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

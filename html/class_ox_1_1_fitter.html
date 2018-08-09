@@ -168,6 +168,22 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setVerbose</b
 <tr class="memitem:a4ac0096f6bc6d733c542d28a839d32c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4ac0096f6bc6d733c542d28a839d32c9"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setTrace</b> (const bool _Trace)</td></tr>
 <tr class="separator:a4ac0096f6bc6d733c542d28a839d32c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a9b45eb21ba174327f95a894e6331b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a9b45eb21ba174327f95a894e6331b6"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_fitter.html#a0a9b45eb21ba174327f95a894e6331b6">disp</a> ()</td></tr>
+<tr class="memdesc:a0a9b45eb21ba174327f95a894e6331b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">show me your <a class="el" href="class_ox_1_1_fitter.html">Fitter</a> <br/></td></tr>
+<tr class="separator:a0a9b45eb21ba174327f95a894e6331b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b42acb389394bc4c496990eea8b9ac9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b42acb389394bc4c496990eea8b9ac9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_fitter.html#a7b42acb389394bc4c496990eea8b9ac9">Fitter</a> ()</td></tr>
+<tr class="memdesc:a7b42acb389394bc4c496990eea8b9ac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor <br/></td></tr>
+<tr class="separator:a7b42acb389394bc4c496990eea8b9ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac51130b722159f88a0dad59877b76417"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_fitter.html#ac51130b722159f88a0dad59877b76417">Fitter</a> (const <a class="el" href="class_ox_1_1_fitter.html">Fitter</a> &amp;old)</td></tr>
+<tr class="separator:ac51130b722159f88a0dad59877b76417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a665ec51e52ed351c9ef801acc83fbdea"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_ox_1_1_fitter.html">Fitter</a>&lt; MeasureType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_fitter.html#a665ec51e52ed351c9ef801acc83fbdea">newByCloning</a> ()=0</td></tr>
+<tr class="separator:a665ec51e52ed351c9ef801acc83fbdea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab56eef37096f6f0687d83b8d15e00d43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab56eef37096f6f0687d83b8d15e00d43"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43">~Fitter</a> ()</td></tr>
+<tr class="memdesc:ab56eef37096f6f0687d83b8d15e00d43"><td class="mdescLeft">&#160;</td><td class="mdescRight">do not forget about the virtual destructor, see <a href="https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors">https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors</a> <br/></td></tr>
+<tr class="separator:ab56eef37096f6f0687d83b8d15e00d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -203,12 +219,75 @@ class Ox::Fitter&lt; MeasureType &gt;</h3>
   </table>
   </dd>
 </dl>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ac51130b722159f88a0dad59877b76417"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MeasureType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_ox_1_1_fitter.html">Ox::Fitter</a>&lt; MeasureType &gt;::<a class="el" href="class_ox_1_1_fitter.html">Fitter</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_ox_1_1_fitter.html">Fitter</a>&lt; MeasureType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>old</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>copy constructor </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">old</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a665ec51e52ed351c9ef801acc83fbdea"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MeasureType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="class_ox_1_1_fitter.html">Fitter</a>&lt;MeasureType&gt;* <a class="el" href="class_ox_1_1_fitter.html">Ox::Fitter</a>&lt; MeasureType &gt;::newByCloning </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>cloning </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implemented in <a class="el" href="class_ox_1_1_fitter_levenberg_marquardt_vnl.html#a196dd40b911c2b916e303205ccf8121a">Ox::FitterLevenbergMarquardtVnl&lt; MeasureType &gt;</a>, and <a class="el" href="class_ox_1_1_fitter_amoeba_vnl.html#a4c0c209a5006908c027c5a859b63b385">Ox::FitterAmoebaVnl&lt; MeasureType &gt;</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a8f240f0da86d06b339ab2747e87f21b9"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename MeasureType &gt; </div>
+template&lt;typename MeasureType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">

@@ -118,73 +118,92 @@ $(document).ready(function(){initNavTree('_ox_start_point_calculator_8h_source.h
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="comment">// getters</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        MeasureType *getCalculatedStartPoint()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">if</span> (!_CalculatedStartPoint) {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;_CalculatedStartPoint equals 0. Set _CalculatedStartPoint&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                <span class="keywordflow">throw</span> std::exception();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            };</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">return</span> _CalculatedStartPoint;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">const</span> MeasureType *getDefaultStartPoint()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">return</span> _DefaultStartPoint;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">int</span> getNStartFitPoints()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _nStartFitPoints; }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">//setters</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setInvTimes(<span class="keyword">const</span> MeasureType *_InvTimes) { StartPointCalculator::_InvTimes = _InvTimes; }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setSignal(<span class="keyword">const</span> MeasureType *_Signal) { StartPointCalculator::_Signal = _Signal; }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setSigns(<span class="keyword">const</span> MeasureType *_Signs) { StartPointCalculator::_Signs = _Signs; }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setCalculatedStartPoint(MeasureType *_CalculatedStartPoint) { StartPointCalculator::_CalculatedStartPoint = _CalculatedStartPoint; }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setNSamples(<span class="keywordtype">int</span> _nSamples) { StartPointCalculator::_nSamples = _nSamples; }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_ox_1_1_start_point_calculator.html#acd8fda33c7bf92f02e0915e9a900692d">   49</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_ox_1_1_start_point_calculator.html#acd8fda33c7bf92f02e0915e9a900692d">calculateStartPoint</a>(){</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            setStartPointToDefault();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        };</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">if</span> (!_CalculatedStartPoint) <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;_CalculatedStartPoint equals 0. Set _CalculatedStartPoint&quot;</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordflow">return</span> _CalculatedStartPoint;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">const</span> MeasureType *getDefaultStartPoint()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _DefaultStartPoint; }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">int</span> getNStartFitPoints()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _nDims; }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="comment">//setters</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setInvTimes(<span class="keyword">const</span> MeasureType *_InvTimes) { StartPointCalculator::_InvTimes = _InvTimes; }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setSignal(<span class="keyword">const</span> MeasureType *_Signal) { StartPointCalculator::_Signal = _Signal; }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setSigns(<span class="keyword">const</span> MeasureType *_Signs) { StartPointCalculator::_Signs = _Signs; }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setCalculatedStartPoint(MeasureType *_CalculatedStartPoint) { StartPointCalculator::_CalculatedStartPoint = _CalculatedStartPoint; }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setNSamples(<span class="keywordtype">int</span> _nSamples) { StartPointCalculator::_nSamples = _nSamples; }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_ox_1_1_start_point_calculator.html#acd8fda33c7bf92f02e0915e9a900692d">   44</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_ox_1_1_start_point_calculator.html#acd8fda33c7bf92f02e0915e9a900692d">calculateStartPoint</a>(){</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            setStartPointToDefault();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        };</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">int</span> setStartPointToDefault(){</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            getCalculatedStartPoint()[0] = _DefaultStartPoint[0];</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            getCalculatedStartPoint()[1] = _DefaultStartPoint[1];</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            getCalculatedStartPoint()[2] = _DefaultStartPoint[2];</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">int</span> setStartPointToDefault(){</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            getCalculatedStartPoint()[0] = _DefaultStartPoint[0];</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            getCalculatedStartPoint()[1] = _DefaultStartPoint[1];</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            getCalculatedStartPoint()[2] = _DefaultStartPoint[2];</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_ox_1_1_start_point_calculator.html#a408ce85b6fbf0ee69f4eca3176b814d6">   65</a></span>&#160;        <a class="code" href="class_ox_1_1_start_point_calculator.html#a408ce85b6fbf0ee69f4eca3176b814d6">StartPointCalculator</a>(){</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            _DefaultStartPoint[0] = 100;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            _DefaultStartPoint[1] = 200;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            _DefaultStartPoint[2] = 1000;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            _CalculatedStartPoint = 0;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            _InvTimes = 0;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            _Signal = 0;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            _Signs = 0;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            _nSamples = 0;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            _nStartFitPoints = 3;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a">   82</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a">~StartPointCalculator</a>(){};</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> disp(){</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;\nTODO: implement StartPointCalculator disp &quot;</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_ox_1_1_start_point_calculator.html#a4fef8d4182451c17bc43d0e7a1abb90c">   64</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_ox_1_1_start_point_calculator.html#a4fef8d4182451c17bc43d0e7a1abb90c">init</a>(){</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            _CalculatedStartPoint = 0;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            _InvTimes = 0;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            _Signal = 0;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            _Signs = 0;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_ox_1_1_start_point_calculator.html#a408ce85b6fbf0ee69f4eca3176b814d6">   74</a></span>&#160;        <a class="code" href="class_ox_1_1_start_point_calculator.html#a408ce85b6fbf0ee69f4eca3176b814d6">StartPointCalculator</a>(){</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <a class="code" href="class_ox_1_1_start_point_calculator.html#a4fef8d4182451c17bc43d0e7a1abb90c">init</a>();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            _DefaultStartPoint[0] = 100;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            _DefaultStartPoint[1] = 200;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            _DefaultStartPoint[2] = 1000;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            _nSamples = 0;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            _nDims = 3;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        MeasureType _DefaultStartPoint[3];</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        MeasureType* _CalculatedStartPoint;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keyword">const</span> MeasureType* _InvTimes;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">const</span> MeasureType* _Signal;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keyword">const</span> MeasureType* _Signs;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">int</span> _nSamples;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">int</span> _nStartFitPoints; <span class="comment">// special ShMOLLI parameter</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    };</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;} <span class="comment">//namespace Ox</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="class_ox_1_1_start_point_calculator.html#ab6b12ed8fa6b47b3335b5c7a92b94623">   87</a></span>&#160;        <a class="code" href="class_ox_1_1_start_point_calculator.html#ab6b12ed8fa6b47b3335b5c7a92b94623">StartPointCalculator</a>(<span class="keyword">const</span> <a class="code" href="class_ox_1_1_start_point_calculator.html">StartPointCalculator</a> &amp;old){</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <a class="code" href="class_ox_1_1_start_point_calculator.html#a4fef8d4182451c17bc43d0e7a1abb90c">init</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            _DefaultStartPoint[0] = old._DefaultStartPoint[0];</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            _DefaultStartPoint[1] = old._DefaultStartPoint[1];</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            _DefaultStartPoint[2] = old._DefaultStartPoint[2];</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            _nSamples = old._nSamples;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            _nDims = old._nDims;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            _nSamples = old._nSamples;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        };</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif //OXSHMOLLI2_OXSTARTPOINTCALCULATOR_H</span></div>
-<div class="ttc" id="class_ox_1_1_start_point_calculator_html_acd8fda33c7bf92f02e0915e9a900692d"><div class="ttname"><a href="class_ox_1_1_start_point_calculator.html#acd8fda33c7bf92f02e0915e9a900692d">Ox::StartPointCalculator::calculateStartPoint</a></div><div class="ttdeci">virtual int calculateStartPoint()</div><div class="ttdef"><b>Definition:</b> OxStartPointCalculator.h:49</div></div>
-<div class="ttc" id="class_ox_1_1_start_point_calculator_html_a210c3312a8926b750dba8e498c6b620a"><div class="ttname"><a href="class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a">Ox::StartPointCalculator::~StartPointCalculator</a></div><div class="ttdeci">virtual ~StartPointCalculator()</div><div class="ttdoc">do not forget about the virtual destructor, see https://stackoverflow.com/questions/461203/when-to-us...</div><div class="ttdef"><b>Definition:</b> OxStartPointCalculator.h:82</div></div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="class_ox_1_1_start_point_calculator.html#a2f1c22d86f8f1c06eeedf0202a08b29f">  102</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_start_point_calculator.html">StartPointCalculator&lt;MeasureType&gt;</a> *<a class="code" href="class_ox_1_1_start_point_calculator.html#a2f1c22d86f8f1c06eeedf0202a08b29f">newByCloning</a>() { <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_ox_1_1_start_point_calculator.html">StartPointCalculator&lt;MeasureType&gt;</a>(*this); }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a">  108</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a">~StartPointCalculator</a>(){};</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        MeasureType _DefaultStartPoint[3];</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        MeasureType* _CalculatedStartPoint;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keyword">const</span> MeasureType* _InvTimes;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keyword">const</span> MeasureType* _Signal;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keyword">const</span> MeasureType* _Signs;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordtype">int</span> _nSamples;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordtype">int</span> _nDims; <span class="comment">// special ShMOLLI parameter</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    };</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;} <span class="comment">//namespace Ox</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#endif //OXSHMOLLI2_OXSTARTPOINTCALCULATOR_H</span></div>
+<div class="ttc" id="class_ox_1_1_start_point_calculator_html_acd8fda33c7bf92f02e0915e9a900692d"><div class="ttname"><a href="class_ox_1_1_start_point_calculator.html#acd8fda33c7bf92f02e0915e9a900692d">Ox::StartPointCalculator::calculateStartPoint</a></div><div class="ttdeci">virtual int calculateStartPoint()</div><div class="ttdef"><b>Definition:</b> OxStartPointCalculator.h:44</div></div>
+<div class="ttc" id="class_ox_1_1_start_point_calculator_html_ab6b12ed8fa6b47b3335b5c7a92b94623"><div class="ttname"><a href="class_ox_1_1_start_point_calculator.html#ab6b12ed8fa6b47b3335b5c7a92b94623">Ox::StartPointCalculator::StartPointCalculator</a></div><div class="ttdeci">StartPointCalculator(const StartPointCalculator &amp;old)</div><div class="ttdoc">copy constructor </div><div class="ttdef"><b>Definition:</b> OxStartPointCalculator.h:87</div></div>
+<div class="ttc" id="class_ox_1_1_start_point_calculator_html_a210c3312a8926b750dba8e498c6b620a"><div class="ttname"><a href="class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a">Ox::StartPointCalculator::~StartPointCalculator</a></div><div class="ttdeci">virtual ~StartPointCalculator()</div><div class="ttdoc">do not forget about the virtual destructor, see https://stackoverflow.com/questions/461203/when-to-us...</div><div class="ttdef"><b>Definition:</b> OxStartPointCalculator.h:108</div></div>
+<div class="ttc" id="class_ox_1_1_start_point_calculator_html_a4fef8d4182451c17bc43d0e7a1abb90c"><div class="ttname"><a href="class_ox_1_1_start_point_calculator.html#a4fef8d4182451c17bc43d0e7a1abb90c">Ox::StartPointCalculator::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">set all the pointers to zero </div><div class="ttdef"><b>Definition:</b> OxStartPointCalculator.h:64</div></div>
 <div class="ttc" id="class_ox_1_1_start_point_calculator_html"><div class="ttname"><a href="class_ox_1_1_start_point_calculator.html">Ox::StartPointCalculator</a></div><div class="ttdef"><b>Definition:</b> OxStartPointCalculator.h:19</div></div>
-<div class="ttc" id="class_ox_1_1_start_point_calculator_html_a408ce85b6fbf0ee69f4eca3176b814d6"><div class="ttname"><a href="class_ox_1_1_start_point_calculator.html#a408ce85b6fbf0ee69f4eca3176b814d6">Ox::StartPointCalculator::StartPointCalculator</a></div><div class="ttdeci">StartPointCalculator()</div><div class="ttdoc">default constructor </div><div class="ttdef"><b>Definition:</b> OxStartPointCalculator.h:65</div></div>
+<div class="ttc" id="class_ox_1_1_start_point_calculator_html_a408ce85b6fbf0ee69f4eca3176b814d6"><div class="ttname"><a href="class_ox_1_1_start_point_calculator.html#a408ce85b6fbf0ee69f4eca3176b814d6">Ox::StartPointCalculator::StartPointCalculator</a></div><div class="ttdeci">StartPointCalculator()</div><div class="ttdoc">constructor </div><div class="ttdef"><b>Definition:</b> OxStartPointCalculator.h:74</div></div>
+<div class="ttc" id="class_ox_1_1_start_point_calculator_html_a2f1c22d86f8f1c06eeedf0202a08b29f"><div class="ttname"><a href="class_ox_1_1_start_point_calculator.html#a2f1c22d86f8f1c06eeedf0202a08b29f">Ox::StartPointCalculator::newByCloning</a></div><div class="ttdeci">virtual StartPointCalculator&lt; MeasureType &gt; * newByCloning()</div><div class="ttdef"><b>Definition:</b> OxStartPointCalculator.h:102</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

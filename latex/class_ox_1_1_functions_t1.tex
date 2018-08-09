@@ -78,9 +78,20 @@ virtual void \hyperlink{class_ox_1_1_functions_t1_a84e268911eb64919129c8a0cea393
 \hypertarget{class_ox_1_1_functions_t1_ad2a24170cd7de14c49be27ac16dc7ac8}{virtual void {\bfseries copy\-To\-Parameters} (const Measure\-Type $\ast$ptr\-From)}\label{class_ox_1_1_functions_t1_ad2a24170cd7de14c49be27ac16dc7ac8}
 
 \item 
+\hypertarget{class_ox_1_1_functions_t1_a21708a9d44f261ba53648c2e6fcdd3a5}{virtual void \hyperlink{class_ox_1_1_functions_t1_a21708a9d44f261ba53648c2e6fcdd3a5}{disp} ()}\label{class_ox_1_1_functions_t1_a21708a9d44f261ba53648c2e6fcdd3a5}
+
+\begin{DoxyCompactList}\small\item\em show me your \hyperlink{class_ox_1_1_functions_t1}{Functions\-T1} \end{DoxyCompactList}\item 
+\hypertarget{class_ox_1_1_functions_t1_af417526f77ac0244be5bfa21ba39f7cb}{void \hyperlink{class_ox_1_1_functions_t1_af417526f77ac0244be5bfa21ba39f7cb}{init} ()}\label{class_ox_1_1_functions_t1_af417526f77ac0244be5bfa21ba39f7cb}
+
+\begin{DoxyCompactList}\small\item\em set all the pointers to zero \end{DoxyCompactList}\item 
 \hypertarget{class_ox_1_1_functions_t1_a7dae9dc71ec97e9eef1308c9937aaaf0}{\hyperlink{class_ox_1_1_functions_t1_a7dae9dc71ec97e9eef1308c9937aaaf0}{Functions\-T1} ()}\label{class_ox_1_1_functions_t1_a7dae9dc71ec97e9eef1308c9937aaaf0}
 
-\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\hyperlink{class_ox_1_1_functions_t1_a8b14d232e9136a64ea3ae8f7a162daad}{Functions\-T1} (const \hyperlink{class_ox_1_1_functions_t1}{Functions\-T1} \&old)
+\begin{DoxyCompactList}\small\item\em copy constructor keeps only and \-\_\-n\-Dims \end{DoxyCompactList}\item 
+virtual \hyperlink{class_ox_1_1_functions_t1}{Functions\-T1}\\*
+$<$ Measure\-Type $>$ $\ast$ \hyperlink{class_ox_1_1_functions_t1_a2246ea540016c650d5a18100697eacb8}{new\-By\-Cloning} ()=0
+\item 
 \hypertarget{class_ox_1_1_functions_t1_a900d5602b3dd10fca760a304e41da9b5}{virtual \hyperlink{class_ox_1_1_functions_t1_a900d5602b3dd10fca760a304e41da9b5}{$\sim$\-Functions\-T1} ()}\label{class_ox_1_1_functions_t1_a900d5602b3dd10fca760a304e41da9b5}
 
 \begin{DoxyCompactList}\small\item\em do not forget about the virtual destructor, see \href{https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors}{\tt https\-://stackoverflow.\-com/questions/461203/when-\/to-\/use-\/virtual-\/destructors} \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -107,6 +118,9 @@ virtual void \hyperlink{class_ox_1_1_functions_t1_a84e268911eb64919129c8a0cea393
 \item 
 \hypertarget{class_ox_1_1_functions_t1_a32038248ea53c223d9d99cd9cee36378}{int {\bfseries \-\_\-n\-Samples}}\label{class_ox_1_1_functions_t1_a32038248ea53c223d9d99cd9cee36378}
 
+\item 
+\hypertarget{class_ox_1_1_functions_t1_a4d42b89cb62d20c80e3210b17a692ed1}{int {\bfseries \-\_\-n\-Dims}}\label{class_ox_1_1_functions_t1_a4d42b89cb62d20c80e3210b17a692ed1}
+
 \end{DoxyCompactItemize}
 
 
@@ -120,6 +134,25 @@ Here model function is defined -\/ \hyperlink{class_ox_1_1_functions_t1_a2d5f4c9
 {\em Measure\-Type} & \\
 \hline
 \end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_ox_1_1_functions_t1_a8b14d232e9136a64ea3ae8f7a162daad}{\index{Ox\-::\-Functions\-T1@{Ox\-::\-Functions\-T1}!Functions\-T1@{Functions\-T1}}
+\index{Functions\-T1@{Functions\-T1}!Ox::FunctionsT1@{Ox\-::\-Functions\-T1}}
+\subsubsection[{Functions\-T1}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type$>$ {\bf Ox\-::\-Functions\-T1}$<$ Measure\-Type $>$\-::{\bf Functions\-T1} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Functions\-T1}$<$ Measure\-Type $>$ \&}]{old}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_ox_1_1_functions_t1_a8b14d232e9136a64ea3ae8f7a162daad}
+
+
+copy constructor keeps only and \-\_\-n\-Dims 
+
+
+\begin{DoxyParams}{Parameters}
+{\em old} & \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Function Documentation}
@@ -203,6 +236,20 @@ model(time)
 
 
 Implemented in \hyperlink{class_ox_1_1_functions_t1_basic_ad23b00edd74fdf78c7d21fa82bb66e6e}{Ox\-::\-Functions\-T1\-Basic$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_functions_t1_a2246ea540016c650d5a18100697eacb8}{\index{Ox\-::\-Functions\-T1@{Ox\-::\-Functions\-T1}!new\-By\-Cloning@{new\-By\-Cloning}}
+\index{new\-By\-Cloning@{new\-By\-Cloning}!Ox::FunctionsT1@{Ox\-::\-Functions\-T1}}
+\subsubsection[{new\-By\-Cloning}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type$>$ virtual {\bf Functions\-T1}$<$Measure\-Type$>$$\ast$ {\bf Ox\-::\-Functions\-T1}$<$ Measure\-Type $>$\-::new\-By\-Cloning (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_ox_1_1_functions_t1_a2246ea540016c650d5a18100697eacb8}
+cloning \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_ox_1_1_functions_t1_basic_a0bceaf2c2b424cfa2366d943d92814e3}{Ox\-::\-Functions\-T1\-Basic$<$ Measure\-Type $>$}.
 
 
 

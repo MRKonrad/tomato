@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['_7ecalculatort1',['~CalculatorT1',['../class_ox_1_1_calculator_t1.html#af5d360f92d3c1b1c2f4241e528451f2e',1,'Ox::CalculatorT1']]],
-  ['_7efunctionst1',['~FunctionsT1',['../class_ox_1_1_functions_t1.html#a900d5602b3dd10fca760a304e41da9b5',1,'Ox::FunctionsT1']]],
-  ['_7efunctionst1basic',['~FunctionsT1Basic',['../class_ox_1_1_functions_t1_basic.html#ae3f94c1426a8e6f569b8c70f86122c0b',1,'Ox::FunctionsT1Basic']]],
-  ['_7esigncalculator',['~SignCalculator',['../class_ox_1_1_sign_calculator.html#a5143a172e360633d8df758756d146889',1,'Ox::SignCalculator']]],
-  ['_7estartpointcalculator',['~StartPointCalculator',['../class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a',1,'Ox::StartPointCalculator']]]
+  ['newbycloning',['newByCloning',['../class_ox_1_1_calculator_t1.html#a0db8102b4dad27368667e6ec89c6e4f3',1,'Ox::CalculatorT1::newByCloning()'],['../class_ox_1_1_calculator_t1_molli.html#ae0fde362fbe16c4c40dee96330b4a676',1,'Ox::CalculatorT1Molli::newByCloning()'],['../class_ox_1_1_fitter.html#a665ec51e52ed351c9ef801acc83fbdea',1,'Ox::Fitter::newByCloning()'],['../class_ox_1_1_fitter_amoeba_vnl.html#a4c0c209a5006908c027c5a859b63b385',1,'Ox::FitterAmoebaVnl::newByCloning()'],['../class_ox_1_1_fitter_levenberg_marquardt_vnl.html#a196dd40b911c2b916e303205ccf8121a',1,'Ox::FitterLevenbergMarquardtVnl::newByCloning()'],['../class_ox_1_1_functions_t1.html#a2246ea540016c650d5a18100697eacb8',1,'Ox::FunctionsT1::newByCloning()'],['../class_ox_1_1_functions_t1_basic.html#a0bceaf2c2b424cfa2366d943d92814e3',1,'Ox::FunctionsT1Basic::newByCloning()'],['../class_ox_1_1_sign_calculator.html#aaf05d957c2f3cf68e71224562bb053d8',1,'Ox::SignCalculator::newByCloning()'],['../class_ox_1_1_sign_calculator_real_imag.html#ae3340d1ac5728efcaf3d5a9299f01f2c',1,'Ox::SignCalculatorRealImag::newByCloning()'],['../class_ox_1_1_start_point_calculator.html#a2f1c22d86f8f1c06eeedf0202a08b29f',1,'Ox::StartPointCalculator::newByCloning()']]]
 ];

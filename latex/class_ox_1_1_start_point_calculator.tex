@@ -37,9 +37,21 @@ virtual int \hyperlink{class_ox_1_1_start_point_calculator_acd8fda33c7bf92f02e09
 \hypertarget{class_ox_1_1_start_point_calculator_ae8ddca43560e04c7332f804a825ee525}{int {\bfseries set\-Start\-Point\-To\-Default} ()}\label{class_ox_1_1_start_point_calculator_ae8ddca43560e04c7332f804a825ee525}
 
 \item 
+\hypertarget{class_ox_1_1_start_point_calculator_a1e68d3a23cee006d4dbdd47583c5d316}{void {\bfseries disp} ()}\label{class_ox_1_1_start_point_calculator_a1e68d3a23cee006d4dbdd47583c5d316}
+
+\item 
+\hypertarget{class_ox_1_1_start_point_calculator_a4fef8d4182451c17bc43d0e7a1abb90c}{void \hyperlink{class_ox_1_1_start_point_calculator_a4fef8d4182451c17bc43d0e7a1abb90c}{init} ()}\label{class_ox_1_1_start_point_calculator_a4fef8d4182451c17bc43d0e7a1abb90c}
+
+\begin{DoxyCompactList}\small\item\em set all the pointers to zero \end{DoxyCompactList}\item 
 \hypertarget{class_ox_1_1_start_point_calculator_a408ce85b6fbf0ee69f4eca3176b814d6}{\hyperlink{class_ox_1_1_start_point_calculator_a408ce85b6fbf0ee69f4eca3176b814d6}{Start\-Point\-Calculator} ()}\label{class_ox_1_1_start_point_calculator_a408ce85b6fbf0ee69f4eca3176b814d6}
 
-\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\hypertarget{class_ox_1_1_start_point_calculator_ab6b12ed8fa6b47b3335b5c7a92b94623}{\hyperlink{class_ox_1_1_start_point_calculator_ab6b12ed8fa6b47b3335b5c7a92b94623}{Start\-Point\-Calculator} (const \hyperlink{class_ox_1_1_start_point_calculator}{Start\-Point\-Calculator} \&old)}\label{class_ox_1_1_start_point_calculator_ab6b12ed8fa6b47b3335b5c7a92b94623}
+
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+virtual \hyperlink{class_ox_1_1_start_point_calculator}{Start\-Point\-Calculator}\\*
+$<$ Measure\-Type $>$ $\ast$ \hyperlink{class_ox_1_1_start_point_calculator_a2f1c22d86f8f1c06eeedf0202a08b29f}{new\-By\-Cloning} ()
+\item 
 \hypertarget{class_ox_1_1_start_point_calculator_a210c3312a8926b750dba8e498c6b620a}{virtual \hyperlink{class_ox_1_1_start_point_calculator_a210c3312a8926b750dba8e498c6b620a}{$\sim$\-Start\-Point\-Calculator} ()}\label{class_ox_1_1_start_point_calculator_a210c3312a8926b750dba8e498c6b620a}
 
 \begin{DoxyCompactList}\small\item\em do not forget about the virtual destructor, see \href{https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors}{\tt https\-://stackoverflow.\-com/questions/461203/when-\/to-\/use-\/virtual-\/destructors} \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -64,7 +76,7 @@ virtual int \hyperlink{class_ox_1_1_start_point_calculator_acd8fda33c7bf92f02e09
 \hypertarget{class_ox_1_1_start_point_calculator_a17601c059cd679301597bc897e297c2f}{int {\bfseries \-\_\-n\-Samples}}\label{class_ox_1_1_start_point_calculator_a17601c059cd679301597bc897e297c2f}
 
 \item 
-\hypertarget{class_ox_1_1_start_point_calculator_a7c13748ff5fca507aa348ac6609cee47}{int {\bfseries \-\_\-n\-Start\-Fit\-Points}}\label{class_ox_1_1_start_point_calculator_a7c13748ff5fca507aa348ac6609cee47}
+\hypertarget{class_ox_1_1_start_point_calculator_a1bee9378aff7741838dad45ff6d5dc1d}{int {\bfseries \-\_\-n\-Dims}}\label{class_ox_1_1_start_point_calculator_a1bee9378aff7741838dad45ff6d5dc1d}
 
 \end{DoxyCompactItemize}
 
@@ -82,13 +94,23 @@ virtual int \hyperlink{class_ox_1_1_start_point_calculator_acd8fda33c7bf92f02e09
 \subsection{Member Function Documentation}
 \hypertarget{class_ox_1_1_start_point_calculator_acd8fda33c7bf92f02e0915e9a900692d}{\index{Ox\-::\-Start\-Point\-Calculator@{Ox\-::\-Start\-Point\-Calculator}!calculate\-Start\-Point@{calculate\-Start\-Point}}
 \index{calculate\-Start\-Point@{calculate\-Start\-Point}!Ox::StartPointCalculator@{Ox\-::\-Start\-Point\-Calculator}}
-\subsubsection[{calculate\-Start\-Point}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ virtual int {\bf Ox\-::\-Start\-Point\-Calculator}$<$ Measure\-Type $>$\-::calculate\-Start\-Point (
+\subsubsection[{calculate\-Start\-Point}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type$>$ virtual int {\bf Ox\-::\-Start\-Point\-Calculator}$<$ Measure\-Type $>$\-::calculate\-Start\-Point (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_ox_1_1_start_point_calculator_acd8fda33c7bf92f02e0915e9a900692d}
 the most important function of this class \begin{DoxyReturn}{Returns}
 success/failure 
+\end{DoxyReturn}
+\hypertarget{class_ox_1_1_start_point_calculator_a2f1c22d86f8f1c06eeedf0202a08b29f}{\index{Ox\-::\-Start\-Point\-Calculator@{Ox\-::\-Start\-Point\-Calculator}!new\-By\-Cloning@{new\-By\-Cloning}}
+\index{new\-By\-Cloning@{new\-By\-Cloning}!Ox::StartPointCalculator@{Ox\-::\-Start\-Point\-Calculator}}
+\subsubsection[{new\-By\-Cloning}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type$>$ virtual {\bf Start\-Point\-Calculator}$<$Measure\-Type$>$$\ast$ {\bf Ox\-::\-Start\-Point\-Calculator}$<$ Measure\-Type $>$\-::new\-By\-Cloning (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_ox_1_1_start_point_calculator_a2f1c22d86f8f1c06eeedf0202a08b29f}
+cloning \begin{DoxyReturn}{Returns}
+
 \end{DoxyReturn}
 
 

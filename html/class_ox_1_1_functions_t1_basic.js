@@ -5,5 +5,6 @@ var class_ox_1_1_functions_t1_basic =
     [ "calcCostValue", "class_ox_1_1_functions_t1_basic.html#adee7b03ad49d28e5dc08a80b2c948da1", null ],
     [ "calcLSJacobian", "class_ox_1_1_functions_t1_basic.html#a3beaaac6e2e1be4f9bd2e7cba7c51057", null ],
     [ "calcLSResiduals", "class_ox_1_1_functions_t1_basic.html#ac9f77d95d7b39f2333b520d3a2e639e9", null ],
-    [ "calcModelValue", "class_ox_1_1_functions_t1_basic.html#ad23b00edd74fdf78c7d21fa82bb66e6e", null ]
+    [ "calcModelValue", "class_ox_1_1_functions_t1_basic.html#ad23b00edd74fdf78c7d21fa82bb66e6e", null ],
+    [ "newByCloning", "class_ox_1_1_functions_t1_basic.html#a0bceaf2c2b424cfa2366d943d92814e3", null ]
 ];
