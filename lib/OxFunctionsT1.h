@@ -77,25 +77,58 @@ namespace Ox {
         void setNSamples(int _nSamples) { FunctionsT1::_nSamples = _nSamples; }
 
         virtual void copyToParameters(const MeasureType *ptrFrom){
-            for (int i = 0; i < 3; ++i){
-                _Parameters[0] = ptrFrom[0];
-                _Parameters[1] = ptrFrom[1];
-                _Parameters[2] = ptrFrom[2];
+            for (int i = 0; i < _nDims; ++i){
+                _Parameters[i] = ptrFrom[i];
             }
         }
 
         /**
-         * \brief default constructor
+         * \brief show me your FunctionsT1
          */
-        FunctionsT1(){
+        virtual void disp(){
+            int nSamples = this->getNSamples();
+            std::cout << "\nYou called disp() on a FunctionsT1 object " << this << " with nSamples: " << getNSamples();
+            KWUtil::printArray((bool)getInvTimes(), nSamples, getInvTimes(),       (char*)"\nInvTimes:    ");
+            KWUtil::printArray((bool)getSatTimes(), nSamples, getSatTimes(),       (char*)"\nSatTimes:    ");
+            KWUtil::printArray((bool)getRepTimes(), nSamples, getRepTimes(),       (char*)"\nRepTimes:    ");
+            KWUtil::printArray((bool)getRelAcqTimes(), nSamples, getRelAcqTimes(), (char*)"\nRelAcqTimes: ");
+            KWUtil::printArray((bool)getSignal(), nSamples, getSignal(),           (char*)"\nSignal:      ");
+            KWUtil::printArray((bool)getParameters(), _nDims, getParameters(),          (char*)"\nParameters:  ");
+            std::cout << std::endl;
+        }
+
+        /**
+         * \brief set all the pointers to zero
+         */
+        void init(){
             _InvTimes = 0;
             _SatTimes = 0;
             _RepTimes = 0;
             _RelAcqTimes = 0;
             _Signal = 0;
             _Parameters = 0;
+        }
+
+        /**
+         * \brief default constructor
+         */
+        FunctionsT1(){
+            //std::cout << "FunctionsT1 constructor" << std::endl;
             _nSamples = 0;
+            _nDims = 3;
+            init();
         };
+
+        /**
+         * \brief copy constructor keeps only  and _nDims
+         * @param old
+         */
+        FunctionsT1(const FunctionsT1 &old) {
+            std::cout<<"FunctionsT1 copy constructor "<<std::endl;
+            _nSamples = old._nSamples;
+            _nDims = old._nDims;
+            init();
+        }
 
         /**
          * \brief do not forget about the virtual destructor, see
@@ -112,6 +145,7 @@ namespace Ox {
         const MeasureType* _Signal;
         MeasureType* _Parameters;
         int _nSamples;
+        int _nDims = 3;
     };
 } //namespace Ox
 

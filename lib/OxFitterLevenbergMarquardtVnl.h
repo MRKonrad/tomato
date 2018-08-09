@@ -21,17 +21,12 @@ namespace Ox {
         typedef vnl_levenberg_marquardt VnlFitterType; // !!! this is the most important configuration part !!!
         typedef FunctionsT1AdapterVnlLeastSquares FunctionsAdaptedToVnlType;
 
-        FitterLevenbergMarquardtVnl() {
-            _VnlFitter = 0; // nullpointer
-            _FunctionsAdaptedToVnl = 0; // nullpointer
-        };
-
-        virtual ~FitterLevenbergMarquardtVnl() {
-            delete _FunctionsAdaptedToVnl;
-            delete _VnlFitter;
-        };
-
+        /**
+         * the most important function of this class
+         * @return success/failure
+         */
         virtual int performFitting(){
+
             configureMinimizer();
 
             vnl_vector<MeasureType> temp(this->_FunctionsT1->getParameters(), 3);
@@ -45,7 +40,53 @@ namespace Ox {
                 std::cout << "Results: " << temp << " Cost: " << this->_FunctionsT1->calcCostValue() << std::endl;
             }
 
-            return EXIT_SUCCESS;
+            return 0; //EXIT_SUCCESS;
+        };
+
+        // getters
+        FunctionsAdaptedToVnlType *getFunctionsAdaptedToVnl() const {
+            return _FunctionsAdaptedToVnl;
+        }
+
+        /**
+         * \brief show me your Fitter
+         */
+        virtual void disp(){
+            std::cout << "\nYou called disp() on a FitterLevenbergMarquardtVnl object" << this << "\n";
+            std::cout << "It has VnlFitter " << _VnlFitter << std::endl;
+            std::cout << "It has FunctionsAdaptedToVnl " << _FunctionsAdaptedToVnl << std::endl;
+            std::cout << "It's base class is as follows: ";
+
+            Fitter<MeasureType>::disp();
+        }
+
+        /**
+         * \brief constructor
+         */
+        FitterLevenbergMarquardtVnl() {
+            // I cannot initialise _FunctionsAdaptedToVnl here, as I do not know nSamples yet
+            _FunctionsAdaptedToVnl = 0; // nullptr
+            _VnlFitter = 0; // nullptr
+        };
+
+        /**
+         * copy constructor
+         * @param old
+         */
+        FitterLevenbergMarquardtVnl(const FitterLevenbergMarquardtVnl &old) : Fitter<MeasureType>(old){
+//            _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(*old.getFunctionsAdaptedToVnl());
+//            _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);
+            // I cannot initialise _FunctionsAdaptedToVnl here, as I do not know nSamples yet
+            _FunctionsAdaptedToVnl = 0; // nullptr
+            _VnlFitter = 0; // nullptr
+        }
+
+        /**
+         * \brief destructor
+         */
+        virtual ~FitterLevenbergMarquardtVnl() {
+            delete _FunctionsAdaptedToVnl;
+            delete _VnlFitter;
         };
 
     protected:

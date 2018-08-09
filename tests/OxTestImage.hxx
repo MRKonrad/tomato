@@ -42,8 +42,8 @@ namespace Ox {
         // allocate memory
         _imageMag = new MeasureType[_nRows*_nCols*_nSamples];
         _imagePha = new MeasureType[_nRows*_nCols*_nSamples];
-        _imageResultsMolli = new MeasureType[_nSamples*_nRows*3];
-        _imageResultsShmolli = new MeasureType[_nSamples*_nRows*3];
+        _imageResultsMolli = new MeasureType[_nCols*_nRows*3];
+        _imageResultsShmolli = new MeasureType[_nCols*_nRows*3];
 
         // how to divide the memory?
         std::vector<int> ranges = KWUtil::bounds<int>(nTissues, _nCols);

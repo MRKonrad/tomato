@@ -22,17 +22,6 @@ namespace Ox {
 
     public:
 
-        Fitter(){
-            _FunctionsT1 = 0; //nullpointer
-
-            _XTolerance = 1e-12;
-            _FTolerance = 1e-12;
-            _MaxFunctionEvals = 4000;
-            _ThreadId = 0;
-            _Verbose = false;
-            _Trace = false;
-        }
-
         /**
          * the most important function of this class
          * @return success/failure
@@ -57,6 +46,54 @@ namespace Ox {
         virtual void setVerbose(const bool _Verbose) { Fitter::_Verbose = _Verbose; }
         virtual void setTrace(const bool _Trace) { Fitter::_Trace = _Trace; }
 
+        /**
+         * \brief show me your Fitter
+         */
+        virtual void disp(){
+            std::cout << "\nYou called disp() on a Fitter object " << this << "\n";
+            std::cout << "XTolerance:       " << getXTolerance() << std::endl;
+            std::cout << "FTolerance:       " << getFTolerance() << std::endl;
+            std::cout << "MaxFunctionEvals: " << getMaxFunctionEvals() << std::endl;
+            std::cout << "ThreadId:         " << getThreadId() << std::endl;
+            if(_FunctionsT1) {
+                std::cout << "This Fitter contains the followind FunctionsT1 object: ";
+                _FunctionsT1->disp();
+            };
+        }
+
+        /**
+         * \brief constructor
+         */
+        Fitter(){
+            _FunctionsT1 = 0; //nullpointer
+
+            _XTolerance = 1e-12;
+            _FTolerance = 1e-12;
+            _MaxFunctionEvals = 4000;
+            _ThreadId = 0;
+            _Verbose = false;
+            _Trace = false;
+        }
+
+        /**
+         * copy constructor
+         * @param old
+         */
+        Fitter(const Fitter &old) {
+            _FunctionsT1 = 0; //nullpointer
+
+            _XTolerance = old._XTolerance;
+            _FTolerance = old._FTolerance;
+            _MaxFunctionEvals = old._MaxFunctionEvals;
+            _ThreadId = old._ThreadId;
+            _Verbose = old._Verbose;
+            _Trace = old._Trace;
+        }
+
+        /**
+         * \brief do not forget about the virtual destructor, see
+         * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
+         */
         virtual ~Fitter(){};
 
     protected:
@@ -68,11 +105,6 @@ namespace Ox {
         unsigned int _ThreadId;
         bool _Verbose;
         bool _Trace;
-
-        /**
-         * \brief do not forget about the virtual destructor, see
-         * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
-         */
 
 
     };

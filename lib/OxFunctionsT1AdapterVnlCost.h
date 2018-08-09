@@ -17,10 +17,6 @@ namespace Ox {
 
     public:
 
-        FunctionsT1AdapterVnlCost() : vnl_cost_function(3){
-            _FunctionsT1 = 0; // nullpointer
-        };
-
         // cost function problem formulation
         double f(vnl_vector<double> const& params){ // override
             _FunctionsT1->copyToParameters(params.data_block());
@@ -38,9 +34,26 @@ namespace Ox {
             this->_FunctionsT1 = _FunctionsT1;
         };
 
+        // getters
         FunctionsT1<double>* getFunctionsT1(){
             return _FunctionsT1;
         };
+
+
+        /**
+         * constructor
+         */
+        FunctionsT1AdapterVnlCost() : vnl_cost_function(3){
+            _FunctionsT1 = 0; // nullpointer
+        };
+
+        /**
+         * copy constructor
+         * @param old
+         */
+        FunctionsT1AdapterVnlCost(const FunctionsT1AdapterVnlCost &old){
+            _FunctionsT1 = old._FunctionsT1;
+        }
 
     private:
 

@@ -128,3 +128,49 @@ TEST(OxFunctionsT1Basic, calcCostDerivativeTest) {
 
 }
 
+TEST(OxFunctionsT1Basic, copyConstructor) {
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/blood.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    TYPE signal[7] = {1, 2, 3, 4, 5, 6, 7};
+    TYPE newSignal[7] = {2, 2, 3, 4, 5, 6, 7};
+    TYPE newSignal2[7] = {3, 2, 3, 4, 5, 6, 7};
+
+    // init the necessary objects
+    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    functionsObject.setNSamples(testData.getNSamples());
+    functionsObject.setInvTimes(testData.getInvTimesPtr());
+    functionsObject.setSignal(signal);
+
+    // copy and set signal
+    Ox::FunctionsT1Basic<TYPE> functionsObjectCopy = functionsObject;
+    functionsObjectCopy.setSignal(newSignal);
+
+    // copy and set signal
+    Ox::FunctionsT1Basic<TYPE> functionsObjectCopy2(functionsObject);
+    functionsObjectCopy2.setSignal(newSignal2);
+
+    // copy should preserve nSamples
+    EXPECT_EQ(functionsObjectCopy.getNSamples(), nSamples);
+    EXPECT_EQ(functionsObjectCopy2.getNSamples(), nSamples);
+
+    // copy should reset invTimes pointer
+    EXPECT_FALSE(functionsObjectCopy.getInvTimes());
+    EXPECT_FALSE(functionsObjectCopy2.getInvTimes());
+
+    // copy should not preserve signal pointer
+    EXPECT_NE(functionsObject.getSignal(), functionsObjectCopy.getSignal());
+    EXPECT_NE(functionsObject.getSignal(), functionsObjectCopy2.getSignal());
+
+    // check if the new signal pointers were asigned
+    EXPECT_EQ(functionsObjectCopy.getSignal(), newSignal);
+    EXPECT_EQ(functionsObjectCopy2.getSignal(), newSignal2);
+
+
+
+}
+
