@@ -23,23 +23,23 @@ branches:
 
 # Environment variables
 env:
-  - CXX_STANDARD=98
-  - CXX_STANDARD=11
+  matrix:
+    - CXX_STANDARD=98
+    - CXX_STANDARD=11
   global:
-    # used in documentation script
-    - GH_REPO_NAME: OxShmolli2
-    - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile
-    - INPUT_FOR_DOXY: "'. ./app ./lib ./tests'"
-    - OUTPUT_FOR_DOXY: "${TRAVIS_BUILD_DIR}/code_docs/${GH_REPO_NAME}"
-    - GH_REPO_REF: github.com/MRKonrad/OxShmolli2.git
-    - secure: 4wedfy5OEFLLO3/29WFF8fFE8jOqXDIb8Kc4VOBw2Yrr599NFDpDBgy9dzGtDzvvpkt/hbSh5lSSPB8KzN6+zX8JTJg2LNPmVEfpZILiTOpOKnydLHWWuznMSrtEic1DDGTp30sJXk3JWBKpmAsDMAssM35lwLNIR9BjpKOadACt5FTOvwXneCnbVr8iJ4F38EIInKQYwVhntBiCvcl+YrrLW6zSbJruEBGX1SpRRgQp8DcT9z4fOob0bIl27VFQcenHx694uzv/qIkU7pgfqV9CB3OTNjwsrgM/tY6O903PtXUpE/LA9ZCDj8NdTdOJa5OBBgsUGKu3vcc9qL5oLUKGqpMHInPpIBLDzuGaypMC2Fl675DAxe11EVGgX4ZtQAphdUw0PnFGCr5f8PafaFuKXKq0TpAn9ZO8QH3L5OrRbpLG2QDHcjYnhzyoaCNtNcQS0syPO51auzFdDRKNsq7Yvjph0uYLSlrgK2ZH2HJWeYgmgVKn79KYRmNEHTnHj+RHSnLP4b20SmQM2gOQ6v/+WMlShjgn5uul9k3s76baBrGsNgyHH95/2KG8NiSHVhwQzerY+tCn5aoRrVu+BbNT2IzdHoncf7JvE6CliQpMH/tW4EBrg0ceyvzemzVd7blbIWRRWkYrE6sqFvMOzSx6R8Jd059rEFu6JtEGGgQ=
+    - GH_REPO_NAME: OxShmolli2 # used in documentation script
+    - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile # used in documentation script
+    - INPUT_FOR_DOXY: "'. ./app ./lib ./tests'" # used in documentation script
+    - OUTPUT_FOR_DOXY: "${TRAVIS_BUILD_DIR}/code_docs/${GH_REPO_NAME}" # used in documentation script
+    - GH_REPO_REF: github.com/MRKonrad/OxShmolli2.git # used in documentation script
     - EXTENDED_BUILD: "FALSE"
     - DEPLOY_BUILD: "FALSE"
+    - secure: 4wedfy5OEFLLO3/29WFF8fFE8jOqXDIb8Kc4VOBw2Yrr599NFDpDBgy9dzGtDzvvpkt/hbSh5lSSPB8KzN6+zX8JTJg2LNPmVEfpZILiTOpOKnydLHWWuznMSrtEic1DDGTp30sJXk3JWBKpmAsDMAssM35lwLNIR9BjpKOadACt5FTOvwXneCnbVr8iJ4F38EIInKQYwVhntBiCvcl+YrrLW6zSbJruEBGX1SpRRgQp8DcT9z4fOob0bIl27VFQcenHx694uzv/qIkU7pgfqV9CB3OTNjwsrgM/tY6O903PtXUpE/LA9ZCDj8NdTdOJa5OBBgsUGKu3vcc9qL5oLUKGqpMHInPpIBLDzuGaypMC2Fl675DAxe11EVGgX4ZtQAphdUw0PnFGCr5f8PafaFuKXKq0TpAn9ZO8QH3L5OrRbpLG2QDHcjYnhzyoaCNtNcQS0syPO51auzFdDRKNsq7Yvjph0uYLSlrgK2ZH2HJWeYgmgVKn79KYRmNEHTnHj+RHSnLP4b20SmQM2gOQ6v/+WMlShjgn5uul9k3s76baBrGsNgyHH95/2KG8NiSHVhwQzerY+tCn5aoRrVu+BbNT2IzdHoncf7JvE6CliQpMH/tW4EBrg0ceyvzemzVd7blbIWRRWkYrE6sqFvMOzSx6R8Jd059rEFu6JtEGGgQ=
 
 addons:
   apt:
     sources:
-      ubuntu-toolchain-r-test;
+      - ubuntu-toolchain-r-test
     packages:
       - doxygen
       - doxygen-doc
@@ -51,7 +51,7 @@ before_install:
   - cd ${TRAVIS_BUILD_DIR}
   # condition for the extended build (with coveralls and documentation)
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ] && [ "CXX_STANDARD" == "11"]; then
-      EXTENDED_BUILD="TRUE";
+      export EXTENDED_BUILD="TRUE";
     fi
   # condition for the deployment build
   - if [ "$CXX" == "g++" ] && [ "CXX_STANDARD" == "11"]; then
@@ -108,8 +108,7 @@ deploy:
   api_key:
     secure: 4wedfy5OEFLLO3/29WFF8fFE8jOqXDIb8Kc4VOBw2Yrr599NFDpDBgy9dzGtDzvvpkt/hbSh5lSSPB8KzN6+zX8JTJg2LNPmVEfpZILiTOpOKnydLHWWuznMSrtEic1DDGTp30sJXk3JWBKpmAsDMAssM35lwLNIR9BjpKOadACt5FTOvwXneCnbVr8iJ4F38EIInKQYwVhntBiCvcl+YrrLW6zSbJruEBGX1SpRRgQp8DcT9z4fOob0bIl27VFQcenHx694uzv/qIkU7pgfqV9CB3OTNjwsrgM/tY6O903PtXUpE/LA9ZCDj8NdTdOJa5OBBgsUGKu3vcc9qL5oLUKGqpMHInPpIBLDzuGaypMC2Fl675DAxe11EVGgX4ZtQAphdUw0PnFGCr5f8PafaFuKXKq0TpAn9ZO8QH3L5OrRbpLG2QDHcjYnhzyoaCNtNcQS0syPO51auzFdDRKNsq7Yvjph0uYLSlrgK2ZH2HJWeYgmgVKn79KYRmNEHTnHj+RHSnLP4b20SmQM2gOQ6v/+WMlShjgn5uul9k3s76baBrGsNgyHH95/2KG8NiSHVhwQzerY+tCn5aoRrVu+BbNT2IzdHoncf7JvE6CliQpMH/tW4EBrg0ceyvzemzVd7blbIWRRWkYrE6sqFvMOzSx6R8Jd059rEFu6JtEGGgQ=
   file_glob: true # to use wildcards
-  file:
-    - deployment/*
+  file: deployment/*
   skip_cleanup: true
   on:
     tags: true
