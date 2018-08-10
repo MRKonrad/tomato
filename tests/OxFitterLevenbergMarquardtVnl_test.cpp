@@ -29,8 +29,8 @@ TEST(OxFitterLevenbergMarquardtVnl, performFitting) {
     fitterLevenbergMarquardtVnl.setFunctionsT1(&functionsObject);
     functionsObject.setParameters(params);
 
-    fitterLevenbergMarquardtVnl.setVerbose(true);
-    fitterLevenbergMarquardtVnl.setTrace(true);
+    fitterLevenbergMarquardtVnl.setVerbose(false);
+    fitterLevenbergMarquardtVnl.setTrace(false);
 
     fitterLevenbergMarquardtVnl.performFitting();
 

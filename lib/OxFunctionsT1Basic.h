@@ -30,6 +30,10 @@ namespace Ox {
         virtual MeasureType calcCostValue();
         virtual void calcCostDerivative(MeasureType* derivative);
 
+        FunctionsT1Basic() : FunctionsT1<MeasureType>(){
+            this->_nDims = 3;
+        }
+
         /**
          * cloning
          * @return

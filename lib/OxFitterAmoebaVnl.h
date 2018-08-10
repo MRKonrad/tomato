@@ -28,7 +28,7 @@ namespace Ox {
 
             configureMinimizer();
 
-            vnl_vector<MeasureType> temp(this->_FunctionsT1->getParameters(), 3);
+            vnl_vector<MeasureType> temp(this->_FunctionsT1->getParameters(), this->_FunctionsT1->getNDims());
 
             _VnlFitter->minimize(temp);
 
@@ -63,18 +63,12 @@ namespace Ox {
          * \brief constructor
          */
         FitterAmoebaVnl() {
-            _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType();
-            _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);
+//            _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(this->_FunctionsT1->getNDims());
+//            _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);
+            // I cannot initialise _FunctionsAdaptedToVnl here, as I do not know nDims yet
+            _FunctionsAdaptedToVnl = 0;
+            _VnlFitter = 0;
         };
-
-        /**
-         * copy constructor
-         * @param old
-         */
-        FitterAmoebaVnl(const FitterAmoebaVnl &old) : Fitter<MeasureType>(old){
-            _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(*old.getFunctionsAdaptedToVnl());
-            _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);
-        }
 
         /**
          * cloning
@@ -86,22 +80,31 @@ namespace Ox {
          * \brief destructor
          */
         virtual ~FitterAmoebaVnl() {
-            delete _FunctionsAdaptedToVnl;
-            delete _VnlFitter;
+            delete _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;
+            delete _VnlFitter; _VnlFitter = 0;
         };
 
     protected:
 
         virtual void configureMinimizer() {
-            if (!this->_FunctionsT1) {
-                std::cerr << "Set the FunctionsT1 object" << std::endl;
-                throw std::exception();
+            if (!_VnlFitter) {
+                if (!this->_FunctionsT1) {
+                    std::cerr << "Set the FunctionsT1 object" << std::endl;
+                    throw std::exception();
+                } else {
+                    delete _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;
+                    delete _VnlFitter; _VnlFitter = 0;
+                    int nDims = this->_FunctionsT1->getNDims();
+                    _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nDims);
+                    _FunctionsAdaptedToVnl->setFunctionsT1(this->_FunctionsT1);
+                    _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);
+                }
+                _FunctionsAdaptedToVnl->setFunctionsT1(this->_FunctionsT1);
+                _VnlFitter->set_x_tolerance(this->getXTolerance());
+                _VnlFitter->set_f_tolerance(this->getFTolerance());
+                //m_LocalFitter->set_g_tolerance(this->GetGTolerance());
+                _VnlFitter->set_max_iterations(this->getMaxFunctionEvals());
             }
-            _FunctionsAdaptedToVnl->setFunctionsT1(this->_FunctionsT1);
-            _VnlFitter->set_x_tolerance(this->getXTolerance());
-            _VnlFitter->set_f_tolerance(this->getFTolerance());
-            //m_LocalFitter->set_g_tolerance(this->GetGTolerance());
-            _VnlFitter->set_max_iterations(this->getMaxFunctionEvals());
         };
 
     private:

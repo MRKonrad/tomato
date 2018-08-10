@@ -10,6 +10,7 @@
 #include "OxFunctionsT1Basic.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxSignCalculatorRealImag.h"
+#include "OxStartPointCalculatorDefault3Dims.h"
 #include "OxCalculatorT1Molli.h"
 
 TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
@@ -24,7 +25,7 @@ TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculator<TYPE> signCalculator;
-    Ox::StartPointCalculator<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> CalculatorT1Molli;
 
     // configure
@@ -68,7 +69,7 @@ TEST(OxCalculatorT1Molli, calculate_throwIfInvTimesNotSorted) {
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculator<TYPE> signCalculator;
-    Ox::StartPointCalculator<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> CalculatorT1Molli;
 
     // configure
@@ -100,7 +101,7 @@ TEST(OxCalculatorT1Molli, calculate_WithoutSigns) {
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculator<TYPE> signCalculator;
-    Ox::StartPointCalculator<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure
@@ -134,7 +135,7 @@ TEST(OxCalculatorT1Molli, calculate_WithSigns) {
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
-    Ox::StartPointCalculator<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure
@@ -169,7 +170,7 @@ TEST(OxCalculatorT1Molli, copyConstructor) {
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
-    Ox::StartPointCalculator<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure
@@ -185,14 +186,31 @@ TEST(OxCalculatorT1Molli, copyConstructor) {
     calculatorT1Molli.setSigMag(testData.getSignalMagPtr());
     calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
 
-    calculatorT1Molli.disp();
+    calculatorT1Molli.setMeanCutOff(123);
 
-    //EXPECT_EQ( 1, 0);
+    Ox::CalculatorT1Molli<TYPE> calculatorT1MolliCopy = calculatorT1Molli;
 
-//    calculatorT1Molli.calculate();
-//
-//    EXPECT_NEAR(calculatorT1Molli.getResults().A, testData.getResultsMolli()[0], 1e-2);
-//    EXPECT_NEAR(calculatorT1Molli.getResults().B, testData.getResultsMolli()[1], 1e-2);
-//    EXPECT_NEAR(calculatorT1Molli.getResults().T1star, testData.getResultsMolli()[2], 1e-2);
+    EXPECT_EQ( calculatorT1Molli.getMeanCutOff(), calculatorT1MolliCopy.getMeanCutOff());
+    EXPECT_EQ( calculatorT1Molli.getNSamples(), calculatorT1MolliCopy.getNSamples());
+    EXPECT_EQ( calculatorT1Molli.getNDims(), calculatorT1MolliCopy.getNDims());
+
+    // empty object pointers
+    EXPECT_THROW(calculatorT1MolliCopy.getFunctionsT1(), std::runtime_error);
+    EXPECT_THROW(calculatorT1MolliCopy.getFitter(), std::runtime_error);
+    EXPECT_THROW(calculatorT1MolliCopy.getSignCalculator(), std::runtime_error);
+    EXPECT_THROW(calculatorT1MolliCopy.getStartPointCalculator(), std::runtime_error);
+
+    // empty array pointers
+    EXPECT_THROW(calculatorT1MolliCopy.getInvTimes(), std::runtime_error);
+    EXPECT_FALSE(calculatorT1MolliCopy.getRepTimes());
+    EXPECT_FALSE(calculatorT1MolliCopy.getRelAcqTimes());
+    EXPECT_THROW(calculatorT1MolliCopy.getSigMag(), std::runtime_error);
+    EXPECT_FALSE(calculatorT1MolliCopy.getSigPha());
+
+    // non-empty pointers of internal arrays
+    EXPECT_TRUE(calculatorT1MolliCopy.getSignal());
+    EXPECT_TRUE(calculatorT1MolliCopy.getSigns());
+    EXPECT_TRUE(calculatorT1MolliCopy.getStartPoint());
+
 }
 

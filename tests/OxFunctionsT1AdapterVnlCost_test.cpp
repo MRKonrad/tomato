@@ -18,6 +18,7 @@ TEST(OxFunctionsT1AdapterVnlCost, f) {
     char filePath [] = "testData/blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
+    int nDims = 3;
 
     TYPE params[3] = {0, 0, 0};
 
@@ -27,7 +28,7 @@ TEST(OxFunctionsT1AdapterVnlCost, f) {
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
-    Ox::FunctionsT1AdapterVnlCost functionsAdaptedToVnl;
+    Ox::FunctionsT1AdapterVnlCost functionsAdaptedToVnl(nDims);
     functionsAdaptedToVnl.setFunctionsT1(&functionsObject);
 
     vnl_vector<TYPE> temp(params, 3);
@@ -45,6 +46,7 @@ TEST(OxFunctionsT1AdapterVnlCost, gradf) {
     char filePath [] = "testData/blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
+    int nDims = 3;
 
     TYPE params[3] = {100, 200, 1200};
 
@@ -54,7 +56,7 @@ TEST(OxFunctionsT1AdapterVnlCost, gradf) {
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
-    Ox::FunctionsT1AdapterVnlCost functionsAdaptedToVnl;
+    Ox::FunctionsT1AdapterVnlCost functionsAdaptedToVnl(nDims);
     functionsAdaptedToVnl.setFunctionsT1(&functionsObject);
 
     // FunctionsT1Basic results
@@ -78,6 +80,7 @@ TEST(OxFunctionsT1AdapterVnlCost, fitting) {
     char filePath [] = "testData/blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
+    int nDims = 3;
 
     TYPE params[3] = {100, 200, 1200};
 
@@ -87,7 +90,7 @@ TEST(OxFunctionsT1AdapterVnlCost, fitting) {
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
 
-    Ox::FunctionsT1AdapterVnlCost functionsAdaptedToVnl;
+    Ox::FunctionsT1AdapterVnlCost functionsAdaptedToVnl(nDims);
     functionsAdaptedToVnl.setFunctionsT1(&functionsObject);
 
     vnl_vector<TYPE> paramsVnl(params, 3);

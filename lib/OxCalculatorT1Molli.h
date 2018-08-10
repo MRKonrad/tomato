@@ -21,18 +21,11 @@ namespace Ox {
     class CalculatorT1Molli : public CalculatorT1<MeasureType> {
     public:
 
-        CalculatorT1Molli() : CalculatorT1<MeasureType>(){
-            MaxTIForSignInvert = this->MAX_T1_TRESHOLD * 0.67;
-        }
-
         /**
-         * cloning
-         * @return
+         * calling calculateMolli(int nSamples, const MeasureType* invTimes, MeasureType* signal, MeasureType* signs)
+         * @return success/failure
          */
-        virtual CalculatorT1<MeasureType> *newByCloning() { return new CalculatorT1Molli<MeasureType>(*this); }
-
         virtual int calculate(){
-            MeasureType results[3];
             this->_Results = calculateMolli( this->getNSamples(),
                                              this->getInvTimes(),
                                              this->getSignal(),
@@ -42,7 +35,12 @@ namespace Ox {
         }
 
         /**
-         * the most important function of this class
+         * The most important function of this class
+         * It has all the input parametrs so that I can call it from the shmolli class
+         * @param nSamples
+         * @param invTimes
+         * @param signal
+         * @param signs
          * @return success/failure
          */
         virtual CalculatorT1Results<MeasureType> calculateMolli(int nSamples, const MeasureType* invTimes, MeasureType* signal, MeasureType* signs){
@@ -129,6 +127,21 @@ namespace Ox {
 
             return restulsStruct;
         }
+
+        /**
+         * constructor
+         */
+        CalculatorT1Molli() : CalculatorT1<MeasureType>(){
+            MaxTIForSignInvert = this->MAX_T1_TRESHOLD * 0.67;
+        }
+
+        /**
+         * cloning
+         * @return
+         */
+        virtual CalculatorT1<MeasureType> *newByCloning() { return new CalculatorT1Molli<MeasureType>(*this); }
+
+
 
     protected:
         double MaxTIForSignInvert;

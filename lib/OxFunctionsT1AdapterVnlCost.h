@@ -43,7 +43,7 @@ namespace Ox {
         /**
          * constructor
          */
-        FunctionsT1AdapterVnlCost() : vnl_cost_function(3){
+        FunctionsT1AdapterVnlCost(int nDims) : vnl_cost_function(nDims){
             _FunctionsT1 = 0; // nullpointer
         };
 

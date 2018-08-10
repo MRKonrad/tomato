@@ -18,6 +18,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, f) {
     char filePath [] = "testData/blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
+    int nDims = 3;
 
     TYPE params[3] = {0, 0, 0};
 
@@ -27,7 +28,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, f) {
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
-    Ox::FunctionsT1AdapterVnlLeastSquares functionsAdaptedToVnl(nSamples, vnl_least_squares_function::use_gradient);
+    Ox::FunctionsT1AdapterVnlLeastSquares functionsAdaptedToVnl(nDims, nSamples, vnl_least_squares_function::use_gradient);
     // Ox::FunctionsT1AdapterVnlLeastSquares functionsAdaptedToVnl(nSamples, vnl_least_squares_function::no_gradient);
     functionsAdaptedToVnl.setFunctionsT1(&functionsObject);
 
@@ -48,6 +49,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, gradf) {
     char filePath [] = "testData/blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
+    int nDims = 3;
 
     TYPE params[3] = {0, 0, 1200};
 
@@ -57,7 +59,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, gradf) {
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
-    Ox::FunctionsT1AdapterVnlLeastSquares functionsAdaptedToVnl(nSamples, vnl_least_squares_function::use_gradient);
+    Ox::FunctionsT1AdapterVnlLeastSquares functionsAdaptedToVnl(nDims, nSamples, vnl_least_squares_function::use_gradient);
     // Ox::FunctionsT1AdapterVnlLeastSquares functionsAdaptedToVnl(nSamples, vnl_least_squares_function::no_gradient);
     functionsAdaptedToVnl.setFunctionsT1(&functionsObject);
 
@@ -90,6 +92,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, fitting) {
     char filePath [] = "testData/blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
+    int nDims = 3;
 
     TYPE params[3] = {0, 0, 1200};
 
@@ -99,7 +102,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, fitting) {
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
 
-    Ox::FunctionsT1AdapterVnlLeastSquares functionsAdaptedToVnl(nSamples, vnl_least_squares_function::use_gradient);
+    Ox::FunctionsT1AdapterVnlLeastSquares functionsAdaptedToVnl(nDims, nSamples, vnl_least_squares_function::use_gradient);
     // Ox::FunctionsT1AdapterVnlLeastSquares functionsAdaptedToVnl(nSamples, vnl_least_squares_function::no_gradient);
     functionsAdaptedToVnl.setFunctionsT1(&functionsObject);
 

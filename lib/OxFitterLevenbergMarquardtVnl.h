@@ -29,7 +29,7 @@ namespace Ox {
 
             configureMinimizer();
 
-            vnl_vector<MeasureType> temp(this->_FunctionsT1->getParameters(), 3);
+            vnl_vector<MeasureType> temp(this->_FunctionsT1->getParameters(), this->_FunctionsT1->getNDims());
 
             _VnlFitter->minimize(temp);
 
@@ -74,9 +74,7 @@ namespace Ox {
          * @param old
          */
         FitterLevenbergMarquardtVnl(const FitterLevenbergMarquardtVnl &old) : Fitter<MeasureType>(old){
-//            _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(*old.getFunctionsAdaptedToVnl());
-//            _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);
-            // I cannot initialise _FunctionsAdaptedToVnl here, as I do not know nSamples yet
+            // I cannot initialise _FunctionsAdaptedToVnl here, as I do not know nSamples and nDims yet
             _FunctionsAdaptedToVnl = 0; // nullptr
             _VnlFitter = 0; // nullptr
         }
@@ -91,8 +89,8 @@ namespace Ox {
          * \brief destructor
          */
         virtual ~FitterLevenbergMarquardtVnl() {
-            delete _FunctionsAdaptedToVnl;
-            delete _VnlFitter;
+            delete _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;
+            delete _VnlFitter; _VnlFitter = 0;
         };
 
     protected:
@@ -106,7 +104,8 @@ namespace Ox {
                     delete _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;
                     delete _VnlFitter; _VnlFitter = 0;
                     int nSamples = this->_FunctionsT1->getNSamples();
-                    _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nSamples, vnl_least_squares_function::use_gradient);
+                    int nDims = this->_FunctionsT1->getNDims();
+                    _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nDims, nSamples, vnl_least_squares_function::use_gradient);
                     _FunctionsAdaptedToVnl->setFunctionsT1(this->_FunctionsT1);
                     _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);
                 }

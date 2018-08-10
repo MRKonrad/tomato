@@ -29,8 +29,8 @@ TEST(OxFitterAmoebaVnl, performFitting) {
     fitterAmoebaVnl.setFunctionsT1(&functionsObject);
     functionsObject.setParameters(params);
 
-    fitterAmoebaVnl.setVerbose(true);
-    fitterAmoebaVnl.setTrace(true);
+    fitterAmoebaVnl.setVerbose(false);
+    fitterAmoebaVnl.setTrace(false);
 
     fitterAmoebaVnl.performFitting();
 
@@ -69,8 +69,6 @@ TEST(OxFitterAmoebaVnl, copyConstructor) {
     EXPECT_FALSE( fitterAmoebaVnlCopy.getFunctionsT1());
     EXPECT_NE( fitterAmoebaVnlCopy.getFunctionsT1(), fitterAmoebaVnl.getFunctionsT1());
 
-    // new FunctionsAdaptedToVnl should be copied in the constructor
-    EXPECT_TRUE( fitterAmoebaVnlCopy.getFunctionsAdaptedToVnl());
-    EXPECT_NE( fitterAmoebaVnlCopy.getFunctionsAdaptedToVnl(), fitterAmoebaVnl.getFunctionsAdaptedToVnl());
-
+    // new FunctionsAdaptedToVnl should NOT be copied in the constructor
+    EXPECT_FALSE( fitterAmoebaVnlCopy.getFunctionsAdaptedToVnl());
 }

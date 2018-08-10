@@ -28,6 +28,18 @@ namespace Ox {
 
     public:
 
+        /**
+         * do all the checks and  prepare to do the calculation, for example calc signal/signs and _TRRaverageHB
+         * @return success/failure
+         */
+        virtual int prepareToCalculate();
+
+        /**
+         * the most important function of this class
+         * @return success/failure
+         */
+        virtual int calculate() = 0;
+
         /* ****************** */
         /* ***  GETTERS   *** */
         /* ****************** */
@@ -88,11 +100,19 @@ namespace Ox {
 
         const CalculatorT1Results<MeasureType> getResults() const;
 
+        MeasureType getMeanCutOff() const;
+
         /**
           * /throw exception if _nSamples == 0
           * @return
           */
         int getNSamples() const;
+
+        /**
+          * /throw exception if _nDims == 0
+          * @return
+          */
+        int getNDims() const;
 
 
         /* ****************** */
@@ -115,6 +135,8 @@ namespace Ox {
 
         virtual void setSigPha(const MeasureType *_SigPha);
 
+        virtual void setMeanCutOff(MeasureType _MeanCutOff);
+
         /**
          * _Signal and _Signs are allocated here!!!
          * @param _nSamples
@@ -122,16 +144,10 @@ namespace Ox {
         virtual void setNSamples(int _nSamples);
 
         /**
-         * do all the checks and  prepare to do the calculation, for example calc signal/signs and _TRRaverageHB
-         * @return success/failure
+         * _StartPoint is allocated here!!!
+         * @param _nDims
          */
-        virtual int prepareToCalculate();
-
-        /**
-         * the most important function of this class
-         * @return success/failure
-         */
-        virtual int calculate() = 0;
+        virtual void setNDims(int _nDims);
 
         /**
          * \brief show me your FunctionsT1
@@ -141,7 +157,7 @@ namespace Ox {
         /**
          * \brief set all the pointers to zero
          */
-        void init(){
+        void setAllPointersToNull(){
             // objects
             _FunctionsT1 = 0;
             _Fitter = 0;
@@ -157,23 +173,20 @@ namespace Ox {
             _SigPha = 0; // original one
             _Signal = 0; // we will be working with this one
             _Signs = 0;  // we will be working with this one
+            _StartPoint = 0;
         }
 
         /**
          * \brief constructor
          */
-        CalculatorT1(){
+        CalculatorT1() {
 
-            init();
-
-            _StartPoint[0] = 0;
-            _StartPoint[1] = 0;
-            _StartPoint[2] = 0;
+            setAllPointersToNull();
 
             // primitives
             _MeanCutOff = 0;
             _nSamples = 0;
-            _nDims = 3;
+            _nDims = 0;
 
         };
 
@@ -182,15 +195,12 @@ namespace Ox {
          */
         CalculatorT1(const CalculatorT1 &old){
 
-            init();
+            setAllPointersToNull();
 
-            _StartPoint[0] = old._StartPoint[0];
-            _StartPoint[1] = old._StartPoint[1];
-            _StartPoint[2] = old._StartPoint[2];
-
-            _MeanCutOff = old._MeanCutOff;
-            _nSamples = old._nSamples;
-            _nDims = old._nDims;
+            // primitives
+            setMeanCutOff(old._MeanCutOff);
+            setNSamples(old._nSamples);
+            setNDims(old._nDims);
         };
 
         /**
@@ -207,6 +217,7 @@ namespace Ox {
             //std::cout << "in ~CalculatorT1" << std::endl;
             delete [] _Signal; _Signal = 0;
             delete [] _Signs; _Signs = 0;
+            delete [] _StartPoint; _StartPoint = 0;
          };
 
     protected:
@@ -223,9 +234,9 @@ namespace Ox {
         const MeasureType* _RelAcqTimes;
         const MeasureType* _SigMag; // original one
         const MeasureType* _SigPha; // original one
-        MeasureType* _Signal; // we will be working with this one
-        MeasureType* _Signs;  // we will be working with this one
-        MeasureType _StartPoint[3]; // we will be working with this one
+        MeasureType* _Signal; // size: nSamples. We will be working with this one
+        MeasureType* _Signs;  // size: nSamples. We will be working with this one
+        MeasureType* _StartPoint; // size: nDims. We will be working with this one
 
         int _nSamples;
         int _nDims;

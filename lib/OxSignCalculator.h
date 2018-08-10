@@ -80,7 +80,7 @@ namespace Ox {
         /**
          * \brief set all the pointers to zero
          */
-        void init(){
+        void setAllPointersToNull(){
             _InvTimes = 0;
             _SigMag = 0;
             _SigPha = 0;
@@ -92,7 +92,7 @@ namespace Ox {
          * \brief constructor
          */
         SignCalculator(){
-            init();
+            setAllPointersToNull();
             _nSamples = 0;
         };
 
@@ -100,7 +100,7 @@ namespace Ox {
          * \brief copy constructor
          */
         SignCalculator(const SignCalculator &old){
-            init();
+            setAllPointersToNull();
             _nSamples = old._nSamples;
         };
 

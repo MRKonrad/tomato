@@ -79,9 +79,6 @@ namespace Ox {
          */
         virtual Fitter<MeasureType> *newByCloning() { return new FitterAmoebaNr2<MeasureType>(*this); }
 
-        FitterAmoebaNr2() {
-            _nDims = 3;
-        }
 
         int performFitting() {
 
@@ -94,14 +91,16 @@ namespace Ox {
             // use global ugliness
             Ugly::globalFunctonsT1Nr2Array[threadId] = this->_FunctionsT1;
             float(*func)(float*) = Ugly::f_wrapperArray[threadId];
+            int nDims = this->_FunctionsT1->getNDims();
 
             // store start point
-            float startPoint[3];
-            KWUtil::copyArrayToArray(3, startPoint, this->_FunctionsT1->getParameters());
+            float *startPoint = new float[nDims];
+            KWUtil::copyArrayToArray(nDims, startPoint, this->_FunctionsT1->getParameters());
+
 
             // modified NR example code
-            int MP = _nDims + 1;
-            int NP = _nDims;
+            int MP = nDims + 1;
+            int NP = nDims;
             float FTOL = this->getFTolerance();
 
             int i, nfunc, j, ndim = NP;
@@ -157,12 +156,10 @@ namespace Ox {
             free_matrix(p, 1, MP, 1, NP);
             free_vector(y, 1, MP);
             free_vector(x, 1, NP);
+            delete [] startPoint;
 
             return 0; // EXIT_SUCCESS
         }
-
-    protected:
-        int _nDims;
     };
 
 } // namespace Ox

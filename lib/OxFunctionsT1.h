@@ -66,6 +66,7 @@ namespace Ox {
         virtual const MeasureType *getSignal() const { return _Signal; }
         virtual MeasureType *getParameters() { return _Parameters; }
         virtual int getNSamples() { return _nSamples; }
+        virtual int getNDims() { return _nDims; }
 
         // setters
         virtual void setInvTimes(const MeasureType *_InvTimes) { FunctionsT1::_InvTimes = _InvTimes; }
@@ -88,19 +89,19 @@ namespace Ox {
         virtual void disp(){
             int nSamples = this->getNSamples();
             std::cout << "\nYou called disp() on a FunctionsT1 object " << this << " with nSamples: " << getNSamples();
-            KWUtil::printArray((bool)getInvTimes(), nSamples, getInvTimes(),       (char*)"\nInvTimes:    ");
-            KWUtil::printArray((bool)getSatTimes(), nSamples, getSatTimes(),       (char*)"\nSatTimes:    ");
-            KWUtil::printArray((bool)getRepTimes(), nSamples, getRepTimes(),       (char*)"\nRepTimes:    ");
-            KWUtil::printArray((bool)getRelAcqTimes(), nSamples, getRelAcqTimes(), (char*)"\nRelAcqTimes: ");
-            KWUtil::printArray((bool)getSignal(), nSamples, getSignal(),           (char*)"\nSignal:      ");
-            KWUtil::printArray((bool)getParameters(), _nDims, getParameters(),     (char*)"\nParameters:  ");
+            KWUtil::printArray((bool)_InvTimes, nSamples, _InvTimes,       (char*)"\nInvTimes:    ");
+            KWUtil::printArray((bool)_SatTimes, nSamples, _SatTimes,       (char*)"\nSatTimes:    ");
+            KWUtil::printArray((bool)_RepTimes, nSamples, _RepTimes,       (char*)"\nRepTimes:    ");
+            KWUtil::printArray((bool)_RelAcqTimes, nSamples, _RelAcqTimes, (char*)"\nRelAcqTimes: ");
+            KWUtil::printArray((bool)_Signal, nSamples, _Signal,           (char*)"\nSignal:      ");
+            KWUtil::printArray((bool)_Parameters, _nDims, _Parameters,     (char*)"\nParameters:  ");
             std::cout << std::endl;
         }
 
         /**
          * \brief set all the pointers to zero
          */
-        void init(){
+        void setAllPointersToNull(){
             _InvTimes = 0;
             _SatTimes = 0;
             _RepTimes = 0;
@@ -114,20 +115,24 @@ namespace Ox {
          */
         FunctionsT1(){
             //std::cout << "FunctionsT1 constructor" << std::endl;
+
             _nSamples = 0;
-            _nDims = 3;
-            init();
+            _nDims = 0;
+
+            setAllPointersToNull();
         };
 
         /**
-         * \brief copy constructor keeps only  and _nDims
+         * \brief copy constructor keeps only _nSamples and _nDims
          * @param old
          */
         FunctionsT1(const FunctionsT1 &old) {
             //std::cout<<"FunctionsT1 copy constructor "<<std::endl;
+
             _nSamples = old._nSamples;
             _nDims = old._nDims;
-            init();
+
+            setAllPointersToNull();
         }
 
         /**

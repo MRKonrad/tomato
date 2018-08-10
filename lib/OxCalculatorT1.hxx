@@ -18,8 +18,7 @@ namespace Ox {
     CalculatorT1<MeasureType>
     ::getFunctionsT1() const {
         if (!_FunctionsT1) {
-            std::cerr << "_FunctionsT1 equals 0. Set _FunctionsT1" << std::endl;
-            throw std::exception();
+            throw std::runtime_error("_FunctionsT1 equals 0. Set _FunctionsT1");
         };
         return _FunctionsT1;
     }
@@ -29,8 +28,7 @@ namespace Ox {
     CalculatorT1<MeasureType>
     ::getFitter() const {
         if (!_Fitter) {
-            std::cerr << "_Fitter equals 0. Set _Fitter" << std::endl;
-            throw std::exception();
+            throw std::runtime_error("_Fitter equals 0. Set _Fitter");
         };
         return _Fitter;
     }
@@ -40,8 +38,7 @@ namespace Ox {
     CalculatorT1<MeasureType>
     ::getStartPointCalculator() const {
         if (!_StartPointCalculator) {
-            std::cerr << "_StartPointCalculator equals 0. Set _StartPointCalculator" << std::endl;
-            throw std::exception();
+            throw std::runtime_error("_StartPointCalculator equals 0. Set _StartPointCalculator");
         };
         return _StartPointCalculator;
     }
@@ -51,8 +48,7 @@ namespace Ox {
     CalculatorT1<MeasureType>
     ::getSignCalculator() const {
         if (!_SignCalculator) {
-            std::cerr << "_SignCalculator equals 0. Set _SignCalculator" << std::endl;
-            throw std::exception();
+            throw std::runtime_error("_SignCalculator equals 0. Set _SignCalculator");
         };
         return _SignCalculator;
     }
@@ -62,8 +58,7 @@ namespace Ox {
     CalculatorT1<MeasureType>
     ::getInvTimes() const {
         if (!_InvTimes) {
-            std::cerr << "_InvTimes equals 0. Set _InvTimes" << std::endl;
-            throw std::exception();
+            throw std::runtime_error("_InvTimes equals 0. Set _InvTimes");
         };
         return _InvTimes;
     }
@@ -94,8 +89,7 @@ namespace Ox {
     CalculatorT1<MeasureType>
     ::getSigMag() const {
         if (!_SigMag) {
-            std::cerr << "_SigMag equals 0. Set _SigMag" << std::endl;
-            throw std::exception();
+            throw std::runtime_error("_SigMag equals 0. Set _SigMag" );
         };
         return _SigMag;
     }
@@ -136,14 +130,30 @@ namespace Ox {
     }
 
     template< typename MeasureType >
+    MeasureType
+    CalculatorT1<MeasureType>
+    ::getMeanCutOff() const {
+        return _MeanCutOff;
+    }
+
+    template< typename MeasureType >
     int
     CalculatorT1<MeasureType>
     ::getNSamples() const {
         if (!_nSamples) {
-            std::cerr << "_nSamples equals 0. Set _nSamples" << std::endl;
-            throw std::exception();
+            throw std::runtime_error("_nSamples equals 0. Set _nSamples");
         };
         return _nSamples;
+    }
+
+    template< typename MeasureType >
+    int
+    CalculatorT1<MeasureType>
+    ::getNDims() const {
+        if (!_nDims) {
+            throw std::runtime_error("_nDims equals 0. Set _nDims");
+        };
+        return _nDims;
     }
 
     /* ****************** */
@@ -155,6 +165,7 @@ namespace Ox {
     void
     CalculatorT1<MeasureType>
     ::setFunctionsT1(FunctionsT1<MeasureType> *_FunctionsT1) {
+        setNDims(_FunctionsT1->getNDims());
         CalculatorT1::_FunctionsT1 = _FunctionsT1;
     }
 
@@ -204,6 +215,13 @@ namespace Ox {
     template< typename MeasureType >
     void
     CalculatorT1<MeasureType>
+    ::setMeanCutOff(MeasureType _MeanCutOff) {
+        CalculatorT1::_MeanCutOff = _MeanCutOff;
+    }
+
+    template< typename MeasureType >
+    void
+    CalculatorT1<MeasureType>
     ::setNSamples(int _nSamples) {
 
         delete [] _Signal; _Signal = 0;
@@ -220,6 +238,25 @@ namespace Ox {
         }
     }
 
+    /**
+     * _StartPoint is allocated here!!!
+     * @param _nDims
+     */
+    template< typename MeasureType >
+    void
+    CalculatorT1<MeasureType>
+    ::setNDims(int _nDims){
+
+        delete [] _StartPoint; _StartPoint = 0;
+
+        CalculatorT1::_nDims = _nDims;
+
+        _StartPoint = new MeasureType[_nDims];
+
+        for (int i = 0; i < _nDims; ++i){
+            _StartPoint[i] = 0;
+        }
+    }
 
     template< typename MeasureType >
     int
@@ -264,15 +301,15 @@ namespace Ox {
         std::cout << "\nYou called disp() on a CalculatorT1 object " << this
                   << " with nSamples: " << nSamples
                   << " nDims: " << _nDims;
-        KWUtil::printArray((bool)getInvTimes(), nSamples, getInvTimes(),       (char*)"\nInvTimes:    ");
-        //KWUtil::printArray((bool)getSatTimes(), nSamples, getSatTimes(),       (char*)"\nSatTimes:    ");
-        KWUtil::printArray((bool)getRepTimes(), nSamples, getRepTimes(),       (char*)"\nRepTimes:    ");
-        KWUtil::printArray((bool)getRelAcqTimes(), nSamples, getRelAcqTimes(), (char*)"\nRelAcqTimes: ");
-        KWUtil::printArray((bool)getSigMag(), nSamples, getSigMag(),           (char*)"\nSigMag:      ");
-        KWUtil::printArray((bool)getSigPha(), nSamples, getSigPha(),           (char*)"\nSigPha:      ");
-        KWUtil::printArray((bool)getSignal(), nSamples, getSignal(),           (char*)"\nSignal:      ");
-        KWUtil::printArray((bool)getSigns(), nSamples, getSigns(),             (char*)"\nSigns:       ");
-        KWUtil::printArray(_nDims, getStartPoint(),     (char*)"\nStart point: ");
+        KWUtil::printArray((bool)_InvTimes, nSamples, _InvTimes,       (char*)"\nInvTimes:    ");
+        //KWUtil::printArray((bool)_SatTimes, nSamples, _SatTimes,       (char*)"\nSatTimes:    ");
+        KWUtil::printArray((bool)_RepTimes, nSamples, _RepTimes,       (char*)"\nRepTimes:    ");
+        KWUtil::printArray((bool)_RelAcqTimes, nSamples, _RelAcqTimes, (char*)"\nRelAcqTimes: ");
+        KWUtil::printArray((bool)_SigMag, nSamples, _SigMag,           (char*)"\nSigMag:      ");
+        KWUtil::printArray((bool)_SigPha, nSamples, _SigPha,           (char*)"\nSigPha:      ");
+        KWUtil::printArray((bool)_Signal, nSamples, _Signal,           (char*)"\nSignal:      ");
+        KWUtil::printArray((bool)_Signs, nSamples, _Signs,             (char*)"\nSigns:       ");
+        KWUtil::printArray((bool)_nDims, getStartPoint(),              (char*)"\nStart point: ");
         std::cout << std::endl;
         if(_FunctionsT1) {
             std::cout << "This CalculatorT1 contains the following FunctionsT1 object: ";

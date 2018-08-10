@@ -10,6 +10,7 @@
 #include "OxFunctionsT1Basic.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxSignCalculatorRealImag.h"
+#include "OxStartPointCalculatorDefault3Dims.h"
 #include "OxCalculatorT1Molli.h"
 
 #include "OxImageCalculator.h"
@@ -54,7 +55,7 @@ TEST(OxImageCalculator, calculate_no_multithread) {
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculator<TYPE> signCalculator;
-    Ox::StartPointCalculator<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure

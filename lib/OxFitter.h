@@ -112,7 +112,6 @@ namespace Ox {
         bool _Verbose;
         bool _Trace;
 
-
     };
 } //namespace Ox
 

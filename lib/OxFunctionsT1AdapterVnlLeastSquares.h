@@ -17,7 +17,7 @@ namespace Ox {
 
     public:
 
-        FunctionsT1AdapterVnlLeastSquares(int nSamples, UseGradient UseGradientVariable) : vnl_least_squares_function (3, nSamples, UseGradientVariable){
+        FunctionsT1AdapterVnlLeastSquares(int nDims, int nSamples, UseGradient UseGradientVariable) : vnl_least_squares_function (nDims, nSamples, UseGradientVariable){
             _FunctionsT1 = 0; // nullpointer
         };
 

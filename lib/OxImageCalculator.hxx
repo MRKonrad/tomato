@@ -151,6 +151,8 @@ namespace Ox {
         calculatorT1->setFitter(fitter);
         calculatorT1->setSignCalculator(signCalculator);
         calculatorT1->setStartPointCalculator(startPointCalculator);
+        calculatorT1->setNSamples(_nSamples);
+        calculatorT1->setInvTimes(_invTimes);
 
 
         for (int pos = posStart; pos < posStop; ++pos) {
@@ -163,8 +165,7 @@ namespace Ox {
                 sigPha[iSample] = _imagePha[iSample * (_nCols * _nRows) + pos];
             }
 
-            calculatorT1->setNSamples(_nSamples);
-            calculatorT1->setInvTimes(_invTimes);
+
             calculatorT1->setSigMag(sigMag);
             calculatorT1->setSigPha(sigPha);
 

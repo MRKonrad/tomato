@@ -20,15 +20,19 @@ namespace Ox {
 
     public:
 
+        /**
+         * the most important function of this class
+         * @return success/failure
+         */
+        virtual int calculateStartPoint() = 0;
+
         // getters
         MeasureType *getCalculatedStartPoint() const {
             if (!_CalculatedStartPoint) throw std::runtime_error("_CalculatedStartPoint equals 0. Set _CalculatedStartPoint");
             return _CalculatedStartPoint;
         }
 
-        const MeasureType *getDefaultStartPoint() const { return _DefaultStartPoint; }
-
-        int getNStartFitPoints() const { return _nDims; }
+        int getNDims() const { return _nDims; }
 
         //setters
         virtual void setInvTimes(const MeasureType *_InvTimes) { StartPointCalculator::_InvTimes = _InvTimes; }
@@ -37,22 +41,6 @@ namespace Ox {
         virtual void setCalculatedStartPoint(MeasureType *_CalculatedStartPoint) { StartPointCalculator::_CalculatedStartPoint = _CalculatedStartPoint; }
         virtual void setNSamples(int _nSamples) { StartPointCalculator::_nSamples = _nSamples; }
 
-        /**
-         * the most important function of this class
-         * @return success/failure
-         */
-        virtual int calculateStartPoint(){
-            setStartPointToDefault();
-            return 0; // EXIT_SUCCESS
-        };
-
-        int setStartPointToDefault(){
-            getCalculatedStartPoint()[0] = _DefaultStartPoint[0];
-            getCalculatedStartPoint()[1] = _DefaultStartPoint[1];
-            getCalculatedStartPoint()[2] = _DefaultStartPoint[2];
-
-            return 0; // EXIT_SUCCESS
-        }
 
         void disp(){
             std::cout << "\nTODO: implement StartPointCalculator disp " << this << std::endl;
@@ -61,7 +49,7 @@ namespace Ox {
         /**
          * \brief set all the pointers to zero
          */
-        void init(){
+        void setAllPointersToNull(){
             _CalculatedStartPoint = 0;
             _InvTimes = 0;
             _Signal = 0;
@@ -72,34 +60,29 @@ namespace Ox {
           * \brief constructor
           */
         StartPointCalculator(){
-            init();
 
-            _DefaultStartPoint[0] = 100;
-            _DefaultStartPoint[1] = 200;
-            _DefaultStartPoint[2] = 1000;
+            setAllPointersToNull();
+
             _nSamples = 0;
-            _nDims = 3;
+            _nDims = 0;
         }
 
         /**
          * \brief copy constructor
          */
         StartPointCalculator(const StartPointCalculator &old){
-            init();
 
-            _DefaultStartPoint[0] = old._DefaultStartPoint[0];
-            _DefaultStartPoint[1] = old._DefaultStartPoint[1];
-            _DefaultStartPoint[2] = old._DefaultStartPoint[2];
+            setAllPointersToNull();
+
             _nSamples = old._nSamples;
             _nDims = old._nDims;
-            _nSamples = old._nSamples;
         };
 
         /**
          * cloning
          * @return
          */
-        virtual StartPointCalculator<MeasureType> *newByCloning() { return new StartPointCalculator<MeasureType>(*this); }
+        virtual StartPointCalculator<MeasureType> *newByCloning() = 0;
 
         /**
          * \brief do not forget about the virtual destructor, see
@@ -108,7 +91,6 @@ namespace Ox {
         virtual ~StartPointCalculator(){};
 
     protected:
-        MeasureType _DefaultStartPoint[3];
         MeasureType* _CalculatedStartPoint;
 
         const MeasureType* _InvTimes;
