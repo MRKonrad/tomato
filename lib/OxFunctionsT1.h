@@ -60,7 +60,7 @@ namespace Ox {
 
         // getters
         virtual const MeasureType *getInvTimes() const { return _InvTimes; }
-        virtual const MeasureType *getSatTimes() const { return _SatTimes; }
+        virtual const MeasureType *getEchoTimes() const { return _EchoTimes; }
         virtual const MeasureType *getRepTimes() const { return _RepTimes; }
         virtual const MeasureType *getRelAcqTimes() const { return _RelAcqTimes; }
         virtual const MeasureType *getSignal() const { return _Signal; }
@@ -70,7 +70,7 @@ namespace Ox {
 
         // setters
         virtual void setInvTimes(const MeasureType *_InvTimes) { FunctionsT1::_InvTimes = _InvTimes; }
-        virtual void setSatTimes(const MeasureType *_SatTimes) { FunctionsT1::_SatTimes = _SatTimes; }
+        virtual void setEchoTimes(const MeasureType *_EchoTimes) { FunctionsT1::_EchoTimes = _EchoTimes; }
         virtual void setRepTimes(const MeasureType *_RepTimes) { FunctionsT1::_RepTimes = _RepTimes; }
         virtual void setRelAcqTimes(const MeasureType *_RelAcqTimes) { FunctionsT1::_RelAcqTimes = _RelAcqTimes; }
         virtual void setSignal(const MeasureType *_Signal) {FunctionsT1::_Signal = _Signal; }
@@ -90,7 +90,7 @@ namespace Ox {
             int nSamples = this->getNSamples();
             std::cout << "\nYou called disp() on a FunctionsT1 object " << this << " with nSamples: " << getNSamples();
             KWUtil::printArray((bool)_InvTimes, nSamples, _InvTimes,       (char*)"\nInvTimes:    ");
-            KWUtil::printArray((bool)_SatTimes, nSamples, _SatTimes,       (char*)"\nSatTimes:    ");
+            KWUtil::printArray((bool)_EchoTimes, nSamples, _EchoTimes,       (char*)"\nEchoTimes:    ");
             KWUtil::printArray((bool)_RepTimes, nSamples, _RepTimes,       (char*)"\nRepTimes:    ");
             KWUtil::printArray((bool)_RelAcqTimes, nSamples, _RelAcqTimes, (char*)"\nRelAcqTimes: ");
             KWUtil::printArray((bool)_Signal, nSamples, _Signal,           (char*)"\nSignal:      ");
@@ -103,7 +103,7 @@ namespace Ox {
          */
         void setAllPointersToNull(){
             _InvTimes = 0;
-            _SatTimes = 0;
+            _EchoTimes = 0;
             _RepTimes = 0;
             _RelAcqTimes = 0;
             _Signal = 0;
@@ -150,7 +150,7 @@ namespace Ox {
     protected:
 
         const MeasureType* _InvTimes;
-        const MeasureType* _SatTimes;
+        const MeasureType* _EchoTimes;
         const MeasureType* _RepTimes;
         const MeasureType* _RelAcqTimes;
         const MeasureType* _Signal;

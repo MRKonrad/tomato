@@ -72,7 +72,7 @@ namespace Ox {
                 double pha = sigPhaPi - sigPhaRefPi;
                 double realSig = sigMag[i] * cos(pha); //get real
                 double imagSig = -sigMag[i] * sin(pha); //get imag
-                signal[i] = realSig;
+                //signal[i] = realSig;
                 if (realSig < 0) {
                     signal[i] = -sigMag[i];
                     signs[i] = -1;

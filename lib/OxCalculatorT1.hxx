@@ -66,8 +66,8 @@ namespace Ox {
 //    template< typename MeasureType >
 //    const MeasureType *
 //    CalculatorT1<MeasureType>
-//    ::getSatTimes() const {
-//        return _SatTimes;
+//    ::getEchoTimes() const {
+//        return _EchoTimes;
 //    }
 
     template< typename MeasureType >
@@ -302,7 +302,7 @@ namespace Ox {
                   << " with nSamples: " << nSamples
                   << " nDims: " << _nDims;
         KWUtil::printArray((bool)_InvTimes, nSamples, _InvTimes,       (char*)"\nInvTimes:    ");
-        //KWUtil::printArray((bool)_SatTimes, nSamples, _SatTimes,       (char*)"\nSatTimes:    ");
+        //KWUtil::printArray((bool)_EchoTimes, nSamples, _EchoTimes,       (char*)"\nEchoTimes:    ");
         KWUtil::printArray((bool)_RepTimes, nSamples, _RepTimes,       (char*)"\nRepTimes:    ");
         KWUtil::printArray((bool)_RelAcqTimes, nSamples, _RelAcqTimes, (char*)"\nRelAcqTimes: ");
         KWUtil::printArray((bool)_SigMag, nSamples, _SigMag,           (char*)"\nSigMag:      ");

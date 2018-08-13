@@ -17,11 +17,11 @@
 namespace Ox {
 
     template<typename MeasureType>
-    class ImageCalculator {
+    class ImageCalculatorT1 {
     public:
 
-        ImageCalculator();
-        virtual ~ImageCalculator(){};
+        ImageCalculatorT1();
+        virtual ~ImageCalculatorT1(){};
 
         void setUseThreads(bool _useThreads);
         void setNCols(int _nCols);
@@ -53,6 +53,6 @@ namespace Ox {
 
 } // namespace Ox
 
-#include "OxImageCalculator.hxx"
+#include "OxImageCalculatorT1.hxx"
 
 #endif //OXSHMOLLI2_OXIMAGECALCULATOR_H

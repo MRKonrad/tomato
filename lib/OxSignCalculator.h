@@ -7,6 +7,8 @@
 #ifndef OXSHMOLLI2_OXSIGNCALCULATOR_H
 #define OXSHMOLLI2_OXSIGNCALCULATOR_H
 
+#include "KWUtil.h"
+
 namespace Ox {
 
     /**
@@ -63,18 +65,17 @@ namespace Ox {
          * the most important function of this class
          * @return success/failure
          */
-        virtual int calculateSign(){
+        virtual int calculateSign() = 0;
 
-            for (int i = 0; i < getNSamples(); ++i) {
-                getSignal()[i] = getSigMag()[i];
-                getSigns() [i] = 0;
-            }
-
-            return 0; // EXIT_SUCCESS
-        }
-
-        void disp(){
-            std::cout << "\nTODO: implement SignCalculator disp " << this << std::endl;
+        virtual void disp(){
+            int nSamples = this->getNSamples();
+            std::cout << "\nYou called disp() on a SignCalculator object " << this << " with nSamples: " << getNSamples();
+            KWUtil::printArray((bool)_InvTimes, nSamples, _InvTimes,       (char*)"\nInvTimes:    ");
+            KWUtil::printArray((bool)_SigMag, nSamples, _SigMag,           (char*)"\nSigMag:      ");
+            KWUtil::printArray((bool)_SigPha, nSamples, _SigPha,           (char*)"\nSigPha:      ");
+            KWUtil::printArray((bool)_Signal, nSamples, _Signal,           (char*)"\nSignal:      ");
+            KWUtil::printArray((bool)_Signs, nSamples, _Signs,             (char*)"\nSigns:       ");
+            std::cout << std::endl;
         }
 
         /**
@@ -108,7 +109,7 @@ namespace Ox {
          * cloning
          * @return
          */
-        virtual SignCalculator<MeasureType> *newByCloning() { return new SignCalculator<MeasureType>(*this); }
+        virtual SignCalculator<MeasureType> *newByCloning() = 0; //{ return new SignCalculator<MeasureType>(*this); }
 
         /**
          * \brief do not forget about the virtual destructor, see

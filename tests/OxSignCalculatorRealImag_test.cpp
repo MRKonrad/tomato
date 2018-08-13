@@ -9,7 +9,7 @@
 
 #include "OxSignCalculatorRealImag.h"
 
-TEST(SignCalculatorRealImag, calculateSign) {
+TEST(OxSignCalculatorRealImag, calculateSign_blood) {
 
     typedef double TYPE;
 
@@ -37,7 +37,35 @@ TEST(SignCalculatorRealImag, calculateSign) {
     delete [] signs;
 }
 
-TEST(SignCalculatorRealImag, calculateSign_throwIfSignalPhaNotSet) {
+TEST(OxSignCalculatorRealImag, calculateSign_myocardium) {
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/myocardium.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    TYPE *signal = new TYPE[nSamples];
+    TYPE *signs = new TYPE[nSamples];
+
+    Ox::SignCalculatorRealImag<TYPE> signCalculator;
+    signCalculator.setNSamples(testData.getNSamples());
+    signCalculator.setSigMag(testData.getSignalMagPtr());
+    signCalculator.setSigPha(testData.getSignalPhaPtr());
+    signCalculator.setSignal(signal);
+    signCalculator.setSigns(signs);
+
+    signCalculator.calculateSign();
+
+    for (int iSample = 0; iSample < nSamples; iSample++) {
+        EXPECT_EQ(testData.getSigns()[iSample], signs[iSample]);
+    }
+
+    delete [] signal;
+    delete [] signs;
+}
+
+TEST(OxSignCalculatorRealImag, calculateSign_throwIfSignalPhaNotSet) {
 
     typedef double TYPE;
 
@@ -61,7 +89,7 @@ TEST(SignCalculatorRealImag, calculateSign_throwIfSignalPhaNotSet) {
     delete [] signs;
 }
 
-TEST(SignCalculatorRealImag, copyConstructor) {
+TEST(OxSignCalculatorRealImag, copyConstructor) {
 
     typedef double TYPE;
 

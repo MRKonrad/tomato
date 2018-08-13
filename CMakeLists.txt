@@ -11,7 +11,6 @@ set (OxShmolli2_VERSION_MAJOR 0)
 set (OxShmolli2_VERSION_MINOR 1)
 
 # Compiler flags
-
 set (CMAKE_CXX_STANDARD 98 CACHE STRING "")
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
 if (CMAKE_CXX_STANDARD EQUAL 98)
@@ -38,7 +37,6 @@ if (USE_PRIVATE_NR2)
     add_subdirectory(${PRIVATE_NR2_DIR} ${CMAKE_BINARY_DIR}/private)
     include_directories(${PRIVATE_NR2_DIR}/lib)
 endif()
-
 
 ####################
 ### MAIN PROGRAM ###
@@ -80,6 +78,45 @@ include(cmake/nr2.cmake)
 # Numerical Recipes v3
 set(USE_NR3 OFF CACHE BOOL "Do you want to use Numerical Recipes 3 code?")
 include(cmake/nr3.cmake)
+
+###########
+### ITK ###
+###########
+
+set(USE_ITK ON CACHE BOOL "Do you want to use ITK?")
+if(USE_ITK)
+    set(USE_ITK OFF)
+
+    find_package(ITK) # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    if (NOT ITK_FOUND)
+        find_package(ITK HINTS ../ITK_install)
+    endif()
+    MESSAGE("ITK version:" ${ITK_VERSION})
+    if (ITK_FOUND)
+        set(USE_ITK ON)
+        include(${ITK_USE_FILE})
+        set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} ${ITK_LIBRARIES})
+    endif()
+endif(USE_ITK)
+
+###########
+### VTK ###
+###########
+
+set(USE_VTK ON CACHE BOOL "Do you want to use VTK?")
+list (FIND ITK_LIBRARIES "ITKVtkGlue" _index)
+if(USE_VTK)
+    if(_index GREATER -1)
+        set(USE_VTK OFF)
+        find_package(VTK)
+        MESSAGE("VTK version:" ${VTK_VERSION})
+        if (VTK_FOUND)
+            set(USE_VTK ON)
+            include(${VTK_USE_FILE})
+            set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} ${VTK_LIBRARIES})
+        endif()
+    endif()
+endif(USE_VTK)
 
 ###############
 ### Linking ###

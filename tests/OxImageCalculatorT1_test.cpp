@@ -1,5 +1,5 @@
 /*!
- * \file OxImageCalculator_test.cpp
+ * \file OxImageCalculatorT1_test.cpp
  * \author Konrad Werys
  * \date 2018/08/07
  */
@@ -9,13 +9,14 @@
 
 #include "OxFunctionsT1Basic.h"
 #include "OxFitterAmoebaVnl.h"
+#include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
 #include "OxStartPointCalculatorDefault3Dims.h"
 #include "OxCalculatorT1Molli.h"
 
-#include "OxImageCalculator.h"
+#include "OxImageCalculatorT1.h"
 
-TEST(OxImageCalculator, calculate_no_multithread) {
+TEST(OxImageCalculatorT1, calculate_no_multithread) {
 
     typedef double TYPE;
 
@@ -23,16 +24,17 @@ TEST(OxImageCalculator, calculate_no_multithread) {
     filePaths.push_back("testData/blood.yaml");
     filePaths.push_back("testData/myocardium.yaml");
 
-    int nCols = 10;
     int nRows = 8;
+    int nCols = 10;
+
     Ox::TestImage<TYPE> *testImage = new Ox::TestImage<TYPE>(nCols, nRows, filePaths);
 
-//    int nSamples = testImage->getNSamples();
-//
+    int nSamples = testImage->getNSamples();
+
 //    std::cout << std::endl;
 //    std::cout << std::endl;
 //    for (int i = 0; i < nRows*nCols*nSamples; ++i){
-//        std::cout << " " << testImage->getImageMag()[i];
+//        std::cout << " " << testImage->getImageMagPtr()[i];
 //    }
 //    std::cout << std::endl;
 //
@@ -43,7 +45,7 @@ TEST(OxImageCalculator, calculate_no_multithread) {
 //        for (int iRow = 0; iRow < nRows; ++iRow) {
 //            for (int iCol = 0; iCol < nCols; ++iCol) {
 //                int i = iSample * (nCols * nRows) + iRow * nCols + iCol;
-//                std::cout << " " << testImage->getImageMag()[i];
+//                std::cout << " " << testImage->getImageMagPtr()[i];
 //            }
 //            std::cout << std::endl;
 //        }
@@ -54,18 +56,18 @@ TEST(OxImageCalculator, calculate_no_multithread) {
     // init the necessary objects
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
-    Ox::SignCalculator<TYPE> signCalculator;
+    Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
-    // configure
+    // configure calculator
     calculatorT1Molli.setFunctionsT1(&functionsObject);
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
 
     // image calculator
-    Ox::ImageCalculator<TYPE> imageCalculator;
+    Ox::ImageCalculatorT1<TYPE> imageCalculator;
     imageCalculator.setCalculatorT1(&calculatorT1Molli);
     imageCalculator.setInvTimes(testImage->getInvTimesPtr());
     imageCalculator.setImageMag(testImage->getImageMagPtr());
@@ -112,7 +114,7 @@ TEST(OxImageCalculator, calculate_no_multithread) {
 
 #ifndef CXX_STANDARD_98
 
-TEST(OxImageCalculator, calculate_multithread) {
+TEST(OxImageCalculatorT1, calculate_multithread) {
 
     typedef double TYPE;
 
@@ -120,14 +122,15 @@ TEST(OxImageCalculator, calculate_multithread) {
     filePaths.push_back("testData/blood.yaml");
     filePaths.push_back("testData/myocardium.yaml");
 
-    int nCols = 10;
     int nRows = 8;
+    int nCols = 10;
+
     Ox::TestImage<TYPE> *testImage = new Ox::TestImage<TYPE>(nCols, nRows, filePaths);
 
     // init the necessary objects
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
-    Ox::SignCalculator<TYPE> signCalculator;
+    Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculator<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
@@ -138,7 +141,7 @@ TEST(OxImageCalculator, calculate_multithread) {
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
 
     // image calculator
-    Ox::ImageCalculator<TYPE> imageCalculator;
+    Ox::ImageCalculatorT1<TYPE> imageCalculator;
     imageCalculator.setCalculatorT1(&calculatorT1Molli);
     imageCalculator.setInvTimes(testImage->getInvTimesPtr());
     imageCalculator.setImageMag(testImage->getImageMagPtr());

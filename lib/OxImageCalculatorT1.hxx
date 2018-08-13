@@ -10,8 +10,8 @@
 namespace Ox {
 
     template<typename MeasureType>
-    ImageCalculator<MeasureType>
-    ::ImageCalculator(){
+    ImageCalculatorT1<MeasureType>
+    ::ImageCalculatorT1(){
         _nCols = 0;
         _nRows = 0;
         _nSamples = 0;
@@ -26,77 +26,77 @@ namespace Ox {
 
     template<typename MeasureType>
     void
-    ImageCalculator<MeasureType>
+    ImageCalculatorT1<MeasureType>
     ::setUseThreads(bool _useThreads) {
-        ImageCalculator::_useThreads = _useThreads;
+        ImageCalculatorT1::_useThreads = _useThreads;
     }
 
     template<typename MeasureType>
     void
-    ImageCalculator<MeasureType>
+    ImageCalculatorT1<MeasureType>
     ::setNCols(int _nCols) {
-        ImageCalculator::_nCols = _nCols;
+        ImageCalculatorT1::_nCols = _nCols;
     }
 
     template<typename MeasureType>
     void
-    ImageCalculator<MeasureType>
+    ImageCalculatorT1<MeasureType>
     ::setNRows(int _nRows) {
-        ImageCalculator::_nRows = _nRows;
+        ImageCalculatorT1::_nRows = _nRows;
     }
 
     template<typename MeasureType>
     void
-    ImageCalculator<MeasureType>
+    ImageCalculatorT1<MeasureType>
     ::setNSamples(int _nSamples) {
-        ImageCalculator::_nSamples = _nSamples;
+        ImageCalculatorT1::_nSamples = _nSamples;
     }
 
     template<typename MeasureType>
     void
-    ImageCalculator<MeasureType>
+    ImageCalculatorT1<MeasureType>
     ::setInvTimes( MeasureType *_invTimes) {
-        ImageCalculator::_invTimes = _invTimes;
+        ImageCalculatorT1::_invTimes = _invTimes;
     }
 
     template<typename MeasureType>
     void
-    ImageCalculator<MeasureType>
+    ImageCalculatorT1<MeasureType>
     ::setImageMag( MeasureType *_imageMag) {
-        ImageCalculator::_imageMag = _imageMag;
+        ImageCalculatorT1::_imageMag = _imageMag;
     }
 
     template<typename MeasureType>
     void
-    ImageCalculator<MeasureType>
+    ImageCalculatorT1<MeasureType>
     ::setImagePha( MeasureType *_imagePha) {
-        ImageCalculator::_imagePha = _imagePha;
+        ImageCalculatorT1::_imagePha = _imagePha;
     }
 
     template<typename MeasureType>
     void
-    ImageCalculator<MeasureType>
+    ImageCalculatorT1<MeasureType>
     ::setImageResults( MeasureType *_imageResults) {
-        ImageCalculator::_imageResults = _imageResults;
+        ImageCalculatorT1::_imageResults = _imageResults;
     }
 
     template<typename MeasureType>
     void
-    ImageCalculator<MeasureType>
+    ImageCalculatorT1<MeasureType>
     ::setCalculatorT1(CalculatorT1 <MeasureType> *_calculatorT1) {
-        ImageCalculator::_calculatorT1 = _calculatorT1;
+        ImageCalculatorT1::_calculatorT1 = _calculatorT1;
     }
 
     template<typename MeasureType>
     MeasureType *
-    ImageCalculator<MeasureType>
+    ImageCalculatorT1<MeasureType>
     ::getImageResults() const {
         return _imageResults;
     };
 
     template<typename MeasureType>
     int
-    ImageCalculator<MeasureType>
+    ImageCalculatorT1<MeasureType>
     ::calculate(){
 
         if (!_useThreads) {
@@ -118,7 +118,7 @@ namespace Ox {
 
             // threaded loop
             for (int i = 0; i < concurentThreadsSupported; ++i){
-                threads.push_back(std::thread(&ImageCalculator<MeasureType>::calculateOneThread, this, limits[i], limits[i+1]));
+                threads.push_back(std::thread(&ImageCalculatorT1<MeasureType>::calculateOneThread, this, limits[i], limits[i+1]));
             }
 
             // finish threads
@@ -134,7 +134,7 @@ namespace Ox {
 
     template<typename MeasureType>
     int
-    ImageCalculator<MeasureType>
+    ImageCalculatorT1<MeasureType>
     ::calculateOneThread(int posStart, int posStop){
 
         // perform all the calculations on the copies of original objects!!!
@@ -151,6 +151,7 @@ namespace Ox {
         calculatorT1->setFitter(fitter);
         calculatorT1->setSignCalculator(signCalculator);
         calculatorT1->setStartPointCalculator(startPointCalculator);
+
         calculatorT1->setNSamples(_nSamples);
         calculatorT1->setInvTimes(_invTimes);
 

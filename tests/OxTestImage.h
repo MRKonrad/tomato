@@ -17,7 +17,7 @@ namespace Ox {
 
     public:
 
-        TestImage(int nRows, int nCols, std::vector <std::string> filesPaths);
+        TestImage(int nCols, int nRows, std::vector <std::string> filesPaths);
         virtual ~TestImage();
 
         virtual MeasureType *getInvTimesPtr() ;
@@ -28,21 +28,23 @@ namespace Ox {
         virtual MeasureType *getImageResultsMolliPtr() const;
         virtual MeasureType *getImageResultsShmolliPtr() const;
 
+        virtual int getNCols() const { return _nCols; }
+        virtual int getNRows() const { return _nRows; }
         virtual int getNSamples() const { return _nSamples; }
 
     protected:
 
-        int _nRows;
         int _nCols;
+        int _nRows;
         int _nSamples;
 
         std::vector<MeasureType> _invTimes;
 
-        MeasureType *_imageMag; // nCols * nRows * nSamples, address [iCol][iRow][iSam] iSample * (nCols*nRows) + iRow * nCols + iCol
-        MeasureType *_imagePha; // nCols * nRows * nSamples, address [iCol][iRow][iSam] iSample * (nCols*nRows) + iRow * nCols + iCol
+        MeasureType *_imageMag; // nRows * nCols * nSamples, address [iRow][iCol][iSam] iSample * (nRows*nCols) + iCol * nRows + iRow
+        MeasureType *_imagePha; // nRows * nCols * nSamples, address [iRow][iCol][iSam] iSample * (nRows*nCols) + iCol * nRows + iRow
 
-        MeasureType *_imageResultsMolli; // nRows * nCols * 3
-        MeasureType *_imageResultsShmolli; // nRows * nCols * 3
+        MeasureType *_imageResultsMolli; // nCols * nRows * 3
+        MeasureType *_imageResultsShmolli; // nCols * nRows * 3
 
     };
 } // namespace Ox

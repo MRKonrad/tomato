@@ -3,9 +3,10 @@
 #define OxShmolli2_VERSION_MINOR @OxShmolli2_VERSION_MINOR@
 
 #cmakedefine CXX_STANDARD_98
+#cmakedefine USE_ITK
+#cmakedefine USE_VTK
 #cmakedefine USE_VNL
 #cmakedefine USE_PRIVATE_NR2
 #cmakedefine USE_NR2
 #cmakedefine USE_NR3
-#cmakedefine USE_ITK
-#cmakedefine USE_VTK
+

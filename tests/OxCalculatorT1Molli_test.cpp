@@ -9,6 +9,7 @@
 
 #include "OxFunctionsT1Basic.h"
 #include "OxFitterAmoebaVnl.h"
+#include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
 #include "OxStartPointCalculatorDefault3Dims.h"
 #include "OxCalculatorT1Molli.h"
@@ -24,7 +25,7 @@ TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
     // init the necessary objects
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
-    Ox::SignCalculator<TYPE> signCalculator;
+    Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> CalculatorT1Molli;
 
@@ -68,7 +69,7 @@ TEST(OxCalculatorT1Molli, calculate_throwIfInvTimesNotSorted) {
     // init the necessary objects
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
-    Ox::SignCalculator<TYPE> signCalculator;
+    Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> CalculatorT1Molli;
 
@@ -100,7 +101,7 @@ TEST(OxCalculatorT1Molli, calculate_WithoutSigns) {
     // init the necessary objects
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
-    Ox::SignCalculator<TYPE> signCalculator;
+    Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
@@ -149,7 +150,6 @@ TEST(OxCalculatorT1Molli, calculate_WithSigns) {
     calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
     calculatorT1Molli.setSigPha(testData.getSignalPhaPtr());
     calculatorT1Molli.setSigMag(testData.getSignalMagPtr());
-    calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
 
     calculatorT1Molli.calculate();
 
@@ -184,7 +184,6 @@ TEST(OxCalculatorT1Molli, copyConstructor) {
     calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
     calculatorT1Molli.setSigPha(testData.getSignalPhaPtr());
     calculatorT1Molli.setSigMag(testData.getSignalMagPtr());
-    calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
 
     calculatorT1Molli.setMeanCutOff(123);
 
