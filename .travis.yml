@@ -21,8 +21,8 @@ branches:
 # Environment variables
 env:
 # VXL c++11 needs cmake 3.9.5, which is not installed on travis. TODO: fix it
-#  matrix:
-#    - CXX_STANDARD=98
+  matrix:
+    - CXX_STANDARD=98
 #    - CXX_STANDARD=11
   global:
     - GH_REPO_NAME: OxShmolli2 # used in documentation script
