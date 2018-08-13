@@ -4,14 +4,14 @@
  * \date 2018/08/13
  */
 
-#include <OxSignCalculatorShmolli.h>
-#include <OxSignCalculatorNoSign.h>
+
 #include "CmakeConfigForOxShmolli2.h"
 #ifdef USE_ITK
 
 #include "OxTestItkImagesFactory.h"
 #include "OxFunctionsT1Basic.h"
 #include "OxFitterAmoebaVnl.h"
+#include <OxSignCalculatorNoSign.h>
 #include "OxSignCalculatorRealImag.h"
 #include "OxStartPointCalculatorDefault3Dims.h"
 #include "OxCalculatorT1Molli.h"
