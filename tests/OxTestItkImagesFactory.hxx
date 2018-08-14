@@ -49,7 +49,7 @@ namespace Ox {
     template< typename MeasureType >
     typename itk::Image< MeasureType, 3 >::Pointer
     TestItkImagesFactory< MeasureType >
-    ::gererateImageMag(){
+    ::generateImageMag(){
         typename itk::Image< MeasureType, 3 >::Pointer image = generateImage3d();
         itk::ImageRegionIteratorWithIndex<itk::Image< MeasureType, 3 > > imageIterator(image, image->GetLargestPossibleRegion());
         copyBufferToImage3d(image, _testImage->getImageMagPtr());
@@ -59,7 +59,7 @@ namespace Ox {
     template< typename MeasureType >
     typename itk::Image< MeasureType, 3 >::Pointer
     TestItkImagesFactory< MeasureType >
-    ::gererateImagePha(){
+    ::generateImagePha(){
         typename itk::Image< MeasureType, 3 >::Pointer image = generateImage3d();
         itk::ImageRegionIteratorWithIndex<itk::Image< MeasureType, 3 > > imageIterator(image, image->GetLargestPossibleRegion());
         copyBufferToImage3d(image, _testImage->getImagePhaPtr());
@@ -69,7 +69,7 @@ namespace Ox {
     template< typename MeasureType >
     typename itk::Image< MeasureType, 2 >::Pointer
     TestItkImagesFactory< MeasureType >
-    ::gererateImageResultsMolliA(){
+    ::generateImageResultsMolliA(){
         typename itk::Image< MeasureType, 2 >::Pointer image = generateImage2d();
         itk::ImageRegionIteratorWithIndex<itk::Image< MeasureType, 2 > > imageIterator(image, image->GetLargestPossibleRegion());
         copyBufferToImage2d(image, _testImage->getImageResultsMolliPtr());
@@ -79,7 +79,7 @@ namespace Ox {
     template< typename MeasureType >
     typename itk::Image< MeasureType, 2 >::Pointer
     TestItkImagesFactory< MeasureType >
-    ::gererateImageResultsMolliB(){
+    ::generateImageResultsMolliB(){
         typename itk::Image< MeasureType, 2 >::Pointer image = generateImage2d();
         itk::ImageRegionIteratorWithIndex<itk::Image< MeasureType, 2 > > imageIterator(image, image->GetLargestPossibleRegion());
         int nRows = _testImage->getNRows();
@@ -93,7 +93,7 @@ namespace Ox {
     template< typename MeasureType >
     typename itk::Image< MeasureType, 2 >::Pointer
     TestItkImagesFactory< MeasureType >
-    ::gererateImageResultsMolliT1star(){
+    ::generateImageResultsMolliT1star(){
         typename itk::Image< MeasureType, 2 >::Pointer image = generateImage2d();
         itk::ImageRegionIteratorWithIndex<itk::Image< MeasureType, 2 > > imageIterator(image, image->GetLargestPossibleRegion());
         int nRows = _testImage->getNRows();
@@ -107,7 +107,7 @@ namespace Ox {
     template< typename MeasureType >
     typename itk::Image< MeasureType, 2 >::Pointer
     TestItkImagesFactory< MeasureType >
-    ::gererateImageResultsShmolliA(){
+    ::generateImageResultsShmolliA(){
         typename itk::Image< MeasureType, 2 >::Pointer image = generateImage2d();
         itk::ImageRegionIteratorWithIndex<itk::Image< MeasureType, 2 > > imageIterator(image, image->GetLargestPossibleRegion());
         copyBufferToImage2d(image, _testImage->getImageResultsShmolliPtr());
@@ -117,7 +117,7 @@ namespace Ox {
     template< typename MeasureType >
     typename itk::Image< MeasureType, 2 >::Pointer
     TestItkImagesFactory< MeasureType >
-    ::gererateImageResultsShmolliB(){
+    ::generateImageResultsShmolliB(){
         typename itk::Image< MeasureType, 2 >::Pointer image = generateImage2d();
         itk::ImageRegionIteratorWithIndex<itk::Image< MeasureType, 2 > > imageIterator(image, image->GetLargestPossibleRegion());
         int nRows = _testImage->getNRows();
@@ -131,7 +131,7 @@ namespace Ox {
     template< typename MeasureType >
     typename itk::Image< MeasureType, 2 >::Pointer
     TestItkImagesFactory< MeasureType >
-    ::gererateImageResultsShmolliT1star(){
+    ::generateImageResultsShmolliT1star(){
         typename itk::Image< MeasureType, 2 >::Pointer image = generateImage2d();
         itk::ImageRegionIteratorWithIndex<itk::Image< MeasureType, 2 > > imageIterator(image, image->GetLargestPossibleRegion());
         int nRows = _testImage->getNRows();

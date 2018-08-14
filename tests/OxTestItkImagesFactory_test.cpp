@@ -12,6 +12,7 @@
 
 #ifdef USE_VTK
 #include "QuickView.h"
+#include "itkExtractImageFilter.h"
 #endif //USE_VTK
 
 TEST(TestItkImagesFactory, generateImagesWithoutErrros) {
@@ -19,6 +20,8 @@ TEST(TestItkImagesFactory, generateImagesWithoutErrros) {
     bool doVisualise = false; //for debugging
 
     typedef double TYPE;
+    typedef itk::Image <TYPE, 2> Image2dType;
+    typedef itk::Image <TYPE, 3> Image3dType;
 
     std::vector< std::string > filePaths;
     filePaths.push_back("testData/blood.yaml");
@@ -29,23 +32,46 @@ TEST(TestItkImagesFactory, generateImagesWithoutErrros) {
 
     Ox::TestItkImagesFactory<TYPE> itkImagesFactory(nRows, nCols, filePaths);
 
-    itk::Image <TYPE, 3>::Pointer imageMag = itkImagesFactory.gererateImageMag();
-    itk::Image <TYPE, 3>::Pointer imagePha = itkImagesFactory.gererateImagePha();
+    Image3dType::Pointer imageMag = itkImagesFactory.generateImageMag();
+    Image3dType::Pointer imagePha = itkImagesFactory.generateImagePha();
 
-    itk::Image <TYPE, 2>::Pointer imageMolliA = itkImagesFactory.gererateImageResultsMolliA();
-    itk::Image <TYPE, 2>::Pointer imageMolliB = itkImagesFactory.gererateImageResultsMolliB();
-    itk::Image <TYPE, 2>::Pointer imageMolliT1star = itkImagesFactory.gererateImageResultsMolliT1star();
-    itk::Image <TYPE, 2>::Pointer imageShmolliA = itkImagesFactory.gererateImageResultsShmolliA();
-    itk::Image <TYPE, 2>::Pointer imageShmolliB = itkImagesFactory.gererateImageResultsShmolliB();
-    itk::Image <TYPE, 2>::Pointer imageShmolliT1star = itkImagesFactory.gererateImageResultsShmolliT1star();
+    Image2dType::Pointer imageMolliA = itkImagesFactory.generateImageResultsMolliA();
+    Image2dType::Pointer imageMolliB = itkImagesFactory.generateImageResultsMolliB();
+    Image2dType::Pointer imageMolliT1star = itkImagesFactory.generateImageResultsMolliT1star();
+    Image2dType::Pointer imageShmolliA = itkImagesFactory.generateImageResultsShmolliA();
+    Image2dType::Pointer imageShmolliB = itkImagesFactory.generateImageResultsShmolliB();
+    Image2dType::Pointer imageShmolliT1star = itkImagesFactory.generateImageResultsShmolliT1star();
+
+
 
 #ifdef USE_VTK
     if (doVisualise){
+
+        // see if pha is ok
+        using ExtractFilterType = itk::ExtractImageFilter< Image3dType, Image2dType >;
+        ExtractFilterType::Pointer extractFilter = ExtractFilterType::New();
+
+        ExtractFilterType::InputImageIndexType extrindex;
+        extrindex.Fill(0);
+        extrindex[2] = 6;
+        ExtractFilterType::InputImageSizeType size = imagePha->GetLargestPossibleRegion().GetSize();
+        size[2] = 0;
+        ExtractFilterType::InputImageRegionType region = imagePha->GetLargestPossibleRegion();
+        region.SetSize(size);
+        region.SetIndex(extrindex);
+        extractFilter->SetExtractionRegion(region);
+        extractFilter->SetInput(imagePha);
+        extractFilter->SetDirectionCollapseToSubmatrix();
+
+        // add a zero pixel to check indexing
         itk::Image <TYPE, 2>::IndexType index;
         index[0] = 1;
         index[1] = 2;
         imageMolliA->SetPixel(index, 0);
+
+        // view
         QuickView viewer;
+        viewer.AddImage(extractFilter->GetOutput(), true, "imageMag 0");
         viewer.AddImage(imageMolliA.GetPointer(), true, "Molli A");
         viewer.AddImage(imageMolliB.GetPointer(), true, "Molli B");
         viewer.AddImage(imageMolliT1star.GetPointer(), true, "Molli T1star");

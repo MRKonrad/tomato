@@ -33,14 +33,14 @@ namespace Ox {
         virtual MeasureType *getInvTimesPtr() ;
         virtual std::vector<MeasureType> getInvTimes() const;
 
-        virtual typename itk::Image< MeasureType, 3 >::Pointer gererateImageMag();
-        virtual typename itk::Image< MeasureType, 3 >::Pointer gererateImagePha();
-        virtual typename itk::Image< MeasureType, 2 >::Pointer gererateImageResultsMolliA();
-        virtual typename itk::Image< MeasureType, 2 >::Pointer gererateImageResultsMolliB();
-        virtual typename itk::Image< MeasureType, 2 >::Pointer gererateImageResultsMolliT1star();
-        virtual typename itk::Image< MeasureType, 2 >::Pointer gererateImageResultsShmolliA();
-        virtual typename itk::Image< MeasureType, 2 >::Pointer gererateImageResultsShmolliB();
-        virtual typename itk::Image< MeasureType, 2 >::Pointer gererateImageResultsShmolliT1star();
+        virtual typename itk::Image< MeasureType, 3 >::Pointer generateImageMag();
+        virtual typename itk::Image< MeasureType, 3 >::Pointer generateImagePha();
+        virtual typename itk::Image< MeasureType, 2 >::Pointer generateImageResultsMolliA();
+        virtual typename itk::Image< MeasureType, 2 >::Pointer generateImageResultsMolliB();
+        virtual typename itk::Image< MeasureType, 2 >::Pointer generateImageResultsMolliT1star();
+        virtual typename itk::Image< MeasureType, 2 >::Pointer generateImageResultsShmolliA();
+        virtual typename itk::Image< MeasureType, 2 >::Pointer generateImageResultsShmolliB();
+        virtual typename itk::Image< MeasureType, 2 >::Pointer generateImageResultsShmolliT1star();
 
     protected:
 

@@ -36,7 +36,7 @@ TEST(OxImageCalculatorT1, calculate_no_multithread) {
     // init the necessary objects
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
-    Ox::SignCalculatorNoSign<TYPE> signCalculator;
+    Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
@@ -91,7 +91,8 @@ TEST(OxImageCalculatorT1, calculate_no_multithread) {
                     if (iRow == 2 && iCol == 1) {
                         std::cout << " xx";
                     } else {
-                        std::cout << " " << testImage->getImageMagPtr()[i];
+                        //std::cout << " " << testImage->getImageMagPtr()[i];
+                        std::cout << " " << testImage->getImagePhaPtr()[i];
                     }
                 }
                 std::cout << std::endl;

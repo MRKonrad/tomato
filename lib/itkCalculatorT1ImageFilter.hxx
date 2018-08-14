@@ -57,8 +57,6 @@ namespace itk {
         printf("Number of threads: %d. ", this->GetNumberOfThreads());
 
         if(!m_Calculator) throw itk::ExceptionObject(__FILE__, __LINE__, "Set the Calculator!");
-//        if(!m_Fitter) throw itk::ExceptionObject(__FILE__, __LINE__, "Set the Fitter!");
-//        if(!m_Functions) throw itk::ExceptionObject(__FILE__, __LINE__, "Set the Functions object!");
 
         printf("\n");
     }
@@ -122,11 +120,6 @@ namespace itk {
         //std::cout << threadId << std::endl;
         //std::cout << outputRegionForThread << std::endl;
 
-        bool usePhase = true;  // a variable for convinience
-        if (m_Calculator->getSigPha() == 0){
-            usePhase = false;
-        }
-
         typename TImageIn::IndexType idx;
 
         typename TImageIn::ConstPointer imageMag = this->GetInput(0);
@@ -157,7 +150,7 @@ namespace itk {
         InputIteratorType  itMag( imageMag, inputRegion );
         InputIteratorType  itPha;
 
-        if (usePhase) {
+        if (imagePha) {
             InputIteratorType temp( imagePha, inputRegion );
             itPha = temp;
         }
@@ -169,7 +162,7 @@ namespace itk {
 
         itMag.SetDirection( 2 ); // Walk along third dimension it.GoToBegin();
         //itPha.SetDirection( 2 ); // Walk along third dimension it.GoToBegin();
-        if (usePhase) itPha.SetDirection( 2 ); // Walk along third dimension it.GoToBegin();
+        if (imagePha) itPha.SetDirection( 2 ); // Walk along third dimension it.GoToBegin();
 
         /**
          * Each thread needs its own calculator object, so
@@ -209,7 +202,7 @@ namespace itk {
             // move input iterators
             itMag.GoToBeginOfLine();
             // itPha.GoToBeginOfLine();
-            if (usePhase) itPha.GoToBeginOfLine();
+            if (imagePha) itPha.GoToBeginOfLine();
 
             // get mag and phase from the iterators
             while ( !itMag.IsAtEndOfLine() ) {
@@ -219,12 +212,12 @@ namespace itk {
                 // get mag and phase
                 sigMag[idx[2]] = itMag.Get();
                 // sigPha[idx[2]] = itPha.Get();
-                if (usePhase) sigPha[idx[2]] = itPha.Get();
+                if (imagePha) sigPha[idx[2]] = itPha.Get();
 
                 // move iterators
                 ++itMag;
                 //++itPha;
-                if (usePhase) ++itPha;
+                if (imagePha) ++itPha;
             }
 
             // set Mag and Phase
@@ -256,8 +249,17 @@ namespace itk {
             }
             itMag.NextLine();
             //itPha.NextLine();
-            if (usePhase) itPha.NextLine();
+            if (imagePha) itPha.NextLine();
         }
+
+        // cleanup
+        delete [] sigMag;
+        delete [] sigPha;
+        delete calculator;
+        delete functionsObject;
+        delete fitter;
+        delete signCalculator;
+        delete startPointCalculator;
     }
 
     template< typename TImageIn, typename TImageOut >

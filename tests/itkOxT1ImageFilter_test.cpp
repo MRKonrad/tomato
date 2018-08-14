@@ -40,17 +40,17 @@ TEST(CalculatorT1ImageFilter, calculate) {
     // test images
     Ox::TestItkImagesFactory<TYPE> itkImagesFactory(nRows, nCols, filePaths);
 
-    TImageIn::Pointer imageMag = itkImagesFactory.gererateImageMag();
-    TImageIn::Pointer imagePha = itkImagesFactory.gererateImagePha();
+    TImageIn::Pointer imageMag = itkImagesFactory.generateImageMag();
+    TImageIn::Pointer imagePha = itkImagesFactory.generateImagePha();
 
-    TImageOut::Pointer imageMolliA = itkImagesFactory.gererateImageResultsMolliA();
-    TImageOut::Pointer imageMolliB = itkImagesFactory.gererateImageResultsMolliB();
-    TImageOut::Pointer imageMolliT1star = itkImagesFactory.gererateImageResultsMolliT1star();
+    TImageOut::Pointer imageMolliA = itkImagesFactory.generateImageResultsMolliA();
+    TImageOut::Pointer imageMolliB = itkImagesFactory.generateImageResultsMolliB();
+    TImageOut::Pointer imageMolliT1star = itkImagesFactory.generateImageResultsMolliT1star();
 
     // init the necessary objects
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
-    Ox::SignCalculatorNoSign<TYPE> signCalculator;
+    Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
@@ -110,12 +110,12 @@ TEST(CalculatorT1ImageFilter, calculate_no_phase_given) {
     // test images
     Ox::TestItkImagesFactory<TYPE> itkImagesFactory(nRows, nCols, filePaths);
 
-    TImageIn::Pointer imageMag = itkImagesFactory.gererateImageMag();
-    //TImageIn::Pointer imagePha = itkImagesFactory.gererateImagePha();
+    TImageIn::Pointer imageMag = itkImagesFactory.generateImageMag();
+    //TImageIn::Pointer imagePha = itkImagesFactory.generateImagePha();
 
-    TImageOut::Pointer imageMolliA = itkImagesFactory.gererateImageResultsMolliA();
-    TImageOut::Pointer imageMolliB = itkImagesFactory.gererateImageResultsMolliB();
-    TImageOut::Pointer imageMolliT1star = itkImagesFactory.gererateImageResultsMolliT1star();
+    TImageOut::Pointer imageMolliA = itkImagesFactory.generateImageResultsMolliA();
+    TImageOut::Pointer imageMolliB = itkImagesFactory.generateImageResultsMolliB();
+    TImageOut::Pointer imageMolliT1star = itkImagesFactory.generateImageResultsMolliT1star();
 
     // init the necessary objects
     Ox::FunctionsT1Basic<TYPE> functionsObject;
