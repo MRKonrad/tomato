@@ -153,8 +153,8 @@ namespace Ox {
         start[1] = 0;
 
         typename itk::Image< MeasureType, 2 >::SizeType size;
-        size[1] = _testImage->getNCols();
-        size[0] = _testImage->getNRows();
+        size[0] = _testImage->getNCols();
+        size[1] = _testImage->getNRows();
 
         region.SetSize(size);
         region.SetIndex(start);
@@ -179,8 +179,8 @@ namespace Ox {
         start[2] = 0;
 
         typename itk::Image< MeasureType, 3 >::SizeType size;
-        size[1] = _testImage->getNCols();
-        size[0] = _testImage->getNRows();
+        size[0] = _testImage->getNCols();
+        size[1] = _testImage->getNRows();
         size[2] = _testImage->getNSamples();
 
         region.SetSize(size);
@@ -201,11 +201,13 @@ namespace Ox {
         itk::ImageRegionIteratorWithIndex<itk::Image< MeasureType, 2 > > imageIterator(image, image->GetLargestPossibleRegion());
 
         int nRows = _testImage->getNRows();
+        int nCols = _testImage->getNCols();
         while(!imageIterator.IsAtEnd())
         {
-            int iRow = imageIterator.GetIndex()[0];
-            int iCol = imageIterator.GetIndex()[1];
-            imageIterator.Set(buffer[iCol * nRows + iRow]);
+            int iCol = imageIterator.GetIndex()[0];
+            int iRow = imageIterator.GetIndex()[1];
+            //imageIterator.Set(buffer[iCol * nRows + iRow]);
+            imageIterator.Set(buffer[iRow * nCols + iCol]);
             ++imageIterator;
         }
     }
@@ -220,10 +222,11 @@ namespace Ox {
         int nCols = _testImage->getNCols();
         while(!imageIterator.IsAtEnd())
         {
-            int iRow = imageIterator.GetIndex()[0];
-            int iCol = imageIterator.GetIndex()[1];
+            int iCol = imageIterator.GetIndex()[0];
+            int iRow = imageIterator.GetIndex()[1];
             int iSample = imageIterator.GetIndex()[2];
-            imageIterator.Set(buffer[iSample * nRows * nCols+ iCol * nRows + iRow]);
+            //imageIterator.Set(buffer[iSample * nRows * nCols+ iCol * nRows + iRow]);
+            imageIterator.Set(buffer[iSample * nRows * nCols+ iRow * nCols + iCol]);
             ++imageIterator;
         }
     }

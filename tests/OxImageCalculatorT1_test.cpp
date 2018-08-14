@@ -18,40 +18,20 @@
 
 TEST(OxImageCalculatorT1, calculate_no_multithread) {
 
+    bool doPrint = false; //for debugging
+
     typedef double TYPE;
 
     std::vector< std::string > filePaths;
     filePaths.push_back("testData/blood.yaml");
     filePaths.push_back("testData/myocardium.yaml");
 
-    int nRows = 8;
-    int nCols = 10;
+    int nRows = 10;
+    int nCols = 8;
 
-    Ox::TestImage<TYPE> *testImage = new Ox::TestImage<TYPE>(nCols, nRows, filePaths);
+    Ox::TestImage<TYPE> *testImage = new Ox::TestImage<TYPE>(nRows, nCols, filePaths);
 
     int nSamples = testImage->getNSamples();
-
-//    std::cout << std::endl;
-//    std::cout << std::endl;
-//    for (int i = 0; i < nRows*nCols*nSamples; ++i){
-//        std::cout << " " << testImage->getImageMagPtr()[i];
-//    }
-//    std::cout << std::endl;
-//
-//
-//    std::cout << std::endl;
-//    std::cout << std::endl;
-//    for (int iSample = 0; iSample < nSamples; ++iSample) {
-//        for (int iRow = 0; iRow < nRows; ++iRow) {
-//            for (int iCol = 0; iCol < nCols; ++iCol) {
-//                int i = iSample * (nCols * nRows) + iRow * nCols + iCol;
-//                std::cout << " " << testImage->getImageMagPtr()[i];
-//            }
-//            std::cout << std::endl;
-//        }
-//        std::cout << std::endl;
-//        std::cout << std::endl;
-//    }
 
     // init the necessary objects
     Ox::FunctionsT1Basic<TYPE> functionsObject;
@@ -84,21 +64,6 @@ TEST(OxImageCalculatorT1, calculate_no_multithread) {
     // calculate
     imageCalculator.calculate();
 
-//    int nDims = 3;
-//    std::cout << std::endl;
-//    std::cout << std::endl;
-//    for (int iDim = 0; iDim < nDims; ++iDim) {
-//        for (int iRow = 0; iRow < nRows; ++iRow) {
-//            for (int iCol = 0; iCol < nCols; ++iCol) {
-//                int i = iDim * (nCols * nRows) + iRow * nCols + iCol;
-//                std::cout << " " << imageCalculator.getImageResults()[i];
-//            }
-//            std::cout << std::endl;
-//        }
-//        std::cout << std::endl;
-//        std::cout << std::endl;
-//    }
-
     TYPE *groundTruthResults = testImage->getImageResultsMolliPtr();
     std::vector<TYPE> groundTruthResultsVec (groundTruthResults, groundTruthResults + nCols*nRows*3 );
     TYPE *calculaterResults = imageCalculator.getImageResults();
@@ -106,6 +71,49 @@ TEST(OxImageCalculatorT1, calculate_no_multithread) {
 
     for (int i = 0; i < nCols*nRows*3; ++i) {
         EXPECT_NEAR(groundTruthResultsVec[i], calculaterResultsVec[i], 1e-2);
+    }
+
+    if(doPrint){
+        std::cout << std::endl;
+        std::cout << std::endl;
+        for (int i = 0; i < nRows*nCols*nSamples; ++i){
+            std::cout << " " << testImage->getImageMagPtr()[i];
+        }
+        std::cout << std::endl;
+
+
+        std::cout << std::endl;
+        std::cout << std::endl;
+        for (int iSample = 0; iSample < nSamples; ++iSample) {
+            for (int iRow = 0; iRow < nRows; ++iRow) {
+                for (int iCol = 0; iCol < nCols; ++iCol) {
+                    int i = iSample * (nCols * nRows) + iRow * nCols + iCol;
+                    if (iRow == 2 && iCol == 1) {
+                        std::cout << " xx";
+                    } else {
+                        std::cout << " " << testImage->getImageMagPtr()[i];
+                    }
+                }
+                std::cout << std::endl;
+            }
+            std::cout << std::endl;
+            std::cout << std::endl;
+        }
+
+        int nDims = 3;
+        std::cout << std::endl;
+        std::cout << std::endl;
+        for (int iDim = 0; iDim < nDims; ++iDim) {
+            for (int iRow = 0; iRow < nRows; ++iRow) {
+                for (int iCol = 0; iCol < nCols; ++iCol) {
+                    int i = iDim * (nCols * nRows) + iRow * nCols + iCol;
+                    std::cout << " " << imageCalculator.getImageResults()[i];
+                }
+                std::cout << std::endl;
+            }
+            std::cout << std::endl;
+            std::cout << std::endl;
+        }
     }
 
     delete testImage;
@@ -125,7 +133,7 @@ TEST(OxImageCalculatorT1, calculate_multithread) {
     int nRows = 8;
     int nCols = 10;
 
-    Ox::TestImage<TYPE> *testImage = new Ox::TestImage<TYPE>(nCols, nRows, filePaths);
+    Ox::TestImage<TYPE> *testImage = new Ox::TestImage<TYPE>(nRows, nCols, filePaths);
 
     // init the necessary objects
     Ox::FunctionsT1Basic<TYPE> functionsObject;

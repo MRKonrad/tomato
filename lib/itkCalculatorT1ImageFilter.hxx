@@ -122,10 +122,10 @@ namespace itk {
         //std::cout << threadId << std::endl;
         //std::cout << outputRegionForThread << std::endl;
 
-//        bool usePhase = true;  // a variable for convinience
-//        if (m_Calculator->GetSignReconMethod() == MagOnly){
-//            usePhase = false;
-//        }
+        bool usePhase = true;  // a variable for convinience
+        if (m_Calculator->getSigPha() == 0){
+            usePhase = false;
+        }
 
         typename TImageIn::IndexType idx;
 
@@ -155,12 +155,12 @@ namespace itk {
         typedef itk::ImageRegionIterator< TImageOut > OutputIteratorType;
 
         InputIteratorType  itMag( imageMag, inputRegion );
-        InputIteratorType  itPha( imagePha, inputRegion );
+        InputIteratorType  itPha;
 
-//        if (usePhase) {
-//            InputIteratorType temp( imagePha, inputRegion );
-//            itPha = temp;
-//        }
+        if (usePhase) {
+            InputIteratorType temp( imagePha, inputRegion );
+            itPha = temp;
+        }
 
         std::vector<OutputIteratorType> itOutVector;
         for (unsigned int i = 0; i < outputImagesVector.size(); ++i){
@@ -168,8 +168,8 @@ namespace itk {
         }
 
         itMag.SetDirection( 2 ); // Walk along third dimension it.GoToBegin();
-        itPha.SetDirection( 2 ); // Walk along third dimension it.GoToBegin();
-//        if (usePhase) itPha.SetDirection( 2 ); // Walk along third dimension it.GoToBegin();
+        //itPha.SetDirection( 2 ); // Walk along third dimension it.GoToBegin();
+        if (usePhase) itPha.SetDirection( 2 ); // Walk along third dimension it.GoToBegin();
 
         /**
          * Each thread needs its own calculator object, so
@@ -208,8 +208,8 @@ namespace itk {
         while( !itMag.IsAtEnd() ) {
             // move input iterators
             itMag.GoToBeginOfLine();
-            itPha.GoToBeginOfLine();
-//            if (usePhase) itPha.GoToBeginOfLine();
+            // itPha.GoToBeginOfLine();
+            if (usePhase) itPha.GoToBeginOfLine();
 
             // get mag and phase from the iterators
             while ( !itMag.IsAtEndOfLine() ) {
@@ -218,13 +218,13 @@ namespace itk {
 
                 // get mag and phase
                 sigMag[idx[2]] = itMag.Get();
-                sigPha[idx[2]] = itPha.Get();
-//                if (usePhase) sigPha[idx[2]] = itPha.Get();
+                // sigPha[idx[2]] = itPha.Get();
+                if (usePhase) sigPha[idx[2]] = itPha.Get();
 
                 // move iterators
                 ++itMag;
-                ++itPha;
-//                if (usePhase) ++itPha;
+                //++itPha;
+                if (usePhase) ++itPha;
             }
 
             // set Mag and Phase
@@ -255,8 +255,8 @@ namespace itk {
                 ++itOutVector[i];
             }
             itMag.NextLine();
-            itPha.NextLine();
-//            if (usePhase) itPha.NextLine();
+            //itPha.NextLine();
+            if (usePhase) itPha.NextLine();
         }
     }
 

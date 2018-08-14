@@ -89,8 +89,7 @@ namespace Ox {
         virtual void configureMinimizer() {
             if (!_VnlFitter) {
                 if (!this->_FunctionsT1) {
-                    std::cerr << "Set the FunctionsT1 object" << std::endl;
-                    throw std::exception();
+                    throw std::runtime_error("Set the FunctionsT1 object");
                 } else {
                     delete _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;
                     delete _VnlFitter; _VnlFitter = 0;

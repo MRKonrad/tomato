@@ -19,9 +19,8 @@ namespace Ox {
         std::vector< TestData <MeasureType> > TestDataVector; // vector with TestData objects
 
         // I do want to have less 'tissues' (TestData objects) than Rowumns, just for the sake of simplicity
-        if (nTissues > _nRows){
-            std::cerr << "Give me more nRows or less tissues" << std::endl;
-            throw std::exception();
+        if (nTissues > _nCols){
+            throw std::runtime_error("Give me more nCols or less tissues");
         }
 
         // populate TestDataVector
@@ -32,8 +31,7 @@ namespace Ox {
         // check if invTimes are equal
         for (int i = 1; i < nTissues; ++i){
             if(!(TestDataVector.at(i).getInvTimes() == TestDataVector.at(i-1).getInvTimes())){
-                std::cerr << "InvTimes are different" << std::endl;
-                throw std::exception();
+                throw std::runtime_error("InvTimes are different");
             }
         }
         _invTimes = TestDataVector.at(0).getInvTimes();
@@ -46,7 +44,7 @@ namespace Ox {
         _imageResultsShmolli = new MeasureType[_nRows*_nCols*3];
 
         // how to divide the memory?
-        std::vector<int> ranges = KWUtil::bounds<int>(nTissues, _nRows);
+        std::vector<int> ranges = KWUtil::bounds<int>(nTissues, _nCols);
 
 //        std::cout << std::endl;
 //        std::cout << std::endl;
@@ -56,21 +54,29 @@ namespace Ox {
 
         // fill memory
         for (int iSample = 0; iSample < _nSamples; ++iSample){
-            for (int iCol = 0; iCol < _nCols; ++iCol) {
+            //for (int iCol = 0; iCol < _nCols; ++iCol) {
+            for (int iRow = 0; iRow < _nRows; ++iRow) {
                 for (int iTissue = 0; iTissue < ranges.size()-1; ++iTissue) {
-                    for (int iRow = ranges[iTissue]; iRow < ranges[iTissue+1]; ++iRow) {
-                        _imageMag[iSample * (nRows * nCols) + iCol * nRows + iRow] = TestDataVector.at(iTissue).getSignalMagPtr()[iSample];
-                        _imagePha[iSample * (nRows * nCols) + iCol * nRows + iRow] = TestDataVector.at(iTissue).getSignalPhaPtr()[iSample];
+                    //for (int iRow = ranges[iTissue]; iRow < ranges[iTissue+1]; ++iRow) {
+                    for (int iCol = ranges[iTissue]; iCol < ranges[iTissue+1]; ++iCol) {
+                        //int index = iSample * (nRows * nCols) + iCol * nRows + iRow;
+                        int index = iSample * (nRows * nCols) + iRow * nCols + iCol;
+                        _imageMag[index] = TestDataVector.at(iTissue).getSignalMagPtr()[iSample];
+                        _imagePha[index] = TestDataVector.at(iTissue).getSignalPhaPtr()[iSample];
                     }
                 }
             }
         }
         for (int iDim = 0; iDim < 3; ++iDim){
-            for (int iCol = 0; iCol < _nCols; ++iCol) {
+            //for (int iCol = 0; iCol < _nCols; ++iCol) {
+            for (int iRow = 0; iRow < _nRows; ++iRow) {
                 for (int iTissue = 0; iTissue < ranges.size()-1; ++iTissue) {
-                    for (int iRow = ranges[iTissue]; iRow < ranges[iTissue+1]; ++iRow) {
-                        _imageResultsMolli[iDim * (nRows * nCols) + iCol * nRows + iRow] = TestDataVector.at(iTissue).getResultsMolliPtr()[iDim];
-                        _imageResultsShmolli[iDim * (nRows * nCols) + iCol * nRows + iRow] = TestDataVector.at(iTissue).getResultsShmolliPtr()[iDim];
+                    //for (int iRow = ranges[iTissue]; iRow < ranges[iTissue+1]; ++iRow) {
+                    for (int iCol = ranges[iTissue]; iCol < ranges[iTissue+1]; ++iCol) {
+                        //int index = iDim * (nRows * nCols) + iCol * nRows + iRow;
+                        int index = iDim * (nRows * nCols) + iRow * nCols + iCol;
+                        _imageResultsMolli[index] = TestDataVector.at(iTissue).getResultsMolliPtr()[iDim];
+                        _imageResultsShmolli[index] = TestDataVector.at(iTissue).getResultsShmolliPtr()[iDim];
                     }
                 }
             }

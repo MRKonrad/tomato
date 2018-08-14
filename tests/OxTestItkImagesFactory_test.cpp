@@ -24,10 +24,10 @@ TEST(TestItkImagesFactory, generateImagesWithoutErrros) {
     filePaths.push_back("testData/blood.yaml");
     filePaths.push_back("testData/myocardium.yaml");
 
-    int nRows = 50;
-    int nCols = 30;
+    int nRows = 30; //y
+    int nCols = 20; //x
 
-    Ox::TestItkImagesFactory<TYPE> itkImagesFactory(nCols, nRows, filePaths);
+    Ox::TestItkImagesFactory<TYPE> itkImagesFactory(nRows, nCols, filePaths);
 
     itk::Image <TYPE, 3>::Pointer imageMag = itkImagesFactory.gererateImageMag();
     itk::Image <TYPE, 3>::Pointer imagePha = itkImagesFactory.gererateImagePha();
@@ -41,6 +41,10 @@ TEST(TestItkImagesFactory, generateImagesWithoutErrros) {
 
 #ifdef USE_VTK
     if (doVisualise){
+        itk::Image <TYPE, 2>::IndexType index;
+        index[0] = 1;
+        index[1] = 2;
+        imageMolliA->SetPixel(index, 0);
         QuickView viewer;
         viewer.AddImage(imageMolliA.GetPointer(), true, "Molli A");
         viewer.AddImage(imageMolliB.GetPointer(), true, "Molli B");
