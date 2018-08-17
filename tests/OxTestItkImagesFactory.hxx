@@ -15,6 +15,12 @@ namespace Ox {
 
     template< typename MeasureType >
     TestItkImagesFactory< MeasureType >
+    ::TestItkImagesFactory(int nRows, int nCols, std::vector <std::string> filesPaths, std::vector<int> invTimesOrder){
+        _testImage = new TestImage< MeasureType >(nRows, nCols, filesPaths, invTimesOrder);
+    }
+
+    template< typename MeasureType >
+    TestItkImagesFactory< MeasureType >
     ::TestItkImagesFactory(int nRows, int nCols, std::vector <std::string> filesPaths){
         _testImage = new TestImage< MeasureType >(nRows, nCols, filesPaths);
     }
@@ -45,6 +51,14 @@ namespace Ox {
     ::getInvTimes() const{
         return _testImage->getInvTimes();
     }
+
+    template< typename MeasureType >
+    vnl_vector<MeasureType>
+    TestItkImagesFactory< MeasureType >
+    :: getInvTimesVnl() const{
+        return vnl_vector<MeasureType>(_testImage->getInvTimesPtr(), _testImage->getNSamples());
+    }
+
 
     template< typename MeasureType >
     typename itk::Image< MeasureType, 3 >::Pointer

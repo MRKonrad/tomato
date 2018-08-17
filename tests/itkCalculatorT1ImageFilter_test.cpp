@@ -11,22 +11,23 @@
 #include "OxTestItkImagesFactory.h"
 #include "OxFunctionsT1Basic.h"
 #include "OxFitterAmoebaVnl.h"
-#include <OxSignCalculatorNoSign.h>
+#include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
 #include "OxStartPointCalculatorDefault3Dims.h"
 #include "OxCalculatorT1Molli.h"
 
 #include "itkCalculatorT1ImageFilter.h"
+
 #include "itkTestingComparisonImageFilter.h"
 
 #include "gtest/gtest.h"
 
-TEST(CalculatorT1ImageFilter, calculate) {
+TEST(itkCalculatorT1ImageFilter, calculate) {
 
     typedef double TYPE;
     typedef itk::Image <TYPE, 3> TImageIn;
     typedef itk::Image <TYPE, 2> TImageOut;
-    typedef itk::CalculatorT1ImageFilter < TImageIn, TImageOut > ImageCalculatorItkType;
+    typedef itk::CalculatorT1ImageFilter < TImageIn, TImageOut > CalculatorT1ImageFilterType;
     typedef itk::Testing::ComparisonImageFilter<TImageIn, TImageIn> ComparisonImageFilter3dType;
     typedef itk::Testing::ComparisonImageFilter<TImageOut, TImageOut> ComparisonImageFilter2dType;
 
@@ -63,7 +64,7 @@ TEST(CalculatorT1ImageFilter, calculate) {
     calculatorT1Molli.setNSamples(itkImagesFactory.getNSamples());
 
     // configure calculator itk filter
-    ImageCalculatorItkType::Pointer imageCalculatorItk = ImageCalculatorItkType::New();
+    CalculatorT1ImageFilterType::Pointer imageCalculatorItk = CalculatorT1ImageFilterType::New();
     imageCalculatorItk->SetInputMagImage(imageMag);
     imageCalculatorItk->SetInputPhaImage(imagePha);
     imageCalculatorItk->SetCalculator(&calculatorT1Molli);
@@ -92,7 +93,8 @@ TEST(CalculatorT1ImageFilter, calculate) {
 
 }
 
-TEST(CalculatorT1ImageFilter, calculate_no_phase_given) {
+TEST(itkCalculatorT1ImageFilter, calculate_no_phase_given) {
+
     typedef double TYPE;
     typedef itk::Image <TYPE, 3> TImageIn;
     typedef itk::Image <TYPE, 2> TImageOut;

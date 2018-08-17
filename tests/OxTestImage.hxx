@@ -12,13 +12,27 @@ namespace Ox {
 
     template< typename MeasureType >
     TestImage<MeasureType>
-    ::TestImage(int nRows, int nCols, std::vector <std::string> filesPaths) {
+    ::TestImage(int nRows, int nCols, std::vector <std::string> filesPaths, std::vector<int> invTimesOrder){
+        init(nRows, nCols, filesPaths,  invTimesOrder);
+    }
+
+    template< typename MeasureType >
+    TestImage<MeasureType>
+    ::TestImage(int nRows, int nCols, std::vector <std::string> filesPaths){
+        std::vector<int> invTimesOrder;
+        init(nRows, nCols, filesPaths,  invTimesOrder);
+    }
+
+    template< typename MeasureType >
+    int
+    TestImage<MeasureType>
+    ::init(int nRows, int nCols, std::vector <std::string> filesPaths, std::vector<int> invTimesOrder) {
         _nCols = nCols;
         _nRows = nRows;
         int nTissues = filesPaths.size();
         std::vector< TestData <MeasureType> > TestDataVector; // vector with TestData objects
 
-        // I do want to have less 'tissues' (TestData objects) than Rowumns, just for the sake of simplicity
+        // I do want to have less 'tissues' (TestData objects) than Columns, just for the sake of simplicity
         if (nTissues > _nCols){
             throw std::runtime_error("Give me more nCols or less tissues");
         }
@@ -34,8 +48,27 @@ namespace Ox {
                 throw std::runtime_error("InvTimes are different");
             }
         }
-        _invTimes = TestDataVector.at(0).getInvTimes();
-        _nSamples = _invTimes.size();
+        std::vector<MeasureType> invTimesWithoutOrder = TestDataVector.at(0).getInvTimes();
+        _nSamples = invTimesWithoutOrder.size();
+
+        if (invTimesOrder.empty()){
+            // _invTimes = 1,2,3, ... , nSamples
+            invTimesOrder = std::vector<int>(_nSamples);
+            for (int i = 0; i < _nSamples; ++i){
+                invTimesOrder.at(i) = i;
+            }
+        }
+
+        if (invTimesOrder.size() != _nSamples){
+            throw std::runtime_error("invTimesOrder size is different than the input files nSamples");
+        }
+
+        _invTimes = std::vector <MeasureType>(_nSamples);
+        for (int i = 0; i < _nSamples; ++i){
+            _invTimes.at(i) = invTimesWithoutOrder.at(invTimesOrder.at(i));
+        }
+
+        _invTimesOrder = invTimesOrder;
 
         // allocate memory
         _imageMag = new MeasureType[_nCols*_nRows*_nSamples];
@@ -59,14 +92,16 @@ namespace Ox {
                 for (int iTissue = 0; iTissue < ranges.size()-1; ++iTissue) {
                     //for (int iRow = ranges[iTissue]; iRow < ranges[iTissue+1]; ++iRow) {
                     for (int iCol = ranges[iTissue]; iCol < ranges[iTissue+1]; ++iCol) {
+                        int invTimesIdx = _invTimesOrder.at(iSample);
                         //int index = iSample * (nRows * nCols) + iCol * nRows + iRow;
                         int index = iSample * (nRows * nCols) + iRow * nCols + iCol;
-                        _imageMag[index] = TestDataVector.at(iTissue).getSignalMagPtr()[iSample];
-                        _imagePha[index] = TestDataVector.at(iTissue).getSignalPhaPtr()[iSample];
+                        _imageMag[index] = TestDataVector.at(iTissue).getSignalMagPtr()[invTimesIdx];
+                        _imagePha[index] = TestDataVector.at(iTissue).getSignalPhaPtr()[invTimesIdx];
                     }
                 }
             }
         }
+
         for (int iDim = 0; iDim < 3; ++iDim){
             //for (int iCol = 0; iCol < _nCols; ++iCol) {
             for (int iRow = 0; iRow < _nRows; ++iRow) {
@@ -81,7 +116,7 @@ namespace Ox {
                 }
             }
         }
-
+        return 0; // EXIT_SUCCESS
     }
 
     template< typename MeasureType >

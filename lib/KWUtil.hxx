@@ -84,6 +84,31 @@ void KWUtil::printArray2D(bool doPrint, int nRows, int nCols, TYPE **myarray, ch
     if(doPrint) printArray2D(nRows, nCols, myarray, text);
 }
 
+
+template< typename TYPE >
+void KWUtil::printStdVector(const std::vector<TYPE> myvector){
+    int nSamples = myvector.size();
+    KWUtil::printArray(nSamples, &myvector[0]);
+}
+
+template< typename TYPE >
+void KWUtil::printStdVector(const std::vector<TYPE> myvector, char* text){
+    int nSamples = myvector.size();
+    KWUtil::printArray(nSamples, &myvector[0], text);
+}
+
+template< typename TYPE >
+void KWUtil::printStdVector(bool doPrint, const std::vector<TYPE> myvector){
+    int nSamples = myvector.size();
+    KWUtil::printArray(doPrint, nSamples, &myvector[0]);
+}
+
+template< typename TYPE >
+void KWUtil::printStdVector(bool doPrint, const std::vector<TYPE> myvector, char* text){
+    int nSamples = myvector.size();
+    KWUtil::printArray(doPrint, nSamples, &myvector[0], text);
+}
+
 /***********************/
 /* calculations        */
 /***********************/

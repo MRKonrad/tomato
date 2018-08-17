@@ -77,6 +77,23 @@ public:
     static void printArray2D(bool doPrint, int nRows, int nCols, TYPE **myarray, char* text);
 
     /***********************/
+    /* printStdVector 1D   */
+    /***********************/
+
+    template< typename TYPE >
+    static void printStdVector(const std::vector<TYPE> myvector);
+
+    template< typename TYPE >
+    static void printStdVector(const std::vector<TYPE> myvector, char* text);
+
+    template< typename TYPE >
+    static void printStdVector(bool doPrint, const std::vector<TYPE> myvector);
+
+    template< typename TYPE >
+    static void printStdVector(bool doPrint, const std::vector<TYPE> myvector, char* text);
+
+
+    /***********************/
     /* calculations        */
     /***********************/
 

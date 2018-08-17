@@ -1,0 +1,8 @@
+//
+// Created by Konrad Werys on 14/08/2018.
+//
+
+#ifndef OXSHMOLLI2_OXSHMOLLI2_H
+#define OXSHMOLLI2_OXSHMOLLI2_H
+
+#endif //OXSHMOLLI2_OXSHMOLLI2_H

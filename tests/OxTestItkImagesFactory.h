@@ -26,12 +26,14 @@ namespace Ox {
         typedef itk::Image< MeasureType, 3 > TImageIn;
         typedef itk::Image< MeasureType, 2 > TImageOut;
 
+        TestItkImagesFactory(int nRows, int nCols, std::vector <std::string> filesPaths, std::vector<int> invTimesOrder);
         TestItkImagesFactory(int nRows, int nCols, std::vector <std::string> filesPaths);
         virtual ~TestItkImagesFactory();
 
         virtual int getNSamples() const;
         virtual MeasureType *getInvTimesPtr() ;
         virtual std::vector<MeasureType> getInvTimes() const;
+        virtual vnl_vector<MeasureType> getInvTimesVnl() const;
 
         virtual typename itk::Image< MeasureType, 3 >::Pointer generateImageMag();
         virtual typename itk::Image< MeasureType, 3 >::Pointer generateImagePha();

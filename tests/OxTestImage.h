@@ -17,8 +17,11 @@ namespace Ox {
 
     public:
 
+        TestImage(int nCols, int nRows, std::vector <std::string> filesPaths, std::vector<int> invTimesOrder);
         TestImage(int nCols, int nRows, std::vector <std::string> filesPaths);
         virtual ~TestImage();
+
+        int init(int nCols, int nRows, std::vector <std::string> filesPaths, std::vector<int> invTimesOrder);
 
         virtual MeasureType *getInvTimesPtr() ;
         virtual std::vector<MeasureType> getInvTimes() const;
@@ -39,6 +42,7 @@ namespace Ox {
         int _nSamples;
 
         std::vector<MeasureType> _invTimes;
+        std::vector<int> _invTimesOrder;
 
         MeasureType *_imageMag; // nRows * nCols * nSamples, address [iRow][iCol][iSam] iSample * (nRows*nCols) + iCol * nRows + iRow
         MeasureType *_imagePha; // nRows * nCols * nSamples, address [iRow][iCol][iSam] iSample * (nRows*nCols) + iCol * nRows + iRow

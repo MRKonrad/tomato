@@ -7,6 +7,7 @@
 #ifndef OXSHMOLLI2_OXFUNCTIONST1_H
 #define OXSHMOLLI2_OXFUNCTIONST1_H
 
+#include "KWUtil.h"
 #include <iostream>
 
 namespace Ox {

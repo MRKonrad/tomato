@@ -15,7 +15,7 @@
 #include "itkExtractImageFilter.h"
 #endif //USE_VTK
 
-TEST(TestItkImagesFactory, generateImagesWithoutErrros) {
+TEST(OxTestItkImagesFactory, generateImagesWithoutErrros) {
 
     bool doVisualise = false; //for debugging
 
@@ -41,8 +41,6 @@ TEST(TestItkImagesFactory, generateImagesWithoutErrros) {
     Image2dType::Pointer imageShmolliA = itkImagesFactory.generateImageResultsShmolliA();
     Image2dType::Pointer imageShmolliB = itkImagesFactory.generateImageResultsShmolliB();
     Image2dType::Pointer imageShmolliT1star = itkImagesFactory.generateImageResultsShmolliT1star();
-
-
 
 #ifdef USE_VTK
     if (doVisualise){
@@ -71,7 +69,7 @@ TEST(TestItkImagesFactory, generateImagesWithoutErrros) {
 
         // view
         QuickView viewer;
-        viewer.AddImage(extractFilter->GetOutput(), true, "imageMag 0");
+        viewer.AddImage(extractFilter->GetOutput(), true, "imagePha 0");
         viewer.AddImage(imageMolliA.GetPointer(), true, "Molli A");
         viewer.AddImage(imageMolliB.GetPointer(), true, "Molli B");
         viewer.AddImage(imageMolliT1star.GetPointer(), true, "Molli T1star");
