@@ -19,7 +19,6 @@
 
 #ifdef USE_VTK
 #include "QuickView.h"
-#include "itkExtractImageFilter.h"
 #endif //USE_VTK
 
 #include "gtest/gtest.h"
@@ -42,13 +41,13 @@ TEST(itkPipeline, readAndCalculateT1FromMag) {
     typedef itk::CalculatorT1ImageFilter < InputImageType3D, OutputImageType > CalculatorT1ImageFilterType;
 
     std::vector<std::string> dcmMagFilePaths;
-    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli - 1/ShMOLLI_192i_e11_12/IM-0001-0001.dcm");
-    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli - 1/ShMOLLI_192i_e11_12/IM-0001-0002.dcm");
-    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli - 1/ShMOLLI_192i_e11_12/IM-0001-0003.dcm");
-    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli - 1/ShMOLLI_192i_e11_12/IM-0001-0004.dcm");
-    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli - 1/ShMOLLI_192i_e11_12/IM-0001-0005.dcm");
-    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli - 1/ShMOLLI_192i_e11_12/IM-0001-0006.dcm");
-    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli - 1/ShMOLLI_192i_e11_12/IM-0001-0007.dcm");
+    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0001.dcm");
+    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0002.dcm");
+    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0003.dcm");
+    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0004.dcm");
+    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0005.dcm");
+    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0006.dcm");
+    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0007.dcm");
 
     ReadFileListFilterType::Pointer reader = ReadFileListFilterType::New();
     reader->SetFileList(dcmMagFilePaths);

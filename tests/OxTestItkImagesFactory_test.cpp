@@ -46,7 +46,7 @@ TEST(OxTestItkImagesFactory, generateImagesWithoutErrros) {
     if (doVisualise){
 
         // see if pha is ok
-        using ExtractFilterType = itk::ExtractImageFilter< Image3dType, Image2dType >;
+        typedef itk::ExtractImageFilter< Image3dType, Image2dType > ExtractFilterType;
         ExtractFilterType::Pointer extractFilter = ExtractFilterType::New();
 
         ExtractFilterType::InputImageIndexType extrindex;
