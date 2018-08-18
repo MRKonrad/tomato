@@ -63,8 +63,13 @@ namespace itk
 		itkGetMacro(InvTimes, vnl_vector<double>);
 		itkSetMacro(InvTimes, vnl_vector<double>);
 
+        itkSetMacro(Verbose, bool);
+        itkGetMacro(Verbose, bool);
+
     protected:
-        ReadDirectoryFilter(){};
+        ReadDirectoryFilter(){
+            m_Verbose = false;
+        };
         ~ReadDirectoryFilter(){};
 
         /** Does the real work. */
@@ -78,8 +83,9 @@ namespace itk
 
         std::string m_DirName;
 		vnl_vector<double> m_InvTimes;
-        DictionaryRawPointer m_Dictionary;
+        // DictionaryRawPointer m_Dictionary;
         typename ReaderType::Pointer m_Reader;
+        bool m_Verbose;
     };
 
     template< class TImage >
@@ -95,23 +101,28 @@ namespace itk
         nameGenerator->SetDirectory(m_DirName);
 
         try {
+
             //typedef std::vector< typename ImageType::Pointer >     ImagePointerContainer;
             typedef std::vector< typename std::string >    SeriesIdContainer;
             const SeriesIdContainer & seriesUID = nameGenerator->GetSeriesUIDs();
             SeriesIdContainer::const_iterator seriesItr = seriesUID.begin();
             SeriesIdContainer::const_iterator seriesEnd = seriesUID.end();
 
-            if (seriesItr != seriesEnd) {
-                std::cout << "The directory: ";
-                std::cout << m_DirName << std::endl;
-                std::cout << "Contains the following DICOM Series: ";
-                std::cout << std::endl;
-            } else {
-                std::cout << "No DICOMs in: " << m_DirName << std::endl;
+            if (GetVerbose()) {
+                if (seriesItr != seriesEnd) {
+                    std::cout << "The directory: ";
+                    std::cout << m_DirName << std::endl;
+                    std::cout << "Contains the following DICOM Series: ";
+                    std::cout << std::endl;
+                } else {
+                    std::cout << "No DICOMs in: " << m_DirName << std::endl;
+                }
             }
 
             while (seriesItr != seriesEnd) {
-                std::cout << seriesItr->c_str() << std::endl;
+                if (GetVerbose()) {
+                    std::cout << seriesItr->c_str() << std::endl;
+                }
                 ++seriesItr;
             }
 
@@ -122,8 +133,11 @@ namespace itk
             seriesIdentifier = seriesItr->c_str();
             seriesItr++;
 
-            std::cout << "Reading: ";
-            std::cout << seriesIdentifier << std::endl;
+            if (GetVerbose()) {
+                std::cout << "Reading: ";
+                std::cout << seriesIdentifier << std::endl;
+            }
+
             typedef std::vector<std::string> FileNamesContainer;
             FileNamesContainer fileNames;
             fileNames = nameGenerator->GetFileNames(seriesIdentifier);
@@ -137,21 +151,25 @@ namespace itk
             image = m_Reader->GetOutput();
             image->Update();
 
-			// rescale image according to Rescale Intercept and Rescale Slope
-			typename ImageType::PixelType rescaleIntercept = dicomIO->GetRescaleIntercept();
-            typename ImageType::PixelType rescaleSlope = dicomIO->GetRescaleSlope();
-			
-			typedef itk::StatisticsImageFilter<ImageType> StatisticsImageFilterType;
-            typename StatisticsImageFilterType::Pointer statisticsImageFilter = StatisticsImageFilterType::New();
-			statisticsImageFilter->SetInput(image);
-			statisticsImageFilter->Update();
+            if (GetVerbose()) {
+                // rescale image according to Rescale Intercept and Rescale Slope
+                typename ImageType::PixelType rescaleIntercept = dicomIO->GetRescaleIntercept();
+                typename ImageType::PixelType rescaleSlope = dicomIO->GetRescaleSlope();
 
-            std::cout << "Mean: " << statisticsImageFilter->GetMean();
-            std::cout << ", Std.: " << statisticsImageFilter->GetSigma();
-            std::cout << ", Min: " << statisticsImageFilter->GetMinimum();
-            std::cout << ", Max: " << statisticsImageFilter->GetMaximum() << std::endl;
+                typedef itk::StatisticsImageFilter<ImageType> StatisticsImageFilterType;
+                typename StatisticsImageFilterType::Pointer statisticsImageFilter = StatisticsImageFilterType::New();
+                statisticsImageFilter->SetInput(image);
+                statisticsImageFilter->Update();
 
-			std::cout << "rescaleIntercept: " << rescaleIntercept << ", rescaleSlope: " << rescaleSlope << std::endl;
+                std::cout << "Mean: " << statisticsImageFilter->GetMean();
+                std::cout << ", Std.: " << statisticsImageFilter->GetSigma();
+                std::cout << ", Min: " << statisticsImageFilter->GetMinimum();
+                std::cout << ", Max: " << statisticsImageFilter->GetMaximum() << std::endl;
+
+                std::cout << "rescaleIntercept: " << rescaleIntercept << ", rescaleSlope: " << rescaleSlope
+                          << std::endl;
+
+            }
 
 			//typedef itk::ImageRegionIterator< ImageType> IteratorType;
 			//IteratorType myiterator(image, image->GetLargestPossibleRegion());
@@ -163,7 +181,9 @@ namespace itk
 
             // get inversion times
             m_InvTimes = FindInversionTimes(m_Reader);
-            std::cout << "Inversion Times: " << m_InvTimes << std::endl << std::endl;
+            if (GetVerbose()) {
+                std::cout << "Inversion Times: " << m_InvTimes << std::endl << std::endl;
+            }
 
             //this->m_Dictionary = (*(reader->GetMetaDataDictionaryArray()))[0];
 
@@ -173,7 +193,6 @@ namespace itk
             std::cout << ex << std::endl;
         }
 	};
-
 
 	template< class TImage>
 	vnl_vector<double>

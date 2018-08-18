@@ -2,7 +2,7 @@
 #   OxShmolli2   #
 #------------------------------------#
 
-sudo: false
+sudo: OFF
 language: cpp
 
 os:
@@ -30,8 +30,9 @@ env:
     - INPUT_FOR_DOXY: "'. ./app ./lib ./tests'" # used in documentation script
     - OUTPUT_FOR_DOXY: "${TRAVIS_BUILD_DIR}/code_docs/${GH_REPO_NAME}" # used in documentation script
     - GH_REPO_REF: github.com/MRKonrad/OxShmolli2.git # used in documentation script
-    - EXTENDED_BUILD: "FALSE"
-    - DEPLOY_BUILD: "FALSE"
+    - USE_ITK: "OFF"
+    - EXTENDED_BUILD: "OFF"
+    - DEPLOY_BUILD: "OFF"
     - secure: 4wedfy5OEFLLO3/29WFF8fFE8jOqXDIb8Kc4VOBw2Yrr599NFDpDBgy9dzGtDzvvpkt/hbSh5lSSPB8KzN6+zX8JTJg2LNPmVEfpZILiTOpOKnydLHWWuznMSrtEic1DDGTp30sJXk3JWBKpmAsDMAssM35lwLNIR9BjpKOadACt5FTOvwXneCnbVr8iJ4F38EIInKQYwVhntBiCvcl+YrrLW6zSbJruEBGX1SpRRgQp8DcT9z4fOob0bIl27VFQcenHx694uzv/qIkU7pgfqV9CB3OTNjwsrgM/tY6O903PtXUpE/LA9ZCDj8NdTdOJa5OBBgsUGKu3vcc9qL5oLUKGqpMHInPpIBLDzuGaypMC2Fl675DAxe11EVGgX4ZtQAphdUw0PnFGCr5f8PafaFuKXKq0TpAn9ZO8QH3L5OrRbpLG2QDHcjYnhzyoaCNtNcQS0syPO51auzFdDRKNsq7Yvjph0uYLSlrgK2ZH2HJWeYgmgVKn79KYRmNEHTnHj+RHSnLP4b20SmQM2gOQ6v/+WMlShjgn5uul9k3s76baBrGsNgyHH95/2KG8NiSHVhwQzerY+tCn5aoRrVu+BbNT2IzdHoncf7JvE6CliQpMH/tW4EBrg0ceyvzemzVd7blbIWRRWkYrE6sqFvMOzSx6R8Jd059rEFu6JtEGGgQ=
 
 addons:
@@ -57,15 +58,15 @@ before_install:
       cd ${TRAVIS_BUILD_DIR};
     fi
   # condition for the extended build (with coveralls and documentation)
-  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ] && [ "CXX_STANDARD" == "11"]; then
-      export EXTENDED_BUILD="TRUE";
+  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ] && [ "CXX_STANDARD" == "98"]; then
+      EXTENDED_BUILD="ON";
     fi
   # condition for the deployment build
-  - if [ "$CXX" == "g++" ] && [ "CXX_STANDARD" == "11"]; then
-      export DEPLOY_BUILD="TRUE";
+  - if [ "$CXX" == "g++" ] && [ "CXX_STANDARD" == "98"]; then
+      export DEPLOY_BUILD="ON";
     fi
   # install coveralls only in linux g++
-  - if [ "$EXTENDED_BUILD" == "TRUE" ]; then
+  - if [ "$EXTENDED_BUILD" == "ON" ]; then
       pip install --user cpp-coveralls;
     fi
 
@@ -74,7 +75,7 @@ script:
   - cmake . -DUSE_NR2=OFF -DUSE_NR3=OFF -DUSE_PRIVATE_NR2=OFF -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DUSE_ITK=${USE_ITK}
 
   # add coverage option for coveralls (only in linux g++)
-  - if [ "$EXTENDED_BUILD" == "TRUE" ]; then
+  - if [ "$EXTENDED_BUILD" == "ON" ]; then
       cmake -DCOVERAGE=1 . ;
     fi
 
@@ -89,11 +90,11 @@ script:
 
 after_success:
   # Run coverage analysis only in linux g++
-  - if [ "$EXTENDED_BUILD" == "TRUE" ]; then
+  - if [ "$EXTENDED_BUILD" == "ON" ]; then
       coveralls --root . -E ".*CMakeFiles.*" --exclude CMakeTmp --exclude thirdParty --exclude include --exclude install --exclude CmakeConfigForOxShmolli2.h;
     fi
   # Generate and deploy documentation only in linux g++
-  - if [ "$EXTENDED_BUILD" == "TRUE" ]; then
+  - if [ "$EXTENDED_BUILD" == "ON" ]; then
       chmod +x generateDocumentationAndDeploy.sh;
       ./generateDocumentationAndDeploy.sh;
     fi
@@ -114,9 +115,9 @@ deploy:
   provider: releases # GitHub
   api_key:
     secure: 4wedfy5OEFLLO3/29WFF8fFE8jOqXDIb8Kc4VOBw2Yrr599NFDpDBgy9dzGtDzvvpkt/hbSh5lSSPB8KzN6+zX8JTJg2LNPmVEfpZILiTOpOKnydLHWWuznMSrtEic1DDGTp30sJXk3JWBKpmAsDMAssM35lwLNIR9BjpKOadACt5FTOvwXneCnbVr8iJ4F38EIInKQYwVhntBiCvcl+YrrLW6zSbJruEBGX1SpRRgQp8DcT9z4fOob0bIl27VFQcenHx694uzv/qIkU7pgfqV9CB3OTNjwsrgM/tY6O903PtXUpE/LA9ZCDj8NdTdOJa5OBBgsUGKu3vcc9qL5oLUKGqpMHInPpIBLDzuGaypMC2Fl675DAxe11EVGgX4ZtQAphdUw0PnFGCr5f8PafaFuKXKq0TpAn9ZO8QH3L5OrRbpLG2QDHcjYnhzyoaCNtNcQS0syPO51auzFdDRKNsq7Yvjph0uYLSlrgK2ZH2HJWeYgmgVKn79KYRmNEHTnHj+RHSnLP4b20SmQM2gOQ6v/+WMlShjgn5uul9k3s76baBrGsNgyHH95/2KG8NiSHVhwQzerY+tCn5aoRrVu+BbNT2IzdHoncf7JvE6CliQpMH/tW4EBrg0ceyvzemzVd7blbIWRRWkYrE6sqFvMOzSx6R8Jd059rEFu6JtEGGgQ=
-  file_glob: true # to use wildcards
+  file_glob: ON # to use wildcards
   file: deployment/*
-  skip_cleanup: true
+  skip_cleanup: ON
   on:
-    tags: true
-    condition: ${DEPLOY_BUILD} == "TRUE" # I guess I have to pick one compiler
+    tags: ON
+    condition: ${DEPLOY_BUILD} == "ON" # I guess I have to pick one compiler

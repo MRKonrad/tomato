@@ -28,7 +28,8 @@ if(OxShmolli2_BUILD_TESTING)
     file(GLOB_RECURSE TESTDATA ${PROJECT_SOURCE_DIR}/tests/testData/*.*)
 
     install (TARGETS OxShmolli2Tests DESTINATION ${CMAKE_INSTALL_PREFIX}/install/tests)
-    install (FILES ${TESTDATA} DESTINATION ${CMAKE_INSTALL_PREFIX}/install/tests/testData/)
+    # install (FILES ${TESTDATA} DESTINATION ${CMAKE_INSTALL_PREFIX}/install/tests/testData/)
+    install (DIRECTORY ${PROJECT_SOURCE_DIR}/tests/testData/ DESTINATION ${CMAKE_INSTALL_PREFIX}/install/tests/testData)
 
     ########################
     ### TESTING COVERAGE ###
