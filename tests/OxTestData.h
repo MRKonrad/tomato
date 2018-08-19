@@ -7,7 +7,7 @@
 #ifndef OXShmolli2_OXTESTDATA_H
 #define OXShmolli2_OXTESTDATA_H
 
-#include "KWUtil.h"
+#include "OxShmolli2Parser.h"
 
 #include "yaml.h"
 

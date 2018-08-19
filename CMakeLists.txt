@@ -42,6 +42,7 @@ endif()
 ### MAIN PROGRAM ###
 ####################
 
+include_directories (app)
 include_directories (lib)
 
 add_library (OxShmolli2Lib ${APP_FILES} ${LIB_FILES})
@@ -94,6 +95,7 @@ if(USE_ITK)
     MESSAGE("ITK version:" ${ITK_VERSION})
     if (ITK_FOUND)
         set(USE_ITK ON)
+        set(USE_VNL ON)
         include(${ITK_USE_FILE})
         set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} ${ITK_LIBRARIES})
     endif()

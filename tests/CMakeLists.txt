@@ -19,7 +19,6 @@ if(OxShmolli2_BUILD_TESTING)
     add_executable(OxShmolli2Tests ${TESTS_FILES})
     target_link_libraries (OxShmolli2Tests PUBLIC gtest)
     target_link_libraries (OxShmolli2Tests PUBLIC ${OxSmolli2_LIBS_TO_LINK})
-    #target_link_libraries (OxShmolli2Tests PUBLIC NR2)
     #add_dependencies(OxShmolli2Tests OxShmolli2Lib)
 
     add_test(NAME ctest_tests COMMAND OxShmolli2Tests)
