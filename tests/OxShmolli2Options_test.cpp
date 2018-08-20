@@ -8,7 +8,7 @@
 
 #include "OxShmolli2Options.h"
 
-// TODO: implement tests hereś
+// TODO: implement tests here
 
 //TEST(OxShmolli2Options, doAnything) {
 //

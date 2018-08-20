@@ -10,6 +10,7 @@
 
 /**
  * main
+ * Try tests/testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml
  * @return always 0
  */
 int main(int argc, char* argv[]) {
@@ -19,7 +20,11 @@ int main(int argc, char* argv[]) {
         Ox::OxShmolli2Options<int>::printAvailable();
     } else if (argc == 2){
         std::string inputFileName(argv[1]);
-        sillyFunction(inputFileName);
+        Ox::OxShmolli2 OxShmolli2_object(inputFileName);
+        OxShmolli2_object._opts->printCurrent();
+        OxShmolli2_object.readAndSort();
+        OxShmolli2_object.calculate();
+        OxShmolli2_object.visualise();
     }
 
     printf("Thank you for using!\n");

@@ -19,6 +19,8 @@
 
 #include "OxShmolli2Parser.h"
 
+#include "KWUtil.h"
+
 namespace Ox {
     template<typename MeasureType>
     struct OxShmolli2Options {
@@ -133,9 +135,9 @@ namespace Ox {
             if (!parser._scalars["visualise"].empty())
                 visualise = (bool)KWUtil::StringToNumber<MeasureType>(parser._scalars["visualise"]);
 
-            parser.disp();
+            //parser.disp();
             //printAvailable();
-            printCurrent();
+            //printCurrent();
         }
 
         int findInArray(int size, const char *nameArray[], std::string name){
@@ -186,7 +188,7 @@ namespace Ox {
             printf("\n mean_cut_off: %.2f ", mean_cut_off);
             //printf("fittingCutOff: %.2f ", fittingCutOff);
             printf("\n number_of_threads: %d", number_of_threads);
-            printf("\n visualise: %s", visualise?"true":"false");
+            printf("\n visualise: %s", visualise?"1":"0");
 
             printf("\n\n");
         }

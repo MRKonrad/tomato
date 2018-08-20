@@ -27,7 +27,7 @@ namespace Ox {
     class FactoryOfStartPointCalculators {
     public:
 
-        static StartPointCalculator<TYPE>* generateStartPointCalculator(OxShmolli2Options<TYPE> *opts){
+        static StartPointCalculator<TYPE>* newByFactory(OxShmolli2Options<TYPE> *opts){
             switch (opts->start_point_calc_method){
                 case Default: {
                     return new StartPointCalculatorDefault3Dims<TYPE>();

@@ -30,7 +30,7 @@ namespace Ox {
     class FactoryOfSignCalculators {
     public:
 
-        static SignCalculator<TYPE>* generateSignCalculator(OxShmolli2Options<TYPE> *opts){
+        static SignCalculator<TYPE>* newByFactory(OxShmolli2Options<TYPE> *opts){
             switch (opts->sign_calc_method){
                 case NoSign: {
                     return new SignCalculatorNoSign<TYPE>();

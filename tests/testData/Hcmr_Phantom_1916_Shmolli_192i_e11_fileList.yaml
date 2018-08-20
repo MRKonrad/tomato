@@ -1,4 +1,5 @@
-# OxShmolli2 configuration file in yaml format. Obligatory fields are: files_magnitude or dir_magnitude.
+# OxShmolli2 configuration file in yaml format. OBLIGATORY fields are: files_magnitude or dir_magnitude.
+# Mutually exclusive pairs: files_magnitude/dir_magnitude files_phase/dir_phase
 # Possible options:
 # files_magnitude: <yaml list of file paths, each in quotes>
 # files_phase: <yaml list of file paths, each in quotes>
@@ -13,7 +14,7 @@
 # fTolerance: <number, for example 1e-12>
 # max_function_evals: <number, for example 4000>
 # numberOfThreads: <number, 0 = max allowed threads>
-# vusualise: <0 = false, anything else = true>
+# visualise: <0 = false, anything else = true>
 
 files_magnitude:
   - "testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0001.dcm"
@@ -41,3 +42,4 @@ start_point_calc_method: Default
 fTolerance: 1e-4
 max_function_evals: 10
 number_of_threads: 0
+visualise: 1

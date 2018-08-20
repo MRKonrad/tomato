@@ -29,7 +29,7 @@ namespace Ox {
     class FactoryOfCalculators {
     public:
 
-        static CalculatorT1<TYPE>* generateCalculatorsObject(OxShmolli2Options<TYPE> *opts){
+        static CalculatorT1<TYPE>* newByFactory(OxShmolli2Options<TYPE> *opts){
             switch (opts->parameter_to_map){
                 case T1_MOLLI: {
                     return new CalculatorT1Molli<TYPE>();

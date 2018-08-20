@@ -27,7 +27,7 @@ namespace Ox {
     class FactoryOfFunctions {
     public:
 
-        static FunctionsT1<TYPE>* generateFunctionsObject(OxShmolli2Options<TYPE> *opts){
+        static FunctionsT1<TYPE>* newByFactory(OxShmolli2Options<TYPE> *opts){
             switch (opts->functions_type){
                 case FunctionsBasic: {
                     return new FunctionsT1Basic<TYPE>();

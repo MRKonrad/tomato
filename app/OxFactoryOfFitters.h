@@ -9,6 +9,7 @@
 
 #include "OxFitterAmoebaVnl.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
+#include "OxShmolli2Options.h"
 
 namespace Ox {
 
@@ -30,17 +31,24 @@ namespace Ox {
     class FactoryOfFitters {
     public:
 
-        static Fitter<TYPE>* generateFittersObject(OxShmolli2Options<TYPE> *opts){
+        static Fitter<TYPE>* newByFactory(OxShmolli2Options<TYPE> *opts){
+            Fitter<TYPE> *fitter = 0; //nullpointer
+
             switch (opts->fitting_method){
                 case AmoebaVnl: {
-                    return new FitterAmoebaVnl<TYPE>();
+                    fitter = new FitterAmoebaVnl<TYPE>();
+                    break;
                 }
                 case LevMarVnl: {
-                    return new FitterLevenbergMarquardtVnl<TYPE>();
+                    fitter = new FitterLevenbergMarquardtVnl<TYPE>();
+                    break;
                 }
-                default:
-                    return 0;
             }
+
+            fitter->setMaxFunctionEvals(opts->max_function_evals);
+            fitter->setFTolerance(opts->fTolerance);
+
+            return fitter;
         }
     };
 

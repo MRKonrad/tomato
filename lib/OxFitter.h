@@ -8,6 +8,7 @@
 #define OXSHMOLLI2_OXFITTER_H
 
 #include "OxFunctionsT1.h"
+#include "KWUtil.h"
 
 namespace Ox {
 

@@ -24,6 +24,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <stdexcept>
 #include <sys/stat.h>
 #include <fstream>
 

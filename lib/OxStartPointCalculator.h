@@ -7,6 +7,8 @@
 #ifndef OXSHMOLLI2_OXSTARTPOINTCALCULATOR_H
 #define OXSHMOLLI2_OXSTARTPOINTCALCULATOR_H
 
+#include "KWUtil.h"
+
 namespace Ox {
 
     /**
