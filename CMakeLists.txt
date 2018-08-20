@@ -17,14 +17,9 @@ if (CMAKE_CXX_STANDARD EQUAL 98)
     set (CXX_STANDARD_98 ON) # flag used in the code
 endif()
 
-# configure a header file to pass some of the CMake settings to the source code
-configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForOxShmolli2.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForOxShmolli2.h")
-include_directories ("${PROJECT_BINARY_DIR}")
-
 # list of source files
 file (GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)
 file (GLOB_RECURSE LIB_FILES lib/*.c* lib/*.h* lib/*.t*)
-set (LIB_FILES ${LIB_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForOxShmolli2.h")
 
 ###############
 ### PRIVATE ###
@@ -37,16 +32,6 @@ if (USE_PRIVATE_NR2)
     add_subdirectory(${PRIVATE_NR2_DIR} ${CMAKE_BINARY_DIR}/private)
     include_directories(${PRIVATE_NR2_DIR}/lib)
 endif()
-
-####################
-### MAIN PROGRAM ###
-####################
-
-include_directories (app)
-include_directories (lib)
-
-add_library (OxShmolli2Lib ${APP_FILES} ${LIB_FILES})
-add_executable (OxShmolli2Exe ${APP_FILES} ${LIB_FILES})
 
 ############
 ### YAML ###
@@ -62,9 +47,9 @@ set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} yaml)
 ### Fitting ###
 ###############
 
-# VNL TODO: code behaviour with VNL off
-set(USE_VNL ON CACHE BOOL "Do you want to use VNL numerics library?")
-include(cmake/vnl.cmake)
+## VNL TODO: code behaviour with VNL off
+#set(USE_VNL ON CACHE BOOL "Do you want to use VNL numerics library?")
+#include(cmake/vnl.cmake)
 
 #target_link_libraries (OxShmolli2Lib PUBLIC ${VNL_LIBRARIES})
 #target_link_libraries (OxShmolli2Exe PUBLIC ${VNL_LIBRARIES})
@@ -121,9 +106,33 @@ if(USE_VTK)
     endif()
 endif(USE_VTK)
 
+####################
+### MAIN PROGRAM ###
+####################
+
+MESSAGE(${CXX_STANDARD_98})
+MESSAGE(${USE_ITK})
+MESSAGE(${USE_VTK})
+MESSAGE(${USE_VNL})
+MESSAGE(${USE_PRIVATE_NR2})
+MESSAGE(${USE_NR2})
+MESSAGE(${USE_NR3})
+
+# configure a header file to pass some of the CMake settings to the source code
+configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForOxShmolli2.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForOxShmolli2.h")
+set (LIB_FILES ${LIB_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForOxShmolli2.h")
+
+include_directories (app)
+include_directories (lib)
+include_directories ("${PROJECT_BINARY_DIR}") # for the configuration header
+
+add_library (OxShmolli2Lib ${APP_FILES} ${LIB_FILES})
+add_executable (OxShmolli2Exe ${APP_FILES} ${LIB_FILES})
+
 ###############
 ### Linking ###
 ###############
+
 target_link_libraries (OxShmolli2Lib PUBLIC ${OxSmolli2_LIBS_TO_LINK})
 set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} OxShmolli2Lib)
 target_link_libraries (OxShmolli2Exe PUBLIC ${OxSmolli2_LIBS_TO_LINK})
