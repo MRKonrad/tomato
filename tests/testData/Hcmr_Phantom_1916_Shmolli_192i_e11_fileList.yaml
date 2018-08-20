@@ -36,10 +36,10 @@ files_phase:
 
 parameter_to_map: T1_MOLLI
 functions_type: FunctionsBasic
-fitting_method: AmoebaPrivateNr2
-sign_calc_method: MagPhase
+fitting_method: AmoebaVnl
+sign_calc_method: NoSign
 start_point_calc_method: Default
-fTolerance: 1e-12
-max_function_evals: 4000
+fTolerance: 1e-4
+max_function_evals: 40
 number_of_threads: 0
 visualise: 1

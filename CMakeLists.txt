@@ -107,9 +107,10 @@ endif(USE_ITK)
 
 set(USE_VTK ON CACHE BOOL "Do you want to use VTK?")
 list (FIND ITK_LIBRARIES "ITKVtkGlue" _index)
+# use vtk only if ITK is present
 if(USE_VTK)
+    set(USE_VTK OFF)
     if(_index GREATER -1)
-        set(USE_VTK OFF)
         find_package(VTK)
         MESSAGE("VTK version:" ${VTK_VERSION})
         if (VTK_FOUND)

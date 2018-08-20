@@ -78,7 +78,10 @@ namespace Ox {
             init();
         }
 
-
+        /**
+         * constructor with parser
+         * @param filePath
+         */
         OxShmolli2Options(std::string filePath) {
             init();
 
@@ -134,10 +137,6 @@ namespace Ox {
                 number_of_threads = KWUtil::StringToNumber<MeasureType>(parser._scalars["number_of_threads"]);
             if (!parser._scalars["visualise"].empty())
                 visualise = (bool)KWUtil::StringToNumber<MeasureType>(parser._scalars["visualise"]);
-
-            //parser.disp();
-            //printAvailable();
-            //printCurrent();
         }
 
         int findInArray(int size, const char *nameArray[], std::string name){
@@ -199,9 +198,6 @@ namespace Ox {
             printf("\n\n");
         }
 
-        /**
-         * TODO: merge with printCurrent()
-         */
         static void printAvailable() {
             printf("\n");
             printf("#############################\n");
