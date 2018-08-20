@@ -5,6 +5,8 @@
  */
 
 #include <iostream>
+
+#include "CmakeConfigForOxShmolli2.h"
 #include "OxShmolli2.h"
 #include "OxShmolli2Options.h"
 
@@ -18,13 +20,21 @@ int main(int argc, char* argv[]) {
     if (argc != 2){
         printf("\nUse: OxShmolliExe(<input_file.yaml>). Please see examples in testData\n");
         Ox::OxShmolli2Options<int>::printAvailable();
-    } else if (argc == 2){
+    }
+
+    else if (argc == 2){
+        // process only if ITK is available
+#ifdef USE_ITK
         std::string inputFileName(argv[1]);
         Ox::OxShmolli2 OxShmolli2_object(inputFileName);
         OxShmolli2_object._opts->printCurrent();
         OxShmolli2_object.readAndSort();
         OxShmolli2_object.calculate();
         OxShmolli2_object.visualise();
+#else
+        throw std::runtime_error("You need ITK to run the executable");
+#endif
+
     }
 
     printf("Thank you for using!\n");
@@ -33,3 +43,4 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+

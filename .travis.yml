@@ -48,15 +48,20 @@ addons:
 
 before_install:
   - cd ${TRAVIS_BUILD_DIR}
-  # download ITK. #TODO: add ubuntu version
+  # download ITK
   - export USE_ITK="OFF"
+  - cd ..;
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-      cd ..;
       curl -L -O https://www.dropbox.com/s/zi7wfc9qev2529d/ITK413_osx_install.zip;
       unzip -a -q ITK413_osx_install.zip;
       export USE_ITK="ON";
-      cd ${TRAVIS_BUILD_DIR};
     fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+      curl -L -O https://www.dropbox.com/s/w35r9k376gg1cc3/ITK413_linux_install.zip;
+      unzip -a -q ITK413_linux_install.zip;
+      export USE_ITK="ON";
+    fi
+  - cd ${TRAVIS_BUILD_DIR};
   # condition for the extended build (with coveralls and documentation)
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98"]; then
       EXTENDED_BUILD="ON";

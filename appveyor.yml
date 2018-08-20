@@ -2,7 +2,8 @@
 #   OxShmolli2   #
 #------------------------------------#
 
-#version: '0.9.{build}'
+# todo: add win32
+# version: '0.9.{build}'
 
 os:
   - Visual Studio 2017
@@ -20,7 +21,7 @@ install:
   - git submodule update --init --recursive
 
 platform:
-  - Win32
+#  - Win32
   - x64
 
 configuration:
@@ -28,6 +29,12 @@ configuration:
   - Release
 
 before_build:
+  - dir
+  - cd
+  - curl -L -O https://www.dropbox.com/s/fu5we0o2j1a4uzt/ITK412_win_x64_install.zip
+  - dir
+  - cd
+  - 7z x -r ITK412_win_x64_install.zip
   - cmake . -Bbin -A%PLATFORM% -DUSE_NR2=OFF -DUSE_NR3=OFF -DUSE_PRIVATE_NR2=OFF
 
 build:
