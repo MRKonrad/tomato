@@ -52,7 +52,7 @@ build:
 after_build:
   # install the files
   - cd bin
-  - cmake --build . --target INSTALL -DCMAKE_BUILD_TYPE=%CONFIGURATION%
+  - cmake --build . -DCMAKE_BUILD_TYPE=%CONFIGURATION% --target INSTALL
   - cd ..
   - mkdir deployment
 
