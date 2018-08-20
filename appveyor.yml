@@ -31,11 +31,18 @@ configuration:
 before_build:
   - dir
   - cd
+  - cd ..
+  - cd
   - curl -L -O https://www.dropbox.com/s/fu5we0o2j1a4uzt/ITK412_win_x64_install.zip
   - dir
   - cd
   - 7z x -r ITK412_win_x64_install.zip
+  - dir
+  - cd oxshmolli2
+  - cd
+  - dir
   - cmake . -Bbin -A%PLATFORM% -DUSE_NR2=OFF -DUSE_NR3=OFF -DUSE_PRIVATE_NR2=OFF
+  - cd
 
 build:
   project: bin\OxShmolli2.sln  # path to Visual Studio solution or project
