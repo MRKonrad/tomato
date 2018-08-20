@@ -9,6 +9,7 @@
 
 #include "OxFunctionsT1Basic.h"
 #include "OxFitterAmoebaVnl.h"
+#include "OxFitterLevenbergMarquardtVnl.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
 #include "OxStartPointCalculatorDefault3Dims.h"
@@ -35,14 +36,14 @@ TEST(OxImageCalculatorT1, calculate_no_multithread) {
 
     // init the necessary objects
     Ox::FunctionsT1Basic<TYPE> functionsObject;
-    Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure calculator
     calculatorT1Molli.setFunctionsT1(&functionsObject);
-    calculatorT1Molli.setFitter(&fitterAmoebaVnl);
+    calculatorT1Molli.setFitter(&fitter);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
 
@@ -131,21 +132,21 @@ TEST(OxImageCalculatorT1, calculate_multithread) {
     filePaths.push_back("testData/blood.yaml");
     filePaths.push_back("testData/myocardium.yaml");
 
-    int nRows = 8;
-    int nCols = 10;
+    int nRows = 10;
+    int nCols = 8;
 
     Ox::TestImage<TYPE> *testImage = new Ox::TestImage<TYPE>(nRows, nCols, filePaths);
 
     // init the necessary objects
     Ox::FunctionsT1Basic<TYPE> functionsObject;
-    Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
-    Ox::StartPointCalculator<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure
     calculatorT1Molli.setFunctionsT1(&functionsObject);
-    calculatorT1Molli.setFitter(&fitterAmoebaVnl);
+    calculatorT1Molli.setFitter(&fitter);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
 

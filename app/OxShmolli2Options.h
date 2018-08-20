@@ -153,7 +153,6 @@ namespace Ox {
 
         static void printArray(int size, const char *nameArray[]){
             for (int i = 0; i < size; ++i){
-                //printf("%d=%s ", i, nameArray[i]);
                 printf("%s ", nameArray[i]);
             }
         }
@@ -177,11 +176,18 @@ namespace Ox {
             printf("\n dir_phase: %s ", dir_phase.c_str());
             printf("\n dir_output_map: %s ", dir_output_map.c_str());
             printf("\n dir_output_fitparams: %s ", dir_output_fitparams.c_str());
-            printf("\n parameter_to_map: %s ", calculatorsTypeNames[parameter_to_map]);
-            printf("\n fitting_method: %s ",  fittersTypeNames[fitting_method]);
-            printf("\n functions_type: %s ", functionsTypeNames[functions_type]);
-            printf("\n sign_calc_method: %s ", signCalculatorsTypeNames[sign_calc_method]);
-            printf("\n start_point_calc_method: %s ", startPointCalculatorsTypeNames[start_point_calc_method]);
+            printf("\n");
+            printf("\n parameter_to_map: %s [ ", calculatorsTypeNames[parameter_to_map]);
+            printArray(lastCalculatorType+1, calculatorsTypeNames);
+            printf("]\n fitting_method: %s [ ",  fittersTypeNames[fitting_method]);
+            printArray(lastFitterType+1, fittersTypeNames);
+            printf("]\n functions_type: %s [ ", functionsTypeNames[functions_type]);
+            printArray(lastFunctorType+1, functionsTypeNames);
+            printf("]\n sign_calc_method: %s [ ", signCalculatorsTypeNames[sign_calc_method]);
+            printArray(lastSignCalculatorType+1, signCalculatorsTypeNames);
+            printf("]\n start_point_calc_method: %s [ ", startPointCalculatorsTypeNames[start_point_calc_method]);
+            printArray(lastStartPointCalculatorType+1, startPointCalculatorsTypeNames);
+            printf("]\n");
             printf("\n fTolerance: %.2e ", fTolerance);
             //printf("xTolerance: %.2e ", xTolerance);
             printf("\n max_function_evals: %d ", max_function_evals);

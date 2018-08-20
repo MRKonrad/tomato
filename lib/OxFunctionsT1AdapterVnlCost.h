@@ -39,7 +39,6 @@ namespace Ox {
             return _FunctionsT1;
         };
 
-
         /**
          * constructor
          */

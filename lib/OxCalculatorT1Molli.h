@@ -26,6 +26,12 @@ namespace Ox {
          * @return success/failure
          */
         virtual int calculate(){
+            this->_Results = CalculatorT1Results<MeasureType>();
+            // calculate if higher than the cutoff
+            if (KWUtil::calcMeanArray(this->getNSamples(), this->getSignal()) < this->getMeanCutOff()) {
+                return 0; // EXIT_SUCCESS
+            }
+
             this->_Results = calculateMolli( this->getNSamples(),
                                              this->getInvTimes(),
                                              this->getSignal(),

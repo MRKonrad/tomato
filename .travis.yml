@@ -63,11 +63,11 @@ before_install:
     fi
   - cd ${TRAVIS_BUILD_DIR};
   # condition for the extended build (with coveralls and documentation)
-  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98"]; then
+  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98" ]; then
       EXTENDED_BUILD="ON";
     fi
   # condition for the deployment build
-  - if [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98"]; then
+  - if [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98" ]; then
       export DEPLOY_BUILD="ON";
     fi
   # install coveralls only in linux g++

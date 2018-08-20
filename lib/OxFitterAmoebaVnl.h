@@ -63,8 +63,6 @@ namespace Ox {
          * \brief constructor
          */
         FitterAmoebaVnl() {
-//            _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(this->_FunctionsT1->getNDims());
-//            _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);
             // I cannot initialise _FunctionsAdaptedToVnl here, as I do not know nDims yet
             _FunctionsAdaptedToVnl = 0;
             _VnlFitter = 0;

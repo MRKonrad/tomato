@@ -7,14 +7,32 @@
 #ifndef OXSHMOLLI2_OXFACTORYOFSignCalculators_H
 #define OXSHMOLLI2_OXFACTORYOFSignCalculators_H
 
+#include "CmakeConfigForOxShmolli2.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
+#ifdef USE_PRIVATE_NR2
+#include "OxSignCalculatorShmolli.h"
+#endif
 
 namespace Ox {
 
     template<typename TYPE>
     struct OxShmolli2Options;
 
+#ifdef USE_PRIVATE_NR2
+    static const char *signCalculatorsTypeNames[] = {
+            "NoSign",
+            "RealImag",
+            "MagPhase"
+    };
+
+    enum signCalculatorsType_t {
+        NoSign = 0,
+        RealImag = 1,
+        MagPhase = 2,
+        lastSignCalculatorType = MagPhase
+    };
+#else
     static const char *signCalculatorsTypeNames[] = {
             "NoSign",
             "RealImag"
@@ -25,6 +43,7 @@ namespace Ox {
         RealImag = 1,
         lastSignCalculatorType = RealImag
     };
+#endif
 
     template<typename TYPE>
     class FactoryOfSignCalculators {
@@ -38,6 +57,11 @@ namespace Ox {
                 case RealImag: {
                     return new SignCalculatorRealImag<TYPE>();
                 }
+#ifdef USE_PRIVATE_NR2
+                case MagPhase: {
+                    return new SignCalculatorShmolli<TYPE>();
+                }
+#endif
                 default:
                     return 0;
             }

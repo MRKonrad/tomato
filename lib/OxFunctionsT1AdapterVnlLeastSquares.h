@@ -17,10 +17,6 @@ namespace Ox {
 
     public:
 
-        FunctionsT1AdapterVnlLeastSquares(int nDims, int nSamples, UseGradient UseGradientVariable) : vnl_least_squares_function (nDims, nSamples, UseGradientVariable){
-            _FunctionsT1 = 0; // nullpointer
-        };
-
         // least squares function problem formulation
         void f(vnl_vector<double> const& params, vnl_vector<double> &residuals){
 
@@ -39,9 +35,25 @@ namespace Ox {
             this->_FunctionsT1 = _FunctionsT1;
         };
 
+        // getters
         FunctionsT1<double>* getFunctionsT1(){
             return _FunctionsT1;
         };
+
+        /**
+         * constructor
+         */
+        FunctionsT1AdapterVnlLeastSquares(int nDims, int nSamples, UseGradient UseGradientVariable) : vnl_least_squares_function (nDims, nSamples, UseGradientVariable){
+            _FunctionsT1 = 0; // nullpointer
+        };
+
+        /**
+         * copy constructor
+         * @param old
+         */
+        FunctionsT1AdapterVnlLeastSquares(const FunctionsT1AdapterVnlLeastSquares &old) : vnl_least_squares_function(old){
+            _FunctionsT1 = old._FunctionsT1;
+        }
 
     private:
 

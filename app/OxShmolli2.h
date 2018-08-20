@@ -69,7 +69,7 @@ namespace Ox {
             readerMag->Update();
 
             ReadFileListFilterType::Pointer readerPha = ReadFileListFilterType::New();
-            readerPha->SetFileList(_opts->files_magnitude);
+            readerPha->SetFileList(_opts->files_phase);
             readerPha->Update();
 
             SortInvTimesImageFilterType::Pointer sorterMag = SortInvTimesImageFilterType::New();
