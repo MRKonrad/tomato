@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('class_ox_1_1_start_point_calculator.ht
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,23 +108,29 @@ $(document).ready(function(){initNavTree('class_ox_1_1_start_point_calculator.ht
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_ox_1_1_start_point_calculator-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Ox::StartPointCalculator&lt; MeasureType &gt; Class Template Reference</div>  </div>
+<div class="title">Ox::StartPointCalculator&lt; MeasureType &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="_ox_start_point_calculator_8h_source.html">OxStartPointCalculator.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Ox::StartPointCalculator&lt; MeasureType &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ox_1_1_start_point_calculator__inherit__graph.png" border="0" usemap="#_ox_1_1_start_point_calculator_3_01_measure_type_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="_ox_1_1_start_point_calculator_3_01_measure_type_01_4_inherit__map" id="_ox_1_1_start_point_calculator_3_01_measure_type_01_4_inherit__map">
+<area shape="rect" id="node2" href="class_ox_1_1_start_point_calculator_default3_dims.html" title="Ox::StartPointCalculator\lDefault3Dims\&lt; MeasureType \&gt;" alt="" coords="5,97,211,138"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a9d1132410d68eb16f3f71ec4015c0b2f"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_start_point_calculator.html#a9d1132410d68eb16f3f71ec4015c0b2f">calculateStartPoint</a> ()=0</td></tr>
+<tr class="separator:a9d1132410d68eb16f3f71ec4015c0b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48b39c1d6bb733821f7297593e424728"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a48b39c1d6bb733821f7297593e424728"></a>
 MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getCalculatedStartPoint</b> () const </td></tr>
 <tr class="separator:a48b39c1d6bb733821f7297593e424728"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a173bb7ba6c41fea0d1b5ac667a925445"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a173bb7ba6c41fea0d1b5ac667a925445"></a>
-const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getDefaultStartPoint</b> () const </td></tr>
-<tr class="separator:a173bb7ba6c41fea0d1b5ac667a925445"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76811718d5bd15ca3e5be51c33cfa8b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76811718d5bd15ca3e5be51c33cfa8b9"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNStartFitPoints</b> () const </td></tr>
-<tr class="separator:a76811718d5bd15ca3e5be51c33cfa8b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75c73487e21a0f4920762c1efc96d573"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75c73487e21a0f4920762c1efc96d573"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getNDims</b> () const </td></tr>
+<tr class="separator:a75c73487e21a0f4920762c1efc96d573"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0632bd0dcf7707930058d63e2176fc7a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0632bd0dcf7707930058d63e2176fc7a"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setInvTimes</b> (const MeasureType *_InvTimes)</td></tr>
 <tr class="separator:a0632bd0dcf7707930058d63e2176fc7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,18 +146,13 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setCalculated
 <tr class="memitem:a72195ac7840734cd9001d0303ab859f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72195ac7840734cd9001d0303ab859f4"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setNSamples</b> (int _nSamples)</td></tr>
 <tr class="separator:a72195ac7840734cd9001d0303ab859f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd8fda33c7bf92f02e0915e9a900692d"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_start_point_calculator.html#acd8fda33c7bf92f02e0915e9a900692d">calculateStartPoint</a> ()</td></tr>
-<tr class="separator:acd8fda33c7bf92f02e0915e9a900692d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8ddca43560e04c7332f804a825ee525"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8ddca43560e04c7332f804a825ee525"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>setStartPointToDefault</b> ()</td></tr>
-<tr class="separator:ae8ddca43560e04c7332f804a825ee525"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e68d3a23cee006d4dbdd47583c5d316"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e68d3a23cee006d4dbdd47583c5d316"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>disp</b> ()</td></tr>
 <tr class="separator:a1e68d3a23cee006d4dbdd47583c5d316"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fef8d4182451c17bc43d0e7a1abb90c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4fef8d4182451c17bc43d0e7a1abb90c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_start_point_calculator.html#a4fef8d4182451c17bc43d0e7a1abb90c">init</a> ()</td></tr>
-<tr class="memdesc:a4fef8d4182451c17bc43d0e7a1abb90c"><td class="mdescLeft">&#160;</td><td class="mdescRight">set all the pointers to zero <br/></td></tr>
-<tr class="separator:a4fef8d4182451c17bc43d0e7a1abb90c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00a48e8845623b57e414380924a3f82b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00a48e8845623b57e414380924a3f82b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_start_point_calculator.html#a00a48e8845623b57e414380924a3f82b">setAllPointersToNull</a> ()</td></tr>
+<tr class="memdesc:a00a48e8845623b57e414380924a3f82b"><td class="mdescLeft">&#160;</td><td class="mdescRight">set all the pointers to zero <br/></td></tr>
+<tr class="separator:a00a48e8845623b57e414380924a3f82b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a408ce85b6fbf0ee69f4eca3176b814d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a408ce85b6fbf0ee69f4eca3176b814d6"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_start_point_calculator.html#a408ce85b6fbf0ee69f4eca3176b814d6">StartPointCalculator</a> ()</td></tr>
 <tr class="memdesc:a408ce85b6fbf0ee69f4eca3176b814d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor <br/></td></tr>
@@ -160,9 +161,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_start_point_calculator.html#ab6b12ed8fa6b47b3335b5c7a92b94623">StartPointCalculator</a> (const <a class="el" href="class_ox_1_1_start_point_calculator.html">StartPointCalculator</a> &amp;old)</td></tr>
 <tr class="memdesc:ab6b12ed8fa6b47b3335b5c7a92b94623"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy constructor <br/></td></tr>
 <tr class="separator:ab6b12ed8fa6b47b3335b5c7a92b94623"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f1c22d86f8f1c06eeedf0202a08b29f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_ox_1_1_start_point_calculator.html">StartPointCalculator</a><br class="typebreak"/>
-&lt; MeasureType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_start_point_calculator.html#a2f1c22d86f8f1c06eeedf0202a08b29f">newByCloning</a> ()</td></tr>
-<tr class="separator:a2f1c22d86f8f1c06eeedf0202a08b29f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd2a221872002157f232e1e7f73a1859"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_ox_1_1_start_point_calculator.html">StartPointCalculator</a><br class="typebreak"/>
+&lt; MeasureType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_start_point_calculator.html#acd2a221872002157f232e1e7f73a1859">newByCloning</a> ()=0</td></tr>
+<tr class="separator:acd2a221872002157f232e1e7f73a1859"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a210c3312a8926b750dba8e498c6b620a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a210c3312a8926b750dba8e498c6b620a"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a">~StartPointCalculator</a> ()</td></tr>
 <tr class="memdesc:a210c3312a8926b750dba8e498c6b620a"><td class="mdescLeft">&#160;</td><td class="mdescRight">do not forget about the virtual destructor, see <a href="https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors">https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors</a> <br/></td></tr>
@@ -170,9 +171,6 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a2dd19fdfc59a7acc20812ca7f96387ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2dd19fdfc59a7acc20812ca7f96387ad"></a>
-MeasureType&#160;</td><td class="memItemRight" valign="bottom"><b>_DefaultStartPoint</b> [3]</td></tr>
-<tr class="separator:a2dd19fdfc59a7acc20812ca7f96387ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90c26143db22a371533de08a87cdada0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90c26143db22a371533de08a87cdada0"></a>
 MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>_CalculatedStartPoint</b></td></tr>
 <tr class="separator:a90c26143db22a371533de08a87cdada0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,7 +201,7 @@ class Ox::StartPointCalculator&lt; MeasureType &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="acd8fda33c7bf92f02e0915e9a900692d"></a>
+<a class="anchor" id="a9d1132410d68eb16f3f71ec4015c0b2f"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -221,16 +219,18 @@ template&lt;typename MeasureType&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>the most important function of this class </p>
 <dl class="section return"><dt>Returns</dt><dd>success/failure </dd></dl>
 
+<p>Implemented in <a class="el" href="class_ox_1_1_start_point_calculator_default3_dims.html#a6af87ac3412f699ebf9abec6b61461cf">Ox::StartPointCalculatorDefault3Dims&lt; MeasureType &gt;</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a2f1c22d86f8f1c06eeedf0202a08b29f"></a>
+<a class="anchor" id="acd2a221872002157f232e1e7f73a1859"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -248,12 +248,14 @@ template&lt;typename MeasureType&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>cloning </p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implemented in <a class="el" href="class_ox_1_1_start_point_calculator_default3_dims.html#ad2d60ec81810eb5b0368834e15d031bd">Ox::StartPointCalculatorDefault3Dims&lt; MeasureType &gt;</a>.</p>
 
 </div>
 </div>

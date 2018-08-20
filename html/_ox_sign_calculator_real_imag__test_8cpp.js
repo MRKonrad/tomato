@@ -1,6 +1,7 @@
 var _ox_sign_calculator_real_imag__test_8cpp =
 [
-    [ "TEST", "_ox_sign_calculator_real_imag__test_8cpp.html#a4c826153c0f89480783245141c17f042", null ],
-    [ "TEST", "_ox_sign_calculator_real_imag__test_8cpp.html#a081df5e8100f5a0b28bc20e52fe3dfc3", null ],
-    [ "TEST", "_ox_sign_calculator_real_imag__test_8cpp.html#a78f78dbb4c71503a44870ce9a0dabdb9", null ]
+    [ "TEST", "_ox_sign_calculator_real_imag__test_8cpp.html#ac514bc267bd1bef338308d0aaabf7de1", null ],
+    [ "TEST", "_ox_sign_calculator_real_imag__test_8cpp.html#a64a849cedaaf6ca768f3f5e58455f508", null ],
+    [ "TEST", "_ox_sign_calculator_real_imag__test_8cpp.html#aa809b60a4665cd0e3bb96620cce7b6ac", null ],
+    [ "TEST", "_ox_sign_calculator_real_imag__test_8cpp.html#acf2c4bc4306d064da9cbbdcce128ed07", null ]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['signcalculator',['SignCalculator',['../class_ox_1_1_sign_calculator.html',1,'Ox']]],
-  ['signcalculatorrealimag',['SignCalculatorRealImag',['../class_ox_1_1_sign_calculator_real_imag.html',1,'Ox']]],
-  ['startpointcalculator',['StartPointCalculator',['../class_ox_1_1_start_point_calculator.html',1,'Ox']]]
+  ['oxshmolli2options',['OxShmolli2Options',['../struct_ox_1_1_ox_shmolli2_options.html',1,'Ox']]],
+  ['oxshmolli2parser',['OxShmolli2Parser',['../class_ox_1_1_ox_shmolli2_parser.html',1,'Ox']]]
 ];

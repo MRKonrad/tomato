@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('_ox_functions_t1_adapter_vnl_least_squ
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -119,45 +119,52 @@ $(document).ready(function(){initNavTree('_ox_functions_t1_adapter_vnl_least_squ
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="class_ox_1_1_functions_t1_adapter_vnl_least_squares.html">FunctionsT1AdapterVnlLeastSquares</a>(<span class="keywordtype">int</span> nSamples, UseGradient UseGradientVariable) : vnl_least_squares_function (3, nSamples, UseGradientVariable){</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            _FunctionsT1 = 0; <span class="comment">// nullpointer</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        };</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">// least squares function problem formulation</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> f(vnl_vector&lt;double&gt; <span class="keyword">const</span>&amp; params, vnl_vector&lt;double&gt; &amp;residuals){</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="comment">// least squares function problem formulation</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">void</span> f(vnl_vector&lt;double&gt; <span class="keyword">const</span>&amp; params, vnl_vector&lt;double&gt; &amp;residuals){</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            _FunctionsT1-&gt;copyToParameters(params.data_block());</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            _FunctionsT1-&gt;<a class="code" href="class_ox_1_1_functions_t1.html#a6c69a4159a92c4ddb71ecba97fcdf6de">calcLSResiduals</a>(residuals.data_block());</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            _FunctionsT1-&gt;copyToParameters(params.data_block());</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            _FunctionsT1-&gt;<a class="code" href="class_ox_1_1_functions_t1.html#a6c69a4159a92c4ddb71ecba97fcdf6de">calcLSResiduals</a>(residuals.data_block());</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="comment">// least squares function gradient</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> gradf (vnl_vector&lt; double &gt; <span class="keyword">const</span> &amp;params, vnl_matrix&lt; double &gt; &amp;jacobianVNL){</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="comment">// least squares function gradient</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">void</span> gradf (vnl_vector&lt; double &gt; <span class="keyword">const</span> &amp;params, vnl_matrix&lt; double &gt; &amp;jacobianVNL){</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            _FunctionsT1-&gt;copyToParameters(params.data_block());</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            _FunctionsT1-&gt;<a class="code" href="class_ox_1_1_functions_t1.html#a84e268911eb64919129c8a0cea39344d">calcLSJacobian</a>(jacobianVNL.data_block());</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            _FunctionsT1-&gt;copyToParameters(params.data_block());</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            _FunctionsT1-&gt;<a class="code" href="class_ox_1_1_functions_t1.html#a84e268911eb64919129c8a0cea39344d">calcLSJacobian</a>(jacobianVNL.data_block());</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">void</span> setFunctionsT1(<a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;double&gt;</a>* _FunctionsT1){</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            this-&gt;_FunctionsT1 = _FunctionsT1;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        };</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">void</span> setFunctionsT1(<a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;double&gt;</a>* _FunctionsT1){</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            this-&gt;_FunctionsT1 = _FunctionsT1;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        };</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;double&gt;</a>* getFunctionsT1(){</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">return</span> _FunctionsT1;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        };</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;double&gt;</a>* _FunctionsT1;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    };</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// namespace Ox</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif //OXSHMOLLI2_OXFUNCTIONST1ADAPTERVNLLEASTSQUARES_H</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">// getters</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;double&gt;</a>* getFunctionsT1(){</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">return</span> _FunctionsT1;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        };</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_ox_1_1_functions_t1_adapter_vnl_least_squares.html#a32fc1a585b66ffa3a2e19c1f51d96851">   46</a></span>&#160;        <a class="code" href="class_ox_1_1_functions_t1_adapter_vnl_least_squares.html#a32fc1a585b66ffa3a2e19c1f51d96851">FunctionsT1AdapterVnlLeastSquares</a>(<span class="keywordtype">int</span> nDims, <span class="keywordtype">int</span> nSamples, UseGradient UseGradientVariable) : vnl_least_squares_function (nDims, nSamples, UseGradientVariable){</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            _FunctionsT1 = 0; <span class="comment">// nullpointer</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        };</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_ox_1_1_functions_t1_adapter_vnl_least_squares.html#aa083ecf32daf91e03d44fe7b43adcd57">   54</a></span>&#160;        <a class="code" href="class_ox_1_1_functions_t1_adapter_vnl_least_squares.html#aa083ecf32daf91e03d44fe7b43adcd57">FunctionsT1AdapterVnlLeastSquares</a>(<span class="keyword">const</span> <a class="code" href="class_ox_1_1_functions_t1_adapter_vnl_least_squares.html">FunctionsT1AdapterVnlLeastSquares</a> &amp;old) : vnl_least_squares_function(old){</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            _FunctionsT1 = old._FunctionsT1;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;double&gt;</a>* _FunctionsT1;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    };</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;} <span class="comment">// namespace Ox</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif //OXSHMOLLI2_OXFUNCTIONST1ADAPTERVNLLEASTSQUARES_H</span></div>
 <div class="ttc" id="class_ox_1_1_functions_t1_html_a84e268911eb64919129c8a0cea39344d"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a84e268911eb64919129c8a0cea39344d">Ox::FunctionsT1::calcLSJacobian</a></div><div class="ttdeci">virtual void calcLSJacobian(MeasureType *jacobian)=0</div></div>
 <div class="ttc" id="class_ox_1_1_functions_t1_html_a6c69a4159a92c4ddb71ecba97fcdf6de"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a6c69a4159a92c4ddb71ecba97fcdf6de">Ox::FunctionsT1::calcLSResiduals</a></div><div class="ttdeci">virtual void calcLSResiduals(MeasureType *residuals)=0</div></div>
 <div class="ttc" id="class_ox_1_1_functions_t1_adapter_vnl_least_squares_html"><div class="ttname"><a href="class_ox_1_1_functions_t1_adapter_vnl_least_squares.html">Ox::FunctionsT1AdapterVnlLeastSquares</a></div><div class="ttdef"><b>Definition:</b> OxFunctionsT1AdapterVnlLeastSquares.h:16</div></div>
 <div class="ttc" id="_ox_functions_t1_8h_html"><div class="ttname"><a href="_ox_functions_t1_8h.html">OxFunctionsT1.h</a></div></div>
 <div class="ttc" id="class_ox_1_1_functions_t1_html"><div class="ttname"><a href="class_ox_1_1_functions_t1.html">Ox::FunctionsT1&lt; double &gt;</a></div></div>
+<div class="ttc" id="class_ox_1_1_functions_t1_adapter_vnl_least_squares_html_a32fc1a585b66ffa3a2e19c1f51d96851"><div class="ttname"><a href="class_ox_1_1_functions_t1_adapter_vnl_least_squares.html#a32fc1a585b66ffa3a2e19c1f51d96851">Ox::FunctionsT1AdapterVnlLeastSquares::FunctionsT1AdapterVnlLeastSquares</a></div><div class="ttdeci">FunctionsT1AdapterVnlLeastSquares(int nDims, int nSamples, UseGradient UseGradientVariable)</div><div class="ttdef"><b>Definition:</b> OxFunctionsT1AdapterVnlLeastSquares.h:46</div></div>
+<div class="ttc" id="class_ox_1_1_functions_t1_adapter_vnl_least_squares_html_aa083ecf32daf91e03d44fe7b43adcd57"><div class="ttname"><a href="class_ox_1_1_functions_t1_adapter_vnl_least_squares.html#aa083ecf32daf91e03d44fe7b43adcd57">Ox::FunctionsT1AdapterVnlLeastSquares::FunctionsT1AdapterVnlLeastSquares</a></div><div class="ttdeci">FunctionsT1AdapterVnlLeastSquares(const FunctionsT1AdapterVnlLeastSquares &amp;old)</div><div class="ttdef"><b>Definition:</b> OxFunctionsT1AdapterVnlLeastSquares.h:54</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

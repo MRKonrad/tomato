@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('_ox_fitter_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,97 +110,97 @@ $(document).ready(function(){initNavTree('_ox_fitter_8h_source.html','');});
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define OXSHMOLLI2_OXFITTER_H</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_functions_t1_8h.html">OxFunctionsT1.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>Ox {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_ox_1_1_fitter.html">   21</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_ox_1_1_fitter.html">Fitter</a>{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_ox_1_1_fitter.html#a8f240f0da86d06b339ab2747e87f21b9">performFitting</a>() = 0;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;MeasureType&gt;</a>* getFunctionsT1()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _FunctionsT1; }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> MeasureType getXTolerance()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _XTolerance; }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> MeasureType getFTolerance()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _FTolerance; }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getMaxFunctionEvals()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _MaxFunctionEvals; }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getThreadId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _ThreadId; }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> getVerbose()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _Verbose; }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> getTrace()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _Trace; }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setFunctionsT1(<a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;MeasureType&gt;</a>* _FunctionsT1) { Fitter::_FunctionsT1 = _FunctionsT1; }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setXTolerance(<span class="keyword">const</span> MeasureType _XTolerance) { Fitter::_XTolerance = _XTolerance; }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setFTolerance(<span class="keyword">const</span> MeasureType _FTolerance) { Fitter::_FTolerance = _FTolerance; }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setMaxFunctionEvals(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _MaxFunctionEvals) { Fitter::_MaxFunctionEvals = _MaxFunctionEvals; }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setThreadId(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _ThreadId) { Fitter::_ThreadId = _ThreadId; }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setVerbose(<span class="keyword">const</span> <span class="keywordtype">bool</span> _Verbose) { Fitter::_Verbose = _Verbose; }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setTrace(<span class="keyword">const</span> <span class="keywordtype">bool</span> _Trace) { Fitter::_Trace = _Trace; }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_ox_1_1_fitter.html#a0a9b45eb21ba174327f95a894e6331b6">   52</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_ox_1_1_fitter.html#a0a9b45eb21ba174327f95a894e6331b6">disp</a>(){</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;\nYou called disp() on a Fitter object &quot;</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;XTolerance:       &quot;</span> &lt;&lt; getXTolerance() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;FTolerance:       &quot;</span> &lt;&lt; getFTolerance() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;MaxFunctionEvals: &quot;</span> &lt;&lt; getMaxFunctionEvals() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;ThreadId:         &quot;</span> &lt;&lt; getThreadId() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">if</span>(_FunctionsT1) {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;This Fitter contains the following FunctionsT1 object: &quot;</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                _FunctionsT1-&gt;<a class="code" href="class_ox_1_1_functions_t1.html#a21708a9d44f261ba53648c2e6fcdd3a5">disp</a>();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            };</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_ox_1_1_fitter.html#a7b42acb389394bc4c496990eea8b9ac9">   67</a></span>&#160;        <a class="code" href="class_ox_1_1_fitter.html#a7b42acb389394bc4c496990eea8b9ac9">Fitter</a>(){</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            _FunctionsT1 = 0; <span class="comment">//nullpointer</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            _XTolerance = 1e-12;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            _FTolerance = 1e-12;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            _MaxFunctionEvals = 4000;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            _ThreadId = 0;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            _Verbose = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            _Trace = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_ox_1_1_fitter.html#ac51130b722159f88a0dad59877b76417">   82</a></span>&#160;        <a class="code" href="class_ox_1_1_fitter.html#ac51130b722159f88a0dad59877b76417">Fitter</a>(<span class="keyword">const</span> <a class="code" href="class_ox_1_1_fitter.html">Fitter</a> &amp;old) {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            _FunctionsT1 = 0; <span class="comment">//nullpointer</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            _XTolerance = old._XTolerance;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            _FTolerance = old._FTolerance;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            _MaxFunctionEvals = old._MaxFunctionEvals;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            _ThreadId = old._ThreadId;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            _Verbose = old._Verbose;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            _Trace = old._Trace;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_fitter.html">Fitter&lt;MeasureType&gt;</a> *<a class="code" href="class_ox_1_1_fitter.html#a665ec51e52ed351c9ef801acc83fbdea">newByCloning</a>() = 0;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43">  103</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43">~Fitter</a>(){};</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;MeasureType&gt;</a>* _FunctionsT1;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        MeasureType _XTolerance;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        MeasureType _FTolerance;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _MaxFunctionEvals;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _ThreadId;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordtype">bool</span> _Verbose;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordtype">bool</span> _Trace;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;KWUtil.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>Ox {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_ox_1_1_fitter.html">   22</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_ox_1_1_fitter.html">Fitter</a>{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_ox_1_1_fitter.html#a8f240f0da86d06b339ab2747e87f21b9">performFitting</a>() = 0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;MeasureType&gt;</a>* getFunctionsT1()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _FunctionsT1; }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> MeasureType getXTolerance()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _XTolerance; }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> MeasureType getFTolerance()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _FTolerance; }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getMaxFunctionEvals()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _MaxFunctionEvals; }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getThreadId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _ThreadId; }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> getVerbose()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _Verbose; }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> getTrace()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _Trace; }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setFunctionsT1(<a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;MeasureType&gt;</a>* _FunctionsT1) { Fitter::_FunctionsT1 = _FunctionsT1; }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setXTolerance(<span class="keyword">const</span> MeasureType _XTolerance) { Fitter::_XTolerance = _XTolerance; }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setFTolerance(<span class="keyword">const</span> MeasureType _FTolerance) { Fitter::_FTolerance = _FTolerance; }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setMaxFunctionEvals(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _MaxFunctionEvals) { Fitter::_MaxFunctionEvals = _MaxFunctionEvals; }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setThreadId(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _ThreadId) { Fitter::_ThreadId = _ThreadId; }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setVerbose(<span class="keyword">const</span> <span class="keywordtype">bool</span> _Verbose) { Fitter::_Verbose = _Verbose; }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setTrace(<span class="keyword">const</span> <span class="keywordtype">bool</span> _Trace) { Fitter::_Trace = _Trace; }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_ox_1_1_fitter.html#a0a9b45eb21ba174327f95a894e6331b6">   53</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_ox_1_1_fitter.html#a0a9b45eb21ba174327f95a894e6331b6">disp</a>(){</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;\nYou called disp() on a Fitter object &quot;</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;XTolerance:       &quot;</span> &lt;&lt; getXTolerance() &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;FTolerance:       &quot;</span> &lt;&lt; getFTolerance() &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;MaxFunctionEvals: &quot;</span> &lt;&lt; getMaxFunctionEvals() &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;ThreadId:         &quot;</span> &lt;&lt; getThreadId() &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">if</span>(_FunctionsT1) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;This Fitter contains the following FunctionsT1 object: &quot;</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                _FunctionsT1-&gt;<a class="code" href="class_ox_1_1_functions_t1.html#a21708a9d44f261ba53648c2e6fcdd3a5">disp</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            };</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_ox_1_1_fitter.html#a7b42acb389394bc4c496990eea8b9ac9">   68</a></span>&#160;        <a class="code" href="class_ox_1_1_fitter.html#a7b42acb389394bc4c496990eea8b9ac9">Fitter</a>(){</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            _FunctionsT1 = 0; <span class="comment">//nullpointer</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            _XTolerance = 1e-12;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            _FTolerance = 1e-12;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            _MaxFunctionEvals = 4000;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            _ThreadId = 0;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            _Verbose = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            _Trace = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="class_ox_1_1_fitter.html#ac51130b722159f88a0dad59877b76417">   83</a></span>&#160;        <a class="code" href="class_ox_1_1_fitter.html#ac51130b722159f88a0dad59877b76417">Fitter</a>(<span class="keyword">const</span> <a class="code" href="class_ox_1_1_fitter.html">Fitter</a> &amp;old) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            _FunctionsT1 = 0; <span class="comment">//nullpointer</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            _XTolerance = old._XTolerance;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            _FTolerance = old._FTolerance;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            _MaxFunctionEvals = old._MaxFunctionEvals;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            _ThreadId = old._ThreadId;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            _Verbose = old._Verbose;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            _Trace = old._Trace;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_fitter.html">Fitter&lt;MeasureType&gt;</a> *<a class="code" href="class_ox_1_1_fitter.html#a665ec51e52ed351c9ef801acc83fbdea">newByCloning</a>() = 0;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43">  104</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43">~Fitter</a>(){};</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;MeasureType&gt;</a>* _FunctionsT1;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        MeasureType _XTolerance;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        MeasureType _FTolerance;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _MaxFunctionEvals;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _ThreadId;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordtype">bool</span> _Verbose;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordtype">bool</span> _Trace;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    };</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;} <span class="comment">//namespace Ox</span></div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif //OXSHMOLLI2_OXFITTER_H</span></div>
-<div class="ttc" id="class_ox_1_1_fitter_html_ab56eef37096f6f0687d83b8d15e00d43"><div class="ttname"><a href="class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43">Ox::Fitter::~Fitter</a></div><div class="ttdeci">virtual ~Fitter()</div><div class="ttdoc">do not forget about the virtual destructor, see https://stackoverflow.com/questions/461203/when-to-us...</div><div class="ttdef"><b>Definition:</b> OxFitter.h:103</div></div>
-<div class="ttc" id="class_ox_1_1_fitter_html_a7b42acb389394bc4c496990eea8b9ac9"><div class="ttname"><a href="class_ox_1_1_fitter.html#a7b42acb389394bc4c496990eea8b9ac9">Ox::Fitter::Fitter</a></div><div class="ttdeci">Fitter()</div><div class="ttdoc">constructor </div><div class="ttdef"><b>Definition:</b> OxFitter.h:67</div></div>
+<div class="ttc" id="class_ox_1_1_fitter_html_ab56eef37096f6f0687d83b8d15e00d43"><div class="ttname"><a href="class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43">Ox::Fitter::~Fitter</a></div><div class="ttdeci">virtual ~Fitter()</div><div class="ttdoc">do not forget about the virtual destructor, see https://stackoverflow.com/questions/461203/when-to-us...</div><div class="ttdef"><b>Definition:</b> OxFitter.h:104</div></div>
+<div class="ttc" id="class_ox_1_1_fitter_html_a7b42acb389394bc4c496990eea8b9ac9"><div class="ttname"><a href="class_ox_1_1_fitter.html#a7b42acb389394bc4c496990eea8b9ac9">Ox::Fitter::Fitter</a></div><div class="ttdeci">Fitter()</div><div class="ttdoc">constructor </div><div class="ttdef"><b>Definition:</b> OxFitter.h:68</div></div>
 <div class="ttc" id="class_ox_1_1_fitter_html_a8f240f0da86d06b339ab2747e87f21b9"><div class="ttname"><a href="class_ox_1_1_fitter.html#a8f240f0da86d06b339ab2747e87f21b9">Ox::Fitter::performFitting</a></div><div class="ttdeci">virtual int performFitting()=0</div></div>
-<div class="ttc" id="class_ox_1_1_fitter_html_ac51130b722159f88a0dad59877b76417"><div class="ttname"><a href="class_ox_1_1_fitter.html#ac51130b722159f88a0dad59877b76417">Ox::Fitter::Fitter</a></div><div class="ttdeci">Fitter(const Fitter &amp;old)</div><div class="ttdef"><b>Definition:</b> OxFitter.h:82</div></div>
-<div class="ttc" id="class_ox_1_1_functions_t1_html_a21708a9d44f261ba53648c2e6fcdd3a5"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a21708a9d44f261ba53648c2e6fcdd3a5">Ox::FunctionsT1::disp</a></div><div class="ttdeci">virtual void disp()</div><div class="ttdoc">show me your FunctionsT1 </div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:88</div></div>
-<div class="ttc" id="class_ox_1_1_fitter_html_a0a9b45eb21ba174327f95a894e6331b6"><div class="ttname"><a href="class_ox_1_1_fitter.html#a0a9b45eb21ba174327f95a894e6331b6">Ox::Fitter::disp</a></div><div class="ttdeci">virtual void disp()</div><div class="ttdoc">show me your Fitter </div><div class="ttdef"><b>Definition:</b> OxFitter.h:52</div></div>
+<div class="ttc" id="class_ox_1_1_fitter_html_ac51130b722159f88a0dad59877b76417"><div class="ttname"><a href="class_ox_1_1_fitter.html#ac51130b722159f88a0dad59877b76417">Ox::Fitter::Fitter</a></div><div class="ttdeci">Fitter(const Fitter &amp;old)</div><div class="ttdef"><b>Definition:</b> OxFitter.h:83</div></div>
+<div class="ttc" id="class_ox_1_1_functions_t1_html_a21708a9d44f261ba53648c2e6fcdd3a5"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a21708a9d44f261ba53648c2e6fcdd3a5">Ox::FunctionsT1::disp</a></div><div class="ttdeci">virtual void disp()</div><div class="ttdoc">show me your FunctionsT1 </div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:90</div></div>
+<div class="ttc" id="class_ox_1_1_fitter_html_a0a9b45eb21ba174327f95a894e6331b6"><div class="ttname"><a href="class_ox_1_1_fitter.html#a0a9b45eb21ba174327f95a894e6331b6">Ox::Fitter::disp</a></div><div class="ttdeci">virtual void disp()</div><div class="ttdoc">show me your Fitter </div><div class="ttdef"><b>Definition:</b> OxFitter.h:53</div></div>
 <div class="ttc" id="_ox_functions_t1_8h_html"><div class="ttname"><a href="_ox_functions_t1_8h.html">OxFunctionsT1.h</a></div></div>
-<div class="ttc" id="class_ox_1_1_functions_t1_html"><div class="ttname"><a href="class_ox_1_1_functions_t1.html">Ox::FunctionsT1</a></div><div class="ttdoc">Container for a model function, cost function and Least-Squares function. And derivatives. </div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:26</div></div>
+<div class="ttc" id="class_ox_1_1_functions_t1_html"><div class="ttname"><a href="class_ox_1_1_functions_t1.html">Ox::FunctionsT1</a></div><div class="ttdoc">Container for a model function, cost function and Least-Squares function. And derivatives. </div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:27</div></div>
 <div class="ttc" id="class_ox_1_1_fitter_html_a665ec51e52ed351c9ef801acc83fbdea"><div class="ttname"><a href="class_ox_1_1_fitter.html#a665ec51e52ed351c9ef801acc83fbdea">Ox::Fitter::newByCloning</a></div><div class="ttdeci">virtual Fitter&lt; MeasureType &gt; * newByCloning()=0</div></div>
-<div class="ttc" id="class_ox_1_1_fitter_html"><div class="ttname"><a href="class_ox_1_1_fitter.html">Ox::Fitter</a></div><div class="ttdef"><b>Definition:</b> OxFitter.h:21</div></div>
+<div class="ttc" id="class_ox_1_1_fitter_html"><div class="ttname"><a href="class_ox_1_1_fitter.html">Ox::Fitter</a></div><div class="ttdef"><b>Definition:</b> OxFitter.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -8,7 +8,8 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ]
+        [ "Functions", "functions_func.html", null ],
+        [ "Typedefs", "functions_type.html", null ]
       ] ]
     ] ],
     [ "Files", null, [
@@ -24,7 +25,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"class_ox_1_1_image_calculator.html#a7a8e99362b52f4e5b81883ba73095347"
+"class_ox_1_1_functions_t1.html#a4bd8c56786631568dac07ddae165a6b1",
+"itk_calculator_t1_image_filter_8hxx_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

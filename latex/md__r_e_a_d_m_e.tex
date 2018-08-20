@@ -15,12 +15,41 @@ A library to calculate parametric maps in M\-R\-I. It contains Sh\-M\-O\-L\-L\-I
 
 {\bfseries Important} Original Sh\-M\-O\-L\-L\-I (and based on it Ox\-Shmolli2) uses code based on Numerical Recipes book. Due to Numerical Recipes licence I cannot share this part of the code online. Please contact me if you would like to use this part of the code. To make up for this limitation we provide a number of alternative fitting procedures.
 
+\section*{Software Requirements Specification}
+
+
+\begin{DoxyEnumerate}
+\item Calculate Sh\-M\-O\-L\-L\-I with exactly the same results as these from the previous implementation.
+\item A\-P\-I for easily switching between different\-:
+\begin{DoxyItemize}
+\item map calculation algorithms,
+\item fitting algorithm,
+\item model function and corresponding energy function.
+\end{DoxyItemize}
+\item Compatibility with\-:
+\begin{DoxyItemize}
+\item main operating systems (Windows, Mac\-O\-S, Linux),
+\item C++98 (to include the library in older code).
+\end{DoxyItemize}
+\item Handling D\-I\-C\-O\-M files.
+\item Fast calculation.
+\item Easily interfaced to calculation environments M\-A\-T\-L\-A\-B, I\-D\-L and Python.
+\end{DoxyEnumerate}
+
 \section*{Coding style}
 
 
 \begin{DoxyItemize}
 \item Underscore ({\ttfamily \-\_\-variable}) means a class member variable.
-\item Define {\bfseries copy constructors}. In copy constructor copy primitive types, set all pointers to zero.
+\item C++98 does not allow me to use constructor delegation. I am using methods like {\ttfamily set\-All\-Pointers\-To\-Null()} to make up for it.
+\item Order of methods in a class definition\-:
+\begin{DoxyItemize}
+\item functional (calculation, helpers etc)
+\item getters/setters
+\item disp()
+\item constructors/destructors
+\end{DoxyItemize}
+\item In {\bfseries copy constructors} copy primitive types, set all pointers to zero.
 \end{DoxyItemize}
 
 \section*{Notes}
@@ -28,5 +57,6 @@ A library to calculate parametric maps in M\-R\-I. It contains Sh\-M\-O\-L\-L\-I
 
 \begin{DoxyItemize}
 \item {\bfseries Continuous integration} was tested \href{https://github.com/MRKonrad/ContinousIntegrationPlayground}{\tt in this repo}.
-\item {\bfseries Gitmodules}\-: after {\ttfamily git clone} run {\ttfamily git submodule update -\/-\/init -\/-\/recursive} to get the submodules code. 
+\item {\bfseries Gitmodules}\-: after {\ttfamily git clone} run {\ttfamily git submodule update -\/-\/init -\/-\/recursive} to get the submodules code.
+\item It would be nice to follow https\-://github.com/isocpp/\-Cpp\-Core\-Guidelines/blob/master/\-Cpp\-Core\-Guidelines.\-md \char`\"{}\-Cpp\-Core\-Guidlines\char`\"{} as far as C++98 allows. 
 \end{DoxyItemize}

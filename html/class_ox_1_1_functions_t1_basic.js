@@ -1,5 +1,6 @@
 var class_ox_1_1_functions_t1_basic =
 [
+    [ "FunctionsT1Basic", "class_ox_1_1_functions_t1_basic.html#ac6ddf49f7adb6415fa3f4f1df291b06d", null ],
     [ "~FunctionsT1Basic", "class_ox_1_1_functions_t1_basic.html#ae3f94c1426a8e6f569b8c70f86122c0b", null ],
     [ "calcCostDerivative", "class_ox_1_1_functions_t1_basic.html#aa6a067295d09882f70eeb34b260c37b7", null ],
     [ "calcCostValue", "class_ox_1_1_functions_t1_basic.html#adee7b03ad49d28e5dc08a80b2c948da1", null ],

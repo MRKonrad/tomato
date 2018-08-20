@@ -1,11 +1,17 @@
 <map id="lib/OxFitter.h" name="lib/OxFitter.h">
-<area shape="rect" id="node2" href="$_ox_calculator_t1_8h_source.html" title="lib/OxCalculatorT1.h" alt="" coords="205,88,345,115"/>
-<area shape="rect" id="node7" href="$_ox_fitter_amoeba_vnl_8h.html" title="lib/OxFitterAmoebaVnl.h" alt="" coords="385,179,548,205"/>
-<area shape="rect" id="node9" href="$_ox_fitter_levenberg_marquardt_vnl_8h.html" title="lib/OxFitterLevenbergMarquardt\lVnl.h" alt="" coords="542,81,745,122"/>
-<area shape="rect" id="node3" href="$_ox_calculator_t1_molli_8h.html" title="lib/OxCalculatorT1Molli.h" alt="" coords="192,179,360,205"/>
-<area shape="rect" id="node6" href="$_ox_image_calculator_8h.html" title="lib/OxImageCalculator.h" alt="" coords="5,179,168,205"/>
-<area shape="rect" id="node4" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="287,262,460,303"/>
-<area shape="rect" id="node5" href="$_ox_image_calculator__test_8cpp.html" title="tests/OxImageCalculator\l_test.cpp" alt="" coords="95,262,261,303"/>
-<area shape="rect" id="node8" href="$_ox_fitter_amoeba_vnl__test_8cpp.html" title="tests/OxFitterAmoebaVnl\l_test.cpp" alt="" coords="485,262,653,303"/>
-<area shape="rect" id="node10" href="$_ox_fitter_levenberg_marquardt_vnl__test_8cpp.html" title="tests/OxFitterLevenbergMarquardt\lVnl_test.cpp" alt="" coords="573,171,792,213"/>
+<area shape="rect" id="node2" href="$_ox_calculator_t1_8h_source.html" title="lib/OxCalculatorT1.h" alt="" coords="441,80,581,107"/>
+<area shape="rect" id="node13" href="$_ox_fitter_amoeba_vnl_8h.html" title="lib/OxFitterAmoebaVnl.h" alt="" coords="625,163,788,189"/>
+<area shape="rect" id="node15" href="$_ox_fitter_levenberg_marquardt_vnl_8h.html" title="lib/OxFitterLevenbergMarquardt\lVnl.h" alt="" coords="813,155,1016,197"/>
+<area shape="rect" id="node3" href="$_ox_calculator_t1_molli_8h.html" title="lib/OxCalculatorT1Molli.h" alt="" coords="231,163,399,189"/>
+<area shape="rect" id="node12" href="$_ox_image_calculator_t1_8h_source.html" title="lib/OxImageCalculatorT1.h" alt="" coords="423,163,600,189"/>
+<area shape="rect" id="node4" href="$_ox_factory_of_calculators_8h.html" title="app/OxFactoryOfCalculators.h" alt="" coords="5,253,203,280"/>
+<area shape="rect" id="node10" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="228,246,401,287"/>
+<area shape="rect" id="node11" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="426,246,608,287"/>
+<area shape="rect" id="node5" href="$_ox_shmolli2_options_8h.html" title="app/OxShmolli2Options.h" alt="" coords="476,336,647,363"/>
+<area shape="rect" id="node6" href="$_ox_shmolli2_8h.html" title="app/OxShmolli2.h" alt="" coords="413,419,539,445"/>
+<area shape="rect" id="node7" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="375,501,475,528"/>
+<area shape="rect" id="node8" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="755,419,925,445"/>
+<area shape="rect" id="node9" href="$_ox_shmolli2_options__test_8cpp.html" title="tests/OxShmolli2Options\l_test.cpp" alt="" coords="563,411,729,453"/>
+<area shape="rect" id="node14" href="$_ox_fitter_amoeba_vnl__test_8cpp.html" title="tests/OxFitterAmoebaVnl\l_test.cpp" alt="" coords="633,246,801,287"/>
+<area shape="rect" id="node16" href="$_ox_fitter_levenberg_marquardt_vnl__test_8cpp.html" title="tests/OxFitterLevenbergMarquardt\lVnl_test.cpp" alt="" coords="929,246,1148,287"/>
 </map>

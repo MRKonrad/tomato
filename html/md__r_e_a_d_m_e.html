@@ -85,7 +85,7 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,15 +110,42 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html','');});
 <p><b>Documentation</b> in doxygen can be found <a href="https://mrkonrad.github.io/OxShmolli2/html">here</a>.</p>
 <h2>OxShmolli2 and Numerical Recipes</h2>
 <p><b>Important</b> Original ShMOLLI (and based on it OxShmolli2) uses code based on Numerical Recipes book. Due to Numerical Recipes licence I cannot share this part of the code online. Please contact me if you would like to use this part of the code. To make up for this limitation we provide a number of alternative fitting procedures.</p>
+<h1>Software Requirements Specification</h1>
+<ol type="1">
+<li>Calculate ShMOLLI with exactly the same results as these from the previous implementation.</li>
+<li>API for easily switching between different:<ul>
+<li>map calculation algorithms,</li>
+<li>fitting algorithm,</li>
+<li>model function and corresponding energy function.</li>
+</ul>
+</li>
+<li>Compatibility with:<ul>
+<li>main operating systems (Windows, MacOS, Linux),</li>
+<li>C++98 (to include the library in older code).</li>
+</ul>
+</li>
+<li>Handling DICOM files.</li>
+<li>Fast calculation.</li>
+<li>Easily interfaced to calculation environments MATLAB, IDL and Python.</li>
+</ol>
 <h1>Coding style</h1>
 <ul>
 <li>Underscore (<code>_variable</code>) means a class member variable.</li>
-<li>Define <b>copy constructors</b>. In copy constructor copy primitive types, set all pointers to zero.</li>
+<li>C++98 does not allow me to use constructor delegation. I am using methods like <code>setAllPointersToNull()</code> to make up for it.</li>
+<li>Order of methods in a class definition:<ul>
+<li>functional (calculation, helpers etc)</li>
+<li>getters/setters</li>
+<li>disp()</li>
+<li>constructors/destructors</li>
+</ul>
+</li>
+<li>In <b>copy constructors</b> copy primitive types, set all pointers to zero.</li>
 </ul>
 <h1>Notes</h1>
 <ul>
 <li><b>Continuous integration</b> was tested <a href="https://github.com/MRKonrad/ContinousIntegrationPlayground">in this repo</a>.</li>
-<li><b>Gitmodules</b>: after <code>git clone</code> run <code>git submodule update --init --recursive</code> to get the submodules code. </li>
+<li><b>Gitmodules</b>: after <code>git clone</code> run <code>git submodule update --init --recursive</code> to get the submodules code.</li>
+<li>It would be nice to follow https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md "CppCoreGuidlines" as far as C++98 allows. </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,12 +1,14 @@
 <map id="tests/OxFitterAmoebaVnl_test.cpp" name="tests/OxFitterAmoebaVnl_test.cpp">
-<area shape="rect" id="node3" href="$_ox_test_data_8h.html" title="OxTestData.h" alt="" coords="726,96,830,123"/>
-<area shape="rect" id="node17" href="$_ox_functions_t1_basic_8h.html" title="OxFunctionsT1Basic.h" alt="" coords="861,171,1014,197"/>
-<area shape="rect" id="node20" href="$_ox_fitter_amoeba_vnl_8h.html" title="OxFitterAmoebaVnl.h" alt="" coords="1102,96,1249,123"/>
-<area shape="rect" id="node4" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="365,171,438,197"/>
-<area shape="rect" id="node16" href="$_ox_test_data_8hxx.html" title="OxTestData.hxx" alt="" coords="719,171,837,197"/>
-<area shape="rect" id="node14" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="656,245,745,272"/>
-<area shape="rect" id="node18" href="$_ox_functions_t1_8h.html" title="OxFunctionsT1.h" alt="" coords="1047,245,1170,272"/>
-<area shape="rect" id="node19" href="$_ox_functions_t1_basic_8hxx.html" title="OxFunctionsT1Basic.hxx" alt="" coords="853,245,1022,272"/>
-<area shape="rect" id="node21" href="$_ox_fitter_8h.html" title="OxFitter.h" alt="" coords="1050,171,1129,197"/>
-<area shape="rect" id="node22" href="$_ox_functions_t1_adapter_vnl_cost_8h.html" title="OxFunctionsT1AdapterVnlCost.h" alt="" coords="1155,171,1369,197"/>
+<area shape="rect" id="node3" href="$_ox_test_data_8h.html" title="OxTestData.h" alt="" coords="825,171,929,197"/>
+<area shape="rect" id="node21" href="$_ox_functions_t1_basic_8h.html" title="OxFunctionsT1Basic.h" alt="" coords="61,171,215,197"/>
+<area shape="rect" id="node24" href="$_ox_fitter_amoeba_vnl_8h.html" title="OxFitterAmoebaVnl.h" alt="" coords="383,96,529,123"/>
+<area shape="rect" id="node4" href="$_ox_shmolli2_parser_8h.html" title="OxShmolli2Parser.h" alt="" coords="845,245,984,272"/>
+<area shape="rect" id="node20" href="$_ox_test_data_8hxx.html" title="OxTestData.hxx" alt="" coords="702,245,820,272"/>
+<area shape="rect" id="node9" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="467,320,540,347"/>
+<area shape="rect" id="node19" href="$_ox_shmolli2_parser_8hxx.html" title="OxShmolli2Parser.hxx" alt="" coords="648,320,800,347"/>
+<area shape="rect" id="node18" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="185,395,273,421"/>
+<area shape="rect" id="node22" href="$_ox_functions_t1_8h.html" title="OxFunctionsT1.h" alt="" coords="324,245,447,272"/>
+<area shape="rect" id="node23" href="$_ox_functions_t1_basic_8hxx.html" title="OxFunctionsT1Basic.hxx" alt="" coords="73,245,241,272"/>
+<area shape="rect" id="node25" href="$_ox_fitter_8h.html" title="OxFitter.h" alt="" coords="416,171,495,197"/>
+<area shape="rect" id="node26" href="$_ox_functions_t1_adapter_vnl_cost_8h.html" title="OxFunctionsT1AdapterVnlCost.h" alt="" coords="521,171,735,197"/>
 </map>

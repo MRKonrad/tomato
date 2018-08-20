@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('class_ox_1_1_functions_t1_adapter_vnl_
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -127,9 +127,6 @@ Collaboration diagram for Ox::FunctionsT1AdapterVnlLeastSquares:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6f6511370037a627ee3862c95c339d74"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f6511370037a627ee3862c95c339d74"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FunctionsT1AdapterVnlLeastSquares</b> (int nSamples, UseGradient UseGradientVariable)</td></tr>
-<tr class="separator:a6f6511370037a627ee3862c95c339d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ccef57fbf5dbe160f8e2b520482613b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ccef57fbf5dbe160f8e2b520482613b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>f</b> (vnl_vector&lt; double &gt; const &amp;params, vnl_vector&lt; double &gt; &amp;residuals)</td></tr>
 <tr class="separator:a9ccef57fbf5dbe160f8e2b520482613b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,7 +139,84 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setFunctionsT1</b> (<
 <tr class="memitem:a67669d931b4bb96a60ead54b63a17e05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67669d931b4bb96a60ead54b63a17e05"></a>
 <a class="el" href="class_ox_1_1_functions_t1.html">FunctionsT1</a>&lt; double &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getFunctionsT1</b> ()</td></tr>
 <tr class="separator:a67669d931b4bb96a60ead54b63a17e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32fc1a585b66ffa3a2e19c1f51d96851"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_functions_t1_adapter_vnl_least_squares.html#a32fc1a585b66ffa3a2e19c1f51d96851">FunctionsT1AdapterVnlLeastSquares</a> (int nDims, int nSamples, UseGradient UseGradientVariable)</td></tr>
+<tr class="separator:a32fc1a585b66ffa3a2e19c1f51d96851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa083ecf32daf91e03d44fe7b43adcd57"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_functions_t1_adapter_vnl_least_squares.html#aa083ecf32daf91e03d44fe7b43adcd57">FunctionsT1AdapterVnlLeastSquares</a> (const <a class="el" href="class_ox_1_1_functions_t1_adapter_vnl_least_squares.html">FunctionsT1AdapterVnlLeastSquares</a> &amp;old)</td></tr>
+<tr class="separator:aa083ecf32daf91e03d44fe7b43adcd57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a32fc1a585b66ffa3a2e19c1f51d96851"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Ox::FunctionsT1AdapterVnlLeastSquares::FunctionsT1AdapterVnlLeastSquares </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nDims</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSamples</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UseGradient&#160;</td>
+          <td class="paramname"><em>UseGradientVariable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>constructor </p>
+
+</div>
+</div>
+<a class="anchor" id="aa083ecf32daf91e03d44fe7b43adcd57"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Ox::FunctionsT1AdapterVnlLeastSquares::FunctionsT1AdapterVnlLeastSquares </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_ox_1_1_functions_t1_adapter_vnl_least_squares.html">FunctionsT1AdapterVnlLeastSquares</a> &amp;&#160;</td>
+          <td class="paramname"><em>old</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>copy constructor </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">old</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>lib/<a class="el" href="_ox_functions_t1_adapter_vnl_least_squares_8h_source.html">OxFunctionsT1AdapterVnlLeastSquares.h</a></li>
 </ul>

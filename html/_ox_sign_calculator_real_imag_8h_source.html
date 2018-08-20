@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('_ox_sign_calculator_real_imag_8h_sourc
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -164,7 +164,7 @@ $(document).ready(function(){initNavTree('_ox_sign_calculator_real_imag_8h_sourc
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordtype">double</span> pha = sigPhaPi - sigPhaRefPi;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordtype">double</span> realSig = sigMag[i] * cos(pha); <span class="comment">//get real</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordtype">double</span> imagSig = -sigMag[i] * sin(pha); <span class="comment">//get imag</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                signal[i] = realSig;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="comment">//signal[i] = realSig;</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">if</span> (realSig &lt; 0) {</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    signal[i] = -sigMag[i];</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    signs[i] = -1;</div>
@@ -185,7 +185,7 @@ $(document).ready(function(){initNavTree('_ox_sign_calculator_real_imag_8h_sourc
 <div class="ttc" id="_ox_sign_calculator_8h_html"><div class="ttname"><a href="_ox_sign_calculator_8h.html">OxSignCalculator.h</a></div></div>
 <div class="ttc" id="class_ox_1_1_sign_calculator_real_imag_html"><div class="ttname"><a href="class_ox_1_1_sign_calculator_real_imag.html">Ox::SignCalculatorRealImag</a></div><div class="ttdef"><b>Definition:</b> OxSignCalculatorRealImag.h:22</div></div>
 <div class="ttc" id="class_ox_1_1_sign_calculator_real_imag_html_ae3340d1ac5728efcaf3d5a9299f01f2c"><div class="ttname"><a href="class_ox_1_1_sign_calculator_real_imag.html#ae3340d1ac5728efcaf3d5a9299f01f2c">Ox::SignCalculatorRealImag::newByCloning</a></div><div class="ttdeci">virtual SignCalculator&lt; MeasureType &gt; * newByCloning()</div><div class="ttdef"><b>Definition:</b> OxSignCalculatorRealImag.h:45</div></div>
-<div class="ttc" id="class_ox_1_1_sign_calculator_html"><div class="ttname"><a href="class_ox_1_1_sign_calculator.html">Ox::SignCalculator</a></div><div class="ttdef"><b>Definition:</b> OxSignCalculator.h:19</div></div>
+<div class="ttc" id="class_ox_1_1_sign_calculator_html"><div class="ttname"><a href="class_ox_1_1_sign_calculator.html">Ox::SignCalculator</a></div><div class="ttdef"><b>Definition:</b> OxSignCalculator.h:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

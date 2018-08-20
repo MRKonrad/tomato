@@ -77,6 +77,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="functions.html"><span>All</span></a></li>
       <li class="current"><a href="functions_func.html"><span>Functions</span></a></li>
+      <li><a href="functions_type.html"><span>Typedefs</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -87,6 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_n"><span>n</span></a></li>
+      <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
       <li class="current"><a href="#index_~"><span>~</span></a></li>
@@ -112,7 +114,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -153,17 +155,25 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="class_ox_1_1_calculator_t1_molli.html#aff65007fe06dbce9449fc42aead8a6bd">Ox::CalculatorT1Molli&lt; MeasureType &gt;</a>
 </li>
 <li>calculateSign()
-: <a class="el" href="class_ox_1_1_sign_calculator.html#ab7f0a44979db34b15a78a8b755f6c103">Ox::SignCalculator&lt; MeasureType &gt;</a>
+: <a class="el" href="class_ox_1_1_sign_calculator.html#a6a85028b70e41f6a60a5b639c468e455">Ox::SignCalculator&lt; MeasureType &gt;</a>
+, <a class="el" href="class_ox_1_1_sign_calculator_no_sign.html#a8e78a82d817f66385d1a2140f8ef11d7">Ox::SignCalculatorNoSign&lt; MeasureType &gt;</a>
 , <a class="el" href="class_ox_1_1_sign_calculator_real_imag.html#ae3f3c8f8e8ea994da7ad56f4a180cb36">Ox::SignCalculatorRealImag&lt; MeasureType &gt;</a>
 </li>
 <li>calculateStartPoint()
-: <a class="el" href="class_ox_1_1_start_point_calculator.html#acd8fda33c7bf92f02e0915e9a900692d">Ox::StartPointCalculator&lt; MeasureType &gt;</a>
+: <a class="el" href="class_ox_1_1_start_point_calculator.html#a9d1132410d68eb16f3f71ec4015c0b2f">Ox::StartPointCalculator&lt; MeasureType &gt;</a>
+, <a class="el" href="class_ox_1_1_start_point_calculator_default3_dims.html#a6af87ac3412f699ebf9abec6b61461cf">Ox::StartPointCalculatorDefault3Dims&lt; MeasureType &gt;</a>
 </li>
 <li>CalculatorT1()
-: <a class="el" href="class_ox_1_1_calculator_t1.html#a125d297d484d10d33b8cbe796b7a60c8">Ox::CalculatorT1&lt; MeasureType &gt;</a>
+: <a class="el" href="class_ox_1_1_calculator_t1.html#aee286228db734cdd8c6c0686b85fa938">Ox::CalculatorT1&lt; MeasureType &gt;</a>
+</li>
+<li>CalculatorT1Molli()
+: <a class="el" href="class_ox_1_1_calculator_t1_molli.html#ab1892de078822ea106fcaebcf81047be">Ox::CalculatorT1Molli&lt; MeasureType &gt;</a>
 </li>
 <li>CalculatorT1Results()
 : <a class="el" href="struct_ox_1_1_calculator_t1_results.html#a2ef9ec72b2f7e61bb442fe8e0f61d508">Ox::CalculatorT1Results&lt; MeasureType &gt;</a>
+</li>
+<li>Colorbar2DImageFilter()
+: <a class="el" href="classitk_1_1_colorbar2_d_image_filter.html#ae103d71eaad083a9303743ee0789457f">itk::Colorbar2DImageFilter&lt; TImage &gt;</a>
 </li>
 </ul>
 
@@ -184,7 +194,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="class_ox_1_1_fitter.html#a7b42acb389394bc4c496990eea8b9ac9">Ox::Fitter&lt; MeasureType &gt;</a>
 </li>
 <li>FitterAmoebaVnl()
-: <a class="el" href="class_ox_1_1_fitter_amoeba_vnl.html#ac93c349cbfe52c39de9de09032286ac2">Ox::FitterAmoebaVnl&lt; MeasureType &gt;</a>
+: <a class="el" href="class_ox_1_1_fitter_amoeba_vnl.html#af88c09a381c612c9027df9ce6b482ce2">Ox::FitterAmoebaVnl&lt; MeasureType &gt;</a>
 </li>
 <li>FitterLevenbergMarquardtVnl()
 : <a class="el" href="class_ox_1_1_fitter_levenberg_marquardt_vnl.html#a44c6eac39272631fd170ddd12d38eb2f">Ox::FitterLevenbergMarquardtVnl&lt; MeasureType &gt;</a>
@@ -193,12 +203,19 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="class_ox_1_1_functions_t1.html#a7dae9dc71ec97e9eef1308c9937aaaf0">Ox::FunctionsT1&lt; MeasureType &gt;</a>
 </li>
 <li>FunctionsT1AdapterVnlCost()
-: <a class="el" href="class_ox_1_1_functions_t1_adapter_vnl_cost.html#a6fe96f7359794ef4d1dc00cd6defa498">Ox::FunctionsT1AdapterVnlCost</a>
+: <a class="el" href="class_ox_1_1_functions_t1_adapter_vnl_cost.html#a50534fc003f255547fd9a990a6fad038">Ox::FunctionsT1AdapterVnlCost</a>
+</li>
+<li>FunctionsT1AdapterVnlLeastSquares()
+: <a class="el" href="class_ox_1_1_functions_t1_adapter_vnl_least_squares.html#a32fc1a585b66ffa3a2e19c1f51d96851">Ox::FunctionsT1AdapterVnlLeastSquares</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>GenerateData()
+: <a class="el" href="classitk_1_1_colorbar2_d_image_filter.html#aeddf7656f339c33f2412bc222db4d558">itk::Colorbar2DImageFilter&lt; TImage &gt;</a>
+, <a class="el" href="classitk_1_1_read_file_list_filter.html#a5f8f919179a942af4db31a28276a317e">itk::ReadFileListFilter&lt; TImage &gt;</a>
+</li>
 <li>getFitter()
 : <a class="el" href="class_ox_1_1_calculator_t1.html#a57f0218fb065b685f4ed5f80051517bd">Ox::CalculatorT1&lt; MeasureType &gt;</a>
 </li>
@@ -207,6 +224,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>getInvTimes()
 : <a class="el" href="class_ox_1_1_calculator_t1.html#a7179ab384f0ff7f9bf28dc492672da00">Ox::CalculatorT1&lt; MeasureType &gt;</a>
+</li>
+<li>getNDims()
+: <a class="el" href="class_ox_1_1_calculator_t1.html#a7523942a79b9ee44b2b5d81d5836b54d">Ox::CalculatorT1&lt; MeasureType &gt;</a>
 </li>
 <li>getNSamples()
 : <a class="el" href="class_ox_1_1_calculator_t1.html#a8a11b3b6c0dcbc461c11dc55600d7992">Ox::CalculatorT1&lt; MeasureType &gt;</a>
@@ -228,10 +248,14 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
 <li>init()
-: <a class="el" href="class_ox_1_1_calculator_t1.html#a4f3c4edee149ea6fbba86608315f317a">Ox::CalculatorT1&lt; MeasureType &gt;</a>
-, <a class="el" href="class_ox_1_1_functions_t1.html#af417526f77ac0244be5bfa21ba39f7cb">Ox::FunctionsT1&lt; MeasureType &gt;</a>
-, <a class="el" href="class_ox_1_1_sign_calculator.html#afb2259d9a13f8d58945448923b63165a">Ox::SignCalculator&lt; MeasureType &gt;</a>
-, <a class="el" href="class_ox_1_1_start_point_calculator.html#a4fef8d4182451c17bc43d0e7a1abb90c">Ox::StartPointCalculator&lt; MeasureType &gt;</a>
+: <a class="el" href="struct_ox_1_1_ox_shmolli2_options.html#acce1d90b3eb30ca8e4f5fb8be06c3f91">Ox::OxShmolli2Options&lt; TYPE &gt;</a>
+</li>
+<li>itkNewMacro()
+: <a class="el" href="classitk_1_1_colorbar2_d_image_filter.html#abd868d4b97128f6fd9373bc4929792e6">itk::Colorbar2DImageFilter&lt; TImage &gt;</a>
+, <a class="el" href="classitk_1_1_read_file_list_filter.html#a831a587afdb1c1ad738328be5293ff58">itk::ReadFileListFilter&lt; TImage &gt;</a>
+</li>
+<li>itkTypeMacro()
+: <a class="el" href="classitk_1_1_colorbar2_d_image_filter.html#ace645ca59853c18b7c077c2c852b3712">itk::Colorbar2DImageFilter&lt; TImage &gt;</a>
 </li>
 </ul>
 
@@ -245,14 +269,26 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 , <a class="el" href="class_ox_1_1_fitter_levenberg_marquardt_vnl.html#a196dd40b911c2b916e303205ccf8121a">Ox::FitterLevenbergMarquardtVnl&lt; MeasureType &gt;</a>
 , <a class="el" href="class_ox_1_1_functions_t1.html#a2246ea540016c650d5a18100697eacb8">Ox::FunctionsT1&lt; MeasureType &gt;</a>
 , <a class="el" href="class_ox_1_1_functions_t1_basic.html#a0bceaf2c2b424cfa2366d943d92814e3">Ox::FunctionsT1Basic&lt; MeasureType &gt;</a>
-, <a class="el" href="class_ox_1_1_sign_calculator.html#aaf05d957c2f3cf68e71224562bb053d8">Ox::SignCalculator&lt; MeasureType &gt;</a>
+, <a class="el" href="class_ox_1_1_sign_calculator.html#a40d9d97a505a69b687429bf545597687">Ox::SignCalculator&lt; MeasureType &gt;</a>
+, <a class="el" href="class_ox_1_1_sign_calculator_no_sign.html#ac480086ad668ac264393b1b18a926221">Ox::SignCalculatorNoSign&lt; MeasureType &gt;</a>
 , <a class="el" href="class_ox_1_1_sign_calculator_real_imag.html#ae3340d1ac5728efcaf3d5a9299f01f2c">Ox::SignCalculatorRealImag&lt; MeasureType &gt;</a>
-, <a class="el" href="class_ox_1_1_start_point_calculator.html#a2f1c22d86f8f1c06eeedf0202a08b29f">Ox::StartPointCalculator&lt; MeasureType &gt;</a>
+, <a class="el" href="class_ox_1_1_start_point_calculator.html#acd2a221872002157f232e1e7f73a1859">Ox::StartPointCalculator&lt; MeasureType &gt;</a>
+, <a class="el" href="class_ox_1_1_start_point_calculator_default3_dims.html#ad2d60ec81810eb5b0368834e15d031bd">Ox::StartPointCalculatorDefault3Dims&lt; MeasureType &gt;</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>OxShmolli2Options()
+: <a class="el" href="struct_ox_1_1_ox_shmolli2_options.html#a81aad36850e99c356e3b5f233a9e0855">Ox::OxShmolli2Options&lt; TYPE &gt;</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>parse()
+: <a class="el" href="class_ox_1_1_ox_shmolli2_parser.html#af3bd91660c1c5d887aefd5a024355c39">Ox::OxShmolli2Parser&lt; MeasureType &gt;</a>
+</li>
 <li>performFitting()
 : <a class="el" href="class_ox_1_1_fitter.html#a8f240f0da86d06b339ab2747e87f21b9">Ox::Fitter&lt; MeasureType &gt;</a>
 , <a class="el" href="class_ox_1_1_fitter_amoeba_vnl.html#a0c198974c2a95d0eb35cfe4c838e516c">Ox::FitterAmoebaVnl&lt; MeasureType &gt;</a>
@@ -265,14 +301,29 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>setAllPointersToNull()
+: <a class="el" href="class_ox_1_1_calculator_t1.html#a11f02c5b0ae3f9b0f8a74044a170ee18">Ox::CalculatorT1&lt; MeasureType &gt;</a>
+, <a class="el" href="class_ox_1_1_functions_t1.html#a242f775b52419858f76d7711096ac5dc">Ox::FunctionsT1&lt; MeasureType &gt;</a>
+, <a class="el" href="class_ox_1_1_sign_calculator.html#a59de754f72402b4cf7dc2f8766f0a1ff">Ox::SignCalculator&lt; MeasureType &gt;</a>
+, <a class="el" href="class_ox_1_1_start_point_calculator.html#a00a48e8845623b57e414380924a3f82b">Ox::StartPointCalculator&lt; MeasureType &gt;</a>
+</li>
+<li>setNDims()
+: <a class="el" href="class_ox_1_1_calculator_t1.html#abe8decf5aba8ba0de2b6ca76ec9c1386">Ox::CalculatorT1&lt; MeasureType &gt;</a>
+</li>
 <li>setNSamples()
 : <a class="el" href="class_ox_1_1_calculator_t1.html#af5d84e582c3793ebe168f24245f04de1">Ox::CalculatorT1&lt; MeasureType &gt;</a>
 </li>
 <li>SignCalculator()
 : <a class="el" href="class_ox_1_1_sign_calculator.html#a1b0a177a5f2c6080d6730ff5fdc384af">Ox::SignCalculator&lt; MeasureType &gt;</a>
 </li>
+<li>SignCalculatorNoSign()
+: <a class="el" href="class_ox_1_1_sign_calculator_no_sign.html#ad61e381c257ac4b4f615d94461dc49b1">Ox::SignCalculatorNoSign&lt; MeasureType &gt;</a>
+</li>
 <li>StartPointCalculator()
 : <a class="el" href="class_ox_1_1_start_point_calculator.html#a408ce85b6fbf0ee69f4eca3176b814d6">Ox::StartPointCalculator&lt; MeasureType &gt;</a>
+</li>
+<li>StartPointCalculatorDefault3Dims()
+: <a class="el" href="class_ox_1_1_start_point_calculator_default3_dims.html#ae5c36c3bf882f4770613e5e67821d97b">Ox::StartPointCalculatorDefault3Dims&lt; MeasureType &gt;</a>
 </li>
 </ul>
 
@@ -280,6 +331,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <h3><a class="anchor" id="index_~"></a>- ~ -</h3><ul>
 <li>~CalculatorT1()
 : <a class="el" href="class_ox_1_1_calculator_t1.html#af5d360f92d3c1b1c2f4241e528451f2e">Ox::CalculatorT1&lt; MeasureType &gt;</a>
+</li>
+<li>~Colorbar2DImageFilter()
+: <a class="el" href="classitk_1_1_colorbar2_d_image_filter.html#ae2fca5a6a90a6d3dc4ab6f1ae569be9c">itk::Colorbar2DImageFilter&lt; TImage &gt;</a>
 </li>
 <li>~Fitter()
 : <a class="el" href="class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43">Ox::Fitter&lt; MeasureType &gt;</a>
@@ -299,8 +353,14 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>~SignCalculator()
 : <a class="el" href="class_ox_1_1_sign_calculator.html#a5143a172e360633d8df758756d146889">Ox::SignCalculator&lt; MeasureType &gt;</a>
 </li>
+<li>~SignCalculatorNoSign()
+: <a class="el" href="class_ox_1_1_sign_calculator_no_sign.html#a1da2b6c351daf89811c6d9618df2bb74">Ox::SignCalculatorNoSign&lt; MeasureType &gt;</a>
+</li>
 <li>~StartPointCalculator()
 : <a class="el" href="class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a">Ox::StartPointCalculator&lt; MeasureType &gt;</a>
+</li>
+<li>~StartPointCalculatorDefault3Dims()
+: <a class="el" href="class_ox_1_1_start_point_calculator_default3_dims.html#ab85b597c934ed1ac03ff7079bd860b44">Ox::StartPointCalculatorDefault3Dims&lt; MeasureType &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->

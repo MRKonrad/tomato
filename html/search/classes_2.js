@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['imagecalculator',['ImageCalculator',['../class_ox_1_1_image_calculator.html',1,'Ox']]]
+  ['imagecalculatort1',['ImageCalculatorT1',['../class_ox_1_1_image_calculator_t1.html',1,'Ox']]]
 ];

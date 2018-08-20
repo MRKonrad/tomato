@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('class_ox_1_1_test_image.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -114,9 +114,15 @@ $(document).ready(function(){initNavTree('class_ox_1_1_test_image.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae85558a95e4be798c58a384ac50904df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae85558a95e4be798c58a384ac50904df"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TestImage</b> (int nRows, int nCols, std::vector&lt; std::string &gt; filesPaths)</td></tr>
-<tr class="separator:ae85558a95e4be798c58a384ac50904df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b5ceff06d34b2ebd4a4ff215e156088"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b5ceff06d34b2ebd4a4ff215e156088"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TestImage</b> (int nCols, int nRows, std::vector&lt; std::string &gt; filesPaths, std::vector&lt; int &gt; invTimesOrder)</td></tr>
+<tr class="separator:a3b5ceff06d34b2ebd4a4ff215e156088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a794b321a180a2b19d88efc316e0d47aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a794b321a180a2b19d88efc316e0d47aa"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TestImage</b> (int nCols, int nRows, std::vector&lt; std::string &gt; filesPaths)</td></tr>
+<tr class="separator:a794b321a180a2b19d88efc316e0d47aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa802ece1484e88fd748b462c6e2a6cf9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa802ece1484e88fd748b462c6e2a6cf9"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (int nCols, int nRows, std::vector&lt; std::string &gt; filesPaths, std::vector&lt; int &gt; invTimesOrder)</td></tr>
+<tr class="separator:aa802ece1484e88fd748b462c6e2a6cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dda2e0b1c2f9d285a29007a14441be3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6dda2e0b1c2f9d285a29007a14441be3"></a>
 virtual MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getInvTimesPtr</b> ()</td></tr>
 <tr class="separator:a6dda2e0b1c2f9d285a29007a14441be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,24 +141,33 @@ virtual MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getI
 <tr class="memitem:aef09efd3eb4b1a37d3b6b479d1e4a016"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef09efd3eb4b1a37d3b6b479d1e4a016"></a>
 virtual MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getImageResultsShmolliPtr</b> () const </td></tr>
 <tr class="separator:aef09efd3eb4b1a37d3b6b479d1e4a016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5a9aadf12db9fdff87ed6aff4e0a2ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5a9aadf12db9fdff87ed6aff4e0a2ef"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>getNCols</b> () const </td></tr>
+<tr class="separator:af5a9aadf12db9fdff87ed6aff4e0a2ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdc29d077640af69c4caac7c60d31cd6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acdc29d077640af69c4caac7c60d31cd6"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>getNRows</b> () const </td></tr>
+<tr class="separator:acdc29d077640af69c4caac7c60d31cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87559c865b1f365c0bd7cfc9c5939d2b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87559c865b1f365c0bd7cfc9c5939d2b"></a>
 virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>getNSamples</b> () const </td></tr>
 <tr class="separator:a87559c865b1f365c0bd7cfc9c5939d2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a2fca989633ec429545fefe579641eeb3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2fca989633ec429545fefe579641eeb3"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>_nRows</b></td></tr>
-<tr class="separator:a2fca989633ec429545fefe579641eeb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aede6d17394f5b1d7aee6287c17482bed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aede6d17394f5b1d7aee6287c17482bed"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>_nCols</b></td></tr>
 <tr class="separator:aede6d17394f5b1d7aee6287c17482bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fca989633ec429545fefe579641eeb3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2fca989633ec429545fefe579641eeb3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_nRows</b></td></tr>
+<tr class="separator:a2fca989633ec429545fefe579641eeb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b2de27b3ba5865c071a754c34e86bc7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b2de27b3ba5865c071a754c34e86bc7"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>_nSamples</b></td></tr>
 <tr class="separator:a0b2de27b3ba5865c071a754c34e86bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a3283dccb1476d113836134c3479328"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a3283dccb1476d113836134c3479328"></a>
 std::vector&lt; MeasureType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_invTimes</b></td></tr>
 <tr class="separator:a9a3283dccb1476d113836134c3479328"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7d94bb56b584ccae5619fcf5e55218c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7d94bb56b584ccae5619fcf5e55218c"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_invTimesOrder</b></td></tr>
+<tr class="separator:aa7d94bb56b584ccae5619fcf5e55218c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6d8862446566b0f1bc313de05cedd28"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6d8862446566b0f1bc313de05cedd28"></a>
 MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>_imageMag</b></td></tr>
 <tr class="separator:aa6d8862446566b0f1bc313de05cedd28"><td class="memSeparator" colspan="2">&#160;</td></tr>

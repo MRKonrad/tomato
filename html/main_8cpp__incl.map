@@ -1,2 +1,28 @@
 <map id="app/main.cpp" name="app/main.cpp">
+<area shape="rect" id="node3" href="$_cmake_config_for_ox_shmolli2_8h_source.html" title="CmakeConfigForOxShmolli2.h" alt="" coords="1681,328,1879,355"/>
+<area shape="rect" id="node4" href="$_ox_shmolli2_8h.html" title="OxShmolli2.h" alt="" coords="1755,80,1855,107"/>
+<area shape="rect" id="node5" href="$_ox_shmolli2_options_8h.html" title="OxShmolli2Options.h" alt="" coords="653,155,797,181"/>
+<area shape="rect" id="node36" href="$itk_read_file_list_filter_8h_source.html" title="itkReadFileListFilter.h" alt="" coords="1695,501,1843,528"/>
+<area shape="rect" id="node43" href="$itk_sort_inv_times_image_filter_8h_source.html" title="itkSortInvTimesImageFilter.h" alt="" coords="1603,155,1793,181"/>
+<area shape="rect" id="node44" href="$itk_calculator_t1_image_filter_8h.html" title="itkCalculatorT1ImageFilter.h" alt="" coords="1819,155,2005,181"/>
+<area shape="rect" id="node45" href="$itk_colorbar2_d_image_filter_8h_source.html" title="itkColorbar2DImageFilter.h" alt="" coords="2165,155,2344,181"/>
+<area shape="rect" id="node8" href="$_ox_factory_of_calculators_8h.html" title="OxFactoryOfCalculators.h" alt="" coords="822,237,996,264"/>
+<area shape="rect" id="node12" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="803,576,876,603"/>
+<area shape="rect" id="node21" href="$_ox_factory_of_fitters_8h.html" title="OxFactoryOfFitters.h" alt="" coords="653,237,797,264"/>
+<area shape="rect" id="node25" href="$_ox_factory_of_functions_8h.html" title="OxFactoryOfFunctions.h" alt="" coords="1492,328,1656,355"/>
+<area shape="rect" id="node27" href="$_ox_factory_of_sign_calculators_8h.html" title="OxFactoryOfSignCalculators.h" alt="" coords="1021,237,1220,264"/>
+<area shape="rect" id="node30" href="$_ox_factory_of_start_point_calculators_8h.html" title="OxFactoryOfStartPointCalculators.h" alt="" coords="1245,237,1477,264"/>
+<area shape="rect" id="node32" href="$_ox_shmolli2_parser_8h.html" title="OxShmolli2Parser.h" alt="" coords="287,501,425,528"/>
+<area shape="rect" id="node9" href="$_ox_calculator_t1_molli_8h.html" title="OxCalculatorT1Molli.h" alt="" coords="834,328,984,355"/>
+<area shape="rect" id="node10" href="$_ox_calculator_t1_8h_source.html" title="OxCalculatorT1.h" alt="" coords="1113,419,1236,445"/>
+<area shape="rect" id="node11" href="$_ox_fitter_8h.html" title="OxFitter.h" alt="" coords="797,501,876,528"/>
+<area shape="rect" id="node20" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="693,651,781,677"/>
+<area shape="rect" id="node22" href="$_ox_fitter_amoeba_vnl_8h.html" title="OxFitterAmoebaVnl.h" alt="" coords="663,328,809,355"/>
+<area shape="rect" id="node24" href="$_ox_fitter_levenberg_marquardt_vnl_8h.html" title="OxFitterLevenbergMarquardt\lVnl.h" alt="" coords="612,411,799,453"/>
+<area shape="rect" id="node23" href="$_ox_functions_t1_adapter_vnl_cost_8h.html" title="OxFunctionsT1AdapterVnlCost.h" alt="" coords="874,419,1088,445"/>
+<area shape="rect" id="node26" href="$_ox_functions_t1_basic_8h.html" title="OxFunctionsT1Basic.h" alt="" coords="1487,419,1640,445"/>
+<area shape="rect" id="node28" href="$_ox_sign_calculator_no_sign_8h.html" title="OxSignCalculatorNoSign.h" alt="" coords="1009,328,1188,355"/>
+<area shape="rect" id="node29" href="$_ox_sign_calculator_real_imag_8h.html" title="OxSignCalculatorRealImag.h" alt="" coords="1261,419,1451,445"/>
+<area shape="rect" id="node31" href="$_ox_start_point_calculator_default3_dims_8h.html" title="OxStartPointCalculatorDefault3\lDims.h" alt="" coords="1263,321,1468,362"/>
+<area shape="rect" id="node35" href="$_ox_shmolli2_parser_8hxx.html" title="OxShmolli2Parser.hxx" alt="" coords="280,576,432,603"/>
 </map>

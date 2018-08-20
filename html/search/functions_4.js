@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['init',['init',['../class_ox_1_1_calculator_t1.html#a4f3c4edee149ea6fbba86608315f317a',1,'Ox::CalculatorT1::init()'],['../class_ox_1_1_functions_t1.html#af417526f77ac0244be5bfa21ba39f7cb',1,'Ox::FunctionsT1::init()'],['../class_ox_1_1_sign_calculator.html#afb2259d9a13f8d58945448923b63165a',1,'Ox::SignCalculator::init()'],['../class_ox_1_1_start_point_calculator.html#a4fef8d4182451c17bc43d0e7a1abb90c',1,'Ox::StartPointCalculator::init()']]]
+  ['init',['init',['../struct_ox_1_1_ox_shmolli2_options.html#acce1d90b3eb30ca8e4f5fb8be06c3f91',1,'Ox::OxShmolli2Options']]],
+  ['itknewmacro',['itkNewMacro',['../classitk_1_1_colorbar2_d_image_filter.html#abd868d4b97128f6fd9373bc4929792e6',1,'itk::Colorbar2DImageFilter::itkNewMacro()'],['../classitk_1_1_read_file_list_filter.html#a831a587afdb1c1ad738328be5293ff58',1,'itk::ReadFileListFilter::itkNewMacro()']]],
+  ['itktypemacro',['itkTypeMacro',['../classitk_1_1_colorbar2_d_image_filter.html#ace645ca59853c18b7c077c2c852b3712',1,'itk::Colorbar2DImageFilter']]]
 ];
