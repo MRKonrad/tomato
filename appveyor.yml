@@ -52,7 +52,7 @@ build:
 after_build:
   # install the files
   - cd bin
-  - cmake --build . -config %CONFIGURATION% --target INSTALL
+  - cmake --build . --config %CONFIGURATION% --target INSTALL
   - cd ..
   - mkdir deployment
 
