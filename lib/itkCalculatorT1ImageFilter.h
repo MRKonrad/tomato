@@ -22,7 +22,14 @@
 #include "itkImageRegionIterator.h"
 #include "itkImageLinearIteratorWithIndex.h"
 
+
 namespace itk {
+
+    /**
+     * \class CalculatorT1ImageFilter
+     * @tparam TImageIn
+     * @tparam TImageOut
+     */
     template<typename TImageIn, typename TImageOut>
     class CalculatorT1ImageFilter : public ImageToImageFilter<TImageIn, TImageOut> {
     public:
@@ -42,11 +49,6 @@ namespace itk {
 
         typedef typename TImageIn::PixelType  PixelTypeIn;
         typedef typename TImageOut::PixelType PixelTypeOut;
-//        typedef Ox::CalculatorT1<PixelTypeIn>* CalculatorPtrType;
-//        typedef Ox::Fitter<PixelTypeIn>* FitterPtrType;
-//        typedef Ox::FunctionsT1<PixelTypeIn>* FunctionsPtrType;
-//        typedef vnl_vector<PixelTypeIn> vecType;
-//        typedef vnl_vector<int> vecIntType;
 
         void SetInputMagImage(const TImageIn *magImage);
         void SetInputPhaImage(const TImageIn *phaImage);
@@ -64,15 +66,6 @@ namespace itk {
         TImageOut* GetSD_T1Image();
 
         /** Getters and setters. */
-//        itkSetMacro( Calculator, CalculatorPtrType );
-//        itkGetMacro( Calculator, CalculatorPtrType );
-
-//        itkSetMacro( Fitter, FitterPtrType );
-//        itkGetMacro( Fitter, FitterPtrType );
-//
-//        itkSetMacro( Functions, FunctionsPtrType );
-//        itkGetMacro( Functions, FunctionsPtrType );
-
         void SetCalculator(Ox::CalculatorT1<PixelTypeIn>* calculator){
             this->m_Calculator = calculator;
         }
@@ -119,8 +112,6 @@ namespace itk {
 
         /** Member variables. */
         Ox::CalculatorT1<PixelTypeIn>* m_Calculator;
-//        FitterPtrType m_Fitter;
-//        FunctionsPtrType m_Functions;
 
         bool m_LimitOutputIntensity;
         PixelTypeOut m_UpperLimitOutputIntensity;

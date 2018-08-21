@@ -25,6 +25,7 @@ namespace Ox {
     template<typename MeasureType>
     struct OxShmolli2Options {
 
+        // paths
         std::vector<std::string> files_magnitude;
         std::vector<std::string> files_phase;
         std::string dir_magnitude;
@@ -44,7 +45,13 @@ namespace Ox {
         // image
         MeasureType mean_cut_off;
         int number_of_threads;
+
+        // visualisation
         bool visualise;
+
+        // export
+        int output_map_series_number;
+        int output_fitparams_series_number;
 
         /**
          * initialise the defaults
@@ -68,7 +75,13 @@ namespace Ox {
             // image
             mean_cut_off = 10;
             number_of_threads = 0;
+
+            // visualisation
             visualise = false;
+
+            // export
+            output_map_series_number = 0;
+            output_fitparams_series_number = 0;
         }
 
         /**
@@ -107,6 +120,9 @@ namespace Ox {
             parser._scalars["number_of_threads"];
             parser._scalars["visualise"];
 
+            parser._scalars["output_map_series_number"];
+            parser._scalars["output_fitparams_series_number"];
+
             parser.parse();
 
             files_magnitude = parser._sequences["files_magnitude"];
@@ -131,12 +147,18 @@ namespace Ox {
                 fTolerance = KWUtil::StringToNumber<MeasureType>(parser._scalars["fTolerance"]);
             if (!parser._scalars["max_function_evals"].empty())
                 max_function_evals = KWUtil::StringToNumber<MeasureType>(parser._scalars["max_function_evals"]);
+
             if (!parser._scalars["mean_cut_off"].empty())
                 mean_cut_off = KWUtil::StringToNumber<MeasureType>(parser._scalars["mean_cut_off"]);
             if (!parser._scalars["number_of_threads"].empty())
                 number_of_threads = KWUtil::StringToNumber<MeasureType>(parser._scalars["number_of_threads"]);
             if (!parser._scalars["visualise"].empty())
                 visualise = (bool)KWUtil::StringToNumber<MeasureType>(parser._scalars["visualise"]);
+
+            if (!parser._scalars["output_map_series_number"].empty())
+                output_map_series_number = KWUtil::StringToNumber<MeasureType>(parser._scalars["output_map_series_number"]);
+            if (!parser._scalars["output_fitparams_series_number"].empty())
+                output_fitparams_series_number = KWUtil::StringToNumber<MeasureType>(parser._scalars["output_fitparams_series_number"]);
         }
 
         int findInArray(int size, const char *nameArray[], std::string name){
@@ -194,6 +216,9 @@ namespace Ox {
             //printf("fittingCutOff: %.2f ", fittingCutOff);
             printf("\n number_of_threads: %d", number_of_threads);
             printf("\n visualise: %s", visualise?"1":"0");
+
+            printf("\n output_map_series_number: %d", output_map_series_number);
+            printf("\n output_fitparams_series_number: %d", output_fitparams_series_number);
 
             printf("\n\n");
         }

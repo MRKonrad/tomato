@@ -1,30 +1,25 @@
 //
-//  itkColorbar2DImageFilter
+//  NShmolliSamplesUsedTo123ImageFilter
 //  OxShmolliLib
 //
-//  Created by Konrad Werys on 13/7/17.
+//  Created by Konrad Werys on 24/11/17.
 //  Copyright © 2017 Konrad Werys. All rights reserved.
 //
 
-#ifndef OXSHMOLLILIB_ITKColorbar2DImageFilter_H
-#define OXSHMOLLILIB_ITKColorbar2DImageFilter_H
+#ifndef OXSHMOLLILIB_ITKNShmolliSamplesUsedTo123ImageFilter_H
+#define OXSHMOLLILIB_ITKNShmolliSamplesUsedTo123ImageFilter_H
 
 #include "itkImageToImageFilter.h"
-#include "itkImageRegionIteratorWithIndex.h"
-#include "itkImageRegionConstIteratorWithIndex.h"
+#include "itkImageRegionIterator.h"
+#include "itkImageRegionConstIterator.h"
 
 namespace itk {
-
-    /**
-     * \class Colorbar2DImageFilter
-     * @tparam TImage
-     */
     template<typename TImage>
-    class Colorbar2DImageFilter : public ImageToImageFilter<TImage, TImage> {
+    class NShmolliSamplesUsedTo123ImageFilter : public ImageToImageFilter<TImage, TImage> {
 
     public:
         /** Standard class typedefs. */
-        typedef Colorbar2DImageFilter Self;
+        typedef NShmolliSamplesUsedTo123ImageFilter Self;
         typedef ImageToImageFilter<TImage, TImage> Superclass;
         typedef SmartPointer<Self> Pointer;
 
@@ -39,22 +34,22 @@ namespace itk {
 
     protected:
         /** Constructor. */
-        Colorbar2DImageFilter() {};
+        NShmolliSamplesUsedTo123ImageFilter() {};
 
         /** Destructor. */
-        ~Colorbar2DImageFilter() {};
+        ~NShmolliSamplesUsedTo123ImageFilter() {};
 
         /** Does the real work. */
         virtual void GenerateData() ITK_OVERRIDE;
 
     private:
-        ITK_DISALLOW_COPY_AND_ASSIGN(Colorbar2DImageFilter); //purposely not implemented
+        ITK_DISALLOW_COPY_AND_ASSIGN(NShmolliSamplesUsedTo123ImageFilter); //purposely not implemented
 
     };
 } //namespace ITK
 
 #ifndef ITK_MANUAL_INSTANTIATION
-#include "itkColorbar2DImageFilter.txx"
+#include "itkNShmolliSamplesUsedTo123ImageFilter.txx"
 #endif
 
-#endif //OXSHMOLLILIB_ITKColorbar2DImageFilter_H
+#endif //OXSHMOLLILIB_ITKNShmolliSamplesUsedTo123ImageFilter_H

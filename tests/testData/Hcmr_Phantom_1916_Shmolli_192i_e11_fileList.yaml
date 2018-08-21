@@ -34,6 +34,9 @@ files_phase:
   - "testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_13/IM-0002-0006.dcm"
   - "testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_13/IM-0002-0007.dcm"
 
+dir_output_map: "testData/Calculator_Shmolli/map"
+dir_output_fitparams: "testData/Calculator_Shmolli/fitparams"
+
 parameter_to_map: T1_MOLLI
 functions_type: FunctionsBasic
 fitting_method: AmoebaVnl
@@ -42,4 +45,8 @@ start_point_calc_method: Default
 fTolerance: 1e-4
 max_function_evals: 40
 number_of_threads: 0
+
 visualise: 1
+
+output_map_series_number: 9998
+output_fitparams_series_number: 9999
