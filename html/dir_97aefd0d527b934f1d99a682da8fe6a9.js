@@ -3,6 +3,7 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "itkCalculatorT1ImageFilter.h", "itk_calculator_t1_image_filter_8h.html", null ],
     [ "itkCalculatorT1ImageFilter.hxx", "itk_calculator_t1_image_filter_8hxx.html", null ],
     [ "itkColorbar2DImageFilter.h", "itk_colorbar2_d_image_filter_8h_source.html", null ],
+    [ "itkNShmolliSamplesUsedTo123ImageFilter.h", "itk_n_shmolli_samples_used_to123_image_filter_8h_source.html", null ],
     [ "itkReadDirectoryFilter.h", "itk_read_directory_filter_8h_source.html", null ],
     [ "itkReadFileListFilter.h", "itk_read_file_list_filter_8h_source.html", null ],
     [ "itkSortInvTimesImageFilter.h", "itk_sort_inv_times_image_filter_8h_source.html", null ],
@@ -39,6 +40,7 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "OxFunctionsT1Basic.hxx", "_ox_functions_t1_basic_8hxx.html", null ],
     [ "OxImageCalculatorT1.h", "_ox_image_calculator_t1_8h_source.html", null ],
     [ "OxImageCalculatorT1.hxx", "_ox_image_calculator_t1_8hxx_source.html", null ],
+    [ "OxShmolli2Colormap.h", "_ox_shmolli2_colormap_8h_source.html", null ],
     [ "OxShmolli2Parser.h", "_ox_shmolli2_parser_8h.html", [
       [ "OxShmolli2Parser", "class_ox_1_1_ox_shmolli2_parser.html", "class_ox_1_1_ox_shmolli2_parser" ]
     ] ],

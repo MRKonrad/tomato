@@ -22,7 +22,8 @@ var hierarchy =
       [ "itk::ReadFileListFilter< TImage >", "classitk_1_1_read_file_list_filter.html", null ]
     ] ],
     [ "ImageToImageFilter", null, [
-      [ "itk::Colorbar2DImageFilter< TImage >", "classitk_1_1_colorbar2_d_image_filter.html", null ]
+      [ "itk::Colorbar2DImageFilter< TImage >", "classitk_1_1_colorbar2_d_image_filter.html", null ],
+      [ "itk::NShmolliSamplesUsedTo123ImageFilter< TImage >", "classitk_1_1_n_shmolli_samples_used_to123_image_filter.html", null ]
     ] ],
     [ "KWUtil", "class_k_w_util.html", null ],
     [ "Ox::OxShmolli2Options< TYPE >", "struct_ox_1_1_ox_shmolli2_options.html", null ],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['self',['Self',['../classitk_1_1_colorbar2_d_image_filter.html#a2c93d9d0cfe2be77c3f86bf7c9526c34',1,'itk::Colorbar2DImageFilter::Self()'],['../classitk_1_1_read_file_list_filter.html#a673994032806285b12a3de9b7d536fbd',1,'itk::ReadFileListFilter::Self()']]],
+  ['self',['Self',['../classitk_1_1_colorbar2_d_image_filter.html#a2c93d9d0cfe2be77c3f86bf7c9526c34',1,'itk::Colorbar2DImageFilter::Self()'],['../classitk_1_1_n_shmolli_samples_used_to123_image_filter.html#aa227171fdb715a86680dae7b2aeb60ca',1,'itk::NShmolliSamplesUsedTo123ImageFilter::Self()'],['../classitk_1_1_read_file_list_filter.html#a673994032806285b12a3de9b7d536fbd',1,'itk::ReadFileListFilter::Self()']]],
   ['setallpointerstonull',['setAllPointersToNull',['../class_ox_1_1_calculator_t1.html#a11f02c5b0ae3f9b0f8a74044a170ee18',1,'Ox::CalculatorT1::setAllPointersToNull()'],['../class_ox_1_1_functions_t1.html#a242f775b52419858f76d7711096ac5dc',1,'Ox::FunctionsT1::setAllPointersToNull()'],['../class_ox_1_1_sign_calculator.html#a59de754f72402b4cf7dc2f8766f0a1ff',1,'Ox::SignCalculator::setAllPointersToNull()'],['../class_ox_1_1_start_point_calculator.html#a00a48e8845623b57e414380924a3f82b',1,'Ox::StartPointCalculator::setAllPointersToNull()']]],
   ['setndims',['setNDims',['../class_ox_1_1_calculator_t1.html#abe8decf5aba8ba0de2b6ca76ec9c1386',1,'Ox::CalculatorT1']]],
   ['setnsamples',['setNSamples',['../class_ox_1_1_calculator_t1.html#af5d84e582c3793ebe168f24245f04de1',1,'Ox::CalculatorT1']]],

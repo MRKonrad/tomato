@@ -121,45 +121,46 @@ $(document).ready(function(){initNavTree('itk_colorbar2_d_image_filter_8h_source
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;itkImageRegionConstIteratorWithIndex.h&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>itk {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TImage&gt;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classitk_1_1_colorbar2_d_image_filter.html">   18</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classitk_1_1_colorbar2_d_image_filter.html">Colorbar2DImageFilter</a> : <span class="keyword">public</span> ImageToImageFilter&lt;TImage, TImage&gt; {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classitk_1_1_colorbar2_d_image_filter.html#a2c93d9d0cfe2be77c3f86bf7c9526c34">   22</a></span>&#160;        <span class="keyword">typedef</span> <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html">Colorbar2DImageFilter</a> <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html#a2c93d9d0cfe2be77c3f86bf7c9526c34">Self</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">typedef</span> ImageToImageFilter&lt;TImage, TImage&gt; Superclass;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">typedef</span> SmartPointer&lt;Self&gt; Pointer;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html#abd868d4b97128f6fd9373bc4929792e6">itkNewMacro</a>(<a class="code" href="classitk_1_1_colorbar2_d_image_filter.html">Self</a>);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html#ace645ca59853c18b7c077c2c852b3712">itkTypeMacro</a>(OxColorbarImageFilter, ImageToImageFilter);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> TImage::PixelType PixelTypeIn;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> TImage::PixelType PixelTypeOut;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classitk_1_1_colorbar2_d_image_filter.html#ae103d71eaad083a9303743ee0789457f">   37</a></span>&#160;        <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html#ae103d71eaad083a9303743ee0789457f">Colorbar2DImageFilter</a>() {};</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classitk_1_1_colorbar2_d_image_filter.html#ae2fca5a6a90a6d3dc4ab6f1ae569be9c">   40</a></span>&#160;        <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html#ae2fca5a6a90a6d3dc4ab6f1ae569be9c">~Colorbar2DImageFilter</a>() {};</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html#aeddf7656f339c33f2412bc222db4d558">GenerateData</a>() ITK_OVERRIDE;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    private:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        ITK_DISALLOW_COPY_AND_ASSIGN(<a class="code" href="classitk_1_1_colorbar2_d_image_filter.html">Colorbar2DImageFilter</a>); <span class="comment">//purposely not implemented</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    };</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <span class="comment">//namespace ITK</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#ifndef ITK_MANUAL_INSTANTIATION</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;itkColorbar2DImageFilter.txx&quot;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif //OXSHMOLLILIB_ITKColorbar2DImageFilter_H</span></div>
-<div class="ttc" id="classitk_1_1_colorbar2_d_image_filter_html_ae103d71eaad083a9303743ee0789457f"><div class="ttname"><a href="classitk_1_1_colorbar2_d_image_filter.html#ae103d71eaad083a9303743ee0789457f">itk::Colorbar2DImageFilter::Colorbar2DImageFilter</a></div><div class="ttdeci">Colorbar2DImageFilter()</div><div class="ttdef"><b>Definition:</b> itkColorbar2DImageFilter.h:37</div></div>
-<div class="ttc" id="classitk_1_1_colorbar2_d_image_filter_html_a2c93d9d0cfe2be77c3f86bf7c9526c34"><div class="ttname"><a href="classitk_1_1_colorbar2_d_image_filter.html#a2c93d9d0cfe2be77c3f86bf7c9526c34">itk::Colorbar2DImageFilter::Self</a></div><div class="ttdeci">Colorbar2DImageFilter Self</div><div class="ttdef"><b>Definition:</b> itkColorbar2DImageFilter.h:22</div></div>
-<div class="ttc" id="classitk_1_1_colorbar2_d_image_filter_html_ae2fca5a6a90a6d3dc4ab6f1ae569be9c"><div class="ttname"><a href="classitk_1_1_colorbar2_d_image_filter.html#ae2fca5a6a90a6d3dc4ab6f1ae569be9c">itk::Colorbar2DImageFilter::~Colorbar2DImageFilter</a></div><div class="ttdeci">~Colorbar2DImageFilter()</div><div class="ttdef"><b>Definition:</b> itkColorbar2DImageFilter.h:40</div></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TImage&gt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classitk_1_1_colorbar2_d_image_filter.html">   23</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classitk_1_1_colorbar2_d_image_filter.html">Colorbar2DImageFilter</a> : <span class="keyword">public</span> ImageToImageFilter&lt;TImage, TImage&gt; {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classitk_1_1_colorbar2_d_image_filter.html#a2c93d9d0cfe2be77c3f86bf7c9526c34">   27</a></span>&#160;        <span class="keyword">typedef</span> <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html">Colorbar2DImageFilter</a> <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html#a2c93d9d0cfe2be77c3f86bf7c9526c34">Self</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">typedef</span> ImageToImageFilter&lt;TImage, TImage&gt; Superclass;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">typedef</span> SmartPointer&lt;Self&gt; Pointer;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html#abd868d4b97128f6fd9373bc4929792e6">itkNewMacro</a>(<a class="code" href="classitk_1_1_colorbar2_d_image_filter.html">Self</a>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html#ace645ca59853c18b7c077c2c852b3712">itkTypeMacro</a>(OxColorbarImageFilter, ImageToImageFilter);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> TImage::PixelType PixelTypeIn;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> TImage::PixelType PixelTypeOut;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classitk_1_1_colorbar2_d_image_filter.html#ae103d71eaad083a9303743ee0789457f">   42</a></span>&#160;        <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html#ae103d71eaad083a9303743ee0789457f">Colorbar2DImageFilter</a>() {};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classitk_1_1_colorbar2_d_image_filter.html#ae2fca5a6a90a6d3dc4ab6f1ae569be9c">   45</a></span>&#160;        <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html#ae2fca5a6a90a6d3dc4ab6f1ae569be9c">~Colorbar2DImageFilter</a>() {};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html#aeddf7656f339c33f2412bc222db4d558">GenerateData</a>() ITK_OVERRIDE;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    private:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        ITK_DISALLOW_COPY_AND_ASSIGN(<a class="code" href="classitk_1_1_colorbar2_d_image_filter.html">Colorbar2DImageFilter</a>); <span class="comment">//purposely not implemented</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    };</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">//namespace ITK</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#ifndef ITK_MANUAL_INSTANTIATION</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;itkColorbar2DImageFilter.txx&quot;</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif //OXSHMOLLILIB_ITKColorbar2DImageFilter_H</span></div>
+<div class="ttc" id="classitk_1_1_colorbar2_d_image_filter_html_ae103d71eaad083a9303743ee0789457f"><div class="ttname"><a href="classitk_1_1_colorbar2_d_image_filter.html#ae103d71eaad083a9303743ee0789457f">itk::Colorbar2DImageFilter::Colorbar2DImageFilter</a></div><div class="ttdeci">Colorbar2DImageFilter()</div><div class="ttdef"><b>Definition:</b> itkColorbar2DImageFilter.h:42</div></div>
+<div class="ttc" id="classitk_1_1_colorbar2_d_image_filter_html_a2c93d9d0cfe2be77c3f86bf7c9526c34"><div class="ttname"><a href="classitk_1_1_colorbar2_d_image_filter.html#a2c93d9d0cfe2be77c3f86bf7c9526c34">itk::Colorbar2DImageFilter::Self</a></div><div class="ttdeci">Colorbar2DImageFilter Self</div><div class="ttdef"><b>Definition:</b> itkColorbar2DImageFilter.h:27</div></div>
+<div class="ttc" id="classitk_1_1_colorbar2_d_image_filter_html_ae2fca5a6a90a6d3dc4ab6f1ae569be9c"><div class="ttname"><a href="classitk_1_1_colorbar2_d_image_filter.html#ae2fca5a6a90a6d3dc4ab6f1ae569be9c">itk::Colorbar2DImageFilter::~Colorbar2DImageFilter</a></div><div class="ttdeci">~Colorbar2DImageFilter()</div><div class="ttdef"><b>Definition:</b> itkColorbar2DImageFilter.h:45</div></div>
 <div class="ttc" id="classitk_1_1_colorbar2_d_image_filter_html_aeddf7656f339c33f2412bc222db4d558"><div class="ttname"><a href="classitk_1_1_colorbar2_d_image_filter.html#aeddf7656f339c33f2412bc222db4d558">itk::Colorbar2DImageFilter::GenerateData</a></div><div class="ttdeci">virtual void GenerateData() ITK_OVERRIDE</div></div>
 <div class="ttc" id="classitk_1_1_colorbar2_d_image_filter_html_abd868d4b97128f6fd9373bc4929792e6"><div class="ttname"><a href="classitk_1_1_colorbar2_d_image_filter.html#abd868d4b97128f6fd9373bc4929792e6">itk::Colorbar2DImageFilter::itkNewMacro</a></div><div class="ttdeci">itkNewMacro(Self)</div></div>
-<div class="ttc" id="classitk_1_1_colorbar2_d_image_filter_html"><div class="ttname"><a href="classitk_1_1_colorbar2_d_image_filter.html">itk::Colorbar2DImageFilter</a></div><div class="ttdef"><b>Definition:</b> itkColorbar2DImageFilter.h:18</div></div>
+<div class="ttc" id="classitk_1_1_colorbar2_d_image_filter_html"><div class="ttname"><a href="classitk_1_1_colorbar2_d_image_filter.html">itk::Colorbar2DImageFilter</a></div><div class="ttdef"><b>Definition:</b> itkColorbar2DImageFilter.h:23</div></div>
 <div class="ttc" id="classitk_1_1_colorbar2_d_image_filter_html_ace645ca59853c18b7c077c2c852b3712"><div class="ttname"><a href="classitk_1_1_colorbar2_d_image_filter.html#ace645ca59853c18b7c077c2c852b3712">itk::Colorbar2DImageFilter::itkTypeMacro</a></div><div class="ttdeci">itkTypeMacro(OxColorbarImageFilter, ImageToImageFilter)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

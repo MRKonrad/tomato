@@ -17,6 +17,8 @@ var struct_ox_1_1_ox_shmolli2_options =
     [ "max_function_evals", "struct_ox_1_1_ox_shmolli2_options.html#a22acb422cb0d81d8312a39f52751fb3e", null ],
     [ "mean_cut_off", "struct_ox_1_1_ox_shmolli2_options.html#a7b572f1af3eacc663269126d736df8cd", null ],
     [ "number_of_threads", "struct_ox_1_1_ox_shmolli2_options.html#ad1985f4cf4c53a45e979859defded330", null ],
+    [ "output_fitparams_series_number", "struct_ox_1_1_ox_shmolli2_options.html#a1f792a99603e64de904b36c916f2f5ee", null ],
+    [ "output_map_series_number", "struct_ox_1_1_ox_shmolli2_options.html#a94f71048e2c3953347230b1c2701197a", null ],
     [ "parameter_to_map", "struct_ox_1_1_ox_shmolli2_options.html#a6266e4931bf30cac5ebe7496b1f26cf2", null ],
     [ "sign_calc_method", "struct_ox_1_1_ox_shmolli2_options.html#a677f4fa89f71099635b8bb147b129914", null ],
     [ "start_point_calc_method", "struct_ox_1_1_ox_shmolli2_options.html#a8fe270afa66a8e74b2037ab4f3352c41", null ],

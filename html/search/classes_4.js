@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['oxshmolli2options',['OxShmolli2Options',['../struct_ox_1_1_ox_shmolli2_options.html',1,'Ox']]],
-  ['oxshmolli2parser',['OxShmolli2Parser',['../class_ox_1_1_ox_shmolli2_parser.html',1,'Ox']]]
+  ['nshmollisamplesusedto123imagefilter',['NShmolliSamplesUsedTo123ImageFilter',['../classitk_1_1_n_shmolli_samples_used_to123_image_filter.html',1,'itk']]]
 ];

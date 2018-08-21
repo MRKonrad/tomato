@@ -2,6 +2,7 @@ var annotated =
 [
     [ "itk", null, [
       [ "Colorbar2DImageFilter", "classitk_1_1_colorbar2_d_image_filter.html", "classitk_1_1_colorbar2_d_image_filter" ],
+      [ "NShmolliSamplesUsedTo123ImageFilter", "classitk_1_1_n_shmolli_samples_used_to123_image_filter.html", "classitk_1_1_n_shmolli_samples_used_to123_image_filter" ],
       [ "ReadFileListFilter", "classitk_1_1_read_file_list_filter.html", "classitk_1_1_read_file_list_filter" ]
     ] ],
     [ "Ox", null, [
