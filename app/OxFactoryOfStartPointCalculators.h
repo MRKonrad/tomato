@@ -7,13 +7,30 @@
 #ifndef OXSHMOLLI2_OXFACTORYOFStartPointCalculators_H
 #define OXSHMOLLI2_OXFACTORYOFStartPointCalculators_H
 
+#include "CmakeConfigForOxShmolli2.h"
+
 #include "OxStartPointCalculatorDefault3Dims.h"
+#ifdef USE_PRIVATE_NR2
+#include "OxStartPointCalculatorShmolli.h"
+#endif
 
 namespace Ox {
 
     template<typename TYPE>
     struct OxShmolli2Options;
 
+#ifdef USE_PRIVATE_NR2
+    static const char *startPointCalculatorsTypeNames[] = {
+            "Default",
+            "StartPointSHMOLLI"
+    };
+
+    enum startPointCalculatorsType_t {
+        Default = 0,
+        StartPointSHMOLLI = 1,
+        lastStartPointCalculatorType = StartPointSHMOLLI
+    };
+#else
     static const char *startPointCalculatorsTypeNames[] = {
             "Default",
     };
@@ -22,6 +39,7 @@ namespace Ox {
         Default = 0,
         lastStartPointCalculatorType = Default
     };
+#endif
 
     template<typename TYPE>
     class FactoryOfStartPointCalculators {
@@ -32,6 +50,11 @@ namespace Ox {
                 case Default: {
                     return new StartPointCalculatorDefault3Dims<TYPE>();
                 }
+#ifdef USE_PRIVATE_NR2
+                case StartPointSHMOLLI: {
+                    return new StartPointCalculatorShmolli<TYPE>();
+                }
+#endif
                 default:
                     return 0;
             }

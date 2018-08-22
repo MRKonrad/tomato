@@ -161,7 +161,6 @@ namespace itk {
         }
 
         itMag.SetDirection( 2 ); // Walk along third dimension it.GoToBegin();
-        //itPha.SetDirection( 2 ); // Walk along third dimension it.GoToBegin();
         if (imagePha) itPha.SetDirection( 2 ); // Walk along third dimension it.GoToBegin();
 
         /**
@@ -211,12 +210,10 @@ namespace itk {
 
                 // get mag and phase
                 sigMag[idx[2]] = itMag.Get();
-                // sigPha[idx[2]] = itPha.Get();
                 if (imagePha) sigPha[idx[2]] = itPha.Get();
 
                 // move iterators
                 ++itMag;
-                //++itPha;
                 if (imagePha) ++itPha;
             }
 
@@ -248,18 +245,17 @@ namespace itk {
                 ++itOutVector[i];
             }
             itMag.NextLine();
-            //itPha.NextLine();
             if (imagePha) itPha.NextLine();
         }
 
         // cleanup
-        delete [] sigMag;
-        delete [] sigPha;
-        delete calculator;
         delete functionsObject;
         delete fitter;
         delete signCalculator;
         delete startPointCalculator;
+        delete calculator;
+        delete [] sigMag;
+        delete [] sigPha;
     }
 
     template< typename TImageIn, typename TImageOut >

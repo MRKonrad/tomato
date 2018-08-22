@@ -39,7 +39,7 @@ namespace Ox {
         }
 
         virtual MeasureType *getSignal() {
-            if (!_Signal) throw std::runtime_error("_Signal equals 0. Set _Signal");
+            if (!_Signal) throw std::runtime_error("_SigMag equals 0. Set _SigMag");
             return _Signal;
         }
 

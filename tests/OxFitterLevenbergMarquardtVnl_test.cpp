@@ -25,14 +25,14 @@ TEST(OxFitterLevenbergMarquardtVnl, performFitting) {
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
 
-    Ox::FitterLevenbergMarquardtVnl<TYPE> fitterLevenbergMarquardtVnl;
-    fitterLevenbergMarquardtVnl.setFunctionsT1(&functionsObject);
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
+    fitter.setFunctionsT1(&functionsObject);
     functionsObject.setParameters(params);
 
-    fitterLevenbergMarquardtVnl.setVerbose(false);
-    fitterLevenbergMarquardtVnl.setTrace(false);
+    fitter.setVerbose(false);
+    fitter.setTrace(false);
 
-    fitterLevenbergMarquardtVnl.performFitting();
+    fitter.performFitting();
 
     EXPECT_NEAR(params[0], testData.getResultsMolli()[0], 1e-2);
     EXPECT_NEAR(params[1], testData.getResultsMolli()[1], 1e-2);
@@ -56,20 +56,20 @@ TEST(OxFitterLevenbergMarquardtVnl, copyConstructor) {
     functionsObject.setSignal(testData.getSignalPtr());
     functionsObject.setParameters(params);
 
-    Ox::FitterLevenbergMarquardtVnl<TYPE> fitterAmoebaVnl;
-    fitterAmoebaVnl.setFunctionsT1(&functionsObject);
-    fitterAmoebaVnl.setMaxFunctionEvals(123);
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
+    fitter.setFunctionsT1(&functionsObject);
+    fitter.setMaxFunctionEvals(123);
 
     // copy constructor
-    Ox::FitterLevenbergMarquardtVnl<TYPE> fitterAmoebaVnlCopy = fitterAmoebaVnl;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitterCopy = fitter;
 
     // MaxFunctionEvals should be the same
-    EXPECT_EQ( fitterAmoebaVnlCopy.getMaxFunctionEvals(), fitterAmoebaVnl.getMaxFunctionEvals());
+    EXPECT_EQ( fitterCopy.getMaxFunctionEvals(), fitter.getMaxFunctionEvals());
 
     // FunctionsT1 was not declared for the copy, so it should be empty
-    EXPECT_FALSE( fitterAmoebaVnlCopy.getFunctionsT1());
-    EXPECT_NE( fitterAmoebaVnlCopy.getFunctionsT1(), fitterAmoebaVnl.getFunctionsT1());
+    EXPECT_FALSE( fitterCopy.getFunctionsT1());
+    EXPECT_NE( fitterCopy.getFunctionsT1(), fitter.getFunctionsT1());
 
     // new FunctionsAdaptedToVnl should NOT be copied in the constructor
-    EXPECT_FALSE( fitterAmoebaVnlCopy.getFunctionsAdaptedToVnl());
+    EXPECT_FALSE( fitterCopy.getFunctionsAdaptedToVnl());
 }

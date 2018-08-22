@@ -42,4 +42,36 @@ TEST(OxFitterAmoebaPrivateNr2, performFitting) {
     EXPECT_NEAR(params[2], testData.getResultsMolli()[2], 1e-2);
 }
 
+TEST(OxFitterAmoebaPrivateNr2, copyConstructor) {
+    typedef double TYPE;
+
+    char filePath [] = "testData/blood.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    double params[3] = {100, 200, 1200};
+
+    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    functionsObject.setNSamples(nSamples);
+    functionsObject.setInvTimes(testData.getInvTimesPtr());
+    functionsObject.setSignal(testData.getSignalPtr());
+    functionsObject.setParameters(params);
+
+    Ox::FitterAmoebaPrivateNr2<TYPE> fitter;
+    fitter.setFunctionsT1(&functionsObject);
+    fitter.setMaxFunctionEvals(123);
+    fitter.setFTolerance(321);
+
+    // copy constructor
+    Ox::FitterAmoebaPrivateNr2<TYPE> fitterCopy = fitter;
+
+    // MaxFunctionEvals should be the same
+    EXPECT_EQ( fitterCopy.getMaxFunctionEvals(), fitter.getMaxFunctionEvals());
+    EXPECT_EQ( fitterCopy.getFTolerance(), fitter.getFTolerance());
+
+    // FunctionsT1 was not declared for the copy, so it should be empty
+    EXPECT_FALSE( fitterCopy.getFunctionsT1());
+    EXPECT_NE( fitterCopy.getFunctionsT1(), fitter.getFunctionsT1());
+}
+
 #endif // USE_PRIVATE_NR2

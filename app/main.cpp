@@ -30,6 +30,7 @@ int main(int argc, char* argv[]) {
         OxShmolli2_object._opts->printCurrent();
         OxShmolli2_object.readAndSort();
         OxShmolli2_object.calculate();
+        OxShmolli2_object.exportToDicom();
         OxShmolli2_object.visualise();
 #else
         throw std::runtime_error("You need ITK to run the executable");

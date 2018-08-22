@@ -15,11 +15,12 @@ namespace Ox {
     OxShmolli2
     ::OxShmolli2(std::string inputFileName){
 
+        _nSamples = 0;
         _invTimes = 0; // nullptr
         _echoTimes = 0; // nullptr
 
         _opts = new OxShmolli2Options<InputPixelType>(inputFileName);
-        //_imageCalculatorItk = CalculatorT1ImageFilterType::New();
+        _imageCalculatorItk = CalculatorT1ImageFilterType::New();
         //_sorterMag = SortInvTimesImageFilterType::New();
         //_sorterPha = SortInvTimesImageFilterType::New();
     }
@@ -27,8 +28,8 @@ namespace Ox {
     OxShmolli2
     ::~OxShmolli2(){
         delete _opts;
-        delete _invTimes;
-        delete _echoTimes;
+        delete [] _invTimes;
+        delete [] _echoTimes;
     }
 
     int
@@ -37,8 +38,6 @@ namespace Ox {
         ReadFileListFilterType::Pointer readerMag = ReadFileListFilterType::New();
         readerMag->SetFileList(_opts->files_magnitude);
         readerMag->Update();
-
-        _dictionaryInput = readerMag->GetDicomIO()->GetMetaDataDictionary();
 
         ReadFileListFilterType::Pointer readerPha = ReadFileListFilterType::New();
         readerPha->SetFileList(_opts->files_phase);
@@ -63,6 +62,9 @@ namespace Ox {
             throw std::runtime_error("Mag and Pha inv times are not equal");
         }
 
+        std::cout << "_nSamples " << _nSamples << std::endl;
+
+        _dictionaryInput = readerMag->GetDicomIO()->GetMetaDataDictionary();
         _imageMag = sorterMag->GetOutput();
         _imagePha = sorterPha->GetOutput();
 
@@ -90,7 +92,7 @@ namespace Ox {
 
         // configure calculator itk filter
         //CalculatorT1ImageFilterType::Pointer _imageCalculatorItk = CalculatorT1ImageFilterType::New();
-        _imageCalculatorItk = CalculatorT1ImageFilterType::New();
+        //_imageCalculatorItk = CalculatorT1ImageFilterType::New();
         _imageCalculatorItk->SetInputMagImage(_imageMag);
         _imageCalculatorItk->SetInputPhaImage(_imagePha);
         if (_opts->number_of_threads > 0)
@@ -109,11 +111,11 @@ namespace Ox {
         clock.Stop();
         printf("Calculation time: %.4fs.\n", clock.GetTotal());
 
-        delete calculatorT1;
         delete functionsT1;
         delete fitter;
         delete signCalculator;
         delete startPointCalculator;
+        delete calculatorT1;
 
         return 0; // EXIT_SUCCESS
     }

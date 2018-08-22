@@ -43,6 +43,7 @@ namespace Ox {
           * \brief constructor
           */
         StartPointCalculatorDefault3Dims() : StartPointCalculator<MeasureType>(){
+            this->_nDims = 3;
 
             _DefaultStartPoint[0] = 100;
             _DefaultStartPoint[1] = 200;

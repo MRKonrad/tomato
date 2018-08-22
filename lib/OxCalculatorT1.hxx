@@ -286,6 +286,10 @@ namespace Ox {
         getSignCalculator()->calculateSign();
 
         // calculate start point
+        getStartPointCalculator()->setNSamples(getNSamples());
+        getStartPointCalculator()->setInvTimes(getInvTimes());
+        getStartPointCalculator()->setSigMag(getSigMag());
+        getStartPointCalculator()->setSigns(getSigns());
         getStartPointCalculator()->setCalculatedStartPoint(_StartPoint);
         getStartPointCalculator()->calculateStartPoint();
 

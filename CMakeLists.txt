@@ -111,12 +111,12 @@ endif(USE_VTK)
 ####################
 
 MESSAGE("CXX_STANDARD_98: " ${CXX_STANDARD_98})
-MESSAGE("USE_ITK: " ${USE_ITK})
-MESSAGE("USE_VTK: " ${USE_VTK})
-MESSAGE("USE_VNL: " ${USE_VNL})
+MESSAGE("USE_ITK:         " ${USE_ITK})
+MESSAGE("USE_VTK:         " ${USE_VTK})
+MESSAGE("USE_VNL:         " ${USE_VNL})
 MESSAGE("USE_PRIVATE_NR2: " ${USE_PRIVATE_NR2})
-MESSAGE("USE_NR2: " ${USE_NR2})
-MESSAGE("USE_NR3: " ${USE_NR3})
+MESSAGE("USE_NR2:         " ${USE_NR2})
+MESSAGE("USE_NR3:         " ${USE_NR3})
 
 # configure a header file to pass some of the CMake settings to the source code
 configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForOxShmolli2.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForOxShmolli2.h")

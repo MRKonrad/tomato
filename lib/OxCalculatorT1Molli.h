@@ -28,7 +28,7 @@ namespace Ox {
         virtual int calculate(){
             this->_Results = CalculatorT1Results<MeasureType>();
             // calculate if higher than the cutoff
-            if (KWUtil::calcMeanArray(this->getNSamples(), this->getSignal()) < this->getMeanCutOff()) {
+            if (KWUtil::calcMeanArray(this->getNSamples(), this->getSigMag()) < this->getMeanCutOff()) {
                 return 0; // EXIT_SUCCESS
             }
 
@@ -52,15 +52,16 @@ namespace Ox {
         virtual CalculatorT1Results<MeasureType> calculateMolli(int nSamples, const MeasureType* invTimes, MeasureType* signal, MeasureType* signs){
 
             // some initialisation
+            CalculatorT1Results<MeasureType> resultsStruc;
+
             MeasureType lastValue = 1e32;
             MeasureType lastValueTemp = 1e32;
             MeasureType tempParameters[3];
             MeasureType tempResults[3];
-            CalculatorT1Results<MeasureType> restulsStruct;
 
             // get ready, continue if prepareToCalculate EXIT_SUCCESS
             if (this->prepareToCalculate() == 1) {
-                return restulsStruct;
+                return resultsStruc;
             }
 
             // configure Functions object and fitter object
@@ -108,14 +109,14 @@ namespace Ox {
 
 
             if (lastValue != 1e32 && tempResults[0] != 0) {
-                restulsStruct.T1 = tempResults[2] * (tempResults[1] / tempResults[0] - 1.);
+                resultsStruc.T1 = tempResults[2] * (tempResults[1] / tempResults[0] - 1.);
                 // tempResults.R2 = this->CalculateR2AbsFromModel(invTimes, sigMag, curPos); //TODO
-                restulsStruct.A      = tempResults[0];
-                restulsStruct.B      = tempResults[1];
-                restulsStruct.T1star = tempResults[2];
-                restulsStruct.ChiSqrt = KWUtil::getChiSqrt(lastValue, nSamples);
-                restulsStruct.SNR =  (restulsStruct.B - restulsStruct.A) / (restulsStruct.ChiSqrt + 0.001);
-                restulsStruct.LastValue = lastValue;
+                resultsStruc.A      = tempResults[0];
+                resultsStruc.B      = tempResults[1];
+                resultsStruc.T1star = tempResults[2];
+                resultsStruc.ChiSqrt = KWUtil::getChiSqrt(lastValue, nSamples);
+                resultsStruc.SNR =  (resultsStruc.B - resultsStruc.A) / (resultsStruc.ChiSqrt + 0.001);
+                resultsStruc.LastValue = lastValue;
                 //vecType residuals(nSamples); //TODO
                 //this->m_Minimizer->GetFunctor()->calcLSResiduals(residuals); //TODO
                 //vnl_matrix<MeasureType> invCovarianceMatrix = this->CalculateInvCovarianceMatrix(invTimes, residuals, curPos); //TODO
@@ -131,7 +132,7 @@ namespace Ox {
                 //std::cout << tempResults.SD_A << " " << tempResults.SD_B << " " << tempResults.SD_T1 << " " << std::endl;
             }
 
-            return restulsStruct;
+            return resultsStruc;
         }
 
         /**

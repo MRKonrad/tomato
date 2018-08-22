@@ -7,13 +7,30 @@
 #ifndef OXSHMOLLI2_OXFACTORYOFFUNCTIONS_H
 #define OXSHMOLLI2_OXFACTORYOFFUNCTIONS_H
 
+#include "CmakeConfigForOxShmolli2.h"
+
 #include "OxFunctionsT1Basic.h"
+#ifdef USE_PRIVATE_NR2
+#include "OxFunctionsT1CalculatorShmolli.h"
+#endif
 
 namespace Ox {
 
     template<typename TYPE>
     struct OxShmolli2Options;
 
+#ifdef USE_PRIVATE_NR2
+    static const char *functionsTypeNames[] = {
+            "FunctionsBasic",
+            "FunctionsShmolli",
+    };
+
+    enum functionsType_t {
+        FunctionsBasic = 0,
+        FunctionsShmolli = 1,
+        lastFunctorType = FunctionsShmolli
+    };
+#else
     static const char *functionsTypeNames[] = {
             "FunctionsBasic",
     };
@@ -22,6 +39,7 @@ namespace Ox {
         FunctionsBasic = 0,
         lastFunctorType = FunctionsBasic
     };
+#endif
 
     template<typename TYPE>
     class FactoryOfFunctions {
@@ -32,6 +50,11 @@ namespace Ox {
                 case FunctionsBasic: {
                     return new FunctionsT1Basic<TYPE>();
                 }
+#ifdef USE_PRIVATE_NR2
+                case FunctionsShmolli: {
+                    return new FunctionsT1Basic<TYPE>();
+                }
+#endif
                 default:
                     return 0;
             }

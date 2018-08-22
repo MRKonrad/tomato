@@ -38,7 +38,7 @@ namespace Ox {
 
         //setters
         virtual void setInvTimes(const MeasureType *_InvTimes) { StartPointCalculator::_InvTimes = _InvTimes; }
-        virtual void setSignal(const MeasureType *_Signal) { StartPointCalculator::_Signal = _Signal; }
+        virtual void setSigMag(const MeasureType *_SigMag) { StartPointCalculator::_SigMag = _SigMag; }
         virtual void setSigns(const MeasureType *_Signs) { StartPointCalculator::_Signs = _Signs; }
         virtual void setCalculatedStartPoint(MeasureType *_CalculatedStartPoint) { StartPointCalculator::_CalculatedStartPoint = _CalculatedStartPoint; }
         virtual void setNSamples(int _nSamples) { StartPointCalculator::_nSamples = _nSamples; }
@@ -54,7 +54,7 @@ namespace Ox {
         void setAllPointersToNull(){
             _CalculatedStartPoint = 0;
             _InvTimes = 0;
-            _Signal = 0;
+            _SigMag = 0;
             _Signs = 0;
         }
 
@@ -96,7 +96,7 @@ namespace Ox {
         MeasureType* _CalculatedStartPoint;
 
         const MeasureType* _InvTimes;
-        const MeasureType* _Signal;
+        const MeasureType* _SigMag;
         const MeasureType* _Signs;
 
         int _nSamples;

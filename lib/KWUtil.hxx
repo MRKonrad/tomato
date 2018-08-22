@@ -163,15 +163,13 @@ double KWUtil::calcMedianArray(int nSamples, const TYPE *myarray){
         if(nSamples % 2) {
             // if odd number of samples, return the middle
 			result = sortedArray[(nSamples - 1) / 2];
-			delete[] sortedArray;
-			return result;
         } else {
             // if even number of samples, return mean of the two in the middle
             int pos = nSamples/2-1;
             result = (sortedArray[pos] + sortedArray[pos+1]) / 2;
-			delete[] sortedArray;
-			return result;
         }
+        delete[] sortedArray;
+        return result;
     }
 }
 

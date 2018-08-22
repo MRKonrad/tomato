@@ -39,12 +39,12 @@ dir_output_fitparams: "testData/Calculator_Shmolli/fitparams"
 
 parameter_to_map: T1_MOLLI
 functions_type: FunctionsBasic
-fitting_method: AmoebaVnl
-sign_calc_method: NoSign
+fitting_method: AmoebaPrivateNr2
+sign_calc_method: RealImag
 start_point_calc_method: Default
-fTolerance: 1e-4
+fTolerance: 1e-1
 max_function_evals: 40
-number_of_threads: 0
+number_of_threads: 1
 
 visualise: 1
 
