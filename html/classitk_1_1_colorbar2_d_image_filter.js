@@ -8,6 +8,8 @@ var classitk_1_1_colorbar2_d_image_filter =
     [ "Colorbar2DImageFilter", "classitk_1_1_colorbar2_d_image_filter.html#ae103d71eaad083a9303743ee0789457f", null ],
     [ "~Colorbar2DImageFilter", "classitk_1_1_colorbar2_d_image_filter.html#ae2fca5a6a90a6d3dc4ab6f1ae569be9c", null ],
     [ "GenerateData", "classitk_1_1_colorbar2_d_image_filter.html#aeddf7656f339c33f2412bc222db4d558", null ],
+    [ "itkGetMacro", "classitk_1_1_colorbar2_d_image_filter.html#a28c52d8f603e3f1a554a59c3ec71f9ea", null ],
     [ "itkNewMacro", "classitk_1_1_colorbar2_d_image_filter.html#abd868d4b97128f6fd9373bc4929792e6", null ],
+    [ "itkSetMacro", "classitk_1_1_colorbar2_d_image_filter.html#a6d917b33043bdb319ed4ba90a8ea25a9", null ],
     [ "itkTypeMacro", "classitk_1_1_colorbar2_d_image_filter.html#ace645ca59853c18b7c077c2c852b3712", null ]
 ];

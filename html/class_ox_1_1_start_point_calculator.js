@@ -12,12 +12,12 @@ var class_ox_1_1_start_point_calculator =
     [ "setCalculatedStartPoint", "class_ox_1_1_start_point_calculator.html#aebb0511e802eff920369dec99b6c00fb", null ],
     [ "setInvTimes", "class_ox_1_1_start_point_calculator.html#a0632bd0dcf7707930058d63e2176fc7a", null ],
     [ "setNSamples", "class_ox_1_1_start_point_calculator.html#a72195ac7840734cd9001d0303ab859f4", null ],
-    [ "setSignal", "class_ox_1_1_start_point_calculator.html#a21beb5845568afe488bb5d4e6d4176bb", null ],
+    [ "setSigMag", "class_ox_1_1_start_point_calculator.html#a7cff5323e92bc00fdc9baa2a3eef7a37", null ],
     [ "setSigns", "class_ox_1_1_start_point_calculator.html#a1245375d6cad369f18ab4a32ddb28446", null ],
     [ "_CalculatedStartPoint", "class_ox_1_1_start_point_calculator.html#a90c26143db22a371533de08a87cdada0", null ],
     [ "_InvTimes", "class_ox_1_1_start_point_calculator.html#a64929ca24726ddf99017b6f18cc03e29", null ],
     [ "_nDims", "class_ox_1_1_start_point_calculator.html#a1bee9378aff7741838dad45ff6d5dc1d", null ],
     [ "_nSamples", "class_ox_1_1_start_point_calculator.html#a17601c059cd679301597bc897e297c2f", null ],
-    [ "_Signal", "class_ox_1_1_start_point_calculator.html#ae947a684f4a2cb29c36786490c9ca0b8", null ],
+    [ "_SigMag", "class_ox_1_1_start_point_calculator.html#a5cf615178da5bb3af984eea616548e05", null ],
     [ "_Signs", "class_ox_1_1_start_point_calculator.html#abce7ef554368d8739ac27dddb63382df", null ]
 ];

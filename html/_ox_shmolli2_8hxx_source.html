@@ -117,54 +117,54 @@ $(document).ready(function(){initNavTree('_ox_shmolli2_8hxx_source.html','');});
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    OxShmolli2</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    ::OxShmolli2(std::string inputFileName){</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        _invTimes = 0; <span class="comment">// nullptr</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        _echoTimes = 0; <span class="comment">// nullptr</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        _opts = <span class="keyword">new</span> OxShmolli2Options&lt;InputPixelType&gt;(inputFileName);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="comment">//_imageCalculatorItk = CalculatorT1ImageFilterType::New();</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="comment">//_sorterMag = SortInvTimesImageFilterType::New();</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">//_sorterPha = SortInvTimesImageFilterType::New();</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    OxShmolli2</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    ::~OxShmolli2(){</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">delete</span> _opts;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">delete</span> _invTimes;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">delete</span> _echoTimes;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    OxShmolli2</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    ::readAndSort(){</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        ReadFileListFilterType::Pointer readerMag = ReadFileListFilterType::New();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        readerMag-&gt;SetFileList(_opts-&gt;files_magnitude);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        readerMag-&gt;Update();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        _dictionaryInput = readerMag-&gt;GetDicomIO()-&gt;GetMetaDataDictionary();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        ReadFileListFilterType::Pointer readerPha = ReadFileListFilterType::New();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        readerPha-&gt;SetFileList(_opts-&gt;files_phase);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        readerPha-&gt;Update();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        SortInvTimesImageFilterType::Pointer sorterMag = SortInvTimesImageFilterType::New();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        sorterMag-&gt;SetInvTimesNonSorted(readerMag-&gt;GetInvTimes());</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        sorterMag-&gt;SetInput(readerMag-&gt;GetOutput());</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        sorterMag-&gt;Update();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        SortInvTimesImageFilterType::Pointer sorterPha = SortInvTimesImageFilterType::New();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        sorterPha-&gt;SetInvTimesNonSorted(readerPha-&gt;GetInvTimes());</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        sorterPha-&gt;SetInput(readerPha-&gt;GetOutput());</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        sorterPha-&gt;Update();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">if</span> (sorterMag-&gt;GetInvTimesSorted() == sorterPha-&gt;GetInvTimesSorted()){</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            vnl_vector&lt;InputPixelType &gt; temp = sorterMag-&gt;GetInvTimesSorted();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            _nSamples = temp.size();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            _invTimes = <span class="keyword">new</span> InputPixelType[_nSamples];</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            KWUtil::copyArrayToArray(_nSamples, _invTimes, temp.data_block());</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Mag and Pha inv times are not equal&quot;</span>);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        _nSamples = 0;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        _invTimes = 0; <span class="comment">// nullptr</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        _echoTimes = 0; <span class="comment">// nullptr</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        _opts = <span class="keyword">new</span> OxShmolli2Options&lt;InputPixelType&gt;(inputFileName);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        _imageCalculatorItk = CalculatorT1ImageFilterType::New();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">//_sorterMag = SortInvTimesImageFilterType::New();</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="comment">//_sorterPha = SortInvTimesImageFilterType::New();</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    OxShmolli2</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    ::~OxShmolli2(){</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">delete</span> _opts;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">delete</span> [] _invTimes;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">delete</span> [] _echoTimes;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    OxShmolli2</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    ::readAndSort(){</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        ReadFileListFilterType::Pointer readerMag = ReadFileListFilterType::New();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        readerMag-&gt;SetFileList(_opts-&gt;files_magnitude);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        readerMag-&gt;Update();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        ReadFileListFilterType::Pointer readerPha = ReadFileListFilterType::New();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        readerPha-&gt;SetFileList(_opts-&gt;files_phase);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        readerPha-&gt;Update();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        SortInvTimesImageFilterType::Pointer sorterMag = SortInvTimesImageFilterType::New();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        sorterMag-&gt;SetInvTimesNonSorted(readerMag-&gt;GetInvTimes());</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        sorterMag-&gt;SetInput(readerMag-&gt;GetOutput());</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        sorterMag-&gt;Update();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        SortInvTimesImageFilterType::Pointer sorterPha = SortInvTimesImageFilterType::New();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        sorterPha-&gt;SetInvTimesNonSorted(readerPha-&gt;GetInvTimes());</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        sorterPha-&gt;SetInput(readerPha-&gt;GetOutput());</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        sorterPha-&gt;Update();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">if</span> (sorterMag-&gt;GetInvTimesSorted() == sorterPha-&gt;GetInvTimesSorted()){</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            vnl_vector&lt;InputPixelType &gt; temp = sorterMag-&gt;GetInvTimesSorted();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            _nSamples = temp.size();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            _invTimes = <span class="keyword">new</span> InputPixelType[_nSamples];</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            KWUtil::copyArrayToArray(_nSamples, _invTimes, temp.data_block());</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Mag and Pha inv times are not equal&quot;</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        _dictionaryInput = readerMag-&gt;GetDicomIO()-&gt;GetMetaDataDictionary();</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        _imageMag = sorterMag-&gt;GetOutput();</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        _imagePha = sorterPha-&gt;GetOutput();</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
@@ -192,7 +192,7 @@ $(document).ready(function(){initNavTree('_ox_shmolli2_8hxx_source.html','');});
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">// configure calculator itk filter</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="comment">//CalculatorT1ImageFilterType::Pointer _imageCalculatorItk = CalculatorT1ImageFilterType::New();</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        _imageCalculatorItk = CalculatorT1ImageFilterType::New();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="comment">//_imageCalculatorItk = CalculatorT1ImageFilterType::New();</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        _imageCalculatorItk-&gt;SetInputMagImage(_imageMag);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        _imageCalculatorItk-&gt;SetInputPhaImage(_imagePha);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">if</span> (_opts-&gt;number_of_threads &gt; 0)</div>
@@ -211,11 +211,11 @@ $(document).ready(function(){initNavTree('_ox_shmolli2_8hxx_source.html','');});
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        clock.Stop();</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        printf(<span class="stringliteral">&quot;Calculation time: %.4fs.\n&quot;</span>, clock.GetTotal());</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keyword">delete</span> calculatorT1;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keyword">delete</span> functionsT1;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keyword">delete</span> fitter;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keyword">delete</span> signCalculator;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keyword">delete</span> startPointCalculator;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keyword">delete</span> functionsT1;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keyword">delete</span> fitter;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keyword">delete</span> signCalculator;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keyword">delete</span> startPointCalculator;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keyword">delete</span> calculatorT1;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div>

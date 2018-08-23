@@ -130,7 +130,7 @@ $(document).ready(function(){initNavTree('_ox_start_point_calculator_8h_source.h
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">//setters</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setInvTimes(<span class="keyword">const</span> MeasureType *_InvTimes) { StartPointCalculator::_InvTimes = _InvTimes; }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setSignal(<span class="keyword">const</span> MeasureType *_Signal) { StartPointCalculator::_Signal = _Signal; }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setSigMag(<span class="keyword">const</span> MeasureType *_SigMag) { StartPointCalculator::_SigMag = _SigMag; }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setSigns(<span class="keyword">const</span> MeasureType *_Signs) { StartPointCalculator::_Signs = _Signs; }</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setCalculatedStartPoint(MeasureType *_CalculatedStartPoint) { StartPointCalculator::_CalculatedStartPoint = _CalculatedStartPoint; }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setNSamples(<span class="keywordtype">int</span> _nSamples) { StartPointCalculator::_nSamples = _nSamples; }</div>
@@ -143,7 +143,7 @@ $(document).ready(function(){initNavTree('_ox_start_point_calculator_8h_source.h
 <div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_ox_1_1_start_point_calculator.html#a00a48e8845623b57e414380924a3f82b">   54</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_ox_1_1_start_point_calculator.html#a00a48e8845623b57e414380924a3f82b">setAllPointersToNull</a>(){</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            _CalculatedStartPoint = 0;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            _InvTimes = 0;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            _Signal = 0;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            _SigMag = 0;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            _Signs = 0;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
@@ -171,7 +171,7 @@ $(document).ready(function(){initNavTree('_ox_start_point_calculator_8h_source.h
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        MeasureType* _CalculatedStartPoint;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keyword">const</span> MeasureType* _InvTimes;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keyword">const</span> MeasureType* _Signal;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keyword">const</span> MeasureType* _SigMag;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keyword">const</span> MeasureType* _Signs;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordtype">int</span> _nSamples;</div>
