@@ -62,8 +62,6 @@ namespace Ox {
             throw std::runtime_error("Mag and Pha inv times are not equal");
         }
 
-        std::cout << "_nSamples " << _nSamples << std::endl;
-
         _dictionaryInput = readerMag->GetDicomIO()->GetMetaDataDictionary();
         _imageMag = sorterMag->GetOutput();
         _imagePha = sorterPha->GetOutput();

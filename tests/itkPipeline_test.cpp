@@ -171,7 +171,7 @@ TEST(itkPipeline, calculateT1FromMagAndPhase) {
     Ox::CalculatorT1Molli<InputPixelType> calculatorT1;
 
     // configure fitter
-//    fitter.setMaxFunctionEvals(10); // to accelerate the test
+    fitter.setMaxFunctionEvals(10); // to accelerate the test
 
     // configure calculator
     calculatorT1.setFunctionsT1(&functionsObject);

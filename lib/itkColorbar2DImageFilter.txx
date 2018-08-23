@@ -47,6 +47,8 @@ namespace  itk {
                 } else {
                     int value = (int)(4096.0 * (1. - ((double)idx[1] / (double)nRows)));
                     if (value > 4000) value = 4000;
+                    if (GetZerosInsteadOfColorbar()) value = 0;
+
                     iteratorOutput.Set(value);
                 }
             }
@@ -61,7 +63,10 @@ namespace  itk {
                     && idx[0] <= (int) (0.96 * nCols)
                     && idx[1] == (int) ((1. - frefline / 4096.) * nRows)) {
 
-                    iteratorOutput.Set(4000.0);
+                    int value = 4000;
+                    if (GetZerosInsteadOfColorbar()) value = 0;
+
+                    iteratorOutput.Set(value);
                 }
             }
 

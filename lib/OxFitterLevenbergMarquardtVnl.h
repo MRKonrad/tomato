@@ -96,16 +96,32 @@ namespace Ox {
     protected:
 
         virtual void configureMinimizer() {
+            int nSamples = this->_FunctionsT1->getNSamples();
+            int nDims = this->_FunctionsT1->getNDims();
+
+            bool doReconfigure = false;
+
             if (!_VnlFitter) {
+                doReconfigure = true;
+            }
+
+            if (_FunctionsAdaptedToVnl != 0) {
+                if (nSamples != _FunctionsAdaptedToVnl->get_number_of_residuals()) {
+                    doReconfigure = true;
+                }
+            }
+
+
+            if (doReconfigure) {
                 if (!this->_FunctionsT1) {
                     throw std::runtime_error("Set the FunctionsT1 object");
                 } else {
+
                     delete _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;
-                    delete _VnlFitter; _VnlFitter = 0;
-                    int nSamples = this->_FunctionsT1->getNSamples();
-                    int nDims = this->_FunctionsT1->getNDims();
                     _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nDims, nSamples, vnl_least_squares_function::use_gradient);
                     _FunctionsAdaptedToVnl->setFunctionsT1(this->_FunctionsT1);
+
+                    delete _VnlFitter; _VnlFitter = 0;
                     _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);
                 }
                 _VnlFitter->set_x_tolerance(this->getXTolerance());
@@ -113,6 +129,7 @@ namespace Ox {
                 //m_LocalFitter->set_g_tolerance(this->GetGTolerance());
                 _VnlFitter->set_max_function_evals(this->getMaxFunctionEvals());
             }
+
         };
 
     private:

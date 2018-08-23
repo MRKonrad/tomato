@@ -313,6 +313,9 @@ namespace Ox {
             multiplyFilter->SetInput( _imageCalculatorItk->GetR2Image() );
             multiplyFilter->SetConstant( 4000 );
 
+            OxColorbarFilter->SetInput(multiplyFilter->GetOutput());
+            OxColorbarFilter->SetZerosInsteadOfColorbar(true);
+
             // mkdir
             itk::FileTools::CreateDirectory(_opts->dir_output_fitparams);
 
@@ -322,7 +325,7 @@ namespace Ox {
             // export to dicom
             writer->SetFileName(
                     _opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_R2.dcm");
-            writer->SetInput(multiplyFilter->GetOutput());
+            writer->SetInput(OxColorbarFilter->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();
@@ -334,10 +337,13 @@ namespace Ox {
             // export A
             gdcmImageIO->SetMetaDataDictionary(dictionaryOutput_A);
 
+            OxColorbarFilter->SetInput(_imageCalculatorItk->GetAImage());
+            OxColorbarFilter->SetZerosInsteadOfColorbar(true);
+
             // export to dicom
             writer->SetFileName(
                     _opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_A.dcm");
-            writer->SetInput(_imageCalculatorItk->GetAImage());
+            writer->SetInput(OxColorbarFilter->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();

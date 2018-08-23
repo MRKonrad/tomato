@@ -18,8 +18,17 @@
 int main(int argc, char* argv[]) {
 
     if (argc != 2){
-        printf("\nUse: OxShmolliExe(<input_file.yaml>). Please see examples in testData\n");
-        Ox::OxShmolli2Options<int>::printAvailable();
+//        printf("\nUse: OxShmolliExe(<input_file.yaml>). Please see examples in testData\n");
+//        Ox::OxShmolli2Options<int>::printAvailable();
+
+
+        std::string inputFileName("tests/testData/Calculator_Shmolli_MOLLI_Volunteer_001_45_fileList.yaml");
+        Ox::OxShmolli2 OxShmolli2_object(inputFileName);
+        OxShmolli2_object._opts->printCurrent();
+        OxShmolli2_object.readAndSort();
+        OxShmolli2_object.calculate();
+        OxShmolli2_object.exportToDicom();
+        OxShmolli2_object.visualise();
     }
 
     else if (argc == 2){

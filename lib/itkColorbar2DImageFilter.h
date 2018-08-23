@@ -37,9 +37,14 @@ namespace itk {
         typedef typename TImage::PixelType PixelTypeIn;
         typedef typename TImage::PixelType PixelTypeOut;
 
+        itkSetMacro(ZerosInsteadOfColorbar, bool);
+        itkGetMacro(ZerosInsteadOfColorbar, bool);
+
     protected:
         /** Constructor. */
-        Colorbar2DImageFilter() {};
+        Colorbar2DImageFilter() {
+            m_ZerosInsteadOfColorbar = false;
+        };
 
         /** Destructor. */
         ~Colorbar2DImageFilter() {};
@@ -48,6 +53,9 @@ namespace itk {
         virtual void GenerateData() ITK_OVERRIDE;
 
     private:
+
+        bool m_ZerosInsteadOfColorbar;
+
         ITK_DISALLOW_COPY_AND_ASSIGN(Colorbar2DImageFilter); //purposely not implemented
 
     };
