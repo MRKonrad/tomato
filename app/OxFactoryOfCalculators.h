@@ -11,9 +11,9 @@
 #include "OxCalculatorT1Molli.h"
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1Shmolli.h"
-#include "OxShmolli2Options.h"
-
+#include "OxCalculatorT1ShmolliOriginal.h"
 #endif
+
 
 namespace Ox {
 
@@ -24,12 +24,14 @@ namespace Ox {
     static const char *calculatorsTypeNames[] = {
             "T1_MOLLI",
             "T1_SHMOLLI",
+            "T1_SHMOLLI_original",
     };
 
     enum calculatorsType_t {
         T1_MOLLI = 0,
         T1_SHMOLLI = 1,
-        lastCalculatorType = T1_SHMOLLI
+        T1_SHMOLLI_original = 2,
+        lastCalculatorType = T1_SHMOLLI_original
     };
 #else
     static const char *calculatorsTypeNames[] = {
@@ -56,6 +58,10 @@ namespace Ox {
 #ifdef USE_PRIVATE_NR2
                 case T1_SHMOLLI: {
                     calculatorT1 = new CalculatorT1Shmolli<TYPE>();
+                    break;
+                }
+                case T1_SHMOLLI_original: {
+                    calculatorT1 = new CalculatorT1ShmolliOriginal<TYPE>();
                     break;
                 }
 #endif

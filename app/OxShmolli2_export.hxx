@@ -12,8 +12,9 @@
 
 namespace Ox {
 
+    template< typename MeasureType >
     int
-    OxShmolli2
+    OxShmolli2<MeasureType>
     ::exportToDicom(){
 
         if (_opts->dir_output_map.empty()){
@@ -23,7 +24,7 @@ namespace Ox {
 
         // OxColorbarImageFilter
         typedef itk::Colorbar2DImageFilter< OutputImageType > OxColorbarImageFilterType;
-        OxColorbarImageFilterType::Pointer OxColorbarFilter = OxColorbarImageFilterType::New();
+        typename OxColorbarImageFilterType::Pointer OxColorbarFilter = OxColorbarImageFilterType::New();
         OxColorbarFilter->SetInput(_imageCalculatorItk->GetT1Image());
 
         // get the dictionary ready before export
@@ -259,7 +260,7 @@ namespace Ox {
 
         // get the writer ready before export
         typedef itk::ImageFileWriter<OutputImageType> WriterType;
-        WriterType::Pointer writer = WriterType::New();
+        typename WriterType::Pointer writer = WriterType::New();
         writer->SetUseInputMetaDataDictionary(false);
 
         // maybe this? http://www.cplusplus.com/reference/string/string/find_last_of/
@@ -309,7 +310,7 @@ namespace Ox {
 
             // scaling R2 * 4000
             typedef itk::MultiplyImageFilter< OutputImageType, OutputImageType, OutputImageType > MultiplyImageFilterType;
-            MultiplyImageFilterType::Pointer multiplyFilter = MultiplyImageFilterType::New();
+            typename MultiplyImageFilterType::Pointer multiplyFilter = MultiplyImageFilterType::New();
             multiplyFilter->SetInput( _imageCalculatorItk->GetR2Image() );
             multiplyFilter->SetConstant( 4000 );
 
@@ -355,10 +356,13 @@ namespace Ox {
             // export B
             gdcmImageIO->SetMetaDataDictionary(dictionaryOutput_B);
 
+            OxColorbarFilter->SetInput(_imageCalculatorItk->GetBImage());
+            OxColorbarFilter->SetZerosInsteadOfColorbar(true);
+
             // export to dicom
             writer->SetFileName(
                     _opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_B.dcm");
-            writer->SetInput(_imageCalculatorItk->GetBImage());
+            writer->SetInput(OxColorbarFilter->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();
@@ -370,10 +374,13 @@ namespace Ox {
             // export T1star
             gdcmImageIO->SetMetaDataDictionary(dictionaryOutput_T1star);
 
+            OxColorbarFilter->SetInput(_imageCalculatorItk->GetT1starImage());
+            OxColorbarFilter->SetZerosInsteadOfColorbar(true);
+
             // export to dicom
             writer->SetFileName(
                     _opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_T1star.dcm");
-            writer->SetInput(_imageCalculatorItk->GetT1starImage());
+            writer->SetInput(OxColorbarFilter->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();
@@ -386,13 +393,16 @@ namespace Ox {
             gdcmImageIO->SetMetaDataDictionary(dictionaryOutput_ShMolliT1Range);
 
             typedef itk::NShmolliSamplesUsedTo123ImageFilter <OutputImageType> nShmolliSamplesUsedTo123FilterType;
-            nShmolliSamplesUsedTo123FilterType::Pointer nShmolliSamplesUsedTo123Filter = nShmolliSamplesUsedTo123FilterType::New();
+            typename nShmolliSamplesUsedTo123FilterType::Pointer nShmolliSamplesUsedTo123Filter = nShmolliSamplesUsedTo123FilterType::New();
             nShmolliSamplesUsedTo123Filter->SetInput(_imageCalculatorItk->GetNShmolliSamplesUsedImage());
+
+            OxColorbarFilter->SetInput(nShmolliSamplesUsedTo123Filter->GetOutput());
+            OxColorbarFilter->SetZerosInsteadOfColorbar(true);
 
             // export to dicom
             writer->SetFileName(
                     _opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_ShMolliRange.dcm");
-            writer->SetInput(nShmolliSamplesUsedTo123Filter->GetOutput());
+            writer->SetInput(OxColorbarFilter->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();
@@ -405,10 +415,13 @@ namespace Ox {
             // export nAmebaCalls
             gdcmImageIO->SetMetaDataDictionary(dictionaryOutput_nAmebaCallFinal);
 
+            OxColorbarFilter->SetInput(_imageCalculatorItk->GetChiSqrtImage());
+            OxColorbarFilter->SetZerosInsteadOfColorbar(true);
+
             // export to dicom
             writer->SetFileName(
                     _opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_nAmebaCallFinal.dcm");
-            writer->SetInput(_imageCalculatorItk->GetChiSqrtImage());
+            writer->SetInput(OxColorbarFilter->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();
@@ -421,10 +434,13 @@ namespace Ox {
             // export RelSNRFinal
             gdcmImageIO->SetMetaDataDictionary(dictionaryOutput_RelSNRFinal);
 
+            OxColorbarFilter->SetInput(_imageCalculatorItk->GetSNRImage());
+            OxColorbarFilter->SetZerosInsteadOfColorbar(true);
+
             // export to dicom
             writer->SetFileName(
                     _opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_RelSNRFinal.dcm");
-            writer->SetInput(_imageCalculatorItk->GetSNRImage());
+            writer->SetInput(OxColorbarFilter->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();

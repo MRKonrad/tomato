@@ -38,12 +38,13 @@ namespace Ox {
      * \class OxShmolli2
      * includes factories and methods needed for calculation
      */
+    template< typename MeasureType >
     class OxShmolli2 {
 
     public:
         // typedefs primitive data types
-        typedef double InputPixelType;
-        typedef double OutputPixelType;
+        typedef MeasureType InputPixelType;
+        typedef MeasureType OutputPixelType;
 
         // typedefs image data types
         typedef itk::Image<InputPixelType, 3> InputImageType3D;
@@ -58,10 +59,10 @@ namespace Ox {
         InputPixelType *_invTimes;
         InputPixelType *_echoTimes;
         int _nSamples;
-        InputImageType3D::Pointer _imageMag;
-        InputImageType3D::Pointer _imagePha;
+        typename InputImageType3D::Pointer _imageMag;
+        typename InputImageType3D::Pointer _imagePha;
 
-        CalculatorT1ImageFilterType::Pointer _imageCalculatorItk;
+        typename CalculatorT1ImageFilterType::Pointer _imageCalculatorItk;
         //SortInvTimesImageFilterType::Pointer _sorterMag;
         //SortInvTimesImageFilterType::Pointer _sorterPha;
 

@@ -233,8 +233,8 @@ namespace itk {
             itOutVector[2].Set(LimitResult(calculator->getResults().A));
             itOutVector[3].Set(LimitResult(calculator->getResults().B));
             itOutVector[4].Set(LimitResult(calculator->getResults().T1star));
-            itOutVector[5].Set(LimitResult(calculator->getResults().SNR));
-            itOutVector[6].Set(LimitResult(calculator->getResults().ChiSqrt));
+            itOutVector[5].Set(LimitResult(calculator->getResults().ChiSqrt));
+            itOutVector[6].Set(LimitResult(calculator->getResults().SNR));
             itOutVector[7].Set(LimitResult(calculator->getResults().NShmolliSamplesUsed));
             itOutVector[8].Set(LimitResult(calculator->getResults().SD_A));
             itOutVector[9].Set(LimitResult(calculator->getResults().SD_B));

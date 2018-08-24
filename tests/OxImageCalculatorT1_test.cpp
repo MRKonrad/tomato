@@ -4,6 +4,8 @@
  * \date 2018/08/07
  */
 
+#include "CmakeConfigForOxShmolli2.h"
+
 #include "gtest/gtest.h"
 #include "OxTestImage.h"
 
@@ -17,7 +19,16 @@
 
 #include "OxImageCalculatorT1.h"
 
-TEST(OxImageCalculatorT1, calculate_no_multithread) {
+#ifdef USE_PRIVATE_NR2
+#include "OxCalculatorT1Shmolli.h"
+#include "OxFitterAmoebaPrivateNr2.h"
+#include "OxFunctionsT1CalculatorShmolli.h"
+#include "OxSignCalculatorShmolli.h"
+#include "OxStartPointCalculatorShmolli.h"
+#endif
+
+
+TEST(OxImageCalculatorT1, calculate_molli_no_multithread) {
 
     bool doPrint = false; //for debugging
 
@@ -39,17 +50,17 @@ TEST(OxImageCalculatorT1, calculate_no_multithread) {
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
-    Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
+    Ox::CalculatorT1Molli<TYPE> calculator;
 
     // configure calculator
-    calculatorT1Molli.setFunctionsT1(&functionsObject);
-    calculatorT1Molli.setFitter(&fitter);
-    calculatorT1Molli.setSignCalculator(&signCalculator);
-    calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
+    calculator.setFunctionsT1(&functionsObject);
+    calculator.setFitter(&fitter);
+    calculator.setSignCalculator(&signCalculator);
+    calculator.setStartPointCalculator(&startPointCalculator);
 
     // image calculator
     Ox::ImageCalculatorT1<TYPE> imageCalculator;
-    imageCalculator.setCalculatorT1(&calculatorT1Molli);
+    imageCalculator.setCalculatorT1(&calculator);
     imageCalculator.setInvTimes(testImage->getInvTimesPtr());
     imageCalculator.setImageMag(testImage->getImageMagPtr());
     imageCalculator.setImagePha(testImage->getImagePhaPtr());
@@ -122,9 +133,69 @@ TEST(OxImageCalculatorT1, calculate_no_multithread) {
     delete [] imageResults;
 }
 
-#ifndef CXX_STANDARD_98
+#ifdef USE_PRIVATE_NR2
+TEST(OxImageCalculatorT1, calculate_shmolli_no_multithread) {
 
-TEST(OxImageCalculatorT1, calculate_multithread) {
+    typedef double TYPE;
+
+    std::vector< std::string > filePaths;
+    filePaths.push_back("testData/blood.yaml");
+    filePaths.push_back("testData/myocardium.yaml");
+
+    int nRows = 10;
+    int nCols = 8;
+
+    Ox::TestImage<TYPE> *testImage = new Ox::TestImage<TYPE>(nRows, nCols, filePaths);
+
+    int nSamples = testImage->getNSamples();
+
+    // init the necessary objects
+    Ox::FunctionsT1CalculatorShmolli<TYPE> functionsObject;
+    Ox::FitterAmoebaPrivateNr2<TYPE> fitter;
+    Ox::SignCalculatorShmolli<TYPE> signCalculator;
+    Ox::StartPointCalculatorShmolli<TYPE> startPointCalculator;
+    Ox::CalculatorT1Shmolli<TYPE> calculator;
+
+    // configure calculator
+    calculator.setFunctionsT1(&functionsObject);
+    calculator.setFitter(&fitter);
+    calculator.setSignCalculator(&signCalculator);
+    calculator.setStartPointCalculator(&startPointCalculator);
+
+    // image calculator
+    Ox::ImageCalculatorT1<TYPE> imageCalculator;
+    imageCalculator.setCalculatorT1(&calculator);
+    imageCalculator.setInvTimes(testImage->getInvTimesPtr());
+    imageCalculator.setImageMag(testImage->getImageMagPtr());
+    imageCalculator.setImagePha(testImage->getImagePhaPtr());
+    imageCalculator.setNCols(nCols);
+    imageCalculator.setNRows(nRows);
+    imageCalculator.setNSamples(testImage->getNSamples());
+    imageCalculator.setUseThreads(false);
+
+    // alloc results
+    TYPE *imageResults = new TYPE[nCols*nRows*3];
+    imageCalculator.setImageResults(imageResults);
+
+    // calculate
+    imageCalculator.calculate();
+
+    TYPE *groundTruthResults = testImage->getImageResultsShmolliPtr();
+    std::vector<TYPE> groundTruthResultsVec (groundTruthResults, groundTruthResults + nCols*nRows*3 );
+    TYPE *calculaterResults = imageCalculator.getImageResults();
+    std::vector<TYPE> calculaterResultsVec (calculaterResults, calculaterResults + nCols*nRows*3 );
+
+    for (int i = 0; i < nCols*nRows*3; ++i) {
+        EXPECT_NEAR(groundTruthResultsVec[i], calculaterResultsVec[i], 5e-1); // !!!!!!!!!
+    }
+
+    delete testImage;
+    delete [] imageResults;
+}
+#endif
+
+#ifndef CXX_STANDARD_98
+TEST(OxImageCalculatorT1, calculate_molli_multithread) {
 
     typedef double TYPE;
 
@@ -142,17 +213,17 @@ TEST(OxImageCalculatorT1, calculate_multithread) {
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
-    Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
+    Ox::CalculatorT1Molli<TYPE> calculator;
 
     // configure
-    calculatorT1Molli.setFunctionsT1(&functionsObject);
-    calculatorT1Molli.setFitter(&fitter);
-    calculatorT1Molli.setSignCalculator(&signCalculator);
-    calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
+    calculator.setFunctionsT1(&functionsObject);
+    calculator.setFitter(&fitter);
+    calculator.setSignCalculator(&signCalculator);
+    calculator.setStartPointCalculator(&startPointCalculator);
 
     // image calculator
     Ox::ImageCalculatorT1<TYPE> imageCalculator;
-    imageCalculator.setCalculatorT1(&calculatorT1Molli);
+    imageCalculator.setCalculatorT1(&calculator);
     imageCalculator.setInvTimes(testImage->getInvTimesPtr());
     imageCalculator.setImageMag(testImage->getImageMagPtr());
     imageCalculator.setImagePha(testImage->getImagePhaPtr());
@@ -179,5 +250,4 @@ TEST(OxImageCalculatorT1, calculate_multithread) {
     delete testImage;
     delete [] imageResults;
 }
-
 #endif

@@ -12,7 +12,8 @@
 
 namespace Ox {
 
-    OxShmolli2
+    template< typename MeasureType >
+    OxShmolli2<MeasureType>
     ::OxShmolli2(std::string inputFileName){
 
         _nSamples = 0;
@@ -25,30 +26,32 @@ namespace Ox {
         //_sorterPha = SortInvTimesImageFilterType::New();
     }
 
-    OxShmolli2
+    template< typename MeasureType >
+    OxShmolli2<MeasureType>
     ::~OxShmolli2(){
         delete _opts;
         delete [] _invTimes;
         delete [] _echoTimes;
     }
 
+    template< typename MeasureType >
     int
-    OxShmolli2
+    OxShmolli2<MeasureType>
     ::readAndSort(){
-        ReadFileListFilterType::Pointer readerMag = ReadFileListFilterType::New();
+        typename ReadFileListFilterType::Pointer readerMag = ReadFileListFilterType::New();
         readerMag->SetFileList(_opts->files_magnitude);
         readerMag->Update();
 
-        ReadFileListFilterType::Pointer readerPha = ReadFileListFilterType::New();
+        typename ReadFileListFilterType::Pointer readerPha = ReadFileListFilterType::New();
         readerPha->SetFileList(_opts->files_phase);
         readerPha->Update();
 
-        SortInvTimesImageFilterType::Pointer sorterMag = SortInvTimesImageFilterType::New();
+        typename SortInvTimesImageFilterType::Pointer sorterMag = SortInvTimesImageFilterType::New();
         sorterMag->SetInvTimesNonSorted(readerMag->GetInvTimes());
         sorterMag->SetInput(readerMag->GetOutput());
         sorterMag->Update();
 
-        SortInvTimesImageFilterType::Pointer sorterPha = SortInvTimesImageFilterType::New();
+        typename SortInvTimesImageFilterType::Pointer sorterPha = SortInvTimesImageFilterType::New();
         sorterPha->SetInvTimesNonSorted(readerPha->GetInvTimes());
         sorterPha->SetInput(readerPha->GetOutput());
         sorterPha->Update();
@@ -69,8 +72,9 @@ namespace Ox {
         return 0; // EXIT_SUCCESS
     }
 
+    template< typename MeasureType >
     int
-    OxShmolli2
+    OxShmolli2<MeasureType>
     ::calculate() {
 
         // alloc and init
@@ -118,8 +122,9 @@ namespace Ox {
         return 0; // EXIT_SUCCESS
     }
 
+    template< typename MeasureType >
     int
-    OxShmolli2
+    OxShmolli2<MeasureType>
     ::visualise(){
 
 #ifdef USE_VTK
@@ -129,7 +134,7 @@ namespace Ox {
 
             // OxColorbarImageFilter
             typedef itk::Colorbar2DImageFilter< OutputImageType > ColorbarImageFilterType;
-            ColorbarImageFilterType::Pointer ColorbarFilter = ColorbarImageFilterType::New();
+            typename ColorbarImageFilterType::Pointer ColorbarFilter = ColorbarImageFilterType::New();
             ColorbarFilter->SetInput(_imageCalculatorItk->GetT1Image());
 
             QuickView viewer;
