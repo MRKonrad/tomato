@@ -9,8 +9,9 @@
 
 // TODO: reading from a file
 
-#include "vector"
-#include "string"
+#include <vector>
+#include <string>
+#include <iostream>
 #include "gdcmGlobal.h"
 #include "gdcmBase64.h"
 

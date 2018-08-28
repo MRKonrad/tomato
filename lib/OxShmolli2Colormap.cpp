@@ -10,7 +10,7 @@ std::string getEncodedSting(std::vector < uint16_t > encodeSource){
 
     // because I want to use &vector.front()
     if ( encodeSource.size() == 0 ){
-      printf("getEncodedSting got an empty vector to encode, returning empty string\n");
+      std::cerr << "getEncodedSting got an empty vector to encode, returning empty string" << std::endl;
       return std::string();
     }
     // get the pointer to the data from the input vector
