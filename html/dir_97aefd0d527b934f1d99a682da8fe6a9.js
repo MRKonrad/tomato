@@ -40,7 +40,8 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "OxFunctionsT1Basic.hxx", "_ox_functions_t1_basic_8hxx.html", null ],
     [ "OxImageCalculatorT1.h", "_ox_image_calculator_t1_8h_source.html", null ],
     [ "OxImageCalculatorT1.hxx", "_ox_image_calculator_t1_8hxx_source.html", null ],
-    [ "OxShmolli2Colormap.h", "_ox_shmolli2_colormap_8h_source.html", null ],
+    [ "OxShmolli2Colormap.cpp", "_ox_shmolli2_colormap_8cpp.html", "_ox_shmolli2_colormap_8cpp" ],
+    [ "OxShmolli2Colormap.h", "_ox_shmolli2_colormap_8h.html", "_ox_shmolli2_colormap_8h" ],
     [ "OxShmolli2Parser.h", "_ox_shmolli2_parser_8h.html", [
       [ "OxShmolli2Parser", "class_ox_1_1_ox_shmolli2_parser.html", "class_ox_1_1_ox_shmolli2_parser" ]
     ] ],
