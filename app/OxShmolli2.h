@@ -27,6 +27,7 @@
 #include "itkMultiplyImageFilter.h"
 #include "itkImageFileWriter.h"
 #include "itkFileTools.h"
+#include "itkAdaptImageFilter.h"
 
 #ifdef USE_VTK
 #include "QuickView.h"
@@ -47,11 +48,12 @@ namespace Ox {
         typedef int OutputPixelType;
 
         // typedefs image data types
-        typedef itk::Image<InputPixelType, 3> InputImageType3D;
+        typedef itk::Image<InputPixelType, 3> ImageType3D;
+        typedef itk::Image<InputPixelType, 2> ImageType2D;
         typedef itk::Image<OutputPixelType, 2> OutputImageType;
-        typedef itk::ReadFileListFilter<InputImageType3D> ReadFileListFilterType;
-        typedef itk::SortInvTimesImageFilter<InputImageType3D, InputImageType3D> SortInvTimesImageFilterType;
-        typedef itk::CalculatorT1ImageFilter<InputImageType3D, OutputImageType> CalculatorT1ImageFilterType;
+        typedef itk::ReadFileListFilter<ImageType3D> ReadFileListFilterType;
+        typedef itk::SortInvTimesImageFilter<ImageType3D, ImageType3D> SortInvTimesImageFilterType;
+        typedef itk::CalculatorT1ImageFilter<ImageType3D, ImageType2D> CalculatorT1ImageFilterType;
         typedef itk::MetaDataDictionary DictionaryType;
 
         // member variables
@@ -59,8 +61,8 @@ namespace Ox {
         InputPixelType *_invTimes;
         InputPixelType *_echoTimes;
         int _nSamples;
-        typename InputImageType3D::Pointer _imageMag;
-        typename InputImageType3D::Pointer _imagePha;
+        typename ImageType3D::Pointer _imageMag;
+        typename ImageType3D::Pointer _imagePha;
 
         typename CalculatorT1ImageFilterType::Pointer _imageCalculatorItk;
         //SortInvTimesImageFilterType::Pointer _sorterMag;

@@ -27,9 +27,15 @@ namespace Ox {
          */
         virtual int calculate(){
             this->_Results = CalculatorT1Results<MeasureType>();
+
             // calculate if higher than the cutoff
             if (KWUtil::calcMeanArray(this->getNSamples(), this->getSigMag()) < this->getMeanCutOff()) {
                 return 0; // EXIT_SUCCESS
+            }
+
+            // get ready, continue if prepareToCalculate EXIT_SUCCESS
+            if (this->prepareToCalculate() == 1) {
+                return 1; // EXIT_FAILURE
             }
 
             this->_Results = calculateMolli( this->getNSamples(),
@@ -58,11 +64,6 @@ namespace Ox {
             MeasureType lastValueTemp = 1e32;
             MeasureType tempParameters[3];
             MeasureType tempResults[3];
-
-            // get ready, continue if prepareToCalculate EXIT_SUCCESS
-//            if (this->prepareToCalculate() == 1) {
-//                return resultsStruc;
-//            }
 
             // configure Functions object and fitter object
             this->getFunctionsT1()->setNSamples(nSamples);
@@ -107,10 +108,9 @@ namespace Ox {
                 }
             }
 
-
             if (lastValue != 1e32 && tempResults[0] != 0) {
-                resultsStruc.T1 = tempResults[2] * (tempResults[1] / tempResults[0] - 1.);
-                // tempResults.R2 = this->CalculateR2AbsFromModel(invTimes, sigMag, curPos); //TODO
+                resultsStruc.T1     = tempResults[2] * (tempResults[1] / tempResults[0] - 1.);
+                resultsStruc.R2     = calculateR2AbsFromModel(invTimes, signal, tempResults);
                 resultsStruc.A      = tempResults[0];
                 resultsStruc.B      = tempResults[1];
                 resultsStruc.T1star = tempResults[2];
@@ -134,6 +134,68 @@ namespace Ox {
 
             return resultsStruc;
         }
+
+        MeasureType calculateR2AbsFromModel(const MeasureType* invTimes, const MeasureType* signal, const MeasureType* parameters) {
+
+            int nSamples = this->getNSamples();
+            MeasureType *absFitted  = new MeasureType[nSamples];
+            MeasureType *absYsignal = new MeasureType[nSamples];
+
+            MeasureType A = parameters[0];
+            MeasureType B = parameters[1];
+            MeasureType T1star = parameters[2];
+
+            for (int i = 0; i < nSamples; i++){
+                MeasureType fitted;
+                fitted = A - B * exp(-invTimes[i] / T1star);
+                absFitted[i] = fabs(fitted);
+                absYsignal[i] = fabs(signal[i]);
+            }
+
+            double result = KWUtil::calcR2cor(nSamples, absFitted, absYsignal);
+
+            delete[] absFitted;
+            delete[] absYsignal;
+            return result;
+        }
+
+//        MeasureType* calculateInvCovarianceMatrix(const MeasureType* invTimes, const MeasureType* residuals, const MeasureType* parameters) {
+//
+//            matrixType invCovarianceMatrix(3,3, 0); // indexing by column,row
+//            //invCovarianceMatrix.fill_diagonal(1);
+//
+//            MeasureType A = parameters[0];
+//            MeasureType B = parameters[1];
+//            MeasureType T1star = parameters[2];
+//            MeasureType T1 = (B/A-1)*T1star;
+//
+//            MeasureType dydA = 0;
+//            MeasureType dydB = 0;
+//            MeasureType dydT1 = 0;
+//
+//            for (unsigned int i = 0; i < invTimes.size(); ++i){
+//                MeasureType invTime = invTimes[i];
+//                MeasureType myexp = exp ( -invTime * ( B/A - 1) / T1);
+//                dydA  = 1 - B * myexp * invTime * B / ( T1 * A * A);
+//                dydB  = -myexp + B * myexp * invTime / ( T1 * A );
+//                dydT1 = -B * myexp * invTime * (B/A-1) / ( T1 * T1);
+//
+//                invCovarianceMatrix( 0, 0 ) += dydT1 * dydT1;
+//                invCovarianceMatrix( 0, 1 ) += dydA  * dydT1;
+//                invCovarianceMatrix( 0, 2 ) += dydB  * dydT1;
+//                invCovarianceMatrix( 1, 0 ) += dydT1 * dydA;
+//                invCovarianceMatrix( 1, 1 ) += dydA  * dydA;
+//                invCovarianceMatrix( 1, 2 ) += dydB  * dydA;
+//                invCovarianceMatrix( 2, 0 ) += dydT1 * dydB;
+//                invCovarianceMatrix( 2, 1 ) += dydA  * dydB;
+//                invCovarianceMatrix( 2, 2 ) += dydB  * dydB;
+//            }
+//
+//            MeasureType SD = KWUtil::calcStandardDeviationArray(residuals.size(), residuals.data_block());
+//            invCovarianceMatrix = invCovarianceMatrix/(SD*SD);
+//
+//            return invCovarianceMatrix;
+//        }
 
         /**
          * constructor

@@ -12,6 +12,23 @@
 
 namespace Ox {
 
+    class CastPixelAccessor
+    {
+    public:
+        typedef double InternalType;
+        typedef int ExternalType;
+
+        static void Set(InternalType & output, const ExternalType & input)
+        {
+            output = static_cast<InternalType>( input );
+        }
+
+        static ExternalType Get( const InternalType & input )
+        {
+            return static_cast<ExternalType>( input );
+        }
+    };
+
     template< typename MeasureType >
     int
     OxShmolli2<MeasureType>
@@ -23,7 +40,7 @@ namespace Ox {
         }
 
         // OxColorbarImageFilter
-        typedef itk::Colorbar2DImageFilter< OutputImageType > OxColorbarImageFilterType;
+        typedef itk::Colorbar2DImageFilter< ImageType2D > OxColorbarImageFilterType;
         typename OxColorbarImageFilterType::Pointer OxColorbarFilter = OxColorbarImageFilterType::New();
         OxColorbarFilter->SetInput(_imageCalculatorItk->GetT1Image());
 
@@ -258,6 +275,10 @@ namespace Ox {
         ImageIOType::Pointer gdcmImageIO = ImageIOType::New();
         gdcmImageIO->KeepOriginalUIDOn();
 
+        // to cast
+        typedef itk::AdaptImageFilter<ImageType2D, OutputImageType, CastPixelAccessor> ImageAdaptorType;
+        typename ImageAdaptorType::Pointer adaptor = ImageAdaptorType::New();
+
         // get the writer ready before export
         typedef itk::ImageFileWriter<OutputImageType> WriterType;
         typename WriterType::Pointer writer = WriterType::New();
@@ -275,9 +296,9 @@ namespace Ox {
             gdcmImageIO->SetMetaDataDictionary(dictionaryOutput_T1Color);
 
             // export to dicom
-            writer->SetFileName(
-                    _opts->dir_output_map + KWUtil::PathSeparator() + newSeriesNumber_T1 + "_T1color.dcm");
-            writer->SetInput(OxColorbarFilter->GetOutput());
+            adaptor->SetInput(OxColorbarFilter->GetOutput());
+            writer->SetFileName(_opts->dir_output_map + KWUtil::PathSeparator() + newSeriesNumber_T1 + "_T1color.dcm");
+            writer->SetInput(adaptor->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();
@@ -290,9 +311,9 @@ namespace Ox {
             gdcmImageIO->SetMetaDataDictionary(dictionaryOutput_T1);
 
             // export to dicom
-            writer->SetFileName(
-                    _opts->dir_output_map + KWUtil::PathSeparator() + newSeriesNumber_T1 + "_T1.dcm");
-            writer->SetInput(OxColorbarFilter->GetOutput());
+            adaptor->SetInput(OxColorbarFilter->GetOutput());
+            writer->SetFileName( _opts->dir_output_map + KWUtil::PathSeparator() + newSeriesNumber_T1 + "_T1.dcm");
+            writer->SetInput(adaptor->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();
@@ -309,7 +330,7 @@ namespace Ox {
             //std::cout << "Saving to: " << _opts->dir_output_fitparams << std::flush;
 
             // scaling R2 * 4000
-            typedef itk::MultiplyImageFilter< OutputImageType, OutputImageType, OutputImageType > MultiplyImageFilterType;
+            typedef itk::MultiplyImageFilter< ImageType2D, ImageType2D, ImageType2D > MultiplyImageFilterType;
             typename MultiplyImageFilterType::Pointer multiplyFilter = MultiplyImageFilterType::New();
             multiplyFilter->SetInput( _imageCalculatorItk->GetR2Image() );
             multiplyFilter->SetConstant( 4000 );
@@ -324,9 +345,9 @@ namespace Ox {
             gdcmImageIO->SetMetaDataDictionary(dictionaryOutput_R2);
 
             // export to dicom
-            writer->SetFileName(
-                    _opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_R2.dcm");
-            writer->SetInput(OxColorbarFilter->GetOutput());
+            adaptor->SetInput(OxColorbarFilter->GetOutput());
+            writer->SetFileName(_opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_R2.dcm");
+            writer->SetInput(adaptor->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();
@@ -342,9 +363,9 @@ namespace Ox {
             OxColorbarFilter->SetZerosInsteadOfColorbar(true);
 
             // export to dicom
-            writer->SetFileName(
-                    _opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_A.dcm");
-            writer->SetInput(OxColorbarFilter->GetOutput());
+            adaptor->SetInput(OxColorbarFilter->GetOutput());
+            writer->SetFileName(_opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_A.dcm");
+            writer->SetInput(adaptor->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();
@@ -360,9 +381,9 @@ namespace Ox {
             OxColorbarFilter->SetZerosInsteadOfColorbar(true);
 
             // export to dicom
-            writer->SetFileName(
-                    _opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_B.dcm");
-            writer->SetInput(OxColorbarFilter->GetOutput());
+            adaptor->SetInput(OxColorbarFilter->GetOutput());
+            writer->SetFileName(_opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_B.dcm");
+            writer->SetInput(adaptor->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();
@@ -378,9 +399,9 @@ namespace Ox {
             OxColorbarFilter->SetZerosInsteadOfColorbar(true);
 
             // export to dicom
-            writer->SetFileName(
-                    _opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_T1star.dcm");
-            writer->SetInput(OxColorbarFilter->GetOutput());
+            adaptor->SetInput(OxColorbarFilter->GetOutput());
+            writer->SetFileName(_opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_T1star.dcm");
+            writer->SetInput(adaptor->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();
@@ -392,7 +413,7 @@ namespace Ox {
             // export ShMolliRange
             gdcmImageIO->SetMetaDataDictionary(dictionaryOutput_ShMolliT1Range);
 
-            typedef itk::NShmolliSamplesUsedTo123ImageFilter <OutputImageType> nShmolliSamplesUsedTo123FilterType;
+            typedef itk::NShmolliSamplesUsedTo123ImageFilter <ImageType2D> nShmolliSamplesUsedTo123FilterType;
             typename nShmolliSamplesUsedTo123FilterType::Pointer nShmolliSamplesUsedTo123Filter = nShmolliSamplesUsedTo123FilterType::New();
             nShmolliSamplesUsedTo123Filter->SetInput(_imageCalculatorItk->GetNShmolliSamplesUsedImage());
 
@@ -400,9 +421,9 @@ namespace Ox {
             OxColorbarFilter->SetZerosInsteadOfColorbar(true);
 
             // export to dicom
-            writer->SetFileName(
-                    _opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_ShMolliRange.dcm");
-            writer->SetInput(OxColorbarFilter->GetOutput());
+            adaptor->SetInput(OxColorbarFilter->GetOutput());
+            writer->SetFileName(_opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_ShMolliRange.dcm");
+            writer->SetInput(adaptor->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();
@@ -419,9 +440,9 @@ namespace Ox {
             OxColorbarFilter->SetZerosInsteadOfColorbar(true);
 
             // export to dicom
-            writer->SetFileName(
-                    _opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_nAmebaCallFinal.dcm");
-            writer->SetInput(OxColorbarFilter->GetOutput());
+            adaptor->SetInput(OxColorbarFilter->GetOutput());
+            writer->SetFileName(_opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_nAmebaCallFinal.dcm");
+            writer->SetInput(adaptor->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();
@@ -438,9 +459,9 @@ namespace Ox {
             OxColorbarFilter->SetZerosInsteadOfColorbar(true);
 
             // export to dicom
-            writer->SetFileName(
-                    _opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_RelSNRFinal.dcm");
-            writer->SetInput(OxColorbarFilter->GetOutput());
+            adaptor->SetInput(OxColorbarFilter->GetOutput());
+            writer->SetFileName(_opts->dir_output_fitparams + KWUtil::PathSeparator() + newSeriesNumber_R2 + "_RelSNRFinal.dcm");
+            writer->SetInput(adaptor->GetOutput());
             writer->SetImageIO(gdcmImageIO);
             try {
                 writer->Update();

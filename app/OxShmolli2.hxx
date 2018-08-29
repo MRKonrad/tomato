@@ -133,7 +133,7 @@ namespace Ox {
         if (_opts->visualise) {
 
             // OxColorbarImageFilter
-            typedef itk::Colorbar2DImageFilter< OutputImageType > ColorbarImageFilterType;
+            typedef itk::Colorbar2DImageFilter< ImageType2D > ColorbarImageFilterType;
             typename ColorbarImageFilterType::Pointer ColorbarFilter = ColorbarImageFilterType::New();
             ColorbarFilter->SetInput(_imageCalculatorItk->GetT1Image());
 
