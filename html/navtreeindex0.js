@@ -205,10 +205,11 @@ var NAVTREEINDEX0 =
 "class_ox_1_1_calculator_t1.html#afa4db4321ca3013a14bcbafbf2d6413a":[1,0,1,7,42],
 "class_ox_1_1_calculator_t1.html#affc80bde70a6f44f2474e9e0606ba3e0":[1,0,1,7,16],
 "class_ox_1_1_calculator_t1_molli.html":[1,0,1,8],
+"class_ox_1_1_calculator_t1_molli.html#a432538040b32ae95f08c74f2b46d921c":[1,0,1,8,3],
 "class_ox_1_1_calculator_t1_molli.html#ab1892de078822ea106fcaebcf81047be":[1,0,1,8,0],
 "class_ox_1_1_calculator_t1_molli.html#ad6b1b36c0e06df8b1b05b06b4c1f10f1":[1,0,1,8,1],
-"class_ox_1_1_calculator_t1_molli.html#adb4f50cdf9dabf4890b4d28194d0522b":[1,0,1,8,4],
-"class_ox_1_1_calculator_t1_molli.html#ae0fde362fbe16c4c40dee96330b4a676":[1,0,1,8,3],
+"class_ox_1_1_calculator_t1_molli.html#adb4f50cdf9dabf4890b4d28194d0522b":[1,0,1,8,5],
+"class_ox_1_1_calculator_t1_molli.html#ae0fde362fbe16c4c40dee96330b4a676":[1,0,1,8,4],
 "class_ox_1_1_calculator_t1_molli.html#aff65007fe06dbce9449fc42aead8a6bd":[1,0,1,8,2],
 "class_ox_1_1_factory_of_calculators.html":[1,0,1,1],
 "class_ox_1_1_factory_of_fitters.html":[1,0,1,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "class_ox_1_1_fitter_amoeba_vnl.html#a1e111bef9b9c7b8cda195729f0eafe7c":[1,0,1,10,1],
 "class_ox_1_1_fitter_amoeba_vnl.html#a4c0c209a5006908c027c5a859b63b385":[1,0,1,10,7],
 "class_ox_1_1_fitter_amoeba_vnl.html#a535465acadc24ac91302707f0ca60af2":[1,0,1,10,6],
-"class_ox_1_1_fitter_amoeba_vnl.html#a7525477163c41620aa3666dcd68bcc2f":[1,0,1,10,0],
-"class_ox_1_1_fitter_amoeba_vnl.html#a80f876905cc4f5019dbbcfdbec257f79":[1,0,1,10,3]
+"class_ox_1_1_fitter_amoeba_vnl.html#a7525477163c41620aa3666dcd68bcc2f":[1,0,1,10,0]
 };
