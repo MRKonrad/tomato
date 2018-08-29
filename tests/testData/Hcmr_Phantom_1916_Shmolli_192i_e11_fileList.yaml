@@ -14,7 +14,7 @@
 # dir_output_fitparams: <directory path in quites>
 #  output_fitparams_series_number: <number, for example 10008>
 #
-# parameter_to_map: <T1_Molli/T1_Shmolli/T2>
+# parameter_to_map: <T1_Molli/T1_Shmolli/T1_SHMOLLI_original>
 # functions_object: <FunctionsBasic/FunctionsShmolli>
 # fitting_method: <AmoebaVnl/LevMarVnl/AmoebaPrivateNr2>
 #  fTolerance: <number, for example 1e-12>

@@ -47,6 +47,7 @@ namespace Ox {
         };
 
         void disp(){
+            std::cout << std::endl;
             std::cout << "CalculatorT1Results: " << this << std::endl;
             std::cout << "A: " << A << std::endl;
             std::cout << "B: " << B << std::endl;

@@ -12,7 +12,7 @@
 #ifdef USE_ITK
 #ifdef USE_PRIVATE_NR2
 
-TEST(OxCalculator_SameResultsAsDicom, readAndSort) {
+TEST(OxCalculator_SameResultsAsDicom, doAnything) {
 
     typedef double TYPE;
 
@@ -37,8 +37,8 @@ TEST(OxCalculator_SameResultsAsDicom, readAndSort) {
     TYPE *invTimes = originalShmolliDicomReader._invTimes;
 
     Ox::OriginalShmolliDicomReader<TYPE>::Image2dType::IndexType index2d;
-    index2d[0] = 309-1;
-    index2d[1] = 103-1;
+    index2d[0] = 41-1;
+    index2d[1] = 199-1;
 
     Ox::OriginalShmolliDicomReader<TYPE>::Image3dType::IndexType index3d;
     index3d[0] = index2d[0];
@@ -51,9 +51,9 @@ TEST(OxCalculator_SameResultsAsDicom, readAndSort) {
     originalShmolliDicomReader.copyFromImage(sigMag, originalShmolliDicomReader._imageMag, index3d);
     originalShmolliDicomReader.copyFromImage(sigPha, originalShmolliDicomReader._imagePha, index3d);
 
+    KWUtil::printArray(nSamples, invTimes, "\n");
     KWUtil::printArray(nSamples, sigMag, "\n");
     KWUtil::printArray(nSamples, sigPha, "\n");
-    KWUtil::printArray(nSamples, invTimes, "\n");
 
     // init the necessary objects
     Ox::FunctionsT1CalculatorShmolli<TYPE> functionsObject;
@@ -61,6 +61,9 @@ TEST(OxCalculator_SameResultsAsDicom, readAndSort) {
     Ox::SignCalculatorShmolli<TYPE> signCalculator;
     Ox::StartPointCalculatorShmolli<TYPE> startPointCalculator;
     Ox::CalculatorT1Shmolli<TYPE> calculator;
+
+//    fitter.setTrace(true);
+//    fitter.setVerbose(true);
 
     // configure
     calculator.setFunctionsT1(&functionsObject);
@@ -71,18 +74,48 @@ TEST(OxCalculator_SameResultsAsDicom, readAndSort) {
     // set the data
     calculator.setNSamples(nSamples);
     calculator.setInvTimes(invTimes);
-    calculator.setSigPha(sigMag);
-    calculator.setSigMag(sigPha);
+    calculator.setSigMag(sigMag);
+    calculator.setSigPha(sigPha);
+    calculator.setMeanCutOff(10);
 
+    //calculator.prepareToCalculate();
     calculator.calculate();
+    calculator.disp();
 
     KWUtil::printArray(nSamples, calculator.getSigns(), "\n");
     KWUtil::printArray(nSamples, calculator.getSignal(), "\n");
 
     std::cout << std::endl ;
+    std::cout << "oryginal/calculated"<< std::endl ;
     std::cout << originalShmolliDicomReader._imageA->GetPixel(index2d) << " " << calculator.getResults().A << std::endl ;
     std::cout << originalShmolliDicomReader._imageB->GetPixel(index2d) << " " <<calculator.getResults().B << std::endl ;
     std::cout << originalShmolliDicomReader._imageT1star->GetPixel(index2d) << " " <<calculator.getResults().T1star << std::endl ;
+
+//    TYPE temp1[3] = {120, 28, 50000};
+//
+//    functionsObject.setNSamples(7);
+//    functionsObject.setSignal(sigMag);
+//    functionsObject.setInvTimes(invTimes);
+//
+//    functionsObject.setParameters(temp1);
+//
+//    functionsObject.disp();
+//
+//    std::cout << functionsObject.calcCostValue() << std::endl ;
+//
+//    TYPE temp2[3] = {100,4,4818};
+//    functionsObject.setParameters(temp2);
+//    std::cout << functionsObject.calcCostValue() << std::endl ;
+//
+//
+//    OxOld::MOLLI_amoeba_fit FitData( 1.e-12, 4000, true);
+//    FitData.siMolliN = 7;
+//    FitData.sdMolliBestCost = 1e+32;
+//    KWUtil::copyArrayToArray(7,FitData.sdMolliSign, sigMag);
+//    KWUtil::copyArrayToArray(7,FitData.sdMollitTIs, invTimes);
+//    std::cout << FitData.func(temp1) << std::endl;
+
+
 
 //    EXPECT_DOUBLE_EQ(calculator.getResults().A, 0);
 //    EXPECT_DOUBLE_EQ(calculator.getResults().B, 0);

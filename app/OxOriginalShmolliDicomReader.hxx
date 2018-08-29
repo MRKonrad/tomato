@@ -166,6 +166,7 @@ namespace Ox {
     int
     OriginalShmolliDicomReader<MeasureType>
     ::copyFromImage(MeasureType* array, const typename Image3dType::Pointer image, const typename Image3dType::IndexType index){
+
         typename Image3dType::SizeType size = image->GetLargestPossibleRegion().GetSize();
         typename Image3dType::IndexType tempIndex = index;
 

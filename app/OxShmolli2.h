@@ -44,7 +44,7 @@ namespace Ox {
     public:
         // typedefs primitive data types
         typedef MeasureType InputPixelType;
-        typedef MeasureType OutputPixelType;
+        typedef int OutputPixelType;
 
         // typedefs image data types
         typedef itk::Image<InputPixelType, 3> InputImageType3D;

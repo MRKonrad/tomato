@@ -52,7 +52,7 @@ namespace Ox {
                 }
 #ifdef USE_PRIVATE_NR2
                 case FunctionsShmolli: {
-                    return new FunctionsT1Basic<TYPE>();
+                    return new FunctionsT1CalculatorShmolli<TYPE>();
                 }
 #endif
                 default:

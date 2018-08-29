@@ -60,9 +60,9 @@ namespace Ox {
             MeasureType tempResults[3];
 
             // get ready, continue if prepareToCalculate EXIT_SUCCESS
-            if (this->prepareToCalculate() == 1) {
-                return resultsStruc;
-            }
+//            if (this->prepareToCalculate() == 1) {
+//                return resultsStruc;
+//            }
 
             // configure Functions object and fitter object
             this->getFunctionsT1()->setNSamples(nSamples);

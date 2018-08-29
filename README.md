@@ -16,10 +16,10 @@ Original ShMOLLI (and based on it OxShmolli2) uses code based on Numerical Recip
 # Software Requirements Specification
 
 1. Calculate ShMOLLI with exactly the same results as these from the previous implementation.
-2. API for easily switching between different:
-    * map calculation algorithms,
-    * fitting algorithm,
-    * model function and corresponding energy function.
+2. API for easily choosing
+    * a map calculation algorithm,
+    * a fitting algorithm,
+    * a model function and corresponding energy function.
 3. Compatibility with:
     * main operating systems (Windows, MacOS, Linux),
     * C++98 (to include the library in older code).

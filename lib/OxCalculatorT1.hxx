@@ -291,6 +291,7 @@ namespace Ox {
         getStartPointCalculator()->setSigMag(getSigMag());
         getStartPointCalculator()->setSigns(getSigns());
         getStartPointCalculator()->setCalculatedStartPoint(_StartPoint);
+
         getStartPointCalculator()->calculateStartPoint();
 
         return 0; // EXIT_SUCCESS
@@ -313,7 +314,7 @@ namespace Ox {
         KWUtil::printArray((bool)_SigPha, nSamples, _SigPha,           (char*)"\nSigPha:      ");
         KWUtil::printArray((bool)_Signal, nSamples, _Signal,           (char*)"\nSignal:      ");
         KWUtil::printArray((bool)_Signs, nSamples, _Signs,             (char*)"\nSigns:       ");
-        KWUtil::printArray((bool)_nDims, getStartPoint(),              (char*)"\nStart point: ");
+        KWUtil::printArray((bool)_StartPoint, _nDims, _StartPoint,     (char*)"\nStart point: ");
         std::cout << std::endl;
         if(_FunctionsT1) {
             std::cout << "This CalculatorT1 contains the following FunctionsT1 object: ";

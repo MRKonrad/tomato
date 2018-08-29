@@ -45,7 +45,13 @@ namespace Ox {
 
 
         void disp(){
-            std::cout << "\nTODO: implement StartPointCalculator disp " << this << std::endl;
+            std::cout << "\nYou called disp() on a StartPointCalculator object " << this
+                      << " with nSamples: " << _nSamples
+                      << " nDims: " << _nDims;
+            KWUtil::printArray((bool)_InvTimes, _nSamples, _InvTimes,       (char*)"\nInvTimes:    ");
+            KWUtil::printArray((bool)_SigMag, _nSamples, _SigMag,           (char*)"\nSigMag:      ");
+            KWUtil::printArray((bool)_Signs, _nSamples, _Signs,             (char*)"\nSigns:       ");
+            KWUtil::printArray(_nDims, this->getCalculatedStartPoint(),     (char*)"\nStart point: ");
         }
 
         /**
