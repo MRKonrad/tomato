@@ -73,7 +73,7 @@ before_install:
     fi
   # install coverage tools only in linux g++
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
-      pip install codecov
+      pip install codecov;
     fi
 
 script:
