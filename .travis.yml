@@ -45,6 +45,7 @@ addons:
       - doxygen-latex
       - doxygen-gui
       - graphviz
+      - lcov
 
 before_install:
   - cd ${TRAVIS_BUILD_DIR}
@@ -62,7 +63,7 @@ before_install:
       export USE_ITK="ON";
     fi
   - cd ${TRAVIS_BUILD_DIR};
-  # condition for the extended build (with coveralls and documentation)
+  # condition for the extended build (with coverage and documentation)
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98" ]; then
       EXTENDED_BUILD="ON";
     fi
@@ -70,16 +71,17 @@ before_install:
   - if [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98" ]; then
       export DEPLOY_BUILD="ON";
     fi
-  # install coveralls only in linux g++
+  # install coverage tools only in linux g++
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
-      pip install --user cpp-coveralls;
+      # pip install --user cpp-coveralls;
+      pip install codecov
     fi
 
 script:
   # configure and generate
   - cmake . -DUSE_NR2=OFF -DUSE_NR3=OFF -DUSE_PRIVATE_NR2=OFF -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DUSE_ITK=${USE_ITK}
 
-  # add coverage option for coveralls (only in linux g++)
+  # add coverage option (only in linux g++)
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
       cmake -DCOVERAGE=1 . ;
     fi
@@ -96,7 +98,13 @@ script:
 after_success:
   # Run coverage analysis only in linux g++
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
-      coveralls --root . -E ".*CMakeFiles.*" --exclude CMakeTmp --exclude thirdParty --exclude include --exclude install --exclude CmakeConfigForOxShmolli2.h;
+      cd $TRAVIS_BUILD_DIR
+      lcov --no-external --directory . --capture --output-file coverage.info # capture coverage info
+      lcov --remove coverage.info 'deleteme/*' 'thirParty/*' 'tests/*' -o coverage_filtered.info`
+      lcov --list coverage.info #debug info
+      # Uploading report to CodeCov
+      bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
+      # coveralls --root . -E ".*CMakeFiles.*" --exclude CMakeTmp --exclude thirdParty --exclude include --exclude install --exclude CmakeConfigForOxShmolli2.h;
     fi
   # Generate and deploy documentation only in linux g++
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
