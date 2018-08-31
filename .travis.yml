@@ -2,7 +2,7 @@
 #   OxShmolli2   #
 #------------------------------------#
 
-sudo: OFF
+sudo: ON
 language: cpp
 
 os:
@@ -73,7 +73,7 @@ before_install:
     fi
   # install coverage tools only in linux g++
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
-      pip install codecov;
+      sudo pip install codecov;
     fi
 
 script:
