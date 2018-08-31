@@ -73,7 +73,6 @@ before_install:
     fi
   # install coverage tools only in linux g++
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
-      # pip install --user cpp-coveralls;
       pip install codecov
     fi
 
@@ -96,15 +95,12 @@ script:
   - cd $TRAVIS_BUILD_DIR
 
 after_success:
-  # Run coverage analysis only in linux g++
+  # Run coverage analysis only in linux g++. Eval because travis wants to parse -- as part of yaml block
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
-      cd $TRAVIS_BUILD_DIR
-      lcov --no-external --directory . --capture --output-file coverage.info # capture coverage info
-      lcov --remove coverage.info 'deleteme/*' 'thirParty/*' 'tests/*' -o coverage_filtered.info`
-      lcov --list coverage.info #debug info
-      # Uploading report to CodeCov
-      bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
-      # coveralls --root . -E ".*CMakeFiles.*" --exclude CMakeTmp --exclude thirdParty --exclude include --exclude install --exclude CmakeConfigForOxShmolli2.h;
+      eval "lcov --no-external --directory . --capture --output-file coverage.info" ;
+      eval "lcov --remove coverage.info 'deleteme/*' 'thirParty/*' 'tests/*' -o coverage_filtered.info" ;
+      eval "lcov --list coverage.info" ;
+      bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports" ;
     fi
   # Generate and deploy documentation only in linux g++
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
