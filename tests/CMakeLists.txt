@@ -26,9 +26,9 @@ if(OxShmolli2_BUILD_TESTING)
     file(COPY testData DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
     file(GLOB_RECURSE TESTDATA ${PROJECT_SOURCE_DIR}/tests/testData/*.*)
 
-    install (TARGETS OxShmolli2Tests DESTINATION ${CMAKE_INSTALL_PREFIX}/install/tests)
-    # install (FILES ${TESTDATA} DESTINATION ${CMAKE_INSTALL_PREFIX}/install/tests/testData/)
-    install (DIRECTORY ${PROJECT_SOURCE_DIR}/tests/testData/ DESTINATION ${CMAKE_INSTALL_PREFIX}/install/tests/testData)
+    install (TARGETS OxShmolli2Tests DESTINATION ${CMAKE_INSTALL_PREFIX}/tests)
+    # install (FILES ${TESTDATA} DESTINATION ${CMAKE_INSTALL_PREFIX}/tests/testData/)
+    install (DIRECTORY ${PROJECT_SOURCE_DIR}/tests/testData/ DESTINATION ${CMAKE_INSTALL_PREFIX}/tests/testData)
 
     ########################
     ### TESTING COVERAGE ###

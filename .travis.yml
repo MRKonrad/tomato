@@ -2,7 +2,6 @@
 #   OxShmolli2   #
 #------------------------------------#
 
-sudo: ON
 language: cpp
 
 os:
@@ -48,9 +47,23 @@ addons:
       - lcov
 
 before_install:
+  # condition for the extended build (with coverage and documentation)
+  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98" ]; then
+      EXTENDED_BUILD="ON";
+    fi
+  # condition for the deployment build
+  - if [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98" ]; then
+      export DEPLOY_BUILD="ON";
+    fi
+
+install:
+  # install coverage tools only in linux g++
+  - if [ "$EXTENDED_BUILD" == "ON" ]; then
+      sudo pip install codecov;
+    fi
+
   - cd ${TRAVIS_BUILD_DIR}
   # download ITK
-  - export USE_ITK="OFF"
   - cd ..;
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
       curl -L -O https://www.dropbox.com/s/zi7wfc9qev2529d/ITK413_osx_install.zip;
@@ -63,22 +76,10 @@ before_install:
       export USE_ITK="ON";
     fi
   - cd ${TRAVIS_BUILD_DIR};
-  # condition for the extended build (with coverage and documentation)
-  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98" ]; then
-      EXTENDED_BUILD="ON";
-    fi
-  # condition for the deployment build
-  - if [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98" ]; then
-      export DEPLOY_BUILD="ON";
-    fi
-  # install coverage tools only in linux g++
-  - if [ "$EXTENDED_BUILD" == "ON" ]; then
-      sudo pip install codecov;
-    fi
 
 script:
   # configure and generate
-  - cmake . -DUSE_NR2=OFF -DUSE_NR3=OFF -DUSE_PRIVATE_NR2=OFF -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DUSE_ITK=${USE_ITK}
+  - cmake . -DCMAKE_INSTALL_PREFIX=install -DUSE_NR2=OFF -DUSE_NR3=OFF -DUSE_PRIVATE_NR2=OFF -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DUSE_ITK=${USE_ITK}
 
   # add coverage option (only in linux g++)
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
@@ -89,7 +90,7 @@ script:
   - make -j8
   - make install
 
-  # tests. Also needed to get the coverage
+  # testing and getting the test coverage
   - cd install/tests
   - ./OxShmolli2Tests
   - cd $TRAVIS_BUILD_DIR
@@ -97,13 +98,16 @@ script:
 after_success:
   # Run coverage analysis only in linux g++. Eval because travis wants to parse -- as part of yaml block
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
+      cd $TRAVIS_BUILD_DIR ;
       eval "lcov --no-external --directory . --capture --output-file coverage.info" ;
-      eval "lcov --remove coverage.info 'deleteme/*' 'thirParty/*' 'tests/*' -o coverage_filtered.info" ;
+      eval "lcov --remove coverage.info 'thirdParty/*' 'tests/*' -o coverage.info" ;
       eval "lcov --list coverage.info" ;
       bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports" ;
     fi
+
   # Generate and deploy documentation only in linux g++
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
+      cd $TRAVIS_BUILD_DIR ;
       chmod +x generateDocumentationAndDeploy.sh;
       ./generateDocumentationAndDeploy.sh;
     fi

@@ -141,10 +141,10 @@ target_link_libraries (OxShmolli2Exe PUBLIC ${OxSmolli2_LIBS_TO_LINK})
 ### Installing ###
 ##################
 
-set (CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}" CACHE INTERNAL "" FORCE)
-install (TARGETS OxShmolli2Lib DESTINATION ${CMAKE_INSTALL_PREFIX}/install/lib)
-install (FILES ${LIB_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/install/include/OxShmolli)
-install (TARGETS OxShmolli2Exe DESTINATION ${CMAKE_INSTALL_PREFIX}/install/bin)
+#set (CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}" CACHE INTERNAL "" FORCE)
+install (TARGETS OxShmolli2Lib DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+install (FILES ${LIB_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/install/OxShmolli)
+install (TARGETS OxShmolli2Exe DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 
 ###############
 ### TESTING ###
