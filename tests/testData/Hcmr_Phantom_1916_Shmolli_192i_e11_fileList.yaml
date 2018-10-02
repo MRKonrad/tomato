@@ -1,4 +1,4 @@
-# OxShmolli2 configuration file in YAML format.
+# Tomato configuration file in YAML format.
 # OBLIGATORY fields are: files_magnitude or dir_magnitude.
 # Mutually exclusive pairs: files_magnitude/dir_magnitude files_phase/dir_phase
 # YAML is indent sensitive, do not use unnecessary indent. To indent use spaces, not tabs!!!

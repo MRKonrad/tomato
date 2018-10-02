@@ -1,19 +1,19 @@
 /*!
- * \file OxShmolli2Parser_test.cpp
+ * \file TomatoParser_test.cpp
  * \author Konrad Werys
  * \date 2018/08/19
  */
 
 #include "gtest/gtest.h"
 
-#include "OxShmolli2Parser.h"
+#include "TomatoParser.h"
 
-TEST(OxShmolli2Parser, parse_yaml_file) {
+TEST(TomatoParser, parse_yaml_file) {
 
     typedef double TYPE;
     char filePath [] = "testData/blood.yaml";
 
-    Ox::OxShmolli2Parser<TYPE> parser;
+    Ox::TomatoParser<TYPE> parser;
     parser._filePath = filePath;
     parser._sequences["signalMag"]; // needed to 'add' sigMag
     parser.parse();

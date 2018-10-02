@@ -2,7 +2,7 @@
 ### TESTING ###
 ###############
 
-if(OxShmolli2_BUILD_TESTING)
+if(Tomato_BUILD_TESTING)
 
     include(../cmake/gtest.cmake)
 
@@ -16,17 +16,17 @@ if(OxShmolli2_BUILD_TESTING)
     file(GLOB_RECURSE TESTS_FILES ${PROJECT_SOURCE_DIR}/tests/*.c* ${PROJECT_SOURCE_DIR}/tests/*.h* ${PROJECT_SOURCE_DIR}/tests/*.t*)
     #message("TESTS_FILES:" ${TESTS_FILES})
 
-    add_executable(OxShmolli2Tests ${TESTS_FILES})
-    target_link_libraries (OxShmolli2Tests PUBLIC gtest)
-    target_link_libraries (OxShmolli2Tests PUBLIC ${OxSmolli2_LIBS_TO_LINK})
-    #add_dependencies(OxShmolli2Tests OxShmolli2Lib)
+    add_executable(TomatoTests ${TESTS_FILES})
+    target_link_libraries (TomatoTests PUBLIC gtest)
+    target_link_libraries (TomatoTests PUBLIC ${OxSmolli2_LIBS_TO_LINK})
+    #add_dependencies(TomatoTests TomatoLib)
 
-    add_test(NAME ctest_tests COMMAND OxShmolli2Tests)
+    add_test(NAME ctest_tests COMMAND TomatoTests)
 
     file(COPY testData DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
     file(GLOB_RECURSE TESTDATA ${PROJECT_SOURCE_DIR}/tests/testData/*.*)
 
-    install (TARGETS OxShmolli2Tests DESTINATION ${CMAKE_INSTALL_PREFIX}/tests)
+    install (TARGETS TomatoTests DESTINATION ${CMAKE_INSTALL_PREFIX}/tests)
     # install (FILES ${TESTDATA} DESTINATION ${CMAKE_INSTALL_PREFIX}/tests/testData/)
     install (DIRECTORY ${PROJECT_SOURCE_DIR}/tests/testData/ DESTINATION ${CMAKE_INSTALL_PREFIX}/tests/testData)
 
@@ -42,8 +42,8 @@ if(OxShmolli2_BUILD_TESTING)
     # Coveralls
     SET(COVERAGE OFF CACHE BOOL "Coverage")
     if (COVERAGE)
-        target_compile_options(OxShmolli2Tests PRIVATE --coverage)
-        target_link_libraries(OxShmolli2Tests PRIVATE --coverage)
+        target_compile_options(TomatoTests PRIVATE --coverage)
+        target_link_libraries(TomatoTests PRIVATE --coverage)
     endif()
 
-endif(OxShmolli2_BUILD_TESTING)
+endif(Tomato_BUILD_TESTING)

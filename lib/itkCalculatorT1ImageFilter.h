@@ -7,7 +7,7 @@
 #ifndef itkCalculatorT1ImageFilter_h
 #define itkCalculatorT1ImageFilter_h
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
 #include "itkLogger.h"

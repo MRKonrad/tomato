@@ -4,10 +4,10 @@
  * \date 2018/08/18
  */
 
-#ifndef OXSHMOLLI2_OXFACTORYOFSignCalculators_H
-#define OXSHMOLLI2_OXFACTORYOFSignCalculators_H
+#ifndef Tomato_OXFACTORYOFSignCalculators_H
+#define Tomato_OXFACTORYOFSignCalculators_H
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
 #ifdef USE_PRIVATE_NR2
@@ -17,7 +17,7 @@
 namespace Ox {
 
     template<typename TYPE>
-    struct OxShmolli2Options;
+    struct TomatoOptions;
 
 #ifdef USE_PRIVATE_NR2
     static const char *signCalculatorsTypeNames[] = {
@@ -49,7 +49,7 @@ namespace Ox {
     class FactoryOfSignCalculators {
     public:
 
-        static SignCalculator<TYPE>* newByFactory(OxShmolli2Options<TYPE> *opts){
+        static SignCalculator<TYPE>* newByFactory(TomatoOptions<TYPE> *opts){
             switch (opts->sign_calc_method){
                 case NoSign: {
                     return new SignCalculatorNoSign<TYPE>();
@@ -70,4 +70,4 @@ namespace Ox {
 
 } // namespace Ox
 
-#endif //OXSHMOLLI2_OXFACTORYOFSignCalculators_H
+#endif //Tomato_OXFACTORYOFSignCalculators_H

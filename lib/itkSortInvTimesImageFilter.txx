@@ -6,7 +6,7 @@
 //  Copyright © 2017 Konrad Werys. All rights reserved.
 //
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
 namespace  itk {

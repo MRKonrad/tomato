@@ -4,10 +4,10 @@
  * \date 2018/08/07
  */
 
-#ifndef OXSHMOLLI2_OXIMAGECALCULATORT1_H
-#define OXSHMOLLI2_OXIMAGECALCULATORT1_H
+#ifndef Tomato_OXIMAGECALCULATORT1_H
+#define Tomato_OXIMAGECALCULATORT1_H
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #ifndef CXX_STANDARD_98
 #include <thread>
 #endif
@@ -55,4 +55,4 @@ namespace Ox {
 
 #include "OxImageCalculatorT1.hxx"
 
-#endif //OXSHMOLLI2_OXIMAGECALCULATORT1_H
+#endif //Tomato_OXIMAGECALCULATORT1_H

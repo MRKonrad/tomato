@@ -4,8 +4,8 @@
  * \date 2018/08/07
  */
 
-#ifndef OXShmolli2_OXTESTImage_HXX
-#define OXShmolli2_OXTESTImage_HXX
+#ifndef Tomato_OXTESTImage_HXX
+#define Tomato_OXTESTImage_HXX
 
 
 namespace Ox {
@@ -175,4 +175,4 @@ namespace Ox {
 
 
 
-#endif //OXShmolli2_OXTESTImage_HXX
+#endif //Tomato_OXTESTImage_HXX

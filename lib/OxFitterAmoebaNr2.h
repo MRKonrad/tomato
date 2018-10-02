@@ -4,10 +4,10 @@
  * \date 2018/08/06
  */
 
-#ifndef OXSHMOLLI2_OXFITTERAMOEBANr2_H
-#define OXSHMOLLI2_OXFITTERAMOEBANr2_H
+#ifndef Tomato_OXFITTERAMOEBANr2_H
+#define Tomato_OXFITTERAMOEBANr2_H
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #ifdef USE_NR2
 
 #include "OxFitter.h"
@@ -164,6 +164,6 @@ namespace Ox {
 
 } // namespace Ox
 
-#endif //OXSHMOLLI2_OXFITTERAMOEBANr2_H
+#endif //Tomato_OXFITTERAMOEBANr2_H
 
 #endif // USE_NR2

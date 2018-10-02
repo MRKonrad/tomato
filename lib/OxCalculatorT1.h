@@ -4,8 +4,8 @@
  * \date 2018/07/29
  */
 
-#ifndef OXSHMOLLI2_OXCALCULATORT1_H
-#define OXSHMOLLI2_OXCALCULATORT1_H
+#ifndef Tomato_OXCALCULATORT1_H
+#define Tomato_OXCALCULATORT1_H
 
 #include "OxCalculatorResults.h"
 #include "OxFitter.h"
@@ -249,4 +249,4 @@ namespace Ox {
 
 #include "OxCalculatorT1.hxx"
 
-#endif //OXSHMOLLI2_OXCALCULATORT1_H
+#endif //Tomato_OXCALCULATORT1_H

@@ -1,14 +1,14 @@
 ##################
-### OxShmolli2 ###
+### Tomato ###
 ##################
 
 cmake_minimum_required (VERSION 2.8)
 
-project (OxShmolli2)
+project (Tomato)
 
 # The version number.
-set (OxShmolli2_VERSION_MAJOR 0)
-set (OxShmolli2_VERSION_MINOR 1)
+set (Tomato_VERSION_MAJOR 0)
+set (Tomato_VERSION_MINOR 1)
 
 # Compiler flags
 set (CMAKE_CXX_STANDARD 98 CACHE STRING "")
@@ -26,7 +26,7 @@ file (GLOB_RECURSE LIB_FILES lib/*.c* lib/*.h* lib/*.t*)
 ###############
 
 # unfortunatelly I cannot publish numerical recipes code according to numerical recipes licence
-set(PRIVATE_NR2_DIR ../OxShmolli2_private CACHE PATH "")
+set(PRIVATE_NR2_DIR ../Tomato_private CACHE PATH "")
 set(USE_PRIVATE_NR2 ON CACHE BOOL "")
 if (USE_PRIVATE_NR2)
     add_subdirectory(${PRIVATE_NR2_DIR} ${CMAKE_BINARY_DIR}/private)
@@ -41,7 +41,7 @@ set (BUILD_TESTING OFF CACHE INTERNAL "" FORCE)
 add_subdirectory (thirdParty/libyaml)
 include_directories (${yaml_BINARY_DIR}/include ${yaml_SOURCE_DIR}/include) # for windows
 set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} yaml)
-#target_link_libraries (OxShmolli2Exe PUBLIC yaml)
+#target_link_libraries (TomatoExe PUBLIC yaml)
 
 ###############
 ### Fitting ###
@@ -51,15 +51,15 @@ set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} yaml)
 #set(USE_VNL ON CACHE BOOL "Do you want to use VNL numerics library?")
 #include(cmake/vnl.cmake)
 
-#target_link_libraries (OxShmolli2Lib PUBLIC ${VNL_LIBRARIES})
-#target_link_libraries (OxShmolli2Exe PUBLIC ${VNL_LIBRARIES})
-#add_dependencies (OxShmolli2Lib vnl vnl_algo)
-#add_dependencies (OxShmolli2Exe vnl vnl_algo)
+#target_link_libraries (TomatoLib PUBLIC ${VNL_LIBRARIES})
+#target_link_libraries (TomatoExe PUBLIC ${VNL_LIBRARIES})
+#add_dependencies (TomatoLib vnl vnl_algo)
+#add_dependencies (TomatoExe vnl vnl_algo)
 
 # Numerical Recipes v2
 set(USE_NR2 ON CACHE BOOL "Do you want to use Numerical Recipes 2 code?")
 include(cmake/nr2.cmake)
-#target_link_libraries (OxShmolli2Lib PUBLIC NR2)
+#target_link_libraries (TomatoLib PUBLIC NR2)
 
 # Numerical Recipes v3
 set(USE_NR3 OFF CACHE BOOL "Do you want to use Numerical Recipes 3 code?")
@@ -119,38 +119,38 @@ MESSAGE("USE_NR2:         " ${USE_NR2})
 MESSAGE("USE_NR3:         " ${USE_NR3})
 
 # configure a header file to pass some of the CMake settings to the source code
-configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForOxShmolli2.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForOxShmolli2.h")
-set (LIB_FILES ${LIB_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForOxShmolli2.h")
+configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForTomato.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
+set (LIB_FILES ${LIB_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
 
 include_directories (app)
 include_directories (lib)
 include_directories ("${PROJECT_BINARY_DIR}") # for the configuration header
 
-add_library (OxShmolli2Lib ${APP_FILES} ${LIB_FILES})
-add_executable (OxShmolli2Exe ${APP_FILES} ${LIB_FILES})
+add_library (TomatoLib ${APP_FILES} ${LIB_FILES})
+add_executable (TomatoExe ${APP_FILES} ${LIB_FILES})
 
 ###############
 ### Linking ###
 ###############
 
-target_link_libraries (OxShmolli2Lib PUBLIC ${OxSmolli2_LIBS_TO_LINK})
-set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} OxShmolli2Lib)
-target_link_libraries (OxShmolli2Exe PUBLIC ${OxSmolli2_LIBS_TO_LINK})
+target_link_libraries (TomatoLib PUBLIC ${OxSmolli2_LIBS_TO_LINK})
+set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} TomatoLib)
+target_link_libraries (TomatoExe PUBLIC ${OxSmolli2_LIBS_TO_LINK})
 
 ##################
 ### Installing ###
 ##################
 
 #set (CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}" CACHE INTERNAL "" FORCE)
-install (TARGETS OxShmolli2Lib DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+install (TARGETS TomatoLib DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
 install (FILES ${LIB_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/install/OxShmolli)
-install (TARGETS OxShmolli2Exe DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+install (TARGETS TomatoExe DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 
 ###############
 ### TESTING ###
 ###############
 
-set(OxShmolli2_BUILD_TESTING ON CACHE BOOL "Do you want to build OxShmolli2 tests?")
+set(Tomato_BUILD_TESTING ON CACHE BOOL "Do you want to build Tomato tests?")
 add_subdirectory (tests)
 
 #############################

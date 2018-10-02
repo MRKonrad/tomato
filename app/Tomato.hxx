@@ -1,34 +1,34 @@
 /*!
- * \file OxShmolli2.h
+ * \file Tomato.h
  * \author Konrad Werys
  * \date 2018/08/14
  */
 
-#ifndef OXSHMOLLI2_OXSHMOLLI2_HXX
-#define OXSHMOLLI2_OXSHMOLLI2_HXX
+#ifndef Tomato_Tomato_HXX
+#define Tomato_Tomato_HXX
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
 namespace Ox {
 
     template< typename MeasureType >
-    OxShmolli2<MeasureType>
-    ::OxShmolli2(std::string inputFileName){
+    Tomato<MeasureType>
+    ::Tomato(std::string inputFileName){
 
         _nSamples = 0;
         _invTimes = 0; // nullptr
         _echoTimes = 0; // nullptr
 
-        _opts = new OxShmolli2Options<InputPixelType>(inputFileName);
+        _opts = new TomatoOptions<InputPixelType>(inputFileName);
         _imageCalculatorItk = CalculatorT1ImageFilterType::New();
         //_sorterMag = SortInvTimesImageFilterType::New();
         //_sorterPha = SortInvTimesImageFilterType::New();
     }
 
     template< typename MeasureType >
-    OxShmolli2<MeasureType>
-    ::~OxShmolli2(){
+    Tomato<MeasureType>
+    ::~Tomato(){
         delete _opts;
         delete [] _invTimes;
         delete [] _echoTimes;
@@ -36,7 +36,7 @@ namespace Ox {
 
     template< typename MeasureType >
     int
-    OxShmolli2<MeasureType>
+    Tomato<MeasureType>
     ::readAndSort(){
         typename ReadFileListFilterType::Pointer readerMag = ReadFileListFilterType::New();
         readerMag->SetFileList(_opts->files_magnitude);
@@ -74,7 +74,7 @@ namespace Ox {
 
     template< typename MeasureType >
     int
-    OxShmolli2<MeasureType>
+    Tomato<MeasureType>
     ::calculate() {
 
         // alloc and init
@@ -124,7 +124,7 @@ namespace Ox {
 
     template< typename MeasureType >
     int
-    OxShmolli2<MeasureType>
+    Tomato<MeasureType>
     ::visualise(){
 
 #ifdef USE_VTK
@@ -166,4 +166,4 @@ namespace Ox {
 
 #endif
 
-#endif //OXSHMOLLI2_OXSHMOLLI2_H
+#endif //Tomato_Tomato_H

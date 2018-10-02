@@ -4,8 +4,8 @@
  * \date 2018/08/13
  */
 
-#ifndef OXSHMOLLI2_OXSignCalculatorNoSign_H
-#define OXSHMOLLI2_OXSignCalculatorNoSign_H
+#ifndef Tomato_OXSignCalculatorNoSign_H
+#define Tomato_OXSignCalculatorNoSign_H
 
 #include "OxSignCalculator.h"
 
@@ -67,4 +67,4 @@ namespace Ox {
     };
 } //namespace Ox
 
-#endif //OXSHMOLLI2_OXSignCalculatorNoSign_H
+#endif //Tomato_OXSignCalculatorNoSign_H

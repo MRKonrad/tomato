@@ -4,8 +4,8 @@
  * \date 2018/08/02
  */
 
-#ifndef OXSHMOLLI2_OXCALCULATORRESULTS_H
-#define OXSHMOLLI2_OXCALCULATORRESULTS_H
+#ifndef Tomato_OXCALCULATORRESULTS_H
+#define Tomato_OXCALCULATORRESULTS_H
 
 namespace Ox {
     template<typename MeasureType>
@@ -70,4 +70,4 @@ namespace Ox {
     };
 } // namespace Ox
 
-#endif //OXSHMOLLI2_OXCALCULATORRESULTS_H
+#endif //Tomato_OXCALCULATORRESULTS_H

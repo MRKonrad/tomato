@@ -4,10 +4,10 @@
  * \date 2018/08/18
  */
 
-#ifndef OXSHMOLLI2_OXFACTORYOFStartPointCalculators_H
-#define OXSHMOLLI2_OXFACTORYOFStartPointCalculators_H
+#ifndef Tomato_OXFACTORYOFStartPointCalculators_H
+#define Tomato_OXFACTORYOFStartPointCalculators_H
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 
 #include "OxStartPointCalculatorDefault3Dims.h"
 #ifdef USE_PRIVATE_NR2
@@ -17,7 +17,7 @@
 namespace Ox {
 
     template<typename TYPE>
-    struct OxShmolli2Options;
+    struct TomatoOptions;
 
 #ifdef USE_PRIVATE_NR2
     static const char *startPointCalculatorsTypeNames[] = {
@@ -45,7 +45,7 @@ namespace Ox {
     class FactoryOfStartPointCalculators {
     public:
 
-        static StartPointCalculator<TYPE>* newByFactory(OxShmolli2Options<TYPE> *opts){
+        static StartPointCalculator<TYPE>* newByFactory(TomatoOptions<TYPE> *opts){
             switch (opts->start_point_calc_method){
                 case Default: {
                     return new StartPointCalculatorDefault3Dims<TYPE>();
@@ -63,4 +63,4 @@ namespace Ox {
 
 } // namespace Ox
 
-#endif //OXSHMOLLI2_OXFACTORYOFStartPointCalculators_H
+#endif //Tomato_OXFACTORYOFStartPointCalculators_H

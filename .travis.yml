@@ -1,5 +1,5 @@
 #------------------------------------#
-#   OxShmolli2   #
+#   Tomato   #
 #------------------------------------#
 
 language: cpp
@@ -24,11 +24,11 @@ env:
     - CXX_STANDARD=98
 #    - CXX_STANDARD=11
   global:
-    - GH_REPO_NAME: OxShmolli2 # used in documentation script
+    - GH_REPO_NAME: Tomato # used in documentation script
     - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile # used in documentation script
     - INPUT_FOR_DOXY: "'. ./app ./lib ./tests'" # used in documentation script
     - OUTPUT_FOR_DOXY: "${TRAVIS_BUILD_DIR}/code_docs/${GH_REPO_NAME}" # used in documentation script
-    - GH_REPO_REF: github.com/MRKonrad/OxShmolli2.git # used in documentation script
+    - GH_REPO_REF: github.com/MRKonrad/Tomato.git # used in documentation script
     - USE_ITK: "OFF"
     - EXTENDED_BUILD: "OFF"
     - DEPLOY_BUILD: "OFF"
@@ -92,7 +92,7 @@ script:
 
   # testing and getting the test coverage
   - cd install/tests
-  - ./OxShmolli2Tests
+  - ./TomatoTests
   - cd $TRAVIS_BUILD_DIR
 
 after_success:
@@ -115,11 +115,11 @@ after_success:
 before_deploy:
   - echo "Ready to deploy?"
 
-  - export exe_extended_name=OxShmolli2Exe_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
+  - export exe_extended_name=TomatoExe_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
   # Problem: when deploying an executable as it is, somewhere in the process its permission to execute (-x) is lost.
   # Solution: zip it and deploy the archive
   - mkdir deployment
-  - cp OxShmolli2Exe ${exe_extended_name}
+  - cp TomatoExe ${exe_extended_name}
   - cd deployment
   - zip -r ${exe_extended_name}.zip ../${exe_extended_name}
   - cd ..

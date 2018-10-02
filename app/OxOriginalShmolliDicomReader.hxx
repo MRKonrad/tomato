@@ -4,8 +4,8 @@
  * \date 2018/08/24
  */
 
-#ifndef OXSHMOLLI2_OxOriginalShmolliDicomReader_HXX
-#define OXSHMOLLI2_OxOriginalShmolliDicomReader_HXX
+#ifndef Tomato_OxOriginalShmolliDicomReader_HXX
+#define Tomato_OxOriginalShmolliDicomReader_HXX
 
 #include <itkImageFileReader.h>
 #include "OxOriginalShmolliDicomReader.h"
@@ -181,4 +181,4 @@ namespace Ox {
 } // namespace Ox
 
 
-#endif //OXSHMOLLI2_OxOriginalShmolliDicomReader_H
+#endif //Tomato_OxOriginalShmolliDicomReader_H

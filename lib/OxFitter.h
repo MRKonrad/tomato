@@ -4,8 +4,8 @@
  * \date 2018/07/29
  */
 
-#ifndef OXSHMOLLI2_OXFITTER_H
-#define OXSHMOLLI2_OXFITTER_H
+#ifndef Tomato_OXFITTER_H
+#define Tomato_OXFITTER_H
 
 #include "OxFunctionsT1.h"
 #include "KWUtil.h"
@@ -116,4 +116,4 @@ namespace Ox {
     };
 } //namespace Ox
 
-#endif //OXSHMOLLI2_OXFITTER_H
+#endif //Tomato_OXFITTER_H

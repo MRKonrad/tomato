@@ -1,11 +1,11 @@
 /*!
- * \file OxShmolli2Options.h
+ * \file TomatoOptions.h
  * \author Konrad Werys
  * \date 2018/08/18
  */
 
-#ifndef OXSHMOLLI2_OXSHMOLLI2OPTIONS_H
-#define OXSHMOLLI2_OXSHMOLLI2OPTIONS_H
+#ifndef Tomato_TomatoOPTIONS_H
+#define Tomato_TomatoOPTIONS_H
 
 #include <iostream>
 #include <vector>
@@ -17,13 +17,13 @@
 #include "OxFactoryOfSignCalculators.h"
 #include "OxFactoryOfStartPointCalculators.h"
 
-#include "OxShmolli2Parser.h"
+#include "TomatoParser.h"
 
 #include "KWUtil.h"
 
 namespace Ox {
     template<typename MeasureType>
-    struct OxShmolli2Options {
+    struct TomatoOptions {
 
         // paths
         std::vector<std::string> files_magnitude;
@@ -87,7 +87,7 @@ namespace Ox {
         /**
          * constructor with defaults
          */
-        OxShmolli2Options() {
+        TomatoOptions() {
             init();
         }
 
@@ -95,10 +95,10 @@ namespace Ox {
          * constructor with parser
          * @param filePath
          */
-        OxShmolli2Options(std::string filePath) {
+        TomatoOptions(std::string filePath) {
             init();
 
-            Ox::OxShmolli2Parser<MeasureType> parser;
+            Ox::TomatoParser<MeasureType> parser;
             parser._filePath = filePath;
             parser._sequences["files_magnitude"];
             parser._sequences["files_phase"];
@@ -189,7 +189,7 @@ namespace Ox {
         void printCurrent() {
             printf("\n");
             printf("######################################\n");
-            printf("OxShmolli2 CURRENTLY SELECTED options:\n");
+            printf("Tomato CURRENTLY SELECTED options:\n");
             printf("######################################\n");
             printVector(" files_magnitude: ", files_magnitude);
             printVector(" files_phase: ", files_phase);
@@ -226,7 +226,7 @@ namespace Ox {
         static void printAvailable() {
             printf("\n");
             printf("#############################\n");
-            printf("OxShmolli2 AVAILABLE options:\n");
+            printf("Tomato AVAILABLE options:\n");
             printf("#############################\n");
             printf(" parameter_to_map: ");
             printArray(lastCalculatorType+1, calculatorsTypeNames);
@@ -244,4 +244,4 @@ namespace Ox {
     };
 } // namespace Ox
 
-#endif //OXSHMOLLI2_OXSHMOLLI2OPTIONS_H
+#endif //Tomato_TomatoOPTIONS_H

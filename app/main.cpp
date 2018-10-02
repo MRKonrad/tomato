@@ -6,9 +6,9 @@
 
 #include <iostream>
 
-#include "CmakeConfigForOxShmolli2.h"
-#include "OxShmolli2.h"
-#include "OxShmolli2Options.h"
+#include "CmakeConfigForTomato.h"
+#include "Tomato.h"
+#include "TomatoOptions.h"
 
 /**
  * main
@@ -19,27 +19,27 @@ int main(int argc, char* argv[]) {
 
     if (argc != 2){
         printf("\nUse: OxShmolliExe(<input_file.yaml>). Please see examples in testData\n");
-        Ox::OxShmolli2Options<double>::printAvailable();
+        Ox::TomatoOptions<double>::printAvailable();
 
 //        std::string inputFileName("tests/testData/Calculator_Shmolli_MOLLI_Volunteer_001_45_fileList.yaml");
-//        Ox::OxShmolli2<double> OxShmolli2_object(inputFileName);
-//        OxShmolli2_object._opts->printCurrent();
-//        OxShmolli2_object.readAndSort();
-//        OxShmolli2_object.calculate();
-//        OxShmolli2_object.exportToDicom();
-//        OxShmolli2_object.visualise();
+//        Ox::Tomato<double> Tomato_object(inputFileName);
+//        Tomato_object._opts->printCurrent();
+//        Tomato_object.readAndSort();
+//        Tomato_object.calculate();
+//        Tomato_object.exportToDicom();
+//        Tomato_object.visualise();
     }
 
     else if (argc == 2){
         // process only if ITK is available
 #ifdef USE_ITK
         std::string inputFileName(argv[1]);
-        Ox::OxShmolli2<double> OxShmolli2_object(inputFileName);
-        OxShmolli2_object._opts->printCurrent();
-        OxShmolli2_object.readAndSort();
-        OxShmolli2_object.calculate();
-        OxShmolli2_object.exportToDicom();
-        OxShmolli2_object.visualise();
+        Ox::Tomato<double> Tomato_object(inputFileName);
+        Tomato_object._opts->printCurrent();
+        Tomato_object.readAndSort();
+        Tomato_object.calculate();
+        Tomato_object.exportToDicom();
+        Tomato_object.visualise();
 #else
         throw std::runtime_error("You need ITK to run the executable");
 #endif

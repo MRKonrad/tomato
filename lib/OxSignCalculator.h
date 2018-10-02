@@ -4,8 +4,8 @@
  * \date 2018/07/29
  */
 
-#ifndef OXSHMOLLI2_OXSIGNCALCULATOR_H
-#define OXSHMOLLI2_OXSIGNCALCULATOR_H
+#ifndef Tomato_OXSIGNCALCULATOR_H
+#define Tomato_OXSIGNCALCULATOR_H
 
 #include "KWUtil.h"
 
@@ -128,4 +128,4 @@ namespace Ox {
     };
 } //namespace Ox
 
-#endif //OXSHMOLLI2_OXSIGNCALCULATOR_H
+#endif //Tomato_OXSIGNCALCULATOR_H

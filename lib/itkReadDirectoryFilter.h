@@ -9,7 +9,7 @@
 #ifndef OXSHMOLLI_READDIRECTORY_H
 #define OXSHMOLLI_READDIRECTORY_H
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
 #include <iostream>

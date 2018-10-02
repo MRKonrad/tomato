@@ -4,10 +4,10 @@
  * \date 2018/07/30
  */
 
-#ifndef OXShmolli2_itkOxTestItkImagesFactory_H
-#define OXShmolli2_itkOxTestItkImagesFactory_H
+#ifndef Tomato_itkOxTestItkImagesFactory_H
+#define Tomato_itkOxTestItkImagesFactory_H
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
 #include "itkImage.h"
@@ -62,4 +62,4 @@ namespace Ox {
 
 #endif //USE_ITK
 
-#endif //OXShmolli2_itkOxTestItkImagesFactory_H
+#endif //Tomato_itkOxTestItkImagesFactory_H

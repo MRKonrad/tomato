@@ -4,7 +4,7 @@
  * \date 2018/08/07
  */
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 
 #include "gtest/gtest.h"
 #include "OxTestImage.h"

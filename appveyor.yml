@@ -1,5 +1,5 @@
 #------------------------------------#
-#   OxShmolli2   #
+#   Tomato   #
 #------------------------------------#
 
 # todo: add win32
@@ -15,7 +15,7 @@ init:
   - ps: Update-AppveyorBuild -Version "$($env:APPVEYOR_REPO_BRANCH) - $($env:APPVEYOR_REPO_COMMIT)"
 
 environment:
-  EXE_EXTENDED_NAME: OxShmolli2Exe_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
+  EXE_EXTENDED_NAME: TomatoExe_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
 
 install:
   - git submodule update --init --recursive
@@ -38,14 +38,14 @@ before_build:
   - cd
   - 7z x -r ITK412_win_x64_install.zip
   - dir
-  - cd oxshmolli2
+  - cd Tomato
   - cd
   - dir
   - cmake . -Bbin -A%PLATFORM% -DCMAKE_BUILD_TYPE=%CONFIGURATION% -DUSE_NR2=OFF -DUSE_NR3=OFF -DUSE_PRIVATE_NR2=OFF -DCMAKE_INSTALL_PREFIX=install
   - cd
 
 build:
-  project: bin\OxShmolli2.sln  # path to Visual Studio solution or project
+  project: bin\Tomato.sln  # path to Visual Studio solution or project
   parallel: true               # enable MSBuild parallel builds
   verbosity: normal            # MSBuild verbosity level {quiet|minimal|normal|detailed}
 
@@ -58,9 +58,9 @@ after_build:
 
 test_script:
   # TODO: should I add sth like this? https://github.com/mgerhardy/caveexpress/blob/master/appveyor.yml
-  # - bin\tests\%CONFIGURATION%\OxShmolli2Tests.exe
+  # - bin\tests\%CONFIGURATION%\TomatoTests.exe
   - cd install\tests
-  - OxShmolli2Tests.exe
+  - TomatoTests.exe
   - cd ..\..
 
 artifacts:
@@ -71,13 +71,13 @@ before_deploy:
   # FOR DEPLOYMENT
   # change the name of the exe, zip it and copy the zip to the deployment folders
   - cd bin\%CONFIGURATION%\
-  - copy OxShmolli2Exe.exe %EXE_EXTENDED_NAME%.exe
+  - copy TomatoExe.exe %EXE_EXTENDED_NAME%.exe
   - 7z a %EXE_EXTENDED_NAME%.zip %EXE_EXTENDED_NAME%.exe # zip
   - cd ..\..
   - copy bin\%CONFIGURATION%\%EXE_EXTENDED_NAME%.zip deployment\%EXE_EXTENDED_NAME%.zip
 
 deploy:
-  # release: OxShmolli2-v$(appveyor_build_version)
+  # release: Tomato-v$(appveyor_build_version)
   description: 'Release description'
   provider: GitHub
   auth_token:

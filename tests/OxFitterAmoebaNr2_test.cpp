@@ -4,7 +4,7 @@
  * \date 2018/08/03
  */
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #ifdef USE_NR2
 
 #include "gtest/gtest.h"

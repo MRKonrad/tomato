@@ -4,8 +4,8 @@
  * \date 2018/07/29
  */
 
-#ifndef OXSHMOLLI2_OXSTARTPOINTCALCULATOR_H
-#define OXSHMOLLI2_OXSTARTPOINTCALCULATOR_H
+#ifndef Tomato_OXSTARTPOINTCALCULATOR_H
+#define Tomato_OXSTARTPOINTCALCULATOR_H
 
 #include "KWUtil.h"
 
@@ -111,4 +111,4 @@ namespace Ox {
     };
 } //namespace Ox
 
-#endif //OXSHMOLLI2_OXSTARTPOINTCALCULATOR_H
+#endif //Tomato_OXSTARTPOINTCALCULATOR_H

@@ -1,5 +1,5 @@
 /*!
- * \file OxShmolli2Colormap.h
+ * \file TomatoColormap.h
  * \author Konrad Werys
  * \date 2017/08/23
  */

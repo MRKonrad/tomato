@@ -4,10 +4,10 @@
  * \date 2018/07/30
  */
 
-#ifndef OXShmolli2_OXTESTDATA_H
-#define OXShmolli2_OXTESTDATA_H
+#ifndef Tomato_OXTESTDATA_H
+#define Tomato_OXTESTDATA_H
 
-#include "OxShmolli2Parser.h"
+#include "TomatoParser.h"
 
 #include "yaml.h"
 
@@ -64,4 +64,4 @@ namespace Ox {
 
 #include "OxTestData.hxx"
 
-#endif //OXShmolli2_OXTESTDATA_H
+#endif //Tomato_OXTESTDATA_H

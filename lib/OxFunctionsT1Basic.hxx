@@ -4,8 +4,8 @@
  * \date 2018/07/29
  */
 
-#ifndef OXSHMOLLI2_OXFUNCTIONST1BASIC_HXX
-#define OXSHMOLLI2_OXFUNCTIONST1BASIC_HXX
+#ifndef Tomato_OXFUNCTIONST1BASIC_HXX
+#define Tomato_OXFUNCTIONST1BASIC_HXX
 
 namespace Ox {
 
@@ -118,4 +118,4 @@ namespace Ox {
 } //namespace Ox
 
 
-#endif //OXSHMOLLI2_OXFUNCTIONST1BASIC_HXX
+#endif //Tomato_OXFUNCTIONST1BASIC_HXX

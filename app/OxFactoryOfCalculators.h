@@ -4,10 +4,10 @@
  * \date 2018/08/18
  */
 
-#ifndef OXSHMOLLI2_OXFACTORYOFCalculators_H
-#define OXSHMOLLI2_OXFACTORYOFCalculators_H
+#ifndef Tomato_OXFACTORYOFCalculators_H
+#define Tomato_OXFACTORYOFCalculators_H
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #include "OxCalculatorT1Molli.h"
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1Shmolli.h"
@@ -18,7 +18,7 @@
 namespace Ox {
 
     template<typename TYPE>
-    struct OxShmolli2Options;
+    struct TomatoOptions;
 
 #ifdef USE_PRIVATE_NR2
     static const char *calculatorsTypeNames[] = {
@@ -48,7 +48,7 @@ namespace Ox {
     class FactoryOfCalculators {
     public:
 
-        static CalculatorT1<TYPE>* newByFactory(OxShmolli2Options<TYPE> *opts){
+        static CalculatorT1<TYPE>* newByFactory(TomatoOptions<TYPE> *opts){
             CalculatorT1<TYPE> *calculatorT1 = 0; //nullpointer
             switch (opts->parameter_to_map){
                 case T1_MOLLI: {
@@ -75,4 +75,4 @@ namespace Ox {
 
 } // namespace Ox
 
-#endif //OXSHMOLLI2_OXFACTORYOFCalculators_H
+#endif //Tomato_OXFACTORYOFCalculators_H

@@ -7,7 +7,7 @@
 #include "gtest/gtest.h"
 #include "OxTestData.h"
 
-#include "OxShmolli2Parser.h"
+#include "TomatoParser.h"
 
 TEST(OxTestData, read_file) {
 

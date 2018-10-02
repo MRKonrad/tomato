@@ -1,17 +1,17 @@
 /*!
- * \file OxShmolli2.h
+ * \file Tomato.h
  * \author Konrad Werys
  * \date 2018/08/14
  */
 
-#ifndef OXSHMOLLI2_OXSHMOLLI2_H
-#define OXSHMOLLI2_OXSHMOLLI2_H
+#ifndef Tomato_Tomato_H
+#define Tomato_Tomato_H
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
-#include "OxShmolli2Options.h"
-#include "OxShmolli2Colormap.h"
+#include "TomatoOptions.h"
+#include "TomatoColormap.h"
 
 #include "itkReadFileListFilter.h"
 #include "itkSortInvTimesImageFilter.h"
@@ -36,11 +36,11 @@
 namespace Ox {
 
     /**
-     * \class OxShmolli2
+     * \class Tomato
      * includes factories and methods needed for calculation
      */
     template< typename MeasureType >
-    class OxShmolli2 {
+    class Tomato {
 
     public:
         // typedefs primitive data types
@@ -57,7 +57,7 @@ namespace Ox {
         typedef itk::MetaDataDictionary DictionaryType;
 
         // member variables
-        OxShmolli2Options<InputPixelType> *_opts;
+        TomatoOptions<InputPixelType> *_opts;
         InputPixelType *_invTimes;
         InputPixelType *_echoTimes;
         int _nSamples;
@@ -98,28 +98,28 @@ namespace Ox {
          * constructor
          * @param inputFileName
          */
-        OxShmolli2(std::string inputFileName);
+        Tomato(std::string inputFileName);
 
         /**
          * \brief do not forget about the virtual destructor, see
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
-        virtual ~OxShmolli2();
+        virtual ~Tomato();
 
     private:
         /**
          * We do not want the default constructor, so let's make it private.
          * I cant delete it to be compatible with c++98
          */
-        OxShmolli2(){};
+        Tomato(){};
 
     };
 
 } // namespace Ox
 
-#include "OxShmolli2.hxx"
-#include "OxShmolli2_export.hxx"
+#include "Tomato.hxx"
+#include "Tomato_export.hxx"
 
 #endif
 
-#endif //OXSHMOLLI2_OXSHMOLLI2_H
+#endif //Tomato_Tomato_H

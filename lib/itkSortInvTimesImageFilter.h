@@ -9,7 +9,7 @@
 #ifndef OXSHMOLLILIB_ITKOXSORTINVTIMESIMAGEFILTER_H
 #define OXSHMOLLILIB_ITKOXSORTINVTIMESIMAGEFILTER_H
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
 #include <vnl/vnl_index_sort.h>

@@ -4,8 +4,8 @@
  * \date 2018/07/29
  */
 
-#ifndef OXSHMOLLI2_OXFUNCTIONST1BASIC_H
-#define OXSHMOLLI2_OXFUNCTIONST1BASIC_H
+#ifndef Tomato_OXFUNCTIONST1BASIC_H
+#define Tomato_OXFUNCTIONST1BASIC_H
 
 #include "OxFunctionsT1.h"
 #include <cmath>
@@ -50,4 +50,4 @@ namespace Ox {
 
 #include "OxFunctionsT1Basic.hxx"
 
-#endif //OXSHMOLLI2_OXFUNCTIONST1BASIC_H
+#endif //Tomato_OXFUNCTIONST1BASIC_H

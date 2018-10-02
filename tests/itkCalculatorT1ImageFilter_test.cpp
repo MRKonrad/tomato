@@ -5,7 +5,7 @@
  */
 
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
 #include "OxTestItkImagesFactory.h"

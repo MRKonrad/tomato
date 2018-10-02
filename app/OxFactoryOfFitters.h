@@ -4,11 +4,11 @@
  * \date 2018/08/18
  */
 
-#ifndef OXSHMOLLI2_OXFACTORYOFFitters_H
-#define OXSHMOLLI2_OXFACTORYOFFitters_H
+#ifndef Tomato_OXFACTORYOFFitters_H
+#define Tomato_OXFACTORYOFFitters_H
 
-#include "CmakeConfigForOxShmolli2.h"
-#include "OxShmolli2Options.h"
+#include "CmakeConfigForTomato.h"
+#include "TomatoOptions.h"
 
 #include "OxFitterAmoebaVnl.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
@@ -20,7 +20,7 @@
 namespace Ox {
 
     template<typename TYPE>
-    struct OxShmolli2Options;
+    struct TomatoOptions;
 
 
 #ifdef USE_PRIVATE_NR2
@@ -53,7 +53,7 @@ namespace Ox {
     class FactoryOfFitters {
     public:
 
-        static Fitter<TYPE>* newByFactory(OxShmolli2Options<TYPE> *opts){
+        static Fitter<TYPE>* newByFactory(TomatoOptions<TYPE> *opts){
             Fitter<TYPE> *fitter = 0; //nullpointer
 
             switch (opts->fitting_method){
@@ -82,4 +82,4 @@ namespace Ox {
 
 } // namespace Ox
 
-#endif //OXSHMOLLI2_OXFACTORYOFFitters_H
+#endif //Tomato_OXFACTORYOFFitters_H

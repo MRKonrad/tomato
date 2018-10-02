@@ -4,8 +4,8 @@
  * \date 2018/08/10
  */
 
-#ifndef OXSHMOLLI2_OXSTARTPOINTCALCULATORDefault3Dims_H
-#define OXSHMOLLI2_OXSTARTPOINTCALCULATORDefault3Dims_H
+#ifndef Tomato_OXSTARTPOINTCALCULATORDefault3Dims_H
+#define Tomato_OXSTARTPOINTCALCULATORDefault3Dims_H
 
 #include "OxStartPointCalculator.h"
 
@@ -82,4 +82,4 @@ namespace Ox {
     };
 } //namespace Ox
 
-#endif //OXSHMOLLI2_OXStartPointCalculatorDefault3Dims_H
+#endif //Tomato_OXStartPointCalculatorDefault3Dims_H

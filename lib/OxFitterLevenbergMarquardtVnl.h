@@ -4,8 +4,8 @@
  * \date 2018/07/31
  */
 
-#ifndef OXSHMOLLI2_OXFITTERLevenbergMarquardtVNL_H
-#define OXSHMOLLI2_OXFITTERLevenbergMarquardtVNL_H
+#ifndef Tomato_OXFITTERLevenbergMarquardtVNL_H
+#define Tomato_OXFITTERLevenbergMarquardtVNL_H
 
 #include "OxFitter.h"
 #include "OxFunctionsT1AdapterVnlLeastSquares.h"
@@ -141,4 +141,4 @@ namespace Ox {
 
 } // namespace Ox
 
-#endif //OXSHMOLLI2_OXFITTERLevenbergMarquardtVNL_H
+#endif //Tomato_OXFITTERLevenbergMarquardtVNL_H

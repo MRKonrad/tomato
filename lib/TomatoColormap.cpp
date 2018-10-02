@@ -1,10 +1,10 @@
 /*!
- * \file OxShmolli2Colormap.cpp
+ * \file TomatoColormap.cpp
  * \author Konrad Werys
  * \date 2018/08/24
  */
 
-#include "OxShmolli2Colormap.h"
+#include "TomatoColormap.h"
 
 std::string getEncodedSting(std::vector < uint16_t > encodeSource){
 

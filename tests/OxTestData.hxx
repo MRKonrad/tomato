@@ -4,8 +4,8 @@
  * \date 2018/07/30
  */
 
-#ifndef OXShmolli2_OXTESTDATA_HXX
-#define OXShmolli2_OXTESTDATA_HXX
+#ifndef Tomato_OXTESTDATA_HXX
+#define Tomato_OXTESTDATA_HXX
 
 
 namespace Ox {
@@ -14,7 +14,7 @@ namespace Ox {
     TestData<MeasureType>
     ::TestData(char* filePath){
 
-        Ox::OxShmolli2Parser<MeasureType> parser;
+        Ox::TomatoParser<MeasureType> parser;
         parser._filePath = filePath;
         
         // tokens to be parsed
@@ -92,4 +92,4 @@ namespace Ox {
 
 
 
-#endif //OXShmolli2_OXTESTDATA_HXX
+#endif //Tomato_OXTESTDATA_HXX

@@ -4,8 +4,8 @@
  * \date 2018/08/01
  */
 
-#ifndef OXSHMOLLI2_OXCALCULATORT1MOLLI_H
-#define OXSHMOLLI2_OXCALCULATORT1MOLLI_H
+#ifndef Tomato_OXCALCULATORT1MOLLI_H
+#define Tomato_OXCALCULATORT1MOLLI_H
 
 #include "OxCalculatorT1.h"
 
@@ -217,4 +217,4 @@ namespace Ox {
     };
 
 } //namespace Ox
-#endif //OXSHMOLLI2_OXCALCULATORT1MOLLI_H
+#endif //Tomato_OXCALCULATORT1MOLLI_H

@@ -6,9 +6,9 @@
 
 #include "gtest/gtest.h"
 #include "OxOriginalShmolliDicomReader.h"
-#include "OxShmolli2.h"
+#include "Tomato.h"
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 #ifdef USE_PRIVATE_NR2
 
@@ -16,11 +16,11 @@ TEST(OxCalculator_SameResultsAsDicom, doAnything) {
 
     typedef double TYPE;
 
-    Ox::OxShmolli2<TYPE> OxShmolli2_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+    Ox::Tomato<TYPE> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
 
     Ox::OriginalShmolliDicomReader<TYPE> originalShmolliDicomReader;
-    originalShmolliDicomReader._filesMag = OxShmolli2_object._opts->files_magnitude;
-    originalShmolliDicomReader._filesPha = OxShmolli2_object._opts->files_phase;
+    originalShmolliDicomReader._filesMag = Tomato_object._opts->files_magnitude;
+    originalShmolliDicomReader._filesPha = Tomato_object._opts->files_phase;
     originalShmolliDicomReader._filesT1.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_T1MAP_14/IM-0003-0001.dcm");
     originalShmolliDicomReader._filesT1.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_T1MAP_14/IM-0003-0002.dcm");
     originalShmolliDicomReader._filesFitparams.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_FITPARAMS_15/IM-0004-0001.dcm");

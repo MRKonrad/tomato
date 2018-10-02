@@ -4,8 +4,8 @@
  * \date 2018/08/08
  */
 
-#ifndef OXSHMOLLI2_OXIMAGECALCULATORT1_HXX
-#define OXSHMOLLI2_OXIMAGECALCULATORT1_HXX
+#ifndef Tomato_OXIMAGECALCULATORT1_HXX
+#define Tomato_OXIMAGECALCULATORT1_HXX
 
 namespace Ox {
 
@@ -126,7 +126,7 @@ namespace Ox {
                 t.join();
             }
 #else
-            std::cout << "Threads not supported in OxShmolli2 with C++98" << std::endl;
+            std::cout << "Threads not supported in Tomato with C++98" << std::endl;
 #endif
         }
         return 0; // EXIT_SUCCESS
@@ -191,4 +191,4 @@ namespace Ox {
 
 } // namespace Ox
 
-#endif //OXSHMOLLI2_OXIMAGECALCULATORT1_H
+#endif //Tomato_OXIMAGECALCULATORT1_H

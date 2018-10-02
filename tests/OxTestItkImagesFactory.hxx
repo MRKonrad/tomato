@@ -4,10 +4,10 @@
  * \date 2018/08/13
  */
 
-#ifndef OXShmolli2_itkOxTestImage_HXX
-#define OXShmolli2_itkOxTestImage_HXX
+#ifndef Tomato_itkOxTestImage_HXX
+#define Tomato_itkOxTestImage_HXX
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
 
@@ -249,4 +249,4 @@ namespace Ox {
 
 #endif // USE_ITK
 
-#endif //OXShmolli2_itkOxTestImage_HXX
+#endif //Tomato_itkOxTestImage_HXX

@@ -1,13 +1,13 @@
 /*!
- * \file OxShmolli2.h
+ * \file Tomato.h
  * \author Konrad Werys
  * \date 2018/08/14
  */
 
-#ifndef OXSHMOLLI2_OXSHMOLLI2_EXPORT_HXX
-#define OXSHMOLLI2_OXSHMOLLI2_EXPORT_HXX
+#ifndef Tomato_Tomato_EXPORT_HXX
+#define Tomato_Tomato_EXPORT_HXX
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
 namespace Ox {
@@ -31,7 +31,7 @@ namespace Ox {
 
     template< typename MeasureType >
     int
-    OxShmolli2<MeasureType>
+    Tomato<MeasureType>
     ::exportToDicom(){
 
         if (_opts->dir_output_map.empty()){
@@ -479,4 +479,4 @@ namespace Ox {
 
 #endif
 
-#endif //OXSHMOLLI2_OXSHMOLLI2_EXPORT_HXX
+#endif //Tomato_Tomato_EXPORT_HXX

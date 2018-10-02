@@ -1,18 +1,18 @@
 /*!
- * \file OxShmolli2Parser.hxx
+ * \file TomatoParser.hxx
  * \author Konrad Werys
  * \date 2018/08/19
  */
 
-#ifndef OXSHMOLLI2_OXSHMOLLI2PARSER_HXX
-#define OXSHMOLLI2_OXSHMOLLI2PARSER_HXX
+#ifndef Tomato_TomatoPARSER_HXX
+#define Tomato_TomatoPARSER_HXX
 
 
 namespace Ox {
 
     template<typename MeasureType>
     int
-    OxShmolli2Parser<MeasureType>
+    TomatoParser<MeasureType>
     ::parse() {
 
         FILE *fh = fopen(_filePath.c_str(), "rb");
@@ -138,7 +138,7 @@ namespace Ox {
 
     template<typename MeasureType>
     void
-    OxShmolli2Parser<MeasureType>
+    TomatoParser<MeasureType>
     ::disp(){
 
         for (SequenceMapType::iterator it=_sequences.begin(); it!=_sequences.end(); ++it) {
@@ -152,7 +152,7 @@ namespace Ox {
     template<typename MeasureType>
     template< typename TYPE >
     void
-    OxShmolli2Parser<MeasureType>
+    TomatoParser<MeasureType>
     ::printVector(std::vector<TYPE> myVector, std::string myVectorName){
         std::cout << myVectorName << " =" << std::endl;
         for (int i = 0; i < myVector.size(); ++i) {
@@ -164,4 +164,4 @@ namespace Ox {
 
 } // namespace Ox
 
-#endif //OXSHMOLLI2_OXSHMOLLI2PARSER_H
+#endif //Tomato_TomatoPARSER_H

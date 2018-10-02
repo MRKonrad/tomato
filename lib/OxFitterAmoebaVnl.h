@@ -4,8 +4,8 @@
  * \date 2018/07/30
  */
 
-#ifndef OXSHMOLLI2_OXFITTERAMOEBAVNL_H
-#define OXSHMOLLI2_OXFITTERAMOEBAVNL_H
+#ifndef Tomato_OXFITTERAMOEBAVNL_H
+#define Tomato_OXFITTERAMOEBAVNL_H
 
 #include "OxFitter.h"
 #include "OxFunctionsT1AdapterVnlCost.h"
@@ -113,4 +113,4 @@ namespace Ox {
 
 } // namespace Ox
 
-#endif //OXSHMOLLI2_OXFITTERAMOEBAVNL_H
+#endif //Tomato_OXFITTERAMOEBAVNL_H

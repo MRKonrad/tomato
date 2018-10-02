@@ -4,8 +4,8 @@
  * \date 2018/08/09
  */
 
-#ifndef OXSHMOLLI2_OXCALCULATORT1_HXX
-#define OXSHMOLLI2_OXCALCULATORT1_HXX
+#ifndef Tomato_OXCALCULATORT1_HXX
+#define Tomato_OXCALCULATORT1_HXX
 
 namespace Ox {
 
@@ -342,4 +342,4 @@ namespace Ox {
 
 } //namespace Ox
 
-#endif //OXSHMOLLI2_OXCALCULATORT1_H
+#endif //Tomato_OXCALCULATORT1_H

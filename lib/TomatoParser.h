@@ -1,11 +1,11 @@
 /*!
- * \file OxShmolli2Parser.h
+ * \file TomatoParser.h
  * \author Konrad Werys
  * \date 2018/08/19
  */
 
-#ifndef OXSHMOLLI2_OXSHMOLLI2PARSER_H
-#define OXSHMOLLI2_OXSHMOLLI2PARSER_H
+#ifndef Tomato_TomatoPARSER_H
+#define Tomato_TomatoPARSER_H
 
 #include <map>
 #include <string>
@@ -18,7 +18,7 @@
 namespace Ox {
 
     template<typename MeasureType>
-    class OxShmolli2Parser {
+    class TomatoParser {
 
     public:
 
@@ -43,6 +43,6 @@ namespace Ox {
     };
 } // namespace Ox
 
-#include "OxShmolli2Parser.hxx"
+#include "TomatoParser.hxx"
 
-#endif //OXSHMOLLI2_OXSHMOLLI2PARSER_H
+#endif //Tomato_TomatoPARSER_H

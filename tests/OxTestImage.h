@@ -4,8 +4,8 @@
  * \date 2018/07/30
  */
 
-#ifndef OXShmolli2_OXTESTImage_H
-#define OXShmolli2_OXTESTImage_H
+#ifndef Tomato_OXTESTImage_H
+#define Tomato_OXTESTImage_H
 
 #include "OxTestData.h"
 
@@ -55,4 +55,4 @@ namespace Ox {
 
 #include "OxTestImage.hxx"
 
-#endif //OXShmolli2_OXTESTImage_H
+#endif //Tomato_OXTESTImage_H

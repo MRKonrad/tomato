@@ -4,10 +4,10 @@
  * \date 2018/08/24
  */
 
-#ifndef OXSHMOLLI2_OxOriginalShmolliDicomReader_H
-#define OXSHMOLLI2_OxOriginalShmolliDicomReader_H
+#ifndef Tomato_OxOriginalShmolliDicomReader_H
+#define Tomato_OxOriginalShmolliDicomReader_H
 
-#include "CmakeConfigForOxShmolli2.h"
+#include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
 #include "itkReadFileListFilter.h"
@@ -108,4 +108,4 @@ namespace Ox {
 
 #endif
 
-#endif //OXSHMOLLI2_OxOriginalShmolliDicomReader_H
+#endif //Tomato_OxOriginalShmolliDicomReader_H

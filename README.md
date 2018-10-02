@@ -1,4 +1,4 @@
-# OxShmolli2
+# Tomato
 A library to calculate parametric maps in MRI. It contains ShMOLLI implementation as in [this article](https://jcmr-online.biomedcentral.com/articles/10.1186/1532-429X-12-69).
 
 | OSX/Linux - Travis | Windows - AppVeyor |  Test coverage - Codecov |
@@ -7,11 +7,11 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 
 
 ## Documentation
-**Documentation** in doxygen can be found [here](https://mrkonrad.github.io/OxShmolli2/html).
+**Documentation** in doxygen can be found [here](https://mrkonrad.github.io/Tomato/html).
 
-## OxShmolli2 and Numerical Recipes
+## Tomato and Numerical Recipes
 **Important**  
-Original ShMOLLI (and based on it OxShmolli2) uses code based on Numerical Recipes book. Due to Numerical Recipes licence I cannot share this part of the code online. Please contact me if you would like to use this part of the code. To make up for this limitation we provide a number of alternative fitting procedures. 
+Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes book. Due to Numerical Recipes licence I cannot share this part of the code online. Please contact me if you would like to use this part of the code. To make up for this limitation we provide a number of alternative fitting procedures. 
 
 # Software Requirements Specification
 
@@ -44,9 +44,9 @@ Original ShMOLLI (and based on it OxShmolli2) uses code based on Numerical Recip
 * **Gitmodules**: after `git clone` run `git submodule update --init --recursive` to get the submodules code.
 * It would be nice to follow [CppCoreGuidlines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md) as far as C++98 allows.
 
-[travis_badge]: https://img.shields.io/travis/MRKonrad/OxShmolli2.svg?style=for-the-badge
-[travis_link]: https://travis-ci.org/MRKonrad/OxShmolli2
-[appveyor_badge]: https://img.shields.io/appveyor/ci/MRKonrad/OxShmolli2.svg?style=for-the-badge
-[appveyor_link]: https://ci.appveyor.com/project/MRKonrad/oxshmolli2/
-[codecov_badge]: https://img.shields.io/codecov/c/github/MRKonrad/OxShmolli2.svg?style=for-the-badge
-[codecov_link]: https://codecov.io/gh/MRKonrad/OxShmolli2
+[travis_badge]: https://img.shields.io/travis/MRKonrad/Tomato.svg?style=for-the-badge
+[travis_link]: https://travis-ci.org/MRKonrad/Tomato
+[appveyor_badge]: https://img.shields.io/appveyor/ci/MRKonrad/Tomato.svg?style=for-the-badge
+[appveyor_link]: https://ci.appveyor.com/project/MRKonrad/Tomato/
+[codecov_badge]: https://img.shields.io/codecov/c/github/MRKonrad/Tomato.svg?style=for-the-badge
+[codecov_link]: https://codecov.io/gh/MRKonrad/Tomato
