@@ -117,19 +117,13 @@ namespace Ox {
                 resultsStruc.ChiSqrt = KWUtil::getChiSqrt(lastValue, nSamples);
                 resultsStruc.SNR =  (resultsStruc.B - resultsStruc.A) / (resultsStruc.ChiSqrt + 0.001);
                 resultsStruc.LastValue = lastValue;
-                //vecType residuals(nSamples); //TODO
-                //this->m_Minimizer->GetFunctor()->calcLSResiduals(residuals); //TODO
-                //vnl_matrix<MeasureType> invCovarianceMatrix = this->CalculateInvCovarianceMatrix(invTimes, residuals, curPos); //TODO
-                //vnl_matrix<MeasureType> covarianceMatrix(3,3,0); //TODO
-                //if (vnl_determinant(invCovarianceMatrix) > 1e-12){ //TODO
-                //    covarianceMatrix = vnl_matrix_inverse<MeasureType> (invCovarianceMatrix); //TODO
-                //}
 
-                //tempResults.SD_A = covarianceMatrix(1,1); //TODO
-                //tempResults.SD_B = covarianceMatrix(2,2); //TODO
-                //tempResults.SD_T1 = covarianceMatrix(0,0); //TODO
+                MeasureType covarianceMatrix[3*3];
+                calculateCovarianceMatrix(tempResults, covarianceMatrix);
+                resultsStruc.SD_A = sqrt(covarianceMatrix[4]); //  (1,1)
+                resultsStruc.SD_B = sqrt(covarianceMatrix[8]); //  (2,2)
+                resultsStruc.SD_T1 = sqrt(covarianceMatrix[0]); // (0,0)
 
-                //std::cout << tempResults.SD_A << " " << tempResults.SD_B << " " << tempResults.SD_T1 << " " << std::endl;
             }
 
             return resultsStruc;
@@ -159,43 +153,64 @@ namespace Ox {
             return result;
         }
 
-//        MeasureType* calculateInvCovarianceMatrix(const MeasureType* invTimes, const MeasureType* residuals, const MeasureType* parameters) {
-//
-//            matrixType invCovarianceMatrix(3,3, 0); // indexing by column,row
-//            //invCovarianceMatrix.fill_diagonal(1);
-//
-//            MeasureType A = parameters[0];
-//            MeasureType B = parameters[1];
-//            MeasureType T1star = parameters[2];
-//            MeasureType T1 = (B/A-1)*T1star;
-//
-//            MeasureType dydA = 0;
-//            MeasureType dydB = 0;
-//            MeasureType dydT1 = 0;
-//
-//            for (unsigned int i = 0; i < invTimes.size(); ++i){
-//                MeasureType invTime = invTimes[i];
-//                MeasureType myexp = exp ( -invTime * ( B/A - 1) / T1);
-//                dydA  = 1 - B * myexp * invTime * B / ( T1 * A * A);
-//                dydB  = -myexp + B * myexp * invTime / ( T1 * A );
-//                dydT1 = -B * myexp * invTime * (B/A-1) / ( T1 * T1);
-//
-//                invCovarianceMatrix( 0, 0 ) += dydT1 * dydT1;
-//                invCovarianceMatrix( 0, 1 ) += dydA  * dydT1;
-//                invCovarianceMatrix( 0, 2 ) += dydB  * dydT1;
-//                invCovarianceMatrix( 1, 0 ) += dydT1 * dydA;
-//                invCovarianceMatrix( 1, 1 ) += dydA  * dydA;
-//                invCovarianceMatrix( 1, 2 ) += dydB  * dydA;
-//                invCovarianceMatrix( 2, 0 ) += dydT1 * dydB;
-//                invCovarianceMatrix( 2, 1 ) += dydA  * dydB;
-//                invCovarianceMatrix( 2, 2 ) += dydB  * dydB;
-//            }
-//
-//            MeasureType SD = KWUtil::calcStandardDeviationArray(residuals.size(), residuals.data_block());
-//            invCovarianceMatrix = invCovarianceMatrix/(SD*SD);
-//
-//            return invCovarianceMatrix;
-//        }
+        int calculateCovarianceMatrix(const MeasureType* parameters, MeasureType *covarianceMatrix) {
+
+            int nSamples = this->getNSamples();
+            const MeasureType* invTimes = this->getFunctionsT1()->getInvTimes();
+
+            MeasureType* residuals = new MeasureType[nSamples];
+            MeasureType invCovarianceMatrix[3*3];
+
+            this->getFunctionsT1()->copyToParameters(parameters);
+            this->getFunctionsT1()->calcLSResiduals(residuals);
+            calculateInvCovarianceMatrix(invTimes, residuals, parameters, invCovarianceMatrix);
+            KWUtil::calcMatrixInverse3x3<MeasureType>(invCovarianceMatrix, covarianceMatrix);
+
+            delete [] residuals;
+
+            return 0; //EXIT_SUCCESS
+
+        }
+
+        int calculateInvCovarianceMatrix(const MeasureType* invTimes, const MeasureType* residuals, const MeasureType* parameters, MeasureType *invCovarianceMatrix) {
+
+            // invCovarianceMatrix - indexing by column,row
+
+            int nSamples = this->getNSamples();
+            MeasureType A = parameters[0];
+            MeasureType B = parameters[1];
+            MeasureType T1star = parameters[2];
+            MeasureType T1 = (B/A-1)*T1star;
+
+            MeasureType dydA = 0;
+            MeasureType dydB = 0;
+            MeasureType dydT1 = 0;
+
+            for (int i = 0; i < nSamples; ++i){
+                MeasureType invTime = invTimes[i];
+                MeasureType myexp = exp ( -invTime * ( B/A - 1) / T1);
+                dydA  = 1 - B * myexp * invTime * B / ( T1 * A * A);
+                dydB  = -myexp + B * myexp * invTime / ( T1 * A );
+                dydT1 = -B * myexp * invTime * (B/A-1) / ( T1 * T1);
+
+                invCovarianceMatrix[0] += dydT1 * dydT1; // (0,0)
+                invCovarianceMatrix[1] += dydA  * dydT1; // (0,1)
+                invCovarianceMatrix[2] += dydB  * dydT1; // (0,2)
+                invCovarianceMatrix[3] += dydT1 * dydA;  // (1,0)
+                invCovarianceMatrix[4] += dydA  * dydA;  // (1,1)
+                invCovarianceMatrix[5] += dydB  * dydA;  // (1,2)
+                invCovarianceMatrix[6] += dydT1 * dydB;  // (2,0)
+                invCovarianceMatrix[7] += dydA  * dydB;  // (2,1)
+                invCovarianceMatrix[8] += dydB  * dydB;  // (2,2)
+            }
+
+            MeasureType SD = KWUtil::calcStandardDeviationArray<MeasureType>(nSamples, residuals);
+            for (int i = 0; i < 3*3; ++i) {
+                invCovarianceMatrix[i] = invCovarianceMatrix[i] / (SD * SD);
+            }
+
+            return 0; // EXIT_SUCCESS
+        }
 
         /**
          * constructor

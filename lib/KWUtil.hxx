@@ -395,6 +395,33 @@ void KWUtil::printKW(bool doPrint, char* fmt, ...){
 }
 
 template< typename TYPE >
+int KWUtil::calcMatrixInverse3x3(const TYPE *matrix, TYPE *matrixInverse){
+
+    for (int i = 0; i < 9; ++i){
+        matrixInverse[i] = 0;
+    }
+
+    const TYPE *a = matrix; // just for shorter equations
+    TYPE det = a[0]*a[4]*a[8] - a[0]*a[5]*a[7] - a[1]*a[3]*a[8] + a[1]*a[5]*a[6] + a[2]*a[3]*a[7] - a[2]*a[4]*a[6];
+
+    if (fabs(det) < 1e-12){
+        return 1; // EXIT_FAILURE
+    }
+
+    matrixInverse[0] =  (a[4]*a[8] - a[5]*a[7])/det;
+    matrixInverse[1] = -(a[1]*a[8] - a[2]*a[7])/det;
+    matrixInverse[2] =  (a[1]*a[5] - a[2]*a[4])/det;
+    matrixInverse[3] = -(a[3]*a[8] - a[5]*a[6])/det;
+    matrixInverse[4] =  (a[0]*a[8] - a[2]*a[6])/det;
+    matrixInverse[5] = -(a[0]*a[5] - a[2]*a[3])/det;
+    matrixInverse[6] =  (a[3]*a[7] - a[4]*a[6])/det;
+    matrixInverse[7] = -(a[0]*a[7] - a[1]*a[6])/det;
+    matrixInverse[8] =  (a[0]*a[4] - a[1]*a[3])/det;
+
+    return 0; // EXIT_SUCCESS
+}
+
+template< typename TYPE >
 TYPE KWUtil::getChiSqrt(TYPE lastFValue, int nSamples){
     return sqrt(lastFValue/(nSamples-1));
 }

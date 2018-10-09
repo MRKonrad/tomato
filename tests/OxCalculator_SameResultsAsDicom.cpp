@@ -12,7 +12,7 @@
 #ifdef USE_ITK
 #ifdef USE_PRIVATE_NR2
 
-TEST(OxCalculator_SameResultsAsDicom, doAnything) {
+TEST(OxCalculator_SameResultsAsDicom, calculate) {
 
     typedef double TYPE;
 
@@ -51,9 +51,9 @@ TEST(OxCalculator_SameResultsAsDicom, doAnything) {
     originalShmolliDicomReader.copyFromImage(sigMag, originalShmolliDicomReader._imageMag, index3d);
     originalShmolliDicomReader.copyFromImage(sigPha, originalShmolliDicomReader._imagePha, index3d);
 
-    KWUtil::printArray(nSamples, invTimes, "\n");
-    KWUtil::printArray(nSamples, sigMag, "\n");
-    KWUtil::printArray(nSamples, sigPha, "\n");
+    //KWUtil::printArray(nSamples, invTimes, "\n");
+    //KWUtil::printArray(nSamples, sigMag, "\n");
+    //KWUtil::printArray(nSamples, sigPha, "\n");
 
     // init the necessary objects
     Ox::FunctionsT1CalculatorShmolli<TYPE> functionsObject;
@@ -62,8 +62,8 @@ TEST(OxCalculator_SameResultsAsDicom, doAnything) {
     Ox::StartPointCalculatorShmolli<TYPE> startPointCalculator;
     Ox::CalculatorT1Shmolli<TYPE> calculator;
 
-//    fitter.setTrace(true);
-//    fitter.setVerbose(true);
+    //    fitter.setTrace(true);
+    //    fitter.setVerbose(true);
 
     // configure
     calculator.setFunctionsT1(&functionsObject);
@@ -80,10 +80,10 @@ TEST(OxCalculator_SameResultsAsDicom, doAnything) {
 
     //calculator.prepareToCalculate();
     calculator.calculate();
-    calculator.disp();
+    //calculator.disp();
 
-    KWUtil::printArray(nSamples, calculator.getSigns(), "\n");
-    KWUtil::printArray(nSamples, calculator.getSignal(), "\n");
+    //KWUtil::printArray(nSamples, calculator.getSigns(), "\n");
+    //KWUtil::printArray(nSamples, calculator.getSignal(), "\n");
 
     std::cout << std::endl ;
     std::cout << "oryginal/calculated"<< std::endl ;

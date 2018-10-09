@@ -213,3 +213,37 @@ TEST(OxCalculatorT1Molli, copyConstructor) {
 
 }
 
+TEST(OxCalculatorT1Molli, correctSD) {
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/blood.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    // init the necessary objects
+    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
+    Ox::SignCalculatorRealImag<TYPE> signCalculator;
+    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
+    Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
+
+    // configure
+    calculatorT1Molli.setFunctionsT1(&functionsObject);
+    calculatorT1Molli.setFitter(&fitterAmoebaVnl);
+    calculatorT1Molli.setSignCalculator(&signCalculator);
+    calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
+
+    // set the data
+    calculatorT1Molli.setNSamples(nSamples);
+    calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
+    calculatorT1Molli.setSigPha(testData.getSignalPhaPtr());
+    calculatorT1Molli.setSigMag(testData.getSignalMagPtr());
+
+    calculatorT1Molli.calculate();
+
+//    EXPECT_NEAR(calculatorT1Molli.getResults().SD_T1, 48.31, 1e-2);
+//    EXPECT_NEAR(calculatorT1Molli.getResults().SD_A, 1.96, 1e-2);
+//    EXPECT_NEAR(calculatorT1Molli.getResults().SD_B, 2.07, 1e-2);
+}
+

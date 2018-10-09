@@ -44,9 +44,9 @@ Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes b
 * **Gitmodules**: after `git clone` run `git submodule update --init --recursive` to get the submodules code.
 * It would be nice to follow [CppCoreGuidlines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md) as far as C++98 allows.
 
-[travis_badge]: https://img.shields.io/travis/MRKonrad/Tomato.svg?style=for-the-badge
-[travis_link]: https://travis-ci.org/MRKonrad/Tomato
-[appveyor_badge]: https://img.shields.io/appveyor/ci/MRKonrad/Tomato.svg?style=for-the-badge
-[appveyor_link]: https://ci.appveyor.com/project/MRKonrad/Tomato/
-[codecov_badge]: https://img.shields.io/codecov/c/github/MRKonrad/Tomato.svg?style=for-the-badge
-[codecov_link]: https://codecov.io/gh/MRKonrad/Tomato
+[travis_badge]: https://img.shields.io/travis/MRKonrad/tomato.svg?style=for-the-badge
+[travis_link]: https://travis-ci.org/MRKonrad/tomato
+[appveyor_badge]: https://img.shields.io/appveyor/ci/MRKonrad/tomato.svg?style=for-the-badge
+[appveyor_link]: https://ci.appveyor.com/project/MRKonrad/tomato
+[codecov_badge]: https://img.shields.io/codecov/c/github/MRKonrad/tomato.svg?style=for-the-badge
+[codecov_link]: https://codecov.io/gh/MRKonrad/tomato

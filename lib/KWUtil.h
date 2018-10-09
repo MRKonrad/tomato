@@ -140,6 +140,17 @@ public:
     template< typename TYPE >
     static TYPE getChiSqrt(TYPE lastFValue, int nSamples);
 
+    /**
+     *
+     * @tparam TYPE
+     * @param matrix - pointer to array with indices [0 1 2; 3 4 5; 6 7 8]
+     * @param matrixInverse - pointer to with indices [0 1 2; 3 4 5; 6 7 8]. Fills the inverse matix if
+     * determinant != 0 or zero matrix if det == 0
+     * @return 0 if success, 1 if det == 0
+     */
+    template< typename TYPE >
+    static int calcMatrixInverse3x3(const TYPE *matrix, TYPE *matrixInverse);
+
     template< typename TYPE >
     static TYPE MOLLI_min(TYPE a[], int n, int *indm);
 
