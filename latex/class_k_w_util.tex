@@ -88,6 +88,8 @@
 \hypertarget{class_k_w_util_a2e55b0bcf1bbf1155654b748a7064cbf}{{\footnotesize template$<$typename T\-Y\-P\-E $>$ }\\static T\-Y\-P\-E {\bfseries get\-Chi\-Sqrt} (T\-Y\-P\-E last\-F\-Value, int n\-Samples)}\label{class_k_w_util_a2e55b0bcf1bbf1155654b748a7064cbf}
 
 \item 
+{\footnotesize template$<$typename T\-Y\-P\-E $>$ }\\static int \hyperlink{class_k_w_util_a80504801c382f1ac367bcf0787fb18c2}{calc\-Matrix\-Inverse3x3} (const T\-Y\-P\-E $\ast$matrix, T\-Y\-P\-E $\ast$matrix\-Inverse)
+\item 
 \hypertarget{class_k_w_util_a6401111c5ce49eb97e1c79bae84b3868}{{\footnotesize template$<$typename T\-Y\-P\-E $>$ }\\static T\-Y\-P\-E {\bfseries M\-O\-L\-L\-I\-\_\-min} (T\-Y\-P\-E a\mbox{[}$\,$\mbox{]}, int n, int $\ast$indm)}\label{class_k_w_util_a6401111c5ce49eb97e1c79bae84b3868}
 
 \item 
@@ -115,6 +117,32 @@
 \hypertarget{class_k_w_util_a70a639cebc8982645a9ba44f73b93d85}{static std\-::vector$<$ std\-::string $>$ {\bfseries read\-File} (const std\-::string file\-Path)}\label{class_k_w_util_a70a639cebc8982645a9ba44f73b93d85}
 
 \end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_k_w_util_a80504801c382f1ac367bcf0787fb18c2}{\index{K\-W\-Util@{K\-W\-Util}!calc\-Matrix\-Inverse3x3@{calc\-Matrix\-Inverse3x3}}
+\index{calc\-Matrix\-Inverse3x3@{calc\-Matrix\-Inverse3x3}!KWUtil@{K\-W\-Util}}
+\subsubsection[{calc\-Matrix\-Inverse3x3}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\-Y\-P\-E $>$ int K\-W\-Util\-::calc\-Matrix\-Inverse3x3 (
+\begin{DoxyParamCaption}
+\item[{const T\-Y\-P\-E $\ast$}]{matrix, }
+\item[{T\-Y\-P\-E $\ast$}]{matrix\-Inverse}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_k_w_util_a80504801c382f1ac367bcf0787fb18c2}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T\-Y\-P\-E} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em matrix} & -\/ pointer to array with indices \mbox{[}0 1 2; 3 4 5; 6 7 8\mbox{]} \\
+\hline
+{\em matrix\-Inverse} & -\/ pointer to with indices \mbox{[}0 1 2; 3 4 5; 6 7 8\mbox{]}. Fills the inverse matix if determinant != 0 or zero matrix if det == 0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if success, 1 if det == 0 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

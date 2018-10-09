@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>OxShmolli2: KWUtil Class Reference</title>
+<title>Tomato: KWUtil Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">OxShmolli2
+   <div id="projectname">Tomato
    </div>
   </td>
  </tr>
@@ -225,6 +225,9 @@ template&lt;typename TYPE &gt; </td></tr>
 template&lt;typename TYPE &gt; </td></tr>
 <tr class="memitem:a2e55b0bcf1bbf1155654b748a7064cbf"><td class="memTemplItemLeft" align="right" valign="top">static TYPE&#160;</td><td class="memTemplItemRight" valign="bottom"><b>getChiSqrt</b> (TYPE lastFValue, int nSamples)</td></tr>
 <tr class="separator:a2e55b0bcf1bbf1155654b748a7064cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80504801c382f1ac367bcf0787fb18c2"><td class="memTemplParams" colspan="2">template&lt;typename TYPE &gt; </td></tr>
+<tr class="memitem:a80504801c382f1ac367bcf0787fb18c2"><td class="memTemplItemLeft" align="right" valign="top">static int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_k_w_util.html#a80504801c382f1ac367bcf0787fb18c2">calcMatrixInverse3x3</a> (const TYPE *matrix, TYPE *matrixInverse)</td></tr>
+<tr class="separator:a80504801c382f1ac367bcf0787fb18c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6401111c5ce49eb97e1c79bae84b3868"><td class="memTemplParams" colspan="2"><a class="anchor" id="a6401111c5ce49eb97e1c79bae84b3868"></a>
 template&lt;typename TYPE &gt; </td></tr>
 <tr class="memitem:a6401111c5ce49eb97e1c79bae84b3868"><td class="memTemplItemLeft" align="right" valign="top">static TYPE&#160;</td><td class="memTemplItemRight" valign="bottom"><b>MOLLI_min</b> (TYPE a[], int n, int *indm)</td></tr>
@@ -259,6 +262,57 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>splitFilename<
 static std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>readFile</b> (const std::string filePath)</td></tr>
 <tr class="separator:a70a639cebc8982645a9ba44f73b93d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a80504801c382f1ac367bcf0787fb18c2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TYPE &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int KWUtil::calcMatrixInverse3x3 </td>
+          <td>(</td>
+          <td class="paramtype">const TYPE *&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TYPE *&#160;</td>
+          <td class="paramname"><em>matrixInverse</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TYPE</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td>- pointer to array with indices [0 1 2; 3 4 5; 6 7 8] </td></tr>
+    <tr><td class="paramname">matrixInverse</td><td>- pointer to with indices [0 1 2; 3 4 5; 6 7 8]. Fills the inverse matix if determinant != 0 or zero matrix if det == 0 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if success, 1 if det == 0 </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>lib/<a class="el" href="_k_w_util_8h_source.html">KWUtil.h</a></li>
 <li>lib/<a class="el" href="_k_w_util_8hxx_source.html">KWUtil.hxx</a></li>

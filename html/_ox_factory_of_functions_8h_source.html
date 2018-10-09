@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>OxShmolli2: app/OxFactoryOfFunctions.h Source File</title>
+<title>Tomato: app/OxFactoryOfFunctions.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">OxShmolli2
+   <div id="projectname">Tomato
    </div>
   </td>
  </tr>
@@ -106,10 +106,10 @@ $(document).ready(function(){initNavTree('_ox_factory_of_functions_8h_source.htm
 </div><!--header-->
 <div class="contents">
 <a href="_ox_factory_of_functions_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef OXSHMOLLI2_OXFACTORYOFFUNCTIONS_H</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define OXSHMOLLI2_OXFACTORYOFFUNCTIONS_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef Tomato_OXFACTORYOFFUNCTIONS_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tomato_OXFACTORYOFFUNCTIONS_H</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;CmakeConfigForOxShmolli2.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;CmakeConfigForTomato.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_functions_t1_basic_8h.html">OxFunctionsT1Basic.h</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifdef USE_PRIVATE_NR2</span></div>
@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('_ox_factory_of_functions_8h_source.htm
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>Ox {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">struct </span>OxShmolli2Options;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">struct </span>TomatoOptions;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#ifdef USE_PRIVATE_NR2</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *functionsTypeNames[] = {</div>
@@ -147,7 +147,7 @@ $(document).ready(function(){initNavTree('_ox_factory_of_functions_8h_source.htm
 <div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_ox_1_1_factory_of_functions.html">   45</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_ox_1_1_factory_of_functions.html">FactoryOfFunctions</a> {</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;TYPE&gt;</a>* newByFactory(<a class="code" href="struct_ox_1_1_ox_shmolli2_options.html">OxShmolli2Options&lt;TYPE&gt;</a> *opts){</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;TYPE&gt;</a>* newByFactory(<a class="code" href="struct_ox_1_1_tomato_options.html">TomatoOptions&lt;TYPE&gt;</a> *opts){</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">switch</span> (opts-&gt;functions_type){</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">case</span> FunctionsBasic: {</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_ox_1_1_functions_t1_basic.html">FunctionsT1Basic&lt;TYPE&gt;</a>();</div>
@@ -165,8 +165,8 @@ $(document).ready(function(){initNavTree('_ox_factory_of_functions_8h_source.htm
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;} <span class="comment">// namespace Ox</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif //OXSHMOLLI2_OXFACTORYOFFUNCTIONS_H</span></div>
-<div class="ttc" id="struct_ox_1_1_ox_shmolli2_options_html"><div class="ttname"><a href="struct_ox_1_1_ox_shmolli2_options.html">Ox::OxShmolli2Options</a></div><div class="ttdef"><b>Definition:</b> OxFactoryOfCalculators.h:21</div></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif //Tomato_OXFACTORYOFFUNCTIONS_H</span></div>
+<div class="ttc" id="struct_ox_1_1_tomato_options_html"><div class="ttname"><a href="struct_ox_1_1_tomato_options.html">Ox::TomatoOptions</a></div><div class="ttdef"><b>Definition:</b> OxFactoryOfCalculators.h:21</div></div>
 <div class="ttc" id="class_ox_1_1_factory_of_functions_html"><div class="ttname"><a href="class_ox_1_1_factory_of_functions.html">Ox::FactoryOfFunctions</a></div><div class="ttdef"><b>Definition:</b> OxFactoryOfFunctions.h:45</div></div>
 <div class="ttc" id="class_ox_1_1_functions_t1_html"><div class="ttname"><a href="class_ox_1_1_functions_t1.html">Ox::FunctionsT1</a></div><div class="ttdoc">Container for a model function, cost function and Least-Squares function. And derivatives. </div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:27</div></div>
 <div class="ttc" id="_ox_functions_t1_basic_8h_html"><div class="ttname"><a href="_ox_functions_t1_basic_8h.html">OxFunctionsT1Basic.h</a></div></div>

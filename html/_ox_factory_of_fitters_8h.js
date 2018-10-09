@@ -1,6 +1,6 @@
 var _ox_factory_of_fitters_8h =
 [
-    [ "OxShmolli2Options", "struct_ox_1_1_ox_shmolli2_options.html", "struct_ox_1_1_ox_shmolli2_options" ],
+    [ "TomatoOptions", "struct_ox_1_1_tomato_options.html", "struct_ox_1_1_tomato_options" ],
     [ "FactoryOfFitters", "class_ox_1_1_factory_of_fitters.html", null ],
     [ "fittersType_t", "_ox_factory_of_fitters_8h.html#a2894c58af49acd3ab25739653eca4743", [
       [ "AmoebaVnl", "_ox_factory_of_fitters_8h.html#a2894c58af49acd3ab25739653eca4743a4e9ea11d05d9846d31c3b990f51f0c6d", null ],

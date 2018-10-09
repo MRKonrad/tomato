@@ -1,7 +1,7 @@
 var NAVTREE =
 [
-  [ "OxShmolli2", "index.html", [
-    [ "OxShmolli2", "md__r_e_a_d_m_e.html", null ],
+  [ "Tomato", "index.html", [
+    [ "Tomato", "md__r_e_a_d_m_e.html", null ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
       [ "Class Index", "classes.html", null ],
@@ -25,8 +25,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"class_ox_1_1_fitter_amoeba_vnl.html#a80f876905cc4f5019dbbcfdbec257f79",
-"classitk_1_1_read_file_list_filter.html#a1dcc0b9499c8c2a2d1a9774bf90fabdf"
+"class_ox_1_1_fitter.html#afeba16a2218db1f3fc646e2dde75f386",
+"classitk_1_1_n_shmolli_samples_used_to123_image_filter.html#a88bd0d5af2509a14869d466a70bdbb25"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

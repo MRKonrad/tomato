@@ -26,8 +26,6 @@ var hierarchy =
       [ "itk::NShmolliSamplesUsedTo123ImageFilter< TImage >", "classitk_1_1_n_shmolli_samples_used_to123_image_filter.html", null ]
     ] ],
     [ "KWUtil", "class_k_w_util.html", null ],
-    [ "Ox::OxShmolli2Options< TYPE >", "struct_ox_1_1_ox_shmolli2_options.html", null ],
-    [ "Ox::OxShmolli2Parser< MeasureType >", "class_ox_1_1_ox_shmolli2_parser.html", null ],
     [ "Ox::SignCalculator< MeasureType >", "class_ox_1_1_sign_calculator.html", [
       [ "Ox::SignCalculatorNoSign< MeasureType >", "class_ox_1_1_sign_calculator_no_sign.html", null ],
       [ "Ox::SignCalculatorRealImag< MeasureType >", "class_ox_1_1_sign_calculator_real_imag.html", null ]
@@ -37,6 +35,8 @@ var hierarchy =
     ] ],
     [ "Ox::TestData< MeasureType >", "class_ox_1_1_test_data.html", null ],
     [ "Ox::TestImage< MeasureType >", "class_ox_1_1_test_image.html", null ],
+    [ "Ox::TomatoOptions< TYPE >", "struct_ox_1_1_tomato_options.html", null ],
+    [ "Ox::TomatoParser< MeasureType >", "class_ox_1_1_tomato_parser.html", null ],
     [ "vnl_cost_function", null, [
       [ "Ox::FunctionsT1AdapterVnlCost", "class_ox_1_1_functions_t1_adapter_vnl_cost.html", null ]
     ] ],

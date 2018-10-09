@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>OxShmolli2: app/OxFactoryOfFitters.h Source File</title>
+<title>Tomato: app/OxFactoryOfFitters.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">OxShmolli2
+   <div id="projectname">Tomato
    </div>
   </td>
  </tr>
@@ -106,11 +106,11 @@ $(document).ready(function(){initNavTree('_ox_factory_of_fitters_8h_source.html'
 </div><!--header-->
 <div class="contents">
 <a href="_ox_factory_of_fitters_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef OXSHMOLLI2_OXFACTORYOFFitters_H</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define OXSHMOLLI2_OXFACTORYOFFitters_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef Tomato_OXFACTORYOFFitters_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tomato_OXFACTORYOFFitters_H</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;CmakeConfigForOxShmolli2.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_shmolli2_options_8h.html">OxShmolli2Options.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;CmakeConfigForTomato.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_tomato_options_8h.html">TomatoOptions.h</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_fitter_amoeba_vnl_8h.html">OxFitterAmoebaVnl.h</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_fitter_levenberg_marquardt_vnl_8h.html">OxFitterLevenbergMarquardtVnl.h</a>&quot;</span></div>
@@ -122,7 +122,7 @@ $(document).ready(function(){initNavTree('_ox_factory_of_fitters_8h_source.html'
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>Ox {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">struct </span>OxShmolli2Options;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">struct </span>TomatoOptions;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#ifdef USE_PRIVATE_NR2</span></div>
@@ -155,7 +155,7 @@ $(document).ready(function(){initNavTree('_ox_factory_of_fitters_8h_source.html'
 <div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_ox_1_1_factory_of_fitters.html">   53</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_ox_1_1_factory_of_fitters.html">FactoryOfFitters</a> {</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_ox_1_1_fitter.html">Fitter&lt;TYPE&gt;</a>* newByFactory(<a class="code" href="struct_ox_1_1_ox_shmolli2_options.html">OxShmolli2Options&lt;TYPE&gt;</a> *opts){</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_ox_1_1_fitter.html">Fitter&lt;TYPE&gt;</a>* newByFactory(<a class="code" href="struct_ox_1_1_tomato_options.html">TomatoOptions&lt;TYPE&gt;</a> *opts){</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <a class="code" href="class_ox_1_1_fitter.html">Fitter&lt;TYPE&gt;</a> *fitter = 0; <span class="comment">//nullpointer</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">switch</span> (opts-&gt;fitting_method){</div>
@@ -184,15 +184,15 @@ $(document).ready(function(){initNavTree('_ox_factory_of_fitters_8h_source.html'
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;} <span class="comment">// namespace Ox</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif //OXSHMOLLI2_OXFACTORYOFFitters_H</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif //Tomato_OXFACTORYOFFitters_H</span></div>
 <div class="ttc" id="class_ox_1_1_fitter_amoeba_vnl_html"><div class="ttname"><a href="class_ox_1_1_fitter_amoeba_vnl.html">Ox::FitterAmoebaVnl</a></div><div class="ttdef"><b>Definition:</b> OxFitterAmoebaVnl.h:16</div></div>
-<div class="ttc" id="struct_ox_1_1_ox_shmolli2_options_html"><div class="ttname"><a href="struct_ox_1_1_ox_shmolli2_options.html">Ox::OxShmolli2Options</a></div><div class="ttdef"><b>Definition:</b> OxFactoryOfCalculators.h:21</div></div>
 <div class="ttc" id="class_ox_1_1_factory_of_fitters_html"><div class="ttname"><a href="class_ox_1_1_factory_of_fitters.html">Ox::FactoryOfFitters</a></div><div class="ttdef"><b>Definition:</b> OxFactoryOfFitters.h:53</div></div>
+<div class="ttc" id="struct_ox_1_1_tomato_options_html"><div class="ttname"><a href="struct_ox_1_1_tomato_options.html">Ox::TomatoOptions</a></div><div class="ttdef"><b>Definition:</b> OxFactoryOfCalculators.h:21</div></div>
 <div class="ttc" id="_ox_fitter_amoeba_vnl_8h_html"><div class="ttname"><a href="_ox_fitter_amoeba_vnl_8h.html">OxFitterAmoebaVnl.h</a></div></div>
+<div class="ttc" id="_tomato_options_8h_html"><div class="ttname"><a href="_tomato_options_8h.html">TomatoOptions.h</a></div></div>
 <div class="ttc" id="_ox_fitter_levenberg_marquardt_vnl_8h_html"><div class="ttname"><a href="_ox_fitter_levenberg_marquardt_vnl_8h.html">OxFitterLevenbergMarquardtVnl.h</a></div></div>
 <div class="ttc" id="class_ox_1_1_fitter_levenberg_marquardt_vnl_html"><div class="ttname"><a href="class_ox_1_1_fitter_levenberg_marquardt_vnl.html">Ox::FitterLevenbergMarquardtVnl</a></div><div class="ttdef"><b>Definition:</b> OxFitterLevenbergMarquardtVnl.h:18</div></div>
 <div class="ttc" id="class_ox_1_1_fitter_html"><div class="ttname"><a href="class_ox_1_1_fitter.html">Ox::Fitter</a></div><div class="ttdef"><b>Definition:</b> OxFitter.h:22</div></div>
-<div class="ttc" id="_ox_shmolli2_options_8h_html"><div class="ttname"><a href="_ox_shmolli2_options_8h.html">OxShmolli2Options.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

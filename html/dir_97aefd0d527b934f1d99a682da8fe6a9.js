@@ -40,12 +40,6 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "OxFunctionsT1Basic.hxx", "_ox_functions_t1_basic_8hxx.html", null ],
     [ "OxImageCalculatorT1.h", "_ox_image_calculator_t1_8h_source.html", null ],
     [ "OxImageCalculatorT1.hxx", "_ox_image_calculator_t1_8hxx_source.html", null ],
-    [ "OxShmolli2Colormap.cpp", "_ox_shmolli2_colormap_8cpp.html", "_ox_shmolli2_colormap_8cpp" ],
-    [ "OxShmolli2Colormap.h", "_ox_shmolli2_colormap_8h.html", "_ox_shmolli2_colormap_8h" ],
-    [ "OxShmolli2Parser.h", "_ox_shmolli2_parser_8h.html", [
-      [ "OxShmolli2Parser", "class_ox_1_1_ox_shmolli2_parser.html", "class_ox_1_1_ox_shmolli2_parser" ]
-    ] ],
-    [ "OxShmolli2Parser.hxx", "_ox_shmolli2_parser_8hxx.html", null ],
     [ "OxSignCalculator.h", "_ox_sign_calculator_8h.html", [
       [ "SignCalculator", "class_ox_1_1_sign_calculator.html", "class_ox_1_1_sign_calculator" ]
     ] ],
@@ -60,5 +54,11 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     ] ],
     [ "OxStartPointCalculatorDefault3Dims.h", "_ox_start_point_calculator_default3_dims_8h.html", [
       [ "StartPointCalculatorDefault3Dims", "class_ox_1_1_start_point_calculator_default3_dims.html", "class_ox_1_1_start_point_calculator_default3_dims" ]
-    ] ]
+    ] ],
+    [ "TomatoColormap.cpp", "_tomato_colormap_8cpp.html", "_tomato_colormap_8cpp" ],
+    [ "TomatoColormap.h", "_tomato_colormap_8h.html", "_tomato_colormap_8h" ],
+    [ "TomatoParser.h", "_tomato_parser_8h.html", [
+      [ "TomatoParser", "class_ox_1_1_tomato_parser.html", "class_ox_1_1_tomato_parser" ]
+    ] ],
+    [ "TomatoParser.hxx", "_tomato_parser_8hxx.html", null ]
 ];

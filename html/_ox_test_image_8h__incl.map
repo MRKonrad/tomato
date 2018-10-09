@@ -1,9 +1,9 @@
 <map id="tests/OxTestImage.h" name="tests/OxTestImage.h">
-<area shape="rect" id="node2" href="$_ox_test_data_8h.html" title="OxTestData.h" alt="" coords="832,80,936,107"/>
-<area shape="rect" id="node20" href="$_ox_test_image_8hxx.html" title="OxTestImage.hxx" alt="" coords="961,80,1087,107"/>
-<area shape="rect" id="node3" href="$_ox_shmolli2_parser_8h.html" title="OxShmolli2Parser.h" alt="" coords="697,155,836,181"/>
-<area shape="rect" id="node19" href="$_ox_test_data_8hxx.html" title="OxTestData.hxx" alt="" coords="922,155,1040,181"/>
+<area shape="rect" id="node2" href="$_ox_test_data_8h.html" title="OxTestData.h" alt="" coords="803,80,907,107"/>
+<area shape="rect" id="node20" href="$_ox_test_image_8hxx.html" title="OxTestImage.hxx" alt="" coords="931,80,1057,107"/>
+<area shape="rect" id="node3" href="$_tomato_parser_8h.html" title="TomatoParser.h" alt="" coords="685,155,800,181"/>
+<area shape="rect" id="node19" href="$_ox_test_data_8hxx.html" title="OxTestData.hxx" alt="" coords="893,155,1011,181"/>
 <area shape="rect" id="node8" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="468,229,541,256"/>
-<area shape="rect" id="node18" href="$_ox_shmolli2_parser_8hxx.html" title="OxShmolli2Parser.hxx" alt="" coords="567,229,719,256"/>
+<area shape="rect" id="node18" href="$_tomato_parser_8hxx.html" title="TomatoParser.hxx" alt="" coords="566,229,695,256"/>
 <area shape="rect" id="node17" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="563,304,652,331"/>
 </map>

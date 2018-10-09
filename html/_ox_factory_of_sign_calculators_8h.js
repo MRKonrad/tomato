@@ -1,6 +1,6 @@
 var _ox_factory_of_sign_calculators_8h =
 [
-    [ "OxShmolli2Options", "struct_ox_1_1_ox_shmolli2_options.html", "struct_ox_1_1_ox_shmolli2_options" ],
+    [ "TomatoOptions", "struct_ox_1_1_tomato_options.html", "struct_ox_1_1_tomato_options" ],
     [ "FactoryOfSignCalculators", "class_ox_1_1_factory_of_sign_calculators.html", null ],
     [ "signCalculatorsType_t", "_ox_factory_of_sign_calculators_8h.html#af818b4a70179bb0e5a637432d058b858", [
       [ "NoSign", "_ox_factory_of_sign_calculators_8h.html#af818b4a70179bb0e5a637432d058b858ab013537e7189c43179758e41648ae1ff", null ],

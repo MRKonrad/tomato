@@ -1,11 +1,11 @@
 <map id="lib/OxStartPointCalculatorDefault3Dims.h" name="lib/OxStartPointCalculatorDefault3Dims.h">
-<area shape="rect" id="node2" href="$_ox_factory_of_start_point_calculators_8h.html" title="app/OxFactoryOfStartPoint\lCalculators.h" alt="" coords="201,97,380,138"/>
-<area shape="rect" id="node8" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="405,97,579,138"/>
-<area shape="rect" id="node9" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="603,97,785,138"/>
-<area shape="rect" id="node10" href="$_ox_start_point_calculator_default3_dims__test_8cpp.html" title="tests/OxStartPointCalculator\lDefault3Dims_test.cpp" alt="" coords="811,97,1000,138"/>
-<area shape="rect" id="node3" href="$_ox_shmolli2_options_8h.html" title="app/OxShmolli2Options.h" alt="" coords="205,187,376,213"/>
-<area shape="rect" id="node4" href="$_ox_shmolli2_8h.html" title="app/OxShmolli2.h" alt="" coords="5,269,131,296"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="67,352,167,379"/>
-<area shape="rect" id="node6" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="205,269,376,296"/>
-<area shape="rect" id="node7" href="$_ox_shmolli2_options__test_8cpp.html" title="tests/OxShmolli2Options\l_test.cpp" alt="" coords="401,262,567,303"/>
+<area shape="rect" id="node2" href="$_ox_factory_of_start_point_calculators_8h.html" title="app/OxFactoryOfStartPoint\lCalculators.h" alt="" coords="178,97,357,138"/>
+<area shape="rect" id="node8" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="383,97,556,138"/>
+<area shape="rect" id="node9" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="581,97,763,138"/>
+<area shape="rect" id="node10" href="$_ox_start_point_calculator_default3_dims__test_8cpp.html" title="tests/OxStartPointCalculator\lDefault3Dims_test.cpp" alt="" coords="788,97,977,138"/>
+<area shape="rect" id="node3" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="195,187,341,213"/>
+<area shape="rect" id="node4" href="$_tomato_8h.html" title="app/Tomato.h" alt="" coords="5,269,107,296"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="50,352,149,379"/>
+<area shape="rect" id="node6" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="183,269,353,296"/>
+<area shape="rect" id="node7" href="$_tomato_options__test_8cpp.html" title="tests/TomatoOptions\l_test.cpp" alt="" coords="377,262,521,303"/>
 </map>
