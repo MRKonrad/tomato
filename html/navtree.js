@@ -1,6 +1,7 @@
 var NAVTREE =
 [
   [ "Tomato", "index.html", [
+    [ "notepad", "md_notepad.html", null ],
     [ "Tomato", "md__r_e_a_d_m_e.html", null ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],

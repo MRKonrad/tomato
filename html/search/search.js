@@ -12,7 +12,7 @@ var indexSectionsWithContent =
   2: "ikmot",
   3: "cdfgimnpst~",
   4: "is",
-  5: "t"
+  5: "nt"
 };
 
 var indexSectionNames =
