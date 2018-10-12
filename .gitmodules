@@ -4,3 +4,6 @@
 [submodule "thirdParty/libyaml"]
 	path = thirdParty/libyaml
 	url = https://github.com/yaml/libyaml.git
+[submodule "thirdParty/yamlmatlab"]
+	path = thirdParty/yamlmatlab
+	url = https://github.com/ewiger/yamlmatlab.git
