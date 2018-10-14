@@ -115,8 +115,6 @@ TEST(OxCalculator_SameResultsAsDicom, calculate) {
 //    KWUtil::copyArrayToArray(7,FitData.sdMollitTIs, invTimes);
 //    std::cout << FitData.func(temp1) << std::endl;
 
-
-
 //    EXPECT_DOUBLE_EQ(calculator.getResults().A, 0);
 //    EXPECT_DOUBLE_EQ(calculator.getResults().B, 0);
 //    EXPECT_DOUBLE_EQ(calculator.getResults().T1star, 0);

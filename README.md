@@ -7,9 +7,11 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 
 
 ## Documentation
+
 **Documentation** in doxygen can be found [here](https://mrkonrad.github.io/Tomato/html).
 
 ## Tomato and Numerical Recipes
+
 **Important**  
 Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes book. Due to Numerical Recipes licence I cannot share this part of the code online. Please contact me if you would like to use this part of the code. To make up for this limitation we provide a number of alternative fitting procedures. 
 
@@ -43,6 +45,7 @@ Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes b
 * **Continuous integration** was tested [in this repo](https://github.com/MRKonrad/ContinousIntegrationPlayground).
 * **Gitmodules**: after `git clone` run `git submodule update --init --recursive` to get the submodules code.
 * It would be nice to follow [CppCoreGuidlines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md) as far as C++98 allows.
+* Maybe I can write a script for github releases with [github releases REST api](https://developer.github.com/v3/repos/releases/#create-a-release) and [curl REST api](http://www.codingpedia.org/ama/how-to-test-a-rest-api-from-command-line-with-curl/#12_HEAD_requests)?
 
 [travis_badge]: https://img.shields.io/travis/MRKonrad/tomato.svg?style=for-the-badge
 [travis_link]: https://travis-ci.org/MRKonrad/tomato

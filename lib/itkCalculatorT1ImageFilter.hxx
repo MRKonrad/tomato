@@ -80,19 +80,37 @@ namespace itk {
         region.SetSize(size);
         region.SetIndex(start);
 
-        // TODO output has only 2d origin and spacing. How to deal with it?
         typename TImageOut::SpacingType spacing;
         spacing[0] = imageMag->GetSpacing()[0];
         spacing[1] = imageMag->GetSpacing()[1];
 
-//        imageA->SetOrigin(origin);
-//        imageA->SetSpacing(spacing);
-//        imageB->SetOrigin(origin);
-//        imageB->SetSpacing(spacing);
+        typename TImageOut::PointType origin;
+        origin[0] = imageMag->GetOrigin()[0];
+        origin[1] = imageMag->GetOrigin()[1];
+
+        typename TImageOut::DirectionType direction;
+
+        direction[0][0] = imageMag->GetDirection()[0][0];
+        direction[0][1] = imageMag->GetDirection()[0][1];
+        direction[1][0] = imageMag->GetDirection()[1][0];
+        direction[1][1] = imageMag->GetDirection()[1][1];
+
+
+//        vcl_cout << imageMag->GetSpacing() << vcl_endl;
+//        vcl_cout << imageMag->GetSpacing()[0] << vcl_endl;
+//        vcl_cout << imageMag->GetSpacing()[1] << vcl_endl;
+//        vcl_cout << imageMag->GetSpacing()[2] << vcl_endl;
+//        //spacing[0] = imageMag->GetSpacing()[0];
+//        vcl_cout << spacing << vcl_endl;
+//
+//        vcl_cout << imageMag->GetDirection() << vcl_endl;
+//        vcl_cout << this->GetOutput(0)->GetDirection() << vcl_endl;
 
         for (unsigned int i = 0; i < this->GetNumberOfOutputs(); i++){
             this->GetOutput(i)->SetLargestPossibleRegion(region);
             this->GetOutput(i)->SetSpacing(spacing);
+            this->GetOutput(i)->SetOrigin(origin);
+            this->GetOutput(i)->SetDirection(direction);
         }
     }
 

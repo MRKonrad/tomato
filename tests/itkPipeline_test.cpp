@@ -128,16 +128,16 @@ TEST(itkPipeline, calculateT1FromMagAndPhase) {
     dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0003.dcm");
     dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0004.dcm");
     dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0005.dcm");
-//    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0006.dcm");
-//    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0007.dcm");
+    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0006.dcm");
+    dcmMagFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0007.dcm");
 
     dcmPhaFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_13/IM-0002-0001.dcm");
     dcmPhaFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_13/IM-0002-0002.dcm");
     dcmPhaFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_13/IM-0002-0003.dcm");
     dcmPhaFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_13/IM-0002-0004.dcm");
     dcmPhaFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_13/IM-0002-0005.dcm");
-//    dcmPhaFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_13/IM-0002-0006.dcm");
-//    dcmPhaFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_13/IM-0002-0007.dcm");
+    dcmPhaFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_13/IM-0002-0006.dcm");
+    dcmPhaFilePaths.push_back("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_13/IM-0002-0007.dcm");
 
     ReadFileListFilterType::Pointer readerMag = ReadFileListFilterType::New();
     readerMag->SetFileList(dcmMagFilePaths);
@@ -193,25 +193,7 @@ TEST(itkPipeline, calculateT1FromMagAndPhase) {
     delete [] invTimes;
 }
 
-//
-//TEST(itkPipeline, calculateShmolliAndCompareWithDicom) {
-//
-//    std::vector<std::string> dcmMagFilePaths;
-//    std::vector<std::string> dcmPhaFilePaths;
-//    std::vector<std::string> dcmT1MapFilePaths;
-//
-//    ASSERT_TRUE(false);
-//}
-//
-//TEST(itkPipeline, calculateShmolliAndFitparamsAndCompareWithDicom) {
-//
-//    std::vector<std::string> dcmMagFilePaths;
-//    std::vector<std::string> dcmPhaFilePaths;
-//    std::vector<std::string> dcmT1MapFilePaths;
-//    std::vector<std::string> dcmFitparamsFilePaths;
-//
-//    ASSERT_TRUE(false);
-//}
+
 
 #endif // USE_ITK
 

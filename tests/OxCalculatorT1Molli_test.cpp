@@ -14,6 +14,8 @@
 #include "OxStartPointCalculatorDefault3Dims.h"
 #include "OxCalculatorT1Molli.h"
 
+//TODO: make sure correctSDs are accually correct
+
 TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
 
     typedef double TYPE;
@@ -213,7 +215,7 @@ TEST(OxCalculatorT1Molli, copyConstructor) {
 
 }
 
-TEST(OxCalculatorT1Molli, correctSD) {
+TEST(OxCalculatorT1Molli, correctSDs) {
 
     typedef double TYPE;
 
@@ -242,8 +244,8 @@ TEST(OxCalculatorT1Molli, correctSD) {
 
     calculatorT1Molli.calculate();
 
-//    EXPECT_NEAR(calculatorT1Molli.getResults().SD_T1, 48.31, 1e-2);
-//    EXPECT_NEAR(calculatorT1Molli.getResults().SD_A, 1.96, 1e-2);
-//    EXPECT_NEAR(calculatorT1Molli.getResults().SD_B, 2.07, 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults().SD_T1, 0.05, 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults().SD_A, 1.85, 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults().SD_B, 1.94, 1e-2);
 }
 
