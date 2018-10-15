@@ -163,7 +163,9 @@ namespace Ox {
 
             this->getFunctionsT1()->copyToParameters(parameters);
             this->getFunctionsT1()->calcLSResiduals(residuals);
+
             calculateInvCovarianceMatrix(invTimes, residuals, parameters, invCovarianceMatrix);
+
             KWUtil::calcMatrixInverse3x3<MeasureType>(invCovarianceMatrix, covarianceMatrix);
 
             delete [] residuals;
@@ -186,6 +188,10 @@ namespace Ox {
             MeasureType dydB = 0;
             MeasureType dydT1 = 0;
 
+            for (int i = 0; i < 3*3; ++i) {
+                invCovarianceMatrix[i] = 0;
+            }
+
             for (int i = 0; i < nSamples; ++i){
                 MeasureType invTime = invTimes[i];
                 MeasureType myexp = exp ( -invTime * ( B/A - 1) / T1);
@@ -205,6 +211,7 @@ namespace Ox {
             }
 
             MeasureType SD = KWUtil::calcStandardDeviationArray<MeasureType>(nSamples, residuals);
+
             for (int i = 0; i < 3*3; ++i) {
                 invCovarianceMatrix[i] = invCovarianceMatrix[i] / (SD * SD);
             }

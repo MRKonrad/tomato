@@ -244,8 +244,8 @@ TEST(OxCalculatorT1Molli, correctSDs) {
 
     calculatorT1Molli.calculate();
 
-    EXPECT_NEAR(calculatorT1Molli.getResults().SD_T1, 0.05, 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults().SD_A, 1.85, 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults().SD_B, 1.94, 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults().SD_T1, 48.31, 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults().SD_A, 1.96, 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults().SD_B, 2.07, 1e-2);
 }
 

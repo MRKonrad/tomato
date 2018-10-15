@@ -8,11 +8,13 @@
 #include "Tomato.h"
 
 #include "CmakeConfigForTomato.h"
-#ifdef USE_ITK
+#ifdef USE_PRIVATE_NR2
 
+#ifdef USE_ITK
 #include "itkImageFileReader.h"
 #include "itkTestingComparisonImageFilter.h"
 
+// TODO: make sure all fitparams give the same results
 
 TEST(Tomato, sameAsShmolli) {
 
@@ -85,9 +87,10 @@ TEST(Tomato, sameAsShmolli) {
         viewer.AddImage(readerOriginalT1Map->GetOutput(), true, "T1 original");
         viewer.Visualize();
     }
-#endif
+#endif // USE_VTK
 
 }
 
+#endif // USE_PRIVATE_NR2
 
 #endif // USE_ITK

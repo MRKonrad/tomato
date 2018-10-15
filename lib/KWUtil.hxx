@@ -34,7 +34,7 @@ void KWUtil::copyArrayToArray(int nSamples, TYPE1 *arrayTo, const TYPE2 *arrayFr
 template< typename TYPE >
 void KWUtil::printArray(int nSamples, const TYPE *myarray){
     for (int i=0; i<nSamples; i++){
-        std::cout << std::setw(10) << myarray[i];
+        std::cout << std::setw(12) << myarray[i];
     }
 }
 

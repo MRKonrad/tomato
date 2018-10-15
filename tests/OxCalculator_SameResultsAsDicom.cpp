@@ -12,6 +12,8 @@
 #ifdef USE_ITK
 #ifdef USE_PRIVATE_NR2
 
+//TODO: implement
+
 TEST(OxCalculator_SameResultsAsDicom, calculate) {
 
     typedef double TYPE;
@@ -51,10 +53,6 @@ TEST(OxCalculator_SameResultsAsDicom, calculate) {
     originalShmolliDicomReader.copyFromImage(sigMag, originalShmolliDicomReader._imageMag, index3d);
     originalShmolliDicomReader.copyFromImage(sigPha, originalShmolliDicomReader._imagePha, index3d);
 
-    //KWUtil::printArray(nSamples, invTimes, "\n");
-    //KWUtil::printArray(nSamples, sigMag, "\n");
-    //KWUtil::printArray(nSamples, sigPha, "\n");
-
     // init the necessary objects
     Ox::FunctionsT1CalculatorShmolli<TYPE> functionsObject;
     Ox::FitterAmoebaPrivateNr2<TYPE> fitter;
@@ -80,17 +78,13 @@ TEST(OxCalculator_SameResultsAsDicom, calculate) {
 
     //calculator.prepareToCalculate();
     calculator.calculate();
-    //calculator.disp();
 
-    //KWUtil::printArray(nSamples, calculator.getSigns(), "\n");
-    //KWUtil::printArray(nSamples, calculator.getSignal(), "\n");
-
-    std::cout << std::endl ;
-    std::cout << "oryginal/calculated"<< std::endl ;
-    std::cout << originalShmolliDicomReader._imageA->GetPixel(index2d) << " " << calculator.getResults().A << std::endl ;
-    std::cout << originalShmolliDicomReader._imageB->GetPixel(index2d) << " " <<calculator.getResults().B << std::endl ;
-    std::cout << originalShmolliDicomReader._imageT1star->GetPixel(index2d) << " " <<calculator.getResults().T1star << std::endl ;
-
+//    std::cout << std::endl ;
+//    std::cout << "oryginal/calculated"<< std::endl ;
+//    std::cout << originalShmolliDicomReader._imageA->GetPixel(index2d) << " " << calculator.getResults().A << std::endl ;
+//    std::cout << originalShmolliDicomReader._imageB->GetPixel(index2d) << " " <<calculator.getResults().B << std::endl ;
+//    std::cout << originalShmolliDicomReader._imageT1star->GetPixel(index2d) << " " <<calculator.getResults().T1star << std::endl ;
+//
 //    TYPE temp1[3] = {120, 28, 50000};
 //
 //    functionsObject.setNSamples(7);
