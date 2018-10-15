@@ -55,6 +55,7 @@ after_build:
   - cmake --build . --config %CONFIGURATION% --target INSTALL
   - cd ..
   - mkdir deployment
+  -
 
 test_script:
   # TODO: should I add sth like this? https://github.com/mgerhardy/caveexpress/blob/master/appveyor.yml
@@ -62,9 +63,6 @@ test_script:
   - cd install\tests
   - TomatoTests.exe
   - cd ..\..
-
-artifacts:
-  - path: deployment\*.*
 
 before_deploy:
   - echo "Ready to deploy?"
@@ -75,6 +73,9 @@ before_deploy:
   - 7z a %EXE_EXTENDED_NAME%.zip %EXE_EXTENDED_NAME%.exe # zip
   - cd ..\..
   - copy bin\%CONFIGURATION%\%EXE_EXTENDED_NAME%.zip deployment\%EXE_EXTENDED_NAME%.zip
+
+artifacts:
+  - path: deployment\*.*
 
 deploy:
   # release: Tomato-v$(appveyor_build_version)
