@@ -1,7 +1,7 @@
 var NAVTREE =
 [
   [ "Tomato", "index.html", [
-    [ "notepad", "md_notepad.html", null ],
+    [ "Different results from the configurations:", "md_notepad.html", null ],
     [ "Tomato", "md__r_e_a_d_m_e.html", null ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
@@ -26,8 +26,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"class_ox_1_1_fitter.html#afeba16a2218db1f3fc646e2dde75f386",
-"classitk_1_1_n_shmolli_samples_used_to123_image_filter.html#a88bd0d5af2509a14869d466a70bdbb25"
+"class_ox_1_1_fitter.html#afc5005541eb8ee1741faf3f7fef9f112",
+"classitk_1_1_n_shmolli_samples_used_to123_image_filter.html#a7ab0731450a68f872c8e2888cf4eee5e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

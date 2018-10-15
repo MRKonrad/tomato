@@ -1,6 +1,7 @@
 <map id="app/OxFactoryOfFitters.h" name="app/OxFactoryOfFitters.h">
-<area shape="rect" id="node2" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="72,80,219,107"/>
-<area shape="rect" id="node3" href="$_tomato_8h.html" title="app/Tomato.h" alt="" coords="5,163,107,189"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="50,245,149,272"/>
-<area shape="rect" id="node5" href="$_tomato_options__test_8cpp.html" title="tests/TomatoOptions\l_test.cpp" alt="" coords="183,155,327,197"/>
+<area shape="rect" id="node2" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="71,80,217,107"/>
+<area shape="rect" id="node3" href="$_tomato_8h.html" title="app/Tomato.h" alt="" coords="93,163,195,189"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="5,253,104,280"/>
+<area shape="rect" id="node6" href="$_tomato_options__test_8cpp.html" title="tests/TomatoOptions\l_test.cpp" alt="" coords="220,155,364,197"/>
+<area shape="rect" id="node5" href="$_tomato__same_as_shmolli__test_8cpp.html" title="tests/Tomato_sameAsShmolli\l_test.cpp" alt="" coords="129,246,327,287"/>
 </map>

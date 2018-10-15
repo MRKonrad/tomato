@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"class_ox_1_1_fitter.html#afc5005541eb8ee1741faf3f7fef9f112":[2,0,1,9,21],
 "class_ox_1_1_fitter.html#afeba16a2218db1f3fc646e2dde75f386":[2,0,1,9,9],
 "class_ox_1_1_fitter_amoeba_vnl.html":[2,0,1,10],
 "class_ox_1_1_fitter_amoeba_vnl.html#a0c198974c2a95d0eb35cfe4c838e516c":[2,0,1,10,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "classitk_1_1_n_shmolli_samples_used_to123_image_filter.html#a0fdd8bb40334c5a00bed7e53b3ce41b9":[2,0,0,1,8],
 "classitk_1_1_n_shmolli_samples_used_to123_image_filter.html#a1b3d0c2271ece8ef8dec873c6ebaec3b":[2,0,0,1,2],
 "classitk_1_1_n_shmolli_samples_used_to123_image_filter.html#a1cd4d595fe98ea551673e4f7a2a8ca9f":[2,0,0,1,7],
-"classitk_1_1_n_shmolli_samples_used_to123_image_filter.html#a6eb48e2e880a9eaa080bcd6c97f1b62f":[2,0,0,1,4],
-"classitk_1_1_n_shmolli_samples_used_to123_image_filter.html#a7ab0731450a68f872c8e2888cf4eee5e":[2,0,0,1,5]
+"classitk_1_1_n_shmolli_samples_used_to123_image_filter.html#a6eb48e2e880a9eaa080bcd6c97f1b62f":[2,0,0,1,4]
 };

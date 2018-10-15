@@ -1,10 +1,11 @@
 <map id="lib/OxFitterAmoebaVnl.h" name="lib/OxFitterAmoebaVnl.h">
-<area shape="rect" id="node2" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="60,88,231,115"/>
-<area shape="rect" id="node7" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="255,81,428,122"/>
-<area shape="rect" id="node8" href="$_ox_fitter_amoeba_vnl__test_8cpp.html" title="tests/OxFitterAmoebaVnl\l_test.cpp" alt="" coords="453,81,621,122"/>
-<area shape="rect" id="node9" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="646,81,828,122"/>
-<area shape="rect" id="node3" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="72,171,219,197"/>
-<area shape="rect" id="node4" href="$_tomato_8h.html" title="app/Tomato.h" alt="" coords="5,253,107,280"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="50,336,149,363"/>
-<area shape="rect" id="node6" href="$_tomato_options__test_8cpp.html" title="tests/TomatoOptions\l_test.cpp" alt="" coords="183,246,327,287"/>
+<area shape="rect" id="node2" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="59,88,229,115"/>
+<area shape="rect" id="node8" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="253,81,427,122"/>
+<area shape="rect" id="node9" href="$_ox_fitter_amoeba_vnl__test_8cpp.html" title="tests/OxFitterAmoebaVnl\l_test.cpp" alt="" coords="451,81,620,122"/>
+<area shape="rect" id="node10" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="645,81,827,122"/>
+<area shape="rect" id="node3" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="71,171,217,197"/>
+<area shape="rect" id="node4" href="$_tomato_8h.html" title="app/Tomato.h" alt="" coords="93,253,195,280"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="5,344,104,371"/>
+<area shape="rect" id="node7" href="$_tomato_options__test_8cpp.html" title="tests/TomatoOptions\l_test.cpp" alt="" coords="220,246,364,287"/>
+<area shape="rect" id="node6" href="$_tomato__same_as_shmolli__test_8cpp.html" title="tests/Tomato_sameAsShmolli\l_test.cpp" alt="" coords="129,337,327,378"/>
 </map>
