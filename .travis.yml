@@ -114,18 +114,19 @@ after_success:
 
 before_deploy:
   - echo "Ready to deploy?"
-
-  - export exe_extended_name=TomatoExe_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
-  # Problem: when deploying an executable as it is, somewhere in the process its permission to execute (-x) is lost.
-  # Solution: zip it and deploy the archive
+  - mkdir deployment
+  # copy the data
   - cd install/tests/testData
   - zip -r testData.zip dicom
   - zip -r testData.zip Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml
-  - cp testData.zip ${TRAVIS_BUILD_DIR}/testData.zip
+  - cp testData.zip ${TRAVIS_BUILD_DIR}/deployment/testData.zip
   - cd $TRAVIS_BUILD_DIR
-  - mkdir deployment
+  # copy the executable
+  - export exe_extended_name=TomatoExe_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
   - cp TomatoExe ${exe_extended_name}
   - cd deployment
+  # Problem: when deploying an executable as it is, somewhere in the process its permission to execute (-x) is lost.
+  # Solution: zip it and deploy the archive
   - zip -r ${exe_extended_name}.zip ../${exe_extended_name}
   - cd ..
 
