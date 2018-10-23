@@ -1,12 +1,13 @@
 <map id="lib/OxFunctionsT1Basic.h" name="lib/OxFunctionsT1Basic.h">
 <area shape="rect" id="node2" href="$_ox_factory_of_functions_8h.html" title="app/OxFactoryOfFunctions.h" alt="" coords="210,88,400,115"/>
 <area shape="rect" id="node9" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="425,81,599,122"/>
-<area shape="rect" id="node10" href="$_ox_fitter_amoeba_vnl__test_8cpp.html" title="tests/OxFitterAmoebaVnl\l_test.cpp" alt="" coords="623,81,792,122"/>
-<area shape="rect" id="node11" href="$_ox_fitter_levenberg_marquardt_vnl__test_8cpp.html" title="tests/OxFitterLevenbergMarquardt\lVnl_test.cpp" alt="" coords="817,81,1036,122"/>
-<area shape="rect" id="node12" href="$_ox_functions_t1_adapter_vnl_cost__test_8cpp.html" title="tests/OxFunctionsT1Adapter\lVnlCost_test.cpp" alt="" coords="1061,81,1251,122"/>
-<area shape="rect" id="node13" href="$_ox_functions_t1_adapter_vnl_least_squares__test_8cpp.html" title="tests/OxFunctionsT1Adapter\lVnlLeastSquares_test.cpp" alt="" coords="1275,81,1464,122"/>
-<area shape="rect" id="node14" href="$_ox_functions_t1_basic__test_8cpp.html" title="tests/OxFunctionsT1Basic\l_test.cpp" alt="" coords="1489,81,1665,122"/>
-<area shape="rect" id="node15" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="1690,81,1872,122"/>
+<area shape="rect" id="node10" href="$_ox_calculator_t1_shmolli__test_8cpp.html" title="tests/OxCalculatorT1Shmolli\l_test.cpp" alt="" coords="623,81,812,122"/>
+<area shape="rect" id="node11" href="$_ox_fitter_amoeba_vnl__test_8cpp.html" title="tests/OxFitterAmoebaVnl\l_test.cpp" alt="" coords="837,81,1005,122"/>
+<area shape="rect" id="node12" href="$_ox_fitter_levenberg_marquardt_vnl__test_8cpp.html" title="tests/OxFitterLevenbergMarquardt\lVnl_test.cpp" alt="" coords="1030,81,1249,122"/>
+<area shape="rect" id="node13" href="$_ox_functions_t1_adapter_vnl_cost__test_8cpp.html" title="tests/OxFunctionsT1Adapter\lVnlCost_test.cpp" alt="" coords="1275,81,1464,122"/>
+<area shape="rect" id="node14" href="$_ox_functions_t1_adapter_vnl_least_squares__test_8cpp.html" title="tests/OxFunctionsT1Adapter\lVnlLeastSquares_test.cpp" alt="" coords="1488,81,1677,122"/>
+<area shape="rect" id="node15" href="$_ox_functions_t1_basic__test_8cpp.html" title="tests/OxFunctionsT1Basic\l_test.cpp" alt="" coords="1702,81,1879,122"/>
+<area shape="rect" id="node16" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="1903,81,2085,122"/>
 <area shape="rect" id="node3" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="232,171,379,197"/>
 <area shape="rect" id="node4" href="$_tomato_8h.html" title="app/Tomato.h" alt="" coords="93,253,195,280"/>
 <area shape="rect" id="node5" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="5,344,104,371"/>
