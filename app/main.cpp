@@ -20,17 +20,9 @@ int main(int argc, char* argv[]) {
     if (argc != 2){
         printf("\nUse: OxShmolliExe(<input_file.yaml>). Please see examples in testData\n");
         Ox::TomatoOptions<double>::printAvailable();
-
-//        std::string inputFileName("tests/testData/Calculator_Shmolli_MOLLI_Volunteer_001_45_fileList.yaml");
-//        Ox::Tomato<double> Tomato_object(inputFileName);
-//        Tomato_object._opts->printCurrent();
-//        Tomato_object.readAndSort();
-//        Tomato_object.calculate();
-//        Tomato_object.exportToDicom();
-//        Tomato_object.visualise();
     }
+    else if (argc == 2) {
 
-    else if (argc == 2){
         // process only if ITK is available
 #ifdef USE_ITK
         std::string inputFileName(argv[1]);
@@ -48,7 +40,7 @@ int main(int argc, char* argv[]) {
 
     printf("Thank you for using!\n");
     printf("Konrad Werys 2018\n");
-    printf("konradwerys2@gmail.com\n\n");
+    printf("konrad.werys@cardiov.ox.ac.uk\n\n");
 
     return 0;
 }
