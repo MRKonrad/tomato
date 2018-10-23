@@ -8,8 +8,6 @@
 #include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
-#include "OxFitterAmoebaPrivateNr2.h"
-
 #include "itkReadFileListFilter.h"
 #include "itkSortInvTimesImageFilter.h"
 #include "itkCalculatorT1ImageFilter.h"
@@ -17,6 +15,7 @@
 #include "itkTestingComparisonImageFilter.h"
 
 #ifdef USE_PRIVATE_NR2
+#include "OxFitterAmoebaPrivateNr2.h"
 #include "OxCalculatorT1Shmolli.h"
 #include "OxFunctionsT1CalculatorShmolli.h"
 #include "OxSignCalculatorShmolli.h"
