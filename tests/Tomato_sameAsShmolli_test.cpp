@@ -21,7 +21,7 @@ TEST(Tomato, sameAsShmolli) {
     bool doVisualise = false; //for debugging
 
     // primitive data types
-    typedef int PixelType;
+    typedef int16_t PixelType;
 
     // image data types
     typedef itk::Image< PixelType, 2 > ImageType2D;

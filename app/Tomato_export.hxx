@@ -12,11 +12,13 @@
 
 namespace Ox {
 
+    template< typename IType, typename EType >
     class CastPixelAccessor
     {
     public:
-        typedef double InternalType;
-        typedef int ExternalType;
+
+        typedef IType InternalType;
+        typedef EType ExternalType;
 
         static void Set(InternalType & output, const ExternalType & input)
         {
@@ -276,7 +278,7 @@ namespace Ox {
         gdcmImageIO->KeepOriginalUIDOn();
 
         // to cast
-        typedef itk::AdaptImageFilter<ImageType2D, OutputImageType, CastPixelAccessor> ImageAdaptorType;
+        typedef itk::AdaptImageFilter < ImageType2D, OutputImageType, CastPixelAccessor< InputPixelType, OutputPixelType > > ImageAdaptorType;
         typename ImageAdaptorType::Pointer adaptor = ImageAdaptorType::New();
 
         // get the writer ready before export

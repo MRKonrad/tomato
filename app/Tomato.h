@@ -45,7 +45,7 @@ namespace Ox {
     public:
         // typedefs primitive data types
         typedef MeasureType InputPixelType;
-        typedef int OutputPixelType;
+        typedef int16_t OutputPixelType; // int does not work with some dicom viewers, be sure to use short (int16)
 
         // typedefs image data types
         typedef itk::Image<InputPixelType, 3> ImageType3D;
