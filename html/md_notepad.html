@@ -102,7 +102,9 @@ $(document).ready(function(){initNavTree('md_notepad.html','');});
 <div class="textblock"><p>parameter_to_map: T1_SHMOLLI functions_type: <b>FunctionsBasic/FunctionsShmolli</b> fitting_method: LevMarVnl max_function_evals: 4000 fTolerance: 1e-12 sign_calc_method: MagPhase start_point_calc_method: Default</p>
 <p>FunctionsBasic: 10s and seemingly correct results FunctionsShmolli: 2.2s and wrong results</p>
 <p>parameter_to_map: T1_SHMOLLI functions_type: FunctionsShmolli fitting_method: LevMarVnl max_function_evals: 4000 fTolerance: 1e-12 sign_calc_method: MagPhase start_point_calc_method: <b>Default/StartPointSHMOLLI</b></p>
-<p>Default: 2.2s and wrong results StartPointSHMOLLI: 10s and seemingly correct results </p>
+<p>Default: 2.2s and wrong results StartPointSHMOLLI: 10s and seemingly correct results</p>
+<h1>5 vs 7 samples</h1>
+<p>5 samples are calculated way slower. Maybe playing with fmax and maxIter would reduce the time? </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

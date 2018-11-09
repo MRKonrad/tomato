@@ -126,16 +126,19 @@ Inheritance diagram for Ox::FunctionsT1&lt; MeasureType &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2d5f4c9296daf3531e30a562348ad474"><td class="memItemLeft" align="right" valign="top">virtual MeasureType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_functions_t1.html#a2d5f4c9296daf3531e30a562348ad474">calcModelValue</a> (MeasureType time)=0</td></tr>
-<tr class="separator:a2d5f4c9296daf3531e30a562348ad474"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c69a4159a92c4ddb71ecba97fcdf6de"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_functions_t1.html#a6c69a4159a92c4ddb71ecba97fcdf6de">calcLSResiduals</a> (MeasureType *residuals)=0</td></tr>
-<tr class="separator:a6c69a4159a92c4ddb71ecba97fcdf6de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1475834e89c9304a96c776f3d5aacbf"><td class="memItemLeft" align="right" valign="top">virtual MeasureType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_functions_t1.html#af1475834e89c9304a96c776f3d5aacbf">calcCostValue</a> ()=0</td></tr>
-<tr class="separator:af1475834e89c9304a96c776f3d5aacbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a413b0afca183b88613070ae87121ca66"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_functions_t1.html#a413b0afca183b88613070ae87121ca66">calcCostDerivative</a> (MeasureType *derivative)=0</td></tr>
-<tr class="separator:a413b0afca183b88613070ae87121ca66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84e268911eb64919129c8a0cea39344d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_functions_t1.html#a84e268911eb64919129c8a0cea39344d">calcLSJacobian</a> (MeasureType *jacobian)=0</td></tr>
-<tr class="separator:a84e268911eb64919129c8a0cea39344d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a651f0dca72aab630bc46119094b80aee"><td class="memItemLeft" align="right" valign="top">virtual MeasureType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_functions_t1.html#a651f0dca72aab630bc46119094b80aee">calcModelValue</a> (const MeasureType *parameters, MeasureType time)=0</td></tr>
+<tr class="separator:a651f0dca72aab630bc46119094b80aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae548ba2f5779aba3d3e37f0bec77e891"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_functions_t1.html#ae548ba2f5779aba3d3e37f0bec77e891">calcLSResiduals</a> (const MeasureType *parameters, MeasureType *residuals)=0</td></tr>
+<tr class="separator:ae548ba2f5779aba3d3e37f0bec77e891"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70ab239415d72f38bc36cc290fa3b476"><td class="memItemLeft" align="right" valign="top">virtual MeasureType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_functions_t1.html#a70ab239415d72f38bc36cc290fa3b476">calcCostValue</a> (const MeasureType *parameters)=0</td></tr>
+<tr class="separator:a70ab239415d72f38bc36cc290fa3b476"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01df2dd1eb054540eaccfb1dca01c7ce"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_functions_t1.html#a01df2dd1eb054540eaccfb1dca01c7ce">calcCostDerivative</a> (const MeasureType *parameters, MeasureType *derivative)=0</td></tr>
+<tr class="separator:a01df2dd1eb054540eaccfb1dca01c7ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19216f0d9ae8ba2d7cd55df81d370521"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_functions_t1.html#a19216f0d9ae8ba2d7cd55df81d370521">calcLSJacobian</a> (const MeasureType *parameters, MeasureType *jacobian)=0</td></tr>
+<tr class="separator:a19216f0d9ae8ba2d7cd55df81d370521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70e137063cc2e6ef086046e596af4a15"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a70e137063cc2e6ef086046e596af4a15"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>getNSamples</b> ()</td></tr>
+<tr class="separator:a70e137063cc2e6ef086046e596af4a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71aafa53236bc1eed5b4d65ae25538c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a71aafa53236bc1eed5b4d65ae25538c7"></a>
 virtual const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getInvTimes</b> () const </td></tr>
 <tr class="separator:a71aafa53236bc1eed5b4d65ae25538c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,15 +154,12 @@ virtual const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><
 <tr class="memitem:adf70d696e9da0fcdb45c4a4d02913d6c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf70d696e9da0fcdb45c4a4d02913d6c"></a>
 virtual const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getSignal</b> () const </td></tr>
 <tr class="separator:adf70d696e9da0fcdb45c4a4d02913d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae135536ab79b836d77286fec0efdc6c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae135536ab79b836d77286fec0efdc6c8"></a>
-virtual MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getParameters</b> ()</td></tr>
-<tr class="separator:ae135536ab79b836d77286fec0efdc6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70e137063cc2e6ef086046e596af4a15"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a70e137063cc2e6ef086046e596af4a15"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>getNSamples</b> ()</td></tr>
-<tr class="separator:a70e137063cc2e6ef086046e596af4a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bd8c56786631568dac07ddae165a6b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4bd8c56786631568dac07ddae165a6b1"></a>
 virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>getNDims</b> ()</td></tr>
 <tr class="separator:a4bd8c56786631568dac07ddae165a6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac817cab2256c8495bc6979bb1fca2688"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac817cab2256c8495bc6979bb1fca2688"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setNSamples</b> (int _nSamples)</td></tr>
+<tr class="separator:ac817cab2256c8495bc6979bb1fca2688"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a96e27da44213d1b4f4a7e91d8e0347"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a96e27da44213d1b4f4a7e91d8e0347"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setInvTimes</b> (const MeasureType *_InvTimes)</td></tr>
 <tr class="separator:a5a96e27da44213d1b4f4a7e91d8e0347"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -175,15 +175,6 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setRelAcqTime
 <tr class="memitem:a73bd06989de4d204d8e654c583cd3ce3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73bd06989de4d204d8e654c583cd3ce3"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setSignal</b> (const MeasureType *_Signal)</td></tr>
 <tr class="separator:a73bd06989de4d204d8e654c583cd3ce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27bdccbcb4aa30b945453a33b25fdbf7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27bdccbcb4aa30b945453a33b25fdbf7"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setParameters</b> (MeasureType *_Parameters)</td></tr>
-<tr class="separator:a27bdccbcb4aa30b945453a33b25fdbf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac817cab2256c8495bc6979bb1fca2688"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac817cab2256c8495bc6979bb1fca2688"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNSamples</b> (int _nSamples)</td></tr>
-<tr class="separator:ac817cab2256c8495bc6979bb1fca2688"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2a24170cd7de14c49be27ac16dc7ac8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad2a24170cd7de14c49be27ac16dc7ac8"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>copyToParameters</b> (const MeasureType *ptrFrom)</td></tr>
-<tr class="separator:ad2a24170cd7de14c49be27ac16dc7ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21708a9d44f261ba53648c2e6fcdd3a5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21708a9d44f261ba53648c2e6fcdd3a5"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_functions_t1.html#a21708a9d44f261ba53648c2e6fcdd3a5">disp</a> ()</td></tr>
 <tr class="memdesc:a21708a9d44f261ba53648c2e6fcdd3a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">show me your <a class="el" href="class_ox_1_1_functions_t1.html" title="Container for a model function, cost function and Least-Squares function. And derivatives. ">FunctionsT1</a> <br/></td></tr>
@@ -224,9 +215,6 @@ const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>_RelAc
 <tr class="memitem:a8f87abd26c39fddd3e2b0085e97c6571"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f87abd26c39fddd3e2b0085e97c6571"></a>
 const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>_Signal</b></td></tr>
 <tr class="separator:a8f87abd26c39fddd3e2b0085e97c6571"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6958f5841b785da10dcd1c1c777799c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6958f5841b785da10dcd1c1c777799c7"></a>
-MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>_Parameters</b></td></tr>
-<tr class="separator:a6958f5841b785da10dcd1c1c777799c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32038248ea53c223d9d99cd9cee36378"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32038248ea53c223d9d99cd9cee36378"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>_nSamples</b></td></tr>
 <tr class="separator:a32038248ea53c223d9d99cd9cee36378"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -239,7 +227,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_nDims</b></td></tr>
 class Ox::FunctionsT1&lt; MeasureType &gt;</h3>
 
 <p>Container for a model function, cost function and Least-Squares function. And derivatives. </p>
-<p>Here model function is defined - <a class="el" href="class_ox_1_1_functions_t1.html#a2d5f4c9296daf3531e30a562348ad474">calcModelValue()</a>. Fitting algorithms based on optimisation need a cost function - <a class="el" href="class_ox_1_1_functions_t1.html#af1475834e89c9304a96c776f3d5aacbf">calcCostValue()</a>. Fitting algorithms based on least squares need a residuals calculation - <a class="el" href="class_ox_1_1_functions_t1.html#a6c69a4159a92c4ddb71ecba97fcdf6de">calcLSResiduals()</a>. Some fitting algorithms use derivatives, hence <a class="el" href="class_ox_1_1_functions_t1.html#a84e268911eb64919129c8a0cea39344d">calcLSJacobian()</a> and <a class="el" href="class_ox_1_1_functions_t1.html#a413b0afca183b88613070ae87121ca66">calcCostDerivative()</a>. The memeber variables are pointers to c-arrays, we need to know how many samples we want to process. Thats the nSamples defined in the constructor. TODO: think about moving _Parameters out of this class and take it as a parameter of all the above functions </p>
+<p>Here model function is defined - <a class="el" href="class_ox_1_1_functions_t1.html#a651f0dca72aab630bc46119094b80aee">calcModelValue()</a>. Fitting algorithms based on optimisation need a cost function - <a class="el" href="class_ox_1_1_functions_t1.html#a70ab239415d72f38bc36cc290fa3b476">calcCostValue()</a>. Fitting algorithms based on least squares need a residuals calculation - <a class="el" href="class_ox_1_1_functions_t1.html#ae548ba2f5779aba3d3e37f0bec77e891">calcLSResiduals()</a>. Some fitting algorithms use derivatives, hence <a class="el" href="class_ox_1_1_functions_t1.html#a19216f0d9ae8ba2d7cd55df81d370521">calcLSJacobian()</a> and <a class="el" href="class_ox_1_1_functions_t1.html#a01df2dd1eb054540eaccfb1dca01c7ce">calcCostDerivative()</a>. The memeber variables are pointers to c-arrays, we need to know how many samples we want to process. Thats the nSamples defined in the constructor. TODO: think about moving _Parameters out of this class and take it as a parameter of all the above functions </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">MeasureType</td><td></td></tr>
@@ -282,7 +270,7 @@ template&lt;typename MeasureType&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a413b0afca183b88613070ae87121ca66"></a>
+<a class="anchor" id="a01df2dd1eb054540eaccfb1dca01c7ce"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -294,9 +282,19 @@ template&lt;typename MeasureType&gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="class_ox_1_1_functions_t1.html">Ox::FunctionsT1</a>&lt; MeasureType &gt;::calcCostDerivative </td>
           <td>(</td>
-          <td class="paramtype">MeasureType *&#160;</td>
-          <td class="paramname"><em>derivative</em></td><td>)</td>
+          <td class="paramtype">const MeasureType *&#160;</td>
+          <td class="paramname"><em>parameters</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">MeasureType *&#160;</td>
+          <td class="paramname"><em>derivative</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -313,11 +311,11 @@ template&lt;typename MeasureType&gt; </div>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_ox_1_1_functions_t1_basic.html#aa6a067295d09882f70eeb34b260c37b7">Ox::FunctionsT1Basic&lt; MeasureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="class_ox_1_1_functions_t1_basic.html#aad13eb43862acead688aeb6781cf8cc7">Ox::FunctionsT1Basic&lt; MeasureType &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af1475834e89c9304a96c776f3d5aacbf"></a>
+<a class="anchor" id="a70ab239415d72f38bc36cc290fa3b476"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -329,7 +327,8 @@ template&lt;typename MeasureType&gt; </div>
         <tr>
           <td class="memname">virtual MeasureType <a class="el" href="class_ox_1_1_functions_t1.html">Ox::FunctionsT1</a>&lt; MeasureType &gt;::calcCostValue </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const MeasureType *&#160;</td>
+          <td class="paramname"><em>parameters</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -342,11 +341,11 @@ template&lt;typename MeasureType&gt; </div>
 <p>calcCostValue the most important function of this class </p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Implemented in <a class="el" href="class_ox_1_1_functions_t1_basic.html#adee7b03ad49d28e5dc08a80b2c948da1">Ox::FunctionsT1Basic&lt; MeasureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="class_ox_1_1_functions_t1_basic.html#a60dff997b49111dbeb0f76204cb0dc8f">Ox::FunctionsT1Basic&lt; MeasureType &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a84e268911eb64919129c8a0cea39344d"></a>
+<a class="anchor" id="a19216f0d9ae8ba2d7cd55df81d370521"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -358,9 +357,19 @@ template&lt;typename MeasureType&gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="class_ox_1_1_functions_t1.html">Ox::FunctionsT1</a>&lt; MeasureType &gt;::calcLSJacobian </td>
           <td>(</td>
-          <td class="paramtype">MeasureType *&#160;</td>
-          <td class="paramname"><em>jacobian</em></td><td>)</td>
+          <td class="paramtype">const MeasureType *&#160;</td>
+          <td class="paramname"><em>parameters</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">MeasureType *&#160;</td>
+          <td class="paramname"><em>jacobian</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -377,11 +386,11 @@ template&lt;typename MeasureType&gt; </div>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_ox_1_1_functions_t1_basic.html#a3beaaac6e2e1be4f9bd2e7cba7c51057">Ox::FunctionsT1Basic&lt; MeasureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="class_ox_1_1_functions_t1_basic.html#a8fb79c60d2eaaf8a5d982f4bcddbb21e">Ox::FunctionsT1Basic&lt; MeasureType &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6c69a4159a92c4ddb71ecba97fcdf6de"></a>
+<a class="anchor" id="ae548ba2f5779aba3d3e37f0bec77e891"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -393,9 +402,19 @@ template&lt;typename MeasureType&gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="class_ox_1_1_functions_t1.html">Ox::FunctionsT1</a>&lt; MeasureType &gt;::calcLSResiduals </td>
           <td>(</td>
-          <td class="paramtype">MeasureType *&#160;</td>
-          <td class="paramname"><em>residuals</em></td><td>)</td>
+          <td class="paramtype">const MeasureType *&#160;</td>
+          <td class="paramname"><em>parameters</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">MeasureType *&#160;</td>
+          <td class="paramname"><em>residuals</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -412,11 +431,11 @@ template&lt;typename MeasureType&gt; </div>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_ox_1_1_functions_t1_basic.html#ac9f77d95d7b39f2333b520d3a2e639e9">Ox::FunctionsT1Basic&lt; MeasureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="class_ox_1_1_functions_t1_basic.html#a2e292dec4a234ed53d6cb33c4a590d9f">Ox::FunctionsT1Basic&lt; MeasureType &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2d5f4c9296daf3531e30a562348ad474"></a>
+<a class="anchor" id="a651f0dca72aab630bc46119094b80aee"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -428,9 +447,19 @@ template&lt;typename MeasureType&gt; </div>
         <tr>
           <td class="memname">virtual MeasureType <a class="el" href="class_ox_1_1_functions_t1.html">Ox::FunctionsT1</a>&lt; MeasureType &gt;::calcModelValue </td>
           <td>(</td>
-          <td class="paramtype">MeasureType&#160;</td>
-          <td class="paramname"><em>time</em></td><td>)</td>
+          <td class="paramtype">const MeasureType *&#160;</td>
+          <td class="paramname"><em>parameters</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">MeasureType&#160;</td>
+          <td class="paramname"><em>time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -448,7 +477,7 @@ template&lt;typename MeasureType&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>model(time) </dd></dl>
 
-<p>Implemented in <a class="el" href="class_ox_1_1_functions_t1_basic.html#ad23b00edd74fdf78c7d21fa82bb66e6e">Ox::FunctionsT1Basic&lt; MeasureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="class_ox_1_1_functions_t1_basic.html#a86c92d7a622a925f2c0a8f39c93470d8">Ox::FunctionsT1Basic&lt; MeasureType &gt;</a>.</p>
 
 </div>
 </div>

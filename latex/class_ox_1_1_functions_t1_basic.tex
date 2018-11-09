@@ -33,15 +33,15 @@ Collaboration diagram for Ox\-:\-:Functions\-T1\-Basic$<$ Measure\-Type $>$\-:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual Measure\-Type \hyperlink{class_ox_1_1_functions_t1_basic_ad23b00edd74fdf78c7d21fa82bb66e6e}{calc\-Model\-Value} (Measure\-Type time)
+virtual Measure\-Type \hyperlink{class_ox_1_1_functions_t1_basic_a86c92d7a622a925f2c0a8f39c93470d8}{calc\-Model\-Value} (const Measure\-Type $\ast$parameters, Measure\-Type time)
 \item 
-virtual void \hyperlink{class_ox_1_1_functions_t1_basic_ac9f77d95d7b39f2333b520d3a2e639e9}{calc\-L\-S\-Residuals} (Measure\-Type $\ast$residuals)
+virtual void \hyperlink{class_ox_1_1_functions_t1_basic_a2e292dec4a234ed53d6cb33c4a590d9f}{calc\-L\-S\-Residuals} (const Measure\-Type $\ast$parameters, Measure\-Type $\ast$residuals)
 \item 
-virtual void \hyperlink{class_ox_1_1_functions_t1_basic_a3beaaac6e2e1be4f9bd2e7cba7c51057}{calc\-L\-S\-Jacobian} (Measure\-Type $\ast$jacobian)
+virtual void \hyperlink{class_ox_1_1_functions_t1_basic_a8fb79c60d2eaaf8a5d982f4bcddbb21e}{calc\-L\-S\-Jacobian} (const Measure\-Type $\ast$parameters, Measure\-Type $\ast$jacobian)
 \item 
-virtual Measure\-Type \hyperlink{class_ox_1_1_functions_t1_basic_adee7b03ad49d28e5dc08a80b2c948da1}{calc\-Cost\-Value} ()
+virtual Measure\-Type \hyperlink{class_ox_1_1_functions_t1_basic_a60dff997b49111dbeb0f76204cb0dc8f}{calc\-Cost\-Value} (const Measure\-Type $\ast$parameters)
 \item 
-virtual void \hyperlink{class_ox_1_1_functions_t1_basic_aa6a067295d09882f70eeb34b260c37b7}{calc\-Cost\-Derivative} (Measure\-Type $\ast$derivative)
+virtual void \hyperlink{class_ox_1_1_functions_t1_basic_aad13eb43862acead688aeb6781cf8cc7}{calc\-Cost\-Derivative} (const Measure\-Type $\ast$parameters, Measure\-Type $\ast$derivative)
 \item 
 virtual \hyperlink{class_ox_1_1_functions_t1}{Functions\-T1}\\*
 $<$ Measure\-Type $>$ $\ast$ \hyperlink{class_ox_1_1_functions_t1_basic_a0bceaf2c2b424cfa2366d943d92814e3}{new\-By\-Cloning} ()
@@ -65,13 +65,14 @@ Container for a basic model function $ A-B\exp(t/T_1^*) $, cost function and Lea
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_ox_1_1_functions_t1_basic_aa6a067295d09882f70eeb34b260c37b7}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!calc\-Cost\-Derivative@{calc\-Cost\-Derivative}}
+\hypertarget{class_ox_1_1_functions_t1_basic_aad13eb43862acead688aeb6781cf8cc7}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!calc\-Cost\-Derivative@{calc\-Cost\-Derivative}}
 \index{calc\-Cost\-Derivative@{calc\-Cost\-Derivative}!Ox::FunctionsT1Basic@{Ox\-::\-Functions\-T1\-Basic}}
 \subsubsection[{calc\-Cost\-Derivative}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ void {\bf Ox\-::\-Functions\-T1\-Basic}$<$ Measure\-Type $>$\-::calc\-Cost\-Derivative (
 \begin{DoxyParamCaption}
+\item[{const Measure\-Type $\ast$}]{parameters, }
 \item[{Measure\-Type $\ast$}]{derivative}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_functions_t1_basic_aa6a067295d09882f70eeb34b260c37b7}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_functions_t1_basic_aad13eb43862acead688aeb6781cf8cc7}
 calc\-Cost\-Derivative the most important function of this class 
 \begin{DoxyParams}{Parameters}
 {\em derivative} & \\
@@ -79,29 +80,30 @@ calc\-Cost\-Derivative the most important function of this class
 \end{DoxyParams}
 
 
-Implements \hyperlink{class_ox_1_1_functions_t1_a413b0afca183b88613070ae87121ca66}{Ox\-::\-Functions\-T1$<$ Measure\-Type $>$}.
+Implements \hyperlink{class_ox_1_1_functions_t1_a01df2dd1eb054540eaccfb1dca01c7ce}{Ox\-::\-Functions\-T1$<$ Measure\-Type $>$}.
 
-\hypertarget{class_ox_1_1_functions_t1_basic_adee7b03ad49d28e5dc08a80b2c948da1}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!calc\-Cost\-Value@{calc\-Cost\-Value}}
+\hypertarget{class_ox_1_1_functions_t1_basic_a60dff997b49111dbeb0f76204cb0dc8f}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!calc\-Cost\-Value@{calc\-Cost\-Value}}
 \index{calc\-Cost\-Value@{calc\-Cost\-Value}!Ox::FunctionsT1Basic@{Ox\-::\-Functions\-T1\-Basic}}
 \subsubsection[{calc\-Cost\-Value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ Measure\-Type {\bf Ox\-::\-Functions\-T1\-Basic}$<$ Measure\-Type $>$\-::calc\-Cost\-Value (
 \begin{DoxyParamCaption}
-{}
+\item[{const Measure\-Type $\ast$}]{parameters}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_functions_t1_basic_adee7b03ad49d28e5dc08a80b2c948da1}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_functions_t1_basic_a60dff997b49111dbeb0f76204cb0dc8f}
 calc\-Cost\-Value the most important function of this class \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_ox_1_1_functions_t1_af1475834e89c9304a96c776f3d5aacbf}{Ox\-::\-Functions\-T1$<$ Measure\-Type $>$}.
+Implements \hyperlink{class_ox_1_1_functions_t1_a70ab239415d72f38bc36cc290fa3b476}{Ox\-::\-Functions\-T1$<$ Measure\-Type $>$}.
 
-\hypertarget{class_ox_1_1_functions_t1_basic_a3beaaac6e2e1be4f9bd2e7cba7c51057}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!calc\-L\-S\-Jacobian@{calc\-L\-S\-Jacobian}}
+\hypertarget{class_ox_1_1_functions_t1_basic_a8fb79c60d2eaaf8a5d982f4bcddbb21e}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!calc\-L\-S\-Jacobian@{calc\-L\-S\-Jacobian}}
 \index{calc\-L\-S\-Jacobian@{calc\-L\-S\-Jacobian}!Ox::FunctionsT1Basic@{Ox\-::\-Functions\-T1\-Basic}}
 \subsubsection[{calc\-L\-S\-Jacobian}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ void {\bf Ox\-::\-Functions\-T1\-Basic}$<$ Measure\-Type $>$\-::calc\-L\-S\-Jacobian (
 \begin{DoxyParamCaption}
+\item[{const Measure\-Type $\ast$}]{parameters, }
 \item[{Measure\-Type $\ast$}]{jacobian}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_functions_t1_basic_a3beaaac6e2e1be4f9bd2e7cba7c51057}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_functions_t1_basic_a8fb79c60d2eaaf8a5d982f4bcddbb21e}
 calc\-L\-S\-Jacobian the most important function of this class 
 \begin{DoxyParams}{Parameters}
 {\em jacobian} & -\/ 2d matrix stored as 1d array \\
@@ -109,15 +111,16 @@ calc\-L\-S\-Jacobian the most important function of this class
 \end{DoxyParams}
 
 
-Implements \hyperlink{class_ox_1_1_functions_t1_a84e268911eb64919129c8a0cea39344d}{Ox\-::\-Functions\-T1$<$ Measure\-Type $>$}.
+Implements \hyperlink{class_ox_1_1_functions_t1_a19216f0d9ae8ba2d7cd55df81d370521}{Ox\-::\-Functions\-T1$<$ Measure\-Type $>$}.
 
-\hypertarget{class_ox_1_1_functions_t1_basic_ac9f77d95d7b39f2333b520d3a2e639e9}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!calc\-L\-S\-Residuals@{calc\-L\-S\-Residuals}}
+\hypertarget{class_ox_1_1_functions_t1_basic_a2e292dec4a234ed53d6cb33c4a590d9f}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!calc\-L\-S\-Residuals@{calc\-L\-S\-Residuals}}
 \index{calc\-L\-S\-Residuals@{calc\-L\-S\-Residuals}!Ox::FunctionsT1Basic@{Ox\-::\-Functions\-T1\-Basic}}
 \subsubsection[{calc\-L\-S\-Residuals}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ void {\bf Ox\-::\-Functions\-T1\-Basic}$<$ Measure\-Type $>$\-::calc\-L\-S\-Residuals (
 \begin{DoxyParamCaption}
+\item[{const Measure\-Type $\ast$}]{parameters, }
 \item[{Measure\-Type $\ast$}]{residuals}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_functions_t1_basic_ac9f77d95d7b39f2333b520d3a2e639e9}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_functions_t1_basic_a2e292dec4a234ed53d6cb33c4a590d9f}
 calc\-L\-S\-Residuals the most important function of this class 
 \begin{DoxyParams}{Parameters}
 {\em residuals} & \\
@@ -125,15 +128,16 @@ calc\-L\-S\-Residuals the most important function of this class
 \end{DoxyParams}
 
 
-Implements \hyperlink{class_ox_1_1_functions_t1_a6c69a4159a92c4ddb71ecba97fcdf6de}{Ox\-::\-Functions\-T1$<$ Measure\-Type $>$}.
+Implements \hyperlink{class_ox_1_1_functions_t1_ae548ba2f5779aba3d3e37f0bec77e891}{Ox\-::\-Functions\-T1$<$ Measure\-Type $>$}.
 
-\hypertarget{class_ox_1_1_functions_t1_basic_ad23b00edd74fdf78c7d21fa82bb66e6e}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!calc\-Model\-Value@{calc\-Model\-Value}}
+\hypertarget{class_ox_1_1_functions_t1_basic_a86c92d7a622a925f2c0a8f39c93470d8}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!calc\-Model\-Value@{calc\-Model\-Value}}
 \index{calc\-Model\-Value@{calc\-Model\-Value}!Ox::FunctionsT1Basic@{Ox\-::\-Functions\-T1\-Basic}}
 \subsubsection[{calc\-Model\-Value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ Measure\-Type {\bf Ox\-::\-Functions\-T1\-Basic}$<$ Measure\-Type $>$\-::calc\-Model\-Value (
 \begin{DoxyParamCaption}
+\item[{const Measure\-Type $\ast$}]{parameters, }
 \item[{Measure\-Type}]{time}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_functions_t1_basic_ad23b00edd74fdf78c7d21fa82bb66e6e}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_functions_t1_basic_a86c92d7a622a925f2c0a8f39c93470d8}
 calc\-Model\-Value the most important function of this class 
 \begin{DoxyParams}{Parameters}
 {\em time} & \\
@@ -144,7 +148,7 @@ model(time)
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_ox_1_1_functions_t1_a2d5f4c9296daf3531e30a562348ad474}{Ox\-::\-Functions\-T1$<$ Measure\-Type $>$}.
+Implements \hyperlink{class_ox_1_1_functions_t1_a651f0dca72aab630bc46119094b80aee}{Ox\-::\-Functions\-T1$<$ Measure\-Type $>$}.
 
 \hypertarget{class_ox_1_1_functions_t1_basic_a0bceaf2c2b424cfa2366d943d92814e3}{\index{Ox\-::\-Functions\-T1\-Basic@{Ox\-::\-Functions\-T1\-Basic}!new\-By\-Cloning@{new\-By\-Cloning}}
 \index{new\-By\-Cloning@{new\-By\-Cloning}!Ox::FunctionsT1Basic@{Ox\-::\-Functions\-T1\-Basic}}
