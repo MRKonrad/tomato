@@ -61,7 +61,7 @@ namespace Ox {
          */
         virtual void disp(){
             std::cout << "\nYou called disp() on a Fitter object " << this << "\n";
-            //KWUtil::printArray((bool)_Parameters, _nDims, _Parameters,     (char*)"\nParameters:  "); // todo: add this line
+            KWUtil::printArray((bool)_Parameters, _FunctionsT1->getNDims(), _Parameters,     (char*)"\nParameters:  ");
             std::cout << "XTolerance:       " << getXTolerance() << std::endl;
             std::cout << "FTolerance:       " << getFTolerance() << std::endl;
             std::cout << "MaxFunctionEvals: " << getMaxFunctionEvals() << std::endl;
