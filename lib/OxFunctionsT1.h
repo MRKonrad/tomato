@@ -33,56 +33,48 @@ namespace Ox {
          * @param time
          * @return model(time)
          */
-        virtual MeasureType calcModelValue(MeasureType time) = 0;
+        virtual MeasureType calcModelValue(const MeasureType* parameters, MeasureType time) = 0;
 
         /**
          * calcLSResiduals the most important function of this class
          * @param residuals
          */
-        virtual void calcLSResiduals(MeasureType* residuals) = 0;
+        virtual void calcLSResiduals(const MeasureType* parameters, MeasureType* residuals) = 0;
 
         /**
          * calcCostValue the most important function of this class
          * @return
          */
-        virtual MeasureType calcCostValue() = 0;
+        virtual MeasureType calcCostValue(const MeasureType* parameters) = 0;
 
         /**
          * calcCostDerivative the most important function of this class
          * @param derivative
          */
-        virtual void calcCostDerivative(MeasureType* derivative) = 0;
+        virtual void calcCostDerivative(const MeasureType* parameters, MeasureType* derivative) = 0;
 
         /**
          * calcLSJacobian the most important function of this class
          * @param jacobian - 2d matrix stored as 1d array
          */
-        virtual void calcLSJacobian(MeasureType* jacobian) = 0;
+        virtual void calcLSJacobian(const MeasureType* parameters, MeasureType* jacobian) = 0;
 
         // getters
+        virtual int getNSamples() { return _nSamples; }
         virtual const MeasureType *getInvTimes() const { return _InvTimes; }
         virtual const MeasureType *getEchoTimes() const { return _EchoTimes; }
         virtual const MeasureType *getRepTimes() const { return _RepTimes; }
         virtual const MeasureType *getRelAcqTimes() const { return _RelAcqTimes; }
         virtual const MeasureType *getSignal() const { return _Signal; }
-        virtual MeasureType *getParameters() { return _Parameters; }
-        virtual int getNSamples() { return _nSamples; }
         virtual int getNDims() { return _nDims; }
 
         // setters
+        void setNSamples(int _nSamples) { FunctionsT1::_nSamples = _nSamples; }
         virtual void setInvTimes(const MeasureType *_InvTimes) { FunctionsT1::_InvTimes = _InvTimes; }
         virtual void setEchoTimes(const MeasureType *_EchoTimes) { FunctionsT1::_EchoTimes = _EchoTimes; }
         virtual void setRepTimes(const MeasureType *_RepTimes) { FunctionsT1::_RepTimes = _RepTimes; }
         virtual void setRelAcqTimes(const MeasureType *_RelAcqTimes) { FunctionsT1::_RelAcqTimes = _RelAcqTimes; }
         virtual void setSignal(const MeasureType *_Signal) {FunctionsT1::_Signal = _Signal; }
-        virtual void setParameters( MeasureType *_Parameters) { FunctionsT1::_Parameters = _Parameters; }
-        void setNSamples(int _nSamples) { FunctionsT1::_nSamples = _nSamples; }
-
-        virtual void copyToParameters(const MeasureType *ptrFrom){
-            for (int i = 0; i < _nDims; ++i){
-                _Parameters[i] = ptrFrom[i];
-            }
-        }
 
         /**
          * \brief show me your FunctionsT1
@@ -95,7 +87,7 @@ namespace Ox {
             KWUtil::printArray((bool)_RepTimes, nSamples, _RepTimes,       (char*)"\nRepTimes:    ");
             KWUtil::printArray((bool)_RelAcqTimes, nSamples, _RelAcqTimes, (char*)"\nRelAcqTimes: ");
             KWUtil::printArray((bool)_Signal, nSamples, _Signal,           (char*)"\nSignal:      ");
-            KWUtil::printArray((bool)_Parameters, _nDims, _Parameters,     (char*)"\nParameters:  ");
+            // KWUtil::printArray((bool)_Parameters, _nDims, _Parameters,     (char*)"\nParameters:  ");
             std::cout << std::endl;
         }
 
@@ -108,7 +100,7 @@ namespace Ox {
             _RepTimes = 0;
             _RelAcqTimes = 0;
             _Signal = 0;
-            _Parameters = 0;
+            //_Parameters = 0;
         }
 
         /**
@@ -155,7 +147,7 @@ namespace Ox {
         const MeasureType* _RepTimes;
         const MeasureType* _RelAcqTimes;
         const MeasureType* _Signal;
-        MeasureType* _Parameters;
+        //MeasureType* _Parameters;
         int _nSamples;
         int _nDims;
     };

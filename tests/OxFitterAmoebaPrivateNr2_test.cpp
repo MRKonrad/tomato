@@ -30,7 +30,7 @@ TEST(OxFitterAmoebaPrivateNr2, performFitting) {
 
     Ox::FitterAmoebaPrivateNr2<TYPE> fitterAmoebaNr2;
     fitterAmoebaNr2.setFunctionsT1(&functionsObject);
-    functionsObject.setParameters(params);
+    fitterAmoebaNr2.setParameters(params);
 
     fitterAmoebaNr2.setVerbose(false);
     fitterAmoebaNr2.setTrace(false);
@@ -55,12 +55,12 @@ TEST(OxFitterAmoebaPrivateNr2, copyConstructor) {
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
-    functionsObject.setParameters(params);
 
     Ox::FitterAmoebaPrivateNr2<TYPE> fitter;
     fitter.setFunctionsT1(&functionsObject);
     fitter.setMaxFunctionEvals(123);
     fitter.setFTolerance(321);
+    fitter.setParameters(params);
 
     // copy constructor
     Ox::FitterAmoebaPrivateNr2<TYPE> fitterCopy = fitter;

@@ -30,7 +30,7 @@ TEST(OxFitterAmoebaNr2, performFitting) {
 
     Ox::FitterAmoebaNr2<TYPE> fitterAmoebaNr2;
     fitterAmoebaNr2.setFunctionsT1(&functionsObject);
-    functionsObject.setParameters(params);
+    fitterAmoebaNr2.setParameters(params);
 
     fitterAmoebaNr2.setVerbose(false);
     fitterAmoebaNr2.setTrace(false);

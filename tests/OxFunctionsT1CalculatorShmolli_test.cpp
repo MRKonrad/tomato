@@ -19,9 +19,8 @@ TEST(OxFunctionsT1CalculatorShmolli, calcModelValueTest) {
     TYPE params[3] = {100, 200, 1000};
 
     Ox::FunctionsT1CalculatorShmolli<TYPE> functionsObject;
-    functionsObject.setParameters(params);
 
-    EXPECT_DOUBLE_EQ(functionsObject.calcModelValue(0), 100); // because shmolli
+    EXPECT_DOUBLE_EQ(functionsObject.calcModelValue(params, 0), 100); // because shmolli
 }
 
 TEST(OxFunctionsT1CalculatorShmolli, calcLSResidualsTest) {
@@ -36,12 +35,11 @@ TEST(OxFunctionsT1CalculatorShmolli, calcLSResidualsTest) {
 
     Ox::FunctionsT1CalculatorShmolli<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
-    functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
     TYPE *residuals = new TYPE[nSamples];
-    functionsObject.calcLSResiduals(residuals);
+    functionsObject.calcLSResiduals(params, residuals);
 
     for (int i = 0; i < nSamples; i++){
         EXPECT_DOUBLE_EQ(residuals[i], -testData.getSignalMag()[i]);
@@ -62,13 +60,12 @@ TEST(OxFunctionsT1CalculatorShmolli, calcLSJacobianTest) {
 
     Ox::FunctionsT1CalculatorShmolli<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
-    functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
     TYPE jacobian[7*3];
 
-    functionsObject.calcLSJacobian(jacobian);
+    functionsObject.calcLSJacobian(params, jacobian);
 
     TYPE correct[7*3] = {
             1, -0.920044,   0,
@@ -99,11 +96,10 @@ TEST(OxFunctionsT1CalculatorShmolli, calcCostValueTest) {
 
     Ox::FunctionsT1CalculatorShmolli<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
-    functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
-    EXPECT_DOUBLE_EQ(functionsObject.calcCostValue(), 17169);
+    EXPECT_DOUBLE_EQ(functionsObject.calcCostValue(params), 17169);
 }
 
 TEST(OxFunctionsT1CalculatorShmolli, calcCostDerivativeTest) {
@@ -118,12 +114,11 @@ TEST(OxFunctionsT1CalculatorShmolli, calcCostDerivativeTest) {
 
     Ox::FunctionsT1CalculatorShmolli<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
-    functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
     TYPE derivative[] = {0, 0, 0};
-    functionsObject.calcCostDerivative(derivative);
+    functionsObject.calcCostDerivative(params, derivative);
 
     EXPECT_NEAR(derivative[0], -425.52433072265057, 1e-3);
     EXPECT_NEAR(derivative[1],  588.84996553808264, 1e-3);

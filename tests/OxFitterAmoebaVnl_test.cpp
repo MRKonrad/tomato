@@ -27,7 +27,7 @@ TEST(OxFitterAmoebaVnl, performFitting) {
 
     Ox::FitterAmoebaVnl<TYPE> fitter;
     fitter.setFunctionsT1(&functionsObject);
-    functionsObject.setParameters(params);
+    fitter.setParameters(params);
 
     fitter.setVerbose(false);
     fitter.setTrace(false);
@@ -53,10 +53,11 @@ TEST(OxFitterAmoebaVnl, copyConstructor) {
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
-    functionsObject.setParameters(params);
+
 
     Ox::FitterAmoebaVnl<TYPE> fitter;
     fitter.setFunctionsT1(&functionsObject);
+    fitter.setParameters(params);
     fitter.setMaxFunctionEvals(123);
     fitter.setFTolerance(321);
 

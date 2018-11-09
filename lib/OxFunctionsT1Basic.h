@@ -24,11 +24,11 @@ namespace Ox {
 
     public:
 
-        virtual MeasureType calcModelValue(MeasureType time);
-        virtual void calcLSResiduals(MeasureType* residuals);
-        virtual void calcLSJacobian(MeasureType* jacobian);
-        virtual MeasureType calcCostValue();
-        virtual void calcCostDerivative(MeasureType* derivative);
+        virtual MeasureType calcModelValue(const MeasureType* parameters, MeasureType time);
+        virtual void calcLSResiduals(const MeasureType* parameters, MeasureType* residuals);
+        virtual void calcLSJacobian(const MeasureType* parameters, MeasureType* jacobian);
+        virtual MeasureType calcCostValue(const MeasureType* parameters );
+        virtual void calcCostDerivative(const MeasureType* parameters, MeasureType* derivative);
 
         FunctionsT1Basic() : FunctionsT1<MeasureType>(){
             this->_nDims = 3;

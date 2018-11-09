@@ -13,10 +13,10 @@ namespace Ox {
     template< typename MeasureType >
     MeasureType
     FunctionsT1Basic<MeasureType>
-    ::calcModelValue(MeasureType time){
-        MeasureType A = this->_Parameters[0];
-        MeasureType B = this->_Parameters[1];
-        MeasureType T1star = this->_Parameters[2];
+    ::calcModelValue(const MeasureType* parameters, MeasureType time){
+        MeasureType A = parameters[0];
+        MeasureType B = parameters[1];
+        MeasureType T1star = parameters[2];
 
         return A - B * exp( -time / T1star );
     }
@@ -24,21 +24,21 @@ namespace Ox {
     template< typename MeasureType >
     void
     FunctionsT1Basic<MeasureType>
-    ::calcLSResiduals(MeasureType* residuals){
+    ::calcLSResiduals(const MeasureType* parameters, MeasureType* residuals){
 
         //std::cout << "calcLSResiduals" << std::endl;
         unsigned int nSamples = this->_nSamples;
 
-        MeasureType A = this->_Parameters[0];
-        MeasureType B = this->_Parameters[1];
-        MeasureType T1star = this->_Parameters[2];
+        MeasureType A = parameters[0];
+        MeasureType B = parameters[1];
+        MeasureType T1star = parameters[2];
 
         for (unsigned int i = 0; i < nSamples; i++) {
             MeasureType invTime = this->_InvTimes[i];
             MeasureType measured = this->_Signal[i];
             MeasureType calculated = 0;
 
-            calculated = calcModelValue(invTime);
+            calculated = calcModelValue(parameters, invTime);
 
             residuals[i] = calculated - measured;
         }
@@ -47,12 +47,12 @@ namespace Ox {
     template< typename MeasureType >
     void
     FunctionsT1Basic<MeasureType>
-    ::calcLSJacobian(MeasureType* jacobian){
+    ::calcLSJacobian(const MeasureType* parameters, MeasureType* jacobian){
         int nSamples = this->_nSamples;
 
-        //MeasureType A = this->_Parameters[0];
-        MeasureType B = this->_Parameters[1];
-        MeasureType T1star = this->_Parameters[2];
+        //MeasureType A = parameters[0];
+        MeasureType B = parameters[1];
+        MeasureType T1star = parameters[2];
         MeasureType invTime, myexp;
 
         for (int i = 0; i < nSamples; i++) {
@@ -69,12 +69,12 @@ namespace Ox {
     template< typename MeasureType >
     MeasureType
     FunctionsT1Basic<MeasureType>
-    ::calcCostValue(){
+    ::calcCostValue(const MeasureType* parameters){
         //std::cout << "calcCostValue" << std::endl;
         int nSamples = this->_nSamples;
 
         MeasureType *residuals = new MeasureType[nSamples];
-        calcLSResiduals(residuals);
+        calcLSResiduals(parameters, residuals);
         MeasureType result = 0;
 
         for (int i = 0; i < nSamples; ++i) {
@@ -88,7 +88,7 @@ namespace Ox {
     template< typename MeasureType >
     void
     FunctionsT1Basic<MeasureType>
-    ::calcCostDerivative(MeasureType* derivative){
+    ::calcCostDerivative(const MeasureType* parameters, MeasureType* derivative){
         //std::cout << "calcCostDerivative" << std::endl;
 
         int nSamples = this->_nSamples;
@@ -99,9 +99,9 @@ namespace Ox {
 
         MeasureType measured, invTime, myexp;
 
-        MeasureType A = this->_Parameters[0];
-        MeasureType B = this->_Parameters[1];
-        MeasureType T1star = this->_Parameters[2];
+        MeasureType A = parameters[0];
+        MeasureType B = parameters[1];
+        MeasureType T1star = parameters[2];
 
         // calculated in matlab (syms A B T1 t y), f=(A-B*exp(-t./T1)-y).^2; diff(f,A), diff(f,B), diff(calcCostValue,T1)
         for (int i = 0; i < nSamples; ++i){

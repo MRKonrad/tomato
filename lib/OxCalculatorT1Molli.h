@@ -65,12 +65,15 @@ namespace Ox {
             MeasureType tempParameters[3];
             MeasureType tempResults[3];
 
+            KWUtil::copyArrayToArray(3, tempParameters, this->_StartPoint); // start from the starting point
+
             // configure Functions object and fitter object
             this->getFunctionsT1()->setNSamples(nSamples);
             this->getFunctionsT1()->setSignal(signal);
             this->getFunctionsT1()->setInvTimes(invTimes);
-            this->getFunctionsT1()->setParameters(tempParameters);
-            this->getFunctionsT1()->copyToParameters(this->_StartPoint); // start from the starting point
+
+            this->getFitter()->setParameters(tempParameters);
+            //this->getFunctionsT1()->copyToParameters(this->_StartPoint); // start from the starting point
 
             this->getFitter()->setFunctionsT1(this->getFunctionsT1());
 
@@ -78,8 +81,8 @@ namespace Ox {
             this->getFitter()->performFitting();
 
             // save the tempResults at the best tempResults
-            KWUtil::copyArrayToArray(3, tempResults, this->getFunctionsT1()->getParameters());
-            lastValue = this->getFunctionsT1()->calcCostValue();
+            KWUtil::copyArrayToArray(3, tempResults, this->getFitter()->getParameters());
+            lastValue = this->getFunctionsT1()->calcCostValue(this->getFitter()->getParameters());
 
             // look for better solutions than the above one
             for (int iSwap = 0; iSwap < nSamples; iSwap++) {
@@ -94,16 +97,16 @@ namespace Ox {
                 signal[iSwap] = -fabs(signal[iSwap]);
 
                 // start from the starting point
-                this->getFunctionsT1()->copyToParameters(this->_StartPoint);
+                this->getFitter()->copyToParameters(this->_StartPoint);
 
                 // fit
                 this->getFitter()->performFitting();
-                lastValueTemp = this->getFunctionsT1()->calcCostValue();
+                lastValueTemp = this->getFunctionsT1()->calcCostValue(this->getFitter()->getParameters());
 
                 // are these the best tempResults?
                 if (lastValueTemp < lastValue) {
                     // save the tempResults at the best tempResults
-                    KWUtil::copyArrayToArray(3, tempResults, this->getFunctionsT1()->getParameters());
+                    KWUtil::copyArrayToArray(3, tempResults, this->getFitter()->getParameters());
                     lastValue = lastValueTemp;
                 }
             }
@@ -161,8 +164,8 @@ namespace Ox {
             MeasureType* residuals = new MeasureType[nSamples];
             MeasureType invCovarianceMatrix[3*3];
 
-            this->getFunctionsT1()->copyToParameters(parameters);
-            this->getFunctionsT1()->calcLSResiduals(residuals);
+            //this->getFunctionsT1()->copyToParameters(parameters);
+            this->getFunctionsT1()->calcLSResiduals(parameters, residuals);
 
             calculateInvCovarianceMatrix(invTimes, residuals, parameters, invCovarianceMatrix);
 

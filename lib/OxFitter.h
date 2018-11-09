@@ -31,6 +31,7 @@ namespace Ox {
 
         virtual const FunctionsT1<MeasureType>* getFunctionsT1() const { return _FunctionsT1; }
 
+        virtual MeasureType *getParameters() { return _Parameters; }
         virtual const MeasureType getXTolerance() const { return _XTolerance; }
         virtual const MeasureType getFTolerance() const { return _FTolerance; }
         virtual const unsigned int getMaxFunctionEvals() const { return _MaxFunctionEvals; }
@@ -39,7 +40,7 @@ namespace Ox {
         virtual const bool getTrace() const { return _Trace; }
 
         virtual void setFunctionsT1(FunctionsT1<MeasureType>* _FunctionsT1) { Fitter::_FunctionsT1 = _FunctionsT1; }
-
+        virtual void setParameters( MeasureType *_Parameters) { Fitter::_Parameters = _Parameters; }
         virtual void setXTolerance(const MeasureType _XTolerance) { Fitter::_XTolerance = _XTolerance; }
         virtual void setFTolerance(const MeasureType _FTolerance) { Fitter::_FTolerance = _FTolerance; }
         virtual void setMaxFunctionEvals(const unsigned int _MaxFunctionEvals) { Fitter::_MaxFunctionEvals = _MaxFunctionEvals; }
@@ -47,11 +48,20 @@ namespace Ox {
         virtual void setVerbose(const bool _Verbose) { Fitter::_Verbose = _Verbose; }
         virtual void setTrace(const bool _Trace) { Fitter::_Trace = _Trace; }
 
+        virtual void copyToParameters(const MeasureType *ptrFrom){
+            if(Fitter::_FunctionsT1) {
+                for (int i = 0; i < Fitter::_FunctionsT1->getNDims(); ++i) {
+                    _Parameters[i] = ptrFrom[i];
+                }
+            }
+        }
+
         /**
          * \brief show me your Fitter
          */
         virtual void disp(){
             std::cout << "\nYou called disp() on a Fitter object " << this << "\n";
+            //KWUtil::printArray((bool)_Parameters, _nDims, _Parameters,     (char*)"\nParameters:  "); // todo: add this line
             std::cout << "XTolerance:       " << getXTolerance() << std::endl;
             std::cout << "FTolerance:       " << getFTolerance() << std::endl;
             std::cout << "MaxFunctionEvals: " << getMaxFunctionEvals() << std::endl;
@@ -67,6 +77,7 @@ namespace Ox {
          */
         Fitter(){
             _FunctionsT1 = 0; //nullpointer
+            _Parameters = 0; //nullpointer
 
             _XTolerance = 1e-12;
             _FTolerance = 1e-12;
@@ -105,6 +116,7 @@ namespace Ox {
 
     protected:
         FunctionsT1<MeasureType>* _FunctionsT1;
+        MeasureType* _Parameters;
 
         MeasureType _XTolerance;
         MeasureType _FTolerance;

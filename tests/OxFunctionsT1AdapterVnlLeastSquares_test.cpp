@@ -24,7 +24,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, f) {
 
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
-    functionsObject.setParameters(params);
+    //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
@@ -55,7 +55,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, gradf) {
 
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
-    functionsObject.setParameters(params);
+    //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
@@ -98,7 +98,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, fitting) {
 
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
-    functionsObject.setParameters(params);
+    //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
 

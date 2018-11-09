@@ -38,14 +38,14 @@ namespace Ox {
         static FunctionsT1<float> *globalFunctonsT1Nr2Array[NR_MAX_THREADS]; // could possibly go up to ITK_MAX_THREADS
 
         // global wrapper functions. Exactly as in https://isocpp.org/wiki/faq/pointers-to-members
-        static float f_wrapper0(float *params) { globalFunctonsT1Nr2Array[0]->copyToParameters(params+1); return globalFunctonsT1Nr2Array[0]->calcCostValue(); }
-        static float f_wrapper1(float *params) { globalFunctonsT1Nr2Array[1]->copyToParameters(params+1); return globalFunctonsT1Nr2Array[1]->calcCostValue(); }
-        static float f_wrapper2(float *params) { globalFunctonsT1Nr2Array[2]->copyToParameters(params+1); return globalFunctonsT1Nr2Array[2]->calcCostValue(); }
-        static float f_wrapper3(float *params) { globalFunctonsT1Nr2Array[3]->copyToParameters(params+1); return globalFunctonsT1Nr2Array[3]->calcCostValue(); }
-        static float f_wrapper4(float *params) { globalFunctonsT1Nr2Array[4]->copyToParameters(params+1); return globalFunctonsT1Nr2Array[4]->calcCostValue(); }
-        static float f_wrapper5(float *params) { globalFunctonsT1Nr2Array[5]->copyToParameters(params+1); return globalFunctonsT1Nr2Array[5]->calcCostValue(); }
-        static float f_wrapper6(float *params) { globalFunctonsT1Nr2Array[6]->copyToParameters(params+1); return globalFunctonsT1Nr2Array[6]->calcCostValue(); }
-        static float f_wrapper7(float *params) { globalFunctonsT1Nr2Array[7]->copyToParameters(params+1); return globalFunctonsT1Nr2Array[7]->calcCostValue(); }
+        static float f_wrapper0(float *params) { return globalFunctonsT1Nr2Array[0]->calcCostValue(params+1); }
+        static float f_wrapper1(float *params) { return globalFunctonsT1Nr2Array[1]->calcCostValue(params+1); }
+        static float f_wrapper2(float *params) { return globalFunctonsT1Nr2Array[2]->calcCostValue(params+1); }
+        static float f_wrapper3(float *params) { return globalFunctonsT1Nr2Array[3]->calcCostValue(params+1); }
+        static float f_wrapper4(float *params) { return globalFunctonsT1Nr2Array[4]->calcCostValue(params+1); }
+        static float f_wrapper5(float *params) { return globalFunctonsT1Nr2Array[5]->calcCostValue(params+1); }
+        static float f_wrapper6(float *params) { return globalFunctonsT1Nr2Array[6]->calcCostValue(params+1); }
+        static float f_wrapper7(float *params) { return globalFunctonsT1Nr2Array[7]->calcCostValue(params+1); }
 
         // for convenience I put the wrapper functions into an array
         static float (*f_wrapperArray[NR_MAX_THREADS])(float *params)  = {
@@ -95,7 +95,7 @@ namespace Ox {
 
             // store start point
             float *startPoint = new float[nDims];
-            KWUtil::copyArrayToArray(nDims, startPoint, this->_FunctionsT1->getParameters());
+            KWUtil::copyArrayToArray(nDims, startPoint, this->getParameters());
 
 
             // modified NR example code
@@ -136,7 +136,7 @@ namespace Ox {
             amoeba(p, y, ndim, FTOL, func, &nfunc);
 
             // copy results
-            this->_FunctionsT1->copyToParameters(p[1]+1);
+            this->copyToParameters(p[1]+1);
 
             // printing
             if (this->_Verbose) {

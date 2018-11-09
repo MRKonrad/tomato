@@ -24,7 +24,7 @@ TEST(OxFunctionsT1AdapterVnlCost, f) {
 
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
-    functionsObject.setParameters(params);
+    //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
@@ -35,7 +35,7 @@ TEST(OxFunctionsT1AdapterVnlCost, f) {
 
     EXPECT_DOUBLE_EQ(
             functionsAdaptedToVnl.f(temp),
-            functionsObject.calcCostValue()
+            functionsObject.calcCostValue(params)
     );
 }
 
@@ -52,7 +52,7 @@ TEST(OxFunctionsT1AdapterVnlCost, gradf) {
 
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
-    functionsObject.setParameters(params);
+    //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
@@ -61,7 +61,7 @@ TEST(OxFunctionsT1AdapterVnlCost, gradf) {
 
     // FunctionsT1Basic results
     TYPE derivative1[] = {0, 0, 0};
-    functionsObject.calcCostDerivative(derivative1);
+    functionsObject.calcCostDerivative(params, derivative1);
 
     // FunctionsT1Basic results
     vnl_vector<TYPE> derivative2(3);
@@ -86,7 +86,7 @@ TEST(OxFunctionsT1AdapterVnlCost, fitting) {
 
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
-    functionsObject.setParameters(params);
+    //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
 

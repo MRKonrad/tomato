@@ -27,7 +27,7 @@ TEST(OxFitterLevenbergMarquardtVnl, performFitting) {
 
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     fitter.setFunctionsT1(&functionsObject);
-    functionsObject.setParameters(params);
+    fitter.setParameters(params);
 
     fitter.setVerbose(false);
     fitter.setTrace(false);
@@ -54,11 +54,11 @@ TEST(OxFitterLevenbergMarquardtVnl, copyConstructor) {
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
-    functionsObject.setParameters(params);
 
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     fitter.setFunctionsT1(&functionsObject);
     fitter.setMaxFunctionEvals(123);
+    fitter.setParameters(params);
 
     // copy constructor
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitterCopy = fitter;

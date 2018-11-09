@@ -29,7 +29,8 @@ TEST(Tomato, readAndSort_calculate) {
 
 TEST(Tomato, readAndSort_calculate_export) {
 
-    Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+    Ox::Tomato<double> Tomato_object("testData/Calculator_Shmolli_Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+    Tomato_object._opts->printCurrent();
     EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
     EXPECT_EQ(Tomato_object.calculate(), 0); // EXIT_SUCCESS
     EXPECT_EQ(Tomato_object.exportToDicom(), 0); // EXIT_SUCCESS

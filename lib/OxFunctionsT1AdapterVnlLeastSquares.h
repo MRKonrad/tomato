@@ -20,15 +20,15 @@ namespace Ox {
         // least squares function problem formulation
         void f(vnl_vector<double> const& params, vnl_vector<double> &residuals){
 
-            _FunctionsT1->copyToParameters(params.data_block());
-            _FunctionsT1->calcLSResiduals(residuals.data_block());
+            //_FunctionsT1->copyToParameters(params.data_block());
+            _FunctionsT1->calcLSResiduals(params.data_block(), residuals.data_block());
         }
 
         // least squares function gradient
         void gradf (vnl_vector< double > const &params, vnl_matrix< double > &jacobianVNL){
 
-            _FunctionsT1->copyToParameters(params.data_block());
-            _FunctionsT1->calcLSJacobian(jacobianVNL.data_block());
+            //_FunctionsT1->copyToParameters(params.data_block());
+            _FunctionsT1->calcLSJacobian(params.data_block(), jacobianVNL.data_block());
         }
 
         void setFunctionsT1(FunctionsT1<double>* _FunctionsT1){

@@ -28,15 +28,15 @@ namespace Ox {
 
             configureMinimizer();
 
-            vnl_vector<MeasureType> temp(this->_FunctionsT1->getParameters(), this->_FunctionsT1->getNDims());
+            vnl_vector<MeasureType> temp(this->getParameters(), this->_FunctionsT1->getNDims());
 
             _VnlFitter->minimize(temp);
 
             if (temp.size() != 0) {
-                temp.copy_out(this->_FunctionsT1->getParameters());
+                temp.copy_out(this->getParameters());
             }
             if (this->getVerbose()) {
-                std::cout << "Results: " << temp << " Cost: " << this->_FunctionsT1->calcCostValue() << std::endl;
+                std::cout << "Results: " << temp << " Cost: " << this->_FunctionsT1->calcCostValue(this->getParameters()) << std::endl;
             }
 
             return 0; //EXIT_SUCCESS;

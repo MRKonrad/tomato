@@ -19,15 +19,15 @@ namespace Ox {
 
         // cost function problem formulation
         double f(vnl_vector<double> const& params){ // override
-            _FunctionsT1->copyToParameters(params.data_block());
-            return _FunctionsT1->calcCostValue();
+            //_FunctionsT1->copyToParameters(params.data_block());
+            return _FunctionsT1->calcCostValue(params.data_block());
         }
 
         // cost function gradient
         void gradf (vnl_vector< double > const &params, vnl_vector< double > &gradient){ // override
 
-            _FunctionsT1->copyToParameters(params.data_block());
-            _FunctionsT1->calcCostDerivative(gradient.data_block());
+            //_FunctionsT1->copyToParameters(params.data_block());
+            _FunctionsT1->calcCostDerivative(params.data_block(), gradient.data_block());
         }
 
         void setFunctionsT1(FunctionsT1<double>* _FunctionsT1){
