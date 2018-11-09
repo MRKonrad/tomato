@@ -1,9 +1,9 @@
 # Tomato
 A library to calculate parametric maps in MRI. It contains ShMOLLI implementation as in [this article](https://jcmr-online.biomedcentral.com/articles/10.1186/1532-429X-12-69).
 
-| OSX/Linux - Travis | Windows - AppVeyor |  Test coverage - Codecov |
-|:-------------:|:-------------:|:-------------:|
-[![Travis (.org)][travis_badge]][travis_link] | [![AppVeyor][appveyor_badge]][appveyor_link]| [![codecov][codecov_badge]][codecov_link]
+| OSX/Linux - Travis | Windows - AppVeyor |  Test coverage - Codecov | Downlads |
+|:-------------:|:-------------:|:-------------:| :-------------:| 
+[![Travis (.org)][travis_badge]][travis_link] | [![AppVeyor][appveyor_badge]][appveyor_link]| [![codecov][codecov_badge]][codecov_link]| ![GitHub Releases (by Release)][downloads_badge]
 
 
 ## Documentation
@@ -53,3 +53,5 @@ Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes b
 [appveyor_link]: https://ci.appveyor.com/project/MRKonrad/tomato
 [codecov_badge]: https://img.shields.io/codecov/c/github/MRKonrad/tomato.svg?style=for-the-badge
 [codecov_link]: https://codecov.io/gh/MRKonrad/tomato
+[downloads_badge]: https://img.shields.io/github/downloads/MRKonrad/tomato/v0.1/total.svg?style=for-the-badge
+
