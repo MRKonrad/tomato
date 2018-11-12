@@ -11,8 +11,6 @@
 #include "OxFunctionsT1AdapterVnlLeastSquares.h"
 #include <vnl/algo/vnl_levenberg_marquardt.h>
 
-// TODO: look at the gradient. Interface it.
-
 namespace Ox {
     template<typename MeasureType>
     class FitterLevenbergMarquardtVnl : public Fitter<MeasureType> {
@@ -118,7 +116,14 @@ namespace Ox {
                 } else {
 
                     delete _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;
-                    _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nDims, nSamples, vnl_least_squares_function::use_gradient);
+
+                    if (this->_UseGradient) {
+                        _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nDims, nSamples, vnl_least_squares_function::use_gradient);
+                    } else {
+                        _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nDims, nSamples,
+                                                                               vnl_least_squares_function::no_gradient);
+                    }
+
                     _FunctionsAdaptedToVnl->setFunctionsT1(this->_FunctionsT1);
 
                     delete _VnlFitter; _VnlFitter = 0;

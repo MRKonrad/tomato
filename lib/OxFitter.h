@@ -33,6 +33,7 @@ namespace Ox {
         virtual MeasureType *getParameters() { return _Parameters; }
         virtual const MeasureType getXTolerance() const { return _XTolerance; }
         virtual const MeasureType getFTolerance() const { return _FTolerance; }
+        virtual const bool getUseGradient() const { return _UseGradient; }
         virtual const unsigned int getMaxFunctionEvals() const { return _MaxFunctionEvals; }
         virtual const unsigned int getThreadId() const { return _ThreadId; }
         virtual const bool getVerbose() const { return _Verbose; }
@@ -41,6 +42,7 @@ namespace Ox {
         virtual void setFunctionsT1(FunctionsT1<MeasureType>* _FunctionsT1) { Fitter::_FunctionsT1 = _FunctionsT1; }
         virtual void setParameters( MeasureType *_Parameters) { Fitter::_Parameters = _Parameters; }
         virtual void setXTolerance(const MeasureType _XTolerance) { Fitter::_XTolerance = _XTolerance; }
+        virtual void setUseGradient(const bool _UseGradient) { Fitter::_UseGradient = _UseGradient; }
         virtual void setFTolerance(const MeasureType _FTolerance) { Fitter::_FTolerance = _FTolerance; }
         virtual void setMaxFunctionEvals(const unsigned int _MaxFunctionEvals) { Fitter::_MaxFunctionEvals = _MaxFunctionEvals; }
         virtual void setThreadId(const unsigned int _ThreadId) { Fitter::_ThreadId = _ThreadId; }
@@ -73,6 +75,8 @@ namespace Ox {
             KWUtil::printArray((bool)_Parameters, _FunctionsT1->getNDims(), _Parameters,     (char*)"\nParameters:  ");
             std::cout << "XTolerance:       " << getXTolerance() << std::endl;
             std::cout << "FTolerance:       " << getFTolerance() << std::endl;
+            std::string temp = getUseGradient() ? "true" : "false";
+            std::cout << "UseGradient       " << temp << std::endl;
             std::cout << "MaxFunctionEvals: " << getMaxFunctionEvals() << std::endl;
             std::cout << "ThreadId:         " << getThreadId() << std::endl;
             if(_FunctionsT1) {
@@ -91,6 +95,7 @@ namespace Ox {
             _XTolerance = 1e-12;
             _FTolerance = 1e-12;
             _MaxFunctionEvals = 4000;
+            _UseGradient = false;
             _ThreadId = 0;
             _Verbose = false;
             _Trace = false;
@@ -106,6 +111,7 @@ namespace Ox {
             _XTolerance = old._XTolerance;
             _FTolerance = old._FTolerance;
             _MaxFunctionEvals = old._MaxFunctionEvals;
+            _UseGradient = old._UseGradient;
             _ThreadId = old._ThreadId;
             _Verbose = old._Verbose;
             _Trace = old._Trace;
@@ -130,6 +136,7 @@ namespace Ox {
         MeasureType _XTolerance;
         MeasureType _FTolerance;
         unsigned int _MaxFunctionEvals;
+        bool _UseGradient;
         unsigned int _ThreadId;
         bool _Verbose;
         bool _Trace;

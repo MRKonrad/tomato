@@ -41,6 +41,7 @@ namespace Ox {
 
         MeasureType fTolerance;
         int max_function_evals;
+        bool use_gradient;
 
         // image
         MeasureType mean_cut_off;
@@ -71,6 +72,7 @@ namespace Ox {
 
             fTolerance = 1e-12;
             max_function_evals = 4000;
+            use_gradient = false;
 
             // image
             mean_cut_off = 10;
@@ -115,6 +117,7 @@ namespace Ox {
 
             parser._scalars["fTolerance"];
             parser._scalars["max_function_evals"];
+            parser._scalars["use_gradient"];
 
             parser._scalars["mean_cut_off"];
             parser._scalars["number_of_threads"];
@@ -147,6 +150,8 @@ namespace Ox {
                 fTolerance = KWUtil::StringToNumber<MeasureType>(parser._scalars["fTolerance"]);
             if (!parser._scalars["max_function_evals"].empty())
                 max_function_evals = KWUtil::StringToNumber<MeasureType>(parser._scalars["max_function_evals"]);
+            if (!parser._scalars["use_gradient"].empty())
+                use_gradient = (bool)KWUtil::StringToNumber<MeasureType>(parser._scalars["use_gradient"]);
 
             if (!parser._scalars["mean_cut_off"].empty())
                 mean_cut_off = KWUtil::StringToNumber<MeasureType>(parser._scalars["mean_cut_off"]);
@@ -212,6 +217,7 @@ namespace Ox {
             printf("\n fTolerance: %.2e ", fTolerance);
             //printf("xTolerance: %.2e ", xTolerance);
             printf("\n max_function_evals: %d ", max_function_evals);
+            printf("\n use_gradient: %s", use_gradient?"1":"0");
             printf("\n mean_cut_off: %.2f ", mean_cut_off);
             //printf("fittingCutOff: %.2f ", fittingCutOff);
             printf("\n number_of_threads: %d", number_of_threads);

@@ -62,7 +62,7 @@ namespace Ox {
             // calculated in matlab (syms A B T1 t), f=A-B*exp(-t./T1); diff(f,A), diff(f,B), diff(calcCostValue,T1)
             jacobian[i*3+0] = 1.0;
             jacobian[i*3+1] = -myexp;
-            jacobian[i*3+2] = -B*invTime*myexp/(T1star*T1star);
+            jacobian[i*3+2] = -B * invTime * myexp / (T1star * T1star);
         }
     }
 
@@ -71,17 +71,16 @@ namespace Ox {
     FunctionsT1Basic<MeasureType>
     ::calcCostValue(const MeasureType* parameters){
         //std::cout << "calcCostValue" << std::endl;
+
         int nSamples = this->_nSamples;
 
-        MeasureType *residuals = new MeasureType[nSamples];
-        calcLSResiduals(parameters, residuals);
+        calcLSResiduals(parameters, this->_Residuals);
         MeasureType result = 0;
 
         for (int i = 0; i < nSamples; ++i) {
-            result = result + residuals[i] * residuals[i];
+            result = result + this->_Residuals[i] * this->_Residuals[i];
         }
 
-        delete [] residuals;
         return result;
     }
 

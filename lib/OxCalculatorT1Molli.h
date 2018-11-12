@@ -72,9 +72,8 @@ namespace Ox {
             this->getFunctionsT1()->setSignal(signal);
             this->getFunctionsT1()->setInvTimes(invTimes);
 
+            // configure Fitter
             this->getFitter()->setParameters(tempParameters);
-            //this->getFunctionsT1()->copyToParameters(this->_StartPoint); // start from the starting point
-
             this->getFitter()->setFunctionsT1(this->getFunctionsT1());
 
             // fit

@@ -20,7 +20,6 @@ namespace Ox {
      * calcLSResiduals(). Some fitting algorithms use derivatives, hence calcLSJacobian() and calcCostDerivative().
      * The memeber variables are pointers to c-arrays, we need to know how many samples we want to process. Thats the
      * nSamples defined in the constructor.
-     * TODO: think about moving _Parameters out of this class and take it as a parameter of all the above functions
      * @tparam MeasureType
      */
     template< typename MeasureType >
@@ -69,7 +68,10 @@ namespace Ox {
         virtual int getNDims() { return _nDims; }
 
         // setters
-        void setNSamples(int _nSamples) { FunctionsT1::_nSamples = _nSamples; }
+        void setNSamples(int _nSamples) {
+            FunctionsT1::_nSamples = _nSamples;
+            _Residuals = new MeasureType[_nSamples];
+        }
         virtual void setInvTimes(const MeasureType *_InvTimes) { FunctionsT1::_InvTimes = _InvTimes; }
         virtual void setEchoTimes(const MeasureType *_EchoTimes) { FunctionsT1::_EchoTimes = _EchoTimes; }
         virtual void setRepTimes(const MeasureType *_RepTimes) { FunctionsT1::_RepTimes = _RepTimes; }
@@ -87,7 +89,6 @@ namespace Ox {
             KWUtil::printArray((bool)_RepTimes, nSamples, _RepTimes,       (char*)"\nRepTimes:    ");
             KWUtil::printArray((bool)_RelAcqTimes, nSamples, _RelAcqTimes, (char*)"\nRelAcqTimes: ");
             KWUtil::printArray((bool)_Signal, nSamples, _Signal,           (char*)"\nSignal:      ");
-            // KWUtil::printArray((bool)_Parameters, _nDims, _Parameters,     (char*)"\nParameters:  ");
             std::cout << std::endl;
         }
 
@@ -100,7 +101,6 @@ namespace Ox {
             _RepTimes = 0;
             _RelAcqTimes = 0;
             _Signal = 0;
-            //_Parameters = 0;
         }
 
         /**
@@ -112,6 +112,7 @@ namespace Ox {
             _nSamples = 0;
             _nDims = 0;
 
+            _Residuals = 0; // pointer
             setAllPointersToNull();
         };
 
@@ -125,6 +126,7 @@ namespace Ox {
             _nSamples = old._nSamples;
             _nDims = old._nDims;
 
+            _Residuals = new MeasureType[_nSamples];
             setAllPointersToNull();
         }
 
@@ -138,7 +140,9 @@ namespace Ox {
          * \brief do not forget about the virtual destructor, see
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
-        virtual ~FunctionsT1(){};
+        virtual ~FunctionsT1(){
+            delete [] _Residuals;
+        };
 
     protected:
 
@@ -147,9 +151,11 @@ namespace Ox {
         const MeasureType* _RepTimes;
         const MeasureType* _RelAcqTimes;
         const MeasureType* _Signal;
-        //MeasureType* _Parameters;
         int _nSamples;
         int _nDims;
+
+        // helper variables
+        MeasureType* _Residuals;
     };
 } //namespace Ox
 

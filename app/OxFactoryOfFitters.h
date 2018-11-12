@@ -75,6 +75,7 @@ namespace Ox {
 
             fitter->setMaxFunctionEvals(opts->max_function_evals);
             fitter->setFTolerance(opts->fTolerance);
+            fitter->setUseGradient(opts->use_gradient);
 
             return fitter;
         }
