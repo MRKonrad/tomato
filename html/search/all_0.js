@@ -17,5 +17,6 @@ var searchData=
   ['calculatort1results',['CalculatorT1Results',['../struct_ox_1_1_calculator_t1_results.html#a2ef9ec72b2f7e61bb442fe8e0f61d508',1,'Ox::CalculatorT1Results']]],
   ['calculatort1results',['CalculatorT1Results',['../struct_ox_1_1_calculator_t1_results.html',1,'Ox']]],
   ['colorbar2dimagefilter',['Colorbar2DImageFilter',['../classitk_1_1_colorbar2_d_image_filter.html#ae103d71eaad083a9303743ee0789457f',1,'itk::Colorbar2DImageFilter']]],
-  ['colorbar2dimagefilter',['Colorbar2DImageFilter',['../classitk_1_1_colorbar2_d_image_filter.html',1,'itk']]]
+  ['colorbar2dimagefilter',['Colorbar2DImageFilter',['../classitk_1_1_colorbar2_d_image_filter.html',1,'itk']]],
+  ['copytoparameters',['copyToParameters',['../class_ox_1_1_fitter.html#a783ba791c88d7208deb4004354b10022',1,'Ox::Fitter']]]
 ];

@@ -285,7 +285,7 @@ $(document).ready(function(){initNavTree('itk_read_file_list_filter_8h_source.ht
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                m_AcqTimes.push_back(FindAcqTime(reader));</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                inputImageNumber++;</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            } <span class="keywordflow">catch</span>( itk::ExceptionObject &amp; err ) {</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Unable to read file&quot;</span> &lt;&lt; m_FileList[i] &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Unable to read file: &quot;</span> &lt;&lt; m_FileList[i] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;ExceptionObject caught!&quot;</span> &lt;&lt; std::endl &lt;&lt; err &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            }</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        }</div>

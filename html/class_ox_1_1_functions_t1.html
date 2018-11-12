@@ -221,13 +221,16 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_nSamples</b></td></tr
 <tr class="memitem:a4d42b89cb62d20c80e3210b17a692ed1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d42b89cb62d20c80e3210b17a692ed1"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>_nDims</b></td></tr>
 <tr class="separator:a4d42b89cb62d20c80e3210b17a692ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9385588387da7b25ebcf924eaf6cef8d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9385588387da7b25ebcf924eaf6cef8d"></a>
+MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>_Residuals</b></td></tr>
+<tr class="separator:a9385588387da7b25ebcf924eaf6cef8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename MeasureType&gt;<br/>
 class Ox::FunctionsT1&lt; MeasureType &gt;</h3>
 
 <p>Container for a model function, cost function and Least-Squares function. And derivatives. </p>
-<p>Here model function is defined - <a class="el" href="class_ox_1_1_functions_t1.html#a651f0dca72aab630bc46119094b80aee">calcModelValue()</a>. Fitting algorithms based on optimisation need a cost function - <a class="el" href="class_ox_1_1_functions_t1.html#a70ab239415d72f38bc36cc290fa3b476">calcCostValue()</a>. Fitting algorithms based on least squares need a residuals calculation - <a class="el" href="class_ox_1_1_functions_t1.html#ae548ba2f5779aba3d3e37f0bec77e891">calcLSResiduals()</a>. Some fitting algorithms use derivatives, hence <a class="el" href="class_ox_1_1_functions_t1.html#a19216f0d9ae8ba2d7cd55df81d370521">calcLSJacobian()</a> and <a class="el" href="class_ox_1_1_functions_t1.html#a01df2dd1eb054540eaccfb1dca01c7ce">calcCostDerivative()</a>. The memeber variables are pointers to c-arrays, we need to know how many samples we want to process. Thats the nSamples defined in the constructor. TODO: think about moving _Parameters out of this class and take it as a parameter of all the above functions </p>
+<p>Here model function is defined - <a class="el" href="class_ox_1_1_functions_t1.html#a651f0dca72aab630bc46119094b80aee">calcModelValue()</a>. Fitting algorithms based on optimisation need a cost function - <a class="el" href="class_ox_1_1_functions_t1.html#a70ab239415d72f38bc36cc290fa3b476">calcCostValue()</a>. Fitting algorithms based on least squares need a residuals calculation - <a class="el" href="class_ox_1_1_functions_t1.html#ae548ba2f5779aba3d3e37f0bec77e891">calcLSResiduals()</a>. Some fitting algorithms use derivatives, hence <a class="el" href="class_ox_1_1_functions_t1.html#a19216f0d9ae8ba2d7cd55df81d370521">calcLSJacobian()</a> and <a class="el" href="class_ox_1_1_functions_t1.html#a01df2dd1eb054540eaccfb1dca01c7ce">calcCostDerivative()</a>. The memeber variables are pointers to c-arrays, we need to know how many samples we want to process. Thats the nSamples defined in the constructor. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">MeasureType</td><td></td></tr>

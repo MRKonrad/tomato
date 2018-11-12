@@ -138,6 +138,9 @@ virtual const MeasureType&#160;</td><td class="memItemRight" valign="bottom"><b>
 <tr class="memitem:ac62bf275718aafc95b5e49d0aa9fc1ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac62bf275718aafc95b5e49d0aa9fc1ef"></a>
 virtual const MeasureType&#160;</td><td class="memItemRight" valign="bottom"><b>getFTolerance</b> () const </td></tr>
 <tr class="separator:ac62bf275718aafc95b5e49d0aa9fc1ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba3fc8ad5260390faf59e2f904ab6d6d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba3fc8ad5260390faf59e2f904ab6d6d"></a>
+virtual const bool&#160;</td><td class="memItemRight" valign="bottom"><b>getUseGradient</b> () const </td></tr>
+<tr class="separator:aba3fc8ad5260390faf59e2f904ab6d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04f36e075f86c6a89df833d17b9f029d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04f36e075f86c6a89df833d17b9f029d"></a>
 virtual const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxFunctionEvals</b> () const </td></tr>
 <tr class="separator:a04f36e075f86c6a89df833d17b9f029d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,6 +162,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setParameters
 <tr class="memitem:ad2b680ee88b12dd51538a2da865b2589"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad2b680ee88b12dd51538a2da865b2589"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setXTolerance</b> (const MeasureType _XTolerance)</td></tr>
 <tr class="separator:ad2b680ee88b12dd51538a2da865b2589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2441247888adc90a26d779043f10c5e1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2441247888adc90a26d779043f10c5e1"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setUseGradient</b> (const bool _UseGradient)</td></tr>
+<tr class="separator:a2441247888adc90a26d779043f10c5e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca7109a663e737c46cb29483c2276f4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca7109a663e737c46cb29483c2276f4a"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setFTolerance</b> (const MeasureType _FTolerance)</td></tr>
 <tr class="separator:aca7109a663e737c46cb29483c2276f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,8 +180,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setVerbose</b
 <tr class="memitem:a4ac0096f6bc6d733c542d28a839d32c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4ac0096f6bc6d733c542d28a839d32c9"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setTrace</b> (const bool _Trace)</td></tr>
 <tr class="separator:a4ac0096f6bc6d733c542d28a839d32c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a783ba791c88d7208deb4004354b10022"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a783ba791c88d7208deb4004354b10022"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>copyToParameters</b> (const MeasureType *ptrFrom)</td></tr>
+<tr class="memitem:a783ba791c88d7208deb4004354b10022"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_fitter.html#a783ba791c88d7208deb4004354b10022">copyToParameters</a> (const MeasureType *ptrFrom)</td></tr>
 <tr class="separator:a783ba791c88d7208deb4004354b10022"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a9b45eb21ba174327f95a894e6331b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a9b45eb21ba174327f95a894e6331b6"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_fitter.html#a0a9b45eb21ba174327f95a894e6331b6">disp</a> ()</td></tr>
@@ -211,6 +216,9 @@ MeasureType&#160;</td><td class="memItemRight" valign="bottom"><b>_FTolerance</b
 <tr class="memitem:a3be7ea1c1f19d3f4fb384474e2b1a033"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3be7ea1c1f19d3f4fb384474e2b1a033"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_MaxFunctionEvals</b></td></tr>
 <tr class="separator:a3be7ea1c1f19d3f4fb384474e2b1a033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34c039e87d52c28b19092535a171264f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34c039e87d52c28b19092535a171264f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_UseGradient</b></td></tr>
+<tr class="separator:a34c039e87d52c28b19092535a171264f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d97d7a9c9fad0349484151464fefe4f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d97d7a9c9fad0349484151464fefe4f"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_ThreadId</b></td></tr>
 <tr class="separator:a0d97d7a9c9fad0349484151464fefe4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -266,6 +274,39 @@ template&lt;typename MeasureType&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a783ba791c88d7208deb4004354b10022"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MeasureType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_ox_1_1_fitter.html">Ox::Fitter</a>&lt; MeasureType &gt;::copyToParameters </td>
+          <td>(</td>
+          <td class="paramtype">const MeasureType *&#160;</td>
+          <td class="paramname"><em>ptrFrom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>copy from ptrFrom to the parameters. Parameters have to be allocated first </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptrFrom</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a665ec51e52ed351c9ef801acc83fbdea"></a>
 <div class="memitem">
 <div class="memproto">
@@ -320,7 +361,7 @@ template&lt;typename MeasureType&gt; </div>
 <p>the most important function of this class </p>
 <dl class="section return"><dt>Returns</dt><dd>success/failure </dd></dl>
 
-<p>Implemented in <a class="el" href="class_ox_1_1_fitter_levenberg_marquardt_vnl.html#a533dee878077bfb6f4c9a88db47a15b9">Ox::FitterLevenbergMarquardtVnl&lt; MeasureType &gt;</a>, and <a class="el" href="class_ox_1_1_fitter_amoeba_vnl.html#a0c198974c2a95d0eb35cfe4c838e516c">Ox::FitterAmoebaVnl&lt; MeasureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="class_ox_1_1_fitter_amoeba_vnl.html#a0c198974c2a95d0eb35cfe4c838e516c">Ox::FitterAmoebaVnl&lt; MeasureType &gt;</a>, and <a class="el" href="class_ox_1_1_fitter_levenberg_marquardt_vnl.html#a533dee878077bfb6f4c9a88db47a15b9">Ox::FitterLevenbergMarquardtVnl&lt; MeasureType &gt;</a>.</p>
 
 </div>
 </div>

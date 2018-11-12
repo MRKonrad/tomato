@@ -33,6 +33,9 @@ $<$ Measure\-Type $>$ $\ast$ {\bfseries get\-Functions\-T1} () const }\label{cla
 \hypertarget{class_ox_1_1_fitter_ac62bf275718aafc95b5e49d0aa9fc1ef}{virtual const Measure\-Type {\bfseries get\-F\-Tolerance} () const }\label{class_ox_1_1_fitter_ac62bf275718aafc95b5e49d0aa9fc1ef}
 
 \item 
+\hypertarget{class_ox_1_1_fitter_aba3fc8ad5260390faf59e2f904ab6d6d}{virtual const bool {\bfseries get\-Use\-Gradient} () const }\label{class_ox_1_1_fitter_aba3fc8ad5260390faf59e2f904ab6d6d}
+
+\item 
 \hypertarget{class_ox_1_1_fitter_a04f36e075f86c6a89df833d17b9f029d}{virtual const unsigned int {\bfseries get\-Max\-Function\-Evals} () const }\label{class_ox_1_1_fitter_a04f36e075f86c6a89df833d17b9f029d}
 
 \item 
@@ -54,6 +57,9 @@ $<$ Measure\-Type $>$ $\ast$ {\bfseries get\-Functions\-T1} () const }\label{cla
 \hypertarget{class_ox_1_1_fitter_ad2b680ee88b12dd51538a2da865b2589}{virtual void {\bfseries set\-X\-Tolerance} (const Measure\-Type \-\_\-\-X\-Tolerance)}\label{class_ox_1_1_fitter_ad2b680ee88b12dd51538a2da865b2589}
 
 \item 
+\hypertarget{class_ox_1_1_fitter_a2441247888adc90a26d779043f10c5e1}{virtual void {\bfseries set\-Use\-Gradient} (const bool \-\_\-\-Use\-Gradient)}\label{class_ox_1_1_fitter_a2441247888adc90a26d779043f10c5e1}
+
+\item 
 \hypertarget{class_ox_1_1_fitter_aca7109a663e737c46cb29483c2276f4a}{virtual void {\bfseries set\-F\-Tolerance} (const Measure\-Type \-\_\-\-F\-Tolerance)}\label{class_ox_1_1_fitter_aca7109a663e737c46cb29483c2276f4a}
 
 \item 
@@ -69,8 +75,7 @@ $<$ Measure\-Type $>$ $\ast$ {\bfseries get\-Functions\-T1} () const }\label{cla
 \hypertarget{class_ox_1_1_fitter_a4ac0096f6bc6d733c542d28a839d32c9}{virtual void {\bfseries set\-Trace} (const bool \-\_\-\-Trace)}\label{class_ox_1_1_fitter_a4ac0096f6bc6d733c542d28a839d32c9}
 
 \item 
-\hypertarget{class_ox_1_1_fitter_a783ba791c88d7208deb4004354b10022}{virtual void {\bfseries copy\-To\-Parameters} (const Measure\-Type $\ast$ptr\-From)}\label{class_ox_1_1_fitter_a783ba791c88d7208deb4004354b10022}
-
+virtual void \hyperlink{class_ox_1_1_fitter_a783ba791c88d7208deb4004354b10022}{copy\-To\-Parameters} (const Measure\-Type $\ast$ptr\-From)
 \item 
 \hypertarget{class_ox_1_1_fitter_a0a9b45eb21ba174327f95a894e6331b6}{virtual void \hyperlink{class_ox_1_1_fitter_a0a9b45eb21ba174327f95a894e6331b6}{disp} ()}\label{class_ox_1_1_fitter_a0a9b45eb21ba174327f95a894e6331b6}
 
@@ -101,6 +106,9 @@ virtual \hyperlink{class_ox_1_1_fitter}{Fitter}$<$ Measure\-Type $>$ $\ast$ \hyp
 
 \item 
 \hypertarget{class_ox_1_1_fitter_a3be7ea1c1f19d3f4fb384474e2b1a033}{unsigned int {\bfseries \-\_\-\-Max\-Function\-Evals}}\label{class_ox_1_1_fitter_a3be7ea1c1f19d3f4fb384474e2b1a033}
+
+\item 
+\hypertarget{class_ox_1_1_fitter_a34c039e87d52c28b19092535a171264f}{bool {\bfseries \-\_\-\-Use\-Gradient}}\label{class_ox_1_1_fitter_a34c039e87d52c28b19092535a171264f}
 
 \item 
 \hypertarget{class_ox_1_1_fitter_a0d97d7a9c9fad0349484151464fefe4f}{unsigned int {\bfseries \-\_\-\-Thread\-Id}}\label{class_ox_1_1_fitter_a0d97d7a9c9fad0349484151464fefe4f}
@@ -140,6 +148,18 @@ copy constructor
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_ox_1_1_fitter_a783ba791c88d7208deb4004354b10022}{\index{Ox\-::\-Fitter@{Ox\-::\-Fitter}!copy\-To\-Parameters@{copy\-To\-Parameters}}
+\index{copy\-To\-Parameters@{copy\-To\-Parameters}!Ox::Fitter@{Ox\-::\-Fitter}}
+\subsubsection[{copy\-To\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type$>$ virtual void {\bf Ox\-::\-Fitter}$<$ Measure\-Type $>$\-::copy\-To\-Parameters (
+\begin{DoxyParamCaption}
+\item[{const Measure\-Type $\ast$}]{ptr\-From}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_ox_1_1_fitter_a783ba791c88d7208deb4004354b10022}
+copy from ptr\-From to the parameters. Parameters have to be allocated first 
+\begin{DoxyParams}{Parameters}
+{\em ptr\-From} & \\
+\hline
+\end{DoxyParams}
 \hypertarget{class_ox_1_1_fitter_a665ec51e52ed351c9ef801acc83fbdea}{\index{Ox\-::\-Fitter@{Ox\-::\-Fitter}!new\-By\-Cloning@{new\-By\-Cloning}}
 \index{new\-By\-Cloning@{new\-By\-Cloning}!Ox::Fitter@{Ox\-::\-Fitter}}
 \subsubsection[{new\-By\-Cloning}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type$>$ virtual {\bf Fitter}$<$Measure\-Type$>$$\ast$ {\bf Ox\-::\-Fitter}$<$ Measure\-Type $>$\-::new\-By\-Cloning (
@@ -166,7 +186,7 @@ success/failure
 \end{DoxyReturn}
 
 
-Implemented in \hyperlink{class_ox_1_1_fitter_levenberg_marquardt_vnl_a533dee878077bfb6f4c9a88db47a15b9}{Ox\-::\-Fitter\-Levenberg\-Marquardt\-Vnl$<$ Measure\-Type $>$}, and \hyperlink{class_ox_1_1_fitter_amoeba_vnl_a0c198974c2a95d0eb35cfe4c838e516c}{Ox\-::\-Fitter\-Amoeba\-Vnl$<$ Measure\-Type $>$}.
+Implemented in \hyperlink{class_ox_1_1_fitter_amoeba_vnl_a0c198974c2a95d0eb35cfe4c838e516c}{Ox\-::\-Fitter\-Amoeba\-Vnl$<$ Measure\-Type $>$}, and \hyperlink{class_ox_1_1_fitter_levenberg_marquardt_vnl_a533dee878077bfb6f4c9a88db47a15b9}{Ox\-::\-Fitter\-Levenberg\-Marquardt\-Vnl$<$ Measure\-Type $>$}.
 
 
 

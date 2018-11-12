@@ -11,6 +11,7 @@ var class_ox_1_1_fitter =
     [ "getParameters", "class_ox_1_1_fitter.html#a5e87dd37738745f98d904865f6b89219", null ],
     [ "getThreadId", "class_ox_1_1_fitter.html#a68e317f1c05ea2aa24f9d4803ee19215", null ],
     [ "getTrace", "class_ox_1_1_fitter.html#a9c3401372be5c8698464deb05c0f5533", null ],
+    [ "getUseGradient", "class_ox_1_1_fitter.html#aba3fc8ad5260390faf59e2f904ab6d6d", null ],
     [ "getVerbose", "class_ox_1_1_fitter.html#afeba16a2218db1f3fc646e2dde75f386", null ],
     [ "getXTolerance", "class_ox_1_1_fitter.html#a21f92547f664c9b6f3fa8da4c7d16965", null ],
     [ "newByCloning", "class_ox_1_1_fitter.html#a665ec51e52ed351c9ef801acc83fbdea", null ],
@@ -21,6 +22,7 @@ var class_ox_1_1_fitter =
     [ "setParameters", "class_ox_1_1_fitter.html#ab97f65c7d4d4db9bb0f5934aa0601b73", null ],
     [ "setThreadId", "class_ox_1_1_fitter.html#aa1fc4674aa6a3e6c8567c86ec1fa90e0", null ],
     [ "setTrace", "class_ox_1_1_fitter.html#a4ac0096f6bc6d733c542d28a839d32c9", null ],
+    [ "setUseGradient", "class_ox_1_1_fitter.html#a2441247888adc90a26d779043f10c5e1", null ],
     [ "setVerbose", "class_ox_1_1_fitter.html#a696da03b83fe3083f29ae4c0e2ecfc44", null ],
     [ "setXTolerance", "class_ox_1_1_fitter.html#ad2b680ee88b12dd51538a2da865b2589", null ],
     [ "_FTolerance", "class_ox_1_1_fitter.html#a926f6cf38998f041c31b079e93bf27ab", null ],
@@ -29,6 +31,7 @@ var class_ox_1_1_fitter =
     [ "_Parameters", "class_ox_1_1_fitter.html#a508e5654aaf79dd744ec816d95b7e33c", null ],
     [ "_ThreadId", "class_ox_1_1_fitter.html#a0d97d7a9c9fad0349484151464fefe4f", null ],
     [ "_Trace", "class_ox_1_1_fitter.html#a9ba79cb05ecc670254b3e7ddafc519ab", null ],
+    [ "_UseGradient", "class_ox_1_1_fitter.html#a34c039e87d52c28b19092535a171264f", null ],
     [ "_Verbose", "class_ox_1_1_fitter.html#a6457339f5252c85d7c92f20439544975", null ],
     [ "_XTolerance", "class_ox_1_1_fitter.html#af91a5ea8fb20072277ddcd64f5537b09", null ]
 ];

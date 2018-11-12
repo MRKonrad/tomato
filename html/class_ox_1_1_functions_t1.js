@@ -30,5 +30,6 @@ var class_ox_1_1_functions_t1 =
     [ "_nSamples", "class_ox_1_1_functions_t1.html#a32038248ea53c223d9d99cd9cee36378", null ],
     [ "_RelAcqTimes", "class_ox_1_1_functions_t1.html#abfbc38cf7ea0bbc1b52f48a75f281246", null ],
     [ "_RepTimes", "class_ox_1_1_functions_t1.html#a719873f2f02b6dcf0ae100f9c9a6884f", null ],
+    [ "_Residuals", "class_ox_1_1_functions_t1.html#a9385588387da7b25ebcf924eaf6cef8d", null ],
     [ "_Signal", "class_ox_1_1_functions_t1.html#a8f87abd26c39fddd3e2b0085e97c6571", null ]
 ];

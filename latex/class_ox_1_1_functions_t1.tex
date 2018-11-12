@@ -112,6 +112,9 @@ $<$ Measure\-Type $>$ $\ast$ \hyperlink{class_ox_1_1_functions_t1_a2246ea540016c
 \item 
 \hypertarget{class_ox_1_1_functions_t1_a4d42b89cb62d20c80e3210b17a692ed1}{int {\bfseries \-\_\-n\-Dims}}\label{class_ox_1_1_functions_t1_a4d42b89cb62d20c80e3210b17a692ed1}
 
+\item 
+\hypertarget{class_ox_1_1_functions_t1_a9385588387da7b25ebcf924eaf6cef8d}{Measure\-Type $\ast$ {\bfseries \-\_\-\-Residuals}}\label{class_ox_1_1_functions_t1_a9385588387da7b25ebcf924eaf6cef8d}
+
 \end{DoxyCompactItemize}
 
 
@@ -120,7 +123,7 @@ $<$ Measure\-Type $>$ $\ast$ \hyperlink{class_ox_1_1_functions_t1_a2246ea540016c
 
 Container for a model function, cost function and Least-\/\-Squares function. And derivatives. 
 
-Here model function is defined -\/ \hyperlink{class_ox_1_1_functions_t1_a651f0dca72aab630bc46119094b80aee}{calc\-Model\-Value()}. Fitting algorithms based on optimisation need a cost function -\/ \hyperlink{class_ox_1_1_functions_t1_a70ab239415d72f38bc36cc290fa3b476}{calc\-Cost\-Value()}. Fitting algorithms based on least squares need a residuals calculation -\/ \hyperlink{class_ox_1_1_functions_t1_ae548ba2f5779aba3d3e37f0bec77e891}{calc\-L\-S\-Residuals()}. Some fitting algorithms use derivatives, hence \hyperlink{class_ox_1_1_functions_t1_a19216f0d9ae8ba2d7cd55df81d370521}{calc\-L\-S\-Jacobian()} and \hyperlink{class_ox_1_1_functions_t1_a01df2dd1eb054540eaccfb1dca01c7ce}{calc\-Cost\-Derivative()}. The memeber variables are pointers to c-\/arrays, we need to know how many samples we want to process. Thats the n\-Samples defined in the constructor. T\-O\-D\-O\-: think about moving \-\_\-\-Parameters out of this class and take it as a parameter of all the above functions 
+Here model function is defined -\/ \hyperlink{class_ox_1_1_functions_t1_a651f0dca72aab630bc46119094b80aee}{calc\-Model\-Value()}. Fitting algorithms based on optimisation need a cost function -\/ \hyperlink{class_ox_1_1_functions_t1_a70ab239415d72f38bc36cc290fa3b476}{calc\-Cost\-Value()}. Fitting algorithms based on least squares need a residuals calculation -\/ \hyperlink{class_ox_1_1_functions_t1_ae548ba2f5779aba3d3e37f0bec77e891}{calc\-L\-S\-Residuals()}. Some fitting algorithms use derivatives, hence \hyperlink{class_ox_1_1_functions_t1_a19216f0d9ae8ba2d7cd55df81d370521}{calc\-L\-S\-Jacobian()} and \hyperlink{class_ox_1_1_functions_t1_a01df2dd1eb054540eaccfb1dca01c7ce}{calc\-Cost\-Derivative()}. The memeber variables are pointers to c-\/arrays, we need to know how many samples we want to process. Thats the n\-Samples defined in the constructor. 
 \begin{DoxyTemplParams}{Template Parameters}
 {\em Measure\-Type} & \\
 \hline
