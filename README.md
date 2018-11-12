@@ -3,12 +3,12 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 
 | OSX/Linux - Travis | Windows - AppVeyor |  Test coverage - Codecov | Downlads |
 |:-------------:|:-------------:|:-------------:| :-------------:| 
-[![Travis (.org)][travis_badge]][travis_link] | [![AppVeyor][appveyor_badge]][appveyor_link]| [![codecov][codecov_badge]][codecov_link]| ![GitHub Releases (by Release)][downloads_badge]
+[![Travis (.org)][travis_badge]](travis_link) | [![AppVeyor][appveyor_badge]](appveyor_link)| [![codecov][codecov_badge]](codecov_link)| ![GitHub Releases (by Release)][downloads_badge]
 
 
 ## Documentation
 
-**Documentation** in doxygen can be found [here](https://mrkonrad.github.io/Tomato/html).
+**Documentation** in doxygen can be found [here](https://mrkonrad.github.io/tomato/html).
 
 ## Tomato and Numerical Recipes
 

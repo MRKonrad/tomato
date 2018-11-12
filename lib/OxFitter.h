@@ -30,7 +30,6 @@ namespace Ox {
         virtual int performFitting() = 0;
 
         virtual const FunctionsT1<MeasureType>* getFunctionsT1() const { return _FunctionsT1; }
-
         virtual MeasureType *getParameters() { return _Parameters; }
         virtual const MeasureType getXTolerance() const { return _XTolerance; }
         virtual const MeasureType getFTolerance() const { return _FTolerance; }
@@ -48,11 +47,21 @@ namespace Ox {
         virtual void setVerbose(const bool _Verbose) { Fitter::_Verbose = _Verbose; }
         virtual void setTrace(const bool _Trace) { Fitter::_Trace = _Trace; }
 
+        /**
+         * copy from ptrFrom to the parameters. Parameters have to be allocated first
+         * @param ptrFrom
+         */
         virtual void copyToParameters(const MeasureType *ptrFrom){
-            if(Fitter::_FunctionsT1) {
-                for (int i = 0; i < Fitter::_FunctionsT1->getNDims(); ++i) {
-                    _Parameters[i] = ptrFrom[i];
-                }
+            if (!Fitter::_FunctionsT1) {
+                throw std::runtime_error("_FunctionsT1 equals 0. Set _FunctionsT1");
+            }
+
+            if (!_Parameters){
+                throw std::runtime_error("_Parameters equals 0. Set _Parameters");
+            }
+
+            for (int i = 0; i < Fitter::_FunctionsT1->getNDims(); ++i) {
+                _Parameters[i] = ptrFrom[i];
             }
         }
 

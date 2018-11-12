@@ -183,7 +183,7 @@ namespace itk {
                 m_AcqTimes.push_back(FindAcqTime(reader));
                 inputImageNumber++;
             } catch( itk::ExceptionObject & err ) {
-                std::cerr << "Unable to read file" << m_FileList[i] << std::endl;
+                std::cerr << "Unable to read file: " << m_FileList[i] << std::endl;
                 std::cerr << "ExceptionObject caught!" << std::endl << err << std::endl;
             }
         }
