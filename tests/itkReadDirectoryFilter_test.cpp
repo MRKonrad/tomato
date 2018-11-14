@@ -11,7 +11,7 @@
 
 #include "gtest/gtest.h"
 
-TEST(itkReadDirectoryFilter, readAndCalculateT1FromMag) {
+TEST(itkReadDirectoryFilter, read) {
 
     // primitive data types
     typedef double InputPixelType;
@@ -22,7 +22,7 @@ TEST(itkReadDirectoryFilter, readAndCalculateT1FromMag) {
     typedef itk::Image< OutputPixelType, 2 > OutputImageType;
     typedef itk::ReadDirectoryFilter<InputImageType3D> ReadDirectoryFilterType;
 
-    std::string dirName("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/");
+    std::string dirName("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12");
 
     ReadDirectoryFilterType::Pointer reader = ReadDirectoryFilterType::New();
     reader->SetDirName(dirName);

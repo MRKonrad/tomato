@@ -38,6 +38,20 @@ namespace Ox {
     int
     Tomato<MeasureType>
     ::readAndSort(){
+        if (_opts->files_magnitude.size() > 0){
+            return readAndSortInputFileList();
+        }
+        else{
+            return readAndSortInputDirs();
+        }
+
+    }
+
+    template< typename MeasureType >
+    int
+    Tomato<MeasureType>
+    ::readAndSortInputFileList(){
+
         typename ReadFileListFilterType::Pointer readerMag = ReadFileListFilterType::New();
         readerMag->SetFileList(_opts->files_magnitude);
         readerMag->Update();
@@ -45,6 +59,11 @@ namespace Ox {
         typename ReadFileListFilterType::Pointer readerPha = ReadFileListFilterType::New();
         readerPha->SetFileList(_opts->files_phase);
         readerPha->Update();
+
+        // have we read magnitudes?
+        if (readerMag->GetInvTimes().size() == 0){
+            throw std::runtime_error("No magnitude images read, check the paths!");
+        }
 
         typename SortInvTimesImageFilterType::Pointer sorterMag = SortInvTimesImageFilterType::New();
         sorterMag->SetInvTimesNonSorted(readerMag->GetInvTimes());
@@ -56,6 +75,7 @@ namespace Ox {
         sorterPha->SetInput(readerPha->GetOutput());
         sorterPha->Update();
 
+        // are the inversion times in magnitude and phase series equal?
         if (sorterMag->GetInvTimesSorted() == sorterPha->GetInvTimesSorted()){
             vnl_vector<InputPixelType > temp = sorterMag->GetInvTimesSorted();
             _nSamples = temp.size();
@@ -66,6 +86,51 @@ namespace Ox {
         }
 
         _dictionaryInput = readerMag->GetDicomIO()->GetMetaDataDictionary();
+        _imageMag = sorterMag->GetOutput();
+        _imagePha = sorterPha->GetOutput();
+
+        return 0; // EXIT_SUCCESS
+    }
+
+    template< typename MeasureType >
+    int
+    Tomato<MeasureType>
+    ::readAndSortInputDirs(){
+
+        typename ReadDirectoryFilterType::Pointer readerMag = ReadDirectoryFilterType::New();
+        readerMag->SetDirName(_opts->dir_magnitude);
+        readerMag->Update();
+
+        typename ReadDirectoryFilterType::Pointer readerPha = ReadDirectoryFilterType::New();
+        readerPha->SetDirName(_opts->dir_phase);
+        readerPha->Update();
+
+        // have we read magnitudes?
+        if (readerMag->GetInvTimes().size() == 0){
+            throw std::runtime_error("No magnitude images read, check the paths!");
+        }
+
+        typename SortInvTimesImageFilterType::Pointer sorterMag = SortInvTimesImageFilterType::New();
+        sorterMag->SetInvTimesNonSorted(readerMag->GetInvTimes());
+        sorterMag->SetInput(readerMag->GetOutput());
+        sorterMag->Update();
+
+        typename SortInvTimesImageFilterType::Pointer sorterPha = SortInvTimesImageFilterType::New();
+        sorterPha->SetInvTimesNonSorted(readerPha->GetInvTimes());
+        sorterPha->SetInput(readerPha->GetOutput());
+        sorterPha->Update();
+
+        // are the inversion times in magnitude and phase series equal?
+        if (sorterMag->GetInvTimesSorted() == sorterPha->GetInvTimesSorted()){
+            vnl_vector<InputPixelType > temp = sorterMag->GetInvTimesSorted();
+            _nSamples = temp.size();
+            _invTimes = new InputPixelType[_nSamples];
+            KWUtil::copyArrayToArray(_nSamples, _invTimes, temp.data_block());
+        } else {
+            throw std::runtime_error("Mag and Pha inv times are not equal");
+        }
+
+        _dictionaryInput = readerMag->GetMetaDataDictionary();
         _imageMag = sorterMag->GetOutput();
         _imagePha = sorterPha->GetOutput();
 

@@ -108,15 +108,16 @@ namespace itk
             SeriesIdContainer::const_iterator seriesItr = seriesUID.begin();
             SeriesIdContainer::const_iterator seriesEnd = seriesUID.end();
 
-            if (GetVerbose()) {
-                if (seriesItr != seriesEnd) {
+
+            if (seriesItr != seriesEnd) {
+                if (GetVerbose()) {
                     std::cout << "The directory: ";
                     std::cout << m_DirName << std::endl;
                     std::cout << "Contains the following DICOM Series: ";
                     std::cout << std::endl;
-                } else {
-                    std::cout << "No DICOMs in: " << m_DirName << std::endl;
                 }
+            } else {
+                std::cout << "No DICOMs in: " << m_DirName << std::endl;
             }
 
             while (seriesItr != seriesEnd) {

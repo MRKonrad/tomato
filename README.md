@@ -1,13 +1,11 @@
 # Tomato
 A library to calculate parametric maps in MRI. It contains ShMOLLI implementation as in [this article](https://jcmr-online.biomedcentral.com/articles/10.1186/1532-429X-12-69).
 
-| OSX/Linux - Travis | Windows - AppVeyor |  Test coverage - Codecov | Downlads |
+| [OSX/Linux - Travis](travis_link) | [Windows - AppVeyor](appveyor_link) |  [Test coverage - Codecov](codecov_link) | Downlads |
 |:-------------:|:-------------:|:-------------:| :-------------:| 
-[![Travis (.org)][travis_badge]](travis_link) | [![AppVeyor][appveyor_badge]](appveyor_link)| [![codecov][codecov_badge]](codecov_link)| ![GitHub Releases (by Release)][downloads_badge]
+![Travis (.org)][travis_badge] | ![AppVeyor][appveyor_badge]| ![codecov][codecov_badge]| ![GitHub Releases (by Release)][downloads_badge]
 
-
-## Documentation
-
+**Github** repository can be found [here](https://github.com/MRKonrad/tomato).
 **Documentation** in doxygen can be found [here](https://mrkonrad.github.io/tomato/html).
 
 ## Tomato and Numerical Recipes
@@ -46,6 +44,12 @@ Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes b
 * **Gitmodules**: after `git clone` run `git submodule update --init --recursive` to get the submodules code.
 * It would be nice to follow [CppCoreGuidlines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md) as far as C++98 allows.
 * Maybe I can write a script for github releases with [github releases REST api](https://developer.github.com/v3/repos/releases/#create-a-release) and [curl REST api](http://www.codingpedia.org/ama/how-to-test-a-rest-api-from-command-line-with-curl/#12_HEAD_requests)?
+
+# TODO: 
+
+* provide template yaml config files
+* scripts for python
+* processing without phase data
 
 [travis_badge]: https://img.shields.io/travis/MRKonrad/tomato.svg?style=for-the-badge
 [travis_link]: https://travis-ci.org/MRKonrad/tomato

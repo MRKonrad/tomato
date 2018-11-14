@@ -65,7 +65,7 @@ namespace Ox {
             dir_output_fitparams = "";
 
             parameter_to_map = T1_MOLLI;
-            fitting_method = AmoebaVnl;
+            fitting_method = LevMarVnl;
             functions_type = FunctionsBasic;
             sign_calc_method = NoSign;
             start_point_calc_method = Default;
@@ -128,13 +128,22 @@ namespace Ox {
 
             parser.parse();
 
+            // input
             files_magnitude = parser._sequences["files_magnitude"];
             files_phase = parser._sequences["files_phase"];
             dir_magnitude = parser._scalars["dir_magnitude"];
             dir_phase = parser._scalars["dir_phase"];
+
+            // output
             dir_output_map = parser._scalars["dir_output_map"];
             dir_output_fitparams = parser._scalars["dir_output_fitparams"];
 
+            if (!parser._scalars["output_map_series_number"].empty())
+                output_map_series_number = KWUtil::StringToNumber<MeasureType>(parser._scalars["output_map_series_number"]);
+            if (!parser._scalars["output_fitparams_series_number"].empty())
+                output_fitparams_series_number = KWUtil::StringToNumber<MeasureType>(parser._scalars["output_fitparams_series_number"]);
+
+            // calc options
             if (!parser._scalars["parameter_to_map"].empty())
                 parameter_to_map = (calculatorsType_t) findInArray(lastCalculatorType+1, calculatorsTypeNames, parser._scalars["parameter_to_map"]);
             if (!parser._scalars["fitting_method"].empty())
@@ -157,13 +166,12 @@ namespace Ox {
                 mean_cut_off = KWUtil::StringToNumber<MeasureType>(parser._scalars["mean_cut_off"]);
             if (!parser._scalars["number_of_threads"].empty())
                 number_of_threads = KWUtil::StringToNumber<MeasureType>(parser._scalars["number_of_threads"]);
+
+            // visualise
             if (!parser._scalars["visualise"].empty())
                 visualise = (bool)KWUtil::StringToNumber<MeasureType>(parser._scalars["visualise"]);
 
-            if (!parser._scalars["output_map_series_number"].empty())
-                output_map_series_number = KWUtil::StringToNumber<MeasureType>(parser._scalars["output_map_series_number"]);
-            if (!parser._scalars["output_fitparams_series_number"].empty())
-                output_fitparams_series_number = KWUtil::StringToNumber<MeasureType>(parser._scalars["output_fitparams_series_number"]);
+
         }
 
         int findInArray(int size, const char *nameArray[], std::string name){

@@ -12,9 +12,16 @@
 
 
 
-TEST(Tomato, readAndSort) {
+TEST(Tomato, readAndSortFileList) {
 
     Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+    EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
+
+}
+
+TEST(Tomato, readAndSortInputDirs) {
+
+    Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_inputDirs.yaml");
     EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
 
 }

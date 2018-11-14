@@ -14,6 +14,7 @@
 #include "TomatoColormap.h"
 
 #include "itkReadFileListFilter.h"
+#include "itkReadDirectoryFilter.h"
 #include "itkSortInvTimesImageFilter.h"
 #include "itkCalculatorT1ImageFilter.h"
 #include "itkColorbar2DImageFilter.h"
@@ -52,6 +53,7 @@ namespace Ox {
         typedef itk::Image<InputPixelType, 2> ImageType2D;
         typedef itk::Image<OutputPixelType, 2> OutputImageType;
         typedef itk::ReadFileListFilter<ImageType3D> ReadFileListFilterType;
+        typedef itk::ReadDirectoryFilter<ImageType3D> ReadDirectoryFilterType;
         typedef itk::SortInvTimesImageFilter<ImageType3D, ImageType3D> SortInvTimesImageFilterType;
         typedef itk::CalculatorT1ImageFilter<ImageType3D, ImageType2D> CalculatorT1ImageFilterType;
         typedef itk::MetaDataDictionary DictionaryType;
@@ -112,6 +114,18 @@ namespace Ox {
          * I cant delete it to be compatible with c++98
          */
         Tomato(){};
+
+        /**
+         * readAndSortInputFileList
+         * @return success/failure
+         */
+        int readAndSortInputFileList();
+
+        /**
+         * readAndSortInputDirs
+         * @return success/failure
+         */
+        int readAndSortInputDirs();
 
     };
 
