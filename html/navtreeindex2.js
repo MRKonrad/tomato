@@ -1,6 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"classitk_1_1_colorbar2_d_image_filter.html#ae103d71eaad083a9303743ee0789457f":[2,0,0,0,5],
 "classitk_1_1_colorbar2_d_image_filter.html#ae2fca5a6a90a6d3dc4ab6f1ae569be9c":[2,0,0,0,6],
 "classitk_1_1_colorbar2_d_image_filter.html#aeddf7656f339c33f2412bc222db4d558":[2,0,0,0,7],
 "classitk_1_1_n_shmolli_samples_used_to123_image_filter.html":[2,0,0,1],

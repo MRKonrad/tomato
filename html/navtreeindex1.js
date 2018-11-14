@@ -1,6 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"class_ox_1_1_fitter.html#a9c3401372be5c8698464deb05c0f5533":[2,0,1,9,10],
 "class_ox_1_1_fitter.html#aa1fc4674aa6a3e6c8567c86ec1fa90e0":[2,0,1,9,20],
 "class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43":[2,0,1,9,2],
 "class_ox_1_1_fitter.html#ab97f65c7d4d4db9bb0f5934aa0601b73":[2,0,1,9,19],
@@ -249,5 +248,6 @@ var NAVTREEINDEX1 =
 "classitk_1_1_colorbar2_d_image_filter.html#a9cf8e325a86cac28dc661647905381f9":[2,0,0,0,0],
 "classitk_1_1_colorbar2_d_image_filter.html#abd868d4b97128f6fd9373bc4929792e6":[2,0,0,0,9],
 "classitk_1_1_colorbar2_d_image_filter.html#acb0402b76750a2b5f895e5f1ca0e56c0":[2,0,0,0,1],
-"classitk_1_1_colorbar2_d_image_filter.html#ace645ca59853c18b7c077c2c852b3712":[2,0,0,0,11]
+"classitk_1_1_colorbar2_d_image_filter.html#ace645ca59853c18b7c077c2c852b3712":[2,0,0,0,11],
+"classitk_1_1_colorbar2_d_image_filter.html#ae103d71eaad083a9303743ee0789457f":[2,0,0,0,5]
 };

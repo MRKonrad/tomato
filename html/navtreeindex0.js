@@ -154,13 +154,12 @@ var NAVTREEINDEX0 =
 "_tomato_colormap_8h_source.html":[3,0,1,30],
 "_tomato_options_8h.html":[3,0,0,11],
 "_tomato_options_8h_source.html":[3,0,0,11],
-"_tomato_options__test_8cpp.html":[3,0,2,26],
 "_tomato_parser_8h.html":[3,0,1,31],
 "_tomato_parser_8h_source.html":[3,0,1,31],
 "_tomato_parser_8hxx.html":[3,0,1,32],
 "_tomato_parser_8hxx_source.html":[3,0,1,32],
-"_tomato_parser__test_8cpp.html":[3,0,2,27],
-"_tomato_parser__test_8cpp.html#a8ea1a56817272728bd597c73b09fac22":[3,0,2,27,0],
+"_tomato_parser__test_8cpp.html":[3,0,2,26],
+"_tomato_parser__test_8cpp.html#a8ea1a56817272728bd597c73b09fac22":[3,0,2,26,0],
 "annotated.html":[2,0],
 "class_k_w_util.html":[2,0,2],
 "class_ox_1_1_calculator_t1.html":[2,0,1,7],
@@ -249,5 +248,6 @@ var NAVTREEINDEX0 =
 "class_ox_1_1_fitter.html#a859dc8c25c99b37f47d41e086b97c897":[2,0,1,9,6],
 "class_ox_1_1_fitter.html#a8f240f0da86d06b339ab2747e87f21b9":[2,0,1,9,15],
 "class_ox_1_1_fitter.html#a926f6cf38998f041c31b079e93bf27ab":[2,0,1,9,25],
-"class_ox_1_1_fitter.html#a9ba79cb05ecc670254b3e7ddafc519ab":[2,0,1,9,30]
+"class_ox_1_1_fitter.html#a9ba79cb05ecc670254b3e7ddafc519ab":[2,0,1,9,30],
+"class_ox_1_1_fitter.html#a9c3401372be5c8698464deb05c0f5533":[2,0,1,9,10]
 };

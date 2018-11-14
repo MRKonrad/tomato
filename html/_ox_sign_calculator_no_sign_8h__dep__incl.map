@@ -1,12 +1,11 @@
 <map id="lib/OxSignCalculatorNoSign.h" name="lib/OxSignCalculatorNoSign.h">
-<area shape="rect" id="node2" href="$_ox_factory_of_sign_calculators_8h.html" title="app/OxFactoryOfSignCalculators.h" alt="" coords="193,88,417,115"/>
-<area shape="rect" id="node9" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="443,81,616,122"/>
-<area shape="rect" id="node10" href="$_ox_calculator_t1_shmolli__test_8cpp.html" title="tests/OxCalculatorT1Shmolli\l_test.cpp" alt="" coords="640,81,829,122"/>
-<area shape="rect" id="node11" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="854,81,1036,122"/>
-<area shape="rect" id="node3" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="232,171,379,197"/>
-<area shape="rect" id="node4" href="$_tomato_8h.html" title="app/Tomato.h" alt="" coords="93,253,195,280"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="5,344,104,371"/>
-<area shape="rect" id="node7" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="220,253,391,280"/>
-<area shape="rect" id="node8" href="$_tomato_options__test_8cpp.html" title="tests/TomatoOptions\l_test.cpp" alt="" coords="415,246,559,287"/>
-<area shape="rect" id="node6" href="$_tomato__same_as_shmolli__test_8cpp.html" title="tests/Tomato_sameAsShmolli\l_test.cpp" alt="" coords="129,337,327,378"/>
+<area shape="rect" id="node2" href="$_ox_factory_of_sign_calculators_8h.html" title="app/OxFactoryOfSignCalculators.h" alt="" coords="111,88,336,115"/>
+<area shape="rect" id="node8" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="361,81,535,122"/>
+<area shape="rect" id="node9" href="$_ox_calculator_t1_shmolli__test_8cpp.html" title="tests/OxCalculatorT1Shmolli\l_test.cpp" alt="" coords="559,81,748,122"/>
+<area shape="rect" id="node10" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="773,81,955,122"/>
+<area shape="rect" id="node3" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="151,171,297,197"/>
+<area shape="rect" id="node4" href="$_tomato_8h.html" title="app/Tomato.h" alt="" coords="93,245,195,272"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="5,328,104,355"/>
+<area shape="rect" id="node7" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="220,245,391,272"/>
+<area shape="rect" id="node6" href="$_tomato__same_as_shmolli__test_8cpp.html" title="tests/Tomato_sameAsShmolli\l_test.cpp" alt="" coords="129,321,327,362"/>
 </map>

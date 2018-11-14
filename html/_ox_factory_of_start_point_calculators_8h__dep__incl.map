@@ -1,8 +1,7 @@
 <map id="app/OxFactoryOfStartPointCalculators.h" name="app/OxFactoryOfStartPointCalculators.h">
-<area shape="rect" id="node2" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="232,96,379,123"/>
-<area shape="rect" id="node3" href="$_tomato_8h.html" title="app/Tomato.h" alt="" coords="93,179,195,205"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="5,269,104,296"/>
-<area shape="rect" id="node6" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="220,179,391,205"/>
-<area shape="rect" id="node7" href="$_tomato_options__test_8cpp.html" title="tests/TomatoOptions\l_test.cpp" alt="" coords="415,171,559,213"/>
-<area shape="rect" id="node5" href="$_tomato__same_as_shmolli__test_8cpp.html" title="tests/Tomato_sameAsShmolli\l_test.cpp" alt="" coords="129,262,327,303"/>
+<area shape="rect" id="node2" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="151,96,297,123"/>
+<area shape="rect" id="node3" href="$_tomato_8h.html" title="app/Tomato.h" alt="" coords="93,171,195,197"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="5,253,104,280"/>
+<area shape="rect" id="node6" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="220,171,391,197"/>
+<area shape="rect" id="node5" href="$_tomato__same_as_shmolli__test_8cpp.html" title="tests/Tomato_sameAsShmolli\l_test.cpp" alt="" coords="129,246,327,287"/>
 </map>
