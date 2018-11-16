@@ -32,5 +32,6 @@ var annotated =
       [ "TestData", "class_ox_1_1_test_data.html", "class_ox_1_1_test_data" ],
       [ "TestImage", "class_ox_1_1_test_image.html", "class_ox_1_1_test_image" ]
     ] ],
-    [ "KWUtil", "class_k_w_util.html", null ]
+    [ "KWUtil", "class_k_w_util.html", null ],
+    [ "KWUtilYaml", "class_k_w_util_yaml.html", null ]
 ];

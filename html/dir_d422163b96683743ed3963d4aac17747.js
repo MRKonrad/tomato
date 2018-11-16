@@ -11,7 +11,5 @@ var dir_d422163b96683743ed3963d4aac17747 =
     [ "Tomato.h", "_tomato_8h.html", null ],
     [ "Tomato.hxx", "_tomato_8hxx_source.html", null ],
     [ "Tomato_export.hxx", "_tomato__export_8hxx_source.html", null ],
-    [ "TomatoOptions.h", "_tomato_options_8h.html", [
-      [ "TomatoOptions", "struct_ox_1_1_tomato_options.html", "struct_ox_1_1_tomato_options" ]
-    ] ]
+    [ "TomatoOptions.h", "_tomato_options_8h.html", "_tomato_options_8h" ]
 ];

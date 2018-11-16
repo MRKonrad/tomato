@@ -26,6 +26,7 @@ var hierarchy =
       [ "itk::NShmolliSamplesUsedTo123ImageFilter< TImage >", "classitk_1_1_n_shmolli_samples_used_to123_image_filter.html", null ]
     ] ],
     [ "KWUtil", "class_k_w_util.html", null ],
+    [ "KWUtilYaml", "class_k_w_util_yaml.html", null ],
     [ "Ox::SignCalculator< MeasureType >", "class_ox_1_1_sign_calculator.html", [
       [ "Ox::SignCalculatorNoSign< MeasureType >", "class_ox_1_1_sign_calculator_no_sign.html", null ],
       [ "Ox::SignCalculatorRealImag< MeasureType >", "class_ox_1_1_sign_calculator_real_imag.html", null ]

@@ -2,6 +2,8 @@ var struct_ox_1_1_tomato_options =
 [
     [ "TomatoOptions", "struct_ox_1_1_tomato_options.html#a974a7659d7eaefe712b1bb00cbd46a93", null ],
     [ "TomatoOptions", "struct_ox_1_1_tomato_options.html#abd502ef8966b09c671e2b7a5b565ce38", null ],
+    [ "exportToYaml", "struct_ox_1_1_tomato_options.html#a8c763b89efcc2122205363a7e743afa9", null ],
+    [ "exportToYaml", "struct_ox_1_1_tomato_options.html#a858797a020bbb2504cfcf389bec9bca2", null ],
     [ "findInArray", "struct_ox_1_1_tomato_options.html#a9630620338003eb675fdfe242449c915", null ],
     [ "init", "struct_ox_1_1_tomato_options.html#a76497b53cadad720af7ff0f83b99096b", null ],
     [ "printCurrent", "struct_ox_1_1_tomato_options.html#ab50a9d1d7044fa64878b9b7141fd4c81", null ],
