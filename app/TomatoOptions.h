@@ -11,6 +11,8 @@
 #include <vector>
 #include <string>
 
+#include "CmakeConfigForTomato.h"
+
 #include "OxFactoryOfCalculators.h"
 #include "OxFactoryOfFitters.h"
 #include "OxFactoryOfFunctions.h"
@@ -20,6 +22,9 @@
 #include "TomatoParser.h"
 
 #include "KWUtil.h"
+#include "KWUtilYaml.h"
+
+#define YAML_BUFFER_SIZE 65536
 
 namespace Ox {
     template<typename MeasureType>
@@ -191,42 +196,30 @@ namespace Ox {
             throw std::runtime_error(errorMessage);
         }
 
-        static void printArray(int size, const char *nameArray[]){
-            for (int i = 0; i < size; ++i){
-                printf("%s ", nameArray[i]);
-            }
-        }
-
-        template<typename TYPE>
-        static void printVector(std::string name, std::vector<TYPE> vector){
-            std::cout << name << std::endl;
-            for (int i = 0; i < vector.size(); ++i){
-                std::cout << "  " << vector.at(i) << std::endl;
-            }
-        }
-
         void printCurrent() {
             printf("\n");
             printf("######################################\n");
             printf("Tomato CURRENTLY SELECTED options:\n");
             printf("######################################\n");
-            printVector(" files_magnitude: ", files_magnitude);
-            printVector(" files_phase: ", files_phase);
+            KWUtil::printVector(" files_magnitude: ", files_magnitude);
+            KWUtil::printVector(" files_phase: ", files_phase);
             printf(" dir_magnitude: %s ", dir_magnitude.c_str());
             printf("\n dir_phase: %s ", dir_phase.c_str());
             printf("\n dir_output_map: %s ", dir_output_map.c_str());
             printf("\n dir_output_fitparams: %s ", dir_output_fitparams.c_str());
+            printf("\n output_map_series_number: %d", output_map_series_number);
+            printf("\n output_fitparams_series_number: %d", output_fitparams_series_number);
             printf("\n");
             printf("\n parameter_to_map: %s [ ", calculatorsTypeNames[parameter_to_map]);
-            printArray(lastCalculatorType+1, calculatorsTypeNames);
+            KWUtil::printArray(lastCalculatorType+1, calculatorsTypeNames);
             printf("]\n fitting_method: %s [ ",  fittersTypeNames[fitting_method]);
-            printArray(lastFitterType+1, fittersTypeNames);
+            KWUtil::printArray(lastFitterType+1, fittersTypeNames);
             printf("]\n functions_type: %s [ ", functionsTypeNames[functions_type]);
-            printArray(lastFunctorType+1, functionsTypeNames);
+            KWUtil::printArray(lastFunctorType+1, functionsTypeNames);
             printf("]\n sign_calc_method: %s [ ", signCalculatorsTypeNames[sign_calc_method]);
-            printArray(lastSignCalculatorType+1, signCalculatorsTypeNames);
+            KWUtil::printArray(lastSignCalculatorType+1, signCalculatorsTypeNames);
             printf("]\n start_point_calc_method: %s [ ", startPointCalculatorsTypeNames[start_point_calc_method]);
-            printArray(lastStartPointCalculatorType+1, startPointCalculatorsTypeNames);
+            KWUtil::printArray(lastStartPointCalculatorType+1, startPointCalculatorsTypeNames);
             printf("]\n");
             printf("\n fTolerance: %.2e ", fTolerance);
             //printf("xTolerance: %.2e ", xTolerance);
@@ -237,8 +230,7 @@ namespace Ox {
             printf("\n number_of_threads: %d", number_of_threads);
             printf("\n visualise: %s", visualise?"1":"0");
 
-            printf("\n output_map_series_number: %d", output_map_series_number);
-            printf("\n output_fitparams_series_number: %d", output_fitparams_series_number);
+            printf("\n calculation time: %.2fs", calculation_time);
 
             printf("\n\n");
         }
@@ -249,19 +241,95 @@ namespace Ox {
             printf("Tomato AVAILABLE options:\n");
             printf("#############################\n");
             printf(" parameter_to_map: ");
-            printArray(lastCalculatorType+1, calculatorsTypeNames);
+            KWUtil::printArray(lastCalculatorType+1, calculatorsTypeNames);
             printf("\n fitting_method: ");
-            printArray(lastFitterType+1, fittersTypeNames);
+            KWUtil::printArray(lastFitterType+1, fittersTypeNames);
             printf("\n functions_type: ");
-            printArray(lastFunctorType+1, functionsTypeNames);
+            KWUtil::printArray(lastFunctorType+1, functionsTypeNames);
             printf("\n sign_calc_method: ");
-            printArray(lastSignCalculatorType+1, signCalculatorsTypeNames);
+            KWUtil::printArray(lastSignCalculatorType+1, signCalculatorsTypeNames);
             printf("\n start_point_calc_method: ");
-            printArray(lastStartPointCalculatorType+1, startPointCalculatorsTypeNames);
+            KWUtil::printArray(lastStartPointCalculatorType+1, startPointCalculatorsTypeNames);
 
             printf("\n\n");
         }
+
+        int exportToYaml(){
+
+            if (dir_output_map.length() > 0){
+                std::string filePath = dir_output_map + KWUtil::PathSeparator() + "tomato_output_config.yaml";
+                exportToYaml(filePath);
+            }
+
+            if (dir_output_fitparams.length() > 0){
+                std::string filePath = dir_output_fitparams + KWUtil::PathSeparator() + "tomato_output_config.yaml";
+                exportToYaml(filePath);
+            }
+
+            return 0; // EXIT_SUCCESS
+        }
+
+        int exportToYaml(std::string filePath){
+
+
+            yaml_document_t document;
+            yaml_emitter_t emitter;
+            size_t written = 0;
+
+            yaml_document_initialize(&document, NULL, NULL, NULL, 1, 1);
+
+            yaml_document_add_mapping(&document, (yaml_char_t*)YAML_DEFAULT_MAPPING_TAG, YAML_ANY_MAPPING_STYLE);
+            int mapping_node_number = (int)(document.nodes.top - document.nodes.start);
+
+            KWUtilYaml::addSequence(&document, mapping_node_number, "files_magnitude", files_magnitude);
+            KWUtilYaml::addSequence(&document, mapping_node_number, "files_phase", files_phase);
+            KWUtilYaml::addMapping(&document, mapping_node_number, "dir_magnitude", dir_magnitude);
+            KWUtilYaml::addMapping(&document, mapping_node_number, "dir_phase", dir_phase);
+            KWUtilYaml::addMapping(&document, mapping_node_number, "dir_output_map", dir_output_map);
+            KWUtilYaml::addMapping(&document, mapping_node_number, "dir_output_fitparams", dir_output_fitparams);
+            KWUtilYaml::addMapping(&document, mapping_node_number, "output_map_series_number", KWUtil::NumberToString(output_map_series_number));
+            KWUtilYaml::addMapping(&document, mapping_node_number, "output_fitparams_series_number", KWUtil::NumberToString(output_fitparams_series_number));
+
+            KWUtilYaml::addMapping(&document, mapping_node_number, "parameter_to_map", calculatorsTypeNames[parameter_to_map]);
+            KWUtilYaml::addMapping(&document, mapping_node_number, "fitting_method", fittersTypeNames[fitting_method]);
+            KWUtilYaml::addMapping(&document, mapping_node_number, "functions_type", functionsTypeNames[functions_type]);
+            KWUtilYaml::addMapping(&document, mapping_node_number, "sign_calc_method" , signCalculatorsTypeNames[sign_calc_method]);
+            KWUtilYaml::addMapping(&document, mapping_node_number, "start_point_calc_method", startPointCalculatorsTypeNames[start_point_calc_method]);
+
+            KWUtilYaml::addMapping(&document, mapping_node_number, "fTolerance", KWUtil::NumberToString(fTolerance));
+            KWUtilYaml::addMapping(&document, mapping_node_number, "max_function_evals", KWUtil::NumberToString(max_function_evals));
+            KWUtilYaml::addMapping(&document, mapping_node_number, "use_gradient", use_gradient ? "1" : "0");
+
+            KWUtilYaml::addMapping(&document, mapping_node_number, "mean_cut_off", KWUtil::NumberToString(mean_cut_off));
+            KWUtilYaml::addMapping(&document, mapping_node_number, "number_of_threads", KWUtil::NumberToString(number_of_threads));
+            KWUtilYaml::addMapping(&document, mapping_node_number, "visualise", visualise ? "1" : "0");
+
+            KWUtilYaml::addMapping(&document, mapping_node_number, "calculation_time", KWUtil::NumberToString(calculation_time));
+
+            std::string tomato_version = "v" + KWUtil::NumberToString(Tomato_VERSION_MAJOR) + "." + KWUtil::NumberToString(Tomato_VERSION_MINOR);
+            KWUtilYaml::addMapping(&document, mapping_node_number, "tomato_version", tomato_version);
+
+            unsigned char buffer[YAML_BUFFER_SIZE+1];
+            memset(buffer, 0, YAML_BUFFER_SIZE+1);
+
+            yaml_emitter_initialize(&emitter);
+            yaml_emitter_set_output_string(&emitter, buffer, YAML_BUFFER_SIZE, &written);
+            yaml_emitter_open(&emitter);
+            yaml_emitter_dump(&emitter, &document);
+            yaml_emitter_flush(&emitter);
+            yaml_emitter_close(&emitter);
+
+            FILE *file = fopen(filePath.c_str(), "wb");
+            fprintf(file, "%s", buffer);
+            fclose(file);
+
+            return 0; // EXIT_SUCCESS
+
+        }
+
     };
 } // namespace Ox
+
+#undef YAML_BUFFER_SIZE
 
 #endif //Tomato_TomatoOPTIONS_H

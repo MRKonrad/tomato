@@ -48,10 +48,20 @@ public:
     static void copyArrayToArray(int nSamples, TYPE1 *arrayTo, const TYPE2 *arrayFrom);
 
     /***********************/
+    /* printVector         */
+    /***********************/
+
+    template<typename TYPE>
+    static void printVector(const std::string name, const std::vector<TYPE> vector);
+
+    /***********************/
     /* printArray 1D       */
     /***********************/
     template< typename TYPE >
     static void printArray(int nSamples, const TYPE *myarray);
+
+    template< typename TYPE >
+    static void printArray(int nSamples, const TYPE *myarray, int width);
 
     template< typename TYPE >
     static void printArray(int nSamples, const TYPE *myarray, char* text);

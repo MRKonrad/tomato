@@ -31,14 +31,16 @@ int main(int argc, char* argv[]) {
         Tomato_object.readAndSort();
         Tomato_object.calculate();
         Tomato_object.exportToDicom();
+        Tomato_object._opts->exportToYaml();
         Tomato_object.visualise();
+
 #else
         throw std::runtime_error("You need ITK to run the executable");
 #endif
 
     }
 
-    printf("Thank you for using!\n");
+    printf("\nThank you for using tomato v%d.%d\n", Tomato_VERSION_MAJOR, Tomato_VERSION_MINOR);
     printf("Konrad Werys 2018\n");
     printf("konrad.werys@cardiov.ox.ac.uk\n\n");
 

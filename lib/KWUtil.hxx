@@ -28,13 +28,32 @@ void KWUtil::copyArrayToArray(int nSamples, TYPE1 *arrayTo, const TYPE2 *arrayFr
 }
 
 /***********************/
+/* printVector         */
+/***********************/
+
+template<typename TYPE>
+void KWUtil::printVector(const std::string name, const std::vector<TYPE> vector){
+    std::cout << name << std::endl;
+    for (int i = 0; i < vector.size(); ++i){
+        std::cout << "  " << vector.at(i) << std::endl;
+    }
+}
+
+/***********************/
 /* printArray 1D       */
 /***********************/
 
 template< typename TYPE >
 void KWUtil::printArray(int nSamples, const TYPE *myarray){
     for (int i=0; i<nSamples; i++){
-        std::cout << std::setw(12) << myarray[i];
+        std::cout << myarray[i] << " ";
+    }
+}
+
+template< typename TYPE >
+void KWUtil::printArray(int nSamples, const TYPE *myarray, int width){
+    for (int i=0; i<nSamples; i++){
+        std::cout << std::setw(width) << myarray[i] << " ";
     }
 }
 

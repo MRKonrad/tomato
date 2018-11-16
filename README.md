@@ -3,11 +3,11 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 
 | What   |      Icon      | 
 |----------|:-------------:|
-| [DOI][zenodo_link] | ![DOI][zenodo_badge] |
-| [OSX/Linux build - Travis][travis_link] | ![Travis (.org)][travis_badge] |
-| [Windows build - AppVeyor][appveyor_link] | ![AppVeyor][appveyor_badge] |
-| [Test coverage - Codecov][codecov_link]| ![codecov][codecov_badge] |
-| [Downloads][downloads_link] | ![GitHub Releases (by Release)][downloads_badge] |
+| [DOI][zenodo_link] | [![DOI][zenodo_badge]][zenodo_link] |
+| [OSX/Linux build - Travis][travis_link] | [![Travis (.org)][travis_badge]][travis_link] |
+| [Windows build - AppVeyor][appveyor_link] | [![AppVeyor][appveyor_badge]][appveyor_link] |
+| [Test coverage - Codecov][codecov_link] | [![codecov][codecov_badge]][codecov_link] |
+| [Downloads][downloads_link] | [![GitHub Releases (by Release)][downloads_badge]][downloads_link] |
 
 **Github** repository can be found [here](https://github.com/MRKonrad/tomato).  
 **Documentation** in doxygen can be found [here](https://mrkonrad.github.io/tomato/html).
