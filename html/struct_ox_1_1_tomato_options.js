@@ -5,6 +5,7 @@ var struct_ox_1_1_tomato_options =
     [ "findInArray", "struct_ox_1_1_tomato_options.html#a9630620338003eb675fdfe242449c915", null ],
     [ "init", "struct_ox_1_1_tomato_options.html#a76497b53cadad720af7ff0f83b99096b", null ],
     [ "printCurrent", "struct_ox_1_1_tomato_options.html#ab50a9d1d7044fa64878b9b7141fd4c81", null ],
+    [ "calculation_time", "struct_ox_1_1_tomato_options.html#a008c932c7d65248d2d82e0e654993384", null ],
     [ "dir_magnitude", "struct_ox_1_1_tomato_options.html#aeffcb3fc69397596ce852699a2f3b05d", null ],
     [ "dir_output_fitparams", "struct_ox_1_1_tomato_options.html#ab8e2816968affd97a0ba0b13c44c4c02", null ],
     [ "dir_output_map", "struct_ox_1_1_tomato_options.html#af31a50b6e23004912a1512812c823a29", null ],
