@@ -1,11 +1,15 @@
 # Tomato
 A library to calculate parametric maps in MRI. It contains ShMOLLI implementation as in [this article](https://jcmr-online.biomedcentral.com/articles/10.1186/1532-429X-12-69).
 
-| [OSX/Linux - Travis](travis_link) | [Windows - AppVeyor](appveyor_link) |  [Test coverage - Codecov](codecov_link) | Downlads |
-|:-------------:|:-------------:|:-------------:| :-------------:| 
-![Travis (.org)][travis_badge] | ![AppVeyor][appveyor_badge]| ![codecov][codecov_badge]| ![GitHub Releases (by Release)][downloads_badge]
+| What   |      Icon      | 
+|----------|:-------------:|
+| [DOI][zenodo_link] | ![DOI][zenodo_badge] |
+| [OSX/Linux build - Travis][travis_link] | ![Travis (.org)][travis_badge] |
+| [Windows build - AppVeyor][appveyor_link] | ![AppVeyor][appveyor_badge] |
+| [Test coverage - Codecov][codecov_link]| ![codecov][codecov_badge] |
+| [Downloads][downloads_link] | ![GitHub Releases (by Release)][downloads_badge] |
 
-**Github** repository can be found [here](https://github.com/MRKonrad/tomato).
+**Github** repository can be found [here](https://github.com/MRKonrad/tomato).  
 **Documentation** in doxygen can be found [here](https://mrkonrad.github.io/tomato/html).
 
 ## Tomato and Numerical Recipes
@@ -57,4 +61,7 @@ Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes b
 [appveyor_link]: https://ci.appveyor.com/project/MRKonrad/tomato
 [codecov_badge]: https://img.shields.io/codecov/c/github/MRKonrad/tomato.svg?style=for-the-badge
 [codecov_link]: https://codecov.io/gh/MRKonrad/tomato
+[downloads_link]: https://github.com/MRKonrad/tomato/releases
 [downloads_badge]: https://img.shields.io/github/downloads/MRKonrad/tomato/v0.1/total.svg?style=for-the-badge
+[zenodo_link]: https://zenodo.org/badge/latestdoi/142749215
+[zenodo_badge]: https://zenodo.org/badge/142749215.svg
