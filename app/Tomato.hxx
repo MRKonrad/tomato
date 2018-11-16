@@ -176,7 +176,9 @@ namespace Ox {
             std::cerr << err << std::endl;
         }
         clock.Stop();
+        _opts->calculation_time = clock.GetTotal();
         printf("Calculation time: %.4fs.\n", clock.GetTotal());
+
 
         delete functionsT1;
         delete fitter;

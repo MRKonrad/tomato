@@ -54,6 +54,9 @@ namespace Ox {
         int output_map_series_number;
         int output_fitparams_series_number;
 
+        // output params
+        double calculation_time;
+
         /**
          * initialise the defaults
          * done this way to work around delegating constructors in cpp98
@@ -84,6 +87,9 @@ namespace Ox {
             // export
             output_map_series_number = 0;
             output_fitparams_series_number = 0;
+
+            // output params
+            calculation_time = 0;
         }
 
         /**

@@ -58,4 +58,3 @@ Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes b
 [codecov_badge]: https://img.shields.io/codecov/c/github/MRKonrad/tomato.svg?style=for-the-badge
 [codecov_link]: https://codecov.io/gh/MRKonrad/tomato
 [downloads_badge]: https://img.shields.io/github/downloads/MRKonrad/tomato/v0.1/total.svg?style=for-the-badge
-

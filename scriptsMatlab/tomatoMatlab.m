@@ -41,19 +41,21 @@ YamlStruct.dir_phase = '../tests/testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Sh
 % YamlStruct.dir_output_fitparams = 'fitparams';
 % YamlStruct.output_map_series_number = 9998;
 % YamlStruct.output_fitparams_series_number = 9999;
-% 
-% % %%% calculation params %%%
+
+% %%% calculation params %%%
 % YamlStruct.parameter_to_map = 'T1_MOLLI';
 % YamlStruct.fitting_method = 'LevMarVnl';
 % YamlStruct.functions_type = 'FunctionsBasic';
 % YamlStruct.sign_calc_method= 'NoSign';
 % YamlStruct.start_point_calc_method = 'Default';
-% YamlStruct.max_function_evals = 4000.0;
 % YamlStruct.fTolerance = 1.0E-12;
-% YamlStruct.number_of_threads = 0.0;
-% 
-% % %%% visualise params %%%
-% YamlStruct.visualise = 0;
+% YamlStruct.max_function_evals = 4000.0;
+% YamlStruct.use_gradient = 0;
+% YamlStruct.mean_cut_off = 10;
+% YamlStruct.number_of_threads = 0;
+
+% %%% visualise params %%%
+% YamlStruct.visualise = 1;
 
 %% 2.d. save structure to a yaml file
 my_yaml_file = './my_yaml_file.yaml';
