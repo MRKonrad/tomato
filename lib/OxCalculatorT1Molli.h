@@ -112,7 +112,7 @@ namespace Ox {
 
             if (lastValue != 1e32 && tempResults[0] != 0) {
                 resultsStruc.T1     = tempResults[2] * (tempResults[1] / tempResults[0] - 1.);
-                resultsStruc.R2     = calculateR2AbsFromModel(invTimes, signal, tempResults);
+                resultsStruc.R2     = calculateR2AbsFromModel(nSamples, invTimes, signal, tempResults);
                 resultsStruc.A      = tempResults[0];
                 resultsStruc.B      = tempResults[1];
                 resultsStruc.T1star = tempResults[2];
@@ -131,9 +131,9 @@ namespace Ox {
             return resultsStruc;
         }
 
-        MeasureType calculateR2AbsFromModel(const MeasureType* invTimes, const MeasureType* signal, const MeasureType* parameters) {
+        MeasureType calculateR2AbsFromModel(int nSamples, const MeasureType* invTimes, const MeasureType* signal, const MeasureType* parameters) {
 
-            int nSamples = this->getNSamples();
+            //int nSamples = this->getNSamples();
             MeasureType *absFitted  = new MeasureType[nSamples];
             MeasureType *absYsignal = new MeasureType[nSamples];
 

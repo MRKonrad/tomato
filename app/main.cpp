@@ -18,8 +18,9 @@
 int main(int argc, char* argv[]) {
 
     if (argc != 2){
-        printf("\nUse: OxShmolliExe(<input_file.yaml>). Please see examples in testData\n");
-        Ox::TomatoOptions<double>::printAvailable();
+        printf("\nUse: OxShmolliExe(<input_file.yaml>). Please see an example .yaml file in testData folder. Below all the possible options are listed.\n");
+        Ox::TomatoOptions<double> opts;
+        opts.printCurrent();
     }
     else if (argc == 2) {
 

@@ -18,6 +18,7 @@
 
 namespace Ox {
 
+
     template< typename MeasureType >
     class TestItkImagesFactory {
 

@@ -12,7 +12,6 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 | [Downloads][downloads_link] | [![GitHub Releases (by Release)][downloads_badge]][downloads_link] |
 
 
-
 ## Tomato and Numerical Recipes
 
 **Important**  
@@ -54,6 +53,8 @@ Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes b
 
 * provide template yaml config files
 * processing without phase data
+* output SNR maps
+* make sure SNR and nAmoebaCalls is the same as in Shmolli
 
 [travis_badge]: https://img.shields.io/travis/MRKonrad/tomato.svg?style=flat-square
 [travis_link]: https://travis-ci.org/MRKonrad/tomato
