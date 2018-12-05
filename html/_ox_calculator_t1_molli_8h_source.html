@@ -195,7 +195,7 @@ $(document).ready(function(){initNavTree('_ox_calculator_t1_molli_8h_source.html
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">if</span> (lastValue != 1e32 &amp;&amp; tempResults[0] != 0) {</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                resultsStruc.T1     = tempResults[2] * (tempResults[1] / tempResults[0] - 1.);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                resultsStruc.R2     = calculateR2AbsFromModel(invTimes, signal, tempResults);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                resultsStruc.R2     = calculateR2AbsFromModel(nSamples, invTimes, signal, tempResults);</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                resultsStruc.A      = tempResults[0];</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                resultsStruc.B      = tempResults[1];</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                resultsStruc.T1star = tempResults[2];</div>
@@ -214,9 +214,9 @@ $(document).ready(function(){initNavTree('_ox_calculator_t1_molli_8h_source.html
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">return</span> resultsStruc;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        }</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        MeasureType calculateR2AbsFromModel(<span class="keyword">const</span> MeasureType* invTimes, <span class="keyword">const</span> MeasureType* signal, <span class="keyword">const</span> MeasureType* parameters) {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        MeasureType calculateR2AbsFromModel(<span class="keywordtype">int</span> nSamples, <span class="keyword">const</span> MeasureType* invTimes, <span class="keyword">const</span> MeasureType* signal, <span class="keyword">const</span> MeasureType* parameters) {</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="keywordtype">int</span> nSamples = this-&gt;<a class="code" href="class_ox_1_1_calculator_t1.html#a8a11b3b6c0dcbc461c11dc55600d7992">getNSamples</a>();</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="comment">//int nSamples = this-&gt;getNSamples();</span></div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            MeasureType *absFitted  = <span class="keyword">new</span> MeasureType[nSamples];</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            MeasureType *absYsignal = <span class="keyword">new</span> MeasureType[nSamples];</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
