@@ -19,6 +19,9 @@ branches:
 
 # Environment variables
 env:
+  matrix:
+    - CXX_STANDARD=98
+#    - CXX_STANDARD=11
   global:
     - GH_REPO_NAME: Tomato # used in documentation script
     - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile # used in documentation script
@@ -29,9 +32,6 @@ env:
     - EXTENDED_BUILD: "OFF"
     - DEPLOY_BUILD: "OFF"
     - secure: 4wedfy5OEFLLO3/29WFF8fFE8jOqXDIb8Kc4VOBw2Yrr599NFDpDBgy9dzGtDzvvpkt/hbSh5lSSPB8KzN6+zX8JTJg2LNPmVEfpZILiTOpOKnydLHWWuznMSrtEic1DDGTp30sJXk3JWBKpmAsDMAssM35lwLNIR9BjpKOadACt5FTOvwXneCnbVr8iJ4F38EIInKQYwVhntBiCvcl+YrrLW6zSbJruEBGX1SpRRgQp8DcT9z4fOob0bIl27VFQcenHx694uzv/qIkU7pgfqV9CB3OTNjwsrgM/tY6O903PtXUpE/LA9ZCDj8NdTdOJa5OBBgsUGKu3vcc9qL5oLUKGqpMHInPpIBLDzuGaypMC2Fl675DAxe11EVGgX4ZtQAphdUw0PnFGCr5f8PafaFuKXKq0TpAn9ZO8QH3L5OrRbpLG2QDHcjYnhzyoaCNtNcQS0syPO51auzFdDRKNsq7Yvjph0uYLSlrgK2ZH2HJWeYgmgVKn79KYRmNEHTnHj+RHSnLP4b20SmQM2gOQ6v/+WMlShjgn5uul9k3s76baBrGsNgyHH95/2KG8NiSHVhwQzerY+tCn5aoRrVu+BbNT2IzdHoncf7JvE6CliQpMH/tW4EBrg0ceyvzemzVd7blbIWRRWkYrE6sqFvMOzSx6R8Jd059rEFu6JtEGGgQ=
-  matrix:
-    - CXX_STANDARD=98
-    - CXX_STANDARD=11
 
 addons:
   apt:
