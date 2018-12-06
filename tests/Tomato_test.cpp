@@ -63,6 +63,7 @@ TEST(ActeptanceTests_TomatoTest, readAndSortInputDirs_calculate_export_noPhase) 
 
 }
 
+#ifdef USE_PRIVATE_NR2
 TEST(ActeptanceTests_TomatoTest, readAndSortInputDirs_calculate_export_Philips) {
 
     Ox::Tomato<double> Tomato_object("testData/026_Hcmr_Phantom_Leeds_20131216_DAB_fileList.yaml");
@@ -73,7 +74,9 @@ TEST(ActeptanceTests_TomatoTest, readAndSortInputDirs_calculate_export_Philips) 
     //Tomato_object.visualise();
 
 }
+#endif //USE_PRIVATE_NR2
 
+#ifdef USE_PRIVATE_NR2
 TEST(ActeptanceTests_TomatoTest, readAndSortInputDirs_calculate_export_GE) {
 
     Ox::Tomato<double> Tomato_object("testData/039-Hcmr_Phantom_Erasmus_fileList.yaml");
@@ -84,5 +87,6 @@ TEST(ActeptanceTests_TomatoTest, readAndSortInputDirs_calculate_export_GE) {
     //Tomato_object.visualise();
 
 }
+#endif //USE_PRIVATE_NR2
 
 #endif // USE_ITK
