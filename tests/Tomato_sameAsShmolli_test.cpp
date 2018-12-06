@@ -21,7 +21,7 @@
  * \class ActeptanceTests_TomatoTest
  * \brief based on https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#sharing-resources-between-tests-in-the-same-test-case
  */
-class ActeptanceTests_TomatoTest : public ::testing::Test {
+class ActeptanceTests_TomatoFixtureTest : public ::testing::Test {
 
     // primitive data types
     typedef int16_t PixelType;
@@ -98,13 +98,13 @@ public:
     ComparisonImageFilter2dType::Pointer diff;
 };
 
-Ox::Tomato<double>* ActeptanceTests_TomatoTest::_tomato_object = NULL;
-std::vector<std::string> ActeptanceTests_TomatoTest::_originalFilePaths;
-std::vector<std::string> ActeptanceTests_TomatoTest::_calculatedFilePaths;
+Ox::Tomato<double>* ActeptanceTests_TomatoFixtureTest::_tomato_object = NULL;
+std::vector<std::string> ActeptanceTests_TomatoFixtureTest::_originalFilePaths;
+std::vector<std::string> ActeptanceTests_TomatoFixtureTest::_calculatedFilePaths;
 
 
 
-TEST_F(ActeptanceTests_TomatoTest, sameAsShmolli_T1) {
+TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_T1) {
 
     bool doVisualise = false; //for debugging
     int i = 0; // T1 map
@@ -133,7 +133,7 @@ TEST_F(ActeptanceTests_TomatoTest, sameAsShmolli_T1) {
 
 }
 
-TEST_F(ActeptanceTests_TomatoTest, sameAsShmolli_R2) {
+TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_R2) {
 
     bool doVisualise = false; //for debugging
     int i = 1; // R2 map
@@ -162,7 +162,7 @@ TEST_F(ActeptanceTests_TomatoTest, sameAsShmolli_R2) {
 
 }
 
-TEST_F(ActeptanceTests_TomatoTest, sameAsShmolli_A) {
+TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_A) {
 
     bool doVisualise = false; //for debugging
     int i = 2; // A map
@@ -191,7 +191,7 @@ TEST_F(ActeptanceTests_TomatoTest, sameAsShmolli_A) {
 
 }
 
-TEST_F(ActeptanceTests_TomatoTest, sameAsShmolli_B) {
+TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_B) {
 
     bool doVisualise = false; //for debugging
     int i = 3; // B map
@@ -220,7 +220,7 @@ TEST_F(ActeptanceTests_TomatoTest, sameAsShmolli_B) {
 
 }
 
-TEST_F(ActeptanceTests_TomatoTest, sameAsShmolli_T1star) {
+TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_T1star) {
 
     bool doVisualise = false; //for debugging
     int i = 4; // T1star map
@@ -249,7 +249,7 @@ TEST_F(ActeptanceTests_TomatoTest, sameAsShmolli_T1star) {
 
 }
 
-TEST_F(ActeptanceTests_TomatoTest, sameAsShmolli_ShmolliRange) {
+TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_ShmolliRange) {
 
     bool doVisualise = false; //for debugging
     int i = 5; // ShmolliRange map

@@ -37,9 +37,9 @@ TEST(OxFitterAmoebaNr2, performFitting) {
 
     fitterAmoebaNr2.performFitting();
 
-    EXPECT_NEAR(params[0], testData.getResultsMolli()[0], 1e-0);
-    EXPECT_NEAR(params[1], testData.getResultsMolli()[1], 1e-0);
-    EXPECT_NEAR(params[2], testData.getResultsMolli()[2], 1e-0); // TODO: investigate why discrapancy is so big (0.13) compared with other fitting methods
+    EXPECT_NEAR(params[0], testData.getResultsMolli()[0], 1e-2);
+    EXPECT_NEAR(params[1], testData.getResultsMolli()[1], 1e-2);
+    EXPECT_NEAR(params[2], testData.getResultsMolli()[2], 13e-2); // TODO: investigate why discrapancy is so big (0.13) compared with other fitting methods
 }
 
 #endif // USE_NR2

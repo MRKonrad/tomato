@@ -61,8 +61,8 @@ namespace itk {
         // getters
         vnl_vector<double> GetInvTimes(){
             vnl_vector<double> invTimeVnl = GetVnlVectorFromStdVector(m_InvTimes);
-			      vnl_vector<double> invTimeFromImageCommentsVnl = GetVnlVectorFromStdVector(m_InvTimesFromImageComments);
-			      vnl_vector<double> triggerTimesVnl = GetVnlVectorFromStdVector(m_TriggerTimes);
+            vnl_vector<double> invTimeFromImageCommentsVnl = GetVnlVectorFromStdVector(m_InvTimesFromImageComments);
+            vnl_vector<double> triggerTimesVnl = GetVnlVectorFromStdVector(m_TriggerTimes);
             //vnl_vector<double> invTimeVnl(m_InvTimes.data(),m_InvTimes.size());
             //vnl_vector<double> invTimeFromImageCommentsVnl(m_InvTimesFromImageComments.data(),m_InvTimesFromImageComments.size());
             //vnl_vector<double> triggerTimesVnl(m_TriggerTimes.data(),m_TriggerTimes.size());

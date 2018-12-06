@@ -22,9 +22,10 @@ namespace Ox {
 
         /* Initialize parser */
         if (!yaml_parser_initialize(&parser))
-            fputs("Failed to initialize parser!\n", stderr);
-        if (fh == NULL)
-            fputs("Failed to open file!\n", stderr);
+            throw std::runtime_error("Failed to initialize parser!\n");
+        if (fh == NULL) {
+            throw std::runtime_error("\'" + _filePath + "\' - failed to open file!\n");
+        }
 
         /* Set input file */
         yaml_parser_set_input_file(&parser, fh);

@@ -12,8 +12,9 @@
 #ifdef USE_ITK
 #ifdef USE_PRIVATE_NR2
 
-//TODO: implement
-
+/**
+ * for pixel after pixel debugging
+ */
 TEST(OxCalculator_SameResultsAsDicom, calculate) {
 
     typedef double TYPE;
@@ -109,9 +110,9 @@ TEST(OxCalculator_SameResultsAsDicom, calculate) {
 //    KWUtil::copyArrayToArray(7,FitData.sdMollitTIs, invTimes);
 //    std::cout << FitData.func(temp1) << std::endl;
 
-//    EXPECT_DOUBLE_EQ(calculator.getResults().A, 0);
-//    EXPECT_DOUBLE_EQ(calculator.getResults().B, 0);
-//    EXPECT_DOUBLE_EQ(calculator.getResults().T1star, 0);
+    EXPECT_DOUBLE_EQ((int)calculator.getResults().A, 350);
+    EXPECT_DOUBLE_EQ((int)calculator.getResults().B, 676);
+    EXPECT_DOUBLE_EQ((int)calculator.getResults().T1star, 102);
 
 //    originalShmolliDicomReader._visualise = true;
 //    originalShmolliDicomReader.visualise();

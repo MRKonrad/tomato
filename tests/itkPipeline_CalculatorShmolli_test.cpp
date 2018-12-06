@@ -27,8 +27,6 @@
 
 #include "gtest/gtest.h"
 
-// TODO: implement all the tests in this file
-
 
 TEST(itkPipeline_CalculatorShmolli, calculateShmolliAndCompareWithDicom) {
 
@@ -149,17 +147,6 @@ TEST(itkPipeline_CalculatorShmolli, calculateShmolliAndCompareWithDicom) {
 
     delete [] invTimes;
 }
-
-
-//TEST(itkPipeline_CalculatorShmolli, calculateShmolliAndFitparamsAndCompareWithDicom) {
-//
-//    std::vector<std::string> dcmMagFilePaths;
-//    std::vector<std::string> dcmPhaFilePaths;
-//    std::vector<std::string> dcmT1MapFilePaths;
-//    std::vector<std::string> dcmFitparamsFilePaths;
-//
-//    ASSERT_TRUE(false);
-//}
 
 #endif //USE_PRIVATE_NR2
 

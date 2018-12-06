@@ -62,7 +62,7 @@ namespace Ox {
 
         // have we read magnitudes?
         if (readerMag->GetInvTimes().size() == 0){
-            throw std::runtime_error("No magnitude images read, check the paths!");
+            throw std::runtime_error("\nNo magnitude images read, check the paths!");
         }
 
         typename SortInvTimesImageFilterType::Pointer sorterMag = SortInvTimesImageFilterType::New();
@@ -75,19 +75,28 @@ namespace Ox {
         sorterPha->SetInput(readerPha->GetOutput());
         sorterPha->Update();
 
-        // are the inversion times in magnitude and phase series equal?
-        if (sorterMag->GetInvTimesSorted() == sorterPha->GetInvTimesSorted()){
-            vnl_vector<InputPixelType > temp = sorterMag->GetInvTimesSorted();
-            _nSamples = temp.size();
-            _invTimes = new InputPixelType[_nSamples];
-            KWUtil::copyArrayToArray(_nSamples, _invTimes, temp.data_block());
-        } else {
-            throw std::runtime_error("Mag and Pha inv times are not equal");
+        // is phase empty?
+        if (sorterPha->GetInvTimesSorted().size() == 0) {
+            if (_opts->sign_calc_method != NoSign){
+                std::cerr << "\nNo phase images read, setting the sign_calc_method to NoSign" << std::endl;
+                _opts->sign_calc_method = NoSign;
+            }
         }
+        // are the inversion times in magnitude and phase series equal?
+        else if (sorterMag->GetInvTimesSorted() != sorterPha->GetInvTimesSorted()){
+            throw std::runtime_error("\nMag and Pha inv times are not equal");
+        }
+
+        vnl_vector<InputPixelType > temp = sorterMag->GetInvTimesSorted();
+        _nSamples = (int)temp.size();
+        _invTimes = new InputPixelType[_nSamples];
+        KWUtil::copyArrayToArray(_nSamples, _invTimes, temp.data_block());
 
         _dictionaryInput = readerMag->GetDicomIO()->GetMetaDataDictionary();
         _imageMag = sorterMag->GetOutput();
-        _imagePha = sorterPha->GetOutput();
+        if (_opts->sign_calc_method != NoSign) {
+            _imagePha = sorterPha->GetOutput();
+        }
 
         return 0; // EXIT_SUCCESS
     }
@@ -101,13 +110,9 @@ namespace Ox {
         readerMag->SetDirName(_opts->dir_magnitude);
         readerMag->Update();
 
-        typename ReadDirectoryFilterType::Pointer readerPha = ReadDirectoryFilterType::New();
-        readerPha->SetDirName(_opts->dir_phase);
-        readerPha->Update();
-
         // have we read magnitudes?
         if (readerMag->GetInvTimes().size() == 0){
-            throw std::runtime_error("No magnitude images read, check the paths!");
+            throw std::runtime_error("\nNo magnitude images read, check the paths!");
         }
 
         typename SortInvTimesImageFilterType::Pointer sorterMag = SortInvTimesImageFilterType::New();
@@ -115,24 +120,39 @@ namespace Ox {
         sorterMag->SetInput(readerMag->GetOutput());
         sorterMag->Update();
 
+        typename ReadDirectoryFilterType::Pointer readerPha = ReadDirectoryFilterType::New();
         typename SortInvTimesImageFilterType::Pointer sorterPha = SortInvTimesImageFilterType::New();
-        sorterPha->SetInvTimesNonSorted(readerPha->GetInvTimes());
-        sorterPha->SetInput(readerPha->GetOutput());
-        sorterPha->Update();
 
-        // are the inversion times in magnitude and phase series equal?
-        if (sorterMag->GetInvTimesSorted() == sorterPha->GetInvTimesSorted()){
-            vnl_vector<InputPixelType > temp = sorterMag->GetInvTimesSorted();
-            _nSamples = temp.size();
-            _invTimes = new InputPixelType[_nSamples];
-            KWUtil::copyArrayToArray(_nSamples, _invTimes, temp.data_block());
-        } else {
-            throw std::runtime_error("Mag and Pha inv times are not equal");
+        if (_opts->dir_phase.length() > 0) {
+            readerPha->SetDirName(_opts->dir_phase);
+            readerPha->Update();
+            sorterPha->SetInvTimesNonSorted(readerPha->GetInvTimes());
+            sorterPha->SetInput(readerPha->GetOutput());
+            sorterPha->Update();
         }
+
+        // is phase empty?
+        if (sorterPha->GetInvTimesSorted().size() == 0) {
+            if (_opts->sign_calc_method != NoSign){
+                std::cerr << "\nNo phase images read, setting the sign_calc_method to NoSign" << std::endl;
+                _opts->sign_calc_method = NoSign;
+            }
+        }
+            // are the inversion times in magnitude and phase series equal?
+        else if (sorterMag->GetInvTimesSorted() != sorterPha->GetInvTimesSorted()){
+            throw std::runtime_error("\nMag and Pha inv times are not equal");
+        }
+
+        vnl_vector<InputPixelType > temp = sorterMag->GetInvTimesSorted();
+        _nSamples = (int)temp.size();
+        _invTimes = new InputPixelType[_nSamples];
+        KWUtil::copyArrayToArray(_nSamples, _invTimes, temp.data_block());
 
         _dictionaryInput = readerMag->GetMetaDataDictionary();
         _imageMag = sorterMag->GetOutput();
-        _imagePha = sorterPha->GetOutput();
+        if (_opts->sign_calc_method != NoSign) {
+            _imagePha = sorterPha->GetOutput();
+        }
 
         return 0; // EXIT_SUCCESS
     }

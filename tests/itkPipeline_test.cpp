@@ -24,8 +24,6 @@
 
 #include "gtest/gtest.h"
 
-// TODO: implement all the tests in this file
-
 TEST(itkPipeline, readAndCalculateT1FromMag) {
 
     bool doVisualise = false; //for debugging
