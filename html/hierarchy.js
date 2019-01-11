@@ -9,14 +9,10 @@ var hierarchy =
     [ "Ox::FactoryOfFunctions< TYPE >", "class_ox_1_1_factory_of_functions.html", null ],
     [ "Ox::FactoryOfSignCalculators< TYPE >", "class_ox_1_1_factory_of_sign_calculators.html", null ],
     [ "Ox::FactoryOfStartPointCalculators< TYPE >", "class_ox_1_1_factory_of_start_point_calculators.html", null ],
-    [ "Ox::Fitter< MeasureType >", "class_ox_1_1_fitter.html", [
-      [ "Ox::FitterAmoebaVnl< MeasureType >", "class_ox_1_1_fitter_amoeba_vnl.html", null ],
-      [ "Ox::FitterLevenbergMarquardtVnl< MeasureType >", "class_ox_1_1_fitter_levenberg_marquardt_vnl.html", null ]
-    ] ],
+    [ "Ox::Fitter< MeasureType >", "class_ox_1_1_fitter.html", null ],
     [ "Ox::FunctionsT1< MeasureType >", "class_ox_1_1_functions_t1.html", [
       [ "Ox::FunctionsT1Basic< MeasureType >", "class_ox_1_1_functions_t1_basic.html", null ]
     ] ],
-    [ "Ox::FunctionsT1< double >", "class_ox_1_1_functions_t1.html", null ],
     [ "Ox::ImageCalculatorT1< MeasureType >", "class_ox_1_1_image_calculator_t1.html", null ],
     [ "ImageSource", null, [
       [ "itk::ReadFileListFilter< TImage >", "classitk_1_1_read_file_list_filter.html", null ]
@@ -37,11 +33,5 @@ var hierarchy =
     [ "Ox::TestData< MeasureType >", "class_ox_1_1_test_data.html", null ],
     [ "Ox::TestImage< MeasureType >", "class_ox_1_1_test_image.html", null ],
     [ "Ox::TomatoOptions< TYPE >", "struct_ox_1_1_tomato_options.html", null ],
-    [ "Ox::TomatoParser< MeasureType >", "class_ox_1_1_tomato_parser.html", null ],
-    [ "vnl_cost_function", null, [
-      [ "Ox::FunctionsT1AdapterVnlCost", "class_ox_1_1_functions_t1_adapter_vnl_cost.html", null ]
-    ] ],
-    [ "vnl_least_squares_function", null, [
-      [ "Ox::FunctionsT1AdapterVnlLeastSquares", "class_ox_1_1_functions_t1_adapter_vnl_least_squares.html", null ]
-    ] ]
+    [ "Ox::TomatoParser< MeasureType >", "class_ox_1_1_tomato_parser.html", null ]
 ];

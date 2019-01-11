@@ -22,21 +22,13 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
       [ "Fitter", "class_ox_1_1_fitter.html", "class_ox_1_1_fitter" ]
     ] ],
     [ "OxFitterAmoebaNr2.h", "_ox_fitter_amoeba_nr2_8h.html", null ],
-    [ "OxFitterAmoebaVnl.h", "_ox_fitter_amoeba_vnl_8h.html", [
-      [ "FitterAmoebaVnl", "class_ox_1_1_fitter_amoeba_vnl.html", "class_ox_1_1_fitter_amoeba_vnl" ]
-    ] ],
-    [ "OxFitterLevenbergMarquardtVnl.h", "_ox_fitter_levenberg_marquardt_vnl_8h.html", [
-      [ "FitterLevenbergMarquardtVnl", "class_ox_1_1_fitter_levenberg_marquardt_vnl.html", "class_ox_1_1_fitter_levenberg_marquardt_vnl" ]
-    ] ],
+    [ "OxFitterAmoebaVnl.h", "_ox_fitter_amoeba_vnl_8h.html", null ],
+    [ "OxFitterLevenbergMarquardtVnl.h", "_ox_fitter_levenberg_marquardt_vnl_8h.html", null ],
     [ "OxFunctionsT1.h", "_ox_functions_t1_8h.html", [
       [ "FunctionsT1", "class_ox_1_1_functions_t1.html", "class_ox_1_1_functions_t1" ]
     ] ],
-    [ "OxFunctionsT1AdapterVnlCost.h", "_ox_functions_t1_adapter_vnl_cost_8h.html", [
-      [ "FunctionsT1AdapterVnlCost", "class_ox_1_1_functions_t1_adapter_vnl_cost.html", "class_ox_1_1_functions_t1_adapter_vnl_cost" ]
-    ] ],
-    [ "OxFunctionsT1AdapterVnlLeastSquares.h", "_ox_functions_t1_adapter_vnl_least_squares_8h.html", [
-      [ "FunctionsT1AdapterVnlLeastSquares", "class_ox_1_1_functions_t1_adapter_vnl_least_squares.html", "class_ox_1_1_functions_t1_adapter_vnl_least_squares" ]
-    ] ],
+    [ "OxFunctionsT1AdapterVnlCost.h", "_ox_functions_t1_adapter_vnl_cost_8h.html", null ],
+    [ "OxFunctionsT1AdapterVnlLeastSquares.h", "_ox_functions_t1_adapter_vnl_least_squares_8h.html", null ],
     [ "OxFunctionsT1Basic.h", "_ox_functions_t1_basic_8h.html", [
       [ "FunctionsT1Basic", "class_ox_1_1_functions_t1_basic.html", "class_ox_1_1_functions_t1_basic" ]
     ] ],
@@ -58,8 +50,8 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "OxStartPointCalculatorDefault3Dims.h", "_ox_start_point_calculator_default3_dims_8h.html", [
       [ "StartPointCalculatorDefault3Dims", "class_ox_1_1_start_point_calculator_default3_dims.html", "class_ox_1_1_start_point_calculator_default3_dims" ]
     ] ],
-    [ "TomatoColormap.cpp", "_tomato_colormap_8cpp.html", "_tomato_colormap_8cpp" ],
-    [ "TomatoColormap.h", "_tomato_colormap_8h.html", "_tomato_colormap_8h" ],
+    [ "TomatoColormap.cpp", "_tomato_colormap_8cpp.html", null ],
+    [ "TomatoColormap.h", "_tomato_colormap_8h.html", null ],
     [ "TomatoParser.h", "_tomato_parser_8h.html", [
       [ "TomatoParser", "class_ox_1_1_tomato_parser.html", "class_ox_1_1_tomato_parser" ]
     ] ],

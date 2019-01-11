@@ -1,12 +1,3 @@
 <map id="lib/OxFunctionsT1AdapterVnlLeastSquares.h" name="lib/OxFunctionsT1AdapterVnlLeastSquares.h">
-<area shape="rect" id="node2" href="$_ox_fitter_levenberg_marquardt_vnl_8h.html" title="lib/OxFitterLevenbergMarquardt\lVnl.h" alt="" coords="315,97,519,138"/>
-<area shape="rect" id="node11" href="$_ox_functions_t1_adapter_vnl_least_squares__test_8cpp.html" title="tests/OxFunctionsT1Adapter\lVnlLeastSquares_test.cpp" alt="" coords="544,97,733,138"/>
-<area shape="rect" id="node3" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="13,195,184,221"/>
-<area shape="rect" id="node8" href="$_ox_calculator_t1_shmolli__test_8cpp.html" title="tests/OxCalculatorT1Shmolli\l_test.cpp" alt="" coords="208,187,397,229"/>
-<area shape="rect" id="node9" href="$_ox_fitter_levenberg_marquardt_vnl__test_8cpp.html" title="tests/OxFitterLevenbergMarquardt\lVnl_test.cpp" alt="" coords="422,187,641,229"/>
-<area shape="rect" id="node10" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="666,187,848,229"/>
-<area shape="rect" id="node4" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="25,277,172,304"/>
-<area shape="rect" id="node5" href="$_tomato_8h.html" title="app/Tomato.h" alt="" coords="93,352,195,379"/>
-<area shape="rect" id="node6" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="5,435,104,461"/>
-<area shape="rect" id="node7" href="$_tomato__same_as_shmolli__test_8cpp.html" title="tests/Tomato_sameAsShmolli\l_test.cpp" alt="" coords="129,427,327,469"/>
+<area shape="rect" id="node2" href="$_ox_functions_t1_adapter_vnl_least_squares__test_8cpp.html" title="tests/OxFunctionsT1Adapter\lVnlLeastSquares_test.cpp" alt="" coords="5,97,195,138"/>
 </map>

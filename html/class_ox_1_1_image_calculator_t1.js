@@ -22,5 +22,6 @@ var class_ox_1_1_image_calculator_t1 =
     [ "_nCols", "class_ox_1_1_image_calculator_t1.html#a02ee85ff0ffd7cb5b1de9357ab23ce56", null ],
     [ "_nRows", "class_ox_1_1_image_calculator_t1.html#ab3db79a49b848f1a145e6fcbb9c29766", null ],
     [ "_nSamples", "class_ox_1_1_image_calculator_t1.html#af5655b9262c2634cc8b4ce0465682b0e", null ],
-    [ "_useThreads", "class_ox_1_1_image_calculator_t1.html#af5f6e72b63b78a87a3723f4f2d71068f", null ]
+    [ "_useThreads", "class_ox_1_1_image_calculator_t1.html#af5f6e72b63b78a87a3723f4f2d71068f", null ],
+    [ "phaseRange", "class_ox_1_1_image_calculator_t1.html#a35e200233fd8e1ecdd88c8a74ae4c1d0", null ]
 ];

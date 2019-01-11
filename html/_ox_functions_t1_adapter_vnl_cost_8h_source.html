@@ -109,61 +109,60 @@ $(document).ready(function(){initNavTree('_ox_functions_t1_adapter_vnl_cost_8h_s
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef Tomato_OXFUNCTIONST1ADAPTERVNLCOST_H</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tomato_OXFUNCTIONST1ADAPTERVNLCOST_H</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;vnl/vnl_cost_function.h&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_functions_t1_8h.html">OxFunctionsT1.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>Ox {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_ox_1_1_functions_t1_adapter_vnl_cost.html">   16</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_ox_1_1_functions_t1_adapter_vnl_cost.html">FunctionsT1AdapterVnlCost</a> : <span class="keyword">public</span> vnl_cost_function {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="comment">// cost function problem formulation</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">double</span> f(vnl_vector&lt;double&gt; <span class="keyword">const</span>&amp; params){ <span class="comment">// override</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="comment">//_FunctionsT1-&gt;copyToParameters(params.data_block());</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">return</span> _FunctionsT1-&gt;<a class="code" href="class_ox_1_1_functions_t1.html#a70ab239415d72f38bc36cc290fa3b476">calcCostValue</a>(params.data_block());</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="comment">// cost function gradient</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">void</span> gradf (vnl_vector&lt; double &gt; <span class="keyword">const</span> &amp;params, vnl_vector&lt; double &gt; &amp;gradient){ <span class="comment">// override</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;CmakeConfigForTomato.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifdef USE_VNL</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;vnl/vnl_cost_function.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_functions_t1_8h.html">OxFunctionsT1.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>Ox {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">class </span>FunctionsT1AdapterVnlCost : <span class="keyword">public</span> vnl_cost_function {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="comment">// cost function problem formulation</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">double</span> f(vnl_vector&lt;double&gt; <span class="keyword">const</span>&amp; params){ <span class="comment">// override</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="comment">//_FunctionsT1-&gt;copyToParameters(params.data_block());</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordflow">return</span> _FunctionsT1-&gt;calcCostValue(params.data_block());</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="comment">//_FunctionsT1-&gt;copyToParameters(params.data_block());</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            _FunctionsT1-&gt;<a class="code" href="class_ox_1_1_functions_t1.html#a01df2dd1eb054540eaccfb1dca01c7ce">calcCostDerivative</a>(params.data_block(), gradient.data_block());</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> setFunctionsT1(<a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;double&gt;</a>* _FunctionsT1){</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            this-&gt;_FunctionsT1 = _FunctionsT1;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        };</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">// getters</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;double&gt;</a>* getFunctionsT1(){</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">return</span> _FunctionsT1;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        };</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_ox_1_1_functions_t1_adapter_vnl_cost.html#a50534fc003f255547fd9a990a6fad038">   45</a></span>&#160;        <a class="code" href="class_ox_1_1_functions_t1_adapter_vnl_cost.html#a50534fc003f255547fd9a990a6fad038">FunctionsT1AdapterVnlCost</a>(<span class="keywordtype">int</span> nDims) : vnl_cost_function(nDims){</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            _FunctionsT1 = 0; <span class="comment">// nullpointer</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        };</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_ox_1_1_functions_t1_adapter_vnl_cost.html#a6fe96f7359794ef4d1dc00cd6defa498">   53</a></span>&#160;        <a class="code" href="class_ox_1_1_functions_t1_adapter_vnl_cost.html#a6fe96f7359794ef4d1dc00cd6defa498">FunctionsT1AdapterVnlCost</a>(<span class="keyword">const</span> <a class="code" href="class_ox_1_1_functions_t1_adapter_vnl_cost.html">FunctionsT1AdapterVnlCost</a> &amp;old){</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            _FunctionsT1 = old._FunctionsT1;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;double&gt;</a>* _FunctionsT1;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    };</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="comment">// cost function gradient</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">void</span> gradf (vnl_vector&lt; double &gt; <span class="keyword">const</span> &amp;params, vnl_vector&lt; double &gt; &amp;gradient){ <span class="comment">// override</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="comment">//_FunctionsT1-&gt;copyToParameters(params.data_block());</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            _FunctionsT1-&gt;calcCostDerivative(params.data_block(), gradient.data_block());</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">void</span> setFunctionsT1(FunctionsT1&lt;double&gt;* _FunctionsT1){</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            this-&gt;_FunctionsT1 = _FunctionsT1;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        };</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">// getters</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        FunctionsT1&lt;double&gt;* getFunctionsT1(){</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">return</span> _FunctionsT1;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        };</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        FunctionsT1AdapterVnlCost(<span class="keywordtype">int</span> nDims) : vnl_cost_function(nDims){</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            _FunctionsT1 = 0; <span class="comment">// nullpointer</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        };</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        FunctionsT1AdapterVnlCost(<span class="keyword">const</span> FunctionsT1AdapterVnlCost &amp;old){</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            _FunctionsT1 = old._FunctionsT1;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;} <span class="comment">// namespace Ox</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif //Tomato_OXFUNCTIONST1ADAPTERVNLCOST_H</span></div>
-<div class="ttc" id="class_ox_1_1_functions_t1_html_a70ab239415d72f38bc36cc290fa3b476"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a70ab239415d72f38bc36cc290fa3b476">Ox::FunctionsT1::calcCostValue</a></div><div class="ttdeci">virtual MeasureType calcCostValue(const MeasureType *parameters)=0</div></div>
-<div class="ttc" id="class_ox_1_1_functions_t1_adapter_vnl_cost_html_a6fe96f7359794ef4d1dc00cd6defa498"><div class="ttname"><a href="class_ox_1_1_functions_t1_adapter_vnl_cost.html#a6fe96f7359794ef4d1dc00cd6defa498">Ox::FunctionsT1AdapterVnlCost::FunctionsT1AdapterVnlCost</a></div><div class="ttdeci">FunctionsT1AdapterVnlCost(const FunctionsT1AdapterVnlCost &amp;old)</div><div class="ttdef"><b>Definition:</b> OxFunctionsT1AdapterVnlCost.h:53</div></div>
-<div class="ttc" id="class_ox_1_1_functions_t1_adapter_vnl_cost_html"><div class="ttname"><a href="class_ox_1_1_functions_t1_adapter_vnl_cost.html">Ox::FunctionsT1AdapterVnlCost</a></div><div class="ttdef"><b>Definition:</b> OxFunctionsT1AdapterVnlCost.h:16</div></div>
-<div class="ttc" id="class_ox_1_1_functions_t1_html_a01df2dd1eb054540eaccfb1dca01c7ce"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a01df2dd1eb054540eaccfb1dca01c7ce">Ox::FunctionsT1::calcCostDerivative</a></div><div class="ttdeci">virtual void calcCostDerivative(const MeasureType *parameters, MeasureType *derivative)=0</div></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        FunctionsT1&lt;double&gt;* _FunctionsT1;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    };</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;} <span class="comment">// namespace Ox</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif //USE_VNL</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif //Tomato_OXFUNCTIONST1ADAPTERVNLCOST_H</span></div>
 <div class="ttc" id="_ox_functions_t1_8h_html"><div class="ttname"><a href="_ox_functions_t1_8h.html">OxFunctionsT1.h</a></div></div>
-<div class="ttc" id="class_ox_1_1_functions_t1_html"><div class="ttname"><a href="class_ox_1_1_functions_t1.html">Ox::FunctionsT1&lt; double &gt;</a></div></div>
-<div class="ttc" id="class_ox_1_1_functions_t1_adapter_vnl_cost_html_a50534fc003f255547fd9a990a6fad038"><div class="ttname"><a href="class_ox_1_1_functions_t1_adapter_vnl_cost.html#a50534fc003f255547fd9a990a6fad038">Ox::FunctionsT1AdapterVnlCost::FunctionsT1AdapterVnlCost</a></div><div class="ttdeci">FunctionsT1AdapterVnlCost(int nDims)</div><div class="ttdef"><b>Definition:</b> OxFunctionsT1AdapterVnlCost.h:45</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
