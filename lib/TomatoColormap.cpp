@@ -6,6 +6,8 @@
 
 #include "TomatoColormap.h"
 
+#ifdef USE_ITK
+
 std::string getEncodedSting(std::vector < uint16_t > encodeSource){
 
     // because I want to use &vector.front()
@@ -62,3 +64,4 @@ std::vector < uint16_t > getShmolliColormapBlue15TArray() {
     return std::vector < uint16_t >(temp, temp + sizeof(temp) / sizeof(uint16_t) );
 }
 
+#endif //USE_ITK

@@ -7,6 +7,9 @@
 #ifndef Tomato_OXFUNCTIONST1ADAPTERVNLCOST_H
 #define Tomato_OXFUNCTIONST1ADAPTERVNLCOST_H
 
+#include "CmakeConfigForTomato.h"
+#ifdef USE_VNL
+
 #include <vnl/vnl_cost_function.h>
 
 #include "OxFunctionsT1.h"
@@ -60,5 +63,7 @@ namespace Ox {
     };
 
 } // namespace Ox
+
+#endif //USE_VNL
 
 #endif //Tomato_OXFUNCTIONST1ADAPTERVNLCOST_H

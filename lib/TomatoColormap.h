@@ -7,6 +7,9 @@
 #ifndef OXSHMOLLILIB_SHMOLLICOLORMAP_H
 #define OXSHMOLLILIB_SHMOLLICOLORMAP_H
 
+#include "CmakeConfigForTomato.h"
+#ifdef USE_ITK
+
 // TODO: reading from a file
 
 #include <vector>
@@ -24,5 +27,8 @@ std::vector < uint16_t > getShmolliColormapBlue3TArray();
 std::vector < uint16_t > getShmolliColormapRed15TArray();
 std::vector < uint16_t > getShmolliColormapGreen15TArray();
 std::vector < uint16_t > getShmolliColormapBlue15TArray();
+
+
+#endif //USE_ITK
 
 #endif //OXSHMOLLILIB_SHMOLLICOLORMAP_H

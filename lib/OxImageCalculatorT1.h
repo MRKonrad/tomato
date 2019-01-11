@@ -47,6 +47,7 @@ namespace Ox {
         MeasureType* _imageMag; // nCols * nRows * nSamples, address [iCol][iRow][iSam] iSample * (nCols*nRows) + iRow * nCols + iCol
         MeasureType* _imagePha; // nCols * nRows * nSamples, address [iCol][iRow][iSam] iSample * (nCols*nRows) + iRow * nCols + iCol
         MeasureType* _imageResults; // nCols * nRows * nDims, address [iCol][iRow][iDim] iDim * (nCols*nRows) + iRow * nCols + iCol
+		MeasureType phaseRange;
 
         CalculatorT1<MeasureType> *_calculatorT1;
     };

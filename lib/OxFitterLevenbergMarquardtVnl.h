@@ -7,6 +7,9 @@
 #ifndef Tomato_OXFITTERLevenbergMarquardtVNL_H
 #define Tomato_OXFITTERLevenbergMarquardtVNL_H
 
+#include "CmakeConfigForTomato.h"
+#ifdef USE_VNL
+
 #include "OxFitter.h"
 #include "OxFunctionsT1AdapterVnlLeastSquares.h"
 #include <vnl/algo/vnl_levenberg_marquardt.h>
@@ -145,5 +148,7 @@ namespace Ox {
     };
 
 } // namespace Ox
+
+#endif //USE_VNL
 
 #endif //Tomato_OXFITTERLevenbergMarquardtVNL_H

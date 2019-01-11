@@ -143,7 +143,7 @@ target_link_libraries (TomatoExe PUBLIC ${OxSmolli2_LIBS_TO_LINK})
 
 #set (CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}" CACHE INTERNAL "" FORCE)
 install (TARGETS TomatoLib DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
-install (FILES ${LIB_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/install/OxShmolli)
+install (FILES ${LIB_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
 install (TARGETS TomatoExe DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 
 ###############
@@ -162,8 +162,3 @@ add_subdirectory (tests)
 #foreach (_variableName ${_variableNames})
 #    message (STATUS "${_variableName}=${${_variableName}}")
 #endforeach()
-
-
-
-
-

@@ -17,12 +17,12 @@
 
 template< typename TYPE1, typename TYPE2 >
 void KWUtil::copyArrayToArray(int nSamples, TYPE1 *arrayTo, const TYPE2 *arrayFrom){
-    
+
     if (arrayFrom == NULL){
         arrayTo = NULL;
         return;
     }
-    
+
     for (int i = 0; i < nSamples; i++)
         arrayTo[i] = (TYPE1)arrayFrom[i];
 }
@@ -34,7 +34,7 @@ void KWUtil::copyArrayToArray(int nSamples, TYPE1 *arrayTo, const TYPE2 *arrayFr
 template<typename TYPE>
 void KWUtil::printVector(const std::string name, const std::vector<TYPE> vector){
     std::cout << name << std::endl;
-    for (int i = 0; i < vector.size(); ++i){
+    for (unsigned int i = 0; i < vector.size(); ++i){
         std::cout << "  " << vector.at(i) << std::endl;
     }
 }
@@ -213,7 +213,7 @@ double KWUtil::calcR2ss(int nSamples, const TYPE *fitted, const TYPE *ysignal){
     TYPE meanYsignal = TYPE(); // 0
     TYPE SStot = TYPE(); // 0
     TYPE SSres = TYPE(); // 0
-    
+
     for (int i = 0; i < nSamples; i++){
         meanYsignal = meanYsignal + ysignal[i];
     }
@@ -239,7 +239,7 @@ double KWUtil::calcR2cor(int nSamples, const TYPE *fitted, const TYPE *ysignal){
     // stdY = sqrt(sum((y-meany)/N)
     // std2Y = sum((y-meany)/N
     // Ns are reduced, so not used in this calculations
-    
+
     TYPE meanY = 0, meanF = 0, sumYY = 0, sumFF = 0, covYF = 0; //xf =sum((y-meany)(calcCostValue-meanf))
     for (int i = 0; i < nSamples; i++){
         meanY = meanY + ysignal[i];
@@ -346,7 +346,7 @@ void KWUtil::quickSort(TYPE arr[], int left, int right) {
     int i = left, j = right;
     TYPE tmp;
     TYPE pivot = arr[(left + right) / 2];
-    
+
     /* partition */
     while (i <= j) {
         while (arr[i] < pivot)
@@ -361,7 +361,7 @@ void KWUtil::quickSort(TYPE arr[], int left, int right) {
             j--;
         }
     };
-    
+
     /* recursion */
     if (left < j)
         quickSort(arr, left, j);
@@ -375,7 +375,7 @@ void KWUtil::quickSortIndex(TYPE arr[], int indexArr[], int left, int right) {
     int i = left, j = right, tmpIdx;
     TYPE tmp;
     TYPE pivot = arr[(left + right) / 2];
-    
+
     /* partition */
     while (i <= j) {
         while (arr[i] < pivot)
@@ -395,7 +395,7 @@ void KWUtil::quickSortIndex(TYPE arr[], int indexArr[], int left, int right) {
             j--;
         }
     };
-    
+
     /* recursion */
     if (left < j)
         quickSortIndex(arr, indexArr, left, j);

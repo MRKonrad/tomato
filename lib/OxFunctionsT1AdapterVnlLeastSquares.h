@@ -7,6 +7,9 @@
 #ifndef Tomato_OXFUNCTIONST1ADAPTERVNLLEASTSQUARES_H
 #define Tomato_OXFUNCTIONST1ADAPTERVNLLEASTSQUARES_H
 
+#include "CmakeConfigForTomato.h"
+#ifdef USE_VNL
+
 #include <vnl/vnl_least_squares_function.h>
 
 #include "OxFunctionsT1.h"
@@ -61,5 +64,7 @@ namespace Ox {
     };
 
 } // namespace Ox
+
+#endif //USE_VNL
 
 #endif //Tomato_OXFUNCTIONST1ADAPTERVNLLEASTSQUARES_H
