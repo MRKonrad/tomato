@@ -72,7 +72,7 @@ include(cmake/nr3.cmake)
 set(USE_ITK ON CACHE BOOL "Do you want to use ITK?")
 if(USE_ITK)
     set(USE_ITK OFF)
-
+    set(USE_VNL OFF)
     find_package(ITK) # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     if (NOT ITK_FOUND)
         find_package(ITK HINTS ../ITK_install)
@@ -84,6 +84,8 @@ if(USE_ITK)
         include(${ITK_USE_FILE})
         set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} ${ITK_LIBRARIES})
     endif()
+else()
+    set(USE_VNL OFF)
 endif(USE_ITK)
 
 ###########
