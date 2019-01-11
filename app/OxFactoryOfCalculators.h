@@ -62,7 +62,6 @@ namespace Ox {
                 }
                 case T1_SHMOLLI_original: {
                     calculatorT1 = new CalculatorT1ShmolliOriginal<TYPE>();
-					calculatorT1.phaseRange = 2048.*2;
                     break;
                 }
 #endif

@@ -18,6 +18,10 @@
 
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1Shmolli.h"
+#include "OxFunctionsT1CalculatorShmolli.h"
+#include "OxFitterAmoebaPrivateNr2.h"
+#include "OxSignCalculatorShmolli.h"
+#include "OxStartPointCalculatorShmolli.h"
 
 TEST(OxCalculatorT1Shmolli, calculate_throwIfIncorrectNumberOfSamples) {
 
@@ -27,6 +31,40 @@ TEST(OxCalculatorT1Shmolli, calculate_throwIfIncorrectNumberOfSamples) {
     calculatorT1Shmolli.setNSamples(8);
 
     EXPECT_THROW(calculatorT1Shmolli.calculate(), std::exception);
+}
+
+TEST(OxCalculatorT1Shmolli, calculate_ICE) {
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/ice.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    // init the necessary objects
+    Ox::FunctionsT1CalculatorShmolli<TYPE> functionsObject;
+    Ox::FitterAmoebaPrivateNr2<TYPE> fitter;
+    Ox::SignCalculatorShmolli<TYPE> signCalculator;
+    Ox::StartPointCalculatorShmolli<TYPE> startPointCalculator;
+    Ox::CalculatorT1Shmolli<TYPE> calculatorT1Shmolli;
+
+    // configure
+    calculatorT1Shmolli.setFunctionsT1(&functionsObject);
+    calculatorT1Shmolli.setFitter(&fitter);
+    calculatorT1Shmolli.setSignCalculator(&signCalculator);
+    calculatorT1Shmolli.setStartPointCalculator(&startPointCalculator);
+
+    // set the data
+    calculatorT1Shmolli.setNSamples(nSamples);
+    calculatorT1Shmolli.setInvTimes(testData.getInvTimesPtr());
+    calculatorT1Shmolli.setSigPha(testData.getSignalPhaPtr());
+    calculatorT1Shmolli.setSigMag(testData.getSignalMagPtr());
+
+    calculatorT1Shmolli.calculate();
+
+    EXPECT_NEAR(calculatorT1Shmolli.getResults().A, 42.88, 1e-2);
+    EXPECT_NEAR(calculatorT1Shmolli.getResults().B, -21.82, 1e-2);
+    EXPECT_NEAR(calculatorT1Shmolli.getResults().T1star, 511.3, 1e-2);
 }
 
 TEST(OxCalculatorT1Shmolli, calculate_doNotCalculateIfMaxIterZero) {

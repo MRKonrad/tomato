@@ -4,12 +4,12 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 **Documentation** in doxygen can be found [here](https://mrkonrad.github.io/tomato/html).
 
 | System   |      Badge      |
-|----------|:-------------:|
-| [DOI][zenodo_link] | [![DOI][zenodo_badge]][zenodo_link] |
-| [OSX/Linux build - Travis][travis_link] | [![Travis (.org)][travis_badge]][travis_link] |
-| [Windows build - AppVeyor][appveyor_link] | [![AppVeyor][appveyor_badge]][appveyor_link] |
-| [Test coverage - Codecov][codecov_link] | [![codecov][codecov_badge]][codecov_link] |
-| [Downloads][downloads_link] | [![GitHub Releases (by Release)][downloads_badge]][downloads_link] |
+|----------|:---------------:|
+| [DOI][zenodo_link]                        | [![DOI][zenodo_badge]][zenodo_link]                                |
+| [OSX/Linux build - Travis][travis_link]   | [![Travis (.org)][travis_badge]][travis_link]                      |
+| [Windows build - AppVeyor][appveyor_link] | [![AppVeyor][appveyor_badge]][appveyor_link]                       |
+| [Test coverage - Codecov][codecov_link]   | [![codecov][codecov_badge]][codecov_link]                          |
+| [Downloads][downloads_link]               | [![GitHub Releases (by Release)][downloads_badge]][downloads_link] |
 
 
 ## Tomato and Numerical Recipes
@@ -63,6 +63,6 @@ Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes b
 [codecov_badge]: https://img.shields.io/codecov/c/github/MRKonrad/tomato.svg?style=flat-square
 [codecov_link]: https://codecov.io/gh/MRKonrad/tomato
 [downloads_link]: https://github.com/MRKonrad/tomato/releases
-[downloads_badge]: https://img.shields.io/github/downloads/MRKonrad/tomato/v0.1/total.svg?style=flat-square
+[downloads_badge]: https://img.shields.io/github/downloads/MRKonrad/tomato/total.svg?style=flat-square
 [zenodo_link]: https://zenodo.org/badge/latestdoi/142749215
 [zenodo_badge]: https://img.shields.io/badge/DOI-10.5281%2Fzenodo.1489791-blue.svg?style=flat-square
