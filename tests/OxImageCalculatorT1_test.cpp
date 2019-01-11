@@ -27,7 +27,7 @@
 #include "OxStartPointCalculatorShmolli.h"
 #endif
 
-
+#ifdef USE_VNL
 TEST(OxImageCalculatorT1, calculate_molli_no_multithread) {
 
     bool doPrint = false; //for debugging
@@ -132,6 +132,7 @@ TEST(OxImageCalculatorT1, calculate_molli_no_multithread) {
     delete testImage;
     delete [] imageResults;
 }
+#endif //USE_VNL
 
 #ifdef USE_PRIVATE_NR2
 TEST(OxImageCalculatorT1, calculate_shmolli_no_multithread) {
@@ -192,9 +193,10 @@ TEST(OxImageCalculatorT1, calculate_shmolli_no_multithread) {
     delete testImage;
     delete [] imageResults;
 }
-#endif
+#endif //USE_PRIVATE_NR2
 
 #ifndef CXX_STANDARD_98
+#ifdef USE_VNL
 TEST(OxImageCalculatorT1, calculate_molli_multithread) {
 
     typedef double TYPE;
@@ -250,4 +252,65 @@ TEST(OxImageCalculatorT1, calculate_molli_multithread) {
     delete testImage;
     delete [] imageResults;
 }
-#endif
+#endif //USE_VNL
+#endif //CXX_STANDARD_98
+
+#ifndef CXX_STANDARD_98
+#ifdef USE_PRIVATE_NR2
+TEST(OxImageCalculatorT1, calculate_molli_multithread) {
+
+    typedef double TYPE;
+
+    std::vector< std::string > filePaths;
+    filePaths.push_back("testData/blood.yaml");
+    filePaths.push_back("testData/myocardium.yaml");
+
+    int nRows = 10;
+    int nCols = 8;
+
+    Ox::TestImage<TYPE> *testImage = new Ox::TestImage<TYPE>(nRows, nCols, filePaths);
+
+    // init the necessary objects
+    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FitterAmoebaPrivateNr2<TYPE> fitter;
+    Ox::SignCalculatorNoSign<TYPE> signCalculator;
+    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
+    Ox::CalculatorT1Molli<TYPE> calculator;
+
+    // configure
+    calculator.setFunctionsT1(&functionsObject);
+    calculator.setFitter(&fitter);
+    calculator.setSignCalculator(&signCalculator);
+    calculator.setStartPointCalculator(&startPointCalculator);
+
+    // image calculator
+    Ox::ImageCalculatorT1<TYPE> imageCalculator;
+    imageCalculator.setCalculatorT1(&calculator);
+    imageCalculator.setInvTimes(testImage->getInvTimesPtr());
+    imageCalculator.setImageMag(testImage->getImageMagPtr());
+    imageCalculator.setImagePha(testImage->getImagePhaPtr());
+    imageCalculator.setNCols(nCols);
+    imageCalculator.setNRows(nRows);
+    imageCalculator.setNSamples(testImage->getNSamples());
+
+    // alloc results
+    TYPE *imageResults = new TYPE[nCols*nRows*3];
+    imageCalculator.setImageResults(imageResults);
+
+    // calculate
+    imageCalculator.calculate();
+
+    TYPE *groundTruthResults = testImage->getImageResultsMolliPtr();
+    std::vector<TYPE> groundTruthResultsVec (groundTruthResults, groundTruthResults + nCols*nRows*3 );
+    TYPE *calculaterResults = imageCalculator.getImageResults();
+    std::vector<TYPE> calculaterResultsVec (calculaterResults, calculaterResults + nCols*nRows*3 );
+
+    for (int i = 0; i < nCols*nRows*3; ++i) {
+        EXPECT_NEAR(groundTruthResultsVec[i], calculaterResultsVec[i], 1e-2);
+    }
+
+    delete testImage;
+    delete [] imageResults;
+}
+#endif //USE_PRIVATE_NR2
+#endif //CXX_STANDARD_98

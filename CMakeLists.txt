@@ -124,12 +124,19 @@ MESSAGE("USE_NR3:         " ${USE_NR3})
 configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForTomato.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
 set (LIB_FILES ${LIB_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
 
-include_directories (app)
+if(USE_ITK)
+    include_directories (app)
+endif(USE_ITK)
 include_directories (lib)
 include_directories ("${PROJECT_BINARY_DIR}") # for the configuration header
 
-add_library (TomatoLib ${APP_FILES} ${LIB_FILES})
-add_executable (TomatoExe ${APP_FILES} ${LIB_FILES})
+# library
+if(USE_ITK)
+    add_library (TomatoLib ${APP_FILES} ${LIB_FILES})
+    add_executable (TomatoExe ${APP_FILES} ${LIB_FILES})
+else(USE_ITK)
+    add_library (TomatoLib ${LIB_FILES})
+endif(USE_ITK)
 
 ###############
 ### Linking ###
@@ -137,7 +144,9 @@ add_executable (TomatoExe ${APP_FILES} ${LIB_FILES})
 
 target_link_libraries (TomatoLib PUBLIC ${OxSmolli2_LIBS_TO_LINK})
 set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} TomatoLib)
-target_link_libraries (TomatoExe PUBLIC ${OxSmolli2_LIBS_TO_LINK})
+if(USE_ITK)
+    target_link_libraries (TomatoExe PUBLIC ${OxSmolli2_LIBS_TO_LINK})
+endif(USE_ITK)
 
 ##################
 ### Installing ###
@@ -146,7 +155,9 @@ target_link_libraries (TomatoExe PUBLIC ${OxSmolli2_LIBS_TO_LINK})
 #set (CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}" CACHE INTERNAL "" FORCE)
 install (TARGETS TomatoLib DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
 install (FILES ${LIB_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
-install (TARGETS TomatoExe DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+if(USE_ITK)
+    install (TARGETS TomatoExe DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+endif(USE_ITK)
 
 ###############
 ### TESTING ###

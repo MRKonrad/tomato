@@ -7,6 +7,8 @@
 #include "gtest/gtest.h"
 #include "OxTestData.h"
 
+#include "CmakeConfigForTomato.h"
+
 #include "OxFunctionsT1Basic.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxSignCalculatorNoSign.h"
@@ -16,6 +18,7 @@
 
 //TODO: make sure correctSDs are accually correct
 
+#ifdef USE_VNL
 TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
 
     typedef double TYPE;
@@ -54,7 +57,9 @@ TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
     EXPECT_DOUBLE_EQ(CalculatorT1Molli.getResults().B, 0);
     EXPECT_DOUBLE_EQ(CalculatorT1Molli.getResults().T1star, 0);
 }
+#endif
 
+#ifdef USE_VNL
 TEST(OxCalculatorT1Molli, calculate_throwIfInvTimesNotSorted) {
 
     typedef double TYPE;
@@ -95,7 +100,9 @@ TEST(OxCalculatorT1Molli, calculate_throwIfInvTimesNotSorted) {
 
     delete [] invTimesNotSorted;
 }
+#endif
 
+#ifdef USE_VNL
 TEST(OxCalculatorT1Molli, calculate_WithoutSigns) {
 
     typedef double TYPE;
@@ -129,7 +136,9 @@ TEST(OxCalculatorT1Molli, calculate_WithoutSigns) {
     EXPECT_NEAR(calculatorT1Molli.getResults().B, testData.getResultsMolli()[1], 1e-2);
     EXPECT_NEAR(calculatorT1Molli.getResults().T1star, testData.getResultsMolli()[2], 1e-2);
 }
+#endif
 
+#ifdef USE_VNL
 TEST(OxCalculatorT1Molli, calculate_WithSigns) {
 
     typedef double TYPE;
@@ -163,7 +172,9 @@ TEST(OxCalculatorT1Molli, calculate_WithSigns) {
     EXPECT_NEAR(calculatorT1Molli.getResults().B, testData.getResultsMolli()[1], 1e-2);
     EXPECT_NEAR(calculatorT1Molli.getResults().T1star, testData.getResultsMolli()[2], 1e-2);
 }
+#endif
 
+#ifdef USE_VNL
 TEST(OxCalculatorT1Molli, copyConstructor) {
 
     typedef double TYPE;
@@ -218,7 +229,9 @@ TEST(OxCalculatorT1Molli, copyConstructor) {
     EXPECT_TRUE(calculatorT1MolliCopy.getStartPoint());
 
 }
+#endif
 
+#ifdef USE_VNL
 TEST(OxCalculatorT1Molli, correctSDs) {
 
     typedef double TYPE;
@@ -252,4 +265,4 @@ TEST(OxCalculatorT1Molli, correctSDs) {
     EXPECT_NEAR(calculatorT1Molli.getResults().SD_A, 1.96, 1e-2);
     EXPECT_NEAR(calculatorT1Molli.getResults().SD_B, 2.07, 1e-2);
 }
-
+#endif

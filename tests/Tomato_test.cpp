@@ -4,13 +4,11 @@
  * \date 2018/08/20
  */
 
-#include "gtest/gtest.h"
-#include "Tomato.h"
-
 #include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
-
+#include "gtest/gtest.h"
+#include "Tomato.h"
 
 TEST(ActeptanceTests_TomatoTest, readAndSortFileList) {
 

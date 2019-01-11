@@ -4,12 +4,16 @@
  * \date 2018/07/31
  */
 
+#include "CmakeConfigForTomato.h"
+#ifdef USE_VNL
+
 #include "gtest/gtest.h"
 #include "OxTestData.h"
 
 #include <vnl/algo/vnl_levenberg_marquardt.h>
 #include "OxFunctionsT1Basic.h"
 #include "OxFunctionsT1AdapterVnlLeastSquares.h"
+
 
 TEST(OxFunctionsT1AdapterVnlLeastSquares, f) {
 
@@ -114,3 +118,4 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, fitting) {
     EXPECT_NEAR(paramsVnl[1], testData.getResultsMolli()[1], 1e-2);
     EXPECT_NEAR(paramsVnl[2], testData.getResultsMolli()[2], 1e-2);
 }
+#endif //USE_VNL

@@ -33,6 +33,7 @@ TEST(OxCalculatorT1Shmolli, calculate_throwIfIncorrectNumberOfSamples) {
     EXPECT_THROW(calculatorT1Shmolli.calculate(), std::exception);
 }
 
+#ifdef USE_VNL
 TEST(OxCalculatorT1Shmolli, calculate_ICE) {
 
     typedef double TYPE;
@@ -66,7 +67,9 @@ TEST(OxCalculatorT1Shmolli, calculate_ICE) {
     EXPECT_NEAR(calculatorT1Shmolli.getResults().B, -21.82, 1e-2);
     EXPECT_NEAR(calculatorT1Shmolli.getResults().T1star, 511.3, 1e-2);
 }
+#endif
 
+#ifdef USE_VNL
 TEST(OxCalculatorT1Shmolli, calculate_doNotCalculateIfMaxIterZero) {
 
     typedef double TYPE;
@@ -101,7 +104,9 @@ TEST(OxCalculatorT1Shmolli, calculate_doNotCalculateIfMaxIterZero) {
     EXPECT_DOUBLE_EQ(calculatorT1Shmolli.getResults().B, 0);
     EXPECT_DOUBLE_EQ(calculatorT1Shmolli.getResults().T1star, 0);
 }
+#endif
 
+#ifdef USE_VNL
 TEST(OxCalculatorT1Shmolli, calculate_throwIfInvTimesNotSorted) {
 
     typedef double TYPE;
@@ -142,7 +147,9 @@ TEST(OxCalculatorT1Shmolli, calculate_throwIfInvTimesNotSorted) {
 
     delete [] invTimesNotSorted;
 }
+#endif
 
+#ifdef USE_VNL
 TEST(OxCalculatorT1Shmolli, calculate_WithoutSigns_AmoebaVnl) {
 
     typedef double TYPE;
@@ -178,7 +185,9 @@ TEST(OxCalculatorT1Shmolli, calculate_WithoutSigns_AmoebaVnl) {
     EXPECT_NEAR(calculatorT1Shmolli.getResults().T1star, testData.getResultsShmolli()[2], 1e-2);
 
 }
+#endif
 
+#ifdef USE_VNL
 TEST(OxCalculatorT1Shmolli, calculate_WithoutSigns_LevMarVnl) {
 
     typedef double TYPE;
@@ -214,7 +223,9 @@ TEST(OxCalculatorT1Shmolli, calculate_WithoutSigns_LevMarVnl) {
     EXPECT_NEAR(calculatorT1Shmolli.getResults().T1star, testData.getResultsShmolli()[2], 1e-2);
 
 }
+#endif
 
+#ifdef USE_VNL
 TEST(OxCalculatorT1Shmolli, calculate_WithSigns) {
 
     typedef double TYPE;
@@ -249,7 +260,9 @@ TEST(OxCalculatorT1Shmolli, calculate_WithSigns) {
     EXPECT_NEAR(calculatorT1Shmolli.getResults().B, testData.getResultsShmolli()[1], 1e-2);
     EXPECT_NEAR(calculatorT1Shmolli.getResults().T1star, testData.getResultsShmolli()[2], 1e-2);
 }
+#endif
 
+#ifdef USE_VNL
 TEST(OxCalculatorT1Shmolli, copyConstructor) {
 
     typedef double TYPE;
@@ -302,5 +315,6 @@ TEST(OxCalculatorT1Shmolli, copyConstructor) {
     EXPECT_TRUE(calculatorT1ShmolliCopy.getSigns());
     EXPECT_TRUE(calculatorT1ShmolliCopy.getStartPoint());
 }
+#endif
 
 #endif // USE_PRIVATE_NR2

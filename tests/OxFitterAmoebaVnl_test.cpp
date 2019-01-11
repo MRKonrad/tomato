@@ -10,6 +10,9 @@
 #include "OxFunctionsT1Basic.h"
 #include "OxFitterAmoebaVnl.h"
 
+#include "CmakeConfigForTomato.h"
+
+#ifdef USE_VNL
 TEST(OxFitterAmoebaVnl, performFitting) {
 
     typedef double TYPE;
@@ -76,3 +79,4 @@ TEST(OxFitterAmoebaVnl, copyConstructor) {
     EXPECT_FALSE( fitterCopy.getFunctionsAdaptedToVnl());
 
 }
+#endif

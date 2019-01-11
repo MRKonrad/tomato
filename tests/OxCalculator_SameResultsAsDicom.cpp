@@ -4,13 +4,13 @@
  * \date 2018/08/20
  */
 
-#include "gtest/gtest.h"
-#include "OxOriginalShmolliDicomReader.h"
-#include "Tomato.h"
-
 #include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 #ifdef USE_PRIVATE_NR2
+
+#include "gtest/gtest.h"
+#include "OxOriginalShmolliDicomReader.h"
+#include "Tomato.h"
 
 /**
  * for pixel after pixel debugging

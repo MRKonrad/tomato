@@ -4,6 +4,9 @@
  * \date 2018/07/31
  */
 
+#include "CmakeConfigForTomato.h"
+#ifdef USE_VNL
+
 #include "gtest/gtest.h"
 #include "OxTestData.h"
 
@@ -73,3 +76,4 @@ TEST(OxFitterLevenbergMarquardtVnl, copyConstructor) {
     // new FunctionsAdaptedToVnl should NOT be copied in the constructor
     EXPECT_FALSE( fitterCopy.getFunctionsAdaptedToVnl());
 }
+#endif //USE_VNL
