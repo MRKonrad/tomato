@@ -1,10 +1,9 @@
 <map id="lib/OxCalculatorT1Molli.h" name="lib/OxCalculatorT1Molli.h">
-<area shape="rect" id="node2" href="$_ox_factory_of_calculators_8h.html" title="app/OxFactoryOfCalculators.h" alt="" coords="125,88,323,115"/>
-<area shape="rect" id="node8" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="348,81,521,122"/>
-<area shape="rect" id="node9" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="546,81,728,122"/>
-<area shape="rect" id="node3" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="151,171,297,197"/>
-<area shape="rect" id="node4" href="$_tomato_8h.html" title="app/Tomato.h" alt="" coords="93,245,195,272"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="5,328,104,355"/>
-<area shape="rect" id="node7" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="220,245,391,272"/>
-<area shape="rect" id="node6" href="$_tomato__same_as_shmolli__test_8cpp.html" title="tests/Tomato_sameAsShmolli\l_test.cpp" alt="" coords="129,321,327,362"/>
+<area shape="rect" id="node2" href="$_ox_factory_of_calculators_8h.html" title="app/OxFactoryOfCalculators.h" alt="" coords="107,88,305,115"/>
+<area shape="rect" id="node7" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="331,81,504,122"/>
+<area shape="rect" id="node8" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="529,81,711,122"/>
+<area shape="rect" id="node3" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="133,171,280,197"/>
+<area shape="rect" id="node4" href="$_tomato_8h.html" title="app/Tomato.h" alt="" coords="5,245,107,272"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="50,320,149,347"/>
+<area shape="rect" id="node6" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="183,245,353,272"/>
 </map>
