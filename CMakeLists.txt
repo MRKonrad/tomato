@@ -8,7 +8,7 @@ project (Tomato)
 
 # The version number.
 set (Tomato_VERSION_MAJOR 0)
-set (Tomato_VERSION_MINOR 11)
+set (Tomato_VERSION_MINOR 2)
 
 # Compiler flags
 set (CMAKE_CXX_STANDARD 98 CACHE STRING "")
@@ -16,10 +16,12 @@ set (CMAKE_CXX_STANDARD_REQUIRED ON)
 if (CMAKE_CXX_STANDARD EQUAL 98)
     set (CXX_STANDARD_98 ON) # flag used in the code
 endif()
+set(CMAKE_MACOSX_RPATH 1) # to address MACOSX_RPATH warning
 
 # list of source files
 file (GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)
 file (GLOB_RECURSE LIB_FILES lib/*.c* lib/*.h* lib/*.t*)
+file (GLOB_RECURSE API_FILES lib/*.h)
 
 ###############
 ### PRIVATE ###
@@ -40,8 +42,7 @@ endif()
 set (BUILD_TESTING OFF CACHE INTERNAL "" FORCE)
 add_subdirectory (thirdParty/libyaml)
 include_directories (${yaml_BINARY_DIR}/include ${yaml_SOURCE_DIR}/include) # for windows
-set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} yaml)
-#target_link_libraries (TomatoExe PUBLIC yaml)
+set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} yaml)
 
 ###############
 ### Fitting ###
@@ -57,9 +58,8 @@ set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} yaml)
 #add_dependencies (TomatoExe vnl vnl_algo)
 
 # Numerical Recipes v2
-set(USE_NR2 ON CACHE BOOL "Do you want to use Numerical Recipes 2 code?")
+set(USE_NR2 OFF CACHE BOOL "Do you want to use Numerical Recipes 2 code?")
 include(cmake/nr2.cmake)
-#target_link_libraries (TomatoLib PUBLIC NR2)
 
 # Numerical Recipes v3
 set(USE_NR3 OFF CACHE BOOL "Do you want to use Numerical Recipes 3 code?")
@@ -82,7 +82,7 @@ if(USE_ITK)
         set(USE_ITK ON)
         set(USE_VNL ON)
         include(${ITK_USE_FILE})
-        set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} ${ITK_LIBRARIES})
+        set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} ${ITK_LIBRARIES})
     endif()
 else()
     set(USE_VNL OFF)
@@ -103,7 +103,7 @@ if(USE_VTK)
         if (VTK_FOUND)
             set(USE_VTK ON)
             include(${VTK_USE_FILE})
-            set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} ${VTK_LIBRARIES})
+            set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} ${VTK_LIBRARIES})
         endif()
     endif()
 endif(USE_VTK)
@@ -112,17 +112,21 @@ endif(USE_VTK)
 ### MAIN PROGRAM ###
 ####################
 
-MESSAGE("CXX_STANDARD_98: " ${CXX_STANDARD_98})
-MESSAGE("USE_ITK:         " ${USE_ITK})
-MESSAGE("USE_VTK:         " ${USE_VTK})
-MESSAGE("USE_VNL:         " ${USE_VNL})
-MESSAGE("USE_PRIVATE_NR2: " ${USE_PRIVATE_NR2})
-MESSAGE("USE_NR2:         " ${USE_NR2})
-MESSAGE("USE_NR3:         " ${USE_NR3})
+set (BUILD_SHARED_LIBS ON CACHE INTERNAL "Do you want to build shared libraries" FORCE)
+
+MESSAGE("CXX_STANDARD_98:   " ${CXX_STANDARD_98})
+MESSAGE("USE_ITK:           " ${USE_ITK})
+MESSAGE("USE_VTK:           " ${USE_VTK})
+MESSAGE("USE_VNL:           " ${USE_VNL})
+MESSAGE("USE_PRIVATE_NR2:   " ${USE_PRIVATE_NR2})
+MESSAGE("USE_NR2:           " ${USE_NR2})
+MESSAGE("USE_NR3:           " ${USE_NR3})
+MESSAGE("BUILD_SHARED_LIBS: " ${BUILD_SHARED_LIBS})
 
 # configure a header file to pass some of the CMake settings to the source code
 configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForTomato.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
 set (LIB_FILES ${LIB_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
+set (API_FILES ${API_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
 
 if(USE_ITK)
     include_directories (app)
@@ -130,31 +134,40 @@ endif(USE_ITK)
 include_directories (lib)
 include_directories ("${PROJECT_BINARY_DIR}") # for the configuration header
 
-# library
+# targets
 if(USE_ITK)
     add_library (TomatoLib ${APP_FILES} ${LIB_FILES})
     add_executable (TomatoExe ${APP_FILES} ${LIB_FILES})
+    set_target_properties(TomatoExe PROPERTIES COMPILE_FLAGS -DTomatoLib_EXPORTS) # to see hxx content
 else(USE_ITK)
     add_library (TomatoLib ${LIB_FILES})
 endif(USE_ITK)
+
+
+
+# generating TomatoLib_export.h
+include(GenerateExportHeader)
+generate_export_header(TomatoLib)
+set(API_FILES ${API_FILES} ${PROJECT_BINARY_DIR}/tomatolib_export.h) # to make tomatolib_export.h available for export
 
 ###############
 ### Linking ###
 ###############
 
-target_link_libraries (TomatoLib PUBLIC ${OxSmolli2_LIBS_TO_LINK})
-set(OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} TomatoLib)
+target_link_libraries (TomatoLib PUBLIC ${TOMATO_LIBS_TO_LINK})
+set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} TomatoLib)
 if(USE_ITK)
-    target_link_libraries (TomatoExe PUBLIC ${OxSmolli2_LIBS_TO_LINK})
+    target_link_libraries (TomatoExe PUBLIC ${TOMATO_LIBS_TO_LINK})
 endif(USE_ITK)
 
 ##################
 ### Installing ###
 ##################
 
-#set (CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}" CACHE INTERNAL "" FORCE)
+set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/../tomato_install) # TODO: Should be configure from cmake command line
+
 install (TARGETS TomatoLib DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
-install (FILES ${LIB_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
+install (FILES ${API_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
 if(USE_ITK)
     install (TARGETS TomatoExe DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif(USE_ITK)

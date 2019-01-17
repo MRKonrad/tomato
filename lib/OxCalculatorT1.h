@@ -247,6 +247,8 @@ namespace Ox {
     };
 } //namespace Ox
 
+#ifdef TomatoLib_EXPORTS
 #include "OxCalculatorT1.hxx"
+#endif //TomatoLib_EXPORTS
 
 #endif //Tomato_OXCALCULATORT1_H

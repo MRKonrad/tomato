@@ -7,6 +7,8 @@
 #ifndef Tomato_OXCALCULATORRESULTS_H
 #define Tomato_OXCALCULATORRESULTS_H
 
+#include <iostream>
+
 namespace Ox {
     template<typename MeasureType>
     struct CalculatorT1Results {

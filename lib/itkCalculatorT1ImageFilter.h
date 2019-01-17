@@ -119,9 +119,11 @@ namespace itk {
     };
 } //namespace ITK
 
+#ifdef TomatoLib_EXPORTS
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkCalculatorT1ImageFilter.hxx"
-#endif
+#endif //ITK_MANUAL_INSTANTIATION
+#endif //TomatoLib_EXPORTS
 
 #endif // USE_ITK
 

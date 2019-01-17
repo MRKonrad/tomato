@@ -61,8 +61,10 @@ namespace itk {
     };
 } //namespace ITK
 
+#ifdef TomatoLib_EXPORTS
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkColorbar2DImageFilter.txx"
-#endif
+#endif //ITK_MANUAL_INSTANTIATION
+#endif //TomatoLib_EXPORTS
 
 #endif //OXSHMOLLILIB_ITKColorbar2DImageFilter_H

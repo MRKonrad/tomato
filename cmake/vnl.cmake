@@ -30,5 +30,5 @@ if(USE_VNL)
     link_directories (${MY_VXL_LIBRARY_PATH})
     link_libraries (netlib v3p_netlib vcl vnl vnl_algo )
 
-    set (OxSmolli2_LIBS_TO_LINK ${OxSmolli2_LIBS_TO_LINK} ${VNL_LIBRARIES})
+    set (TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} ${VNL_LIBRARIES})
 endif(USE_VNL)

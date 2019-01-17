@@ -6,10 +6,10 @@ if(Tomato_BUILD_TESTING)
 
     include(../cmake/gtest.cmake)
 
-    enable_testing ()
+    enable_testing()
 
     # Threads are needed for testing
-    find_package (Threads REQUIRED)
+    find_package(Threads REQUIRED)
     target_link_libraries(gtest ${CMAKE_THREAD_LIBS_INIT})
 
     # Test executable
@@ -17,8 +17,9 @@ if(Tomato_BUILD_TESTING)
     #message("TESTS_FILES:" ${TESTS_FILES})
 
     add_executable(TomatoTests ${TESTS_FILES})
-    target_link_libraries (TomatoTests PUBLIC gtest)
-    target_link_libraries (TomatoTests PUBLIC ${OxSmolli2_LIBS_TO_LINK})
+    target_link_libraries(TomatoTests PUBLIC gtest)
+    target_link_libraries(TomatoTests PUBLIC ${TOMATO_LIBS_TO_LINK})
+    set_target_properties(TomatoTests PROPERTIES COMPILE_FLAGS -DTomatoLib_EXPORTS) # to see hxx content
     #add_dependencies(TomatoTests TomatoLib)
 
     add_test(NAME ctest_tests COMMAND TomatoTests)
@@ -26,9 +27,9 @@ if(Tomato_BUILD_TESTING)
     file(COPY testData DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
     file(GLOB_RECURSE TESTDATA ${PROJECT_SOURCE_DIR}/tests/testData/*.*)
 
-    install (TARGETS TomatoTests DESTINATION ${CMAKE_INSTALL_PREFIX}/tests)
+    install(TARGETS TomatoTests DESTINATION ${CMAKE_INSTALL_PREFIX}/tests)
     # install (FILES ${TESTDATA} DESTINATION ${CMAKE_INSTALL_PREFIX}/tests/testData/)
-    install (DIRECTORY ${PROJECT_SOURCE_DIR}/tests/testData/ DESTINATION ${CMAKE_INSTALL_PREFIX}/tests/testData)
+    install(DIRECTORY ${PROJECT_SOURCE_DIR}/tests/testData/ DESTINATION ${CMAKE_INSTALL_PREFIX}/tests/testData)
 
     ########################
     ### TESTING COVERAGE ###
@@ -36,7 +37,7 @@ if(Tomato_BUILD_TESTING)
 
     # Compiler flags for coveralls, only in linux
     if (UNIX AND NOT APPLE)
-        set (CMAKE_CXX_FLAGS "-fprofile-arcs -ftest-coverage")
+        set(CMAKE_CXX_FLAGS "-fprofile-arcs -ftest-coverage")
     endif(UNIX AND NOT APPLE)
 
     # Coveralls

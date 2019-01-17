@@ -43,6 +43,8 @@ namespace Ox {
     };
 } // namespace Ox
 
+#ifdef TomatoLib_EXPORTS
 #include "TomatoParser.hxx"
+#endif //TomatoLib_EXPORTS
 
 #endif //Tomato_TomatoPARSER_H

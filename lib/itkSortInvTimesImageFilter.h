@@ -76,9 +76,11 @@ namespace itk {
 
 } //namespace ITK
 
+#ifdef TomatoLib_EXPORTS
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkSortInvTimesImageFilter.txx"
-#endif
+#endif //ITK_MANUAL_INSTANTIATION
+#endif //TomatoLib_EXPORTS
 
 #endif //USE_ITK
 

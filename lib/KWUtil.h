@@ -259,6 +259,8 @@ private:
     static void quickSortIndex(TYPE arr[], int indexArray[], int left, int right);
 };
 
+#ifdef TomatoLib_EXPORTS
 #include "KWUtil.hxx"
+#endif //TomatoLib_EXPORTS
 
 #endif /* KWUtil_h */

@@ -48,6 +48,8 @@ namespace Ox {
     };
 } //namespace Ox
 
+#ifdef TomatoLib_EXPORTS
 #include "OxFunctionsT1Basic.hxx"
+#endif //TomatoLib_EXPORTS
 
 #endif //Tomato_OXFUNCTIONST1BASIC_H
