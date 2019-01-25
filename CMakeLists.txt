@@ -164,7 +164,7 @@ endif(USE_ITK)
 ### Installing ###
 ##################
 
-set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/../tomato_install) # TODO: Should be configure from cmake command line
+#set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/../tomato_install) # TODO: Should be configure from cmake command line
 
 install (TARGETS TomatoLib DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
 install (FILES ${API_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
