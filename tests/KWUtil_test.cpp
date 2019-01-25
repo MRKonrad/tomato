@@ -8,6 +8,67 @@
 
 #include "gtest/gtest.h"
 
+//#include <iostream>
+//#include <cmath>
+//#include <cerrno>
+//#include <cstring>
+//#include <cfenv>
+//#pragma STDC FENV_ACCESS ON
+//
+//TEST(KWUtil, error) {
+//
+//    if (fpclassify(0) == FP_ZERO) {
+//        std::cout << "zero" << std::endl;
+//    }
+//
+//    try {
+//        std::cout << exp(710) << std::endl;
+//    } catch (...){
+//        std::cout << "error" << std::endl;
+//    }
+//    errno = 0;
+//    std::feclearexcept(FE_ALL_EXCEPT);
+//    std::cout << "exp(710) = " << std::exp(710) << '\n';
+//    if (errno == ERANGE)
+//        std::cout << "    errno == ERANGE: " << std::strerror(errno) << '\n';
+//    if (std::fetestexcept(FE_OVERFLOW))
+//        std::cout << "    FE_OVERFLOW raised\n";
+//
+////    int a = 1;
+////    int b = 0;
+////    try{
+////        std::cout << "1/0: " << a/b << std::endl;
+////    } catch (...) {
+////        std::cout << "exception" << std::endl;
+////    }
+//
+////    //fesetenv(3);
+////    errno = 0;
+////    if (math_errhandling & MATH_ERREXCEPT) feclearexcept(FE_ALL_EXCEPT);
+////
+////    printf ("Error handling: %d",math_errhandling);
+////
+////    sqrt (-1);
+////    if (math_errhandling & MATH_ERRNO) {
+////        if (errno==EDOM) printf("errno set to EDOM\n");
+////    }
+////    if (math_errhandling  & MATH_ERREXCEPT) {
+////        if (fetestexcept(FE_INVALID)) printf("FE_INVALID raised\n");
+////    }
+//
+////    double d = 1.0 / 0.0;
+////    switch (fpclassify(d)) {
+////        case FP_INFINITE:  printf ("infinite");  break;
+////        case FP_NAN:       printf ("NaN");       break;
+////        case FP_ZERO:      printf ("zero");      break;
+////        case FP_SUBNORMAL: printf ("subnormal"); break;
+////        case FP_NORMAL:    printf ("normal");    break;
+////    }
+////    if (signbit(d)) printf (" negative\n");
+////    else printf (" positive or unsigned\n");
+//
+//}
+
 TEST(KWUtil, dicomTime2Seconds) {
 
     std::string dicomTimeString = "141650.92";

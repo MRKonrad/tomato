@@ -90,7 +90,7 @@ script:
   - make install
 
   # testing and getting the test coverage
-  - cd install/tests
+  - cd tests
   - ./TomatoTests
   - cd $TRAVIS_BUILD_DIR
 

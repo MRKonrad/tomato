@@ -102,8 +102,6 @@ Ox::Tomato<double>* ActeptanceTests_TomatoFixtureTest::_tomato_object = NULL;
 std::vector<std::string> ActeptanceTests_TomatoFixtureTest::_originalFilePaths;
 std::vector<std::string> ActeptanceTests_TomatoFixtureTest::_calculatedFilePaths;
 
-
-
 TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_T1) {
 
     bool doVisualise = false; //for debugging
