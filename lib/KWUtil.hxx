@@ -423,7 +423,7 @@ int KWUtil::calcMatrixInverse3x3(const TYPE *matrix, TYPE *matrixInverse){
     const TYPE *a = matrix; // just for shorter equations
     TYPE det = a[0]*a[4]*a[8] - a[0]*a[5]*a[7] - a[1]*a[3]*a[8] + a[1]*a[5]*a[6] + a[2]*a[3]*a[7] - a[2]*a[4]*a[6];
 
-    if (fabs(det) < 1e-12){
+    if (fabs(det) < 1e-5){
         return 1; // EXIT_FAILURE
     }
 

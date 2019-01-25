@@ -103,10 +103,10 @@ namespace Ox {
             resultsStruc.LastValue = lastValue;
 
             MeasureType covarianceMatrix[3*3];
-            calculateCovarianceMatrix(tempResults, covarianceMatrix);
-            resultsStruc.SD_A = sqrt(covarianceMatrix[4]); //  (1,1)
-            resultsStruc.SD_B = sqrt(covarianceMatrix[8]); //  (2,2)
-            resultsStruc.SD_T1 = sqrt(covarianceMatrix[0]); // (0,0)
+            //calculateCovarianceMatrix(tempResults, covarianceMatrix);
+            //resultsStruc.SD_A = sqrt(covarianceMatrix[4]); //  (1,1)
+            //resultsStruc.SD_B = sqrt(covarianceMatrix[8]); //  (2,2)
+            //resultsStruc.SD_T1 = sqrt(covarianceMatrix[0]); // (0,0)
 
         }
 

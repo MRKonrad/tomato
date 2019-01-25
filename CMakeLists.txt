@@ -21,7 +21,7 @@ set(CMAKE_MACOSX_RPATH 1) # to address MACOSX_RPATH warning
 # list of source files
 file (GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)
 file (GLOB_RECURSE LIB_FILES lib/*.c* lib/*.h* lib/*.t*)
-file (GLOB_RECURSE API_FILES lib/*.h)
+file (GLOB_RECURSE API_FILES lib/*.h lib/KWUtil.hxx)
 
 ###############
 ### PRIVATE ###
@@ -112,7 +112,7 @@ endif(USE_VTK)
 ### MAIN PROGRAM ###
 ####################
 
-set (BUILD_SHARED_LIBS ON CACHE INTERNAL "Do you want to build shared libraries" FORCE)
+set (TOMATO_LIB_TYPE SHARED CACHE INTERNAL "What type of tomato library do you want to build (static/shared)")
 
 MESSAGE("CXX_STANDARD_98:   " ${CXX_STANDARD_98})
 MESSAGE("USE_ITK:           " ${USE_ITK})
@@ -121,7 +121,7 @@ MESSAGE("USE_VNL:           " ${USE_VNL})
 MESSAGE("USE_PRIVATE_NR2:   " ${USE_PRIVATE_NR2})
 MESSAGE("USE_NR2:           " ${USE_NR2})
 MESSAGE("USE_NR3:           " ${USE_NR3})
-MESSAGE("BUILD_SHARED_LIBS: " ${BUILD_SHARED_LIBS})
+MESSAGE("TOMATO_LIB_TYPE:   " ${TOMATO_LIB_TYPE})
 
 # configure a header file to pass some of the CMake settings to the source code
 configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForTomato.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
@@ -136,11 +136,11 @@ include_directories ("${PROJECT_BINARY_DIR}") # for the configuration header
 
 # targets
 if(USE_ITK)
-    add_library (TomatoLib ${APP_FILES} ${LIB_FILES})
+    add_library (TomatoLib ${TOMATO_LIB_TYPE} ${APP_FILES} ${LIB_FILES})
     add_executable (TomatoExe ${APP_FILES} ${LIB_FILES})
     set_target_properties(TomatoExe PROPERTIES COMPILE_FLAGS -DTomatoLib_EXPORTS) # to see hxx content
 else(USE_ITK)
-    add_library (TomatoLib ${LIB_FILES})
+    add_library (TomatoLib ${TOMATO_LIB_TYPE} ${LIB_FILES})
 endif(USE_ITK)
 
 
