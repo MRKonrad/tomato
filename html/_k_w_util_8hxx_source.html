@@ -530,7 +530,7 @@ $(document).ready(function(){initNavTree('_k_w_util_8hxx_source.html','');});
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    <span class="keyword">const</span> TYPE *a = matrix; <span class="comment">// just for shorter equations</span></div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    TYPE det = a[0]*a[4]*a[8] - a[0]*a[5]*a[7] - a[1]*a[3]*a[8] + a[1]*a[5]*a[6] + a[2]*a[3]*a[7] - a[2]*a[4]*a[6];</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="keywordflow">if</span> (fabs(det) &lt; 1e-12){</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="keywordflow">if</span> (fabs(det) &lt; 1e-5){</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="keywordflow">return</span> 1; <span class="comment">// EXIT_FAILURE</span></div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    }</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;</div>

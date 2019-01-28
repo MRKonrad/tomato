@@ -1,10 +1,9 @@
 <map id="tests/OxStartPointCalculatorDefault3Dims_test.cpp" name="tests/OxStartPointCalculatorDefault3Dims_test.cpp">
-<area shape="rect" id="node3" href="$_ox_test_data_8h.html" title="OxTestData.h" alt="" coords="216,104,320,131"/>
-<area shape="rect" id="node21" href="$_ox_start_point_calculator_default3_dims_8h.html" title="OxStartPointCalculatorDefault3\lDims.h" alt="" coords="348,97,553,138"/>
-<area shape="rect" id="node4" href="$_tomato_parser_8h.html" title="TomatoParser.h" alt="" coords="217,187,332,213"/>
-<area shape="rect" id="node20" href="$_ox_test_data_8hxx.html" title="OxTestData.hxx" alt="" coords="74,187,192,213"/>
-<area shape="rect" id="node9" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="417,261,491,288"/>
-<area shape="rect" id="node19" href="$_tomato_parser_8hxx.html" title="TomatoParser.hxx" alt="" coords="142,261,271,288"/>
-<area shape="rect" id="node18" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="802,336,891,363"/>
-<area shape="rect" id="node22" href="$_ox_start_point_calculator_8h.html" title="OxStartPointCalculator.h" alt="" coords="367,187,533,213"/>
+<area shape="rect" id="node3" href="$_ox_test_data_8h.html" title="OxTestData.h" alt="" coords="124,104,228,131"/>
+<area shape="rect" id="node20" href="$_ox_start_point_calculator_default3_dims_8h.html" title="OxStartPointCalculatorDefault3\lDims.h" alt="" coords="285,97,491,138"/>
+<area shape="rect" id="node4" href="$_tomato_parser_8h.html" title="TomatoParser.h" alt="" coords="220,187,335,213"/>
+<area shape="rect" id="node19" href="$_ox_test_data_8hxx.html" title="OxTestData.hxx" alt="" coords="77,187,195,213"/>
+<area shape="rect" id="node9" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="436,261,509,288"/>
+<area shape="rect" id="node18" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="831,336,920,363"/>
+<area shape="rect" id="node21" href="$_ox_start_point_calculator_8h.html" title="OxStartPointCalculator.h" alt="" coords="370,187,536,213"/>
 </map>

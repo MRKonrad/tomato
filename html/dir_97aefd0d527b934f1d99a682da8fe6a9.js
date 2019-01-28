@@ -18,6 +18,7 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "OxCalculatorT1Molli.h", "_ox_calculator_t1_molli_8h.html", [
       [ "CalculatorT1Molli", "class_ox_1_1_calculator_t1_molli.html", "class_ox_1_1_calculator_t1_molli" ]
     ] ],
+    [ "OxCalculatorT1Molli.hxx", "_ox_calculator_t1_molli_8hxx.html", null ],
     [ "OxFitter.h", "_ox_fitter_8h.html", [
       [ "Fitter", "class_ox_1_1_fitter.html", "class_ox_1_1_fitter" ]
     ] ],
@@ -50,6 +51,7 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "OxStartPointCalculatorDefault3Dims.h", "_ox_start_point_calculator_default3_dims_8h.html", [
       [ "StartPointCalculatorDefault3Dims", "class_ox_1_1_start_point_calculator_default3_dims.html", "class_ox_1_1_start_point_calculator_default3_dims" ]
     ] ],
+    [ "TomatoApi.h", "_tomato_api_8h.html", "_tomato_api_8h" ],
     [ "TomatoColormap.cpp", "_tomato_colormap_8cpp.html", null ],
     [ "TomatoColormap.h", "_tomato_colormap_8h.html", null ],
     [ "TomatoParser.h", "_tomato_parser_8h.html", [
