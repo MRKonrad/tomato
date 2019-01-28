@@ -86,7 +86,6 @@ namespace Ox {
 #endif //USE_PRIVATE_NR2
 
     // start point calculators
-    template class TOMATOLIB_EXPORT StartPointCalculator<double>;
     template class TOMATOLIB_EXPORT StartPointCalculatorDefault3Dims<double>;
 #ifdef USE_PRIVATE_NR2
     template class TOMATOLIB_EXPORT StartPointCalculatorShmolli<double>;
