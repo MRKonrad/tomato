@@ -39,6 +39,9 @@
 class KWUtil{
 public:
 
+    static constexpr double SMALLNUMBER = 1e-12;
+    static constexpr double BIGNUMBER = 1e+12;
+
     template< typename TYPE >
     static void printKW(bool doPrint, char* fmt, ...);
 

@@ -199,6 +199,7 @@ namespace Ox {
         for (int i = 0; i < nSamples; ++i){
             MeasureType invTime = invTimes[i];
             MeasureType myexparg = ( -invTime * ( B/A - 1) / T1);
+
             if ((myexparg > std::numeric_limits<MeasureType>::max_exponent)
                 || (myexparg < std::numeric_limits<MeasureType>::min_exponent))
                 return 1; //EXIT_FAILURE
@@ -220,6 +221,7 @@ namespace Ox {
         }
 
         MeasureType SD = KWUtil::calcStandardDeviationArray<MeasureType>(nSamples, residuals);
+
         if (fabs(SD) < std::numeric_limits<MeasureType>::min())
             return 1; //EXIT_FAILURE
 
