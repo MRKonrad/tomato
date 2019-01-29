@@ -18,6 +18,9 @@ if (CMAKE_CXX_STANDARD EQUAL 98)
 endif()
 set(CMAKE_MACOSX_RPATH 1) # to address MACOSX_RPATH warning
 
+set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=undefined")
+set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=undefined")
+
 # list of source files
 file (GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)
 file (GLOB_RECURSE LIB_FILES lib/*.c* lib/*.h* lib/*.t*)

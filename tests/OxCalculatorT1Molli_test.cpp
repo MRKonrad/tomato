@@ -232,7 +232,7 @@ TEST(OxCalculatorT1Molli, copyConstructor) {
 #endif
 
 #ifdef USE_VNL
-/*
+
 TEST(OxCalculatorT1Molli, correctSDs) {
 
     typedef double TYPE;
@@ -266,5 +266,5 @@ TEST(OxCalculatorT1Molli, correctSDs) {
     EXPECT_NEAR(calculatorT1Molli.getResults().SD_A, 1.96, 1e-2);
     EXPECT_NEAR(calculatorT1Molli.getResults().SD_B, 2.07, 1e-2);
 }
-*/
+
 #endif
