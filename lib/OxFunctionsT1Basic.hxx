@@ -18,6 +18,9 @@ namespace Ox {
         MeasureType B = parameters[1];
         MeasureType T1star = parameters[2];
 
+        if (fabs(T1star) < std::numeric_limits<MeasureType>::min())
+            return A;
+
         return A - B * exp( -time / T1star );
     }
 

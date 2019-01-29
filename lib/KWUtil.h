@@ -27,6 +27,7 @@
 #include <stdexcept>
 #include <sys/stat.h>
 #include <fstream>
+#include <limits>
 
 // MS stuff problems
 // https://stackoverflow.com/questions/26065359/m-pi-flagged-as-undeclared-identifier

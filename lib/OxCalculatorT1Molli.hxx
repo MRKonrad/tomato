@@ -103,10 +103,13 @@ namespace Ox {
             resultsStruc.LastValue = lastValue;
 
             MeasureType covarianceMatrix[3*3];
-            //calculateCovarianceMatrix(tempResults, covarianceMatrix);
-            //resultsStruc.SD_A = sqrt(covarianceMatrix[4]); //  (1,1)
-            //resultsStruc.SD_B = sqrt(covarianceMatrix[8]); //  (2,2)
-            //resultsStruc.SD_T1 = sqrt(covarianceMatrix[0]); // (0,0)
+            calculateCovarianceMatrix(tempResults, covarianceMatrix);
+            if (covarianceMatrix[4] > 0)
+                resultsStruc.SD_A = sqrt(covarianceMatrix[4]); //  (1,1)
+            if (covarianceMatrix[8] > 0)
+                resultsStruc.SD_B = sqrt(covarianceMatrix[8]); //  (2,2)
+            if (covarianceMatrix[0] > 0)
+                resultsStruc.SD_T1 = sqrt(covarianceMatrix[0]); // (0,0)
 
         }
 
@@ -175,38 +178,57 @@ namespace Ox {
         MeasureType A = parameters[0];
         MeasureType B = parameters[1];
         MeasureType T1star = parameters[2];
+        MeasureType tempInvCovarianceMatrix[3*3];
+
+        for (int i = 0; i < 3*3; ++i) {
+            invCovarianceMatrix[i] = 0;
+            tempInvCovarianceMatrix[i] = 0;
+        }
+
+        if (fabs(A) < std::numeric_limits<MeasureType>::min())
+            return 1; // EXIT_FAILURE
+        if (fabs(T1star) < std::numeric_limits<MeasureType>::min())
+            return 1; // EXIT_FAILURE
+
         MeasureType T1 = (B/A-1)*T1star;
 
         MeasureType dydA = 0;
         MeasureType dydB = 0;
         MeasureType dydT1 = 0;
 
-        for (int i = 0; i < 3*3; ++i) {
-            invCovarianceMatrix[i] = 0;
-        }
-
         for (int i = 0; i < nSamples; ++i){
             MeasureType invTime = invTimes[i];
-            MeasureType myexp = exp ( -invTime * ( B/A - 1) / T1);
+            MeasureType myexparg = ( -invTime * ( B/A - 1) / T1);
+            if ((myexparg > std::numeric_limits<MeasureType>::max_exponent)
+                || (myexparg < std::numeric_limits<MeasureType>::min_exponent))
+                return 1; //EXIT_FAILURE
+
+            MeasureType myexp = exp (myexparg);
             dydA  = 1 - B * myexp * invTime * B / ( T1 * A * A);
             dydB  = -myexp + B * myexp * invTime / ( T1 * A );
             dydT1 = -B * myexp * invTime * (B/A-1) / ( T1 * T1);
 
-            invCovarianceMatrix[0] += dydT1 * dydT1; // (0,0)
-            invCovarianceMatrix[1] += dydA  * dydT1; // (0,1)
-            invCovarianceMatrix[2] += dydB  * dydT1; // (0,2)
-            invCovarianceMatrix[3] += dydT1 * dydA;  // (1,0)
-            invCovarianceMatrix[4] += dydA  * dydA;  // (1,1)
-            invCovarianceMatrix[5] += dydB  * dydA;  // (1,2)
-            invCovarianceMatrix[6] += dydT1 * dydB;  // (2,0)
-            invCovarianceMatrix[7] += dydA  * dydB;  // (2,1)
-            invCovarianceMatrix[8] += dydB  * dydB;  // (2,2)
+            tempInvCovarianceMatrix[0] += dydT1 * dydT1; // (0,0)
+            tempInvCovarianceMatrix[1] += dydA  * dydT1; // (0,1)
+            tempInvCovarianceMatrix[2] += dydB  * dydT1; // (0,2)
+            tempInvCovarianceMatrix[3] += dydT1 * dydA;  // (1,0)
+            tempInvCovarianceMatrix[4] += dydA  * dydA;  // (1,1)
+            tempInvCovarianceMatrix[5] += dydB  * dydA;  // (1,2)
+            tempInvCovarianceMatrix[6] += dydT1 * dydB;  // (2,0)
+            tempInvCovarianceMatrix[7] += dydA  * dydB;  // (2,1)
+            tempInvCovarianceMatrix[8] += dydB  * dydB;  // (2,2)
         }
 
         MeasureType SD = KWUtil::calcStandardDeviationArray<MeasureType>(nSamples, residuals);
+        if (fabs(SD) < std::numeric_limits<MeasureType>::min())
+            return 1; //EXIT_FAILURE
 
         for (int i = 0; i < 3*3; ++i) {
-            invCovarianceMatrix[i] = invCovarianceMatrix[i] / (SD * SD);
+            tempInvCovarianceMatrix[i] = tempInvCovarianceMatrix[i] / (SD * SD);
+        }
+
+        for (int i = 0; i < 3*3; ++i) {
+            invCovarianceMatrix[i] = tempInvCovarianceMatrix[i];
         }
 
         return 0; // EXIT_SUCCESS
