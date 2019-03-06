@@ -1,15 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"hierarchy.html":[2,2],
-"index.html":[],
-"itk_calculator_t1_image_filter_8h.html":[3,0,1,0],
-"itk_calculator_t1_image_filter_8h_source.html":[3,0,1,0],
-"itk_calculator_t1_image_filter_8hxx.html":[3,0,1,1],
-"itk_calculator_t1_image_filter_8hxx_source.html":[3,0,1,1],
-"itk_colorbar2_d_image_filter_8h_source.html":[3,0,1,2],
-"itk_n_shmolli_samples_used_to123_image_filter_8h_source.html":[3,0,1,3],
-"itk_pipeline___calculator_shmolli__test_8cpp.html":[3,0,2,0],
-"itk_pipeline__test_8cpp.html":[3,0,2,1],
 "itk_read_directory_filter_8h_source.html":[3,0,1,4],
 "itk_read_file_list_filter_8h_source.html":[3,0,1,5],
 "itk_sort_inv_times_image_filter_8h_source.html":[3,0,1,6],

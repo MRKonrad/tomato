@@ -202,7 +202,7 @@ $(document).ready(function(){initNavTree('_tomato_options_8h_source.html','');})
 <div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="struct_ox_1_1_tomato_options.html#abd502ef8966b09c671e2b7a5b565ce38">  111</a></span>&#160;        <a class="code" href="struct_ox_1_1_tomato_options.html#abd502ef8966b09c671e2b7a5b565ce38">TomatoOptions</a>(std::string filePath) {</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <a class="code" href="struct_ox_1_1_tomato_options.html#a76497b53cadad720af7ff0f83b99096b">init</a>();</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <a class="code" href="class_ox_1_1_tomato_parser.html">Ox::TomatoParser&lt;MeasureType&gt;</a> parser;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            Ox::TomatoParser&lt;MeasureType&gt; parser;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            parser._filePath = filePath;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            parser._sequences[<span class="stringliteral">&quot;files_magnitude&quot;</span>];</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            parser._sequences[<span class="stringliteral">&quot;files_phase&quot;</span>];</div>
@@ -228,7 +228,7 @@ $(document).ready(function(){initNavTree('_tomato_options_8h_source.html','');})
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            parser._scalars[<span class="stringliteral">&quot;output_map_series_number&quot;</span>];</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            parser._scalars[<span class="stringliteral">&quot;output_fitparams_series_number&quot;</span>];</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            parser.<a class="code" href="class_ox_1_1_tomato_parser.html#a5dfc95e484d1e1212a8c508f0b89cb88">parse</a>();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            parser.parse();</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <span class="comment">// input</span></div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            files_magnitude = parser._sequences[<span class="stringliteral">&quot;files_magnitude&quot;</span>];</div>
@@ -425,7 +425,6 @@ $(document).ready(function(){initNavTree('_tomato_options_8h_source.html','');})
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="preprocessor">#endif //Tomato_TomatoOPTIONS_H</span></div>
 <div class="ttc" id="_ox_factory_of_sign_calculators_8h_html"><div class="ttname"><a href="_ox_factory_of_sign_calculators_8h.html">OxFactoryOfSignCalculators.h</a></div></div>
-<div class="ttc" id="class_ox_1_1_tomato_parser_html_a5dfc95e484d1e1212a8c508f0b89cb88"><div class="ttname"><a href="class_ox_1_1_tomato_parser.html#a5dfc95e484d1e1212a8c508f0b89cb88">Ox::TomatoParser::parse</a></div><div class="ttdeci">int parse()</div><div class="ttdef"><b>Definition:</b> TomatoParser.hxx:16</div></div>
 <div class="ttc" id="struct_ox_1_1_tomato_options_html_a974a7659d7eaefe712b1bb00cbd46a93"><div class="ttname"><a href="struct_ox_1_1_tomato_options.html#a974a7659d7eaefe712b1bb00cbd46a93">Ox::TomatoOptions::TomatoOptions</a></div><div class="ttdeci">TomatoOptions()</div><div class="ttdef"><b>Definition:</b> TomatoOptions.h:103</div></div>
 <div class="ttc" id="struct_ox_1_1_tomato_options_html_a76497b53cadad720af7ff0f83b99096b"><div class="ttname"><a href="struct_ox_1_1_tomato_options.html#a76497b53cadad720af7ff0f83b99096b">Ox::TomatoOptions::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> TomatoOptions.h:69</div></div>
 <div class="ttc" id="_ox_factory_of_start_point_calculators_8h_html"><div class="ttname"><a href="_ox_factory_of_start_point_calculators_8h.html">OxFactoryOfStartPointCalculators.h</a></div></div>
@@ -434,7 +433,6 @@ $(document).ready(function(){initNavTree('_tomato_options_8h_source.html','');})
 <div class="ttc" id="_tomato_parser_8h_html"><div class="ttname"><a href="_tomato_parser_8h.html">TomatoParser.h</a></div></div>
 <div class="ttc" id="_ox_factory_of_calculators_8h_html"><div class="ttname"><a href="_ox_factory_of_calculators_8h.html">OxFactoryOfCalculators.h</a></div></div>
 <div class="ttc" id="_ox_factory_of_functions_8h_html"><div class="ttname"><a href="_ox_factory_of_functions_8h.html">OxFactoryOfFunctions.h</a></div></div>
-<div class="ttc" id="class_ox_1_1_tomato_parser_html"><div class="ttname"><a href="class_ox_1_1_tomato_parser.html">Ox::TomatoParser</a></div><div class="ttdef"><b>Definition:</b> TomatoParser.h:21</div></div>
 <div class="ttc" id="_ox_factory_of_fitters_8h_html"><div class="ttname"><a href="_ox_factory_of_fitters_8h.html">OxFactoryOfFitters.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

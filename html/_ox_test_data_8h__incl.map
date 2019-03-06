@@ -1,6 +1,5 @@
 <map id="tests/OxTestData.h" name="tests/OxTestData.h">
-<area shape="rect" id="node2" href="$_tomato_parser_8h.html" title="TomatoParser.h" alt="" coords="583,80,697,107"/>
-<area shape="rect" id="node18" href="$_ox_test_data_8hxx.html" title="OxTestData.hxx" alt="" coords="790,80,908,107"/>
-<area shape="rect" id="node7" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="509,155,583,181"/>
-<area shape="rect" id="node17" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="641,229,729,256"/>
+<area shape="rect" id="node2" href="$_tomato_parser_8h.html" title="TomatoParser.h" alt="" coords="85,80,200,107"/>
+<area shape="rect" id="node8" href="$_ox_test_data_8hxx.html" title="OxTestData.hxx" alt="" coords="310,80,428,107"/>
+<area shape="rect" id="node6" href="$_cmake_config_for_tomato_8h_source.html" title="CmakeConfigForTomato.h" alt="" coords="237,155,413,181"/>
 </map>

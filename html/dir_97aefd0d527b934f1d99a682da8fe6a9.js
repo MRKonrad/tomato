@@ -9,9 +9,7 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "itkSortInvTimesImageFilter.h", "itk_sort_inv_times_image_filter_8h_source.html", null ],
     [ "KWUtil.h", "_k_w_util_8h_source.html", null ],
     [ "KWUtil.hxx", "_k_w_util_8hxx_source.html", null ],
-    [ "KWUtilYaml.h", "_k_w_util_yaml_8h.html", [
-      [ "KWUtilYaml", "class_k_w_util_yaml.html", null ]
-    ] ],
+    [ "KWUtilYaml.h", "_k_w_util_yaml_8h.html", null ],
     [ "OxCalculatorResults.h", "_ox_calculator_results_8h_source.html", null ],
     [ "OxCalculatorT1.h", "_ox_calculator_t1_8h_source.html", null ],
     [ "OxCalculatorT1.hxx", "_ox_calculator_t1_8hxx_source.html", null ],
@@ -54,8 +52,6 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "TomatoApi.h", "_tomato_api_8h.html", "_tomato_api_8h" ],
     [ "TomatoColormap.cpp", "_tomato_colormap_8cpp.html", null ],
     [ "TomatoColormap.h", "_tomato_colormap_8h.html", null ],
-    [ "TomatoParser.h", "_tomato_parser_8h.html", [
-      [ "TomatoParser", "class_ox_1_1_tomato_parser.html", "class_ox_1_1_tomato_parser" ]
-    ] ],
+    [ "TomatoParser.h", "_tomato_parser_8h.html", null ],
     [ "TomatoParser.hxx", "_tomato_parser_8hxx.html", null ]
 ];

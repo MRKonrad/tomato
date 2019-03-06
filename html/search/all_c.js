@@ -11,7 +11,6 @@ var searchData=
   ['tomatooptions',['TomatoOptions',['../struct_ox_1_1_tomato_options.html#a974a7659d7eaefe712b1bb00cbd46a93',1,'Ox::TomatoOptions::TomatoOptions()'],['../struct_ox_1_1_tomato_options.html#abd502ef8966b09c671e2b7a5b565ce38',1,'Ox::TomatoOptions::TomatoOptions(std::string filePath)']]],
   ['tomatooptions',['TomatoOptions',['../struct_ox_1_1_tomato_options.html',1,'Ox']]],
   ['tomatooptions_2eh',['TomatoOptions.h',['../_tomato_options_8h.html',1,'']]],
-  ['tomatoparser',['TomatoParser',['../class_ox_1_1_tomato_parser.html',1,'Ox']]],
   ['tomatoparser_2eh',['TomatoParser.h',['../_tomato_parser_8h.html',1,'']]],
   ['tomatoparser_2ehxx',['TomatoParser.hxx',['../_tomato_parser_8hxx.html',1,'']]],
   ['tomatoparser_5ftest_2ecpp',['TomatoParser_test.cpp',['../_tomato_parser__test_8cpp.html',1,'']]]

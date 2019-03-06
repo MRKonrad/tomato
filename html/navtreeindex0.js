@@ -146,7 +146,6 @@ var NAVTREEINDEX0 =
 "_tomato_parser__test_8cpp.html#a8ea1a56817272728bd597c73b09fac22":[3,0,2,25,0],
 "annotated.html":[2,0],
 "class_k_w_util.html":[2,0,2],
-"class_k_w_util_yaml.html":[2,0,3],
 "class_ox_1_1_calculator_t1.html":[2,0,1,7],
 "class_ox_1_1_calculator_t1.html#a08da2ecf1ea83b83854fbe09a03de839":[2,0,1,7,27],
 "class_ox_1_1_calculator_t1.html#a091c2674b79e1c0374637eff90e2becb":[2,0,1,7,37],
@@ -249,5 +248,6 @@ var NAVTREEINDEX0 =
 "class_ox_1_1_fitter.html#afeba16a2218db1f3fc646e2dde75f386":[2,0,1,9,12],
 "class_ox_1_1_functions_t1.html":[2,0,1,10],
 "class_ox_1_1_functions_t1.html#a01df2dd1eb054540eaccfb1dca01c7ce":[2,0,1,10,3],
-"class_ox_1_1_functions_t1.html#a142aaed9ff99a0dd08460d2581150e9c":[2,0,1,10,13]
+"class_ox_1_1_functions_t1.html#a142aaed9ff99a0dd08460d2581150e9c":[2,0,1,10,13],
+"class_ox_1_1_functions_t1.html#a19216f0d9ae8ba2d7cd55df81d370521":[2,0,1,10,5]
 };

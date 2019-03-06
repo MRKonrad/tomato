@@ -24,10 +24,8 @@ var annotated =
       [ "SignCalculatorRealImag", "class_ox_1_1_sign_calculator_real_imag.html", "class_ox_1_1_sign_calculator_real_imag" ],
       [ "StartPointCalculator", "class_ox_1_1_start_point_calculator.html", "class_ox_1_1_start_point_calculator" ],
       [ "StartPointCalculatorDefault3Dims", "class_ox_1_1_start_point_calculator_default3_dims.html", "class_ox_1_1_start_point_calculator_default3_dims" ],
-      [ "TomatoParser", "class_ox_1_1_tomato_parser.html", "class_ox_1_1_tomato_parser" ],
       [ "TestData", "class_ox_1_1_test_data.html", "class_ox_1_1_test_data" ],
       [ "TestImage", "class_ox_1_1_test_image.html", "class_ox_1_1_test_image" ]
     ] ],
-    [ "KWUtil", "class_k_w_util.html", null ],
-    [ "KWUtilYaml", "class_k_w_util_yaml.html", null ]
+    [ "KWUtil", "class_k_w_util.html", null ]
 ];
