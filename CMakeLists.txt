@@ -1,6 +1,6 @@
-##################
+##############
 ### Tomato ###
-##################
+##############
 
 cmake_minimum_required (VERSION 2.8)
 
@@ -42,10 +42,8 @@ endif()
 ### YAML ###
 ############
 
-set (BUILD_TESTING OFF CACHE INTERNAL "" FORCE)
-add_subdirectory (thirdParty/libyaml)
-include_directories (${yaml_BINARY_DIR}/include ${yaml_SOURCE_DIR}/include) # for windows
-set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} yaml)
+set(USE_YAML ON CACHE BOOL "Do you want to use Numerical Recipes 2 code?")
+include(cmake/libyaml.cmake)
 
 ###############
 ### Fitting ###
@@ -115,6 +113,13 @@ endif(USE_VTK)
 ### MAIN PROGRAM ###
 ####################
 
+set(BUILD_APP OFF)
+if(USE_ITK)
+    if(USE_YAML)
+        set(BUILD_APP ON)
+    endif(USE_YAML)
+endif(USE_ITK)            
+
 MESSAGE("CXX_STANDARD_98:   " ${CXX_STANDARD_98})
 MESSAGE("USE_ITK:           " ${USE_ITK})
 MESSAGE("USE_VTK:           " ${USE_VTK})
@@ -122,29 +127,29 @@ MESSAGE("USE_VNL:           " ${USE_VNL})
 MESSAGE("USE_PRIVATE_NR2:   " ${USE_PRIVATE_NR2})
 MESSAGE("USE_NR2:           " ${USE_NR2})
 MESSAGE("USE_NR3:           " ${USE_NR3})
+MESSAGE("USE_YAML:          " ${USE_YAML})
 MESSAGE("BUILD_SHARED_LIBS: " ${BUILD_SHARED_LIBS})
+MESSAGE("BUILD_APP:         " ${BUILD_APP})
 
 # configure a header file to pass some of the CMake settings to the source code
 configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForTomato.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
 set (LIB_FILES ${LIB_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
 set (API_FILES ${API_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
 
-if(USE_ITK)
+if(BUILD_APP)
     include_directories (app)
-endif(USE_ITK)
+endif(BUILD_APP)
 include_directories (lib)
 include_directories ("${PROJECT_BINARY_DIR}") # for the configuration header
 
 # targets
-if(USE_ITK)
+if(BUILD_APP)
     add_library (TomatoLib ${APP_FILES} ${LIB_FILES})
     add_executable (TomatoExe ${APP_FILES} ${LIB_FILES})
     set_target_properties(TomatoExe PROPERTIES COMPILE_FLAGS -DTomatoLib_EXPORTS) # to see hxx content
-else(USE_ITK)
+else(BUILD_APP)
     add_library (TomatoLib ${LIB_FILES})
-endif(USE_ITK)
-
-
+endif(BUILD_APP)
 
 # generating TomatoLib_export.h
 include(GenerateExportHeader)
@@ -157,9 +162,10 @@ set(API_FILES ${API_FILES} ${PROJECT_BINARY_DIR}/tomatolib_export.h) # to make t
 
 target_link_libraries (TomatoLib PUBLIC ${TOMATO_LIBS_TO_LINK})
 set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} TomatoLib)
-if(USE_ITK)
+if(BUILD_APP)
     target_link_libraries (TomatoExe PUBLIC ${TOMATO_LIBS_TO_LINK})
-endif(USE_ITK)
+endif(BUILD_APP)
+
 
 ##################
 ### Installing ###
@@ -169,16 +175,18 @@ endif(USE_ITK)
 
 install (TARGETS TomatoLib DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
 install (FILES ${API_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
-if(USE_ITK)
+if(BUILD_APP)
     install (TARGETS TomatoExe DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
-endif(USE_ITK)
+endif(BUILD_APP)
 
 ###############
 ### TESTING ###
 ###############
 
 set(Tomato_BUILD_TESTING ON CACHE BOOL "Do you want to build Tomato tests?")
-add_subdirectory (tests)
+if(USE_YAML)
+    add_subdirectory (tests)
+endif(USE_YAML)
 
 #############################
 ### DISPLAY ALL VARIABLES ###

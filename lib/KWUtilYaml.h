@@ -8,6 +8,11 @@
 #ifndef KWUTILYAML_H
 #define KWUTILYAML_H
 
+#include "CmakeConfigForTomato.h"
+#ifdef USE_YAML
+
+#include "yaml.h"
+
 //#define YAML_BUFFER_SIZE 65536
 
 class KWUtilYaml {
@@ -76,5 +81,7 @@ public:
 };
 
 //#undef YAML_BUFFER_SIZE
+
+#endif //USE_YAML
 
 #endif //KWUTILYAML_H

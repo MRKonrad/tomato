@@ -11,6 +11,9 @@
 #include <string>
 #include <vector>
 
+#include "CmakeConfigForTomato.h"
+#ifdef USE_YAML
+
 #include "yaml.h"
 
 #include "KWUtil.h"
@@ -46,5 +49,7 @@ namespace Ox {
 #ifdef TomatoLib_EXPORTS
 #include "TomatoParser.hxx"
 #endif //TomatoLib_EXPORTS
+
+#endif //USE_YAML
 
 #endif //Tomato_TomatoPARSER_H

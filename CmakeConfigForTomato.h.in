@@ -9,4 +9,6 @@
 #cmakedefine USE_PRIVATE_NR2
 #cmakedefine USE_NR2
 #cmakedefine USE_NR3
+#cmakedefine USE_YAML
+
 
