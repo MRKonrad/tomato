@@ -67,7 +67,7 @@ after_build:
 test_script:
   # TODO: should I add sth like this? https://github.com/mgerhardy/caveexpress/blob/master/appveyor.yml
   # - bin\tests\%CONFIGURATION%\TomatoTests.exe
-  - cd tests
+  - cd tests\%CONFIGURATION%
   - TomatoTests.exe
   - cd ..\..
 

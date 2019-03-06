@@ -15,7 +15,11 @@ namespace  itk {
     SortInvTimesImageFilter<TImageIn, TImageOut>
     ::GenerateData() {
 
-        int nSamples = m_InvTimesNonSorted.size();
+        size_t nSamples = m_InvTimesNonSorted.size();
+
+        if (nSamples < 1){
+            throw std::runtime_error("Trying to sort based on empty InvTimes vector");
+        }
 
         // initialize values
         m_InvTimesSorted.set_size(nSamples);

@@ -65,26 +65,31 @@ namespace Ox {
             throw std::runtime_error("\nNo magnitude images read, check the paths!");
         }
 
+        // is phase empty?
+        if (readerPha->GetInvTimes().size() == 0) {
+            if (_opts->sign_calc_method != NoSign){
+                std::cerr << "\nNo phase images read, setting the sign_calc_method to NoSign" << std::endl;
+                _opts->sign_calc_method = NoSign;
+            }
+        }
+
         typename SortInvTimesImageFilterType::Pointer sorterMag = SortInvTimesImageFilterType::New();
         sorterMag->SetInvTimesNonSorted(readerMag->GetInvTimes());
         sorterMag->SetInput(readerMag->GetOutput());
         sorterMag->Update();
 
         typename SortInvTimesImageFilterType::Pointer sorterPha = SortInvTimesImageFilterType::New();
-        sorterPha->SetInvTimesNonSorted(readerPha->GetInvTimes());
-        sorterPha->SetInput(readerPha->GetOutput());
-        sorterPha->Update();
-
-        // is phase empty?
-        if (sorterPha->GetInvTimesSorted().size() == 0) {
-            if (_opts->sign_calc_method != NoSign){
-                std::cerr << "\nNo phase images read, setting the sign_calc_method to NoSign" << std::endl;
-                _opts->sign_calc_method = NoSign;
-            }
+        if (_opts->sign_calc_method != NoSign) {
+            sorterPha->SetInvTimesNonSorted(readerPha->GetInvTimes());
+            sorterPha->SetInput(readerPha->GetOutput());
+            sorterPha->Update();
         }
-        // are the inversion times in magnitude and phase series equal?
-        else if (sorterMag->GetInvTimesSorted() != sorterPha->GetInvTimesSorted()){
-            throw std::runtime_error("\nMag and Pha inv times are not equal");
+
+        if (_opts->sign_calc_method != NoSign) {
+            // are the inversion times in magnitude and phase series equal?
+            if (sorterMag->GetInvTimesSorted() != sorterPha->GetInvTimesSorted()) {
+                throw std::runtime_error("\nMag and Pha inv times are not equal");
+            }
         }
 
         vnl_vector<InputPixelType > temp = sorterMag->GetInvTimesSorted();

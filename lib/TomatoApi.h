@@ -35,7 +35,7 @@
 #include "OxFunctionsT1.h"
 #include "OxFunctionsT1Basic.h"
 #ifdef USE_PRIVATE_NR2
-#include "OxFunctionsT1CalculatorShmolli.h"
+#include "OxFunctionsT1Shmolli.h"
 #endif //USE_PRIVATE_NR2
 
 // sign calculators
@@ -74,7 +74,7 @@ namespace Ox {
     template class TOMATOLIB_EXPORT FunctionsT1<double>;
     template class TOMATOLIB_EXPORT FunctionsT1Basic<double>;
     #ifdef USE_PRIVATE_NR2
-        template class TOMATOLIB_EXPORT FunctionsT1CalculatorShmolli<double>;
+        template class TOMATOLIB_EXPORT FunctionsT1Shmolli<double>;
     #endif //USE_PRIVATE_NR2
 
     // sign calculators

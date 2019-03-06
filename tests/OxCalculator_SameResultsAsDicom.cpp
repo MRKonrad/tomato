@@ -55,7 +55,7 @@ TEST(OxCalculator_SameResultsAsDicom, calculate) {
     originalShmolliDicomReader.copyFromImage(sigPha, originalShmolliDicomReader._imagePha, index3d);
 
     // init the necessary objects
-    Ox::FunctionsT1CalculatorShmolli<TYPE> functionsObject;
+    Ox::FunctionsT1Shmolli<TYPE> functionsObject;
     Ox::FitterAmoebaPrivateNr2<TYPE> fitter;
     Ox::SignCalculatorShmolli<TYPE> signCalculator;
     Ox::StartPointCalculatorShmolli<TYPE> startPointCalculator;

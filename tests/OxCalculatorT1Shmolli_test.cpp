@@ -18,7 +18,7 @@
 
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1Shmolli.h"
-#include "OxFunctionsT1CalculatorShmolli.h"
+#include "OxFunctionsT1Shmolli.h"
 #include "OxFitterAmoebaPrivateNr2.h"
 #include "OxSignCalculatorShmolli.h"
 #include "OxStartPointCalculatorShmolli.h"
@@ -43,7 +43,7 @@ TEST(OxCalculatorT1Shmolli, calculate_ICE) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1CalculatorShmolli<TYPE> functionsObject;
+    Ox::FunctionsT1Shmolli<TYPE> functionsObject;
     Ox::FitterAmoebaPrivateNr2<TYPE> fitter;
     Ox::SignCalculatorShmolli<TYPE> signCalculator;
     Ox::StartPointCalculatorShmolli<TYPE> startPointCalculator;

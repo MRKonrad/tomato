@@ -11,7 +11,7 @@
 
 #include "OxFunctionsT1Basic.h"
 #ifdef USE_PRIVATE_NR2
-#include "OxFunctionsT1CalculatorShmolli.h"
+#include "OxFunctionsT1Shmolli.h"
 #endif
 
 namespace Ox {
@@ -52,7 +52,7 @@ namespace Ox {
                 }
 #ifdef USE_PRIVATE_NR2
                 case FunctionsShmolli: {
-                    return new FunctionsT1CalculatorShmolli<TYPE>();
+                    return new FunctionsT1Shmolli<TYPE>();
                 }
 #endif
                 default:
