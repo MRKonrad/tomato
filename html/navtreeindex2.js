@@ -1,6 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"globals_func.html":[3,1,1],
 "hierarchy.html":[2,2],
 "index.html":[],
 "itk_calculator_t1_image_filter_8h.html":[3,0,1,0],
