@@ -56,9 +56,9 @@ Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes b
 * output SNR maps
 * make sure SNR and nAmoebaCalls is the same as in Shmolli
 
-[travis_badge]: https://img.shields.io/travis/MRKonrad/tomato.svg?style=flat-square
+[travis_badge]: https://img.shields.io/travis/MRKonrad/tomato/master.svg?style=flat-square
 [travis_link]: https://travis-ci.org/MRKonrad/tomato
-[appveyor_badge]: https://img.shields.io/appveyor/ci/MRKonrad/tomato.svg?style=flat-square
+[appveyor_badge]: https://img.shields.io/appveyor/ci/MRKonrad/tomato/master.svg?style=flat-square
 [appveyor_link]: https://ci.appveyor.com/project/MRKonrad/tomato
 [codecov_badge]: https://img.shields.io/codecov/c/github/MRKonrad/tomato.svg?style=flat-square
 [codecov_link]: https://codecov.io/gh/MRKonrad/tomato
