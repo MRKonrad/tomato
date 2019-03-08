@@ -64,9 +64,7 @@ install:
   - cd ${TRAVIS_BUILD_DIR};
   # download tomato_private
   - cd ..;
-  - ls
   - git clone https://MRKonrad:${GH_PERSONAL_ACCESS_TOKEN}@github.com/MRKonrad/tomato_private
-  - ls
   - cd ${TRAVIS_BUILD_DIR};
 
   # download ITK
@@ -85,7 +83,7 @@ install:
 
 script:
   # configure and generate
-  - cmake . -DCMAKE_INSTALL_PREFIX=install -DUSE_NR2=OFF -DUSE_NR3=OFF -DUSE_PRIVATE_NR2=OFF -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DUSE_ITK=${USE_ITK}
+  - cmake . -DCMAKE_INSTALL_PREFIX=install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DUSE_ITK=${USE_ITK}
 
   # add coverage option (only in linux g++)
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
@@ -106,7 +104,8 @@ after_success:
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
       cd $TRAVIS_BUILD_DIR ;
       eval "lcov --no-external --directory . --capture --output-file coverage.info" ;
-      eval "lcov --remove coverage.info 'thirdParty/*' 'tests/*' -o coverage.info" ;
+      eval "lcov --remove coverage.info 'thirdParty/*' -o coverage.info" ;
+      eval "lcov --remove coverage.info 'tests/*' -o coverage.info" ;
       eval "lcov --list coverage.info" ;
       bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports" ;
     fi

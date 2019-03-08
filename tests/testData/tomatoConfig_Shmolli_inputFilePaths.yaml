@@ -44,9 +44,9 @@ files_phase:
   - "testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_13/IM-0002-0007.dcm"
 
 dir_output_map: "testData/tomatoOutput_Shmolli/map"
-output_map_series_number: 9998
+output_map_series_number: 8802
 dir_output_fitparams: "testData/tomatoOutput_Shmolli/fitparams"
-output_fitparams_series_number: 9999
+output_fitparams_series_number: 8803
 
 parameter_to_map: T1_SHMOLLI
 functions_type: FunctionsShmolli

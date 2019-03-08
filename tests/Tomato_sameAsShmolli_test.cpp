@@ -38,7 +38,7 @@ protected:
     // Can be omitted if not needed.
     static void SetUpTestCase() {
 
-        std::string configFilePath = "testData/Hcmr_Phantom_1916_Shmolli_192i_e11___Shmolli_config___fileList.yaml";
+        std::string configFilePath = "testData/tomatoConfig_Shmolli_inputFilePaths.yaml";
 
         _tomato_object = new Ox::Tomato<double>(configFilePath);
 
