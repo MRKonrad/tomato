@@ -25,16 +25,9 @@ if(Tomato_BUILD_TESTING)
     add_test(NAME ctest_tests COMMAND TomatoTests)
 
     file(COPY testData DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-    file(GLOB_RECURSE TESTDATA ${PROJECT_SOURCE_DIR}/tests/testData/*.*)
-
-    set(testDataDir ${CMAKE_BINARY_DIR}/tests/testData/)
-    if(WIN32)
-        set(testDataDir ${CMAKE_BINARY_DIR}/tests/${CMAKE_BUILD_TYPE}/testData/)
-    endif(WIN32)
 
     install(TARGETS TomatoTests DESTINATION ${CMAKE_INSTALL_PREFIX}/tests)
-    # install (FILES ${TESTDATA} DESTINATION ${CMAKE_INSTALL_PREFIX}/tests/testData/)
-    install(DIRECTORY ${testDataDir} DESTINATION ${CMAKE_INSTALL_PREFIX}/tests/testData)
+    install(DIRECTORY ${CMAKE_BINARY_DIR}/tests/testData DESTINATION ${CMAKE_INSTALL_PREFIX}/tests/testData)
 
     ########################
     ### TESTING COVERAGE ###
