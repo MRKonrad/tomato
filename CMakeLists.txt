@@ -8,7 +8,7 @@ project (Tomato)
 
 # The version number.
 set (Tomato_VERSION_MAJOR 0)
-set (Tomato_VERSION_MINOR 2)
+set (Tomato_VERSION_MINOR 3)
 
 # Compiler flags
 set (CMAKE_CXX_STANDARD 98 CACHE STRING "")

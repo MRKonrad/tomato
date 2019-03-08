@@ -49,12 +49,13 @@ before_build:
 
 build:
   project: bin\Tomato.sln  # path to Visual Studio solution or project
-  parallel: true               # enable MSBuild parallel builds
-  verbosity: normal            # MSBuild verbosity level {quiet|minimal|normal|detailed}
+  parallel: true           # enable MSBuild parallel builds
+  verbosity: normal        # MSBuild verbosity level {quiet|minimal|normal|detailed}
 
 after_build:
   # install the files
   - cd bin
+  - dir
   - cmake --build . --config %CONFIGURATION% --target INSTALL
   - cd ..
   - mkdir deployment
