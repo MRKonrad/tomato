@@ -44,7 +44,7 @@ before_build:
   - cd Tomato
   - cd
   - dir
-  - cmake . -Bbin -A%PLATFORM% -DCMAKE_BUILD_TYPE=%CONFIGURATION% -DUSE_NR2=OFF -DUSE_NR3=OFF -DUSE_PRIVATE_NR2=OFF -DCMAKE_INSTALL_PREFIX=install
+  - cmake . -Bbin -A%PLATFORM% -DCMAKE_BUILD_TYPE=%CONFIGURATION% -DCMAKE_INSTALL_PREFIX=install
   - cd
 
 build:
@@ -69,7 +69,6 @@ after_build:
 
 test_script:
   # TODO: should I add sth like this? https://github.com/mgerhardy/caveexpress/blob/master/appveyor.yml
-  # - bin\tests\%CONFIGURATION%\TomatoTests.exe
   - cd install\tests\
   - TomatoTests.exe
   - cd ..\..
