@@ -197,7 +197,7 @@ TEST(OxImageCalculatorT1, calculate_shmolli_no_multithread) {
 
 #ifndef CXX_STANDARD_98
 #ifdef USE_VNL
-TEST(OxImageCalculatorT1, calculate_molli_multithread) {
+TEST(OxImageCalculatorT1, calculate_molli_multithread_Vnl) {
 
     typedef double TYPE;
 
@@ -257,7 +257,7 @@ TEST(OxImageCalculatorT1, calculate_molli_multithread) {
 
 #ifndef CXX_STANDARD_98
 #ifdef USE_PRIVATE_NR2
-TEST(OxImageCalculatorT1, calculate_molli_multithread) {
+TEST(OxImageCalculatorT1, calculate_molli_multithread_nr2) {
 
     typedef double TYPE;
 
