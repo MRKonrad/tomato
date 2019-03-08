@@ -65,7 +65,7 @@ install:
   # download tomato_private
   - cd ..;
   - ls
-  - git clone https://MRKonrad:${GH_REPO_TOKEN}@github.com/MRKonrad/tomato_private
+  - git clone https://MRKonrad:${GH_PERSONAL_ACCESS_TOKEN}@github.com/MRKonrad/tomato_private
   - ls
   - cd ${TRAVIS_BUILD_DIR};
 
