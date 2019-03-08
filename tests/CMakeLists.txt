@@ -29,7 +29,7 @@ if(Tomato_BUILD_TESTING)
 
     set(testDataDir ${CMAKE_BINARY_DIR}/tests/testData/)
     if(WIN32)
-        set(testDataDir ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}/tests/testData/)
+        set(testDataDir ${CMAKE_BINARY_DIR}/tests/${CMAKE_BUILD_TYPE}/testData/)
     endif(WIN32)
 
     install(TARGETS TomatoTests DESTINATION ${CMAKE_INSTALL_PREFIX}/tests)
