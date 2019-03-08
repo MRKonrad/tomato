@@ -29,6 +29,9 @@ configuration:
   - Release
 
 before_build:
+  - cd ..
+  - git clone https://MRKonrad:%GH_PERSONAL_ACCESS_TOKEN%@github.com/MRKonrad/tomato_private
+  - cd Tomato
   - dir
   - cd
   - cd ..
@@ -79,7 +82,7 @@ deploy:
   description: 'Release description'
   provider: GitHub
   auth_token:
-    secure: Nmbbo4JCoK5AuN1ugWmE/c8/BAXlpz8Lb7piWDcAAWnT/GFa7fwL20GbXyU9AZSn
+    secure: %GH_PERSONAL_ACCESS_TOKEN%
   draft: false
   prerelease: false
   force_update: true

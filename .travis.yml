@@ -31,7 +31,7 @@ env:
     - USE_ITK: "OFF"
     - EXTENDED_BUILD: "OFF"
     - DEPLOY_BUILD: "OFF"
-    - secure: 4wedfy5OEFLLO3/29WFF8fFE8jOqXDIb8Kc4VOBw2Yrr599NFDpDBgy9dzGtDzvvpkt/hbSh5lSSPB8KzN6+zX8JTJg2LNPmVEfpZILiTOpOKnydLHWWuznMSrtEic1DDGTp30sJXk3JWBKpmAsDMAssM35lwLNIR9BjpKOadACt5FTOvwXneCnbVr8iJ4F38EIInKQYwVhntBiCvcl+YrrLW6zSbJruEBGX1SpRRgQp8DcT9z4fOob0bIl27VFQcenHx694uzv/qIkU7pgfqV9CB3OTNjwsrgM/tY6O903PtXUpE/LA9ZCDj8NdTdOJa5OBBgsUGKu3vcc9qL5oLUKGqpMHInPpIBLDzuGaypMC2Fl675DAxe11EVGgX4ZtQAphdUw0PnFGCr5f8PafaFuKXKq0TpAn9ZO8QH3L5OrRbpLG2QDHcjYnhzyoaCNtNcQS0syPO51auzFdDRKNsq7Yvjph0uYLSlrgK2ZH2HJWeYgmgVKn79KYRmNEHTnHj+RHSnLP4b20SmQM2gOQ6v/+WMlShjgn5uul9k3s76baBrGsNgyHH95/2KG8NiSHVhwQzerY+tCn5aoRrVu+BbNT2IzdHoncf7JvE6CliQpMH/tW4EBrg0ceyvzemzVd7blbIWRRWkYrE6sqFvMOzSx6R8Jd059rEFu6JtEGGgQ=
+    - secure: ${GH_PERSONAL_ACCESS_TOKEN}
 
 addons:
   apt:
@@ -123,7 +123,8 @@ before_deploy:
   # copy the data
   - cd install/tests/testData
   - zip -r testData.zip dicom
-  - zip -r testData.zip Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml
+  - zip -r testData.zip tomatoConfig_Shmolli_inputDirPaths.yaml
+  - zip -r testData.zip tomatoConfig_Shmolli_inputFilePaths.yaml
   - cp testData.zip ${TRAVIS_BUILD_DIR}/deployment/testData.zip
   - cd $TRAVIS_BUILD_DIR
   # copy the executable
@@ -138,7 +139,7 @@ before_deploy:
 deploy:
   provider: releases # GitHub
   api_key:
-    secure: G/JizU88P0TprUP5Xuyi00RHTHz9XbKDiB7D4jVfpFBr0OH+G/ofBlbgmbzYc5u4bnJD+yMQHIGpeeKqnykWg0s1ZwWy2BqCRk0AEBXwHGS8IEzcH025moEep9XOufLIzu8LB25+goWoiWNzJKdwZ4k7vgCRwbCcI186hEcoonkwUGkIILCgrO9XGI09aEmchCs1WAK3hu17oJCo2QYF9kmYzBp8j/hwR0GlcmynOiZHWpHJNywSxzPlPaAJQf1OrOn5VvQq62+rdSjpPRDn9CZuwyp3sOggqiw33sXFXBvYT2B4a7ULyqXo3poSJpfB12cWMNOZt2OrFQb0LAJ1VXY6pS8Z7XZ4/kCyVm1zJ0z60MnY+P9RTmN4cwQY6Jul1H/Rw4rRi7F1GzDFBV54reTN14BQqBdCaW7ZbW4a33niQGpNeNk57/tZLEBrOyR2r3NlZm0CEK/c4oer4Q+aQPcd5d8B0SpvDIrhFzlbBEsT5snJbrA6WNMrS2Xp5NMm/P80CvLoNBMGbNBXQwpav0K7KKAqgXnH7zZQm8k4ZWsk888laOag3kDMiYXJ7MMrmWZBQ7HN43Cq4ZdUAaNKUvNMQblEchTR58EZ0Td9poFRt2bT9cigXWpgv+0NnUtU6MTthDkRliWKXAaTWlY5HQTHjuuKBUkGTr1O61znnhY=
+    secure: ${GH_PERSONAL_ACCESS_TOKEN}
   file_glob: ON # to use wildcards
   file: deployment/*
   skip_cleanup: ON
