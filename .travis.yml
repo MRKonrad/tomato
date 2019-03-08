@@ -61,7 +61,14 @@ install:
       sudo pip install codecov;
     fi
 
-  - cd ${TRAVIS_BUILD_DIR}
+  - cd ${TRAVIS_BUILD_DIR};
+  # download tomato_private
+  - cd ..;
+  - ls
+  - git clone https://MRKonrad:${GH_REPO_TOKEN}@github.com/MRKonrad/tomato_private
+  - ls
+  - cd ${TRAVIS_BUILD_DIR};
+
   # download ITK
   - cd ..;
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
