@@ -29,6 +29,5 @@ var dir_59425e443f801f1f2fd8bbe4959a3ccf =
     [ "OxTestItkImagesFactory.h", "_ox_test_itk_images_factory_8h_source.html", null ],
     [ "OxTestItkImagesFactory.hxx", "_ox_test_itk_images_factory_8hxx_source.html", null ],
     [ "Tomato_sameAsShmolli_test.cpp", "_tomato__same_as_shmolli__test_8cpp.html", null ],
-    [ "Tomato_test.cpp", "_tomato__test_8cpp.html", null ],
     [ "TomatoParser_test.cpp", "_tomato_parser__test_8cpp.html", "_tomato_parser__test_8cpp" ]
 ];
