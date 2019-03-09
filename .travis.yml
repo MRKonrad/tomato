@@ -129,7 +129,7 @@ before_deploy:
   - mkdir deployment
 
   # copy the test data
-  - cp ${TRAVIS_BUILD_DIR}/tests/testData.zip ${TRAVIS_BUILD_DIR}/deployment/testData.zip
+  - cp ${TRAVIS_BUILD_DIR}/tests/testData/testData.zip ${TRAVIS_BUILD_DIR}/deployment/testData.zip
 
   # copy the executable
   - cd $TRAVIS_BUILD_DIR
