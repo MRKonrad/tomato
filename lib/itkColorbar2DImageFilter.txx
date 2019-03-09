@@ -1,6 +1,6 @@
 //
 //  itkColorbar2DImageFilter
-//  OxShmolliLib
+//  TomatoLib
 //
 //  Created by Konrad Werys on 13/7/17.
 //  Copyright © 2017 Konrad Werys. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  NShmolliSamplesUsedTo123ImageFilter
-//  OxShmolliLib
+//  TomatoLib
 //
 //  Created by Konrad Werys on 24/11/17.
 //  Copyright © 2017 Konrad Werys. All rights reserved.

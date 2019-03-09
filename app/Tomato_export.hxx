@@ -74,13 +74,13 @@ namespace Ox {
         itk::ExposeMetaData<std::string>(_dictionaryInput, "0018|0087", MagneticFieldStrength);
         std::string ImageCommentsT1mapWithColormap, clutRedString, clutGreenString, clutBlueString;
         if (MagneticFieldStrength.find("1.5") != std::string::npos){
-            ImageCommentsT1mapWithColormap = ImageCommentsT1mapWithColormap.append("OxShMOLLI color 980SD265ms");
+            ImageCommentsT1mapWithColormap = ImageCommentsT1mapWithColormap.append("ShMOLLI color 980SD265ms");
             clutRedString = getEncodedSting(getShmolliColormapRed15TArray());
             clutGreenString = getEncodedSting(getShmolliColormapGreen15TArray());
             clutBlueString = getEncodedSting(getShmolliColormapBlue15TArray());
             printf("Colormap for MagneticFieldStrength 1.5T is used.\n");
         } else if (MagneticFieldStrength.find("3") != std::string::npos){
-            ImageCommentsT1mapWithColormap = ImageCommentsT1mapWithColormap.append("OxShMOLLI color 1198SD175ms");
+            ImageCommentsT1mapWithColormap = ImageCommentsT1mapWithColormap.append("ShMOLLI color 1198SD175ms");
             clutRedString = getEncodedSting(getShmolliColormapRed3TArray());
             clutGreenString = getEncodedSting(getShmolliColormapGreen3TArray());
             clutBlueString = getEncodedSting(getShmolliColormapBlue3TArray());
@@ -127,7 +127,7 @@ namespace Ox {
 
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_T1, std::string("0020|0011"), newSeriesNumber_T1); // series number
 
-        itk::EncapsulateMetaData<std::string>( dictionaryOutput_T1, std::string("0020|4000"), std::string("OxShMOLLI T1 map")); // series number
+        itk::EncapsulateMetaData<std::string>( dictionaryOutput_T1, std::string("0020|4000"), std::string("ShMOLLI T1 map")); // series number
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_T1, std::string("0020|0013"), std::string("2")); // instance number
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_T1, std::string("0028|0106"), std::string("0")); // smallest pixel
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_T1, std::string("0028|0107"), std::string("4096")); // largest pixel

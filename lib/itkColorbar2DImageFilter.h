@@ -1,13 +1,13 @@
 //
 //  itkColorbar2DImageFilter
-//  OxShmolliLib
+//  TomatoLib
 //
 //  Created by Konrad Werys on 13/7/17.
 //  Copyright © 2017 Konrad Werys. All rights reserved.
 //
 
-#ifndef OXSHMOLLILIB_ITKColorbar2DImageFilter_H
-#define OXSHMOLLILIB_ITKColorbar2DImageFilter_H
+#ifndef TomatoLIB_ITKColorbar2DImageFilter_H
+#define TomatoLIB_ITKColorbar2DImageFilter_H
 
 #include "itkImageToImageFilter.h"
 #include "itkImageRegionIteratorWithIndex.h"
@@ -67,4 +67,4 @@ namespace itk {
 #endif //ITK_MANUAL_INSTANTIATION
 #endif //TomatoLib_EXPORTS
 
-#endif //OXSHMOLLILIB_ITKColorbar2DImageFilter_H
+#endif //TomatoLIB_ITKColorbar2DImageFilter_H

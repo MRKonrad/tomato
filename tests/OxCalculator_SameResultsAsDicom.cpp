@@ -1,5 +1,5 @@
 /*!
- * \file OxShmolli_test.cpp
+ * \file OxCalculator_SameResultsAsDicom_test.cpp
  * \author Konrad Werys
  * \date 2018/08/20
  */

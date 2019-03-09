@@ -1,13 +1,13 @@
 //
 //  ReadFileListFilter
-//  OxShmolliLib
+//  TomatoLib
 //
 //  Created by Konrad Werys on 19/08/17.
 //  Copyright © 2017 Konrad Werys. All rights reserved.
 //
 
-#ifndef OXSHMOLLILIB_ITKREADFILELISTFILTER_H
-#define OXSHMOLLILIB_ITKREADFILELISTFILTER_H
+#ifndef TomatoLIB_ITKREADFILELISTFILTER_H
+#define TomatoLIB_ITKREADFILELISTFILTER_H
 
 #include <iostream>
 #include "itkImageSource.h"
@@ -395,4 +395,4 @@ namespace itk {
 
 }
 
-#endif //OXSHMOLLILIB_ITKREADFILELISTFILTER_H
+#endif //TomatoLIB_ITKREADFILELISTFILTER_H

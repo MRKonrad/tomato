@@ -1,13 +1,13 @@
 //
 //  ReadDirectoryFilter
-//  OxShmolliLib
+//  TomatoLib
 //
 //  Created by Konrad Werys on 27/4/17.
 //  Copyright © 2017 Konrad Werys. All rights reserved.
 //
 
-#ifndef OXSHMOLLI_READDIRECTORY_H
-#define OXSHMOLLI_READDIRECTORY_H
+#ifndef Tomato_READDIRECTORY_H
+#define Tomato_READDIRECTORY_H
 
 #include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
@@ -225,4 +225,4 @@ namespace itk
 }// end namespace
 
 #endif // USE_ITK
-#endif //OXSHMOLLI_READDIRECTORY_H
+#endif //Tomato_READDIRECTORY_H

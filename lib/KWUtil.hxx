@@ -1,6 +1,6 @@
 //
 //  KWUtil.hxx
-//  OxShmolliLib
+//  TomatoLib
 //
 //  Created by Konrad Werys on 12/8/16.
 //  Copyright © 2016 Konrad Werys. All rights reserved.

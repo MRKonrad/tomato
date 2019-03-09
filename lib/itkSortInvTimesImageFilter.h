@@ -1,13 +1,13 @@
 //
 //  itkOxSortInvTimesImageFilter
-//  OxShmolliLib
+//  TomatoLib
 //
 //  Created by Konrad Werys on 5/6/17.
 //  Copyright © 2017 Konrad Werys. All rights reserved.
 //
 
-#ifndef OXSHMOLLILIB_ITKOXSORTINVTIMESIMAGEFILTER_H
-#define OXSHMOLLILIB_ITKOXSORTINVTIMESIMAGEFILTER_H
+#ifndef TomatoLIB_ITKOXSORTINVTIMESIMAGEFILTER_H
+#define TomatoLIB_ITKOXSORTINVTIMESIMAGEFILTER_H
 
 #include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
@@ -84,4 +84,4 @@ namespace itk {
 
 #endif //USE_ITK
 
-#endif //OXSHMOLLILIB_ITKOXSORTINVTIMESIMAGEFILTER_H
+#endif //TomatoLIB_ITKOXSORTINVTIMESIMAGEFILTER_H

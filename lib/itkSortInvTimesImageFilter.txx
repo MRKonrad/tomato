@@ -1,6 +1,6 @@
 //
 //  itkOxSortInvTimesImageFilter
-//  OxShmolliLib
+//  TomatoLib
 //
 //  Created by Konrad Werys on 5/6/17.
 //  Copyright © 2017 Konrad Werys. All rights reserved.

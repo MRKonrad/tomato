@@ -1,13 +1,13 @@
 //
 //  NShmolliSamplesUsedTo123ImageFilter
-//  OxShmolliLib
+//  TomatoLib
 //
 //  Created by Konrad Werys on 24/11/17.
 //  Copyright © 2017 Konrad Werys. All rights reserved.
 //
 
-#ifndef OXSHMOLLILIB_ITKNShmolliSamplesUsedTo123ImageFilter_H
-#define OXSHMOLLILIB_ITKNShmolliSamplesUsedTo123ImageFilter_H
+#ifndef TomatoLIB_ITKNShmolliSamplesUsedTo123ImageFilter_H
+#define TomatoLIB_ITKNShmolliSamplesUsedTo123ImageFilter_H
 
 #include "itkImageToImageFilter.h"
 #include "itkImageRegionIterator.h"
@@ -54,4 +54,4 @@ namespace itk {
 #endif //ITK_MANUAL_INSTANTIATION
 #endif //TomatoLib_EXPORTS
 
-#endif //OXSHMOLLILIB_ITKNShmolliSamplesUsedTo123ImageFilter_H
+#endif //TomatoLIB_ITKNShmolliSamplesUsedTo123ImageFilter_H

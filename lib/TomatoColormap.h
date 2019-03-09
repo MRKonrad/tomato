@@ -4,8 +4,8 @@
  * \date 2017/08/23
  */
 
-#ifndef OXSHMOLLILIB_SHMOLLICOLORMAP_H
-#define OXSHMOLLILIB_SHMOLLICOLORMAP_H
+#ifndef TomatoLIB_SHMOLLICOLORMAP_H
+#define TomatoLIB_SHMOLLICOLORMAP_H
 
 #include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
@@ -31,4 +31,4 @@ std::vector < uint16_t > getShmolliColormapBlue15TArray();
 
 #endif //USE_ITK
 
-#endif //OXSHMOLLILIB_SHMOLLICOLORMAP_H
+#endif //TomatoLIB_SHMOLLICOLORMAP_H
