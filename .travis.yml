@@ -121,7 +121,7 @@ before_deploy:
   - echo "Ready to deploy?"
   - mkdir deployment
   # copy the data
-  - cd install/tests/testData
+  - cd tests/testData
   - zip -r testData.zip dicom
   - zip -r testData.zip tomatoConfig_Shmolli_inputDirPaths.yaml
   - zip -r testData.zip tomatoConfig_Shmolli_inputFilePaths.yaml
