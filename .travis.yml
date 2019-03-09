@@ -50,10 +50,17 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98" ]; then
       EXTENDED_BUILD="ON";
     fi
+
   # condition for the deployment build
   - if [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98" ]; then
       export DEPLOY_BUILD="ON";
     fi
+
+  # zip the data used for deployment
+  - cd ${TRAVIS_BUILD_DIR}/tests/testData
+  - zip -r testData.zip dicom
+  - zip -r testData.zip tomatoConfig_Shmolli_inputDirPaths.yaml
+  - zip -r testData.zip tomatoConfig_Shmolli_inputFilePaths.yaml
 
 install:
   # install coverage tools only in linux g++
@@ -61,13 +68,13 @@ install:
       sudo pip install codecov;
     fi
 
-  - cd ${TRAVIS_BUILD_DIR};
   # download tomato_private
+  - cd ${TRAVIS_BUILD_DIR};
   - cd ..;
   - git clone https://MRKonrad:${GH_PERSONAL_ACCESS_TOKEN}@github.com/MRKonrad/tomato_private
-  - cd ${TRAVIS_BUILD_DIR};
 
   # download ITK
+  - cd ${TRAVIS_BUILD_DIR};
   - cd ..;
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
       curl -L -O https://www.dropbox.com/s/zi7wfc9qev2529d/ITK413_osx_install.zip;
@@ -120,14 +127,12 @@ after_success:
 before_deploy:
   - echo "Ready to deploy?"
   - mkdir deployment
-  # copy the data
-  - cd install/tests/testData
-  - zip -r testData.zip dicom
-  - zip -r testData.zip tomatoConfig_Shmolli_inputDirPaths.yaml
-  - zip -r testData.zip tomatoConfig_Shmolli_inputFilePaths.yaml
-  - cp testData.zip ${TRAVIS_BUILD_DIR}/deployment/testData.zip
-  - cd $TRAVIS_BUILD_DIR
+
+  # copy the test data
+  - cp ${TRAVIS_BUILD_DIR}/tests/testData.zip ${TRAVIS_BUILD_DIR}/deployment/testData.zip
+
   # copy the executable
+  - cd $TRAVIS_BUILD_DIR
   - export exe_extended_name=TomatoExe_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
   - cp TomatoExe ${exe_extended_name}
   - cd deployment
