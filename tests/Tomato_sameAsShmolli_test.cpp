@@ -117,7 +117,7 @@ TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_T1) {
 
     // compare
     diff->UpdateLargestPossibleRegion();
-    ASSERT_LE(diff->GetMaximumDifference(), 2); // max allowed error is 2
+    ASSERT_LE(diff->GetMaximumDifference(), 0); // max allowed error is 0
 
 #ifdef USE_VTK
     if (doVisualise){

@@ -99,7 +99,9 @@ namespace Ox {
          * \brief do not forget about the virtual destructor, see
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
-        virtual ~OriginalShmolliDicomReader(){};
+        virtual ~OriginalShmolliDicomReader(){
+            delete [] _invTimes;
+        };
     };
 
 } // namespace Ox

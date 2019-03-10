@@ -40,6 +40,7 @@ namespace Ox {
         if (sorterMag->GetInvTimesSorted() == sorterPha->GetInvTimesSorted()){
             vnl_vector<InputPixelType > temp = sorterMag->GetInvTimesSorted();
             _nSamples = temp.size();
+            delete [] _invTimes;
             _invTimes = new InputPixelType[_nSamples];
             KWUtil::copyArrayToArray(_nSamples, _invTimes, temp.data_block());
         } else {
