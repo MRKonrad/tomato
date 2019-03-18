@@ -46,7 +46,8 @@ namespace Ox {
         /**
          * constructor
          */
-        FunctionsT1AdapterVnlLeastSquares(int nDims, int nSamples, UseGradient UseGradientVariable) : vnl_least_squares_function (nDims, nSamples, UseGradientVariable){
+        FunctionsT1AdapterVnlLeastSquares(int nDims, int nSamples, UseGradient UseGradientVariable)
+                : vnl_least_squares_function (nDims, nSamples, UseGradientVariable){
             _FunctionsT1 = 0; // nullpointer
         };
 
@@ -54,7 +55,8 @@ namespace Ox {
          * copy constructor
          * @param old
          */
-        FunctionsT1AdapterVnlLeastSquares(const FunctionsT1AdapterVnlLeastSquares &old) : vnl_least_squares_function(old){
+        FunctionsT1AdapterVnlLeastSquares(const FunctionsT1AdapterVnlLeastSquares &old)
+                : vnl_least_squares_function(old){
             _FunctionsT1 = old._FunctionsT1;
         }
 

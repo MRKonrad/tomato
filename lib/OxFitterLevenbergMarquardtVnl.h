@@ -123,8 +123,7 @@ namespace Ox {
                     if (this->_UseGradient) {
                         _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nDims, nSamples, vnl_least_squares_function::use_gradient);
                     } else {
-                        _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nDims, nSamples,
-                                                                               vnl_least_squares_function::no_gradient);
+                        _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nDims, nSamples, vnl_least_squares_function::no_gradient);
                     }
 
                     _FunctionsAdaptedToVnl->setFunctionsT1(this->_FunctionsT1);

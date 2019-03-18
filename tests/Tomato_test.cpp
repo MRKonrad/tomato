@@ -27,6 +27,7 @@ TEST(ActeptanceTests_TomatoTest, readAndSortInputDirs) {
 TEST(ActeptanceTests_TomatoTest, readAndSort_calculate) {
 
     Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+    Tomato_object._opts->max_function_evals = 5; // to make the calculations faster
     EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
     EXPECT_EQ(Tomato_object.calculate(), 0); // EXIT_SUCCESS
 
@@ -35,11 +36,25 @@ TEST(ActeptanceTests_TomatoTest, readAndSort_calculate) {
 TEST(ActeptanceTests_TomatoTest, readAndSort_calculate_export) {
 
     Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+    Tomato_object._opts->max_function_evals = 5; // to make the calculations faster
     EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
     EXPECT_EQ(Tomato_object.calculate(), 0); // EXIT_SUCCESS
     EXPECT_EQ(Tomato_object.exportToDicom(), 0); // EXIT_SUCCESS
 
 }
+
+////TODO: why does it take so long in case of 5 samples, but not 6 or 7 samples
+//TEST(ActeptanceTests_TomatoTest, readAndSort_5samples) {
+//
+//    Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+//    Tomato_object._opts->files_magnitude.pop_back();
+//    Tomato_object._opts->files_magnitude.pop_back();
+//    Tomato_object._opts->files_phase.pop_back();
+//    Tomato_object._opts->files_phase.pop_back();
+//    EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
+//    EXPECT_EQ(Tomato_object.calculate(), 0); // EXIT_SUCCESS
+//    EXPECT_EQ(Tomato_object.exportToDicom(), 0); // EXIT_SUCCESS
+//}
 
 TEST(ActeptanceTests_TomatoTest, readAndSortFileList_calculate_export_noPhase) {
 

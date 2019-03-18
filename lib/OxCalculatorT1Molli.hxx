@@ -192,6 +192,9 @@ namespace Ox {
 
         MeasureType T1 = (B/A-1)*T1star;
 
+        if (fabs(T1) < std::numeric_limits<MeasureType>::min())
+            return 1; // EXIT_FAILURE
+
         MeasureType dydA = 0;
         MeasureType dydB = 0;
         MeasureType dydT1 = 0;

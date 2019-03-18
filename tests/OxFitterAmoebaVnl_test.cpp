@@ -21,7 +21,7 @@ TEST(OxFitterAmoebaVnl, performFitting) {
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
-    double params[3] = {100, 200, 1200};
+    TYPE params[3] = {100, 200, 1200};
 
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
@@ -50,7 +50,7 @@ TEST(OxFitterAmoebaVnl, copyConstructor) {
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
-    double params[3] = {100, 200, 1200};
+    TYPE params[3] = {100, 200, 1200};
 
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);

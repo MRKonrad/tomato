@@ -117,7 +117,12 @@ TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_T1) {
 
     // compare
     diff->UpdateLargestPossibleRegion();
-    ASSERT_LE(diff->GetMaximumDifference(), 0); // max allowed error is 0
+
+    double tolerance = 2;
+    if (diff->GetMaximumDifference() > tolerance)
+        std::cout << "Number of unequal pixels = " << diff->GetNumberOfPixelsWithDifferences() << std::endl;
+
+    ASSERT_LE(diff->GetMaximumDifference(), tolerance);
 
 #ifdef USE_VTK
     if (doVisualise){
