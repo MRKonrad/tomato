@@ -4,6 +4,7 @@
  * \date 2018/08/01
  */
 
+#include <OxFitterLevenbergMarquardtVnl.h>
 #include "gtest/gtest.h"
 #include "OxTestData.h"
 
@@ -15,6 +16,10 @@
 #include "OxSignCalculatorRealImag.h"
 #include "OxStartPointCalculatorDefault3Dims.h"
 #include "OxCalculatorT1Molli.h"
+
+#ifdef USE_ITK
+#include "itkTimeProbe.h"
+#endif
 
 //TODO: make sure correctSDs are accually correct
 
@@ -268,3 +273,63 @@ TEST(OxCalculatorT1Molli, correctSDs) {
 }
 
 #endif
+
+////TODO: no difference between 5 samples and 7 samples here.
+//#ifdef USE_ITK
+//
+//TEST(OxCalculatorT1Molli, samples5) {
+//
+//    typedef double TYPE;
+//    int nRepetitions = 10000;
+//
+//    char filePath5 [] = "testData/blood_5samples.yaml";
+//    Ox::TestData<TYPE> testData5(filePath5);
+//    int nSamples5 = testData5.getNSamples();
+//
+//    char filePath7 [] = "testData/blood.yaml";
+//    Ox::TestData<TYPE> testData7(filePath7);
+//    int nSamples7 = testData7.getNSamples();
+//
+//    // init the necessary objects
+//    Ox::FunctionsT1Basic<TYPE> functionsObject;
+//    Ox::FitterLevenbergMarquardtVnl<TYPE> fitterAmoebaVnl;
+//    Ox::SignCalculatorRealImag<TYPE> signCalculator;
+//    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
+//    Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
+//
+//    // configure
+//    calculatorT1Molli.setFunctionsT1(&functionsObject);
+//    calculatorT1Molli.setFitter(&fitterAmoebaVnl);
+//    calculatorT1Molli.setSignCalculator(&signCalculator);
+//    calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
+//
+//    // set the data
+//    calculatorT1Molli.setNSamples(nSamples5);
+//    calculatorT1Molli.setInvTimes(testData5.getInvTimesPtr());
+//    calculatorT1Molli.setSigPha(testData5.getSignalPhaPtr());
+//    calculatorT1Molli.setSigMag(testData5.getSignalMagPtr());
+//
+//    printf("\n");
+//    itk::TimeProbe clock;
+//    clock.Start();
+//    for (int i = 0; i < nRepetitions; i++)
+//        calculatorT1Molli.calculate();
+//    clock.Stop();
+//    printf("Calculation5 time: %.12fs.\n", clock.GetTotal());
+//
+//    // set the data
+//    calculatorT1Molli.setNSamples(nSamples7);
+//    calculatorT1Molli.setInvTimes(testData7.getInvTimesPtr());
+//    calculatorT1Molli.setSigPha(testData7.getSignalPhaPtr());
+//    calculatorT1Molli.setSigMag(testData7.getSignalMagPtr());
+//
+//    clock.Reset();
+//    clock.Start();
+//    for (int i = 0; i < nRepetitions; i++)
+//        calculatorT1Molli.calculate();
+//    clock.Stop();
+//    printf("Calculation7 time: %.12fs.\n", clock.GetTotal());
+//
+//}
+//
+//#endif
