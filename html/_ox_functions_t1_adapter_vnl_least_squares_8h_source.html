@@ -145,24 +145,26 @@ $(document).ready(function(){initNavTree('_ox_functions_t1_adapter_vnl_least_squ
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">return</span> _FunctionsT1;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        };</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        FunctionsT1AdapterVnlLeastSquares(<span class="keywordtype">int</span> nDims, <span class="keywordtype">int</span> nSamples, UseGradient UseGradientVariable) : vnl_least_squares_function (nDims, nSamples, UseGradientVariable){</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            _FunctionsT1 = 0; <span class="comment">// nullpointer</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        };</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        FunctionsT1AdapterVnlLeastSquares(<span class="keyword">const</span> FunctionsT1AdapterVnlLeastSquares &amp;old) : vnl_least_squares_function(old){</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            _FunctionsT1 = old._FunctionsT1;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        FunctionsT1AdapterVnlLeastSquares(<span class="keywordtype">int</span> nDims, <span class="keywordtype">int</span> nSamples, UseGradient UseGradientVariable)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                : vnl_least_squares_function (nDims, nSamples, UseGradientVariable){</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            _FunctionsT1 = 0; <span class="comment">// nullpointer</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        };</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        FunctionsT1AdapterVnlLeastSquares(<span class="keyword">const</span> FunctionsT1AdapterVnlLeastSquares &amp;old)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                : vnl_least_squares_function(old){</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            _FunctionsT1 = old._FunctionsT1;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        FunctionsT1&lt;double&gt;* _FunctionsT1;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    };</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;} <span class="comment">// namespace Ox</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        FunctionsT1&lt;double&gt;* _FunctionsT1;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    };</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif //USE_VNL</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif //Tomato_OXFUNCTIONST1ADAPTERVNLLEASTSQUARES_H</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;} <span class="comment">// namespace Ox</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif //USE_VNL</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif //Tomato_OXFUNCTIONST1ADAPTERVNLLEASTSQUARES_H</span></div>
 <div class="ttc" id="_ox_functions_t1_8h_html"><div class="ttname"><a href="_ox_functions_t1_8h.html">OxFunctionsT1.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

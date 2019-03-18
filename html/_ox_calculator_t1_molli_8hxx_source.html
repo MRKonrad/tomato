@@ -294,53 +294,56 @@ $(document).ready(function(){initNavTree('_ox_calculator_t1_molli_8hxx_source.ht
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        MeasureType T1 = (B/A-1)*T1star;</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        MeasureType dydA = 0;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        MeasureType dydB = 0;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        MeasureType dydT1 = 0;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nSamples; ++i){</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            MeasureType invTime = invTimes[i];</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            MeasureType myexparg = ( -invTime * ( B/A - 1) / T1);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="keywordflow">if</span> ((myexparg &gt; std::numeric_limits&lt;MeasureType&gt;::max_exponent)</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                || (myexparg &lt; std::numeric_limits&lt;MeasureType&gt;::min_exponent))</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                <span class="keywordflow">return</span> 1; <span class="comment">//EXIT_FAILURE</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            MeasureType myexp = exp (myexparg);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            dydA  = 1 - B * myexp * invTime * B / ( T1 * A * A);</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            dydB  = -myexp + B * myexp * invTime / ( T1 * A );</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            dydT1 = -B * myexp * invTime * (B/A-1) / ( T1 * T1);</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            tempInvCovarianceMatrix[0] += dydT1 * dydT1; <span class="comment">// (0,0)</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            tempInvCovarianceMatrix[1] += dydA  * dydT1; <span class="comment">// (0,1)</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            tempInvCovarianceMatrix[2] += dydB  * dydT1; <span class="comment">// (0,2)</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            tempInvCovarianceMatrix[3] += dydT1 * dydA;  <span class="comment">// (1,0)</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            tempInvCovarianceMatrix[4] += dydA  * dydA;  <span class="comment">// (1,1)</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            tempInvCovarianceMatrix[5] += dydB  * dydA;  <span class="comment">// (1,2)</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            tempInvCovarianceMatrix[6] += dydT1 * dydB;  <span class="comment">// (2,0)</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            tempInvCovarianceMatrix[7] += dydA  * dydB;  <span class="comment">// (2,1)</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            tempInvCovarianceMatrix[8] += dydB  * dydB;  <span class="comment">// (2,2)</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        }</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        MeasureType SD = KWUtil::calcStandardDeviationArray&lt;MeasureType&gt;(nSamples, residuals);</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keywordflow">if</span> (fabs(SD) &lt; std::numeric_limits&lt;MeasureType&gt;::min())</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            <span class="keywordflow">return</span> 1; <span class="comment">//EXIT_FAILURE</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordflow">if</span> (fabs(T1) &lt; std::numeric_limits&lt;MeasureType&gt;::min())</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            <span class="keywordflow">return</span> 1; <span class="comment">// EXIT_FAILURE</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        MeasureType dydA = 0;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        MeasureType dydB = 0;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        MeasureType dydT1 = 0;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nSamples; ++i){</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            MeasureType invTime = invTimes[i];</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            MeasureType myexparg = ( -invTime * ( B/A - 1) / T1);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            <span class="keywordflow">if</span> ((myexparg &gt; std::numeric_limits&lt;MeasureType&gt;::max_exponent)</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                || (myexparg &lt; std::numeric_limits&lt;MeasureType&gt;::min_exponent))</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                <span class="keywordflow">return</span> 1; <span class="comment">//EXIT_FAILURE</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            MeasureType myexp = exp (myexparg);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            dydA  = 1 - B * myexp * invTime * B / ( T1 * A * A);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            dydB  = -myexp + B * myexp * invTime / ( T1 * A );</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            dydT1 = -B * myexp * invTime * (B/A-1) / ( T1 * T1);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            tempInvCovarianceMatrix[0] += dydT1 * dydT1; <span class="comment">// (0,0)</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            tempInvCovarianceMatrix[1] += dydA  * dydT1; <span class="comment">// (0,1)</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            tempInvCovarianceMatrix[2] += dydB  * dydT1; <span class="comment">// (0,2)</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            tempInvCovarianceMatrix[3] += dydT1 * dydA;  <span class="comment">// (1,0)</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            tempInvCovarianceMatrix[4] += dydA  * dydA;  <span class="comment">// (1,1)</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            tempInvCovarianceMatrix[5] += dydB  * dydA;  <span class="comment">// (1,2)</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            tempInvCovarianceMatrix[6] += dydT1 * dydB;  <span class="comment">// (2,0)</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            tempInvCovarianceMatrix[7] += dydA  * dydB;  <span class="comment">// (2,1)</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            tempInvCovarianceMatrix[8] += dydB  * dydB;  <span class="comment">// (2,2)</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        }</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        MeasureType SD = KWUtil::calcStandardDeviationArray&lt;MeasureType&gt;(nSamples, residuals);</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3*3; ++i) {</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            tempInvCovarianceMatrix[i] = tempInvCovarianceMatrix[i] / (SD * SD);</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        }</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3*3; ++i) {</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            invCovarianceMatrix[i] = tempInvCovarianceMatrix[i];</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        }</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    }</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keywordflow">if</span> (fabs(SD) &lt; std::numeric_limits&lt;MeasureType&gt;::min())</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            <span class="keywordflow">return</span> 1; <span class="comment">//EXIT_FAILURE</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3*3; ++i) {</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            tempInvCovarianceMatrix[i] = tempInvCovarianceMatrix[i] / (SD * SD);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        }</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3*3; ++i) {</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            invCovarianceMatrix[i] = tempInvCovarianceMatrix[i];</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        }</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;} <span class="comment">//namespace Ox</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="preprocessor">#endif //Tomato_OXCALCULATORT1MOLLI_HXX</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    }</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;} <span class="comment">//namespace Ox</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="preprocessor">#endif //Tomato_OXCALCULATORT1MOLLI_HXX</span></div>
 <div class="ttc" id="class_ox_1_1_calculator_t1_molli_html_a9cb84f5e8680e1bf6c3543846fc90c4d"><div class="ttname"><a href="class_ox_1_1_calculator_t1_molli.html#a9cb84f5e8680e1bf6c3543846fc90c4d">Ox::CalculatorT1Molli::calculateMolli</a></div><div class="ttdeci">virtual CalculatorT1Results&lt; MeasureType &gt; calculateMolli(int nSamples, const MeasureType *invTimes, MeasureType *signal, MeasureType *signs)</div><div class="ttdef"><b>Definition:</b> OxCalculatorT1Molli.hxx:40</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t1_molli_html_a6f15bc9c026305248c927d62748903bf"><div class="ttname"><a href="class_ox_1_1_calculator_t1_molli.html#a6f15bc9c026305248c927d62748903bf">Ox::CalculatorT1Molli::calculate</a></div><div class="ttdeci">virtual int calculate()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT1Molli.hxx:15</div></div>
 <div class="ttc" id="struct_ox_1_1_calculator_t1_results_html"><div class="ttname"><a href="struct_ox_1_1_calculator_t1_results.html">Ox::CalculatorT1Results</a></div><div class="ttdef"><b>Definition:</b> OxCalculatorResults.h:14</div></div>
