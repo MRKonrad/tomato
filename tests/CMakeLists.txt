@@ -26,8 +26,8 @@ if(Tomato_BUILD_TESTING)
 
     file(COPY testData DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-    install(TARGETS TomatoTests DESTINATION ${CMAKE_INSTALL_PREFIX}/tests)
-    install(DIRECTORY ${CMAKE_BINARY_DIR}/tests/testData DESTINATION ${CMAKE_INSTALL_PREFIX}/tests)
+    install(TARGETS TomatoTests DESTINATION tests)
+    install(DIRECTORY ${CMAKE_BINARY_DIR}/tests/testData DESTINATION tests)
 
     ########################
     ### TESTING COVERAGE ###
