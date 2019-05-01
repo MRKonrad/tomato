@@ -36,7 +36,7 @@ before_build:
   # configure and generate via cmake
   - cd %APPVEYOR_BUILD_FOLDER%
   - if "%PLATFORM%"=="Win32" (
-      cmake . -Bbin -A%PLATFORM% -G"Visual Studio 12 2013" -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install"
+      cmake . -Bbin -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T v90 # https://devblogs.microsoft.com/cppblog/stuck-on-an-older-toolset-version-move-to-visual-studio-2015-without-upgrading-your-toolset/
     )
   - if "%PLATFORM%"=="x64" (
       cmake . -Bbin -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install"
