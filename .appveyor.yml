@@ -13,7 +13,7 @@ init:
 
 environment:
   EXE_EXTENDED_NAME: TomatoExe_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
-  DLL_EXTENDED_NAME: TomatoLib_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
+  LIB_EXTENDED_NAME: TomatoLib_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
 
 install:
   - git submodule update --init --recursive
