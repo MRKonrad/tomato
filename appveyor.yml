@@ -30,12 +30,13 @@ configuration:
   - Release
 
 before_build:
-  - cd %APPVEYOR_BUILD_FOLDER%
-  - cd ..
+  - cd %APPVEYOR_BUILD_FOLDER%\..
+  # get ITK
   - git clone https://MRKonrad:%GH_PERSONAL_ACCESS_TOKEN%@github.com/MRKonrad/tomato_private
   - curl -L -O http://mrkonrad.github.io/MRKonrad/files/ITK_built/ITK412_win_%PLATFORM%_install.zip
-  - 7z x -r ITK412_win_x64_install.zip
+  - 7z x -r ITK412_win_%PLATFORM%_install.zip
   - dir
+  # configure and generate via cmake
   - cd %APPVEYOR_BUILD_FOLDER%
   - cmake . -Bbin -A%PLATFORM% -DCMAKE_BUILD_TYPE=%CONFIGURATION% -DCMAKE_INSTALL_PREFIX=install
 
@@ -61,6 +62,8 @@ after_build:
 
 test_script:
   # TODO: should I add sth like this? https://github.com/mgerhardy/caveexpress/blob/master/appveyor.yml
+  - cd
+  - dir
   - cd install\tests\
   - TomatoTests.exe
   - cd ..\..
