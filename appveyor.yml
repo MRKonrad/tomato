@@ -33,7 +33,7 @@ before_build:
   - cd %APPVEYOR_BUILD_FOLDER%
   - cd ..
   - git clone https://MRKonrad:%GH_PERSONAL_ACCESS_TOKEN%@github.com/MRKonrad/tomato_private
-  - curl -L -O https://www.dropbox.com/s/fu5we0o2j1a4uzt/ITK412_win_x64_install.zip
+  - curl -L -O http://mrkonrad.github.io/MRKonrad/files/ITK_built/ITK412_win_%PLATFORM%_install.zip
   - 7z x -r ITK412_win_x64_install.zip
   - dir
   - cd %APPVEYOR_BUILD_FOLDER%
