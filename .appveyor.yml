@@ -34,9 +34,10 @@ before_build:
   - 7z x -r ITK412_win_%PLATFORM%_install.zip
   - dir
   # configure and generate via cmake
+  # https://devblogs.microsoft.com/cppblog/stuck-on-an-older-toolset-version-move-to-visual-studio-2015-without-upgrading-your-toolset/
   - cd %APPVEYOR_BUILD_FOLDER%
   - if "%PLATFORM%"=="Win32" (
-      cmake . -Bbin -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T v90 # https://devblogs.microsoft.com/cppblog/stuck-on-an-older-toolset-version-move-to-visual-studio-2015-without-upgrading-your-toolset/
+      cmake . -Bbin -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T v90
     )
   - if "%PLATFORM%"=="x64" (
       cmake . -Bbin -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install"
