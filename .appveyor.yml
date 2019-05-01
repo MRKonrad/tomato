@@ -2,9 +2,6 @@
 #   Tomato   #
 #------------------------------------#
 
-# todo: add win32
-# version: '0.9.{build}'
-
 os:
   - Visual Studio 2017
 #  - Visual Studio 2015
@@ -38,12 +35,12 @@ before_build:
   - dir
   # configure and generate via cmake
   - cd %APPVEYOR_BUILD_FOLDER%
-  - cmake . -Bbin -A%PLATFORM% -DCMAKE_BUILD_TYPE=%CONFIGURATION% -DCMAKE_INSTALL_PREFIX=install
+  - cmake . -Bbin -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install"
 
 build:
   project: bin\Tomato.sln  # path to Visual Studio solution or project
   parallel: true           # enable MSBuild parallel builds
-  verbosity: normal        # MSBuild verbosity level {quiet|minimal|normal|detailed}
+  verbosity: detailed      # MSBuild verbosity level {quiet|minimal|normal|detailed}
 
 after_build:
   # install the files
@@ -59,14 +56,12 @@ after_build:
   - 7z a %LIB_EXTENDED_NAME%.zip TomatoLib.dll TomatoLib.lib # zip
   - cd %APPVEYOR_BUILD_FOLDER%
   - copy bin\%CONFIGURATION%\%EXE_EXTENDED_NAME%.zip deployment\%EXE_EXTENDED_NAME%.zip
+  - copy bin\%CONFIGURATION%\%LIB_EXTENDED_NAME%.zip deployment\%LIB_EXTENDED_NAME%.zip
 
 test_script:
   # TODO: should I add sth like this? https://github.com/mgerhardy/caveexpress/blob/master/appveyor.yml
-  - cd
-  - dir
-  - cd install\tests\
+  - cd %APPVEYOR_BUILD_FOLDER%\install\tests\
   - TomatoTests.exe
-  - cd ..\..
 
 artifacts:
   - path: deployment\*.*
