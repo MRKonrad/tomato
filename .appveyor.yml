@@ -36,7 +36,7 @@ before_build:
   # configure and generate via cmake
   - cd %APPVEYOR_BUILD_FOLDER%
   - if "%PLATFORM%"=="Win32" (
-      cmake . -Bbin -A%PLATFORM% -G"Visual Studio 11 2012" -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install"
+      cmake . -Bbin -A%PLATFORM% -G"Visual Studio 12 2013" -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install"
     )
   - if "%PLATFORM%"=="x64" (
       cmake . -Bbin -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install"
