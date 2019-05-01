@@ -3,8 +3,8 @@
 #------------------------------------#
 
 os:
-  - Visual Studio 2017
-#  - Visual Studio 2015
+#  - Visual Studio 2017
+  - Visual Studio 2015
 
 init:
   - git config --global core.autocrlf input
@@ -35,7 +35,12 @@ before_build:
   - dir
   # configure and generate via cmake
   - cd %APPVEYOR_BUILD_FOLDER%
-  - cmake . -Bbin -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install"
+  - if "%PLATFORM%"=="Win32" (
+      cmake . -Bbin -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install"
+    )
+  - if "%PLATFORM%"=="x64" (
+      cmake . -Bbin -A%PLATFORM%﻿-G"Visual Studio 9 2008" -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install"
+    )
 
 build:
   project: bin\Tomato.sln  # path to Visual Studio solution or project
