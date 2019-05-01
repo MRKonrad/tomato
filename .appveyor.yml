@@ -42,10 +42,9 @@ before_build:
       cmake . -Bbin -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install"
     )
 
-build:
-  project: bin\Tomato.sln  # path to Visual Studio solution or project
-  parallel: true           # enable MSBuild parallel builds
-  verbosity: detailed      # MSBuild verbosity level {quiet|minimal|normal|detailed}
+build_script:
+  - cd %APPVEYOR_BUILD_FOLDER%\bin
+  - cmake --build . --config %CONFIGURATION% --target ALL_BUILD
 
 after_build:
   # install the files
