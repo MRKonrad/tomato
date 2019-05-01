@@ -69,27 +69,16 @@ install:
     fi
 
   # download tomato_private
-  - cd ${TRAVIS_BUILD_DIR};
-  - cd ..;
+  - cd ${TRAVIS_BUILD_DIR}/..
   - git clone https://MRKonrad:${GH_PERSONAL_ACCESS_TOKEN}@github.com/MRKonrad/tomato_private
 
   # download ITK
-  - cd ${TRAVIS_BUILD_DIR};
-  - cd ..;
-  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-      curl -L -O https://www.dropbox.com/s/zi7wfc9qev2529d/ITK413_osx_install.zip;
-      unzip -a -q ITK413_osx_install.zip;
-      export USE_ITK="ON";
-    fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-      curl -L -O https://www.dropbox.com/s/w35r9k376gg1cc3/ITK413_linux_install.zip;
-      unzip -a -q ITK413_linux_install.zip;
-      export USE_ITK="ON";
-    fi
-  - cd ${TRAVIS_BUILD_DIR};
+  - cd ${TRAVIS_BUILD_DIR}/..
+  - curl -L -O http://mrkonrad.github.io/MRKonrad/files/ITK_built/ITK413_${TRAVIS_OS_NAME}_install.zip
 
 script:
   # configure and generate
+  - cd ${TRAVIS_BUILD_DIR};
   - cmake . -DCMAKE_INSTALL_PREFIX=install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DUSE_ITK=${USE_ITK}
 
   # add coverage option (only in linux g++)
@@ -124,8 +113,7 @@ after_success:
       ./generateDocumentationAndDeploy.sh;
     fi
 
-before_deploy:
-  - echo "Ready to deploy?"
+  # getting ready to deploy
   - mkdir deployment
 
   # copy the test data
@@ -134,11 +122,12 @@ before_deploy:
   # copy the executable
   - cd $TRAVIS_BUILD_DIR
   - export exe_extended_name=TomatoExe_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
-  - cp TomatoExe ${exe_extended_name}
+  - export lib_extended_name=TomatoLib_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
   - cd deployment
   # Problem: when deploying an executable as it is, somewhere in the process its permission to execute (-x) is lost.
   # Solution: zip it and deploy the archive
-  - zip -r ${exe_extended_name}.zip ../${exe_extended_name}
+  - zip -r ${exe_extended_name}.zip ../TomatoExe
+  - zip -r ${lib_extended_name}.zip ../libTomatoLib.dylib
   - cd ..
 
 deploy:
@@ -151,3 +140,9 @@ deploy:
   on:
     tags: ON
     condition: ${DEPLOY_BUILD} == "ON" # I guess I have to pick one compiler
+
+notifications:
+  slack:
+    rooms:
+      - secure: ljyKu/sP6Ha9o4lZejENiPEhhVL1xQ86YTvywg7/jOSIV7xXy2xDULz6qsZxAi6TcGgPTLGQzb2ydFnHfe5bThW9klOzxTw8Ru+/DfDiPSk3mV3ylVDO6gcwCqoWbc63HGub90wRaEc1mLfp8NAnCq2nOayT7eHBzS2ABKNd0SwS9onaDnbOIIoXdZYw1z1mvOWrUrFErFHv8jeQ0l1MEOWaGGzttpZXB+ZwHOlaSACBCcNH6ZYZqUs9nsyBDa33GI4ktgIlkCeMahsix8ZbaoSE0rWXq5AvO93DhyjPUI3obFHysjI2eQSnMU652ASWOAqMVoHCGSURSvOobCEbVq2OmYfq77UF+ntS2rdQccKE4DEC8A2YN9xNY3H+Coiw2C+NadETxixp0n0byPBUBopg7Jb3iGj76KuEpk5qVzu4xCwJiRPek9o5t8v34+y979Xn9e4wnMN4sN8xS364qU/innBJkZgbYtXolFhX/GA5gglA3PZVq5XdMs16sWxwrG0uRgSsOdz0dhIh6Q2QBYISnjdCj+mJ4PQ+/PNl3nbjq7LGYH19oNV3G8gTZQDHFYWEL6DB517caeKiMZFT6JOgwK5Dd/+JEOuBjUkyP3CuMH8VfB6vrTsmpV3SkaizujCB+LUnzMtFdGOJ3KEhR5OS9pq6nwAW1AYOMTAcT+s=
+    on_success: always

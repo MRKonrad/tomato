@@ -16,12 +16,13 @@ init:
 
 environment:
   EXE_EXTENDED_NAME: TomatoExe_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
+  DLL_EXTENDED_NAME: TomatoLib_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
 
 install:
   - git submodule update --init --recursive
 
 platform:
-#  - Win32
+  - Win32
   - x64
 
 configuration:
@@ -29,23 +30,14 @@ configuration:
   - Release
 
 before_build:
+  - cd %APPVEYOR_BUILD_FOLDER%
   - cd ..
   - git clone https://MRKonrad:%GH_PERSONAL_ACCESS_TOKEN%@github.com/MRKonrad/tomato_private
-  - cd Tomato
-  - dir
-  - cd
-  - cd ..
-  - cd
   - curl -L -O https://www.dropbox.com/s/fu5we0o2j1a4uzt/ITK412_win_x64_install.zip
-  - dir
-  - cd
   - 7z x -r ITK412_win_x64_install.zip
   - dir
-  - cd Tomato
-  - cd
-  - dir
+  - cd %APPVEYOR_BUILD_FOLDER%
   - cmake . -Bbin -A%PLATFORM% -DCMAKE_BUILD_TYPE=%CONFIGURATION% -DCMAKE_INSTALL_PREFIX=install
-  - cd
 
 build:
   project: bin\Tomato.sln  # path to Visual Studio solution or project
@@ -54,18 +46,17 @@ build:
 
 after_build:
   # install the files
-  - cd bin
+  - cd %APPVEYOR_BUILD_FOLDER%\bin
   - dir
   - cmake --build . --config %CONFIGURATION% --target INSTALL
-  - cd ..
-  - mkdir deployment
   # FOR DEPLOYMENT
-  - echo "Ready to deploy?"
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - mkdir deployment
   # change the name of the exe, zip it and copy the zip to the deployment folders
   - cd bin\%CONFIGURATION%\
-  - copy TomatoExe.exe %EXE_EXTENDED_NAME%.exe
-  - 7z a %EXE_EXTENDED_NAME%.zip %EXE_EXTENDED_NAME%.exe # zip
-  - cd ..\..
+  - 7z a %EXE_EXTENDED_NAME%.zip TomatoExe.exe # zip
+  - 7z a %LIB_EXTENDED_NAME%.zip TomatoLib.dll TomatoLib.lib # zip
+  - cd %APPVEYOR_BUILD_FOLDER%
   - copy bin\%CONFIGURATION%\%EXE_EXTENDED_NAME%.zip deployment\%EXE_EXTENDED_NAME%.zip
 
 test_script:
