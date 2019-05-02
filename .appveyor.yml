@@ -3,7 +3,6 @@
 #------------------------------------#
 
 os:
-#  - Visual Studio 2017
   - Visual Studio 2015
 
 init:
@@ -11,12 +10,16 @@ init:
   # Set build version to git commit-hash
   - ps: Update-AppveyorBuild -Version "$($env:APPVEYOR_REPO_BRANCH) - $($env:APPVEYOR_REPO_COMMIT)"
 
+# about toolset: https://devblogs.microsoft.com/cppblog/stuck-on-an-older-toolset-version-move-to-visual-studio-2015-without-upgrading-your-toolset/
 environment:
+  toolset: v90
   EXE_EXTENDED_NAME: TomatoExe_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
   LIB_EXTENDED_NAME: TomatoLib_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
 
 install:
   - git submodule update --init --recursive
+  - cd %APPVEYOR_BUILD_FOLDER%\thirdParty\googletest
+  - git checkout tags/release-1.4.0 # version that works with this toolset
 
 platform:
   - Win32
@@ -27,21 +30,15 @@ configuration:
   - Release
 
 before_build:
+  # get itk
   - cd %APPVEYOR_BUILD_FOLDER%\..
-  # get ITK
-  - git clone https://MRKonrad:%GH_PERSONAL_ACCESS_TOKEN%@github.com/MRKonrad/tomato_private
-  - curl -L -O http://mrkonrad.github.io/MRKonrad/files/ITK_built/ITK412_win_%PLATFORM%_install.zip
-  - 7z x -r ITK412_win_%PLATFORM%_install.zip
-  - dir
+  - mkdir ITK_install
+  - cd ITK_install
+  - curl -L https://github.com/MRKonrad/build-itk/releases/download/itk_v4.13.2/itk_v4.13.2_windows_%PLATFORM%_%toolset%.zip -o itk_install.zip
+  - 7z x -r itk_install.zip
   # configure and generate via cmake
-  # https://devblogs.microsoft.com/cppblog/stuck-on-an-older-toolset-version-move-to-visual-studio-2015-without-upgrading-your-toolset/
   - cd %APPVEYOR_BUILD_FOLDER%
-  - if "%PLATFORM%"=="Win32" (
-      cmake . -Bbin -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T v90
-    )
-  - if "%PLATFORM%"=="x64" (
-      cmake . -Bbin -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install"
-    )
+  - cmake . -Bbin -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T %toolset%
 
 build_script:
   - cd %APPVEYOR_BUILD_FOLDER%\bin
