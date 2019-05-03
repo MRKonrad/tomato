@@ -28,6 +28,8 @@ TEST(TomatoParser, parse_yaml_file) {
     truth.push_back("61");
     truth.push_back("64");
 
-    EXPECT_EQ(parser._sequences["signalMag"], truth);
+    for (int i = 0; i < truth.size(); i++) {
+        EXPECT_EQ(parser._sequences["signalMag"][i], truth[i]);
+    }
 }
 
