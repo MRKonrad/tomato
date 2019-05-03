@@ -19,7 +19,7 @@ environment:
 install:
   - git submodule update --init --recursive
   - cd %APPVEYOR_BUILD_FOLDER%\thirdParty\googletest
-  - git checkout tags/release-1.5.0 # version that works with this toolset
+  - git checkout tags/release-1.3.0 # version that works with this toolset
 
 platform:
   - Win32
