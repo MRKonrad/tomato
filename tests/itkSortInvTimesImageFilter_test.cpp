@@ -75,6 +75,9 @@ TEST(itkSortInvTimesImageFilter, sortInvTimesAndMag) {
     diff->UpdateLargestPossibleRegion();
 
     // TODO: add
+    for (int i = 0; i < nSamples; ++i){
+        ASSERT_EQ(sortedImagesFactory.getInvTimes()[i], sortedInvTimes[i]);
+    }
     //ASSERT_EQ(sortedImagesFactory.getInvTimes(), sortedInvTimes);
     ASSERT_EQ(diff->GetNumberOfPixelsWithDifferences(), 0);
 }
