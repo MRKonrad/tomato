@@ -31,13 +31,13 @@ TEST(OxTestData, read_file) {
     std::vector<TYPE> resultsShmolliVec(resultsShmolli, resultsShmolli+3);
 
     for (int i = 0; i < 7; i++) {
-        EXPECT_EQ(testData.getSignalMag(), signalMagVec);
-        EXPECT_EQ(testData.getSignalPha(), signalPhaVec);
-        EXPECT_EQ(testData.getSigns(), signsVec);
-        EXPECT_EQ(testData.getInvTimes(), invTimesVec);
+        EXPECT_EQ(testData.getSignalMag()[i], signalMagVec[i]);
+        EXPECT_EQ(testData.getSignalPha()[i], signalPhaVec[i]);
+        EXPECT_EQ(testData.getSigns()[i], signsVec[i]);
+        EXPECT_EQ(testData.getInvTimes()[i], invTimesVec[i]);
     }
     for (int i = 0; i < 3; i++) {
-        EXPECT_EQ(testData.getResultsMolli(), resultsMolliVec);
-        EXPECT_EQ(testData.getResultsShmolli(), resultsShmolliVec);
+        EXPECT_EQ(testData.getResultsMolli()[i], resultsMolliVec[i]);
+        EXPECT_EQ(testData.getResultsShmolli()[i], resultsShmolliVec[i]);
     }
 }

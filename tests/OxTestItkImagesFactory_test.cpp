@@ -80,7 +80,6 @@ TEST(OxTestItkImagesFactory, generateImagesWithoutErrros) {
     }
 #endif
 
-    EXPECT_TRUE(true);
 }
 
 #endif //USE_ITK
