@@ -1,6 +1,11 @@
 MIT License
 
-Copyright (c) 2018 Konrad Werys
+Copyright (c) 2018 Konrad Werys, Stefan Piechnik
+
+Part of this code is protected by the US patent US20120078084A1:
+Stefan K. Piechnik, Matthew D. Robson, Andreas Greiser . SYSTEMS AND METHODS
+FOR SHORTENED LOOK LOCKER INVERSION RECOVERY (Sh-MOLLI) CARDIAC GATED MAPPING
+OF T1.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
