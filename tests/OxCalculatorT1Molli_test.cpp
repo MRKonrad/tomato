@@ -258,6 +258,7 @@ TEST(OxCalculatorT1Molli, correctSDs) {
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
+    calculatorT1Molli.setDoCalculateSDMap(true);
 
     // set the data
     calculatorT1Molli.setNSamples(nSamples);

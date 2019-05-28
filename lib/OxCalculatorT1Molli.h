@@ -46,10 +46,23 @@ namespace Ox {
         int calculateInvCovarianceMatrix(const MeasureType* invTimes, const MeasureType* residuals, const MeasureType* parameters, MeasureType *invCovarianceMatrix);
 
         /**
+         *
+         * @return
+         */
+        bool getDoCalculateSDMap() const;
+
+        /**
+         *
+         * @param _DoCalculateSDMap
+         */
+        void setDoCalculateSDMap(bool _DoCalculateSDMap);
+
+        /**
          * constructor
          */
         CalculatorT1Molli() : CalculatorT1<MeasureType>(){
             MaxTIForSignInvert = this->MAX_T1_TRESHOLD * 0.67;
+            _DoCalculateSDMap = false;
         }
 
         /**
@@ -57,9 +70,12 @@ namespace Ox {
          * @return
          */
         virtual CalculatorT1<MeasureType> *newByCloning() { return new CalculatorT1Molli<MeasureType>(*this); }
-        
+
+
+
     protected:
         double MaxTIForSignInvert;
+        bool _DoCalculateSDMap;
     };
 
 } //namespace Ox
