@@ -21,7 +21,7 @@ branches:
 env:
   matrix:
     - CXX_STANDARD=98
-    - CXX_STANDARD=11
+#    - CXX_STANDARD=11
   global:
     - GH_REPO_NAME: Tomato # used in documentation script
     - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile # used in documentation script
