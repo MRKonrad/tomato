@@ -79,7 +79,7 @@ install:
 script:
   # configure and generate
   - cd ${TRAVIS_BUILD_DIR};
-  - cmake . -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DITK_DIR_HINTS="../ITK_install" -DUSE_YAML=OFF
+  - cmake . -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DITK_DIR_HINTS="../ITK_install"
 
   # add coverage option (only in linux g++)
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
@@ -87,6 +87,11 @@ script:
     fi
 
   # this is make
+  - make -j8
+  - make install
+
+  # configure and generate SHARED
+  - cmake . -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DITK_DIR_HINTS="../ITK_install" -DBUILD_SHARED_LIBS=ON
   - make -j8
   - make install
 

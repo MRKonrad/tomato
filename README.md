@@ -54,6 +54,7 @@ Download https://www.microsoft.com/en-us/download/details.aspx?id=48145 as sugge
 
 # TODO:
 
+* seperate shared and static bild to avoid problems with yaml lib
 * provide template yaml config files
 * processing without phase data
 * output SNR maps
