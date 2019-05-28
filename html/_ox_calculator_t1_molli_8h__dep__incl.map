@@ -1,10 +1,9 @@
 <map id="lib/OxCalculatorT1Molli.h" name="lib/OxCalculatorT1Molli.h">
-<area shape="rect" id="node2" href="$_ox_factory_of_calculators_8h.html" title="app/OxFactoryOfCalculators.h" alt="" coords="107,88,305,115"/>
-<area shape="rect" id="node7" href="$_tomato_api_8h.html" title="lib/TomatoApi.h" alt="" coords="330,88,443,115"/>
-<area shape="rect" id="node8" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="468,81,641,122"/>
-<area shape="rect" id="node9" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="666,81,848,122"/>
-<area shape="rect" id="node3" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="133,171,280,197"/>
-<area shape="rect" id="node4" href="$_tomato_8h.html" title="app/Tomato.h" alt="" coords="5,245,107,272"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="50,320,149,347"/>
-<area shape="rect" id="node6" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="183,245,353,272"/>
+<area shape="rect" id="node2" href="$_ox_factory_of_calculators_8h.html" title="app/OxFactoryOfCalculators.h" alt="" coords="115,88,313,115"/>
+<area shape="rect" id="node6" href="$_tomato_api_8h.html" title="lib/TomatoApi.h" alt="" coords="338,88,451,115"/>
+<area shape="rect" id="node7" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="476,81,649,122"/>
+<area shape="rect" id="node8" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="674,81,856,122"/>
+<area shape="rect" id="node3" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="141,171,288,197"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="5,245,104,272"/>
+<area shape="rect" id="node5" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="129,245,300,272"/>
 </map>

@@ -1,6 +1,5 @@
 <map id="app/OxFactoryOfStartPointCalculators.h" name="app/OxFactoryOfStartPointCalculators.h">
-<area shape="rect" id="node2" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="133,96,280,123"/>
-<area shape="rect" id="node3" href="$_tomato_8h.html" title="app/Tomato.h" alt="" coords="5,171,107,197"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="50,245,149,272"/>
-<area shape="rect" id="node5" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="183,171,353,197"/>
+<area shape="rect" id="node2" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="141,96,288,123"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="5,171,104,197"/>
+<area shape="rect" id="node4" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="129,171,300,197"/>
 </map>

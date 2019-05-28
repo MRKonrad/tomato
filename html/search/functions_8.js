@@ -1,6 +1,7 @@
 var searchData=
 [
   ['setallpointerstonull',['setAllPointersToNull',['../class_ox_1_1_calculator_t1.html#a11f02c5b0ae3f9b0f8a74044a170ee18',1,'Ox::CalculatorT1::setAllPointersToNull()'],['../class_ox_1_1_functions_t1.html#a242f775b52419858f76d7711096ac5dc',1,'Ox::FunctionsT1::setAllPointersToNull()'],['../class_ox_1_1_sign_calculator.html#a59de754f72402b4cf7dc2f8766f0a1ff',1,'Ox::SignCalculator::setAllPointersToNull()'],['../class_ox_1_1_start_point_calculator.html#a00a48e8845623b57e414380924a3f82b',1,'Ox::StartPointCalculator::setAllPointersToNull()']]],
+  ['setdocalculatesdmap',['setDoCalculateSDMap',['../class_ox_1_1_calculator_t1_molli.html#a65a51dcadaafdefc576201de535f8810',1,'Ox::CalculatorT1Molli']]],
   ['setndims',['setNDims',['../class_ox_1_1_calculator_t1.html#abe8decf5aba8ba0de2b6ca76ec9c1386',1,'Ox::CalculatorT1']]],
   ['setnsamples',['setNSamples',['../class_ox_1_1_calculator_t1.html#af5d84e582c3793ebe168f24245f04de1',1,'Ox::CalculatorT1']]],
   ['signcalculator',['SignCalculator',['../class_ox_1_1_sign_calculator.html#a1b0a177a5f2c6080d6730ff5fdc384af',1,'Ox::SignCalculator::SignCalculator()'],['../class_ox_1_1_sign_calculator.html#a118469032ecb643b93ba56f948fdce85',1,'Ox::SignCalculator::SignCalculator(const SignCalculator &amp;old)']]],

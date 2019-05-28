@@ -200,12 +200,15 @@ var NAVTREEINDEX0 =
 "class_ox_1_1_calculator_t1.html#affc80bde70a6f44f2474e9e0606ba3e0":[2,0,1,7,16],
 "class_ox_1_1_calculator_t1_molli.html":[2,0,1,8],
 "class_ox_1_1_calculator_t1_molli.html#a030582bca754a7b81febfae53fe0c10c":[2,0,1,8,2],
+"class_ox_1_1_calculator_t1_molli.html#a06d8579492ee063b129b489e638333be":[2,0,1,8,6],
+"class_ox_1_1_calculator_t1_molli.html#a65a51dcadaafdefc576201de535f8810":[2,0,1,8,8],
 "class_ox_1_1_calculator_t1_molli.html#a6f15bc9c026305248c927d62748903bf":[2,0,1,8,1],
 "class_ox_1_1_calculator_t1_molli.html#a9c9238dd8a96e06d3e0a96810377b90b":[2,0,1,8,5],
 "class_ox_1_1_calculator_t1_molli.html#a9cb84f5e8680e1bf6c3543846fc90c4d":[2,0,1,8,4],
 "class_ox_1_1_calculator_t1_molli.html#ab1892de078822ea106fcaebcf81047be":[2,0,1,8,0],
-"class_ox_1_1_calculator_t1_molli.html#adb4f50cdf9dabf4890b4d28194d0522b":[2,0,1,8,7],
-"class_ox_1_1_calculator_t1_molli.html#ae0fde362fbe16c4c40dee96330b4a676":[2,0,1,8,6],
+"class_ox_1_1_calculator_t1_molli.html#adb4f50cdf9dabf4890b4d28194d0522b":[2,0,1,8,10],
+"class_ox_1_1_calculator_t1_molli.html#adbe23b503f5695ff35734d2c20972277":[2,0,1,8,9],
+"class_ox_1_1_calculator_t1_molli.html#ae0fde362fbe16c4c40dee96330b4a676":[2,0,1,8,7],
 "class_ox_1_1_calculator_t1_molli.html#aec374fc512aa3b109138f0c16c53a171":[2,0,1,8,3],
 "class_ox_1_1_factory_of_calculators.html":[2,0,1,1],
 "class_ox_1_1_factory_of_fitters.html":[2,0,1,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX0 =
 "class_ox_1_1_fitter.html#ad2b680ee88b12dd51538a2da865b2589":[2,0,1,9,24],
 "class_ox_1_1_fitter.html#af91a5ea8fb20072277ddcd64f5537b09":[2,0,1,9,33],
 "class_ox_1_1_fitter.html#afc5005541eb8ee1741faf3f7fef9f112":[2,0,1,9,26],
-"class_ox_1_1_fitter.html#afeba16a2218db1f3fc646e2dde75f386":[2,0,1,9,12],
-"class_ox_1_1_functions_t1.html":[2,0,1,10],
-"class_ox_1_1_functions_t1.html#a01df2dd1eb054540eaccfb1dca01c7ce":[2,0,1,10,3],
-"class_ox_1_1_functions_t1.html#a142aaed9ff99a0dd08460d2581150e9c":[2,0,1,10,13]
+"class_ox_1_1_fitter.html#afeba16a2218db1f3fc646e2dde75f386":[2,0,1,9,12]
 };

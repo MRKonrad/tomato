@@ -144,6 +144,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>calculateCovarianceMat
 <tr class="memitem:aec374fc512aa3b109138f0c16c53a171"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec374fc512aa3b109138f0c16c53a171"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>calculateInvCovarianceMatrix</b> (const MeasureType *invTimes, const MeasureType *residuals, const MeasureType *parameters, MeasureType *invCovarianceMatrix)</td></tr>
 <tr class="separator:aec374fc512aa3b109138f0c16c53a171"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06d8579492ee063b129b489e638333be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t1_molli.html#a06d8579492ee063b129b489e638333be">getDoCalculateSDMap</a> () const </td></tr>
+<tr class="separator:a06d8579492ee063b129b489e638333be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65a51dcadaafdefc576201de535f8810"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t1_molli.html#a65a51dcadaafdefc576201de535f8810">setDoCalculateSDMap</a> (bool _DoCalculateSDMap)</td></tr>
+<tr class="separator:a65a51dcadaafdefc576201de535f8810"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1892de078822ea106fcaebcf81047be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t1_molli.html#ab1892de078822ea106fcaebcf81047be">CalculatorT1Molli</a> ()</td></tr>
 <tr class="separator:ab1892de078822ea106fcaebcf81047be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0fde362fbe16c4c40dee96330b4a676"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_ox_1_1_calculator_t1.html">CalculatorT1</a><br class="typebreak"/>
@@ -247,6 +251,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:adb4f50cdf9dabf4890b4d28194d0522b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb4f50cdf9dabf4890b4d28194d0522b"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>MaxTIForSignInvert</b></td></tr>
 <tr class="separator:adb4f50cdf9dabf4890b4d28194d0522b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbe23b503f5695ff35734d2c20972277"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adbe23b503f5695ff35734d2c20972277"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_DoCalculateSDMap</b></td></tr>
+<tr class="separator:adbe23b503f5695ff35734d2c20972277"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_ox_1_1_calculator_t1"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_ox_1_1_calculator_t1')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_ox_1_1_calculator_t1.html">Ox::CalculatorT1&lt; MeasureType &gt;</a></td></tr>
 <tr class="memitem:afa4db4321ca3013a14bcbafbf2d6413a inherit pro_attribs_class_ox_1_1_calculator_t1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa4db4321ca3013a14bcbafbf2d6413a"></a>
 <a class="el" href="struct_ox_1_1_calculator_t1_results.html">CalculatorT1Results</a>&lt; MeasureType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_Results</b></td></tr>
@@ -431,6 +438,24 @@ template&lt;typename MeasureType &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a06d8579492ee063b129b489e638333be"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MeasureType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_ox_1_1_calculator_t1_molli.html">Ox::CalculatorT1Molli</a>&lt; MeasureType &gt;::getDoCalculateSDMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ae0fde362fbe16c4c40dee96330b4a676"></a>
 <div class="memitem">
 <div class="memproto">
@@ -457,6 +482,30 @@ template&lt;typename MeasureType&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p>Implements <a class="el" href="class_ox_1_1_calculator_t1.html#a0db8102b4dad27368667e6ec89c6e4f3">Ox::CalculatorT1&lt; MeasureType &gt;</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a65a51dcadaafdefc576201de535f8810"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MeasureType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_ox_1_1_calculator_t1_molli.html">Ox::CalculatorT1Molli</a>&lt; MeasureType &gt;::setDoCalculateSDMap </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_DoCalculateSDMap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_DoCalculateSDMap</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
