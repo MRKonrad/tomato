@@ -79,7 +79,7 @@ install:
 script:
   # configure and generate
   - cd ${TRAVIS_BUILD_DIR};
-  - cmake . -DCMAKE_INSTALL_PREFIX=install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DUSE_ITK=${USE_ITK}
+  - cmake . -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DUSE_ITK=${USE_ITK}
 
   # add coverage option (only in linux g++)
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
@@ -126,9 +126,9 @@ after_success:
   - cd deployment
   # Problem: when deploying an executable as it is, somewhere in the process its permission to execute (-x) is lost.
   # Solution: zip it and deploy the archive
-  - zip -r ${exe_extended_name}.zip {TRAVIS_BUILD_DIR}/deployment/bin
-  - zip -r ${lib_extended_name}.zip {TRAVIS_BUILD_DIR}/deployment/lib
-  - zip -r ${lib_extended_name}.zip {TRAVIS_BUILD_DIR}/deployment/include
+  - zip -r ${exe_extended_name}.zip {TRAVIS_BUILD_DIR}/install/bin
+  - zip -r ${lib_extended_name}.zip {TRAVIS_BUILD_DIR}/install/lib
+  - zip -r ${lib_extended_name}.zip {TRAVIS_BUILD_DIR}/install/include
   - cd ..
 
 deploy:
