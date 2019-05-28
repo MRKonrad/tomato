@@ -40,7 +40,10 @@ TEST(itkReadFileListFilter, readFromMag) {
     vnl_vector<InputPixelType > trueInvTimes(&temp[0], 7);
     vnl_vector<InputPixelType > readInvTimes = reader->GetInvTimes();
 
-    ASSERT_EQ(trueInvTimes, readInvTimes);
+    for (int i = 0; i < trueInvTimes.size(); ++i) {
+        ASSERT_EQ(trueInvTimes[i], readInvTimes[i]);
+    }
+
 }
 
 

@@ -148,20 +148,26 @@ namespace Ox {
     CalculatorT1Molli<MeasureType>
     ::calculateCovarianceMatrix(const MeasureType* parameters, MeasureType *covarianceMatrix) {
 
-        int nSamples = this->getNSamples();
-        const MeasureType* invTimes = this->getFunctionsT1()->getInvTimes();
+        for (int i = 0; i < 3*3; ++i) {
+            covarianceMatrix[i] = 0;
+        }
 
-        MeasureType* residuals = new MeasureType[nSamples];
-        MeasureType invCovarianceMatrix[3*3];
+        if (_DoCalculateSDMap) {
+            int nSamples = this->getNSamples();
+            const MeasureType *invTimes = this->getFunctionsT1()->getInvTimes();
 
-        //this->getFunctionsT1()->copyToParameters(parameters);
-        this->getFunctionsT1()->calcLSResiduals(parameters, residuals);
+            MeasureType *residuals = new MeasureType[nSamples];
+            MeasureType invCovarianceMatrix[3 * 3];
 
-        calculateInvCovarianceMatrix(invTimes, residuals, parameters, invCovarianceMatrix);
+            //this->getFunctionsT1()->copyToParameters(parameters);
+            this->getFunctionsT1()->calcLSResiduals(parameters, residuals);
 
-        KWUtil::calcMatrixInverse3x3<MeasureType>(invCovarianceMatrix, covarianceMatrix);
+            calculateInvCovarianceMatrix(invTimes, residuals, parameters, invCovarianceMatrix);
 
-        delete [] residuals;
+            KWUtil::calcMatrixInverse3x3<MeasureType>(invCovarianceMatrix, covarianceMatrix);
+
+            delete[] residuals;
+        }
 
         return 0; //EXIT_SUCCESS
 
@@ -238,6 +244,17 @@ namespace Ox {
 
         return 0; // EXIT_SUCCESS
     }
+
+    template<typename MeasureType>
+    bool CalculatorT1Molli<MeasureType>::getDoCalculateSDMap() const {
+        return _DoCalculateSDMap;
+    }
+
+    template<typename MeasureType>
+    void CalculatorT1Molli<MeasureType>::setDoCalculateSDMap(bool _DoCalculateSDMap) {
+        CalculatorT1Molli::_DoCalculateSDMap = _DoCalculateSDMap;
+    }
+
 
 } //namespace Ox
 

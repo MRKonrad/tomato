@@ -74,10 +74,7 @@ set(USE_ITK ON CACHE BOOL "Do you want to use ITK?")
 if(USE_ITK)
     set(USE_ITK OFF)
     set(USE_VNL OFF)
-    find_package(ITK) # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    if (NOT ITK_FOUND)
-        find_package(ITK HINTS ../ITK_install)
-    endif()
+    find_package(ITK HINTS ${ITK_DIR_HINTS})
     MESSAGE("ITK version:" ${ITK_VERSION})
     if (ITK_FOUND)
         set(USE_ITK ON)
@@ -144,24 +141,28 @@ include_directories ("${PROJECT_BINARY_DIR}") # for the configuration header
 
 # targets
 if(BUILD_APP)
-    add_library (TomatoLib ${APP_FILES} ${LIB_FILES})
+    add_library (TomatoLibStatic ${APP_FILES} ${LIB_FILES})
+    add_library (TomatoLib SHARED ${APP_FILES} ${LIB_FILES})
     add_executable (TomatoExe ${APP_FILES} ${LIB_FILES})
     set_target_properties(TomatoExe PROPERTIES COMPILE_FLAGS -DTomatoLib_EXPORTS) # to see hxx content
 else(BUILD_APP)
-    add_library (TomatoLib ${LIB_FILES})
+    add_library (TomatoLibStatic ${LIB_FILES})
+    add_library (TomatoLib SHARED ${LIB_FILES})
 endif(BUILD_APP)
 
 # generating TomatoLib_export.h
 include(GenerateExportHeader)
 generate_export_header(TomatoLib)
+set_target_properties(TomatoLibStatic PROPERTIES COMPILE_FLAGS -DTOMATOLIB_STATIC_DEFINE)
 set(API_FILES ${API_FILES} ${PROJECT_BINARY_DIR}/tomatolib_export.h) # to make tomatolib_export.h available for export
 
 ###############
 ### Linking ###
 ###############
 
+target_link_libraries (TomatoLibStatic PUBLIC ${TOMATO_LIBS_TO_LINK})
 target_link_libraries (TomatoLib PUBLIC ${TOMATO_LIBS_TO_LINK})
-set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} TomatoLib)
+set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} TomatoLibStatic)
 if(BUILD_APP)
     target_link_libraries (TomatoExe PUBLIC ${TOMATO_LIBS_TO_LINK})
 endif(BUILD_APP)
@@ -173,6 +174,7 @@ endif(BUILD_APP)
 
 #set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/../tomato_install) # TODO: Should be configure from cmake command line
 
+install (TARGETS TomatoLibStatic DESTINATION lib)
 install (TARGETS TomatoLib DESTINATION lib)
 install (FILES ${API_FILES} DESTINATION include)
 if(BUILD_APP)

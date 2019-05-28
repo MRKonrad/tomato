@@ -3,7 +3,7 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 **Github** repository can be found [here](https://github.com/MRKonrad/tomato).  
 **Documentation** in doxygen can be found [here](https://mrkonrad.github.io/tomato/html).
 
-| System   |      Badge      |
+| System   |     Status      |
 |----------|:---------------:|
 | [DOI][zenodo_link]                        | [![DOI][zenodo_badge]][zenodo_link]                                |
 | [OSX/Linux build - Travis][travis_link]   | [![Travis (.org)][travis_badge]][travis_link]                      |
@@ -17,6 +17,9 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 **Important**  
 Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes book. Due to Numerical Recipes licence I cannot share this part of the code online. Please contact me if you would like to use this part of the code. To make up for this limitation we provide a number of alternative fitting procedures.
 
+# Troubleshooting
+* missing msvcp140.dll  
+Download https://www.microsoft.com/en-us/download/details.aspx?id=48145 as suggested in https://stackoverflow.com/questions/32998902/msvcp140-dll-missing
 # Software Requirements Specification
 
 1. Calculate ShMOLLI with exactly the same results as these from the previous implementation.

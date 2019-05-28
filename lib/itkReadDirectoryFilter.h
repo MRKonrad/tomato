@@ -219,7 +219,7 @@ namespace itk
 				invTimesStdVector.push_back(KWUtil::StringToNumber<double>(tagvalue));
 			}
 		}
-		vnl_vector<double> invTimesVnl(invTimesStdVector.data(), invTimesStdVector.size());
+		vnl_vector<double> invTimesVnl(&invTimesStdVector.front(), invTimesStdVector.size());
 		return invTimesVnl;
 	};
 }// end namespace

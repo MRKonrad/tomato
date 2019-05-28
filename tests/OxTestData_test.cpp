@@ -20,8 +20,8 @@ TEST(OxTestData, read_file) {
     TYPE signalPha[7] =      { 3348, 3341, 3310, -843, -767, -777, -768};
     TYPE signs[7] =          {   -1,   -1,   -1,    1,    1,    1,    1};
     TYPE invTimes[7] =       {  100,  180,  260, 1715, 3337, 4907, 6455};
-    TYPE resultsMolli[7] =   { 65.8968, 124.079, 1571.81};
-    TYPE resultsShmolli[7] = { 66.73, 129.59, 1601.5 };
+    TYPE resultsMolli[3] =   { 65.8968, 124.079, 1571.81};
+    TYPE resultsShmolli[3] = { 66.73, 129.59, 1601.5 };
 
     std::vector<TYPE> signalMagVec(signalMag, signalMag+7);
     std::vector<TYPE> signalPhaVec(signalPha, signalPha+7);
@@ -30,10 +30,14 @@ TEST(OxTestData, read_file) {
     std::vector<TYPE> resultsMolliVec(resultsMolli, resultsMolli+3);
     std::vector<TYPE> resultsShmolliVec(resultsShmolli, resultsShmolli+3);
 
-    EXPECT_EQ(testData.getSignalMag(), signalMagVec);
-    EXPECT_EQ(testData.getSignalPha(), signalPhaVec);
-    EXPECT_EQ(testData.getSigns(), signsVec);
-    EXPECT_EQ(testData.getInvTimes(), invTimesVec);
-    EXPECT_EQ(testData.getResultsMolli(), resultsMolliVec);
-    EXPECT_EQ(testData.getResultsShmolli(), resultsShmolliVec);
+    for (int i = 0; i < 7; i++) {
+        EXPECT_EQ(testData.getSignalMag()[i], signalMagVec[i]);
+        EXPECT_EQ(testData.getSignalPha()[i], signalPhaVec[i]);
+        EXPECT_EQ(testData.getSigns()[i], signsVec[i]);
+        EXPECT_EQ(testData.getInvTimes()[i], invTimesVec[i]);
+    }
+    for (int i = 0; i < 3; i++) {
+        EXPECT_EQ(testData.getResultsMolli()[i], resultsMolliVec[i]);
+        EXPECT_EQ(testData.getResultsShmolli()[i], resultsShmolliVec[i]);
+    }
 }
