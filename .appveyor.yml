@@ -40,7 +40,7 @@ before_build:
   # configure and generate via cmake
   - cd %APPVEYOR_BUILD_FOLDER%
   - cmake . -Bstatic -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T %toolset%
-  - cmake . -Bshared -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T %toolset% -DBUILD_SHARED_LIBS=ON
+  - cmake . -Bshared -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T %toolset% -DBUILD_SHARED_LIBS=ON -DUSE_YAML=OFF
 
 build_script:
   - cd %APPVEYOR_BUILD_FOLDER%\static
