@@ -1,5 +1,4 @@
 <map id="tests/OxImageCalculatorT1_test.cpp" name="tests/OxImageCalculatorT1_test.cpp">
-<area shape="rect" id="node2" href="$_cmake_config_for_tomato_8h_source.html" title="CmakeConfigForTomato.h" alt="" coords="74,336,250,363"/>
 <area shape="rect" id="node4" href="$_ox_test_image_8h.html" title="OxTestImage.h" alt="" coords="603,104,714,131"/>
 <area shape="rect" id="node13" href="$_ox_functions_t1_basic_8h.html" title="OxFunctionsT1Basic.h" alt="" coords="1411,261,1564,288"/>
 <area shape="rect" id="node26" href="$_ox_fitter_amoeba_vnl_8h.html" title="OxFitterAmoebaVnl.h" alt="" coords="38,104,184,131"/>
@@ -19,7 +18,6 @@
 <area shape="rect" id="node29" href="$_ox_sign_calculator_8h.html" title="OxSignCalculator.h" alt="" coords="1145,261,1279,288"/>
 <area shape="rect" id="node32" href="$_ox_start_point_calculator_8h.html" title="OxStartPointCalculator.h" alt="" coords="954,261,1120,288"/>
 <area shape="rect" id="node34" href="$_ox_calculator_t1_8h_source.html" title="OxCalculatorT1.h" alt="" coords="704,187,827,213"/>
-<area shape="rect" id="node37" href="$tomatolib__export_8h_source.html" title="tomatolib_export.h" alt="" coords="852,187,980,213"/>
 <area shape="rect" id="node35" href="$_ox_calculator_results_8h_source.html" title="OxCalculatorResults.h" alt="" coords="656,411,810,437"/>
 <area shape="rect" id="node36" href="$_ox_fitter_8h.html" title="OxFitter.h" alt="" coords="851,261,930,288"/>
 </map>

@@ -2,7 +2,6 @@ var NAVTREEINDEX0 =
 {
 ".html":[2,0,0],
 ".html":[2,0,1],
-"_cmake_config_for_tomato_8h_source.html":[3,0,3],
 "_k_w_util_8h_source.html":[3,0,1,7],
 "_k_w_util_8hxx_source.html":[3,0,1,8],
 "_k_w_util__test_8cpp.html":[3,0,2,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX0 =
 "class_ox_1_1_fitter.html#ad2b680ee88b12dd51538a2da865b2589":[2,0,1,9,24],
 "class_ox_1_1_fitter.html#af91a5ea8fb20072277ddcd64f5537b09":[2,0,1,9,33],
 "class_ox_1_1_fitter.html#afc5005541eb8ee1741faf3f7fef9f112":[2,0,1,9,26],
-"class_ox_1_1_fitter.html#afeba16a2218db1f3fc646e2dde75f386":[2,0,1,9,12]
+"class_ox_1_1_fitter.html#afeba16a2218db1f3fc646e2dde75f386":[2,0,1,9,12],
+"class_ox_1_1_functions_t1.html":[2,0,1,10]
 };
