@@ -11,6 +11,9 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 | [Test coverage - Codecov][codecov_link]   | [![codecov][codecov_badge]][codecov_link]                          |
 | [Downloads][downloads_link]               | [![GitHub Releases (by Release)][downloads_badge]][downloads_link] |
 
+# Tutorial
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/0tzNZNiZh18/0.jpg)](https://www.youtube.com/watch?v=0tzNZNiZh18)
 
 ## Tomato and Numerical Recipes
 
