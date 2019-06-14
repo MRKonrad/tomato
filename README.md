@@ -13,7 +13,7 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 
 # Tutorial
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/0tzNZNiZh18/0.jpg)](https://www.youtube.com/watch?v=0tzNZNiZh18)
+[![Tomato tutorial](https://img.youtube.com/vi/0tzNZNiZh18/0.jpg)](https://www.youtube.com/watch?v=0tzNZNiZh18)
 
 ## Tomato and Numerical Recipes
 
