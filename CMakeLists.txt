@@ -8,7 +8,7 @@ project (Tomato)
 
 # The version number.
 set (Tomato_VERSION_MAJOR 0)
-set (Tomato_VERSION_MINOR 3)
+set (Tomato_VERSION_MINOR 4)
 
 # Compiler flags
 set (CMAKE_CXX_STANDARD 98 CACHE STRING "")
@@ -111,6 +111,8 @@ endif(USE_VTK)
 ### MAIN PROGRAM ###
 ####################
 
+set(LIB_INSTALL_DIR lib CACHE PATH "")
+
 set(BUILD_APP OFF)
 if(USE_ITK)
     if(USE_YAML)
@@ -118,16 +120,18 @@ if(USE_ITK)
     endif(USE_YAML)
 endif(USE_ITK)            
 
-MESSAGE("CXX_STANDARD_98:   " ${CXX_STANDARD_98})
-MESSAGE("USE_ITK:           " ${USE_ITK})
-MESSAGE("USE_VTK:           " ${USE_VTK})
-MESSAGE("USE_VNL:           " ${USE_VNL})
-MESSAGE("USE_PRIVATE_NR2:   " ${USE_PRIVATE_NR2})
-MESSAGE("USE_NR2:           " ${USE_NR2})
-MESSAGE("USE_NR3:           " ${USE_NR3})
-MESSAGE("USE_YAML:          " ${USE_YAML})
-MESSAGE("BUILD_SHARED_LIBS: " ${BUILD_SHARED_LIBS})
-MESSAGE("BUILD_APP:         " ${BUILD_APP})
+MESSAGE("CXX_STANDARD_98:      " ${CXX_STANDARD_98})
+MESSAGE("USE_ITK:              " ${USE_ITK})
+MESSAGE("USE_VTK:              " ${USE_VTK})
+MESSAGE("USE_VNL:              " ${USE_VNL})
+MESSAGE("USE_PRIVATE_NR2:      " ${USE_PRIVATE_NR2})
+MESSAGE("USE_NR2:              " ${USE_NR2})
+MESSAGE("USE_NR3:              " ${USE_NR3})
+MESSAGE("USE_YAML:             " ${USE_YAML})
+MESSAGE("BUILD_SHARED_LIBS:    " ${BUILD_SHARED_LIBS})
+MESSAGE("CMAKE_INSTALL_PREFIX: " ${CMAKE_INSTALL_PREFIX})
+MESSAGE("LIB_INSTALL_DIR:      " ${LIB_INSTALL_DIR})
+MESSAGE("BUILD_APP:            " ${BUILD_APP})
 
 # configure a header file to pass some of the CMake settings to the source code
 configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForTomato.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
@@ -174,8 +178,7 @@ endif(BUILD_APP)
 
 #set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/../tomato_install) # TODO: Should be configure from cmake command line
 
-install (TARGETS TomatoLib DESTINATION lib)
-#install (TARGETS TomatoLib DESTINATION lib)
+install (TARGETS TomatoLib DESTINATION ${LIB_INSTALL_DIR})
 install (FILES ${API_FILES} DESTINATION include)
 if(BUILD_APP)
     install (TARGETS TomatoExe DESTINATION bin)
