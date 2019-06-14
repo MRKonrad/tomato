@@ -130,6 +130,7 @@ after_success:
   - zip -r ${exe_extended_name}.zip bin
   - zip -r ${lib_extended_name}.zip lib_static
   - zip -r ${lib_extended_name}.zip lib_shared
+  - zip -r ${lib_extended_name}.zip lib
   - zip -r ${lib_extended_name}.zip include
 
   # copy the archives
