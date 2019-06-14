@@ -111,7 +111,7 @@ endif(USE_VTK)
 ### MAIN PROGRAM ###
 ####################
 
-set(LIB_INSTALL_DIR lib CACHE PATH "")
+set(LIB_INSTALL_DIR lib CACHE STRING "")
 
 set(BUILD_APP OFF)
 if(USE_ITK)
