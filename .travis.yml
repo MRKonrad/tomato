@@ -78,8 +78,8 @@ install:
 
 script:
   # configure and generate
-  - cd ${TRAVIS_BUILD_DIR};
-  - cmake . -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DITK_DIR_HINTS="../ITK_install"
+  - cd ${TRAVIS_BUILD_DIR}/static;
+  - cmake .. -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DITK_DIR_HINTS="../../ITK_install"
 
   # add coverage option (only in linux g++)
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
@@ -87,23 +87,23 @@ script:
     fi
 
   # this is make
-  - make -j8
+  - make -j4
   - make install
 
   # configure and generate SHARED
-  - cmake . -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DITK_DIR_HINTS="../ITK_install" -DBUILD_SHARED_LIBS=ON
-  - make -j8
+  - cd ${TRAVIS_BUILD_DIR}/shared;
+  - cmake .. -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DITK_DIR_HINTS="../../ITK_install" -DBUILD_SHARED_LIBS=ON
+  - make -j4
   - make install
 
   # testing and getting the test coverage
-  - cd tests
+  - cd ${TRAVIS_BUILD_DIR}/static/tests
   - ./TomatoTests
-  - cd $TRAVIS_BUILD_DIR
 
 after_success:
   # Run coverage analysis only in linux g++. Eval because travis wants to parse -- as part of yaml block
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
-      cd $TRAVIS_BUILD_DIR ;
+      cd ${TRAVIS_BUILD_DIR}/static ;
       eval "lcov --no-external --directory . --capture --output-file coverage.info" ;
       eval "lcov --remove coverage.info 'thirdParty/*' -o coverage.info" ;
       eval "lcov --remove coverage.info 'tests/*' -o coverage.info" ;
@@ -119,16 +119,15 @@ after_success:
     fi
 
   # getting ready to deploy
-  - mkdir deployment
+  - mkdir ${TRAVIS_BUILD_DIR}/deployment
 
   # copy the test data
   - cp ${TRAVIS_BUILD_DIR}/tests/testData/testData.zip ${TRAVIS_BUILD_DIR}/deployment/testData.zip
 
   # copy the executable
-  - cd $TRAVIS_BUILD_DIR
   - export exe_extended_name=TomatoExe_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
   - export lib_extended_name=TomatoLib_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
-  - cd deployment
+  - cd ${TRAVIS_BUILD_DIR}/deployment
   # Problem: when deploying an executable as it is, somewhere in the process its permission to execute (-x) is lost.
   # Solution: zip it and deploy the archive
   - zip -r ${exe_extended_name}.zip ${TRAVIS_BUILD_DIR}/install/bin
