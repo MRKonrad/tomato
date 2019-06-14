@@ -178,7 +178,7 @@ endif(BUILD_APP)
 
 #set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/../tomato_install) # TODO: Should be configure from cmake command line
 
-install (TARGETS TomatoLib DESTINATION ${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR})
+install (TARGETS TomatoLib DESTINATION ${LIB_INSTALL_DIR})
 install (FILES ${API_FILES} DESTINATION include)
 if(BUILD_APP)
     install (TARGETS TomatoExe DESTINATION bin)
