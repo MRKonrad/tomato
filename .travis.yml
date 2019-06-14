@@ -134,10 +134,9 @@ after_success:
   - zip -r ${lib_extended_name}.zip include
 
   # copy the archives
-  - cp ${exe_extended_name}.zip deployment
-  - cp ${lib_extended_name}.zip deployment
+  - cp ${exe_extended_name}.zip ${TRAVIS_BUILD_DIR}/deployment
+  - cp ${lib_extended_name}.zip ${TRAVIS_BUILD_DIR}/deployment
   - cp ${TRAVIS_BUILD_DIR}/tests/testData/testData.zip ${TRAVIS_BUILD_DIR}/deployment/testData.zip
-  - cd ..
 
 deploy:
   provider: releases # GitHub
