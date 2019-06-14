@@ -138,6 +138,7 @@ after_success:
   - cp ${lib_extended_name}.zip ${TRAVIS_BUILD_DIR}/deployment/
   - cp ${TRAVIS_BUILD_DIR}/tests/testData/testData.zip ${TRAVIS_BUILD_DIR}/deployment/testData.zip
   - ls ${TRAVIS_BUILD_DIR}/deployment
+  - cd ${TRAVIS_BUILD_DIR}
 
 deploy:
   provider: releases # GitHub
