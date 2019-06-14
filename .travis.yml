@@ -122,20 +122,20 @@ after_success:
 
   # getting ready to deploy
   - mkdir ${TRAVIS_BUILD_DIR}/deployment
-
-  # copy the test data
-  - cp ${TRAVIS_BUILD_DIR}/tests/testData/testData.zip ${TRAVIS_BUILD_DIR}/deployment/testData.zip
-
-  # copy the executable
   - export exe_extended_name=TomatoExe_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
   - export lib_extended_name=TomatoLib_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
-  - cd ${TRAVIS_BUILD_DIR}/deployment
-  # Problem: when deploying an executable as it is, somewhere in the process its permission to execute (-x) is lost.
-  # Solution: zip it and deploy the archive
-  - zip -r ${exe_extended_name}.zip ${TRAVIS_BUILD_DIR}/install/bin
-  - zip -r ${lib_extended_name}.zip ${TRAVIS_BUILD_DIR}/install/lib_static
-  - zip -r ${lib_extended_name}.zip ${TRAVIS_BUILD_DIR}/install/lib_shared
-  - zip -r ${lib_extended_name}.zip ${TRAVIS_BUILD_DIR}/install/include
+  - cd ${TRAVIS_BUILD_DIR}/install
+
+  # zip the files
+  - zip -r ${exe_extended_name}.zip bin
+  - zip -r ${lib_extended_name}.zip lib_static
+  - zip -r ${lib_extended_name}.zip lib_shared
+  - zip -r ${lib_extended_name}.zip include
+
+  # copy the archives
+  - cp ${exe_extended_name}.zip deployment
+  - cp ${lib_extended_name}.zip deployment
+  - cp ${TRAVIS_BUILD_DIR}/tests/testData/testData.zip ${TRAVIS_BUILD_DIR}/deployment/testData.zip
   - cd ..
 
 deploy:

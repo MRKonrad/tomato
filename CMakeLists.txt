@@ -166,7 +166,6 @@ set(API_FILES ${API_FILES} ${PROJECT_BINARY_DIR}/tomatolib_export.h) # to make t
 ###############
 
 target_link_libraries (TomatoLib PUBLIC ${TOMATO_LIBS_TO_LINK})
-#target_link_libraries (TomatoLib PUBLIC ${TOMATO_LIBS_TO_LINK})
 set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} TomatoLib)
 if(BUILD_APP)
     target_link_libraries (TomatoExe PUBLIC ${TOMATO_LIBS_TO_LINK})
@@ -178,7 +177,10 @@ endif(BUILD_APP)
 
 #set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/../tomato_install) # TODO: Should be configure from cmake command line
 
-install (TARGETS TomatoLib DESTINATION ${LIB_INSTALL_DIR})
+install (TARGETS TomatoLib
+        RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR}
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR})
 install (FILES ${API_FILES} DESTINATION include)
 if(BUILD_APP)
     install (TARGETS TomatoExe DESTINATION bin)

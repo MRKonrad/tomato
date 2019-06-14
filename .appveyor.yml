@@ -39,8 +39,8 @@ before_build:
   - dir
   # configure and generate via cmake
   - cd %APPVEYOR_BUILD_FOLDER%
-  - cmake . -Bstatic -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T %toolset% -DLIB_INSTALL_DIR="lib\static"
-  - cmake . -Bshared -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T %toolset% -DBUILD_SHARED_LIBS=ON -DUSE_YAML=OFF -DLIB_INSTALL_DIR="lib\shared"
+  - cmake . -Bstatic -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T %toolset% -DLIB_INSTALL_DIR="lib_static"
+  - cmake . -Bshared -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T %toolset% -DBUILD_SHARED_LIBS=ON -DUSE_YAML=OFF -DLIB_INSTALL_DIR="lib_shared"
 
 build_script:
   - cd %APPVEYOR_BUILD_FOLDER%\static
@@ -59,7 +59,7 @@ after_build:
   - mkdir deployment
   # change the name of the exe, zip it and copy the zip to the deployment folders
   - cd %APPVEYOR_BUILD_FOLDER%\install
-  - 7z a %EXE_EXTENDED_NAME%.zip bin\TomatoExe.exe # zip
+  - 7z a %EXE_EXTENDED_NAME%.zip bin\* # zip
   - 7z a %LIB_EXTENDED_NAME%.zip lib\* include\* # zip
   - copy %APPVEYOR_BUILD_FOLDER%\install\%EXE_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%EXE_EXTENDED_NAME%.zip
   - copy %APPVEYOR_BUILD_FOLDER%\install\%LIB_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%LIB_EXTENDED_NAME%.zip
