@@ -29,16 +29,16 @@ if(Tomato_BUILD_TESTING)
     install(TARGETS TomatoTests DESTINATION tests)
     install(DIRECTORY ${CMAKE_BINARY_DIR}/tests/testData DESTINATION tests)
 
-    ########################
-    ### TESTING COVERAGE ###
-    ########################
-
-    # Coveralls
-    SET(COVERAGE OFF CACHE BOOL "Coverage")
-    if (COVERAGE)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
-        target_compile_options(TomatoTests PRIVATE --coverage)
-        target_link_libraries(TomatoTests PRIVATE --coverage)
-    endif()
+#    ########################
+#    ### TESTING COVERAGE ###
+#    ########################
+#
+#    # Coveralls
+#    SET(COVERAGE OFF CACHE BOOL "Coverage")
+#    if (COVERAGE)
+#        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
+#        target_compile_options(TomatoTests PRIVATE --coverage)
+#        target_link_libraries(TomatoTests PRIVATE --coverage)
+#    endif()
 
 endif(Tomato_BUILD_TESTING)
