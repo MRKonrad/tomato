@@ -36,8 +36,6 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
-      - lcov
-      - genhtml
     packages:
       - doxygen
       - doxygen-doc
@@ -48,7 +46,7 @@ addons:
 
 before_install:
   # condition for the extended build (with coverage and documentation)
-  - if [ "$TRAVIS_OS_NAME" == "osx" ] && [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98" ]; then
+  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98" ]; then
       EXTENDED_BUILD="ON";
     fi
 
@@ -110,6 +108,7 @@ after_success:
       cd ${TRAVIS_BUILD_DIR}/static ;
       cp ${TRAVIS_BUILD_DIR}/scriptsBuild/generateTestCoverageReport.sh generateTestCoverageReport.sh;
       sh generateTestCoverageReport.sh;
+      ls;
       bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports" ;
     fi
 
