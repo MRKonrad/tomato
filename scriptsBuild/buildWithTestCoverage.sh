@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# works on macos
-
 cd ../..
 mkdir tomato_test_coverage
 cd tomato_test_coverage
