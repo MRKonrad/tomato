@@ -109,7 +109,7 @@ after_success:
       cp ${TRAVIS_BUILD_DIR}/scriptsBuild/generateTestCoverageReport.sh generateTestCoverageReport.sh;
       sh generateTestCoverageReport.sh;
       ls;
-      bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports" ;
+      bash <(curl -s https://codecov.io/bash) -f coverage.info || echo "Codecov did not collect coverage reports" ;
     fi
 
   # Generate and deploy documentation only in linux g++
