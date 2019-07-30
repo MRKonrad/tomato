@@ -106,7 +106,7 @@ after_success:
   # Run coverage analysis only in linux g++. Eval because travis wants to parse -- as part of yaml block
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
       cd ${TRAVIS_BUILD_DIR}/static ;
-      cp ${TRAVIS_BUILD_DIR}/scriptsBuild/generateTestCoverageRaport.sh generateTestCoverageRaport.sh;
+      cp ${TRAVIS_BUILD_DIR}/scriptsBuild/generateTestCoverageReport.sh generateTestCoverageReport.sh;
       sh generateTestCoverageReport.sh;
       bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports" ;
     fi
