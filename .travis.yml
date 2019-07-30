@@ -36,6 +36,8 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
+      - lcov
+      - genhtml
     packages:
       - doxygen
       - doxygen-doc
