@@ -58,8 +58,8 @@ before_install:
   # zip the data used for deployment
   - cd ${TRAVIS_BUILD_DIR}/tests/testData
   - zip -r testData.zip dicom
-  - zip -r testData.zip tomatoConfig_Shmolli_inputDirPaths.yaml
   - zip -r testData.zip tomatoConfig_Shmolli_inputFilePaths.yaml
+  # - zip -r testData.zip tomatoConfig_Shmolli_inputDirPaths.yaml
 
 install:
   # install coverage tools only in linux g++
@@ -84,7 +84,7 @@ script:
 
   # add coverage option (only in linux g++)
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
-      cmake -DCOVERAGE=1 . ;
+      cmake .. -DCMAKE_CXX_FLAGS="--coverage" ;
     fi
 
   # this is make
@@ -106,16 +106,14 @@ after_success:
   # Run coverage analysis only in linux g++. Eval because travis wants to parse -- as part of yaml block
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
       cd ${TRAVIS_BUILD_DIR}/static ;
-      eval "lcov --no-external --directory . --capture --output-file coverage.info" ;
-      eval "lcov --remove coverage.info 'thirdParty/*' -o coverage.info" ;
-      eval "lcov --remove coverage.info 'tests/*' -o coverage.info" ;
-      eval "lcov --list coverage.info" ;
+      cp ${TRAVIS_BUILD_DIR}/scriptsBuild/generateTestCoverageRaport.sh generateTestCoverageRaport.sh;
+      sh generateTestCoverageReport.sh;
       bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports" ;
     fi
 
   # Generate and deploy documentation only in linux g++
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
-      cd $TRAVIS_BUILD_DIR ;
+      cd ${TRAVIS_BUILD_DIR} ;
       chmod +x generateDocumentationAndDeploy.sh;
       ./generateDocumentationAndDeploy.sh;
     fi
@@ -127,7 +125,7 @@ after_success:
   - cd ${TRAVIS_BUILD_DIR}/install
 
   # zip the files
-  - zip -r ${exe_extended_name}.zip bin
+  - zip -r -j ${exe_extended_name}.zip bin # -j because we do not want the directory tree in the zip file
   - zip -r ${lib_extended_name}.zip lib_static
   - zip -r ${lib_extended_name}.zip lib_shared
   - zip -r ${lib_extended_name}.zip lib
@@ -138,7 +136,7 @@ after_success:
   - cp ${lib_extended_name}.zip ${TRAVIS_BUILD_DIR}/deployment/
   - cp ${TRAVIS_BUILD_DIR}/tests/testData/testData.zip ${TRAVIS_BUILD_DIR}/deployment/testData.zip
   - ls ${TRAVIS_BUILD_DIR}/deployment
-  - cd ${TRAVIS_BUILD_DIR}
+  - cd ${TRAVIS_BUILD_DIR} # needed for deployment!!!
 
 deploy:
   provider: releases # GitHub

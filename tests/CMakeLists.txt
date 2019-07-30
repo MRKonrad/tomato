@@ -33,14 +33,10 @@ if(Tomato_BUILD_TESTING)
     ### TESTING COVERAGE ###
     ########################
 
-    # Compiler flags for coveralls, only in linux
-    if (UNIX AND NOT APPLE)
-        set(CMAKE_CXX_FLAGS "-fprofile-arcs -ftest-coverage")
-    endif(UNIX AND NOT APPLE)
-
     # Coveralls
     SET(COVERAGE OFF CACHE BOOL "Coverage")
     if (COVERAGE)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
         target_compile_options(TomatoTests PRIVATE --coverage)
         target_link_libraries(TomatoTests PRIVATE --coverage)
     endif()
