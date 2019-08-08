@@ -7,3 +7,6 @@
 [submodule "thirdParty/yamlmatlab"]
 	path = thirdParty/yamlmatlab
 	url = https://github.com/ewiger/yamlmatlab.git
+[submodule "thirdParty/lmfit"]
+	path = thirdParty/lmfit
+	url = https://jugit.fz-juelich.de/mlz/lmfit

@@ -43,7 +43,7 @@ endif()
 ### YAML ###
 ############
 
-set(USE_YAML ON CACHE BOOL "Do you want to use Numerical Recipes 2 code?")
+set(USE_YAML ON CACHE BOOL "Do you want to use yaml?")
 include(cmake/libyaml.cmake)
 
 ###############
@@ -66,6 +66,10 @@ include(cmake/nr2.cmake)
 # Numerical Recipes v3
 set(USE_NR3 OFF CACHE BOOL "Do you want to use Numerical Recipes 3 code?")
 include(cmake/nr3.cmake)
+
+# lmfit
+set(USE_LMFIT ON CACHE BOOL "Do you want to use LMFIT?")
+include(cmake/lmfit.cmake)
 
 ###########
 ### ITK ###
