@@ -1,6 +1,6 @@
-#------------------------------------#
+#------------#
 #   Tomato   #
-#------------------------------------#
+#------------#
 
 language: cpp
 
@@ -71,13 +71,12 @@ install:
   - cd ${TRAVIS_BUILD_DIR}/..
   - git clone https://MRKonrad:${GH_PERSONAL_ACCESS_TOKEN}@github.com/MRKonrad/tomato_private
 
-  # download ITK
-  - cd ${TRAVIS_BUILD_DIR}/..
-  - curl -L -O http://mrkonrad.github.io/MRKonrad/files/ITK_built/ITK413_${TRAVIS_OS_NAME}_install.zip
-  - unzip -a -q ITK413_${TRAVIS_OS_NAME}_install.zip
+  # download ITK binaries
+  - cd ${TRAVIS_BUILD_DIR}
+  - sh downloadITK_linux_osx.sh
 
 script:
-  # configure and generate
+  # configure and generate static
   - mkdir ${TRAVIS_BUILD_DIR}/static;
   - cd ${TRAVIS_BUILD_DIR}/static;
   - cmake .. -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DITK_DIR_HINTS="${TRAVIS_BUILD_DIR}/../ITK_install" -DLIB_INSTALL_DIR="lib_static"
@@ -87,16 +86,17 @@ script:
       cmake .. -DCMAKE_CXX_FLAGS="--coverage" ;
     fi
 
-  # this is make
-  - make -j4
-  - make install
+  # build shared static
+  - cmake --build . --config DEBUG
+  - cmake --build . --config DEBUG --target install
 
   # configure and generate SHARED
   - mkdir ${TRAVIS_BUILD_DIR}/shared;
   - cd ${TRAVIS_BUILD_DIR}/shared;
   - cmake .. -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DITK_DIR_HINTS="${TRAVIS_BUILD_DIR}/../ITK_install" -DBUILD_SHARED_LIBS=ON -DUSE_YAML=OFF -DLIB_INSTALL_DIR="lib_shared"
-  - make -j4
-  - make install
+  # build shared
+  - cmake --build . --config DEBUG
+  - cmake --build . --config DEBUG --target install
 
   # testing and getting the test coverage
   - cd ${TRAVIS_BUILD_DIR}/static/tests

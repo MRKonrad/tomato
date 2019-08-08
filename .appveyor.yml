@@ -1,6 +1,6 @@
-#------------------------------------#
+#------------#
 #   Tomato   #
-#------------------------------------#
+#------------#
 
 os:
   - Visual Studio 2015
@@ -29,14 +29,12 @@ configuration:
   - Release
 
 before_build:
-  # get itk
   - cd %APPVEYOR_BUILD_FOLDER%\..
+  # get private code
   - git clone https://MRKonrad:%GH_PERSONAL_ACCESS_TOKEN%@github.com/MRKonrad/tomato_private
-  - mkdir ITK_install
-  - cd ITK_install
-  - curl -L https://github.com/MRKonrad/build-itk/releases/download/itk_v4.13.2/itk_v4.13.2_windows_%PLATFORM%_%toolset%.zip -o itk_install.zip
-  - 7z x -r itk_install.zip
-  - dir
+  # get itk binaties
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - downloadITK_windows.bat
   # configure and generate via cmake
   - cd %APPVEYOR_BUILD_FOLDER%
   - cmake . -Bstatic -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T %toolset% -DLIB_INSTALL_DIR="lib_static"
