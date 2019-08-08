@@ -33,7 +33,7 @@ before_build:
   # get private code
   - git clone https://MRKonrad:%GH_PERSONAL_ACCESS_TOKEN%@github.com/MRKonrad/tomato_private
   # get itk binaties
-  - cd %APPVEYOR_BUILD_FOLDER%
+  - cd %APPVEYOR_BUILD_FOLDER%\scriptsBuild
   - downloadITK_windows.bat
   # configure and generate via cmake
   - cd %APPVEYOR_BUILD_FOLDER%

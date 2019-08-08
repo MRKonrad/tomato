@@ -72,7 +72,7 @@ install:
   - git clone https://MRKonrad:${GH_PERSONAL_ACCESS_TOKEN}@github.com/MRKonrad/tomato_private
 
   # download ITK binaries
-  - cd ${TRAVIS_BUILD_DIR}
+  - cd ${TRAVIS_BUILD_DIR}/scriptsBuild
   - sh downloadITK_linux_osx.sh
 
 script:
