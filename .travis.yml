@@ -37,7 +37,7 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8.4
+      - g++-4.8
       - doxygen
       - doxygen-doc
       - doxygen-latex
@@ -46,6 +46,9 @@ addons:
       - lcov
 
 before_install:
+  - echo "cxx" $CXX
+  - echo "cxx" $CXX
+  -
   # condition for the extended build (with coverage and documentation)
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98" ]; then
       EXTENDED_BUILD="ON";
@@ -141,10 +144,10 @@ after_success:
   - cd ${TRAVIS_BUILD_DIR} # needed for deployment!!!
 
 deploy:
-  provider: releases # GitHub
+  provider: releases
   api_key:
     secure: ${GH_PERSONAL_ACCESS_TOKEN}
-  file_glob: ON # to use wildcards
+  file_glob: ON
   file: deployment/*
   skip_cleanup: ON
   on:
