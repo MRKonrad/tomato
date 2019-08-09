@@ -4,6 +4,8 @@
  * \date 2019/08/08
  */
 
+#ifdef USE_LMFIT
+
 #include "gtest/gtest.h"
 #include "lmmin.h"
 
@@ -50,3 +52,5 @@ TEST(lmfit, first_test) {
         printf("valid, though not the only solution: "
                "try other starting values\n");
 }
+
+#endif // USE_LMFIT
