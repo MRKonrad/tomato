@@ -59,6 +59,8 @@ Download https://www.microsoft.com/en-us/download/details.aspx?id=48145 as sugge
 
 * output SNR maps
 * make sure SNR and nAmoebaCalls is the same as in Shmolli
+* fix downloadITK_linux_osx
+* seperate poroject for building tomato dependencies
 
 [travis_badge]: https://img.shields.io/travis/MRKonrad/tomato/master.svg?style=flat-square
 [travis_link]: https://travis-ci.org/MRKonrad/tomato

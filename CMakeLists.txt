@@ -68,7 +68,7 @@ set(USE_NR3 OFF CACHE BOOL "Do you want to use Numerical Recipes 3 code?")
 include(cmake/nr3.cmake)
 
 # lmfit currently not on windows
-if (not win32)
+if (NOT WIN32)
     set(USE_LMFIT ON CACHE BOOL "Do you want to use LMFIT?")
     include(cmake/lmfit.cmake)
 endif()
