@@ -3,7 +3,7 @@
 #------------#
 
 language: cpp
-dist: xenial
+dist: trusty
 
 os:
   - linux
