@@ -4,7 +4,8 @@
 # /usr/bin/ld: /home/travis/build/MRKonrad/ITK_install/lib/libitksys-4.13.a(SystemTools.cxx.o): unrecognized relocation (0x2a) in section `.text'
 # /usr/bin/ld: final link failed: Bad value
 
-export mysystem=$(uname)
+mysystem=$(uname)
+export mysystem
 
 if [ "${mysystem}" == "Darwin" ]
 then
