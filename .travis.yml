@@ -46,9 +46,7 @@ addons:
       - lcov
 
 before_install:
-  - echo "cxx" $CXX
-  - echo "cxx" $CXX
-  -
+
   # condition for the extended build (with coverage and documentation)
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ] && [ "$CXX_STANDARD" == "98" ]; then
       EXTENDED_BUILD="ON";
