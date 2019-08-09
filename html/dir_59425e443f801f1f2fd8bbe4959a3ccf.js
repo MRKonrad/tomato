@@ -4,6 +4,7 @@ var dir_59425e443f801f1f2fd8bbe4959a3ccf =
     [ "itkPipeline_test.cpp", "itk_pipeline__test_8cpp.html", null ],
     [ "itkSortInvTimesImageFilter_test.cpp", "itk_sort_inv_times_image_filter__test_8cpp.html", null ],
     [ "KWUtil_test.cpp", "_k_w_util__test_8cpp.html", "_k_w_util__test_8cpp" ],
+    [ "lmfit_test.cpp", "lmfit__test_8cpp.html", "lmfit__test_8cpp" ],
     [ "OxCalculatorT1Molli_test.cpp", "_ox_calculator_t1_molli__test_8cpp.html", null ],
     [ "OxCalculatorT1Shmolli_test.cpp", "_ox_calculator_t1_shmolli__test_8cpp.html", null ],
     [ "OxFitterAmoebaPrivateNr2_test.cpp", "_ox_fitter_amoeba_private_nr2__test_8cpp.html", null ],
