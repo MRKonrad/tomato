@@ -75,7 +75,7 @@ install:
 
   # download ITK binaries
   - cd ${TRAVIS_BUILD_DIR}/scriptsBuild
-  - sh downloadITK_linux_osx.sh
+  - bash downloadITK_linux_osx.sh
 
 script:
   # configure and generate static
