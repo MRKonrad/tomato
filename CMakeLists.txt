@@ -16,6 +16,10 @@ set (CMAKE_CXX_STANDARD_REQUIRED ON)
 if (CMAKE_CXX_STANDARD EQUAL 98)
     set (CXX_STANDARD_98 ON) # flag used in the code
 endif()
+
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_STANDARD 99)
+
 set(CMAKE_MACOSX_RPATH 1) # to address MACOSX_RPATH warning
 
 set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=undefined -fPIC")
@@ -68,10 +72,10 @@ set(USE_NR3 OFF CACHE BOOL "Do you want to use Numerical Recipes 3 code?")
 include(cmake/nr3.cmake)
 
 # lmfit currently not on windows
-if (NOT WIN32)
+#if (NOT WIN32)
     set(USE_LMFIT ON CACHE BOOL "Do you want to use LMFIT?")
     include(cmake/lmfit.cmake)
-endif()
+#endif()
 
 ###########
 ### ITK ###

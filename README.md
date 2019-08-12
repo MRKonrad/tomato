@@ -3,13 +3,15 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 **Github** repository can be found [here](https://github.com/MRKonrad/tomato).  
 **Documentation** in doxygen can be found [here](https://mrkonrad.github.io/tomato/html).
 
-| System   |     Status      |
-|----------|:---------------:|
+| System                                    |     Status                                                         |
+|-------------------------------------------|:------------------------------------------------------------------:|
 | [DOI][zenodo_link]                        | [![DOI][zenodo_badge]][zenodo_link]                                |
 | [OSX/Linux build - Travis][travis_link]   | [![Travis (.org)][travis_badge]][travis_link]                      |
 | [Windows build - AppVeyor][appveyor_link] | [![AppVeyor][appveyor_badge]][appveyor_link]                       |
+| [Code quality - Codacy][codacy_link]      | [![Codacy Badge][codacy_badge]][codacy_link]                       |
 | [Test coverage - Codecov][codecov_link]   | [![codecov][codecov_badge]][codecov_link]                          |
 | [Downloads][downloads_link]               | [![GitHub Releases (by Release)][downloads_badge]][downloads_link] |
+
 
 # Tutorial
 
@@ -23,6 +25,7 @@ Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes b
 # Troubleshooting
 * missing msvcp140.dll  
 Download https://www.microsoft.com/en-us/download/details.aspx?id=48145 as suggested in https://stackoverflow.com/questions/32998902/msvcp140-dll-missing
+
 # Software Requirements Specification
 
 1. Calculate ShMOLLI with exactly the same results as these from the previous implementation.
@@ -62,13 +65,15 @@ Download https://www.microsoft.com/en-us/download/details.aspx?id=48145 as sugge
 * fix downloadITK_linux_osx
 * seperate poroject for building tomato dependencies
 
-[travis_badge]: https://img.shields.io/travis/MRKonrad/tomato/master.svg?style=flat-square
-[travis_link]: https://travis-ci.org/MRKonrad/tomato
-[appveyor_badge]: https://img.shields.io/appveyor/ci/MRKonrad/tomato/master.svg?style=flat-square
-[appveyor_link]: https://ci.appveyor.com/project/MRKonrad/tomato
-[codecov_badge]: https://img.shields.io/codecov/c/github/MRKonrad/tomato.svg?style=flat-square
-[codecov_link]: https://codecov.io/gh/MRKonrad/tomato
-[downloads_link]: https://github.com/MRKonrad/tomato/releases
-[downloads_badge]: https://img.shields.io/github/downloads/MRKonrad/tomato/total.svg?style=flat-square
 [zenodo_link]: https://zenodo.org/badge/latestdoi/142749215
 [zenodo_badge]: https://img.shields.io/badge/DOI-10.5281%2Fzenodo.1489791-blue.svg?style=flat-square
+[travis_link]: https://travis-ci.org/MRKonrad/tomato
+[travis_badge]: https://img.shields.io/travis/MRKonrad/tomato/master.svg?style=flat-square
+[appveyor_link]: https://ci.appveyor.com/project/MRKonrad/tomato
+[appveyor_badge]: https://img.shields.io/appveyor/ci/MRKonrad/tomato/master.svg?style=flat-square
+[codacy_link]: https://www.codacy.com/app/MRKonrad/tomato?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MRKonrad/tomato&amp;utm_campaign=Badge_Grade
+[codacy_badge]: https://img.shields.io/codacy/grade/1ca5a2f31ee040cc9258fc5018e51c1e?style=flat-square
+[codecov_link]: https://codecov.io/gh/MRKonrad/tomato
+[codecov_badge]: https://img.shields.io/codecov/c/github/MRKonrad/tomato.svg?style=flat-square
+[downloads_link]: https://github.com/MRKonrad/tomato/releases
+[downloads_badge]: https://img.shields.io/github/downloads/MRKonrad/tomato/total.svg?style=flat-square
