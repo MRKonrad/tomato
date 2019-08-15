@@ -12,7 +12,7 @@ cmake ../tomato \
     -DCMAKE_CXX_STANDARD=98 \
     -DITK_DIR_HINTS="../ITK_install"
 
-cmake --build . --config DEBUG
+cmake --build . --config DEBUG --parallel 6
 # cmake --build . --config DEBUG --target install
 
 cd tests
