@@ -115,4 +115,34 @@ TEST(KWUtil, calcMatrixInverse3x3_detZero) {
     EXPECT_DOUBLE_EQ(invMatrixCalculated[8], 0);
 }
 
+TEST(KWUtil, quickSort) {
+    double myarray[5] = {95, -1, -0.1, 3, 1e-2};
+    double myarraySorted[5] = {-1, -0.1, 1e-2, 3, 95};
+
+    KWUtil::quickSort(5, myarray);
+
+    EXPECT_DOUBLE_EQ(myarray[0], myarraySorted[0]);
+    EXPECT_DOUBLE_EQ(myarray[1], myarraySorted[1]);
+    EXPECT_DOUBLE_EQ(myarray[2], myarraySorted[2]);
+    EXPECT_DOUBLE_EQ(myarray[3], myarraySorted[3]);
+    EXPECT_DOUBLE_EQ(myarray[4], myarraySorted[4]);
+
+}
+
+TEST(KWUtil, calcMeanArray) {
+
+    double myarray[5] = {95, -1, -0.1, 3, 1e-2};
+
+    EXPECT_DOUBLE_EQ(KWUtil::calcMeanArray(5, myarray), 19.382);
+
+}
+
+TEST(KWUtil, calcMedianArray) {
+
+    double myarray[5] = {95, -1, -0.1, 3, 1e-2};
+
+    EXPECT_DOUBLE_EQ(KWUtil::calcMedianArray(5, myarray), 0.01);
+
+}
+
 

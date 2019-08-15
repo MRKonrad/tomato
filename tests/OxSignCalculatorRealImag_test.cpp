@@ -9,6 +9,33 @@
 
 #include "OxSignCalculatorRealImag.h"
 
+TEST(OxSignCalculatorRealImag, disp) {
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/blood.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    TYPE *signal = new TYPE[nSamples];
+    TYPE *signs = new TYPE[nSamples];
+
+    Ox::SignCalculatorRealImag<TYPE> signCalculator;
+    signCalculator.setNSamples(testData.getNSamples());
+    signCalculator.setSigMag(testData.getSignalMagPtr());
+    signCalculator.setSigPha(testData.getSignalPhaPtr());
+    signCalculator.setSignal(signal);
+    signCalculator.setSigns(signs);
+
+    testing::internal::CaptureStdout();
+    signCalculator.disp();
+    std::string output = testing::internal::GetCapturedStdout();
+
+    EXPECT_NE(output.size(), 0);
+}
+
+
+
 TEST(OxSignCalculatorRealImag, calculateSign_blood) {
 
     typedef double TYPE;

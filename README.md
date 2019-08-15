@@ -63,7 +63,8 @@ Download https://www.microsoft.com/en-us/download/details.aspx?id=48145 as sugge
 * output SNR maps
 * make sure SNR and nAmoebaCalls is the same as in Shmolli
 * fix downloadITK_linux_osx
-* seperate poroject for building tomato dependencies
+* seperate projects for building tomato dependencies (done for lmfit)
+* possibly I could make all FunctionsT1 object static 
 
 [zenodo_link]: https://zenodo.org/badge/latestdoi/142749215
 [zenodo_badge]: https://img.shields.io/badge/DOI-10.5281%2Fzenodo.1489791-blue.svg?style=flat-square

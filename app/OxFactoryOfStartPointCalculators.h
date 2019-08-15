@@ -19,7 +19,7 @@ namespace Ox {
     template<typename TYPE>
     struct TomatoOptions;
 
-#ifdef USE_PRIVATE_NR2
+
     static const char *startPointCalculatorsTypeNames[] = {
             "Default",
             "StartPointSHMOLLI"
@@ -30,16 +30,16 @@ namespace Ox {
         StartPointSHMOLLI = 1,
         lastStartPointCalculatorType = StartPointSHMOLLI
     };
+
+    static int startPointCalculatorsAvailability[] = {
+            1, // Default
+#ifdef USE_PRIVATE_NR2
+            1, // StartPointSHMOLLI
 #else
-    static const char *startPointCalculatorsTypeNames[] = {
-            "Default",
+            0, // StartPointSHMOLLI
+#endif
     };
 
-    enum startPointCalculatorsType_t {
-        Default = 0,
-        lastStartPointCalculatorType = Default
-    };
-#endif
 
     template<typename TYPE>
     class FactoryOfStartPointCalculators {
@@ -56,8 +56,26 @@ namespace Ox {
                 }
 #endif
                 default:
-                    return 0;
+                    throw std::runtime_error("start_point_calc_method object not available");
             }
+        }
+
+        static void disp(int start_point_calc_method = -1){
+
+            if (start_point_calc_method >= 0) {
+                printf("%-30s%-20s", " start_point_calc_method: ", startPointCalculatorsTypeNames[start_point_calc_method]);
+            }
+
+            printf("options: [ ");
+
+            for (int i = 0; i < lastStartPointCalculatorType+1; i++){
+
+                if(startPointCalculatorsAvailability[i]){
+                    printf("%s ", startPointCalculatorsTypeNames[i]);
+                }
+            }
+
+            printf("] \n");
         }
     };
 

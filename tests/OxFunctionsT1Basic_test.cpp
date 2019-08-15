@@ -170,7 +170,5 @@ TEST(OxFunctionsT1Basic, copyConstructor) {
     EXPECT_EQ(functionsObjectCopy.getSignal(), newSignal);
     EXPECT_EQ(functionsObjectCopy2.getSignal(), newSignal2);
 
-
-
 }
 

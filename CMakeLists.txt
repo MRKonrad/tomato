@@ -17,6 +17,7 @@ if (CMAKE_CXX_STANDARD EQUAL 98)
     set (CXX_STANDARD_98 ON) # flag used in the code
 endif()
 
+# for lmfit/lmmin
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD 99)
 

@@ -15,39 +15,50 @@
 #ifdef USE_PRIVATE_NR2
 #include "OxFitterAmoebaPrivateNr2.h"
 #endif
+#ifdef USE_LMFIT
+#include "OxFitterLevenbergMarquardtLmfit.h"
+#endif
 
 
 namespace Ox {
 
+    /**
+     * Here you can configure different fitting methods
+     * @tparam TYPE
+     */
     template<typename TYPE>
     struct TomatoOptions;
 
-
-#ifdef USE_PRIVATE_NR2
     static const char *fittersTypeNames[] = {
             "AmoebaVnl",
             "LevMarVnl",
-            "AmoebaPrivateNr2"
+            "AmoebaPrivateNr2",
+            "LevMarLmfit"
     };
 
     enum fittersType_t {
         AmoebaVnl = 0,
         LevMarVnl = 1,
         AmoebaPrivateNr2 = 2,
-        lastFitterType = AmoebaPrivateNr2
+        LevMarLmfit = 3,
+        lastFitterType = LevMarLmfit
     };
-#else
-    static const char *fittersTypeNames[] = {
-                "AmoebaVnl",
-                "LevMarVnl"
-        };
 
-        enum fittersType_t {
-            AmoebaVnl = 0,
-            LevMarVnl = 1,
-            lastFitterType = LevMarVnl
-        };
+    static int fittersAvailability[] = {
+            1, // AmoebaVnl
+            1, // LevMarVnl
+#ifdef USE_PRIVATE_NR2
+            1, // AmoebaPrivateNr2
+#else
+            0, // AmoebaPrivateNr2
 #endif
+
+#ifdef USE_LMFIT
+            1 // LevMarLmfit
+#else
+            0 // LevMarLmfit
+#endif
+    };
 
     template<typename TYPE>
     class FactoryOfFitters {
@@ -71,6 +82,15 @@ namespace Ox {
                     break;
                 }
 #endif
+
+#ifdef USE_LMFIT
+                case LevMarLmfit: {
+                    fitter = new FitterLevenbergMarquardtLmfit<TYPE>();
+                    break;
+                }
+#endif
+                default:
+                    throw std::runtime_error("fitting_method not available");
             }
 
             fitter->setMaxFunctionEvals(opts->max_function_evals);
@@ -79,6 +99,25 @@ namespace Ox {
 
             return fitter;
         }
+
+        static void disp(int fitting_method = -1){
+
+            if (fitting_method >= 0) {
+                printf("%-30s%-20s", " fitting_method: ", fittersTypeNames[fitting_method]);
+            }
+
+            printf("options: [ ");
+
+            for (int i = 0; i < lastFitterType+1; i++){
+
+                if(fittersAvailability[i]){
+                    printf("%s ", fittersTypeNames[i]);
+                }
+            }
+
+            printf("] \n");
+        }
+
     };
 
 } // namespace Ox

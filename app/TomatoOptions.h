@@ -210,17 +210,19 @@ namespace Ox {
             printf("\n output_map_series_number: %d", output_map_series_number);
             printf("\n output_fitparams_series_number: %d", output_fitparams_series_number);
             printf("\n");
-            printf("\n parameter_to_map: %s [ ", calculatorsTypeNames[parameter_to_map]);
-            KWUtil::printArray(lastCalculatorType+1, calculatorsTypeNames);
-            printf("]\n fitting_method: %s [ ",  fittersTypeNames[fitting_method]);
-            KWUtil::printArray(lastFitterType+1, fittersTypeNames);
-            printf("]\n functions_type: %s [ ", functionsTypeNames[functions_type]);
-            KWUtil::printArray(lastFunctorType+1, functionsTypeNames);
-            printf("]\n sign_calc_method: %s [ ", signCalculatorsTypeNames[sign_calc_method]);
-            KWUtil::printArray(lastSignCalculatorType+1, signCalculatorsTypeNames);
-            printf("]\n start_point_calc_method: %s [ ", startPointCalculatorsTypeNames[start_point_calc_method]);
-            KWUtil::printArray(lastStartPointCalculatorType+1, startPointCalculatorsTypeNames);
-            printf("]\n");
+            printf("\n");
+            Ox::FactoryOfCalculators<double>::disp(parameter_to_map);
+            Ox::FactoryOfFitters<double>::disp(fitting_method);
+            Ox::FactoryOfFunctions<double>::disp(functions_type);
+            Ox::FactoryOfSignCalculators<double>::disp(sign_calc_method);
+            Ox::FactoryOfStartPointCalculators<double>::disp(start_point_calc_method);
+
+
+//            printf("]\n sign_calc_method: %s [ ", signCalculatorsTypeNames[sign_calc_method]);
+//            KWUtil::printArray(lastSignCalculatorType+1, signCalculatorsTypeNames);
+//            printf("]\n start_point_calc_method: %s [ ", startPointCalculatorsTypeNames[start_point_calc_method]);
+//            KWUtil::printArray(lastStartPointCalculatorType+1, startPointCalculatorsTypeNames);
+//            printf("]\n");
             printf("\n fTolerance: %.2e ", fTolerance);
             //printf("xTolerance: %.2e ", xTolerance);
             printf("\n max_function_evals: %d ", max_function_evals);
@@ -231,25 +233,6 @@ namespace Ox {
             printf("\n visualise: %s", visualise?"1":"0");
 
             printf("\n calculation time: %.2fs", calculation_time);
-
-            printf("\n\n");
-        }
-
-        static void printAvailable() {
-            printf("\n");
-            printf("#############################\n");
-            printf("Tomato AVAILABLE options:\n");
-            printf("#############################\n");
-            printf(" parameter_to_map: ");
-            KWUtil::printArray(lastCalculatorType+1, calculatorsTypeNames);
-            printf("\n fitting_method: ");
-            KWUtil::printArray(lastFitterType+1, fittersTypeNames);
-            printf("\n functions_type: ");
-            KWUtil::printArray(lastFunctorType+1, functionsTypeNames);
-            printf("\n sign_calc_method: ");
-            KWUtil::printArray(lastSignCalculatorType+1, signCalculatorsTypeNames);
-            printf("\n start_point_calc_method: ");
-            KWUtil::printArray(lastStartPointCalculatorType+1, startPointCalculatorsTypeNames);
 
             printf("\n\n");
         }

@@ -32,10 +32,6 @@ TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
-    double invTimes[] = {100,  180,  260, 1715, 3337, 4907, 6455};
-    double signalMag[] = {55,   49,   29,   22,   51,   61,   64};
-
-
     // init the necessary objects
     Ox::FunctionsT1Basic<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;

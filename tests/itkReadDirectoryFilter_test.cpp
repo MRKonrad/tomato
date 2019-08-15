@@ -37,6 +37,31 @@ TEST(itkReadDirectoryFilter, read) {
     }
 }
 
+TEST(itkReadDirectoryFilter, read_verbose_test) {
+
+    // primitive data types
+    typedef double InputPixelType;
+    typedef double OutputPixelType;
+
+    // image data types
+    typedef itk::Image< InputPixelType,  3 > InputImageType3D;
+    typedef itk::Image< OutputPixelType, 2 > OutputImageType;
+    typedef itk::ReadDirectoryFilter<InputImageType3D> ReadDirectoryFilterType;
+
+    std::string dirName("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12");
+
+    ReadDirectoryFilterType::Pointer reader = ReadDirectoryFilterType::New();
+    reader->SetDirName(dirName);
+    reader->SetVerbose(true);
+
+    testing::internal::CaptureStdout();
+    reader->Update();
+    std::string output = testing::internal::GetCapturedStdout();
+
+    EXPECT_NE(output.size(), 0);
+
+}
+
 
 #endif // USE_ITK
 

@@ -68,6 +68,9 @@ TEST(itkCalculatorT1ImageFilter, calculate) {
     imageCalculatorItk->SetInputMagImage(imageMag);
     imageCalculatorItk->SetInputPhaImage(imagePha);
     imageCalculatorItk->SetCalculator(&calculatorT1Molli);
+    imageCalculatorItk->SetLowerLimitOutputIntensity(0);
+    imageCalculatorItk->SetUpperLimitOutputIntensity(4000);
+
     //imageCalculatorItk->SetNumberOfThreads(1);
     imageCalculatorItk->Update();
 

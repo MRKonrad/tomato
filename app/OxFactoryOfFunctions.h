@@ -19,7 +19,7 @@ namespace Ox {
     template<typename TYPE>
     struct TomatoOptions;
 
-#ifdef USE_PRIVATE_NR2
+
     static const char *functionsTypeNames[] = {
             "FunctionsBasic",
             "FunctionsShmolli",
@@ -30,16 +30,16 @@ namespace Ox {
         FunctionsShmolli = 1,
         lastFunctorType = FunctionsShmolli
     };
+
+    static int functionsAvailability[] = {
+            1, //FunctionsBasic
+#ifdef USE_PRIVATE_NR2
+            1 // FunctionsShmolli
 #else
-    static const char *functionsTypeNames[] = {
-            "FunctionsBasic",
+            0 // FunctionsShmolli
+#endif
     };
 
-    enum functionsType_t {
-        FunctionsBasic = 0,
-        lastFunctorType = FunctionsBasic
-    };
-#endif
 
     template<typename TYPE>
     class FactoryOfFunctions {
@@ -56,8 +56,26 @@ namespace Ox {
                 }
 #endif
                 default:
-                    return 0;
+                    throw std::runtime_error("functions_type not available");
             }
+        }
+
+        static void disp(int functions_type = -1){
+
+            if (functions_type >= 0) {
+                printf("%-30s%-20s", " functions_type: ", functionsTypeNames[functions_type]);
+            }
+
+            printf("options: [ ");
+
+            for (int i = 0; i < lastFunctorType+1; i++){
+
+                if(functionsAvailability[i]){
+                    printf("%s ", functionsTypeNames[i]);
+                }
+            }
+
+            printf("] \n");
         }
     };
 

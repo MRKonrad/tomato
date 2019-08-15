@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
     }
 
     printf("\nThank you for using tomato v%d.%d\n", Tomato_VERSION_MAJOR, Tomato_VERSION_MINOR);
-    printf("Konrad Werys 2018\n");
+    printf("Konrad Werys 2019\n");
     printf("konrad.werys@cardiov.ox.ac.uk\n\n");
 
     return 0;

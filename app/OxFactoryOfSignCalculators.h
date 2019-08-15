@@ -19,7 +19,7 @@ namespace Ox {
     template<typename TYPE>
     struct TomatoOptions;
 
-#ifdef USE_PRIVATE_NR2
+
     static const char *signCalculatorsTypeNames[] = {
             "NoSign",
             "RealImag",
@@ -32,18 +32,16 @@ namespace Ox {
         MagPhase = 2,
         lastSignCalculatorType = MagPhase
     };
-#else
-    static const char *signCalculatorsTypeNames[] = {
-            "NoSign",
-            "RealImag"
-    };
 
-    enum signCalculatorsType_t {
-        NoSign = 0,
-        RealImag = 1,
-        lastSignCalculatorType = RealImag
-    };
+    static int signCalculatorsAvailability [] = {
+            1, // NoSign
+            1, // RealImag
+#ifdef USE_PRIVATE_NR2
+            1, // MagPhase
+#else
+            0, // MagPhase
 #endif
+    };
 
     template<typename TYPE>
     class FactoryOfSignCalculators {
@@ -63,10 +61,29 @@ namespace Ox {
                 }
 #endif
                 default:
-                    return 0;
+                    throw std::runtime_error("sign_calc_method not available");
             }
         }
+
+        static void disp(int sign_calc_method = -1){
+
+            if (sign_calc_method >= 0) {
+                printf("%-30s%-20s", " sign_calc_method: ", signCalculatorsTypeNames[sign_calc_method]);
+            }
+
+            printf("options: [ ");
+
+            for (int i = 0; i < lastSignCalculatorType+1; i++){
+
+                if(signCalculatorsAvailability[i]){
+                    printf("%s ", signCalculatorsTypeNames[i]);
+                }
+            }
+
+            printf("] \n");
+        }
     };
+
 
 } // namespace Ox
 

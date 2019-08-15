@@ -79,4 +79,31 @@ TEST(OxFitterAmoebaVnl, copyConstructor) {
     EXPECT_FALSE( fitterCopy.getFunctionsAdaptedToVnl());
 
 }
-#endif
+
+TEST(OxFitterAmoebaVnl, disp) {
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/blood.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    TYPE params[3] = {100, 200, 1200};
+
+    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    functionsObject.setNSamples(nSamples);
+    functionsObject.setInvTimes(testData.getInvTimesPtr());
+    functionsObject.setSignal(testData.getSignalPtr());
+
+    Ox::FitterAmoebaVnl<TYPE> fitter;
+    fitter.setFunctionsT1(&functionsObject);
+    fitter.setParameters(params);
+
+    testing::internal::CaptureStdout();
+    fitter.disp();
+    std::string output = testing::internal::GetCapturedStdout();
+
+    EXPECT_NE(output.size(), 0);
+}
+
+#endif // USE_VNL

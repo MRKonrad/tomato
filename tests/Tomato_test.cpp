@@ -43,6 +43,88 @@ TEST(ActeptanceTests_TomatoTest, readAndSort_calculate_export) {
 
 }
 
+#ifdef USE_LMFIT
+TEST(ActeptanceTests_TomatoTest, readAndSort_calculate_export_LevMarLmfit) {
+
+    Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+    Tomato_object._opts->max_function_evals = 5; // to make the calculations faster
+    Tomato_object._opts->fitting_method = Ox::LevMarLmfit;
+    EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
+    EXPECT_EQ(Tomato_object.calculate(), 0); // EXIT_SUCCESS
+    EXPECT_EQ(Tomato_object.exportToDicom(), 0); // EXIT_SUCCESS
+
+}
+#endif
+
+TEST(ActeptanceTests_TomatoTest, readAndSort_calculate_export_AmoebaVnl) {
+
+    Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+    Tomato_object._opts->max_function_evals = 5; // to make the calculations faster
+    Tomato_object._opts->fitting_method = Ox::AmoebaVnl;
+    EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
+    EXPECT_EQ(Tomato_object.calculate(), 0); // EXIT_SUCCESS
+    EXPECT_EQ(Tomato_object.exportToDicom(), 0); // EXIT_SUCCESS
+
+}
+
+#ifdef USE_PRIVATE_NR2
+TEST(ActeptanceTests_TomatoTest, readAndSort_calculate_export_T1_SHMOLLI_original) {
+
+    Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+    Tomato_object._opts->max_function_evals = 5; // to make the calculations faster
+    Tomato_object._opts->parameter_to_map = Ox::T1_SHMOLLI_original;
+    EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
+    EXPECT_EQ(Tomato_object.calculate(), 0); // EXIT_SUCCESS
+    EXPECT_EQ(Tomato_object.exportToDicom(), 0); // EXIT_SUCCESS
+
+}
+#endif
+
+TEST(ActeptanceTests_TomatoTest, readAndSort_calculate_incorrect_calculator) {
+
+    Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+    Tomato_object._opts->parameter_to_map = (Ox::calculatorsType_t)118;
+    EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
+    EXPECT_THROW(Tomato_object.calculate(), std::runtime_error);
+
+}
+
+TEST(ActeptanceTests_TomatoTest, readAndSort_calculate_export_incorrect_fitter) {
+
+    Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+    Tomato_object._opts->fitting_method = (Ox::fittersType_t)118;
+    EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
+    EXPECT_THROW(Tomato_object.calculate(), std::runtime_error);
+
+}
+
+TEST(ActeptanceTests_TomatoTest, readAndSort_calculate_export_incorrect_functions) {
+
+    Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+    Tomato_object._opts->functions_type = (Ox::functionsType_t)118;
+    EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
+    EXPECT_THROW(Tomato_object.calculate(), std::runtime_error);
+
+}
+
+TEST(ActeptanceTests_TomatoTest, readAndSort_calculate_export_incorrect_signCalculator) {
+
+    Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+    Tomato_object._opts->sign_calc_method = (Ox::signCalculatorsType_t)118;
+    EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
+    EXPECT_THROW(Tomato_object.calculate(), std::runtime_error);
+
+}
+
+TEST(ActeptanceTests_TomatoTest, readAndSort_calculate_export_incorrect_startPointCalulator) {
+
+    Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+    Tomato_object._opts->start_point_calc_method = (Ox::startPointCalculatorsType_t)118;
+    EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
+    EXPECT_THROW(Tomato_object.calculate(), std::runtime_error);
+
+}
+
 ////TODO: why does it take so long in case of 5 samples, but not 6 or 7 samples
 //TEST(ActeptanceTests_TomatoTest, readAndSort_5samples) {
 //
