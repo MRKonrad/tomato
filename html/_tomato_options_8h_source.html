@@ -301,134 +301,122 @@ $(document).ready(function(){initNavTree('_tomato_options_8h_source.html','');})
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            printf(<span class="stringliteral">&quot;\n output_map_series_number: %d&quot;</span>, output_map_series_number);</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            printf(<span class="stringliteral">&quot;\n output_fitparams_series_number: %d&quot;</span>, output_fitparams_series_number);</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            printf(<span class="stringliteral">&quot;\n parameter_to_map: %s [ &quot;</span>, calculatorsTypeNames[parameter_to_map]);</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            KWUtil::printArray(lastCalculatorType+1, calculatorsTypeNames);</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            printf(<span class="stringliteral">&quot;]\n fitting_method: %s [ &quot;</span>,  fittersTypeNames[fitting_method]);</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            KWUtil::printArray(lastFitterType+1, fittersTypeNames);</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            printf(<span class="stringliteral">&quot;]\n functions_type: %s [ &quot;</span>, functionsTypeNames[functions_type]);</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            KWUtil::printArray(lastFunctorType+1, functionsTypeNames);</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            printf(<span class="stringliteral">&quot;]\n sign_calc_method: %s [ &quot;</span>, signCalculatorsTypeNames[sign_calc_method]);</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            KWUtil::printArray(lastSignCalculatorType+1, signCalculatorsTypeNames);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            printf(<span class="stringliteral">&quot;]\n start_point_calc_method: %s [ &quot;</span>, startPointCalculatorsTypeNames[start_point_calc_method]);</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            KWUtil::printArray(lastStartPointCalculatorType+1, startPointCalculatorsTypeNames);</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            printf(<span class="stringliteral">&quot;]\n&quot;</span>);</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            printf(<span class="stringliteral">&quot;\n fTolerance: %.2e &quot;</span>, fTolerance);</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            <span class="comment">//printf(&quot;xTolerance: %.2e &quot;, xTolerance);</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            printf(<span class="stringliteral">&quot;\n max_function_evals: %d &quot;</span>, max_function_evals);</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            printf(<span class="stringliteral">&quot;\n use_gradient: %s&quot;</span>, use_gradient?<span class="stringliteral">&quot;1&quot;</span>:<span class="stringliteral">&quot;0&quot;</span>);</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            printf(<span class="stringliteral">&quot;\n mean_cut_off: %.2f &quot;</span>, mean_cut_off);</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            <span class="comment">//printf(&quot;fittingCutOff: %.2f &quot;, fittingCutOff);</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            printf(<span class="stringliteral">&quot;\n number_of_threads: %d&quot;</span>, number_of_threads);</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            printf(<span class="stringliteral">&quot;\n visualise: %s&quot;</span>, visualise?<span class="stringliteral">&quot;1&quot;</span>:<span class="stringliteral">&quot;0&quot;</span>);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            printf(<span class="stringliteral">&quot;\n calculation time: %.2fs&quot;</span>, calculation_time);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            <a class="code" href="class_ox_1_1_factory_of_calculators.html">Ox::FactoryOfCalculators&lt;double&gt;::disp</a>(parameter_to_map);</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            <a class="code" href="class_ox_1_1_factory_of_fitters.html">Ox::FactoryOfFitters&lt;double&gt;::disp</a>(fitting_method);</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            <a class="code" href="class_ox_1_1_factory_of_functions.html">Ox::FactoryOfFunctions&lt;double&gt;::disp</a>(functions_type);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            <a class="code" href="class_ox_1_1_factory_of_sign_calculators.html">Ox::FactoryOfSignCalculators&lt;double&gt;::disp</a>(sign_calc_method);</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            <a class="code" href="class_ox_1_1_factory_of_start_point_calculators.html">Ox::FactoryOfStartPointCalculators&lt;double&gt;::disp</a>(start_point_calc_method);</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment">//            printf(&quot;]\n sign_calc_method: %s [ &quot;, signCalculatorsTypeNames[sign_calc_method]);</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment">//            KWUtil::printArray(lastSignCalculatorType+1, signCalculatorsTypeNames);</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment">//            printf(&quot;]\n start_point_calc_method: %s [ &quot;, startPointCalculatorsTypeNames[start_point_calc_method]);</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment">//            KWUtil::printArray(lastStartPointCalculatorType+1, startPointCalculatorsTypeNames);</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment">//            printf(&quot;]\n&quot;);</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            printf(<span class="stringliteral">&quot;\n fTolerance: %.2e &quot;</span>, fTolerance);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            <span class="comment">//printf(&quot;xTolerance: %.2e &quot;, xTolerance);</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            printf(<span class="stringliteral">&quot;\n max_function_evals: %d &quot;</span>, max_function_evals);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            printf(<span class="stringliteral">&quot;\n use_gradient: %s&quot;</span>, use_gradient?<span class="stringliteral">&quot;1&quot;</span>:<span class="stringliteral">&quot;0&quot;</span>);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            printf(<span class="stringliteral">&quot;\n mean_cut_off: %.2f &quot;</span>, mean_cut_off);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            <span class="comment">//printf(&quot;fittingCutOff: %.2f &quot;, fittingCutOff);</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            printf(<span class="stringliteral">&quot;\n number_of_threads: %d&quot;</span>, number_of_threads);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            printf(<span class="stringliteral">&quot;\n visualise: %s&quot;</span>, visualise?<span class="stringliteral">&quot;1&quot;</span>:<span class="stringliteral">&quot;0&quot;</span>);</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            printf(<span class="stringliteral">&quot;\n\n&quot;</span>);</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        }</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> printAvailable() {</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            printf(<span class="stringliteral">&quot;#############################\n&quot;</span>);</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            printf(<span class="stringliteral">&quot;Tomato AVAILABLE options:\n&quot;</span>);</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            printf(<span class="stringliteral">&quot;#############################\n&quot;</span>);</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            printf(<span class="stringliteral">&quot; parameter_to_map: &quot;</span>);</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            KWUtil::printArray(lastCalculatorType+1, calculatorsTypeNames);</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            printf(<span class="stringliteral">&quot;\n fitting_method: &quot;</span>);</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            KWUtil::printArray(lastFitterType+1, fittersTypeNames);</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            printf(<span class="stringliteral">&quot;\n functions_type: &quot;</span>);</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            KWUtil::printArray(lastFunctorType+1, functionsTypeNames);</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            printf(<span class="stringliteral">&quot;\n sign_calc_method: &quot;</span>);</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            KWUtil::printArray(lastSignCalculatorType+1, signCalculatorsTypeNames);</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            printf(<span class="stringliteral">&quot;\n start_point_calc_method: &quot;</span>);</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            KWUtil::printArray(lastStartPointCalculatorType+1, startPointCalculatorsTypeNames);</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;            printf(<span class="stringliteral">&quot;\n\n&quot;</span>);</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        }</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            printf(<span class="stringliteral">&quot;\n calculation time: %.2fs&quot;</span>, calculation_time);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            printf(<span class="stringliteral">&quot;\n\n&quot;</span>);</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="keywordtype">int</span> exportToYaml(){</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            <span class="keywordflow">if</span> (dir_output_map.length() &gt; 0){</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                std::string filePath = dir_output_map + KWUtil::PathSeparator() + <span class="stringliteral">&quot;tomato_output_config.yaml&quot;</span>;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                exportToYaml(filePath);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            }</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            <span class="keywordflow">if</span> (dir_output_fitparams.length() &gt; 0){</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                std::string filePath = dir_output_fitparams + KWUtil::PathSeparator() + <span class="stringliteral">&quot;tomato_output_config.yaml&quot;</span>;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                exportToYaml(filePath);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            }</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        }</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keywordtype">int</span> exportToYaml(std::string filePath){</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <span class="keywordtype">int</span> exportToYaml(){</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            <span class="keywordflow">if</span> (dir_output_map.length() &gt; 0){</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                std::string filePath = dir_output_map + KWUtil::PathSeparator() + <span class="stringliteral">&quot;tomato_output_config.yaml&quot;</span>;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                exportToYaml(filePath);</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            }</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            yaml_document_t document;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            yaml_emitter_t emitter;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            <span class="keywordtype">size_t</span> written = 0;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            yaml_document_initialize(&amp;document, NULL, NULL, NULL, 1, 1);</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            <span class="keywordflow">if</span> (dir_output_fitparams.length() &gt; 0){</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                std::string filePath = dir_output_fitparams + KWUtil::PathSeparator() + <span class="stringliteral">&quot;tomato_output_config.yaml&quot;</span>;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                exportToYaml(filePath);</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            }</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        }</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        <span class="keywordtype">int</span> exportToYaml(std::string filePath){</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            yaml_document_t document;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            yaml_emitter_t emitter;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            <span class="keywordtype">size_t</span> written = 0;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            yaml_document_initialize(&amp;document, NULL, NULL, NULL, 1, 1);</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            yaml_document_add_mapping(&amp;document, (yaml_char_t*)YAML_DEFAULT_MAPPING_TAG, YAML_ANY_MAPPING_STYLE);</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            <span class="keywordtype">int</span> mapping_node_number = (int)(document.nodes.top - document.nodes.start);</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            KWUtilYaml::addSequence(&amp;document, mapping_node_number, <span class="stringliteral">&quot;files_magnitude&quot;</span>, files_magnitude);</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            KWUtilYaml::addSequence(&amp;document, mapping_node_number, <span class="stringliteral">&quot;files_phase&quot;</span>, files_phase);</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;dir_magnitude&quot;</span>, dir_magnitude);</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;dir_phase&quot;</span>, dir_phase);</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;dir_output_map&quot;</span>, dir_output_map);</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;dir_output_fitparams&quot;</span>, dir_output_fitparams);</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;output_map_series_number&quot;</span>, KWUtil::NumberToString(output_map_series_number));</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;output_fitparams_series_number&quot;</span>, KWUtil::NumberToString(output_fitparams_series_number));</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;parameter_to_map&quot;</span>, calculatorsTypeNames[parameter_to_map]);</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;fitting_method&quot;</span>, fittersTypeNames[fitting_method]);</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;functions_type&quot;</span>, functionsTypeNames[functions_type]);</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;sign_calc_method&quot;</span> , signCalculatorsTypeNames[sign_calc_method]);</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;start_point_calc_method&quot;</span>, startPointCalculatorsTypeNames[start_point_calc_method]);</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;fTolerance&quot;</span>, KWUtil::NumberToString(fTolerance));</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;max_function_evals&quot;</span>, KWUtil::NumberToString(max_function_evals));</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;use_gradient&quot;</span>, use_gradient ? <span class="stringliteral">&quot;1&quot;</span> : <span class="stringliteral">&quot;0&quot;</span>);</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;mean_cut_off&quot;</span>, KWUtil::NumberToString(mean_cut_off));</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;number_of_threads&quot;</span>, KWUtil::NumberToString(number_of_threads));</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;visualise&quot;</span>, visualise ? <span class="stringliteral">&quot;1&quot;</span> : <span class="stringliteral">&quot;0&quot;</span>);</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;calculation_time&quot;</span>, KWUtil::NumberToString(calculation_time));</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            yaml_document_add_mapping(&amp;document, (yaml_char_t*)YAML_DEFAULT_MAPPING_TAG, YAML_ANY_MAPPING_STYLE);</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            <span class="keywordtype">int</span> mapping_node_number = (int)(document.nodes.top - document.nodes.start);</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            KWUtilYaml::addSequence(&amp;document, mapping_node_number, <span class="stringliteral">&quot;files_magnitude&quot;</span>, files_magnitude);</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            KWUtilYaml::addSequence(&amp;document, mapping_node_number, <span class="stringliteral">&quot;files_phase&quot;</span>, files_phase);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;dir_magnitude&quot;</span>, dir_magnitude);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;dir_phase&quot;</span>, dir_phase);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;dir_output_map&quot;</span>, dir_output_map);</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;dir_output_fitparams&quot;</span>, dir_output_fitparams);</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;output_map_series_number&quot;</span>, KWUtil::NumberToString(output_map_series_number));</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;output_fitparams_series_number&quot;</span>, KWUtil::NumberToString(output_fitparams_series_number));</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;parameter_to_map&quot;</span>, calculatorsTypeNames[parameter_to_map]);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;fitting_method&quot;</span>, fittersTypeNames[fitting_method]);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;functions_type&quot;</span>, functionsTypeNames[functions_type]);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;sign_calc_method&quot;</span> , signCalculatorsTypeNames[sign_calc_method]);</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;start_point_calc_method&quot;</span>, startPointCalculatorsTypeNames[start_point_calc_method]);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;fTolerance&quot;</span>, KWUtil::NumberToString(fTolerance));</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;max_function_evals&quot;</span>, KWUtil::NumberToString(max_function_evals));</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;use_gradient&quot;</span>, use_gradient ? <span class="stringliteral">&quot;1&quot;</span> : <span class="stringliteral">&quot;0&quot;</span>);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;mean_cut_off&quot;</span>, KWUtil::NumberToString(mean_cut_off));</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;number_of_threads&quot;</span>, KWUtil::NumberToString(number_of_threads));</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;visualise&quot;</span>, visualise ? <span class="stringliteral">&quot;1&quot;</span> : <span class="stringliteral">&quot;0&quot;</span>);</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;calculation_time&quot;</span>, KWUtil::NumberToString(calculation_time));</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;            std::string tomato_version = <span class="stringliteral">&quot;v&quot;</span> + KWUtil::NumberToString(Tomato_VERSION_MAJOR) + <span class="stringliteral">&quot;.&quot;</span> + KWUtil::NumberToString(Tomato_VERSION_MINOR);</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;tomato_version&quot;</span>, tomato_version);</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> buffer[YAML_BUFFER_SIZE+1];</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            memset(buffer, 0, YAML_BUFFER_SIZE+1);</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            yaml_emitter_initialize(&amp;emitter);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;            yaml_emitter_set_output_string(&amp;emitter, buffer, YAML_BUFFER_SIZE, &amp;written);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            yaml_emitter_open(&amp;emitter);</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            yaml_emitter_dump(&amp;emitter, &amp;document);</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            yaml_emitter_flush(&amp;emitter);</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            yaml_emitter_close(&amp;emitter);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            FILE *file = fopen(filePath.c_str(), <span class="stringliteral">&quot;wb&quot;</span>);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            fprintf(file, <span class="stringliteral">&quot;%s&quot;</span>, buffer);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            fclose(file);</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            std::string tomato_version = <span class="stringliteral">&quot;v&quot;</span> + KWUtil::NumberToString(Tomato_VERSION_MAJOR) + <span class="stringliteral">&quot;.&quot;</span> + KWUtil::NumberToString(Tomato_VERSION_MINOR);</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;            KWUtilYaml::addMapping(&amp;document, mapping_node_number, <span class="stringliteral">&quot;tomato_version&quot;</span>, tomato_version);</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> buffer[YAML_BUFFER_SIZE+1];</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;            memset(buffer, 0, YAML_BUFFER_SIZE+1);</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;            yaml_emitter_initialize(&amp;emitter);</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;            yaml_emitter_set_output_string(&amp;emitter, buffer, YAML_BUFFER_SIZE, &amp;written);</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            yaml_emitter_open(&amp;emitter);</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;            yaml_emitter_dump(&amp;emitter, &amp;document);</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;            yaml_emitter_flush(&amp;emitter);</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;            yaml_emitter_close(&amp;emitter);</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;            FILE *file = fopen(filePath.c_str(), <span class="stringliteral">&quot;wb&quot;</span>);</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            fprintf(file, <span class="stringliteral">&quot;%s&quot;</span>, buffer);</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            fclose(file);</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        }</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    };</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;} <span class="comment">// namespace Ox</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="preprocessor">#undef YAML_BUFFER_SIZE</span></div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="preprocessor">#endif //Tomato_TomatoOPTIONS_H</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        }</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    };</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;} <span class="comment">// namespace Ox</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="preprocessor">#undef YAML_BUFFER_SIZE</span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="preprocessor">#endif //Tomato_TomatoOPTIONS_H</span></div>
+<div class="ttc" id="class_ox_1_1_factory_of_sign_calculators_html"><div class="ttname"><a href="class_ox_1_1_factory_of_sign_calculators.html">Ox::FactoryOfSignCalculators</a></div><div class="ttdef"><b>Definition:</b> OxFactoryOfSignCalculators.h:47</div></div>
 <div class="ttc" id="_ox_factory_of_sign_calculators_8h_html"><div class="ttname"><a href="_ox_factory_of_sign_calculators_8h.html">OxFactoryOfSignCalculators.h</a></div></div>
+<div class="ttc" id="class_ox_1_1_factory_of_calculators_html"><div class="ttname"><a href="class_ox_1_1_factory_of_calculators.html">Ox::FactoryOfCalculators</a></div><div class="ttdef"><b>Definition:</b> OxFactoryOfCalculators.h:48</div></div>
+<div class="ttc" id="class_ox_1_1_factory_of_start_point_calculators_html"><div class="ttname"><a href="class_ox_1_1_factory_of_start_point_calculators.html">Ox::FactoryOfStartPointCalculators</a></div><div class="ttdef"><b>Definition:</b> OxFactoryOfStartPointCalculators.h:45</div></div>
+<div class="ttc" id="class_ox_1_1_factory_of_fitters_html"><div class="ttname"><a href="class_ox_1_1_factory_of_fitters.html">Ox::FactoryOfFitters</a></div><div class="ttdef"><b>Definition:</b> OxFactoryOfFitters.h:64</div></div>
 <div class="ttc" id="struct_ox_1_1_tomato_options_html_a974a7659d7eaefe712b1bb00cbd46a93"><div class="ttname"><a href="struct_ox_1_1_tomato_options.html#a974a7659d7eaefe712b1bb00cbd46a93">Ox::TomatoOptions::TomatoOptions</a></div><div class="ttdeci">TomatoOptions()</div><div class="ttdef"><b>Definition:</b> TomatoOptions.h:103</div></div>
 <div class="ttc" id="struct_ox_1_1_tomato_options_html_a76497b53cadad720af7ff0f83b99096b"><div class="ttname"><a href="struct_ox_1_1_tomato_options.html#a76497b53cadad720af7ff0f83b99096b">Ox::TomatoOptions::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> TomatoOptions.h:69</div></div>
 <div class="ttc" id="_ox_factory_of_start_point_calculators_8h_html"><div class="ttname"><a href="_ox_factory_of_start_point_calculators_8h.html">OxFactoryOfStartPointCalculators.h</a></div></div>
 <div class="ttc" id="struct_ox_1_1_tomato_options_html_abd502ef8966b09c671e2b7a5b565ce38"><div class="ttname"><a href="struct_ox_1_1_tomato_options.html#abd502ef8966b09c671e2b7a5b565ce38">Ox::TomatoOptions::TomatoOptions</a></div><div class="ttdeci">TomatoOptions(std::string filePath)</div><div class="ttdef"><b>Definition:</b> TomatoOptions.h:111</div></div>
+<div class="ttc" id="class_ox_1_1_factory_of_functions_html"><div class="ttname"><a href="class_ox_1_1_factory_of_functions.html">Ox::FactoryOfFunctions</a></div><div class="ttdef"><b>Definition:</b> OxFactoryOfFunctions.h:45</div></div>
 <div class="ttc" id="_k_w_util_yaml_8h_html"><div class="ttname"><a href="_k_w_util_yaml_8h.html">KWUtilYaml.h</a></div></div>
 <div class="ttc" id="_tomato_parser_8h_html"><div class="ttname"><a href="_tomato_parser_8h.html">TomatoParser.h</a></div></div>
 <div class="ttc" id="_ox_factory_of_calculators_8h_html"><div class="ttname"><a href="_ox_factory_of_calculators_8h.html">OxFactoryOfCalculators.h</a></div></div>

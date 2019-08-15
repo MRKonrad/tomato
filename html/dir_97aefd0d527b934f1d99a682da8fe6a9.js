@@ -22,10 +22,12 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     ] ],
     [ "OxFitterAmoebaNr2.h", "_ox_fitter_amoeba_nr2_8h.html", null ],
     [ "OxFitterAmoebaVnl.h", "_ox_fitter_amoeba_vnl_8h.html", null ],
+    [ "OxFitterLevenbergMarquardtLmfit.h", "_ox_fitter_levenberg_marquardt_lmfit_8h.html", null ],
     [ "OxFitterLevenbergMarquardtVnl.h", "_ox_fitter_levenberg_marquardt_vnl_8h.html", null ],
     [ "OxFunctionsT1.h", "_ox_functions_t1_8h.html", [
       [ "FunctionsT1", "class_ox_1_1_functions_t1.html", "class_ox_1_1_functions_t1" ]
     ] ],
+    [ "OxFunctionsT1AdapterLmfitLeastSquares.h", "_ox_functions_t1_adapter_lmfit_least_squares_8h.html", null ],
     [ "OxFunctionsT1AdapterVnlCost.h", "_ox_functions_t1_adapter_vnl_cost_8h.html", null ],
     [ "OxFunctionsT1AdapterVnlLeastSquares.h", "_ox_functions_t1_adapter_vnl_least_squares_8h.html", null ],
     [ "OxFunctionsT1Basic.h", "_ox_functions_t1_basic_8h.html", [
