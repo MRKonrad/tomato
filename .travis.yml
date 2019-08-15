@@ -37,7 +37,7 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
+      - g++-4.9
       - doxygen
       - doxygen-doc
       - doxygen-latex
