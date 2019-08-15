@@ -1,5 +1,6 @@
 html
 latex
+thirdparty/lmfit/*
 
 # mac
 *.DS_Store
