@@ -35,6 +35,7 @@ before_build:
   # get itk binaties
   - cd %APPVEYOR_BUILD_FOLDER%\scriptsBuild
   - downloadITK_windows.bat
+  - downloadLmfit_windows.bat
   # configure and generate via cmake
   - cd %APPVEYOR_BUILD_FOLDER%
   - cmake . -Bstatic -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T %toolset% -DLIB_INSTALL_DIR="lib_static"
