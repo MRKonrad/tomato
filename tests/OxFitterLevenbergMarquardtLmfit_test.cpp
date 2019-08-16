@@ -114,6 +114,8 @@ TEST(OxFitterLevenbergMarquardtLmfit, copyConstructor) {
 
 }
 
+#ifndef _WIN32
+
 TEST(OxFitterLevenbergMarquardtLmfit, disp) {
 
     typedef double TYPE;
@@ -139,5 +141,7 @@ TEST(OxFitterLevenbergMarquardtLmfit, disp) {
 
     EXPECT_NE(output.size(), 0);
 }
+
+#endif // _WIN32
 
 #endif // USE_LMFIT

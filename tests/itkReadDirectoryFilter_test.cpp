@@ -37,6 +37,8 @@ TEST(itkReadDirectoryFilter, read) {
     }
 }
 
+#ifndef _WIN32
+
 TEST(itkReadDirectoryFilter, read_verbose_test) {
 
     // primitive data types
@@ -62,6 +64,7 @@ TEST(itkReadDirectoryFilter, read_verbose_test) {
 
 }
 
+#endif // _WIN32
 
 #endif // USE_ITK
 

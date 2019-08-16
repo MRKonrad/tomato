@@ -80,6 +80,8 @@ TEST(OxFitterAmoebaVnl, copyConstructor) {
 
 }
 
+#ifndef _WIN32
+
 TEST(OxFitterAmoebaVnl, disp) {
 
     typedef double TYPE;
@@ -105,5 +107,7 @@ TEST(OxFitterAmoebaVnl, disp) {
 
     EXPECT_NE(output.size(), 0);
 }
+
+#endif // _WIN32
 
 #endif // USE_VNL

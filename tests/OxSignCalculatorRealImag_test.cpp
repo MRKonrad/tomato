@@ -9,6 +9,7 @@
 
 #include "OxSignCalculatorRealImag.h"
 
+#ifndef _WIN32
 TEST(OxSignCalculatorRealImag, disp) {
 
     typedef double TYPE;
@@ -34,6 +35,7 @@ TEST(OxSignCalculatorRealImag, disp) {
     EXPECT_NE(output.size(), 0);
 }
 
+#endif // _WIN32
 
 
 TEST(OxSignCalculatorRealImag, calculateSign_blood) {
