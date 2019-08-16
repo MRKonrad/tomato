@@ -186,8 +186,6 @@ endif(BUILD_APP)
 ### Installing ###
 ##################
 
-#set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/../tomato_install) # TODO: Should be configure from cmake command line
-
 install (TARGETS TomatoLib
         RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR}
         LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR}
