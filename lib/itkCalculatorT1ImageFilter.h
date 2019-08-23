@@ -7,7 +7,9 @@
 #ifndef itkCalculatorT1ImageFilter_h
 #define itkCalculatorT1ImageFilter_h
 
+#include "tomatolib_export.h"
 #include "CmakeConfigForTomato.h"
+
 #ifdef USE_ITK
 
 #include "itkLogger.h"
@@ -119,11 +121,11 @@ namespace itk {
     };
 } //namespace ITK
 
-#ifdef TomatoLib_EXPORTS
+#ifndef TOMATOLIB_COMPILED
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkCalculatorT1ImageFilter.hxx"
 #endif //ITK_MANUAL_INSTANTIATION
-#endif //TomatoLib_EXPORTS
+#endif //TOMATOLIB_COMPILED
 
 #endif // USE_ITK
 

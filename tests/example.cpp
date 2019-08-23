@@ -7,14 +7,6 @@
 #include "CmakeConfigForTomato.h"
 
 #include "gtest/gtest.h"
-#include "OxTestData.h"
-
-#include "OxSignCalculatorNoSign.h"
-#include "OxFunctionsT1Basic.h"
-#include "OxFitterAmoebaVnl.h"
-#include "OxFitterLevenbergMarquardtVnl.h"
-#include "OxSignCalculatorRealImag.h"
-#include "OxStartPointCalculatorDefault3Dims.h"
 
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1Shmolli.h"
@@ -23,7 +15,13 @@
 #include "OxSignCalculatorShmolli.h"
 #include "OxStartPointCalculatorShmolli.h"
 
-#ifdef USE_VNL
+//#ifdef USE_VNL
+//#include "OxSignCalculatorNoSign.h"
+//#include "OxFunctionsT1Basic.h"
+//#include "OxFitterAmoebaVnl.h"
+//#include "OxFitterLevenbergMarquardtVnl.h"
+//#include "OxSignCalculatorRealImag.h"
+//#include "OxStartPointCalculatorDefault3Dims.h"
 
 Ox::CalculatorT1Results<double> CalculateShmolli(
         int nSamples, double* sigMag, double* sigPha, double* invTimes) {
@@ -65,7 +63,6 @@ TEST(OxCalculatorT1Shmolli, calculate_anything) {
     EXPECT_NE(results.T1, 0);
 }
 
-
-#endif // USE_VNL
+//#endif // USE_VNL
 #endif // USE_PRIVATE_NR2
 

@@ -80,8 +80,8 @@ namespace Ox {
 
 } //namespace Ox
 
-#ifdef TomatoLib_EXPORTS
+#ifndef TOMATOLIB_COMPILED
 #include "OxCalculatorT1Molli.hxx"
-#endif //TomatoLib_EXPORTS
+#endif //TOMATOLIB_COMPILED
 
 #endif //Tomato_OXCALCULATORT1MOLLI_H

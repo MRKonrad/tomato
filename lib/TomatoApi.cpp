@@ -1,5 +1,5 @@
 /*!
- * \file TomatoApi.h
+ * \file TomatoApi.cpp
  * \author Konrad Werys
  * \date 2019/01/15
  */

@@ -14,13 +14,10 @@ if(Tomato_BUILD_TESTING)
 
     # Test executable
     file(GLOB_RECURSE TESTS_FILES ${PROJECT_SOURCE_DIR}/tests/*.c* ${PROJECT_SOURCE_DIR}/tests/*.h* ${PROJECT_SOURCE_DIR}/tests/*.t*)
-    #message("TESTS_FILES:" ${TESTS_FILES})
 
     add_executable(TomatoTests ${TESTS_FILES})
-    target_link_libraries(TomatoTests PUBLIC gtest)
-    target_link_libraries(TomatoTests PUBLIC ${TOMATO_LIBS_TO_LINK})
-    set_target_properties(TomatoTests PROPERTIES COMPILE_FLAGS -DTomatoLib_EXPORTS) # to see hxx content
-    #add_dependencies(TomatoTests TomatoLib)
+    target_link_libraries(TomatoTests gtest)
+    target_link_libraries(TomatoTests TomatoLib)
 
     add_test(NAME ctest_tests COMMAND TomatoTests)
 

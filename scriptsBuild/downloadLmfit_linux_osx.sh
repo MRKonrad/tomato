@@ -18,8 +18,8 @@ cd ../thirdParty
 
 mkdir lmfit
 cd lmfit
-curl -L -O https://github.com/MRKonrad/build-lmfit/releases/download/lmfit_master/lmfit_master_${mysystem}_g++_CXX98.zip
-unzip -a -q lmfit_master_${mysystem}_g++_CXX98.zip
-rm lmfit_master_${mysystem}_g++_CXX98.zip
+curl -L https://github.com/MRKonrad/build-lmfit/releases/download/lmfit_master/lmfit_master_${mysystem}_g++_CXX98.zip -o lmfit.zip
+unzip -a -q lmfit.zip
+rm lmfit.zip
 
 echo "lmfit binaries downloaded"

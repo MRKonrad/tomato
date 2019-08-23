@@ -15,8 +15,6 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include "gdcmGlobal.h"
-#include "gdcmBase64.h"
 
 std::string getEncodedSting(std::vector < uint16_t > encodeSource);
 

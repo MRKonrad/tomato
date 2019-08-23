@@ -11,6 +11,7 @@
 #include <string>
 #include <vector>
 
+#include "tomatolib_export.h"
 #include "CmakeConfigForTomato.h"
 #ifdef USE_YAML
 
@@ -46,9 +47,9 @@ namespace Ox {
     };
 } // namespace Ox
 
-#ifdef TomatoLib_EXPORTS
+#ifndef TOMATOLIB_COMPILED
 #include "TomatoParser.hxx"
-#endif //TomatoLib_EXPORTS
+#endif //TOMATOLIB_COMPILED
 
 #endif //USE_YAML
 

@@ -16,16 +16,9 @@ set (CMAKE_CXX_STANDARD_REQUIRED ON)
 if (CMAKE_CXX_STANDARD EQUAL 98)
     set (CXX_STANDARD_98 ON) # flag used in the code
 endif()
-
-# for lmfit/lmmin
-set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_C_STANDARD 99)
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 set(CMAKE_MACOSX_RPATH 1) # to address MACOSX_RPATH warning
-
-set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=undefined -fPIC")
-set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=undefined -fPIC")
-set (LINK_FLAGS ${LINK_FLAGS} "-Wl,-whole-archive")
 
 # list of source files
 file (GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)
@@ -64,25 +57,26 @@ include(cmake/libyaml.cmake)
 #add_dependencies (TomatoLib vnl vnl_algo)
 #add_dependencies (TomatoExe vnl vnl_algo)
 
-# Numerical Recipes v2
-set(USE_NR2 OFF CACHE BOOL "Do you want to use Numerical Recipes 2 code?")
-include(cmake/nr2.cmake)
-
-# Numerical Recipes v3
-set(USE_NR3 OFF CACHE BOOL "Do you want to use Numerical Recipes 3 code?")
-include(cmake/nr3.cmake)
+## Numerical Recipes v2
+#set(USE_NR2 OFF CACHE BOOL "Do you want to use Numerical Recipes 2 code?")
+#include(cmake/nr2.cmake)
+#
+## Numerical Recipes v3
+#set(USE_NR3 OFF CACHE BOOL "Do you want to use Numerical Recipes 3 code?")
+#include(cmake/nr3.cmake)
 
 # lmfit currently not on windows
-#if (NOT WIN32)
-    set(USE_LMFIT ON CACHE BOOL "Do you want to use LMFIT?")
-    include(cmake/lmfit.cmake)
-#endif()
+set(USE_LMFIT ON CACHE BOOL "Do you want to use LMFIT?")
+include(cmake/lmfit.cmake)
 
 ###########
 ### ITK ###
 ###########
 
+# Todo: make it more sensible
+
 set(USE_ITK ON CACHE BOOL "Do you want to use ITK?")
+
 if(USE_ITK)
     set(USE_ITK OFF)
     set(USE_VNL OFF)
@@ -102,7 +96,7 @@ endif(USE_ITK)
 ### VTK ###
 ###########
 
-set(USE_VTK ON CACHE BOOL "Do you want to use VTK?")
+set(USE_VTK CACHE ON BOOL "Do you want to use VTK?")
 list (FIND ITK_LIBRARIES "ITKVtkGlue" _index)
 # use vtk only if ITK is present
 if(USE_VTK)
@@ -136,8 +130,8 @@ MESSAGE("USE_ITK:              " ${USE_ITK})
 MESSAGE("USE_VTK:              " ${USE_VTK})
 MESSAGE("USE_VNL:              " ${USE_VNL})
 MESSAGE("USE_PRIVATE_NR2:      " ${USE_PRIVATE_NR2})
-MESSAGE("USE_NR2:              " ${USE_NR2})
-MESSAGE("USE_NR3:              " ${USE_NR3})
+#MESSAGE("USE_NR2:              " ${USE_NR2})
+#MESSAGE("USE_NR3:              " ${USE_NR3})
 MESSAGE("USE_YAML:             " ${USE_YAML})
 MESSAGE("BUILD_SHARED_LIBS:    " ${BUILD_SHARED_LIBS})
 MESSAGE("CMAKE_INSTALL_PREFIX: " ${CMAKE_INSTALL_PREFIX})
@@ -157,29 +151,27 @@ include_directories ("${PROJECT_BINARY_DIR}") # for the configuration header
 
 # targets
 if(BUILD_APP)
-    add_library (TomatoLib ${APP_FILES} ${LIB_FILES})
-#    add_library (TomatoLib SHARED ${APP_FILES} ${LIB_FILES})
+    add_library (TomatoLib ${LIB_FILES})
     add_executable (TomatoExe ${APP_FILES} ${LIB_FILES})
-    set_target_properties(TomatoExe PROPERTIES COMPILE_FLAGS -DTomatoLib_EXPORTS) # to see hxx content
 else(BUILD_APP)
     add_library (TomatoLib ${LIB_FILES})
-#    add_library (TomatoLib SHARED ${LIB_FILES})
 endif(BUILD_APP)
 
 # generating TomatoLib_export.h
 include(GenerateExportHeader)
 generate_export_header(TomatoLib)
-set_target_properties(TomatoLib PROPERTIES COMPILE_FLAGS -DTOMATOLIB_STATIC_DEFINE)
-set(API_FILES ${API_FILES} ${PROJECT_BINARY_DIR}/tomatolib_export.h) # to make tomatolib_export.h available for export
+set(API_FILES ${API_FILES} ${PROJECT_SOURCE_DIR}/cmake/tomatolib_export.h) # to make tomatolib_export.h available in installation step
 
 ###############
 ### Linking ###
 ###############
 
-target_link_libraries (TomatoLib PUBLIC ${TOMATO_LIBS_TO_LINK})
+target_link_libraries (TomatoLib ${TOMATO_LIBS_TO_LINK})
+
 set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} TomatoLib)
+
 if(BUILD_APP)
-    target_link_libraries (TomatoExe PUBLIC ${TOMATO_LIBS_TO_LINK})
+    target_link_libraries (TomatoExe ${TOMATO_LIBS_TO_LINK})
 endif(BUILD_APP)
 
 ##################

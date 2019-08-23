@@ -7,6 +7,7 @@
 #ifndef Tomato_OXIMAGECALCULATORT1_H
 #define Tomato_OXIMAGECALCULATORT1_H
 
+#include "tomatolib_export.h"
 #include "CmakeConfigForTomato.h"
 #ifndef CXX_STANDARD_98
 #include <thread>
@@ -54,8 +55,8 @@ namespace Ox {
 
 } // namespace Ox
 
-#ifdef TomatoLib_EXPORTS
+#ifndef TOMATOLIB_COMPILED
 #include "OxImageCalculatorT1.hxx"
-#endif //TomatoLib_EXPORTS
+#endif //TOMATOLIB_COMPILED
 
 #endif //Tomato_OXIMAGECALCULATORT1_H

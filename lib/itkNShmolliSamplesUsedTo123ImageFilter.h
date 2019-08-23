@@ -9,6 +9,11 @@
 #ifndef TomatoLIB_ITKNShmolliSamplesUsedTo123ImageFilter_H
 #define TomatoLIB_ITKNShmolliSamplesUsedTo123ImageFilter_H
 
+#include "CmakeConfigForTomato.h"
+
+#ifdef USE_ITK
+
+#include "tomatolib_export.h"
 #include "itkImageToImageFilter.h"
 #include "itkImageRegionIterator.h"
 #include "itkImageRegionConstIterator.h"
@@ -48,10 +53,12 @@ namespace itk {
     };
 } //namespace ITK
 
-#ifdef TomatoLib_EXPORTS
+#ifndef TOMATOLIB_COMPILED
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkNShmolliSamplesUsedTo123ImageFilter.txx"
 #endif //ITK_MANUAL_INSTANTIATION
-#endif //TomatoLib_EXPORTS
+#endif //TOMATOLIB_COMPILED
+
+#endif USE_ITK
 
 #endif //TomatoLIB_ITKNShmolliSamplesUsedTo123ImageFilter_H

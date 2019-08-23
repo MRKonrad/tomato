@@ -9,6 +9,10 @@
 #ifndef TomatoLIB_ITKREADFILELISTFILTER_H
 #define TomatoLIB_ITKREADFILELISTFILTER_H
 
+#include "CmakeConfigForTomato.h"
+
+#ifdef USE_ITK
+
 #include <iostream>
 #include "itkImageSource.h"
 #include "itkImageFileReader.h"
@@ -394,5 +398,7 @@ namespace itk {
     };
 
 }
+
+#endif // USE_ITK
 
 #endif //TomatoLIB_ITKREADFILELISTFILTER_H

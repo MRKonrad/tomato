@@ -13,9 +13,11 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 | [Downloads][downloads_link]               | [![GitHub Releases (by Release)][downloads_badge]][downloads_link] |
 
 
-# Tutorial
-
+# Usage
+* App - download the latest version of `TomatoExe` from the [Releases][downloads_link] page and follow the youtube tutorial below 
 [![Tomato tutorial](https://img.youtube.com/vi/0tzNZNiZh18/0.jpg)](https://www.youtube.com/watch?v=0tzNZNiZh18)
+* Lib - download the latest version of `TomatoLib` from the [Releases][downloads_link] page
+* Code - if you want to build the code please take a look at the scripts in the `scriptsBuild` and the continuous integrations scripts `.appveyor.yml` and `travis.yml` 
 
 ## Tomato and Numerical Recipes
 
@@ -57,6 +59,7 @@ Download https://www.microsoft.com/en-us/download/details.aspx?id=48145 as sugge
 * **Gitmodules**: after `git clone` run `git submodule update --init --recursive` to get the submodules code.
 * It would be nice to follow [CppCoreGuidlines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md) as far as C++98 allows.
 * Maybe I can write a script for github releases with [github releases REST api](https://developer.github.com/v3/repos/releases/#create-a-release) and [curl REST api](http://www.codingpedia.org/ama/how-to-test-a-rest-api-from-command-line-with-curl/#12_HEAD_requests)?
+* LMFIT - somehow windows does not like the static library, so the dynamic is used
 
 # TODO:
 
@@ -65,6 +68,7 @@ Download https://www.microsoft.com/en-us/download/details.aspx?id=48145 as sugge
 * fix downloadITK_linux_osx
 * seperate projects for building tomato dependencies (done for lmfit)
 * possibly I could make all FunctionsT1 object static 
+* write user-friendly build scripts (and use them in CI)
 
 [zenodo_link]: https://zenodo.org/badge/latestdoi/142749215
 [zenodo_badge]: https://img.shields.io/badge/DOI-10.5281%2Fzenodo.1489791-blue.svg?style=flat-square

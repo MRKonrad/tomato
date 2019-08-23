@@ -9,6 +9,11 @@
 #ifndef TomatoLIB_ITKColorbar2DImageFilter_H
 #define TomatoLIB_ITKColorbar2DImageFilter_H
 
+#include "CmakeConfigForTomato.h"
+
+#ifdef USE_ITK
+
+#include "tomatolib_export.h"
 #include "itkImageToImageFilter.h"
 #include "itkImageRegionIteratorWithIndex.h"
 #include "itkImageRegionConstIteratorWithIndex.h"
@@ -61,10 +66,12 @@ namespace itk {
     };
 } //namespace ITK
 
-#ifdef TomatoLib_EXPORTS
+#ifndef TOMATOLIB_COMPILED
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkColorbar2DImageFilter.txx"
 #endif //ITK_MANUAL_INSTANTIATION
-#endif //TomatoLib_EXPORTS
+#endif //TOMATOLIB_COMPILED
+
+#endif USE_ITK
 
 #endif //TomatoLIB_ITKColorbar2DImageFilter_H

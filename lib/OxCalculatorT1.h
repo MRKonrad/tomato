@@ -7,6 +7,7 @@
 #ifndef Tomato_OXCALCULATORT1_H
 #define Tomato_OXCALCULATORT1_H
 
+#include "tomatolib_export.h"
 #include "OxCalculatorResults.h"
 #include "OxFitter.h"
 #include "OxFunctionsT1.h"
@@ -247,8 +248,8 @@ namespace Ox {
     };
 } //namespace Ox
 
-#ifdef TomatoLib_EXPORTS
+#ifndef TOMATOLIB_COMPILED
 #include "OxCalculatorT1.hxx"
-#endif //TomatoLib_EXPORTS
+#endif //TOMATOLIB_COMPILED
 
 #endif //Tomato_OXCALCULATORT1_H

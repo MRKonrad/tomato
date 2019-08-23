@@ -7,6 +7,7 @@
 #ifndef Tomato_OXFUNCTIONST1BASIC_H
 #define Tomato_OXFUNCTIONST1BASIC_H
 
+#include "tomatolib_export.h"
 #include "OxFunctionsT1.h"
 #include <cmath>
 
@@ -48,8 +49,8 @@ namespace Ox {
     };
 } //namespace Ox
 
-#ifdef TomatoLib_EXPORTS
+#ifndef TOMATOLIB_COMPILED
 #include "OxFunctionsT1Basic.hxx"
-#endif //TomatoLib_EXPORTS
+#endif //TOMATOLIB_COMPILED
 
 #endif //Tomato_OXFUNCTIONST1BASIC_H

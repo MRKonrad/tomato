@@ -9,6 +9,7 @@
 #ifndef TomatoLIB_ITKOXSORTINVTIMESIMAGEFILTER_H
 #define TomatoLIB_ITKOXSORTINVTIMESIMAGEFILTER_H
 
+#include "tomatolib_export.h"
 #include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
@@ -76,11 +77,11 @@ namespace itk {
 
 } //namespace ITK
 
-#ifdef TomatoLib_EXPORTS
+#ifndef TOMATOLIB_COMPILED
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkSortInvTimesImageFilter.txx"
 #endif //ITK_MANUAL_INSTANTIATION
-#endif //TomatoLib_EXPORTS
+#endif //TOMATOLIB_COMPILED
 
 #endif //USE_ITK
 

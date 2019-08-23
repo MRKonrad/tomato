@@ -48,6 +48,7 @@ namespace Ox {
             hasBeenCalculated = false;
         };
 
+        // TODO: make static
         void disp(){
             std::cout << std::endl;
             std::cout << "CalculatorT1Results: " << this << std::endl;
