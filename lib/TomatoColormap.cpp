@@ -7,8 +7,6 @@
 #include "TomatoColormap.h"
 
 #ifdef USE_ITK
-#include "gdcmGlobal.h"
-#include "gdcmBase64.h"
 
 std::string getEncodedSting(std::vector < uint16_t > encodeSource){
 

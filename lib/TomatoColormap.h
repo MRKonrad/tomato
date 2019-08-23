@@ -8,13 +8,16 @@
 #define TomatoLIB_SHMOLLICOLORMAP_H
 
 #include "CmakeConfigForTomato.h"
-#ifdef USE_ITK
 
 // TODO: reading from a file
 
 #include <vector>
 #include <string>
 #include <iostream>
+
+#ifdef USE_ITK
+#include "gdcmGlobal.h"
+#include "gdcmBase64.h"
 
 std::string getEncodedSting(std::vector < uint16_t > encodeSource);
 
