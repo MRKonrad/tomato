@@ -59,6 +59,6 @@ namespace itk {
 #endif //ITK_MANUAL_INSTANTIATION
 #endif //TOMATOLIB_COMPILED
 
-#endif USE_ITK
+#endif // USE_ITK
 
 #endif //TomatoLIB_ITKNShmolliSamplesUsedTo123ImageFilter_H
