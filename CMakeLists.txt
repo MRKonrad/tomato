@@ -16,12 +16,11 @@ set (CMAKE_CXX_STANDARD_REQUIRED ON)
 if (CMAKE_CXX_STANDARD EQUAL 98)
     set (CXX_STANDARD_98 ON) # flag used in the code
 endif()
-set (CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
-#set (CMAKE_POSITION_INDEPENDENT_CODE ON)
-set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fPIC")
-set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fPIC")
 
-set(CMAKE_MACOSX_RPATH 1) # to address MACOSX_RPATH warning
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON) # TODO: to command line
+set(CMAKE_POSITION_INDEPENDENT_CODE ON) # TODO: to command line
+
+set(CMAKE_MACOSX_RPATH 1) # to address MACOSX_RPATH warning; TODO: to command line
 
 # list of source files
 file (GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)
