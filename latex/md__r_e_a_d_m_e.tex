@@ -12,9 +12,14 @@ A library to calculate parametric maps in M\-R\-I. It contains Sh\-M\-O\-L\-L\-I
 \end{TabularC}
 
 
-\section*{Tutorial}
+\section*{Usage}
 
-\href{https://www.youtube.com/watch?v=0tzNZNiZh18}{\tt !\mbox{[}Tomato tutorial\mbox{]}(https\-://img.\-youtube.\-com/vi/0tz\-N\-Z\-Ni\-Zh18/0.\-jpg)}
+
+\begin{DoxyItemize}
+\item App -\/ download the latest version of {\ttfamily Tomato\-Exe} from the \href{https://github.com/MRKonrad/tomato/releases}{\tt Releases} page and follow the youtube tutorial below \href{https://www.youtube.com/watch?v=0tzNZNiZh18}{\tt !\mbox{[}Tomato tutorial\mbox{]}(https\-://img.\-youtube.\-com/vi/0tz\-N\-Z\-Ni\-Zh18/0.\-jpg)}
+\item Lib -\/ download the latest version of {\ttfamily Tomato\-Lib} from the \href{https://github.com/MRKonrad/tomato/releases}{\tt Releases} page
+\item Code -\/ if you want to build the code please take a look at the scripts in the {\ttfamily scripts\-Build} and the continuous integrations scripts {\ttfamily .appveyor.\-yml} and {\ttfamily travis.\-yml}
+\end{DoxyItemize}
 
 \subsection*{Tomato and Numerical Recipes}
 
@@ -72,6 +77,7 @@ A library to calculate parametric maps in M\-R\-I. It contains Sh\-M\-O\-L\-L\-I
 \item {\bfseries Gitmodules}\-: after {\ttfamily git clone} run {\ttfamily git submodule update -\/-\/init -\/-\/recursive} to get the submodules code.
 \item It would be nice to follow https\-://github.com/isocpp/\-Cpp\-Core\-Guidelines/blob/master/\-Cpp\-Core\-Guidelines.\-md \char`\"{}\-Cpp\-Core\-Guidlines\char`\"{} as far as C++98 allows.
 \item Maybe I can write a script for github releases with \href{https://developer.github.com/v3/repos/releases/#create-a-release}{\tt github releases R\-E\-S\-T api} and \href{http://www.codingpedia.org/ama/how-to-test-a-rest-api-from-command-line-with-curl/#12_HEAD_requests}{\tt curl R\-E\-S\-T api}?
+\item L\-M\-F\-I\-T -\/ somehow windows does not like the static library, so the dynamic is used
 \end{DoxyItemize}
 
 \section*{T\-O\-D\-O\-:}
@@ -82,5 +88,6 @@ A library to calculate parametric maps in M\-R\-I. It contains Sh\-M\-O\-L\-L\-I
 \item make sure S\-N\-R and n\-Amoeba\-Calls is the same as in Shmolli
 \item fix download\-I\-T\-K\-\_\-linux\-\_\-osx
 \item seperate projects for building tomato dependencies (done for lmfit)
-\item possibly I could make all Functions\-T1 object static 
+\item possibly I could make all Functions\-T1 object static
+\item write user-\/friendly build scripts (and use them in C\-I) 
 \end{DoxyItemize}

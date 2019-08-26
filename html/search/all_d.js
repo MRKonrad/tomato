@@ -1,18 +1,11 @@
 var searchData=
 [
-  ['tomato',['Tomato',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['testdata',['TestData',['../class_ox_1_1_test_data.html',1,'Ox']]],
-  ['testimage',['TestImage',['../class_ox_1_1_test_image.html',1,'Ox']]],
-  ['tomato_2eh',['Tomato.h',['../_tomato_8h.html',1,'']]],
-  ['tomato_5fsameasshmolli_5ftest_2ecpp',['Tomato_sameAsShmolli_test.cpp',['../_tomato__same_as_shmolli__test_8cpp.html',1,'']]],
-  ['tomato_5ftest_2ecpp',['Tomato_test.cpp',['../_tomato__test_8cpp.html',1,'']]],
-  ['tomatoapi_2eh',['TomatoApi.h',['../_tomato_api_8h.html',1,'']]],
-  ['tomatocolormap_2ecpp',['TomatoColormap.cpp',['../_tomato_colormap_8cpp.html',1,'']]],
-  ['tomatocolormap_2eh',['TomatoColormap.h',['../_tomato_colormap_8h.html',1,'']]],
-  ['tomatooptions',['TomatoOptions',['../struct_ox_1_1_tomato_options.html#a974a7659d7eaefe712b1bb00cbd46a93',1,'Ox::TomatoOptions::TomatoOptions()'],['../struct_ox_1_1_tomato_options.html#abd502ef8966b09c671e2b7a5b565ce38',1,'Ox::TomatoOptions::TomatoOptions(std::string filePath)']]],
-  ['tomatooptions',['TomatoOptions',['../struct_ox_1_1_tomato_options.html',1,'Ox']]],
-  ['tomatooptions_2eh',['TomatoOptions.h',['../_tomato_options_8h.html',1,'']]],
-  ['tomatoparser_2eh',['TomatoParser.h',['../_tomato_parser_8h.html',1,'']]],
-  ['tomatoparser_2ehxx',['TomatoParser.hxx',['../_tomato_parser_8hxx.html',1,'']]],
-  ['tomatoparser_5ftest_2ecpp',['TomatoParser_test.cpp',['../_tomato_parser__test_8cpp.html',1,'']]]
+  ['_7ecalculatort1',['~CalculatorT1',['../class_ox_1_1_calculator_t1.html#af5d360f92d3c1b1c2f4241e528451f2e',1,'Ox::CalculatorT1']]],
+  ['_7efitter',['~Fitter',['../class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43',1,'Ox::Fitter']]],
+  ['_7efunctionst1',['~FunctionsT1',['../class_ox_1_1_functions_t1.html#a900d5602b3dd10fca760a304e41da9b5',1,'Ox::FunctionsT1']]],
+  ['_7efunctionst1basic',['~FunctionsT1Basic',['../class_ox_1_1_functions_t1_basic.html#ae3f94c1426a8e6f569b8c70f86122c0b',1,'Ox::FunctionsT1Basic']]],
+  ['_7esigncalculator',['~SignCalculator',['../class_ox_1_1_sign_calculator.html#a5143a172e360633d8df758756d146889',1,'Ox::SignCalculator']]],
+  ['_7esigncalculatornosign',['~SignCalculatorNoSign',['../class_ox_1_1_sign_calculator_no_sign.html#a1da2b6c351daf89811c6d9618df2bb74',1,'Ox::SignCalculatorNoSign']]],
+  ['_7estartpointcalculator',['~StartPointCalculator',['../class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a',1,'Ox::StartPointCalculator']]],
+  ['_7estartpointcalculatordefault3dims',['~StartPointCalculatorDefault3Dims',['../class_ox_1_1_start_point_calculator_default3_dims.html#ab85b597c934ed1ac03ff7079bd860b44',1,'Ox::StartPointCalculatorDefault3Dims']]]
 ];

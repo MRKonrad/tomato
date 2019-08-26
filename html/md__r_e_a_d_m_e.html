@@ -85,7 +85,7 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -116,8 +116,12 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html','');});
 <tr>
 <td><a href="https://github.com/MRKonrad/tomato/releases">Downloads</a> </td><td align="center"><a href="https://github.com/MRKonrad/tomato/releases">![GitHub Releases (by Release)][downloads_badge]</a> </td></tr>
 </table>
-<h1>Tutorial</h1>
-<p><a href="https://www.youtube.com/watch?v=0tzNZNiZh18">![Tomato tutorial](https://img.youtube.com/vi/0tzNZNiZh18/0.jpg)</a></p>
+<h1>Usage</h1>
+<ul>
+<li>App - download the latest version of <code>TomatoExe</code> from the <a href="https://github.com/MRKonrad/tomato/releases">Releases</a> page and follow the youtube tutorial below <a href="https://www.youtube.com/watch?v=0tzNZNiZh18">![Tomato tutorial](https://img.youtube.com/vi/0tzNZNiZh18/0.jpg)</a></li>
+<li>Lib - download the latest version of <code>TomatoLib</code> from the <a href="https://github.com/MRKonrad/tomato/releases">Releases</a> page</li>
+<li>Code - if you want to build the code please take a look at the scripts in the <code>scriptsBuild</code> and the continuous integrations scripts <code>.appveyor.yml</code> and <code>travis.yml</code></li>
+</ul>
 <h2>Tomato and Numerical Recipes</h2>
 <p><b>Important</b> Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes book. Due to Numerical Recipes licence I cannot share this part of the code online. Please contact me if you would like to use this part of the code. To make up for this limitation we provide a number of alternative fitting procedures.</p>
 <h1>Troubleshooting</h1>
@@ -161,6 +165,7 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html','');});
 <li><b>Gitmodules</b>: after <code>git clone</code> run <code>git submodule update --init --recursive</code> to get the submodules code.</li>
 <li>It would be nice to follow https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md "CppCoreGuidlines" as far as C++98 allows.</li>
 <li>Maybe I can write a script for github releases with <a href="https://developer.github.com/v3/repos/releases/#create-a-release">github releases REST api</a> and <a href="http://www.codingpedia.org/ama/how-to-test-a-rest-api-from-command-line-with-curl/#12_HEAD_requests">curl REST api</a>?</li>
+<li>LMFIT - somehow windows does not like the static library, so the dynamic is used</li>
 </ul>
 <h1>TODO:</h1>
 <ul>
@@ -168,7 +173,8 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html','');});
 <li>make sure SNR and nAmoebaCalls is the same as in Shmolli</li>
 <li>fix downloadITK_linux_osx</li>
 <li>seperate projects for building tomato dependencies (done for lmfit)</li>
-<li>possibly I could make all FunctionsT1 object static </li>
+<li>possibly I could make all FunctionsT1 object static</li>
+<li>write user-friendly build scripts (and use them in CI) </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- doc-content -->

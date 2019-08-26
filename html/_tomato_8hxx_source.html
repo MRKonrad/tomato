@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('_tomato_8hxx_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -327,7 +327,7 @@ $(document).ready(function(){initNavTree('_tomato_8hxx_source.html','');});
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keywordflow">if</span> (_opts-&gt;visualise) {</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            <span class="comment">// OxColorbarImageFilter</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            <span class="keyword">typedef</span> <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html">itk::Colorbar2DImageFilter&lt; ImageType2D &gt;</a> ColorbarImageFilterType;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            <span class="keyword">typedef</span> itk::Colorbar2DImageFilter&lt; ImageType2D &gt; ColorbarImageFilterType;</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            <span class="keyword">typename</span> ColorbarImageFilterType::Pointer ColorbarFilter = ColorbarImageFilterType::New();</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            ColorbarFilter-&gt;SetInput(_imageCalculatorItk-&gt;GetT1Image());</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
@@ -361,7 +361,6 @@ $(document).ready(function(){initNavTree('_tomato_8hxx_source.html','');});
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="preprocessor">#endif //Tomato_Tomato_H</span></div>
-<div class="ttc" id="classitk_1_1_colorbar2_d_image_filter_html"><div class="ttname"><a href="classitk_1_1_colorbar2_d_image_filter.html">itk::Colorbar2DImageFilter</a></div><div class="ttdef"><b>Definition:</b> itkColorbar2DImageFilter.h:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -14,13 +14,6 @@ var hierarchy =
       [ "Ox::FunctionsT1Basic< MeasureType >", "class_ox_1_1_functions_t1_basic.html", null ]
     ] ],
     [ "Ox::ImageCalculatorT1< MeasureType >", "class_ox_1_1_image_calculator_t1.html", null ],
-    [ "ImageSource", null, [
-      [ "itk::ReadFileListFilter< TImage >", "classitk_1_1_read_file_list_filter.html", null ]
-    ] ],
-    [ "ImageToImageFilter", null, [
-      [ "itk::Colorbar2DImageFilter< TImage >", "classitk_1_1_colorbar2_d_image_filter.html", null ],
-      [ "itk::NShmolliSamplesUsedTo123ImageFilter< TImage >", "classitk_1_1_n_shmolli_samples_used_to123_image_filter.html", null ]
-    ] ],
     [ "KWUtil", "class_k_w_util.html", null ],
     [ "Ox::SignCalculator< MeasureType >", "class_ox_1_1_sign_calculator.html", [
       [ "Ox::SignCalculatorNoSign< MeasureType >", "class_ox_1_1_sign_calculator_no_sign.html", null ],

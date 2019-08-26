@@ -12,11 +12,9 @@ var searchData=
   ['calculatestartpoint',['calculateStartPoint',['../class_ox_1_1_start_point_calculator.html#a9d1132410d68eb16f3f71ec4015c0b2f',1,'Ox::StartPointCalculator::calculateStartPoint()'],['../class_ox_1_1_start_point_calculator_default3_dims.html#a6af87ac3412f699ebf9abec6b61461cf',1,'Ox::StartPointCalculatorDefault3Dims::calculateStartPoint()']]],
   ['calculatort1',['CalculatorT1',['../class_ox_1_1_calculator_t1.html',1,'Ox']]],
   ['calculatort1',['CalculatorT1',['../class_ox_1_1_calculator_t1.html#aee286228db734cdd8c6c0686b85fa938',1,'Ox::CalculatorT1::CalculatorT1()'],['../class_ox_1_1_calculator_t1.html#a125d297d484d10d33b8cbe796b7a60c8',1,'Ox::CalculatorT1::CalculatorT1(const CalculatorT1 &amp;old)']]],
-  ['calculatort1molli',['CalculatorT1Molli',['../class_ox_1_1_calculator_t1_molli.html#ab1892de078822ea106fcaebcf81047be',1,'Ox::CalculatorT1Molli']]],
   ['calculatort1molli',['CalculatorT1Molli',['../class_ox_1_1_calculator_t1_molli.html',1,'Ox']]],
+  ['calculatort1molli',['CalculatorT1Molli',['../class_ox_1_1_calculator_t1_molli.html#ab1892de078822ea106fcaebcf81047be',1,'Ox::CalculatorT1Molli']]],
   ['calculatort1results',['CalculatorT1Results',['../struct_ox_1_1_calculator_t1_results.html#a2ef9ec72b2f7e61bb442fe8e0f61d508',1,'Ox::CalculatorT1Results']]],
   ['calculatort1results',['CalculatorT1Results',['../struct_ox_1_1_calculator_t1_results.html',1,'Ox']]],
-  ['colorbar2dimagefilter',['Colorbar2DImageFilter',['../classitk_1_1_colorbar2_d_image_filter.html#ae103d71eaad083a9303743ee0789457f',1,'itk::Colorbar2DImageFilter']]],
-  ['colorbar2dimagefilter',['Colorbar2DImageFilter',['../classitk_1_1_colorbar2_d_image_filter.html',1,'itk']]],
   ['copytoparameters',['copyToParameters',['../class_ox_1_1_fitter.html#a783ba791c88d7208deb4004354b10022',1,'Ox::Fitter']]]
 ];

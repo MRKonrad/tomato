@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('_tomato__export_8hxx_source.html','');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -144,7 +144,7 @@ $(document).ready(function(){initNavTree('_tomato__export_8hxx_source.html','');
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">// OxColorbarImageFilter</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="classitk_1_1_colorbar2_d_image_filter.html">itk::Colorbar2DImageFilter&lt; ImageType2D &gt;</a> OxColorbarImageFilterType;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">typedef</span> itk::Colorbar2DImageFilter&lt; ImageType2D &gt; OxColorbarImageFilterType;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">typename</span> OxColorbarImageFilterType::Pointer OxColorbarFilter = OxColorbarImageFilterType::New();</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        OxColorbarFilter-&gt;SetInput(_imageCalculatorItk-&gt;GetT1Image());</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
@@ -517,7 +517,7 @@ $(document).ready(function(){initNavTree('_tomato__export_8hxx_source.html','');
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;            <span class="comment">// export ShMolliRange</span></div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            gdcmImageIO-&gt;SetMetaDataDictionary(dictionaryOutput_ShMolliT1Range);</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            <span class="keyword">typedef</span> <a class="code" href="classitk_1_1_n_shmolli_samples_used_to123_image_filter.html">itk::NShmolliSamplesUsedTo123ImageFilter &lt;ImageType2D&gt;</a> nShmolliSamplesUsedTo123FilterType;</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            <span class="keyword">typedef</span> itk::NShmolliSamplesUsedTo123ImageFilter &lt;ImageType2D&gt; nShmolliSamplesUsedTo123FilterType;</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;            <span class="keyword">typename</span> nShmolliSamplesUsedTo123FilterType::Pointer nShmolliSamplesUsedTo123Filter = nShmolliSamplesUsedTo123FilterType::New();</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;            nShmolliSamplesUsedTo123Filter-&gt;SetInput(_imageCalculatorItk-&gt;GetNShmolliSamplesUsedImage());</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;</div>
@@ -584,8 +584,6 @@ $(document).ready(function(){initNavTree('_tomato__export_8hxx_source.html','');
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;<span class="preprocessor">#endif //Tomato_Tomato_EXPORT_HXX</span></div>
-<div class="ttc" id="classitk_1_1_n_shmolli_samples_used_to123_image_filter_html"><div class="ttname"><a href="classitk_1_1_n_shmolli_samples_used_to123_image_filter.html">itk::NShmolliSamplesUsedTo123ImageFilter</a></div><div class="ttdef"><b>Definition:</b> itkNShmolliSamplesUsedTo123ImageFilter.h:18</div></div>
-<div class="ttc" id="classitk_1_1_colorbar2_d_image_filter_html"><div class="ttname"><a href="classitk_1_1_colorbar2_d_image_filter.html">itk::Colorbar2DImageFilter</a></div><div class="ttdef"><b>Definition:</b> itkColorbar2DImageFilter.h:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
