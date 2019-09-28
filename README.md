@@ -42,17 +42,6 @@ Download https://www.microsoft.com/en-us/download/details.aspx?id=48145 as sugge
 5. Fast calculation.
 6. Easily interfaced to calculation environments MATLAB, IDL and Python.  
 
-# Coding style
-
-* Underscore (`_variable`) means a class member variable.
-* C++98 does not allow me to use constructor delegation. I am using methods like `setAllPointersToNull()` to make up for it.
-* Order of methods in a class definition:
-    * functional (calculation, helpers etc)
-    * getters/setters
-    * disp()
-    * constructors/destructors
-* In **copy constructors** copy primitive types, set all pointers to zero.
-
 # Notes
 
 * **Continuous integration** was tested [in this repo](https://github.com/MRKonrad/ContinousIntegrationPlayground).
