@@ -53,22 +53,6 @@ A library to calculate parametric maps in M\-R\-I. It contains Sh\-M\-O\-L\-L\-I
 \item Easily interfaced to calculation environments M\-A\-T\-L\-A\-B, I\-D\-L and Python.
 \end{DoxyEnumerate}
 
-\section*{Coding style}
-
-
-\begin{DoxyItemize}
-\item Underscore ({\ttfamily \-\_\-variable}) means a class member variable.
-\item C++98 does not allow me to use constructor delegation. I am using methods like {\ttfamily set\-All\-Pointers\-To\-Null()} to make up for it.
-\item Order of methods in a class definition\-:
-\begin{DoxyItemize}
-\item functional (calculation, helpers etc)
-\item getters/setters
-\item disp()
-\item constructors/destructors
-\end{DoxyItemize}
-\item In {\bfseries copy constructors} copy primitive types, set all pointers to zero.
-\end{DoxyItemize}
-
 \section*{Notes}
 
 

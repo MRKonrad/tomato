@@ -1,6 +1,8 @@
 var NAVTREE =
 [
   [ "Tomato", "index.html", [
+    [ "Contributor Covenant Code of Conduct", "md__c_o_d_e__o_f__c_o_n_d_u_c_t.html", null ],
+    [ "Contributing to TOMATO", "md__c_o_n_t_r_i_b_u_t_i_n_g.html", null ],
     [ "Different results from the configurations:", "md_notepad.html", null ],
     [ "Tomato", "md__r_e_a_d_m_e.html", null ],
     [ "Classes", null, [
@@ -26,7 +28,7 @@ var NAVTREEINDEX =
 [
 ".html",
 "class_ox_1_1_fitter.html#a8f240f0da86d06b339ab2747e87f21b9",
-"struct_ox_1_1_tomato_options.html#a367c540e5413f8ffa3a6bc6ef5781b45"
+"struct_ox_1_1_tomato_options.html#a2cf923d6d04fb8cb510db2623e93119d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

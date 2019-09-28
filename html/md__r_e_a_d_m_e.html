@@ -146,19 +146,6 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html','');});
 <li>Fast calculation.</li>
 <li>Easily interfaced to calculation environments MATLAB, IDL and Python.</li>
 </ol>
-<h1>Coding style</h1>
-<ul>
-<li>Underscore (<code>_variable</code>) means a class member variable.</li>
-<li>C++98 does not allow me to use constructor delegation. I am using methods like <code>setAllPointersToNull()</code> to make up for it.</li>
-<li>Order of methods in a class definition:<ul>
-<li>functional (calculation, helpers etc)</li>
-<li>getters/setters</li>
-<li>disp()</li>
-<li>constructors/destructors</li>
-</ul>
-</li>
-<li>In <b>copy constructors</b> copy primitive types, set all pointers to zero.</li>
-</ul>
 <h1>Notes</h1>
 <ul>
 <li><b>Continuous integration</b> was tested <a href="https://github.com/MRKonrad/ContinousIntegrationPlayground">in this repo</a>.</li>
