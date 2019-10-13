@@ -3,7 +3,7 @@
 # Title         : generateDocumentationAndDeploy.sh
 # Date created  : 2016/02/22
 # Notes         :
-__AUTHOR__="Jeroen de Bruijn"
+# __AUTHOR__="Konrad Werys"
 # Preconditions:
 # - Packages doxygen doxygen-doc doxygen-latex doxygen-gui graphviz
 #   must be installed.

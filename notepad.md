@@ -1,4 +1,4 @@
-# Different results from the configurations:
+# Different results from the configurations
 
 parameter_to_map: T1_SHMOLLI  
 functions_type: **FunctionsBasic/FunctionsShmolli**  
@@ -23,4 +23,5 @@ Default: 2.2s and wrong results
 StartPointSHMOLLI: 10s and seemingly correct results
 
 # 5 vs 7 samples
+
 5 samples are calculated way slower. Maybe playing with fmax and maxIter would reduce the time?

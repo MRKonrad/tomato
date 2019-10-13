@@ -1,4 +1,5 @@
 # Tomato
+
 A library to calculate parametric maps in MRI. It contains ShMOLLI implementation as in [this article](https://jcmr-online.biomedcentral.com/articles/10.1186/1532-429X-12-69).  
 **Github** repository can be found [here](https://github.com/MRKonrad/tomato).  
 **Documentation** in doxygen can be found [here](https://mrkonrad.github.io/tomato/html).
@@ -14,10 +15,11 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 
 
 # Usage
-* App - download the latest version of `TomatoExe` from the [Releases][downloads_link] page and follow the youtube tutorial below 
+
+*   App - download the latest version of `TomatoExe` from the [Releases][downloads_link] page and follow the youtube tutorial below
 [![Tomato tutorial](https://img.youtube.com/vi/0tzNZNiZh18/0.jpg)](https://www.youtube.com/watch?v=0tzNZNiZh18)
-* Lib - download the latest version of `TomatoLib` from the [Releases][downloads_link] page
-* Code - if you want to build the code please take a look at the scripts in the `scriptsBuild` and the continuous integrations scripts `.appveyor.yml` and `travis.yml` 
+*   Lib - download the latest version of `TomatoLib` from the [Releases][downloads_link] page
+*   Code - if you want to build the code please take a look at the scripts in the `scriptsBuild` and the continuous integrations scripts `.appveyor.yml` and `travis.yml`
 
 ## Tomato and Numerical Recipes
 
@@ -25,39 +27,44 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes book. Due to Numerical Recipes licence I cannot share this part of the code online. Please contact me if you would like to use this part of the code. To make up for this limitation we provide a number of alternative fitting procedures.
 
 # Troubleshooting
-* missing msvcp140.dll  
-Download https://www.microsoft.com/en-us/download/details.aspx?id=48145 as suggested in https://stackoverflow.com/questions/32998902/msvcp140-dll-missing
+
+*   missing msvcp140.dll  
+Download <https://www.microsoft.com/en-us/download/details.aspx?id=48145> as suggested in <https://stackoverflow.com/questions/32998902/msvcp140-dll-missing>
 
 # Software Requirements Specification
 
-1. Calculate ShMOLLI with exactly the same results as these from the previous implementation.
-2. API for easily choosing
-    * a map calculation algorithm,
-    * a fitting algorithm,
-    * a model function and corresponding energy function.
-3. Compatibility with:
-    * main operating systems (Windows, MacOS, Linux),
-    * C++98 (to include the library in older code).
-4. Handling DICOM files.
-5. Fast calculation.
-6. Easily interfaced to calculation environments MATLAB, IDL and Python.  
+1.  Calculate ShMOLLI with exactly the same results as these from the previous implementation.
+2.  API for easily choosing
+    *   a map calculation algorithm,
+    *   a fitting algorithm,
+    *   a model function and corresponding energy function.
+3.  Compatibility with:
+    *   main operating systems (Windows, MacOS, Linux),
+    *   C++98 (to include the library in older code).
+4.  Handling DICOM files.
+5.  Fast calculation.
+6.  Easily interfaced to calculation environments MATLAB, IDL and Python.  
+
+# Contributing and code of conduct
+
+Please see [contributing.md](contributing.md) and [codeofconduct.md](codeofconduct.md).
 
 # Notes
 
-* **Continuous integration** was tested [in this repo](https://github.com/MRKonrad/ContinousIntegrationPlayground).
-* **Gitmodules**: after `git clone` run `git submodule update --init --recursive` to get the submodules code.
-* It would be nice to follow [CppCoreGuidlines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md) as far as C++98 allows.
-* Maybe I can write a script for github releases with [github releases REST api](https://developer.github.com/v3/repos/releases/#create-a-release) and [curl REST api](http://www.codingpedia.org/ama/how-to-test-a-rest-api-from-command-line-with-curl/#12_HEAD_requests)?
-* LMFIT - somehow windows does not like the static library, so the dynamic is used
+*   **Continuous integration** was tested [in this repo](https://github.com/MRKonrad/ContinousIntegrationPlayground).
+*   **Gitmodules**: after `git clone` run `git submodule update --init --recursive` to get the submodules code.
+*   It would be nice to follow [CppCoreGuidlines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md) as far as C++98 allows.
+*   Maybe I can write a script for github releases with [github releases REST api](https://developer.github.com/v3/repos/releases/#create-a-release) and [curl REST api](http://www.codingpedia.org/ama/how-to-test-a-rest-api-from-command-line-with-curl/#12_HEAD_requests)?
+*   LMFIT - somehow windows does not like the static library, so the dynamic is used
 
 # TODO:
 
-* output SNR maps
-* make sure SNR and nAmoebaCalls is the same as in Shmolli
-* fix downloadITK_linux_osx
-* seperate projects for building tomato dependencies (done for lmfit)
-* possibly I could make all FunctionsT1 object static 
-* write user-friendly build scripts (and use them in CI)
+*   output SNR maps
+*   make sure SNR and nAmoebaCalls is the same as in Shmolli
+*   fix downloadITK_linux_osx
+*   seperate projects for building tomato dependencies (done for lmfit)
+*   possibly I could make all FunctionsT1 object static
+*   write user-friendly build scripts (and use them in CI)
 
 [zenodo_link]: https://zenodo.org/badge/latestdoi/142749215
 [zenodo_badge]: https://img.shields.io/badge/DOI-10.5281%2Fzenodo.1489791-blue.svg?style=flat-square

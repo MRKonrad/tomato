@@ -120,6 +120,7 @@ after_success:
   # Generate and deploy documentation only in linux g++
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
       cd ${TRAVIS_BUILD_DIR} ;
+      cp ${TRAVIS_BUILD_DIR}/scriptsBuild/generateDocumentationAndDeploy.sh generateDocumentationAndDeploy.sh;
       chmod +x generateDocumentationAndDeploy.sh;
       ./generateDocumentationAndDeploy.sh;
     fi
