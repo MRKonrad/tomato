@@ -60,7 +60,7 @@ after_build:
   - mkdir deployment
   # change the name of the exe, zip it and copy the zip to the deployment folders
   - cd %APPVEYOR_BUILD_FOLDER%\install
-  - 7z a %EXE_EXTENDED_NAME%.zip bin\* # zip
+  - 7z a %EXE_EXTENDED_NAME%.zip bin\* -r # zip
   - 7z a %LIB_EXTENDED_NAME%.zip lib\* lib_static\* lib_shared\* include\* # zip
   - copy %APPVEYOR_BUILD_FOLDER%\install\%EXE_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%EXE_EXTENDED_NAME%.zip
   - copy %APPVEYOR_BUILD_FOLDER%\install\%LIB_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%LIB_EXTENDED_NAME%.zip

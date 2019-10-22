@@ -1,6 +1,7 @@
 ##############
 ### Tomato ###
 ##############
+# you can build tomato wit command: cmake . -DITK_DIR_HINTS="../ITK_install/" -DCMAKE_INSTALL_PREFIX="install"
 
 cmake_minimum_required (VERSION 2.8)
 
@@ -180,10 +181,7 @@ endif(BUILD_APP)
 ### Installing ###
 ##################
 
-install (TARGETS TomatoLib
-        RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR}
-        LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR}
-        ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR})
+install (TARGETS TomatoLib DESTINATION ${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR})
 install (FILES ${API_FILES} DESTINATION include)
 if(BUILD_APP)
     install (TARGETS TomatoExe DESTINATION bin)
