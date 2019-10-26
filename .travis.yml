@@ -149,9 +149,9 @@ deploy:
   provider: releases
   api_key:
     secure: ${GH_PERSONAL_ACCESS_TOKEN}
-  file_glob: ON
+  file_glob: true
   file: deployment/*
-  skip_cleanup: ON
+  skip_cleanup: true
   on:
     tags: ON
     condition: ${DEPLOY_BUILD} == "ON" # I guess I have to pick one compiler

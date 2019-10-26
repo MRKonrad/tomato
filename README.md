@@ -1,8 +1,8 @@
 # Tomato
 
 A library to calculate parametric maps in MRI. It contains ShMOLLI implementation as in [this article](https://jcmr-online.biomedcentral.com/articles/10.1186/1532-429X-12-69).  
-**Github** repository can be found [here](https://github.com/MRKonrad/tomato).  
-**Documentation** in doxygen can be found [here](https://mrkonrad.github.io/tomato/html).
+*   **Github** repository can be found [here](https://github.com/MRKonrad/tomato).  
+*   **Documentation** in doxygen can be found [here](https://mrkonrad.github.io/tomato/html).
 
 | System                                    |     Status                                                         |
 |-------------------------------------------|:------------------------------------------------------------------:|
@@ -13,12 +13,13 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 | [Test coverage - Codecov][codecov_link]   | [![codecov][codecov_badge]][codecov_link]                          |
 | [Downloads][downloads_link]               | [![GitHub Releases (by Release)][downloads_badge]][downloads_link] |
 
-
-# Usage
+## Usage
 
 *   App - download the latest version of `TomatoExe` from the [Releases][downloads_link] page and follow the youtube tutorial below
 [![Tomato tutorial](https://img.youtube.com/vi/0tzNZNiZh18/0.jpg)](https://www.youtube.com/watch?v=0tzNZNiZh18)
+
 *   Lib - download the latest version of `TomatoLib` from the [Releases][downloads_link] page
+
 *   Code - if you want to build the code please take a look at the scripts in the `scriptsBuild` and the continuous integrations scripts `.appveyor.yml` and `travis.yml`
 
 ## Tomato and Numerical Recipes
@@ -26,12 +27,12 @@ A library to calculate parametric maps in MRI. It contains ShMOLLI implementatio
 **Important**  
 Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes book. Due to Numerical Recipes licence I cannot share this part of the code online. Please contact me if you would like to use this part of the code. To make up for this limitation we provide a number of alternative fitting procedures.
 
-# Troubleshooting
+## Troubleshooting
 
 *   missing msvcp140.dll  
 Download <https://www.microsoft.com/en-us/download/details.aspx?id=48145> as suggested in <https://stackoverflow.com/questions/32998902/msvcp140-dll-missing>
 
-# Software Requirements Specification
+## Software Requirements Specification
 
 1.  Calculate ShMOLLI with exactly the same results as these from the previous implementation.
 2.  API for easily choosing
@@ -45,11 +46,11 @@ Download <https://www.microsoft.com/en-us/download/details.aspx?id=48145> as sug
 5.  Fast calculation.
 6.  Easily interfaced to calculation environments MATLAB, IDL and Python.  
 
-# Contributing and code of conduct
+## Contributing and code of conduct
 
 Please see [contributing.md](contributing.md) and [codeofconduct.md](codeofconduct.md).
 
-# Notes
+## Notes
 
 *   **Continuous integration** was tested [in this repo](https://github.com/MRKonrad/ContinousIntegrationPlayground).
 *   **Gitmodules**: after `git clone` run `git submodule update --init --recursive` to get the submodules code.
@@ -57,8 +58,9 @@ Please see [contributing.md](contributing.md) and [codeofconduct.md](codeofcondu
 *   Maybe I can write a script for github releases with [github releases REST api](https://developer.github.com/v3/repos/releases/#create-a-release) and [curl REST api](http://www.codingpedia.org/ama/how-to-test-a-rest-api-from-command-line-with-curl/#12_HEAD_requests)?
 *   LMFIT - somehow windows does not like the static library, so the dynamic is used
 
-# TODO:
+## TODO
 
+*   Deployment: exe and lib in one zip
 *   output SNR maps
 *   make sure SNR and nAmoebaCalls is the same as in Shmolli
 *   fix downloadITK_linux_osx
