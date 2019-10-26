@@ -18,5 +18,5 @@ var searchData=
   ['calculatort1results',['CalculatorT1Results',['../struct_ox_1_1_calculator_t1_results.html',1,'Ox']]],
   ['copytoparameters',['copyToParameters',['../class_ox_1_1_fitter.html#a783ba791c88d7208deb4004354b10022',1,'Ox::Fitter']]],
   ['contributor_20covenant_20code_20of_20conduct',['Contributor Covenant Code of Conduct',['../md_codeofconduct.html',1,'']]],
-  ['contributing_20to_20tomato',['Contributing to TOMATO',['../md__c_o_n_t_r_i_b_u_t_i_n_g.html',1,'']]]
+  ['contributing_20to_20tomato',['Contributing to TOMATO',['../md_contributing.html',1,'']]]
 ];

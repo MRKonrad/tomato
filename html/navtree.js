@@ -2,8 +2,8 @@ var NAVTREE =
 [
   [ "Tomato", "index.html", [
     [ "Contributor Covenant Code of Conduct", "md_codeofconduct.html", null ],
-    [ "Contributing to TOMATO", "md__c_o_n_t_r_i_b_u_t_i_n_g.html", null ],
-    [ "Different results from the configurations", "md_notepad.html", null ],
+    [ "Contributing to TOMATO", "md_contributing.html", null ],
+    [ "NOTES", "md_notepad.html", null ],
     [ "Tomato", "md__r_e_a_d_m_e.html", null ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
