@@ -11,7 +11,7 @@
 #include "OxTestData.h"
 
 #include <vnl/algo/vnl_levenberg_marquardt.h>
-#include "OxFunctionsT1Basic.h"
+#include "OxFunctionsT1ThreeParam.h"
 #include "OxFunctionsT1AdapterVnlLeastSquares.h"
 
 
@@ -26,7 +26,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, f) {
 
     TYPE params[3] = {0, 0, 0};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
@@ -57,7 +57,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, gradf) {
 
     TYPE params[3] = {0, 0, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
@@ -100,7 +100,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, fitting) {
 
     TYPE params[3] = {0, 0, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());

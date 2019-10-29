@@ -8,7 +8,7 @@
 #ifdef USE_ITK
 
 #include "OxTestItkImagesFactory.h"
-#include "OxFunctionsT1Basic.h"
+#include "OxFunctionsT1ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"

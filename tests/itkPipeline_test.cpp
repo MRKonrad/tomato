@@ -7,7 +7,7 @@
 #include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
-#include "OxFunctionsT1Basic.h"
+#include "OxFunctionsT1ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
@@ -64,7 +64,7 @@ TEST(itkPipeline, readAndCalculateT1FromMag) {
     KWUtil::copyArrayToArray(nSamples, invTimes, sorter->GetInvTimesSorted().data_block());
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<InputPixelType> functionsObject;
+    Ox::FunctionsT1ThreeParam<InputPixelType> functionsObject;
     Ox::FitterAmoebaVnl<InputPixelType> fitter;
     Ox::SignCalculatorNoSign<InputPixelType> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<InputPixelType> startPointCalculator;
@@ -162,7 +162,7 @@ TEST(itkPipeline, calculateT1FromMagAndPhase) {
     KWUtil::copyArrayToArray(nSamples, invTimes, sorterMag->GetInvTimesSorted().data_block());
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<InputPixelType> functionsObject;
+    Ox::FunctionsT1ThreeParam<InputPixelType> functionsObject;
     Ox::FitterAmoebaVnl<InputPixelType> fitter;
     Ox::SignCalculatorRealImag<InputPixelType> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<InputPixelType> startPointCalculator;

@@ -7,7 +7,7 @@
 #include "gtest/gtest.h"
 #include "OxTestData.h"
 
-#include "OxFunctionsT1Basic.h"
+#include "OxFunctionsT1ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
 
 #include "CmakeConfigForTomato.h"
@@ -23,7 +23,7 @@ TEST(OxFitterAmoebaVnl, performFitting) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
@@ -52,7 +52,7 @@ TEST(OxFitterAmoebaVnl, copyConstructor) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
@@ -92,7 +92,7 @@ TEST(OxFitterAmoebaVnl, disp) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());

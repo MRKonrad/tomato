@@ -24,8 +24,10 @@ namespace Ox {
         parser._sequences["signs"]; 
 
         parser._sequences["resultsMolli"]; 
-        parser._sequences["resultsShmolli"]; 
-        
+        parser._sequences["resultsShmolli"];
+        parser._sequences["resultsTwoParam"];
+        parser._sequences["resultsThreeParam"];
+
         parser.parse();
         
         copyStrVectorToMemberVector(parser._sequences["signalMag"], _signalMag);
@@ -35,6 +37,8 @@ namespace Ox {
 
         copyStrVectorToMemberVector(parser._sequences["resultsMolli"], _resultsMolli);
         copyStrVectorToMemberVector(parser._sequences["resultsShmolli"], _resultsShmolli);
+        copyStrVectorToMemberVector(parser._sequences["resultsTwoParam"], _resultsTwoParam);
+        copyStrVectorToMemberVector(parser._sequences["resultsThreeParam"], _resultsThreeParam);
 
         _nSamples = _invTimes.size();
         
@@ -46,8 +50,14 @@ namespace Ox {
     TestData<MeasureType>
     ::calcSignal(){
         _signal.resize(_nSamples);
-        for (int i = 0; i < _nSamples; ++i){
-            _signal[i] = _signalMag[i] * _signs[i];
+        if (_signs.size() > 0) {
+            for (int i = 0; i < _nSamples; ++i) {
+                _signal[i] = _signalMag[i] * _signs[i];
+            }
+        } else {
+            for (int i = 0; i < _nSamples; ++i){
+                _signal[i] = _signalMag[i];
+            }
         }
     }
 
@@ -84,8 +94,10 @@ namespace Ox {
         printVector<MeasureType>(_signs,     "signs     ");
         printVector<MeasureType>(_invTimes,  "invTimes  ");
 
-        printVector<MeasureType>(_resultsMolli,   "resultsMolli    ");
-        printVector<MeasureType>(_resultsShmolli, "resultsShmolli  ");
+        printVector<MeasureType>(_resultsMolli,   "resultsMolli      ");
+        printVector<MeasureType>(_resultsShmolli, "resultsShmolli    ");
+        printVector<MeasureType>(_resultsMolli,   "resultsTwoParam   ");
+        printVector<MeasureType>(_resultsShmolli, "resultsThreeParam ");
     };
 
 } // namespace Ox

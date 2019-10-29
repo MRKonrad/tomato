@@ -60,11 +60,14 @@ Please see [contributing.md](contributing.md) and [codeofconduct.md](codeofcondu
 
 ## TODO
 
+*   add acceptance test for 2param
+*   maybe rename calculatormolli to calculator3param?
 *   Deployment: exe and lib in one zip
+*   Deployment: cmake to download ITK and lmfit
 *   output SNR maps
 *   make sure SNR and nAmoebaCalls is the same as in Shmolli
 *   fix downloadITK_linux_osx
-*   seperate projects for building tomato dependencies (done for lmfit)
+*   separate projects for building tomato dependencies (done for lmfit)
 *   possibly I could make all FunctionsT1 object static
 *   write user-friendly build scripts (and use them in CI)
 

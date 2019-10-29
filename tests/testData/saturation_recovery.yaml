@@ -1,0 +1,11 @@
+# cmake copies this file, so you better reload cmake if you change this file and you want everything to be working
+resultsTwoParam:   [602.059, 1889.697]
+resultsThreeParam: [601.993, 602.484, 1883.235 ]
+
+# in fact saturation times
+invTimes:  [    83,   153,   223,   293,   363,   433,   503,   573,   643,   713, 10000]
+signalMag: [    25,    48,    66,    87,   105,   123,   139,   157,   175,   190,   599]
+
+
+
+

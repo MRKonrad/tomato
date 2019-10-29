@@ -50,6 +50,8 @@ namespace Ox {
 
         // image
         MeasureType mean_cut_off;
+        MeasureType map_scale_factor;
+        bool use_colorbar;
         int number_of_threads;
 
         // visualisation
@@ -74,7 +76,7 @@ namespace Ox {
 
             parameter_to_map = T1_MOLLI;
             fitting_method = LevMarVnl;
-            functions_type = FunctionsBasic;
+            functions_type = FunctionsThreeParams;
             sign_calc_method = NoSign;
             start_point_calc_method = Default;
 
@@ -83,7 +85,9 @@ namespace Ox {
             use_gradient = false;
 
             // image
-            mean_cut_off = 10;
+            mean_cut_off = 10.0;
+            map_scale_factor = 1.0;
+            use_colorbar = true;
             number_of_threads = 0;
 
             // visualisation
@@ -131,6 +135,8 @@ namespace Ox {
             parser._scalars["use_gradient"];
 
             parser._scalars["mean_cut_off"];
+            parser._scalars["map_scale_factor"];
+            parser._scalars["use_colorbar"];
             parser._scalars["number_of_threads"];
             parser._scalars["visualise"];
 
@@ -175,6 +181,10 @@ namespace Ox {
 
             if (!parser._scalars["mean_cut_off"].empty())
                 mean_cut_off = KWUtil::StringToNumber<MeasureType>(parser._scalars["mean_cut_off"]);
+            if (!parser._scalars["map_scale_factor"].empty())
+                map_scale_factor = KWUtil::StringToNumber<MeasureType>(parser._scalars["map_scale_factor"]);
+            if (!parser._scalars["use_colorbar"].empty())
+                use_colorbar = KWUtil::StringToNumber<MeasureType>(parser._scalars["use_colorbar"]);
             if (!parser._scalars["number_of_threads"].empty())
                 number_of_threads = KWUtil::StringToNumber<MeasureType>(parser._scalars["number_of_threads"]);
 
@@ -217,22 +227,19 @@ namespace Ox {
             Ox::FactoryOfSignCalculators<double>::disp(sign_calc_method);
             Ox::FactoryOfStartPointCalculators<double>::disp(start_point_calc_method);
 
-
-//            printf("]\n sign_calc_method: %s [ ", signCalculatorsTypeNames[sign_calc_method]);
-//            KWUtil::printArray(lastSignCalculatorType+1, signCalculatorsTypeNames);
-//            printf("]\n start_point_calc_method: %s [ ", startPointCalculatorsTypeNames[start_point_calc_method]);
-//            KWUtil::printArray(lastStartPointCalculatorType+1, startPointCalculatorsTypeNames);
-//            printf("]\n");
             printf("\n fTolerance: %.2e ", fTolerance);
             //printf("xTolerance: %.2e ", xTolerance);
             printf("\n max_function_evals: %d ", max_function_evals);
-            printf("\n use_gradient: %s", use_gradient?"1":"0");
-            printf("\n mean_cut_off: %.2f ", mean_cut_off);
+            printf("\n use_gradient: %s", use_gradient ? "1" : "0");
+            printf("\n mean_cut_off: %.2f ", mean_cut_off ? "1" : "0");
+            printf("\n map_scale_factor: %.2f ", map_scale_factor);
+            printf("\n use_colorbar: %.sf ", use_colorbar);
             //printf("fittingCutOff: %.2f ", fittingCutOff);
             printf("\n number_of_threads: %d", number_of_threads);
-            printf("\n visualise: %s", visualise?"1":"0");
-
-            printf("\n calculation time: %.2fs", calculation_time);
+            printf("\n visualise: %s", visualise ? "1" : "0");
+            if (calculation_time > 0) {
+                printf("\n calculation time: %.2fs", calculation_time);
+            }
 
             printf("\n\n");
         }
@@ -284,6 +291,8 @@ namespace Ox {
             KWUtilYaml::addMapping(&document, mapping_node_number, "use_gradient", use_gradient ? "1" : "0");
 
             KWUtilYaml::addMapping(&document, mapping_node_number, "mean_cut_off", KWUtil::NumberToString(mean_cut_off));
+            KWUtilYaml::addMapping(&document, mapping_node_number, "map_scale_factor", KWUtil::NumberToString(map_scale_factor));
+            KWUtilYaml::addMapping(&document, mapping_node_number, "use_colorbar", use_colorbar ? "1" : "0");
             KWUtilYaml::addMapping(&document, mapping_node_number, "number_of_threads", KWUtil::NumberToString(number_of_threads));
             KWUtilYaml::addMapping(&document, mapping_node_number, "visualise", visualise ? "1" : "0");
 

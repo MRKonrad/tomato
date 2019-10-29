@@ -9,7 +9,7 @@
 #include "gtest/gtest.h"
 #include "OxTestImage.h"
 
-#include "OxFunctionsT1Basic.h"
+#include "OxFunctionsT1ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
 #include "OxSignCalculatorNoSign.h"
@@ -46,7 +46,7 @@ TEST(OxImageCalculatorT1, calculate_molli_no_multithread) {
     int nSamples = testImage->getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
@@ -211,7 +211,7 @@ TEST(OxImageCalculatorT1, calculate_molli_multithread_Vnl) {
     Ox::TestImage<TYPE> *testImage = new Ox::TestImage<TYPE>(nRows, nCols, filePaths);
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
@@ -271,7 +271,7 @@ TEST(OxImageCalculatorT1, calculate_molli_multithread_nr2) {
     Ox::TestImage<TYPE> *testImage = new Ox::TestImage<TYPE>(nRows, nCols, filePaths);
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaPrivateNr2<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;

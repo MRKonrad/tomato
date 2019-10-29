@@ -1,40 +1,35 @@
 /*!
- * \file OxFunctionsT1Basic.hxx
+ * \file OxFunctionsT1TwoParams.hxx
  * \author Konrad Werys
  * \date 2018/07/29
  */
 
-#ifndef Tomato_OXFUNCTIONST1BASIC_HXX
-#define Tomato_OXFUNCTIONST1BASIC_HXX
+#ifndef Tomato_OXFUNCTIONST1TwoParams_HXX
+#define Tomato_OXFUNCTIONST1TwoParams_HXX
 
 namespace Ox {
 
 
     template< typename MeasureType >
     MeasureType
-    FunctionsT1Basic<MeasureType>
+    FunctionsT1TwoParam<MeasureType>
     ::calcModelValue(const MeasureType* parameters, MeasureType time){
-        MeasureType A = parameters[0];
-        MeasureType B = parameters[1];
-        MeasureType T1star = parameters[2];
 
-        if (fabs(T1star) < std::numeric_limits<MeasureType>::min())
+        MeasureType A = parameters[0];
+        MeasureType T1 = parameters[1];
+
+        if (fabs(T1) < std::numeric_limits<MeasureType>::min())
             return A;
 
-        return A - B * exp( -time / T1star );
+        return A * (1 - exp( -time / T1 ));
     }
 
     template< typename MeasureType >
     void
-    FunctionsT1Basic<MeasureType>
+    FunctionsT1TwoParam<MeasureType>
     ::calcLSResiduals(const MeasureType* parameters, MeasureType* residuals){
 
-        //std::cout << "calcLSResiduals" << std::endl;
         unsigned int nSamples = this->_nSamples;
-
-        MeasureType A = parameters[0];
-        MeasureType B = parameters[1];
-        MeasureType T1star = parameters[2];
 
         for (unsigned int i = 0; i < nSamples; i++) {
             MeasureType invTime = this->_InvTimes[i];
@@ -49,31 +44,29 @@ namespace Ox {
 
     template< typename MeasureType >
     void
-    FunctionsT1Basic<MeasureType>
+    FunctionsT1TwoParam<MeasureType>
     ::calcLSJacobian(const MeasureType* parameters, MeasureType* jacobian){
+
         int nSamples = this->_nSamples;
 
-        //MeasureType A = parameters[0];
-        MeasureType B = parameters[1];
-        MeasureType T1star = parameters[2];
+        MeasureType A = parameters[0];
+        MeasureType T1 = parameters[1];
         MeasureType invTime, myexp;
 
         for (int i = 0; i < nSamples; i++) {
             invTime = this->_InvTimes[i];
-            myexp = exp(-invTime/T1star);
+            myexp = exp(-invTime/T1);
 
-            // calculated in matlab (syms A B T1 t), f=A-B*exp(-t./T1); diff(f,A), diff(f,B), diff(calcCostValue,T1)
-            jacobian[i*3+0] = 1.0;
-            jacobian[i*3+1] = -myexp;
-            jacobian[i*3+2] = -B * invTime * myexp / (T1star * T1star);
+            // calculated in matlab (syms A T1 t), f=A*(1-exp(-t./T1)); diff(f,A),  diff(f,T1)
+            jacobian[i*2+0] = 1.0 - myexp;
+            jacobian[i*2+1] = -( A * invTime * myexp )/ ( T1 * T1 );
         }
     }
 
     template< typename MeasureType >
     MeasureType
-    FunctionsT1Basic<MeasureType>
+    FunctionsT1TwoParam<MeasureType>
     ::calcCostValue(const MeasureType* parameters){
-        //std::cout << "calcCostValue" << std::endl;
 
         int nSamples = this->_nSamples;
 
@@ -89,35 +82,31 @@ namespace Ox {
 
     template< typename MeasureType >
     void
-    FunctionsT1Basic<MeasureType>
+    FunctionsT1TwoParam<MeasureType>
     ::calcCostDerivative(const MeasureType* parameters, MeasureType* derivative){
-        //std::cout << "calcCostDerivative" << std::endl;
 
         int nSamples = this->_nSamples;
 
         derivative[0] = 0;
         derivative[1] = 0;
-        derivative[2] = 0;
 
         MeasureType measured, invTime, myexp;
 
         MeasureType A = parameters[0];
-        MeasureType B = parameters[1];
-        MeasureType T1star = parameters[2];
+        MeasureType T1 = parameters[1];
 
-        // calculated in matlab (syms A B T1 t y), f=(A-B*exp(-t./T1)-y).^2; diff(f,A), diff(f,B), diff(calcCostValue,T1)
+        // calculated in matlab (syms A B T1 t y), f=(A-B*exp(-t./T1)-y).^2; diff(f,A), diff(f,B), diff(f,T1)
         for (int i = 0; i < nSamples; ++i){
             measured = this->getSignal()[i];
             invTime = this->getInvTimes()[i];
-            myexp = exp(-invTime/T1star);
+            myexp = exp(-invTime / T1);
 
-            derivative[0] = derivative[0] + A*2 - measured*2 - myexp*B*2;;
-            derivative[1] = derivative[1] + myexp*2*(measured - A + myexp*B);
-            derivative[2] = derivative[2] + (invTime*myexp*B*2*(measured - A + myexp*B))/(T1star*T1star);
+            derivative[0] = derivative[0] + 2 * (myexp - 1)*(measured + A*(myexp - 1));
+            derivative[1] = derivative[1] + ( 2 * A * invTime * myexp * ( measured + A * ( myexp - 1 ))) / ( T1 * T1 );
         }
     }
 
 } //namespace Ox
 
 
-#endif //Tomato_OXFUNCTIONST1BASIC_HXX
+#endif //Tomato_OXFUNCTIONST1TwoParams_HXX

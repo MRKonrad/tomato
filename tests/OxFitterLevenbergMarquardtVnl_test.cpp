@@ -10,7 +10,7 @@
 #include "gtest/gtest.h"
 #include "OxTestData.h"
 
-#include "OxFunctionsT1Basic.h"
+#include "OxFunctionsT1ThreeParam.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
 
 TEST(OxFitterLevenbergMarquardtVnl, performFitting) {
@@ -23,7 +23,7 @@ TEST(OxFitterLevenbergMarquardtVnl, performFitting) {
 
     double params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
@@ -53,7 +53,7 @@ TEST(OxFitterLevenbergMarquardtVnl, copyConstructor) {
 
     double params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());

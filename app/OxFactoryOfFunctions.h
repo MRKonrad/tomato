@@ -9,7 +9,8 @@
 
 #include "CmakeConfigForTomato.h"
 
-#include "OxFunctionsT1Basic.h"
+#include "OxFunctionsT1ThreeParam.h"
+#include "OxFunctionsT1TwoParam.h"
 #ifdef USE_PRIVATE_NR2
 #include "OxFunctionsT1Shmolli.h"
 #endif
@@ -21,18 +22,21 @@ namespace Ox {
 
 
     static const char *functionsTypeNames[] = {
-            "FunctionsBasic",
+            "FunctionsThreeParams",
+            "FunctionsTwoParams",
             "FunctionsShmolli",
     };
 
     enum functionsType_t {
-        FunctionsBasic = 0,
-        FunctionsShmolli = 1,
+        FunctionsThreeParams = 0,
+        FunctionsTwoParams = 1,
+        FunctionsShmolli = 2,
         lastFunctorType = FunctionsShmolli
     };
 
     static int functionsAvailability[] = {
-            1, //FunctionsBasic
+            1, //FunctionsThreeParams
+            1, //FunctionsTwoParams
 #ifdef USE_PRIVATE_NR2
             1 // FunctionsShmolli
 #else
@@ -47,8 +51,11 @@ namespace Ox {
 
         static FunctionsT1<TYPE>* newByFactory(TomatoOptions<TYPE> *opts){
             switch (opts->functions_type){
-                case FunctionsBasic: {
-                    return new FunctionsT1Basic<TYPE>();
+                case FunctionsThreeParams: {
+                    return new FunctionsT1ThreeParam<TYPE>();
+                }
+                case FunctionsTwoParams: {
+                    return new FunctionsT1TwoParam<TYPE>();
                 }
 #ifdef USE_PRIVATE_NR2
                 case FunctionsShmolli: {

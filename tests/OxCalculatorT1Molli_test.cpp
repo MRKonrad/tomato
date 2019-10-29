@@ -10,7 +10,7 @@
 
 #include "CmakeConfigForTomato.h"
 
-#include "OxFunctionsT1Basic.h"
+#include "OxFunctionsT1ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
@@ -21,7 +21,7 @@
 #include "itkTimeProbe.h"
 #endif
 
-//TODO: make sure correctSDs are accually correct
+//TODO: make sure correctSDs are actually correct
 
 #ifdef USE_VNL
 TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
@@ -33,7 +33,7 @@ TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
@@ -79,7 +79,7 @@ TEST(OxCalculatorT1Molli, calculate_throwIfInvTimesNotSorted) {
     invTimesNotSorted[6] = testData.getSignalPhaPtr()[6];
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
@@ -113,7 +113,7 @@ TEST(OxCalculatorT1Molli, calculate_WithoutSigns) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
@@ -149,7 +149,7 @@ TEST(OxCalculatorT1Molli, calculate_WithSigns) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
@@ -185,7 +185,7 @@ TEST(OxCalculatorT1Molli, copyConstructor) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
@@ -243,7 +243,7 @@ TEST(OxCalculatorT1Molli, correctSDs) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
@@ -288,7 +288,7 @@ TEST(OxCalculatorT1Molli, correctSDs) {
 //    int nSamples7 = testData7.getNSamples();
 //
 //    // init the necessary objects
-//    Ox::FunctionsT1Basic<TYPE> functionsObject;
+//    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
 //    Ox::FitterLevenbergMarquardtVnl<TYPE> fitterAmoebaVnl;
 //    Ox::SignCalculatorRealImag<TYPE> signCalculator;
 //    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;

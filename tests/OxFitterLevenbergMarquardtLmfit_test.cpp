@@ -10,7 +10,7 @@
 #include "gtest/gtest.h"
 #include "OxTestData.h"
 
-#include "OxFunctionsT1Basic.h"
+#include "OxFunctionsT1ThreeParam.h"
 #include "OxFitterLevenbergMarquardtLmfit.h"
 
 #ifdef USE_PRIVATE_NR2
@@ -27,7 +27,7 @@ TEST(OxFitterLevenbergMarquardtLmfit, performFitting) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
@@ -89,7 +89,7 @@ TEST(OxFitterLevenbergMarquardtLmfit, copyConstructor) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
@@ -126,7 +126,7 @@ TEST(OxFitterLevenbergMarquardtLmfit, disp) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());

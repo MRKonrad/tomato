@@ -44,7 +44,7 @@
 /*   functions   */
 /* ************* */
 #include "OxFunctionsT1.h"
-#include "OxFunctionsT1Basic.h"
+#include "OxFunctionsT1ThreeParam.h"
 #ifdef USE_PRIVATE_NR2
 #include "OxFunctionsT1Shmolli.h"
 #endif //USE_PRIVATE_NR2
@@ -115,7 +115,7 @@ namespace Ox {
     /*   functions   */
     /* ************* */
     template class TOMATOLIB_EXPORT FunctionsT1<double>;
-    template class TOMATOLIB_EXPORT FunctionsT1Basic<double>;
+    template class TOMATOLIB_EXPORT FunctionsT1ThreeParam<double>;
 #ifdef USE_PRIVATE_NR2
     template class TOMATOLIB_EXPORT FunctionsT1Shmolli<double>;
 #endif //USE_PRIVATE_NR2

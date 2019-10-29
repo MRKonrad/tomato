@@ -10,7 +10,7 @@
 #include "OxTestData.h"
 
 #include "OxSignCalculatorNoSign.h"
-#include "OxFunctionsT1Basic.h"
+#include "OxFunctionsT1ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
 #include "OxSignCalculatorRealImag.h"
@@ -79,7 +79,7 @@ TEST(OxCalculatorT1Shmolli, calculate_doNotCalculateIfMaxIterZero) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
@@ -125,7 +125,7 @@ TEST(OxCalculatorT1Shmolli, calculate_throwIfInvTimesNotSorted) {
     invTimesNotSorted[6] = testData.getSignalPhaPtr()[6];
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
@@ -159,7 +159,7 @@ TEST(OxCalculatorT1Shmolli, calculate_WithoutSigns_AmoebaVnl) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
@@ -197,7 +197,7 @@ TEST(OxCalculatorT1Shmolli, calculate_WithoutSigns_LevMarVnl) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
@@ -235,7 +235,7 @@ TEST(OxCalculatorT1Shmolli, calculate_WithSigns) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
@@ -272,7 +272,7 @@ TEST(OxCalculatorT1Shmolli, copyConstructor) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;

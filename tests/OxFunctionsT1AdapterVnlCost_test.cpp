@@ -11,7 +11,7 @@
 #include "OxTestData.h"
 
 #include <vnl/algo/vnl_amoeba.h>
-#include "OxFunctionsT1Basic.h"
+#include "OxFunctionsT1ThreeParam.h"
 #include "OxFunctionsT1AdapterVnlCost.h"
 
 TEST(OxFunctionsT1AdapterVnlCost, f) {
@@ -25,7 +25,7 @@ TEST(OxFunctionsT1AdapterVnlCost, f) {
 
     TYPE params[3] = {0, 0, 0};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
@@ -53,7 +53,7 @@ TEST(OxFunctionsT1AdapterVnlCost, gradf) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
@@ -62,11 +62,11 @@ TEST(OxFunctionsT1AdapterVnlCost, gradf) {
     Ox::FunctionsT1AdapterVnlCost functionsAdaptedToVnl(nDims);
     functionsAdaptedToVnl.setFunctionsT1(&functionsObject);
 
-    // FunctionsT1Basic results
+    // FunctionsT1ThreeParam results
     TYPE derivative1[] = {0, 0, 0};
     functionsObject.calcCostDerivative(params, derivative1);
 
-    // FunctionsT1Basic results
+    // FunctionsT1ThreeParam results
     vnl_vector<TYPE> derivative2(3);
     vnl_vector<TYPE> params2(params, 3);
     functionsAdaptedToVnl.gradf(params2, derivative2);
@@ -87,7 +87,7 @@ TEST(OxFunctionsT1AdapterVnlCost, fitting) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1Basic<TYPE> functionsObject;
+    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
