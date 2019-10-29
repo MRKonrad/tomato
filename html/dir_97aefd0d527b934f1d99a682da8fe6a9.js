@@ -30,10 +30,10 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "OxFunctionsT1AdapterLmfitLeastSquares.h", "_ox_functions_t1_adapter_lmfit_least_squares_8h.html", null ],
     [ "OxFunctionsT1AdapterVnlCost.h", "_ox_functions_t1_adapter_vnl_cost_8h.html", null ],
     [ "OxFunctionsT1AdapterVnlLeastSquares.h", "_ox_functions_t1_adapter_vnl_least_squares_8h.html", null ],
-    [ "OxFunctionsT1Basic.h", "_ox_functions_t1_basic_8h.html", [
-      [ "FunctionsT1Basic", "class_ox_1_1_functions_t1_basic.html", "class_ox_1_1_functions_t1_basic" ]
-    ] ],
-    [ "OxFunctionsT1Basic.hxx", "_ox_functions_t1_basic_8hxx.html", null ],
+    [ "OxFunctionsT1ThreeParam.h", "_ox_functions_t1_three_param_8h_source.html", null ],
+    [ "OxFunctionsT1ThreeParam.hxx", "_ox_functions_t1_three_param_8hxx_source.html", null ],
+    [ "OxFunctionsT1TwoParam.h", "_ox_functions_t1_two_param_8h_source.html", null ],
+    [ "OxFunctionsT1TwoParam.hxx", "_ox_functions_t1_two_param_8hxx_source.html", null ],
     [ "OxImageCalculatorT1.h", "_ox_image_calculator_t1_8h_source.html", null ],
     [ "OxImageCalculatorT1.hxx", "_ox_image_calculator_t1_8hxx_source.html", null ],
     [ "OxSignCalculator.h", "_ox_sign_calculator_8h.html", [

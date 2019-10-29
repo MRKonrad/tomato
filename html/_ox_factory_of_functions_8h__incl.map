@@ -1,7 +1,9 @@
 <map id="app/OxFactoryOfFunctions.h" name="app/OxFactoryOfFunctions.h">
-<area shape="rect" id="node3" href="$_ox_functions_t1_basic_8h.html" title="OxFunctionsT1Basic.h" alt="" coords="512,80,665,107"/>
-<area shape="rect" id="node5" href="$_ox_functions_t1_8h.html" title="OxFunctionsT1.h" alt="" coords="479,155,601,181"/>
-<area shape="rect" id="node19" href="$_ox_functions_t1_basic_8hxx.html" title="OxFunctionsT1Basic.hxx" alt="" coords="677,155,845,181"/>
-<area shape="rect" id="node6" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="503,229,576,256"/>
+<area shape="rect" id="node3" href="$_ox_functions_t1_three_param_8h_source.html" title="OxFunctionsT1ThreeParam.h" alt="" coords="622,80,815,107"/>
+<area shape="rect" id="node20" href="$_ox_functions_t1_two_param_8h_source.html" title="OxFunctionsT1TwoParam.h" alt="" coords="839,80,1024,107"/>
+<area shape="rect" id="node5" href="$_ox_functions_t1_8h.html" title="OxFunctionsT1.h" alt="" coords="612,155,735,181"/>
+<area shape="rect" id="node19" href="$_ox_functions_t1_three_param_8hxx_source.html" title="OxFunctionsT1ThreeParam.hxx" alt="" coords="381,155,587,181"/>
+<area shape="rect" id="node6" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="555,229,628,256"/>
 <area shape="rect" id="node18" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="825,304,913,331"/>
+<area shape="rect" id="node21" href="$_ox_functions_t1_two_param_8hxx_source.html" title="OxFunctionsT1TwoParam.hxx" alt="" coords="1014,155,1212,181"/>
 </map>

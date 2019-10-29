@@ -12,7 +12,8 @@ var annotated =
       [ "CalculatorT1Molli", "class_ox_1_1_calculator_t1_molli.html", "class_ox_1_1_calculator_t1_molli" ],
       [ "Fitter", "class_ox_1_1_fitter.html", "class_ox_1_1_fitter" ],
       [ "FunctionsT1", "class_ox_1_1_functions_t1.html", "class_ox_1_1_functions_t1" ],
-      [ "FunctionsT1Basic", "class_ox_1_1_functions_t1_basic.html", "class_ox_1_1_functions_t1_basic" ],
+      [ "FunctionsT1ThreeParam", "class_ox_1_1_functions_t1_three_param.html", "class_ox_1_1_functions_t1_three_param" ],
+      [ "FunctionsT1TwoParam", "class_ox_1_1_functions_t1_two_param.html", "class_ox_1_1_functions_t1_two_param" ],
       [ "ImageCalculatorT1", "class_ox_1_1_image_calculator_t1.html", "class_ox_1_1_image_calculator_t1" ],
       [ "SignCalculator", "class_ox_1_1_sign_calculator.html", "class_ox_1_1_sign_calculator" ],
       [ "SignCalculatorNoSign", "class_ox_1_1_sign_calculator_no_sign.html", "class_ox_1_1_sign_calculator_no_sign" ],
@@ -22,5 +23,7 @@ var annotated =
       [ "TestData", "class_ox_1_1_test_data.html", "class_ox_1_1_test_data" ],
       [ "TestImage", "class_ox_1_1_test_image.html", "class_ox_1_1_test_image" ]
     ] ],
+    [ "FunctionsT1ThreeParams", "class_functions_t1_three_params.html", null ],
+    [ "FunctionsT1TwoParams", "class_functions_t1_two_params.html", null ],
     [ "KWUtil", "class_k_w_util.html", null ]
 ];

@@ -17,6 +17,7 @@ var struct_ox_1_1_tomato_options =
     [ "fitting_method", "struct_ox_1_1_tomato_options.html#a2d1d2149185ef71968980cf8c6afcf14", null ],
     [ "fTolerance", "struct_ox_1_1_tomato_options.html#ae2ac4c46e46b4d183c6944771701040b", null ],
     [ "functions_type", "struct_ox_1_1_tomato_options.html#aced156934915e4bb658d9f8433f69ee2", null ],
+    [ "map_scale_factor", "struct_ox_1_1_tomato_options.html#ab245e10cf32b36c48d66208a5f505099", null ],
     [ "max_function_evals", "struct_ox_1_1_tomato_options.html#a9b864c01b6b0b4e4d5a56470f6c5f004", null ],
     [ "mean_cut_off", "struct_ox_1_1_tomato_options.html#af81d1a55409036109d253b313d59e972", null ],
     [ "number_of_threads", "struct_ox_1_1_tomato_options.html#a54efb4945f2857ee4ed9e1d5552fc3dd", null ],
@@ -25,6 +26,7 @@ var struct_ox_1_1_tomato_options =
     [ "parameter_to_map", "struct_ox_1_1_tomato_options.html#a0d4ad4476a8817e68ead08d1b0645033", null ],
     [ "sign_calc_method", "struct_ox_1_1_tomato_options.html#a2cf923d6d04fb8cb510db2623e93119d", null ],
     [ "start_point_calc_method", "struct_ox_1_1_tomato_options.html#a9da2993961d10c848b0860284900c869", null ],
+    [ "use_colorbar", "struct_ox_1_1_tomato_options.html#aa762826a11ff767aa969bd66c29b577f", null ],
     [ "use_gradient", "struct_ox_1_1_tomato_options.html#a367c540e5413f8ffa3a6bc6ef5781b45", null ],
     [ "visualise", "struct_ox_1_1_tomato_options.html#a043a4cf0e29a4482406e95f27ab2f860", null ]
 ];

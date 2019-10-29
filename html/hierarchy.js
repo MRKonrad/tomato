@@ -11,8 +11,11 @@ var hierarchy =
     [ "Ox::FactoryOfStartPointCalculators< TYPE >", "class_ox_1_1_factory_of_start_point_calculators.html", null ],
     [ "Ox::Fitter< MeasureType >", "class_ox_1_1_fitter.html", null ],
     [ "Ox::FunctionsT1< MeasureType >", "class_ox_1_1_functions_t1.html", [
-      [ "Ox::FunctionsT1Basic< MeasureType >", "class_ox_1_1_functions_t1_basic.html", null ]
+      [ "Ox::FunctionsT1ThreeParam< MeasureType >", "class_ox_1_1_functions_t1_three_param.html", null ],
+      [ "Ox::FunctionsT1TwoParam< MeasureType >", "class_ox_1_1_functions_t1_two_param.html", null ]
     ] ],
+    [ "FunctionsT1ThreeParams", "class_functions_t1_three_params.html", null ],
+    [ "FunctionsT1TwoParams", "class_functions_t1_two_params.html", null ],
     [ "Ox::ImageCalculatorT1< MeasureType >", "class_ox_1_1_image_calculator_t1.html", null ],
     [ "KWUtil", "class_k_w_util.html", null ],
     [ "Ox::SignCalculator< MeasureType >", "class_ox_1_1_sign_calculator.html", [
