@@ -23,6 +23,7 @@ var hierarchy =
       [ "Ox::SignCalculatorRealImag< MeasureType >", "class_ox_1_1_sign_calculator_real_imag.html", null ]
     ] ],
     [ "Ox::StartPointCalculator< MeasureType >", "class_ox_1_1_start_point_calculator.html", [
+      [ "Ox::StartPointCalculatorDefault2Dims< MeasureType >", "class_ox_1_1_start_point_calculator_default2_dims.html", null ],
       [ "Ox::StartPointCalculatorDefault3Dims< MeasureType >", "class_ox_1_1_start_point_calculator_default3_dims.html", null ]
     ] ],
     [ "Ox::TestData< MeasureType >", "class_ox_1_1_test_data.html", null ],

@@ -19,6 +19,7 @@ var annotated =
       [ "SignCalculatorNoSign", "class_ox_1_1_sign_calculator_no_sign.html", "class_ox_1_1_sign_calculator_no_sign" ],
       [ "SignCalculatorRealImag", "class_ox_1_1_sign_calculator_real_imag.html", "class_ox_1_1_sign_calculator_real_imag" ],
       [ "StartPointCalculator", "class_ox_1_1_start_point_calculator.html", "class_ox_1_1_start_point_calculator" ],
+      [ "StartPointCalculatorDefault2Dims", "class_ox_1_1_start_point_calculator_default2_dims.html", "class_ox_1_1_start_point_calculator_default2_dims" ],
       [ "StartPointCalculatorDefault3Dims", "class_ox_1_1_start_point_calculator_default3_dims.html", "class_ox_1_1_start_point_calculator_default3_dims" ],
       [ "TestData", "class_ox_1_1_test_data.html", "class_ox_1_1_test_data" ],
       [ "TestImage", "class_ox_1_1_test_image.html", "class_ox_1_1_test_image" ]

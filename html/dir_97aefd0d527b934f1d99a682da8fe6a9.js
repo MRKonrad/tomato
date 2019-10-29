@@ -48,6 +48,9 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "OxStartPointCalculator.h", "_ox_start_point_calculator_8h.html", [
       [ "StartPointCalculator", "class_ox_1_1_start_point_calculator.html", "class_ox_1_1_start_point_calculator" ]
     ] ],
+    [ "OxStartPointCalculatorDefault2Dims.h", "_ox_start_point_calculator_default2_dims_8h.html", [
+      [ "StartPointCalculatorDefault2Dims", "class_ox_1_1_start_point_calculator_default2_dims.html", "class_ox_1_1_start_point_calculator_default2_dims" ]
+    ] ],
     [ "OxStartPointCalculatorDefault3Dims.h", "_ox_start_point_calculator_default3_dims_8h.html", [
       [ "StartPointCalculatorDefault3Dims", "class_ox_1_1_start_point_calculator_default3_dims.html", "class_ox_1_1_start_point_calculator_default3_dims" ]
     ] ],

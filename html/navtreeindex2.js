@@ -1,5 +1,16 @@
 var NAVTREEINDEX2 =
 {
+"md_notepad.html":[2],
+"pages.html":[],
+"struct_ox_1_1_calculator_t1_results.html":[4,0,0,6],
+"struct_ox_1_1_calculator_t1_results.html#a2d8d7c814ea4b00172127fb16899a55e":[4,0,0,6,9],
+"struct_ox_1_1_calculator_t1_results.html#a2ef9ec72b2f7e61bb442fe8e0f61d508":[4,0,0,6,0],
+"struct_ox_1_1_calculator_t1_results.html#a41ed7aa95199d212e558ee0c3c505ef8":[4,0,0,6,7],
+"struct_ox_1_1_calculator_t1_results.html#a498af89b3140332c3801830ab7764018":[4,0,0,6,8],
+"struct_ox_1_1_calculator_t1_results.html#a62290037f5a2126b2e01bd198540db94":[4,0,0,6,6],
+"struct_ox_1_1_calculator_t1_results.html#a631f2067425a391d806f9a272261b22f":[4,0,0,6,4],
+"struct_ox_1_1_calculator_t1_results.html#a6cbc503c5793635828ffb3194a9998a8":[4,0,0,6,3],
+"struct_ox_1_1_calculator_t1_results.html#a7b4d1738d1ea0936c57c195485b87b6e":[4,0,0,6,5],
 "struct_ox_1_1_calculator_t1_results.html#a88d59f1abf904999a8628c2e9780357c":[4,0,0,6,10],
 "struct_ox_1_1_calculator_t1_results.html#a95930b2a41a0caf402b254deaad2353c":[4,0,0,6,1],
 "struct_ox_1_1_calculator_t1_results.html#a96b57eedae534e2dc531e63f6ec85930":[4,0,0,6,12],

@@ -8,5 +8,6 @@ var searchData=
   ['_7esigncalculator',['~SignCalculator',['../class_ox_1_1_sign_calculator.html#a5143a172e360633d8df758756d146889',1,'Ox::SignCalculator']]],
   ['_7esigncalculatornosign',['~SignCalculatorNoSign',['../class_ox_1_1_sign_calculator_no_sign.html#a1da2b6c351daf89811c6d9618df2bb74',1,'Ox::SignCalculatorNoSign']]],
   ['_7estartpointcalculator',['~StartPointCalculator',['../class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a',1,'Ox::StartPointCalculator']]],
+  ['_7estartpointcalculatordefault2dims',['~StartPointCalculatorDefault2Dims',['../class_ox_1_1_start_point_calculator_default2_dims.html#a93ba59c737cc2c5c6a6837768ab8a3d4',1,'Ox::StartPointCalculatorDefault2Dims']]],
   ['_7estartpointcalculatordefault3dims',['~StartPointCalculatorDefault3Dims',['../class_ox_1_1_start_point_calculator_default3_dims.html#ab85b597c934ed1ac03ff7079bd860b44',1,'Ox::StartPointCalculatorDefault3Dims']]]
 ];
