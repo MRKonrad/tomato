@@ -9,6 +9,7 @@
 
 #include "CmakeConfigForTomato.h"
 
+#include "OxStartPointCalculatorDefault2Dims.h"
 #include "OxStartPointCalculatorDefault3Dims.h"
 #ifdef USE_PRIVATE_NR2
 #include "OxStartPointCalculatorShmolli.h"
@@ -21,18 +22,21 @@ namespace Ox {
 
 
     static const char *startPointCalculatorsTypeNames[] = {
-            "Default",
+            "DefaultThreeParam",
+            "DefaultTwoParam",
             "StartPointSHMOLLI"
     };
 
     enum startPointCalculatorsType_t {
-        Default = 0,
-        StartPointSHMOLLI = 1,
+        DefaultThreeParam = 0,
+        DefaultTwoParam = 1,
+        StartPointSHMOLLI = 2,
         lastStartPointCalculatorType = StartPointSHMOLLI
     };
 
     static int startPointCalculatorsAvailability[] = {
-            1, // Default
+            1, // DefaultThreeParam
+            1, // DefaultTwoParam
 #ifdef USE_PRIVATE_NR2
             1, // StartPointSHMOLLI
 #else
@@ -47,8 +51,11 @@ namespace Ox {
 
         static StartPointCalculator<TYPE>* newByFactory(TomatoOptions<TYPE> *opts){
             switch (opts->start_point_calc_method){
-                case Default: {
+                case DefaultThreeParam: {
                     return new StartPointCalculatorDefault3Dims<TYPE>();
+                }
+                case DefaultTwoParam: {
+                    return new StartPointCalculatorDefault2Dims<TYPE>();
                 }
 #ifdef USE_PRIVATE_NR2
                 case StartPointSHMOLLI: {

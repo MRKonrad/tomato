@@ -15,6 +15,7 @@
 #include "OxFitterAmoebaVnl.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxStartPointCalculatorDefault3Dims.h"
+#include "OxStartPointCalculatorDefault2Dims.h"
 #include "OxCalculatorT1Molli.h"
 
 #ifdef USE_ITK
@@ -34,7 +35,7 @@ TEST(OxCalculatorT1_saturation_recovery, twoParam) {
     Ox::FunctionsT1TwoParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
-    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorDefault2Dims<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure

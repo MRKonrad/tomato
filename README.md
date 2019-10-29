@@ -1,4 +1,4 @@
-# Tomato
+# TOMATO
 
 A library to calculate parametric maps in MRI. It contains ShMOLLI implementation as in [this article](https://jcmr-online.biomedcentral.com/articles/10.1186/1532-429X-12-69).  
 *   **Github** repository can be found [here](https://github.com/MRKonrad/tomato).  
@@ -61,9 +61,11 @@ Please see [contributing.md](contributing.md) and [codeofconduct.md](codeofcondu
 ## TODO
 
 *   add acceptance test for 2param
-*   maybe rename calculatormolli to calculator3param?
+*   maybe rename calculatormolli to calculator3param? 
+*   maybe add calculator2param to produce different results?
 *   Deployment: exe and lib in one zip
 *   Deployment: cmake to download ITK and lmfit
+*   update comments in configuration yaml files
 *   output SNR maps
 *   make sure SNR and nAmoebaCalls is the same as in Shmolli
 *   fix downloadITK_linux_osx

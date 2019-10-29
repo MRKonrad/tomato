@@ -26,10 +26,10 @@ namespace Ox {
         virtual std::vector<MeasureType> getSigns()     const { return _signs; }
         virtual std::vector<MeasureType> getSignal()    const { return _signal; }
         virtual std::vector<MeasureType> getInvTimes()  const { return _invTimes; }
-        virtual std::vector<MeasureType> getResultsMolli()    const { return _resultsMolli; }
-        virtual std::vector<MeasureType> getResultsShmolli()  const { return _resultsShmolli; }
-        virtual std::vector<MeasureType> getResultsTwoParam()  const { return _resultsTwoParam; }
-        virtual std::vector<MeasureType> getResultsThreeParam()  const { return _resultsThreeParam; }
+        virtual std::vector<MeasureType> getResultsMolli()      const { return _resultsMolli; }
+        virtual std::vector<MeasureType> getResultsShmolli()    const { return _resultsShmolli; }
+        virtual std::vector<MeasureType> getResultsTwoParam()   const { return _resultsTwoParam; }
+        virtual std::vector<MeasureType> getResultsThreeParam() const { return _resultsThreeParam; }
 
 
         virtual const MeasureType* getSignalMagPtr() const {

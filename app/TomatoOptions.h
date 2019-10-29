@@ -78,7 +78,7 @@ namespace Ox {
             fitting_method = LevMarVnl;
             functions_type = FunctionsThreeParams;
             sign_calc_method = NoSign;
-            start_point_calc_method = Default;
+            start_point_calc_method = DefaultThreeParam;
 
             fTolerance = 1e-12;
             max_function_evals = 4000;
