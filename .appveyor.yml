@@ -13,8 +13,8 @@ init:
 # about toolset: https://devblogs.microsoft.com/cppblog/stuck-on-an-older-toolset-version-move-to-visual-studio-2015-without-upgrading-your-toolset/
 environment:
   toolset: v90
-  EXE_EXTENDED_NAME: TomatoExe_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
-  LIB_EXTENDED_NAME: TomatoLib_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
+  OPENSOURCE_EXTENDED_NAME: TomatoExe_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
+  FULL_EXTENDED_NAME: TomatoLib_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
 
 install:
   - git submodule update --init --recursive
@@ -28,40 +28,42 @@ platform:
 configuration:
   - Release
 
-before_build:
-  - cd %APPVEYOR_BUILD_FOLDER%\..
-  # get private code
-  - git clone https://MRKonrad:%GH_PERSONAL_ACCESS_TOKEN%@github.com/MRKonrad/tomato_private
-  - cd %APPVEYOR_BUILD_FOLDER%
-  - cmake . -Bstatic -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -T %toolset% -DLIB_INSTALL_DIR="lib_static" -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
-  - cmake . -Bshared -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -T %toolset% -DBUILD_SHARED_LIBS=ON -DUSE_YAML=OFF -DLIB_INSTALL_DIR="lib_shared" -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
-
 build_script:
-  - cd %APPVEYOR_BUILD_FOLDER%\static
+  # build tomato open source
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - cmake -Bopensource -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=%APPVEYOR_BUILD_FOLDER%\opensource_install -T %toolset% -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
+  - cd %APPVEYOR_BUILD_FOLDER%\opensource
   - cmake --build . --config %CONFIGURATION% --target ALL_BUILD
-  - cd %APPVEYOR_BUILD_FOLDER%\shared
+  - cmake --build . --config %CONFIGURATION% --target INSTALL
+  # get private code
+  - cd %APPVEYOR_BUILD_FOLDER%\..
+  - git clone https://MRKonrad:%GH_PERSONAL_ACCESS_TOKEN%@github.com/MRKonrad/tomato_private
+  - cd %APPVEYOR_BUILD_FOLDER%\..
+  # build full tomato
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - cmake . -Bfull -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=%APPVEYOR_BUILD_FOLDER%\full_install -T %toolset% -DUSE_PRIVATE_NR2=ON -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
+  - cd %APPVEYOR_BUILD_FOLDER%\full
   - cmake --build . --config %CONFIGURATION% --target ALL_BUILD
+  - cmake --build . --config %CONFIGURATION% --target INSTALL
+
 
 after_build:
-  # install the files
-  - cd %APPVEYOR_BUILD_FOLDER%\static
-  - cmake --build . --config %CONFIGURATION% --target INSTALL
-  - cd %APPVEYOR_BUILD_FOLDER%\shared
-  - cmake --build . --config %CONFIGURATION% --target INSTALL
   # FOR DEPLOYMENT
   - cd %APPVEYOR_BUILD_FOLDER%
   - mkdir deployment
-  # change the name of the exe, zip it and copy the zip to the deployment folders
-  - cd %APPVEYOR_BUILD_FOLDER%\install
-  - cd bin
-  - 7z a %EXE_EXTENDED_NAME%.zip *  # zip
-  - cd ..
-  - 7z a %LIB_EXTENDED_NAME%.zip lib\* lib_static\* lib_shared\* include\* # zip
-  - copy %APPVEYOR_BUILD_FOLDER%\install\bin\%EXE_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%EXE_EXTENDED_NAME%.zip
-  - copy %APPVEYOR_BUILD_FOLDER%\install\%LIB_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%LIB_EXTENDED_NAME%.zip
+  # zip the files for the deployment
+  - cd %APPVEYOR_BUILD_FOLDER%\opensource_install
+  - 7z a %OPENSOURCE_EXTENDED_NAME%.zip bin\* lib\TomatoLib* include\*  # zip
+  - cd %APPVEYOR_BUILD_FOLDER%\full_install
+  - 7z a %FULL_EXTENDED_NAME%.zip bin\* lib\TomatoLib* include\*  # zip
+  # copy the files for the deployment
+  - copy %APPVEYOR_BUILD_FOLDER%\opensource_install\%OPENSOURCE_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%OPENSOURCE_EXTENDED_NAME%.zip
+  - copy %APPVEYOR_BUILD_FOLDER%\full_install\%FULL_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%FULL_EXTENDED_NAME%.zip
 
 test_script:
-  - cd %APPVEYOR_BUILD_FOLDER%\install\tests\
+  - cd %APPVEYOR_BUILD_FOLDER%\opensource_install\tests\
+  - TomatoTests.exe
+  - cd %APPVEYOR_BUILD_FOLDER%\full_install\tests\
   - TomatoTests.exe
 
 artifacts:

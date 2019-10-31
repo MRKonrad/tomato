@@ -1,7 +1,12 @@
 ##############
 ### Tomato ###
 ##############
-# you can build tomato wit command: cmake . -DCMAKE_INSTALL_PREFIX="install"
+# you can build tomato wit command:
+# cmake .
+#       -DCMAKE_BUILD_TYPE=DEBUG
+#       -DCMAKE_INSTALL_PREFIX="install"
+#       -DBUILD_SHARED_LIBS=ON
+#       -DCMAKE_MACOSX_RPATH=1
 
 cmake_minimum_required (VERSION 2.8)
 
@@ -17,6 +22,15 @@ set (CMAKE_CXX_STANDARD 98 CACHE STRING "")
 if (CMAKE_CXX_STANDARD EQUAL 98)
     set (CXX_STANDARD_98 ON) # flag used in the code
 endif()
+
+# RPATH preparation for the executables
+set(CMAKE_INSTALL_RPATH
+        @executable_path
+        @executable_path/lib
+        @executable_path/../lib
+        @loader_path
+        @loader_path/lib
+        @loader_path/../lib)
 
 # scripts to download pre-compiled dependencis, running only if DOWNLOAD_DEPENDENCIES is ON
 set(DOWNLOAD_DEPENDENCIES ON CACHE BOOL "Do you want to download the dependencies?")
@@ -83,10 +97,11 @@ endif(USE_ITK)
 ####################
 
 set(LIB_INSTALL_DIR lib CACHE STRING "")
+set(Tomato_BUILD_TESTING ON CACHE BOOL "Do you want to build Tomato tests?")
 
 set(BUILD_APP OFF)
 if(USE_ITK AND  USE_YAML)
-        set(BUILD_APP ON)
+    set(BUILD_APP ON)
 endif()
 
 MESSAGE("CXX_STANDARD_98:      " ${CXX_STANDARD_98})
@@ -96,11 +111,11 @@ MESSAGE("USE_VNL:              " ${USE_VNL})
 MESSAGE("USE_PRIVATE_NR2:      " ${USE_PRIVATE_NR2})
 MESSAGE("USE_LMFIT:            " ${USE_LMFIT})
 MESSAGE("USE_YAML:             " ${USE_YAML})
-MESSAGE("BUILD_SHARED_LIBS:    " ${BUILD_SHARED_LIBS})
-MESSAGE("CMAKE_INSTALL_PREFIX: " ${CMAKE_INSTALL_PREFIX})
-MESSAGE("LIB_INSTALL_DIR:      " ${LIB_INSTALL_DIR})
 MESSAGE("BUILD_APP:            " ${BUILD_APP})
 MESSAGE("Tomato_BUILD_TESTING: " ${Tomato_BUILD_TESTING})
+MESSAGE("BUILD_SHARED_LIBS:    " ${BUILD_SHARED_LIBS})
+MESSAGE("LIB_INSTALL_DIR:      " ${LIB_INSTALL_DIR})
+MESSAGE("CMAKE_INSTALL_PREFIX: " ${CMAKE_INSTALL_PREFIX})
 
 # configure a header file to pass some of the CMake settings to the source code
 configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForTomato.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
@@ -116,7 +131,7 @@ include_directories (lib)
 include_directories ("${PROJECT_BINARY_DIR}") # for the configuration header
 
 # target
-add_library (TomatoLib ${LIB_FILES})
+add_library (TomatoLib SHARED ${LIB_FILES})
 
 #link
 target_link_libraries (TomatoLib ${TOMATO_LIBS_TO_LINK})
@@ -158,8 +173,7 @@ endif()
 ### TESTING ###
 ###############
 
-set(Tomato_BUILD_TESTING ON CACHE BOOL "Do you want to build Tomato tests?")
-if(USE_YAML)
+if(Tomato_BUILD_TESTING AND USE_YAML)
     add_subdirectory (tests)
 endif()
 

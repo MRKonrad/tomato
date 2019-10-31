@@ -71,48 +71,44 @@ install:
       sudo pip install codecov;
     fi
 
+script:
+  # configure and generate opensource
+  - mkdir ${TRAVIS_BUILD_DIR}/opensource;
+  - cd ${TRAVIS_BUILD_DIR}/opensource;
+  - cmake .. -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/opensource_install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DCMAKE_MACOSX_RPATH=ON
+
+  # build opensource
+  - cmake --build . --config RELEASE
+  - cmake --build . --config RELEASE --target install
+
   # download tomato_private
   - cd ${TRAVIS_BUILD_DIR}/..
   - git clone https://MRKonrad:${GH_PERSONAL_ACCESS_TOKEN}@github.com/MRKonrad/tomato_private
-
-  # download ITK binaries
-  - cd ${TRAVIS_BUILD_DIR}/scriptsBuild
-  - bash downloadITK_linux_osx.sh
-  - bash downloadLmfit_linux_osx.sh
-
-script:
-  # configure and generate static
-  - mkdir ${TRAVIS_BUILD_DIR}/static;
-  - cd ${TRAVIS_BUILD_DIR}/static;
-  - cmake .. -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DLIB_INSTALL_DIR="lib_static" -DCMAKE_MACOSX_RPATH=ON
+  - cd ${TRAVIS_BUILD_DIR}
 
   # add coverage option (only in linux g++)
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
       cmake .. -DCMAKE_CXX_FLAGS="--coverage" ;
     fi
 
-  # build shared static
-  - cmake --build . --config RELEASE
-  - cmake --build . --config RELEASE --target install
-
-  # configure and generate SHARED
-  - mkdir ${TRAVIS_BUILD_DIR}/shared;
-  - cd ${TRAVIS_BUILD_DIR}/shared;
-  - cmake .. -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DBUILD_SHARED_LIBS=ON -DUSE_YAML=OFF -DLIB_INSTALL_DIR="lib_shared" -DCMAKE_MACOSX_RPATH=ON
-  # build shared
+  # configure and generate full 
+  - mkdir ${TRAVIS_BUILD_DIR}/full;
+  - cd ${TRAVIS_BUILD_DIR}/full;
+  - cmake .. -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/full_install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DUSE_PRIVATE_NR2=ON -DCMAKE_MACOSX_RPATH=ON
+  # build full
   - cmake --build . --config RELEASE
   - cmake --build . --config RELEASE --target install
 
   # testing and getting the test coverage
-  - cd ${TRAVIS_BUILD_DIR}/static/tests
+  - cd ${TRAVIS_BUILD_DIR}/opensource_install/tests
   - ./TomatoTests
-  - cd ${TRAVIS_BUILD_DIR}/shared/tests
+  - cd ${TRAVIS_BUILD_DIR}/full_install/tests
   - ./TomatoTests
-
+    
 after_success:
   # Run coverage analysis only in linux g++. Eval because travis wants to parse -- as part of yaml block
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
-      cd ${TRAVIS_BUILD_DIR}/static ;
+      cd ${TRAVIS_BUILD_DIR}/full ;
       cp ${TRAVIS_BUILD_DIR}/scriptsBuild/generateTestCoverageReport.sh generateTestCoverageReport.sh;
       sh generateTestCoverageReport.sh;
       ls;
@@ -129,20 +125,24 @@ after_success:
 
   # getting ready to deploy
   - mkdir ${TRAVIS_BUILD_DIR}/deployment
-  - export exe_extended_name=TomatoExe_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
-  - export lib_extended_name=TomatoLib_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
-  - cd ${TRAVIS_BUILD_DIR}/install
+  - export opensource_extended_name=TomatoOpenSource_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
+  - export full_extended_name=TomatoFull_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
 
-  # zip the files
-  - zip -r -j ${exe_extended_name}.zip bin # -j because we do not want the directory tree in the zip file
-  - zip -r ${lib_extended_name}.zip lib_static
-  - zip -r ${lib_extended_name}.zip lib_shared
-  - zip -r ${lib_extended_name}.zip lib
-  - zip -r ${lib_extended_name}.zip include
+  # prepare to deploy TomatoOpenSource
+  - cd ${TRAVIS_BUILD_DIR}/opensource_install
+  - zip -r ${opensource_extended_name}.zip lib/libTomatoLib*
+  - zip -r ${opensource_extended_name}.zip include
+  - zip -r ${opensource_extended_name}.zip bin
+
+  # prepare to deploy TomatoFull
+  - cd ${TRAVIS_BUILD_DIR}/full_install
+  - zip -r ${full_extended_name}.zip lib/libTomatoLib*
+  - zip -r ${full_extended_name}.zip include
+  - zip -r ${full_extended_name}.zip bin
 
   # copy the archives
-  - cp ${exe_extended_name}.zip ${TRAVIS_BUILD_DIR}/deployment/
-  - cp ${lib_extended_name}.zip ${TRAVIS_BUILD_DIR}/deployment/
+  - cp ${opensource_extended_name}.zip ${TRAVIS_BUILD_DIR}/deployment/
+  - cp ${full_extended_name}.zip ${TRAVIS_BUILD_DIR}/deployment/
   - cp ${TRAVIS_BUILD_DIR}/tests/testData/testData.zip ${TRAVIS_BUILD_DIR}/deployment/testData.zip
   - ls ${TRAVIS_BUILD_DIR}/deployment
   - cd ${TRAVIS_BUILD_DIR} # needed for deployment!!!
