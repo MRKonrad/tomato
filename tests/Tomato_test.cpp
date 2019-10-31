@@ -166,7 +166,6 @@ TEST(ActeptanceTests_TomatoTest, readAndSortInputDirs_calculate_export_Philips) 
     EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
     EXPECT_EQ(Tomato_object.calculate(), 0); // EXIT_SUCCESS
     EXPECT_EQ(Tomato_object.exportToDicom(), 0); // EXIT_SUCCESS
-    //Tomato_object.visualise();
 
 }
 #endif //USE_PRIVATE_NR2
@@ -179,7 +178,6 @@ TEST(ActeptanceTests_TomatoTest, readAndSortInputDirs_calculate_export_GE) {
     EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
     EXPECT_EQ(Tomato_object.calculate(), 0); // EXIT_SUCCESS
     EXPECT_EQ(Tomato_object.exportToDicom(), 0); // EXIT_SUCCESS
-    //Tomato_object.visualise();
 
 }
 #endif //USE_PRIVATE_NR2

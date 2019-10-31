@@ -104,7 +104,6 @@ std::vector<std::string> ActeptanceTests_TomatoFixtureTest::_calculatedFilePaths
 
 TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_T1) {
 
-    bool doVisualise = false; //for debugging
     int i = 0; // T1 map
 
     readerOriginalT1Map->SetFileName(_originalFilePaths.at(i));
@@ -124,21 +123,10 @@ TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_T1) {
 
     ASSERT_LE(diff->GetMaximumDifference(), tolerance);
 
-#ifdef USE_VTK
-    if (doVisualise){
-        // view
-        QuickView viewer;
-        viewer.AddImage(readerCalculatedT1Map->GetOutput(), true, "T1 calculated");
-        viewer.AddImage(readerOriginalT1Map->GetOutput(), true, "T1 original");
-        viewer.Visualize();
-    }
-#endif // USE_VTK
-
 }
 
 TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_R2) {
 
-    bool doVisualise = false; //for debugging
     int i = 1; // R2 map
 
     readerOriginalT1Map->SetFileName(_originalFilePaths.at(i));
@@ -153,21 +141,10 @@ TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_R2) {
     diff->UpdateLargestPossibleRegion();
     ASSERT_LE(diff->GetNumberOfPixelsWithDifferences(), 300); // max allowed error is 2
 
-#ifdef USE_VTK
-    if (doVisualise){
-        // view
-        QuickView viewer;
-        viewer.AddImage(readerCalculatedT1Map->GetOutput(), true, "Calculated");
-        viewer.AddImage(readerOriginalT1Map->GetOutput(), true, "Original");
-        viewer.Visualize();
-    }
-#endif // USE_VTK
-
 }
 
 TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_A) {
 
-    bool doVisualise = false; //for debugging
     int i = 2; // A map
 
     readerOriginalT1Map->SetFileName(_originalFilePaths.at(i));
@@ -182,21 +159,10 @@ TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_A) {
     diff->UpdateLargestPossibleRegion();
     ASSERT_LE(diff->GetMaximumDifference(), 2); // max allowed error is 2
 
-#ifdef USE_VTK
-    if (doVisualise){
-        // view
-        QuickView viewer;
-        viewer.AddImage(readerCalculatedT1Map->GetOutput(), true, "Calculated");
-        viewer.AddImage(readerOriginalT1Map->GetOutput(), true, "Original");
-        viewer.Visualize();
-    }
-#endif // USE_VTK
-
 }
 
 TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_B) {
 
-    bool doVisualise = false; //for debugging
     int i = 3; // B map
 
     readerOriginalT1Map->SetFileName(_originalFilePaths.at(i));
@@ -211,21 +177,10 @@ TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_B) {
     diff->UpdateLargestPossibleRegion();
     ASSERT_LE(diff->GetMaximumDifference(), 2); // max allowed error is 2
 
-#ifdef USE_VTK
-    if (doVisualise){
-        // view
-        QuickView viewer;
-        viewer.AddImage(readerCalculatedT1Map->GetOutput(), true, "Calculated");
-        viewer.AddImage(readerOriginalT1Map->GetOutput(), true, "Original");
-        viewer.Visualize();
-    }
-#endif // USE_VTK
-
 }
 
 TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_T1star) {
 
-    bool doVisualise = false; //for debugging
     int i = 4; // T1star map
 
     readerOriginalT1Map->SetFileName(_originalFilePaths.at(i));
@@ -240,21 +195,10 @@ TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_T1star) {
     diff->UpdateLargestPossibleRegion();
     ASSERT_LE(diff->GetMaximumDifference(), 2); // max allowed error is 2
 
-#ifdef USE_VTK
-    if (doVisualise){
-        // view
-        QuickView viewer;
-        viewer.AddImage(readerCalculatedT1Map->GetOutput(), true, "Calculated");
-        viewer.AddImage(readerOriginalT1Map->GetOutput(), true, "Original");
-        viewer.Visualize();
-    }
-#endif // USE_VTK
-
 }
 
 TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_ShmolliRange) {
 
-    bool doVisualise = false; //for debugging
     int i = 5; // ShmolliRange map
 
     readerOriginalT1Map->SetFileName(_originalFilePaths.at(i));
@@ -269,15 +213,6 @@ TEST_F(ActeptanceTests_TomatoFixtureTest, sameAsShmolli_ShmolliRange) {
     diff->UpdateLargestPossibleRegion();
     ASSERT_LE(diff->GetMaximumDifference(), 2); // max allowed error is 2
 
-#ifdef USE_VTK
-    if (doVisualise){
-        // view
-        QuickView viewer;
-        viewer.AddImage(readerCalculatedT1Map->GetOutput(), true, "Calculated");
-        viewer.AddImage(readerOriginalT1Map->GetOutput(), true, "Original");
-        viewer.Visualize();
-    }
-#endif // USE_VTK
 
 }
 

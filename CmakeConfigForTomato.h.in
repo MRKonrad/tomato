@@ -4,7 +4,6 @@
 
 #cmakedefine CXX_STANDARD_98
 #cmakedefine USE_ITK
-#cmakedefine USE_VTK
 #cmakedefine USE_VNL
 #cmakedefine USE_PRIVATE_NR2
 #cmakedefine USE_NR2

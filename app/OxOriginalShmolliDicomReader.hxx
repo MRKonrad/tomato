@@ -119,53 +119,6 @@ namespace Ox {
     template< typename MeasureType >
     int
     OriginalShmolliDicomReader<MeasureType>
-    ::visualise(){
-#ifdef USE_VTK
-
-        // visual presentation of the results
-        if (_visualise) {
-
-//            // see if pha is ok
-//            typedef itk::ExtractImageFilter< Image3dType, Image2dType > ExtractFilterType;
-//            ExtractFilterType::Pointer extractFilter = ExtractFilterType::New();
-//
-//            ExtractFilterType::InputImageIndexType extrindex;
-//            extrindex.Fill(0);
-//            extrindex[2] = 6;
-//            ExtractFilterType::InputImageSizeType size = _imagePha->GetLargestPossibleRegion().GetSize();
-//            size[2] = 0;
-//            ExtractFilterType::InputImageRegionType region = _imagePha->GetLargestPossibleRegion();
-//            region.SetSize(size);
-//            region.SetIndex(extrindex);
-//            extractFilter->SetExtractionRegion(region);
-//            extractFilter->SetInput(_imagePha);
-//            extractFilter->SetDirectionCollapseToSubmatrix();
-
-            QuickView viewer;
-            viewer.AddImage(_imageT1color.GetPointer(), true, "T1 color");
-            viewer.AddImage(_imageT1grey.GetPointer(), true, "T1 grey");
-            viewer.AddImage(_imageR2.GetPointer(), true, "R2");
-            viewer.AddImage(_imageA.GetPointer(), true, "A");
-            viewer.AddImage(_imageB.GetPointer(), true, "B");
-            viewer.AddImage(_imageT1star.GetPointer(), true, "T1*");
-            viewer.AddImage(_imageChiSqrt.GetPointer(), true, "ChiSqrt");
-            viewer.AddImage(_imageSnr.GetPointer(), true, "SNR");
-            viewer.AddImage(_imageNShmolliSamplesUsed.GetPointer(), true, "Number of Samples used in reconstruction");
-            viewer.AddImage(_imageChiSqrt.GetPointer(), true, "ChiSqrt");
-            //viewer.SetViewPortSize(500);
-            viewer.Visualize();
-        }
-
-#else // USE_VTK
-        printf("Visualisation not possible: the project was configured not to use VTK. Install VTK and reconfigure the project in CMake.");
-        //throw itk::ExceptionObject(__FILE__, __LINE__, "Visualisation not possible: the project was configured not to use VTK. Install VTK and reconfigure the project in CMake.");
-#endif // USE_VTK
-        return 0; //EXIT_SUCCESS
-    }
-
-    template< typename MeasureType >
-    int
-    OriginalShmolliDicomReader<MeasureType>
     ::copyFromImage(MeasureType* array, const typename Image3dType::Pointer image, const typename Image3dType::IndexType index){
 
         typename Image3dType::SizeType size = image->GetLargestPossibleRegion().GetSize();

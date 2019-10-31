@@ -18,15 +18,9 @@
 #include "itkSortInvTimesImageFilter.h"
 #include "itkCalculatorT1ImageFilter.h"
 
-#ifdef USE_VTK
-#include "QuickView.h"
-#endif //USE_VTK
-
 #include "gtest/gtest.h"
 
 TEST(itkPipeline, readAndCalculateT1FromMag) {
-
-    bool doVisualise = false; //for debugging
 
     // primitive data types
     typedef double InputPixelType;
@@ -89,23 +83,10 @@ TEST(itkPipeline, readAndCalculateT1FromMag) {
 
     ASSERT_NO_THROW(imageCalculatorItk->Update());
 
-#ifdef USE_VTK
-    if (doVisualise){
-        // view
-        QuickView viewer;
-        viewer.AddImage(imageCalculatorItk->GetAImage(), true, "A");
-        viewer.AddImage(imageCalculatorItk->GetBImage(), true, "B");
-        viewer.AddImage(imageCalculatorItk->GetT1starImage(), true, "T1star");
-        viewer.Visualize();
-    }
-#endif
-
     delete [] invTimes;
 }
 
 TEST(itkPipeline, calculateT1FromMagAndPhase) {
-
-    bool doVisualise = false; //for debugging
 
     // primitive data types
     typedef double InputPixelType;

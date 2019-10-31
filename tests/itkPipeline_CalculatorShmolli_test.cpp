@@ -21,16 +21,10 @@
 #include "OxSignCalculatorShmolli.h"
 #include "OxStartPointCalculatorShmolli.h"
 
-#ifdef USE_VTK
-#include "QuickView.h"
-#endif //USE_VTK
-
 #include "gtest/gtest.h"
 
 
 TEST(itkPipeline_CalculatorShmolli, calculateShmolliAndCompareWithDicom) {
-
-    bool doVisualise = false; //for debugging
 
     // primitive data types
     typedef double InputPixelType;
@@ -134,16 +128,6 @@ TEST(itkPipeline_CalculatorShmolli, calculateShmolliAndCompareWithDicom) {
     // then compare
     diff->UpdateLargestPossibleRegion();
     ASSERT_LE(diff->GetMaximumDifference(), 2); // max allowed error is 2
-
-#ifdef USE_VTK
-    if (doVisualise){
-        // view
-        QuickView viewer;
-        viewer.AddImage(colobarImageFilter->GetOutput(), true, "T1 calculated");
-        viewer.AddImage(readerT1Map->GetOutput(), true, "T1 original");
-        viewer.Visualize();
-    }
-#endif
 
     delete [] invTimes;
 }

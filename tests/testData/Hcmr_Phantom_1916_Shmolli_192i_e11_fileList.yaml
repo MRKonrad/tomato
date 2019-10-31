@@ -23,7 +23,6 @@
 # start_point_calc_method: <DefaultThreeParam DefaultTwoParam StartPointSHMOLLI>
 #
 # numberOfThreads: <number, 0 = max allowed threads>
-# visualise: <0 = false, anything else = true>
 
 files_magnitude:
   - "testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0001.dcm"
@@ -57,4 +56,3 @@ sign_calc_method: RealImag
 start_point_calc_method: DefaultThreeParam
 
 number_of_threads: 0
-visualise: 1

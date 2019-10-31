@@ -45,7 +45,7 @@ if(DOWNLOAD_DEPENDENCIES)
 
     endif()
 
-    set(ITK_DIR_HINTS "${PROJECT_SOURCE_DIR}/thirdParty/itk")
+    set(ITK_DIR_HINTS "${PROJECT_SOURCE_DIR}/thirdParty/itk" CACHE PATH "ITK_DIR_HINTS")
 
 
 endif(DOWNLOAD_DEPENDENCIES)

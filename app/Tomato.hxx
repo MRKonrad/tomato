@@ -214,46 +214,6 @@ namespace Ox {
         return 0; // EXIT_SUCCESS
     }
 
-    template< typename MeasureType >
-    int
-    Tomato<MeasureType>
-    ::visualise(){
-
-#ifdef USE_VTK
-
-        // visual presentation of the results
-        if (_opts->visualise) {
-
-            // OxColorbarImageFilter
-            typedef itk::Colorbar2DImageFilter< ImageType2D > ColorbarImageFilterType;
-            typename ColorbarImageFilterType::Pointer ColorbarFilter = ColorbarImageFilterType::New();
-            ColorbarFilter->SetInput(_imageCalculatorItk->GetT1Image());
-
-            QuickView viewer;
-            viewer.AddImage(_imageCalculatorItk->GetT1Image(), true, "T1");
-            viewer.AddImage(ColorbarFilter->GetOutput(), true, "T1 with colorbar");
-            viewer.AddImage(_imageCalculatorItk->GetR2Image(), true, "R2");
-            viewer.AddImage(_imageCalculatorItk->GetAImage(), true, "A");
-            viewer.AddImage(_imageCalculatorItk->GetBImage(), true, "B");
-            viewer.AddImage(_imageCalculatorItk->GetT1starImage(), true, "T1*");
-            viewer.AddImage(_imageCalculatorItk->GetChiSqrtImage(), true, "ChiSqrt");
-            viewer.AddImage(_imageCalculatorItk->GetSNRImage(), true, "SNR");
-            viewer.AddImage(_imageCalculatorItk->GetNShmolliSamplesUsedImage(), true, "Number of Samples used in reconstruction");
-            viewer.AddImage(_imageCalculatorItk->GetSD_AImage(), true, "SD A");
-            viewer.AddImage(_imageCalculatorItk->GetSD_BImage(), true, "SD B");
-            viewer.AddImage(_imageCalculatorItk->GetSD_T1Image(), true, "SD T1");
-            //viewer.SetViewPortSize(500);
-            viewer.Visualize();
-        }
-
-#else // USE_VTK
-        printf("Visualisation not possible: the project was configured not to use VTK. Install VTK and reconfigure the project in CMake.");
-        //throw itk::ExceptionObject(__FILE__, __LINE__, "Visualisation not possible: the project was configured not to use VTK. Install VTK and reconfigure the project in CMake.");
-#endif // USE_VTK
-
-        return 0; // EXIT_SUCCESS
-    }
-
 } // namespace Ox
 
 #endif

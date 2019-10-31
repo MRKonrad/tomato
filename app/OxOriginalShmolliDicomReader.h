@@ -14,10 +14,6 @@
 #include "itkSortInvTimesImageFilter.h"
 #include "itkExtractImageFilter.h"
 
-#ifdef USE_VTK
-#include "QuickView.h"
-#endif //USE_VTK
-
 namespace Ox {
 
     /**
@@ -39,7 +35,6 @@ namespace Ox {
         typedef itk::SortInvTimesImageFilter<Image3dType, Image3dType> SortInvTimesImageFilterType;
 
         // member variables
-        bool _visualise;
         InputPixelType *_invTimes;
         InputPixelType *_echoTimes;
         int _nSamples;
@@ -66,12 +61,6 @@ namespace Ox {
          */
         int readAndSort();
 
-        /**
-         * visualise
-         * @return success/failure
-         */
-        int visualise();
-
         int copyFromImage(MeasureType* array, const typename Image3dType::Pointer image, const typename Image3dType::IndexType index);
 
         /**
@@ -79,7 +68,6 @@ namespace Ox {
          * @param inputFileNam
          */
         OriginalShmolliDicomReader(){
-            _visualise = false;
             _invTimes = 0;
             _echoTimes = 0;
             _nSamples = 0;

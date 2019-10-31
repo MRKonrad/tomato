@@ -10,14 +10,7 @@
 #include "gtest/gtest.h"
 #include "OxTestItkImagesFactory.h"
 
-#ifdef USE_VTK
-#include "QuickView.h"
-#include "itkExtractImageFilter.h"
-#endif //USE_VTK
-
 TEST(OxTestItkImagesFactory, generateImagesWithoutErrros) {
-
-    bool doVisualise = false; //for debugging
 
     typedef double TYPE;
     typedef itk::Image <TYPE, 2> Image2dType;
@@ -41,44 +34,6 @@ TEST(OxTestItkImagesFactory, generateImagesWithoutErrros) {
     Image2dType::Pointer imageShmolliA = itkImagesFactory.generateImageResultsShmolliA();
     Image2dType::Pointer imageShmolliB = itkImagesFactory.generateImageResultsShmolliB();
     Image2dType::Pointer imageShmolliT1star = itkImagesFactory.generateImageResultsShmolliT1star();
-
-#ifdef USE_VTK
-    if (doVisualise){
-
-        // see if pha is ok
-        typedef itk::ExtractImageFilter< Image3dType, Image2dType > ExtractFilterType;
-        ExtractFilterType::Pointer extractFilter = ExtractFilterType::New();
-
-        ExtractFilterType::InputImageIndexType extrindex;
-        extrindex.Fill(0);
-        extrindex[2] = 6;
-        ExtractFilterType::InputImageSizeType size = imagePha->GetLargestPossibleRegion().GetSize();
-        size[2] = 0;
-        ExtractFilterType::InputImageRegionType region = imagePha->GetLargestPossibleRegion();
-        region.SetSize(size);
-        region.SetIndex(extrindex);
-        extractFilter->SetExtractionRegion(region);
-        extractFilter->SetInput(imagePha);
-        extractFilter->SetDirectionCollapseToSubmatrix();
-
-        // add a zero pixel to check indexing
-        itk::Image <TYPE, 2>::IndexType index;
-        index[0] = 1;
-        index[1] = 2;
-        imageMolliA->SetPixel(index, 0);
-
-        // view
-        QuickView viewer;
-        viewer.AddImage(extractFilter->GetOutput(), true, "imagePha 0");
-        viewer.AddImage(imageMolliA.GetPointer(), true, "Molli A");
-        viewer.AddImage(imageMolliB.GetPointer(), true, "Molli B");
-        viewer.AddImage(imageMolliT1star.GetPointer(), true, "Molli T1star");
-        viewer.AddImage(imageShmolliA.GetPointer(), true, "Shmolli A");
-        viewer.AddImage(imageShmolliB.GetPointer(), true, "Shmolli B");
-        viewer.AddImage(imageShmolliT1star.GetPointer(), true, "Shmolli T1start");
-        viewer.Visualize();
-    }
-#endif
 
 }
 

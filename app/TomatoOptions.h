@@ -54,9 +54,6 @@ namespace Ox {
         bool use_colorbar;
         int number_of_threads;
 
-        // visualisation
-        bool visualise;
-
         // export
         int output_map_series_number;
         int output_fitparams_series_number;
@@ -89,9 +86,6 @@ namespace Ox {
             map_scale_factor = 1.0;
             use_colorbar = true;
             number_of_threads = 0;
-
-            // visualisation
-            visualise = false;
 
             // export
             output_map_series_number = 0;
@@ -138,7 +132,6 @@ namespace Ox {
             parser._scalars["map_scale_factor"];
             parser._scalars["use_colorbar"];
             parser._scalars["number_of_threads"];
-            parser._scalars["visualise"];
 
             parser._scalars["output_map_series_number"];
             parser._scalars["output_fitparams_series_number"];
@@ -188,11 +181,6 @@ namespace Ox {
             if (!parser._scalars["number_of_threads"].empty())
                 number_of_threads = KWUtil::StringToNumber<MeasureType>(parser._scalars["number_of_threads"]);
 
-            // visualise
-            if (!parser._scalars["visualise"].empty())
-                visualise = (bool)KWUtil::StringToNumber<MeasureType>(parser._scalars["visualise"]);
-
-
         }
 
         int findInArray(int size, const char *nameArray[], std::string name){
@@ -236,7 +224,6 @@ namespace Ox {
             printf("\n use_colorbar: %s", use_colorbar ? "1" : "0");
             //printf("fittingCutOff: %.2f ", fittingCutOff);
             printf("\n number_of_threads: %d", number_of_threads);
-            printf("\n visualise: %s", visualise ? "1" : "0");
             if (calculation_time > 0) {
                 printf("\n calculation time: %.2fs", calculation_time);
             }
@@ -294,8 +281,6 @@ namespace Ox {
             KWUtilYaml::addMapping(&document, mapping_node_number, "map_scale_factor", KWUtil::NumberToString(map_scale_factor));
             KWUtilYaml::addMapping(&document, mapping_node_number, "use_colorbar", use_colorbar ? "1" : "0");
             KWUtilYaml::addMapping(&document, mapping_node_number, "number_of_threads", KWUtil::NumberToString(number_of_threads));
-            KWUtilYaml::addMapping(&document, mapping_node_number, "visualise", visualise ? "1" : "0");
-
             KWUtilYaml::addMapping(&document, mapping_node_number, "calculation_time", KWUtil::NumberToString(calculation_time));
 
             std::string tomato_version = "v" + KWUtil::NumberToString(Tomato_VERSION_MAJOR) + "." + KWUtil::NumberToString(Tomato_VERSION_MINOR);

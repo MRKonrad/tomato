@@ -33,7 +33,6 @@ int main(int argc, char* argv[]) {
         Tomato_object.calculate();
         Tomato_object.exportToDicom();
         Tomato_object._opts->exportToYaml();
-        Tomato_object.visualise();
 
 #else
         throw std::runtime_error("You need ITK to run the executable");

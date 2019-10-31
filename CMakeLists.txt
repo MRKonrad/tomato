@@ -1,30 +1,29 @@
 ##############
 ### Tomato ###
 ##############
-# you can build tomato wit command: cmake . -DITK_DIR_HINTS="../ITK_install/" -DCMAKE_INSTALL_PREFIX="install"
+# you can build tomato wit command: cmake . -DCMAKE_INSTALL_PREFIX="install"
 
 cmake_minimum_required (VERSION 2.8)
 
 project (Tomato)
 
-# The version number.
+# The version number
 set (Tomato_VERSION_MAJOR 0)
 set (Tomato_VERSION_MINOR 5)
 
 # Compiler flags
-set (CMAKE_CXX_STANDARD 98 CACHE STRING "")
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
+set (CMAKE_CXX_STANDARD 98 CACHE STRING "")
 if (CMAKE_CXX_STANDARD EQUAL 98)
     set (CXX_STANDARD_98 ON) # flag used in the code
 endif()
 
+# scripts to download pre-compiled dependencis, running only if DOWNLOAD_DEPENDENCIES is ON
 set(DOWNLOAD_DEPENDENCIES ON CACHE BOOL "Do you want to download the dependencies?")
 include(cmake/downloadItk.cmake)
 include(cmake/downloadLmfit.cmake)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON) # TODO: to command line
-
-set(CMAKE_MACOSX_RPATH 1) # to address MACOSX_RPATH warning; TODO: to command line
 
 # list of source files TODO: do not use glob, as it is not recommended https://cmake.org/cmake/help/latest/command/file.html#filesystem
 file (GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)
@@ -62,8 +61,6 @@ include(cmake/lmfit.cmake)
 ### ITK ###
 ###########
 
-# Todo: make it more sensible
-
 set(USE_ITK ON CACHE BOOL "Do you want to use ITK?")
 
 if(USE_ITK)
@@ -81,26 +78,6 @@ else()
     set(USE_VNL OFF)
 endif(USE_ITK)
 
-###########
-### VTK ###
-###########
-
-set(USE_VTK CACHE ON BOOL "Do you want to use VTK?")
-list (FIND ITK_LIBRARIES "ITKVtkGlue" _index)
-# use vtk only if ITK is present
-if(USE_VTK)
-    set(USE_VTK OFF)
-    if(_index GREATER -1)
-        find_package(VTK)
-        MESSAGE("VTK version:" ${VTK_VERSION})
-        if (VTK_FOUND)
-            set(USE_VTK ON)
-            include(${VTK_USE_FILE})
-            set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} ${VTK_LIBRARIES})
-        endif()
-    endif()
-endif(USE_VTK)
-
 ####################
 ### MAIN PROGRAM ###
 ####################
@@ -108,15 +85,13 @@ endif(USE_VTK)
 set(LIB_INSTALL_DIR lib CACHE STRING "")
 
 set(BUILD_APP OFF)
-if(USE_ITK)
-    if(USE_YAML)
+if(USE_ITK AND  USE_YAML)
         set(BUILD_APP ON)
-    endif(USE_YAML)
-endif(USE_ITK)
+endif()
 
 MESSAGE("CXX_STANDARD_98:      " ${CXX_STANDARD_98})
+MESSAGE("DOWNLOAD_DEPENDENCIES:" ${DOWNLOAD_DEPENDENCIES})
 MESSAGE("USE_ITK:              " ${USE_ITK})
-MESSAGE("USE_VTK:              " ${USE_VTK})
 MESSAGE("USE_VNL:              " ${USE_VNL})
 MESSAGE("USE_PRIVATE_NR2:      " ${USE_PRIVATE_NR2})
 MESSAGE("USE_LMFIT:            " ${USE_LMFIT})
@@ -125,6 +100,7 @@ MESSAGE("BUILD_SHARED_LIBS:    " ${BUILD_SHARED_LIBS})
 MESSAGE("CMAKE_INSTALL_PREFIX: " ${CMAKE_INSTALL_PREFIX})
 MESSAGE("LIB_INSTALL_DIR:      " ${LIB_INSTALL_DIR})
 MESSAGE("BUILD_APP:            " ${BUILD_APP})
+MESSAGE("Tomato_BUILD_TESTING: " ${Tomato_BUILD_TESTING})
 
 # configure a header file to pass some of the CMake settings to the source code
 configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForTomato.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
@@ -156,14 +132,17 @@ set(API_FILES ${API_FILES} ${PROJECT_SOURCE_DIR}/cmake/tomatolib_export.h) # to 
 #################
 
 if(BUILD_APP)
+
     # include
     include_directories (app)
+
     # target
     add_executable (TomatoExe ${APP_FILES} ${LIB_FILES})
+
     # link
     target_link_libraries (TomatoExe ${TOMATO_LIBS_TO_LINK})
 
-endif(BUILD_APP)
+endif()
 
 ##################
 ### Installing ###
@@ -173,7 +152,7 @@ install (TARGETS TomatoLib DESTINATION ${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR
 install (FILES ${API_FILES} DESTINATION include) # headers
 if(BUILD_APP)
     install (TARGETS TomatoExe DESTINATION bin)
-endif(BUILD_APP)
+endif()
 
 ###############
 ### TESTING ###
@@ -182,7 +161,7 @@ endif(BUILD_APP)
 set(Tomato_BUILD_TESTING ON CACHE BOOL "Do you want to build Tomato tests?")
 if(USE_YAML)
     add_subdirectory (tests)
-endif(USE_YAML)
+endif()
 
 ##############################
 #### DISPLAY ALL VARIABLES ###

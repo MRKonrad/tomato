@@ -30,10 +30,6 @@
 #include "itkFileTools.h"
 #include "itkAdaptImageFilter.h"
 
-#ifdef USE_VTK
-#include "QuickView.h"
-#endif //USE_VTK
-
 namespace Ox {
 
     /**
@@ -83,12 +79,6 @@ namespace Ox {
          * @return success/failure
          */
         int calculate();
-
-        /**
-         * visualise
-         * @return success/failure
-         */
-        int visualise();
 
         /**
          * method so long and ugly, that I put it in a separate file
