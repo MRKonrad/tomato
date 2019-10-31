@@ -99,10 +99,11 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html','');});
 <div class="title">TOMATO </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>A library to calculate parametric maps in MRI. It contains ShMOLLI implementation as in <a href="https://jcmr-online.biomedcentral.com/articles/10.1186/1532-429X-12-69">this article</a>.</p>
+<div class="textblock"><p>TOMATO (Total Mapping Toolbox) is a C++ library for the calculation of parametric maps in cardiac magnetic resonance imaging (MRI). As an open source project, TOMATO allows transparent and standardized cardiac longitudinal relaxation time (T1) mapping in clinical applications. With C++ implementation, TOMATO can easily interface and translate between research software environments like MATLAB, and commercial vendors’ closed-source C++ environments on scanners as well as post-processing software. To complement the core library implementation, a ready-to-use command line tool has been provided.</p>
+<p>It contains ShMOLLI implementation as in <a href="https://jcmr-online.biomedcentral.com/articles/10.1186/1532-429X-12-69">this article</a>.</p>
 <ul>
+<li><b>Code documentation</b> in doxygen can be found <a href="https://mrkonrad.github.io/tomato/html/md__r_e_a_d_m_e.html">here</a>.</li>
 <li><b>Github</b> repository can be found <a href="https://github.com/MRKonrad/tomato">here</a>.</li>
-<li><b>Documentation</b> in doxygen can be found <a href="https://mrkonrad.github.io/tomato/html">here</a>.</li>
 </ul>
 <table class="doxtable">
 <tr>
@@ -148,7 +149,6 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html','');});
 </li>
 <li>Handling DICOM files.</li>
 <li>Fast calculation.</li>
-<li>Easily interfaced to calculation environments MATLAB, IDL and Python.</li>
 </ol>
 <h2>Contributing and code of conduct</h2>
 <p>Please see <a class="el" href="md_contributing.html">contributing.md</a> and <a class="el" href="md_codeofconduct.html">codeofconduct.md</a>.</p>
@@ -168,6 +168,7 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html','');});
 <li>Deployment: exe and lib in one zip</li>
 <li>Deployment: cmake to download ITK and lmfit</li>
 <li>update comments in configuration yaml files</li>
+<li>re-organise start point calculation</li>
 <li>output SNR maps</li>
 <li>make sure SNR and nAmoebaCalls is the same as in Shmolli</li>
 <li>fix downloadITK_linux_osx</li>
