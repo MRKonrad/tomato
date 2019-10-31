@@ -227,13 +227,13 @@ namespace Ox {
             Ox::FactoryOfSignCalculators<double>::disp(sign_calc_method);
             Ox::FactoryOfStartPointCalculators<double>::disp(start_point_calc_method);
 
-            printf("\n fTolerance: %.2e ", fTolerance);
+            printf("\n fTolerance: %.2e", fTolerance);
             //printf("xTolerance: %.2e ", xTolerance);
-            printf("\n max_function_evals: %d ", max_function_evals);
+            printf("\n max_function_evals: %d", max_function_evals);
             printf("\n use_gradient: %s", use_gradient ? "1" : "0");
-            printf("\n mean_cut_off: %.2f ", mean_cut_off ? "1" : "0");
-            printf("\n map_scale_factor: %.2f ", map_scale_factor);
-            printf("\n use_colorbar: %.sf ", use_colorbar);
+            printf("\n mean_cut_off: %.2f", mean_cut_off);
+            printf("\n map_scale_factor: %.2f", map_scale_factor);
+            printf("\n use_colorbar: %s", use_colorbar ? "1" : "0");
             //printf("fittingCutOff: %.2f ", fittingCutOff);
             printf("\n number_of_threads: %d", number_of_threads);
             printf("\n visualise: %s", visualise ? "1" : "0");

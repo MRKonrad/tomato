@@ -54,23 +54,6 @@ include(cmake/libyaml.cmake)
 ### Fitting ###
 ###############
 
-## VNL TODO: code behaviour with VNL off
-#set(USE_VNL ON CACHE BOOL "Do you want to use VNL numerics library?")
-#include(cmake/vnl.cmake)
-
-#target_link_libraries (TomatoLib PUBLIC ${VNL_LIBRARIES})
-#target_link_libraries (TomatoExe PUBLIC ${VNL_LIBRARIES})
-#add_dependencies (TomatoLib vnl vnl_algo)
-#add_dependencies (TomatoExe vnl vnl_algo)
-
-## Numerical Recipes v2
-#set(USE_NR2 OFF CACHE BOOL "Do you want to use Numerical Recipes 2 code?")
-#include(cmake/nr2.cmake)
-#
-## Numerical Recipes v3
-#set(USE_NR3 OFF CACHE BOOL "Do you want to use Numerical Recipes 3 code?")
-#include(cmake/nr3.cmake)
-
 # lmfit currently not on windows
 set(USE_LMFIT ON CACHE BOOL "Do you want to use LMFIT?")
 include(cmake/lmfit.cmake)
@@ -148,35 +131,38 @@ configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForTomato.h.in" "${PROJECT_BIN
 set (LIB_FILES ${LIB_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
 set (API_FILES ${API_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
 
-if(BUILD_APP)
-    include_directories (app)
-endif(BUILD_APP)
+#################
+### TOMATOLIB ###
+#################
+
+# include
 include_directories (lib)
 include_directories ("${PROJECT_BINARY_DIR}") # for the configuration header
 
-# targets
-if(BUILD_APP)
-    add_library (TomatoLib ${LIB_FILES})
-    add_executable (TomatoExe ${APP_FILES} ${LIB_FILES})
-else(BUILD_APP)
-    add_library (TomatoLib ${LIB_FILES})
-endif(BUILD_APP)
+# target
+add_library (TomatoLib ${LIB_FILES})
+
+#link
+target_link_libraries (TomatoLib ${TOMATO_LIBS_TO_LINK})
+set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} TomatoLib)
 
 # generating TomatoLib_export.h
 include(GenerateExportHeader)
 generate_export_header(TomatoLib)
 set(API_FILES ${API_FILES} ${PROJECT_SOURCE_DIR}/cmake/tomatolib_export.h) # to make tomatolib_export.h available in installation step
 
-###############
-### Linking ###
-###############
-
-target_link_libraries (TomatoLib ${TOMATO_LIBS_TO_LINK})
-
-set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} TomatoLib)
+#################
+### TOMATOAPP ###
+#################
 
 if(BUILD_APP)
+    # include
+    include_directories (app)
+    # target
+    add_executable (TomatoExe ${APP_FILES} ${LIB_FILES})
+    # link
     target_link_libraries (TomatoExe ${TOMATO_LIBS_TO_LINK})
+
 endif(BUILD_APP)
 
 ##################
@@ -184,7 +170,7 @@ endif(BUILD_APP)
 ##################
 
 install (TARGETS TomatoLib DESTINATION ${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR})
-install (FILES ${API_FILES} DESTINATION include)
+install (FILES ${API_FILES} DESTINATION include) # headers
 if(BUILD_APP)
     install (TARGETS TomatoExe DESTINATION bin)
 endif(BUILD_APP)
