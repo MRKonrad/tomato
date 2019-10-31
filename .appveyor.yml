@@ -40,7 +40,7 @@ before_build:
 #  - downloadLmfit_windows.bat
   # configure and generate build using cmake
   - cd %APPVEYOR_BUILD_FOLDER%
-  - |
+  - >
     cmake .
       -Bstatic
       -A%PLATFORM%
@@ -48,7 +48,7 @@ before_build:
       -T %toolset%
       -DLIB_INSTALL_DIR="lib_static"
       -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
-  - |
+  - >
     cmake .
       -Bshared
       -A%PLATFORM%
