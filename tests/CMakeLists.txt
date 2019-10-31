@@ -24,7 +24,6 @@ if(Tomato_BUILD_TESTING)
     file(COPY testData DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
     install(TARGETS TomatoTests DESTINATION tests)
-    install(TARGETS TomatoLib DESTINATION tests)
     install(DIRECTORY ${CMAKE_BINARY_DIR}/tests/testData DESTINATION tests)
 
 
