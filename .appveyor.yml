@@ -40,24 +40,8 @@ before_build:
 #  - downloadLmfit_windows.bat
   # configure and generate build using cmake
   - cd %APPVEYOR_BUILD_FOLDER%
-  - >-
-    cmake .
-      -Bstatic
-      -A%PLATFORM%
-      -DCMAKE_INSTALL_PREFIX=install
-      -T %toolset%
-      -DLIB_INSTALL_DIR="lib_static"
-      -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
-  - >-
-    cmake .
-      -Bshared
-      -A%PLATFORM%
-      -DCMAKE_INSTALL_PREFIX=install
-      -T %toolset%
-      -DBUILD_SHARED_LIBS=ON
-      -DUSE_YAML=OFF
-      -DLIB_INSTALL_DIR="lib_shared"
-      -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
+  - cmake . -Bstatic -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -T %toolset% -DLIB_INSTALL_DIR="lib_static" -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
+  - cmake . -Bshared -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -T %toolset% -DBUILD_SHARED_LIBS=ON -DUSE_YAML=OFF -DLIB_INSTALL_DIR="lib_shared" -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
 
 build_script:
   - cd %APPVEYOR_BUILD_FOLDER%\static
