@@ -32,16 +32,32 @@ before_build:
   - cd %APPVEYOR_BUILD_FOLDER%\..
   # get private code
   - git clone https://MRKonrad:%GH_PERSONAL_ACCESS_TOKEN%@github.com/MRKonrad/tomato_private
-  # get itk binaries
-  - cd %APPVEYOR_BUILD_FOLDER%\scriptsBuild
-  - downloadITK_windows.bat
-  - # get Lmfit binaries
-  - cd %APPVEYOR_BUILD_FOLDER%\scriptsBuild
-  - downloadLmfit_windows.bat
-  # configure and generate via cmake
+#  # get itk binaries
+#  - cd %APPVEYOR_BUILD_FOLDER%\scriptsBuild
+#  - downloadITK_windows.bat
+#  - # get Lmfit binaries
+#  - cd %APPVEYOR_BUILD_FOLDER%\scriptsBuild
+#  - downloadLmfit_windows.bat
+  # configure and generate build using cmake
   - cd %APPVEYOR_BUILD_FOLDER%
-  - cmake . -Bstatic -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T %toolset% -DLIB_INSTALL_DIR="lib_static"
-  - cmake . -Bshared -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=install -DITK_DIR_HINTS="../ITK_install" -T %toolset% -DBUILD_SHARED_LIBS=ON -DUSE_YAML=OFF -DLIB_INSTALL_DIR="lib_shared"
+  - |
+    cmake .
+      -Bstatic
+      -A%PLATFORM%
+      -DCMAKE_INSTALL_PREFIX=install
+      -T %toolset%
+      -DLIB_INSTALL_DIR="lib_static"
+      -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
+  - |
+    cmake .
+      -Bshared
+      -A%PLATFORM%
+      -DCMAKE_INSTALL_PREFIX=install
+      -T %toolset%
+      -DBUILD_SHARED_LIBS=ON
+      -DUSE_YAML=OFF
+      -DLIB_INSTALL_DIR="lib_shared"
+      -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
 
 build_script:
   - cd %APPVEYOR_BUILD_FOLDER%\static
@@ -68,7 +84,6 @@ after_build:
   - copy %APPVEYOR_BUILD_FOLDER%\install\%LIB_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%LIB_EXTENDED_NAME%.zip
 
 test_script:
-  # TODO: should I add sth like this? https://github.com/mgerhardy/caveexpress/blob/master/appveyor.yml
   - cd %APPVEYOR_BUILD_FOLDER%\install\tests\
   - TomatoTests.exe
 

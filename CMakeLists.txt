@@ -9,7 +9,7 @@ project (Tomato)
 
 # The version number.
 set (Tomato_VERSION_MAJOR 0)
-set (Tomato_VERSION_MINOR 4)
+set (Tomato_VERSION_MINOR 5)
 
 # Compiler flags
 set (CMAKE_CXX_STANDARD 98 CACHE STRING "")
@@ -18,12 +18,15 @@ if (CMAKE_CXX_STANDARD EQUAL 98)
     set (CXX_STANDARD_98 ON) # flag used in the code
 endif()
 
-set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON) # TODO: to command line
+set(DOWNLOAD_DEPENDENCIES ON CACHE BOOL "Do you want to download the dependencies?")
+include(cmake/downloadItk.cmake)
+include(cmake/downloadLmfit.cmake)
+
 set(CMAKE_POSITION_INDEPENDENT_CODE ON) # TODO: to command line
 
 set(CMAKE_MACOSX_RPATH 1) # to address MACOSX_RPATH warning; TODO: to command line
 
-# list of source files
+# list of source files TODO: do not use glob, as it is not recommended https://cmake.org/cmake/help/latest/command/file.html#filesystem
 file (GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)
 file (GLOB_RECURSE LIB_FILES lib/*.c* lib/*.h* lib/*.t*)
 file (GLOB_RECURSE API_FILES lib/*.h lib/KWUtil.hxx)
@@ -126,15 +129,13 @@ if(USE_ITK)
     if(USE_YAML)
         set(BUILD_APP ON)
     endif(USE_YAML)
-endif(USE_ITK)            
+endif(USE_ITK)
 
 MESSAGE("CXX_STANDARD_98:      " ${CXX_STANDARD_98})
 MESSAGE("USE_ITK:              " ${USE_ITK})
 MESSAGE("USE_VTK:              " ${USE_VTK})
 MESSAGE("USE_VNL:              " ${USE_VNL})
 MESSAGE("USE_PRIVATE_NR2:      " ${USE_PRIVATE_NR2})
-#MESSAGE("USE_NR2:              " ${USE_NR2})
-#MESSAGE("USE_NR3:              " ${USE_NR3})
 MESSAGE("USE_LMFIT:            " ${USE_LMFIT})
 MESSAGE("USE_YAML:             " ${USE_YAML})
 MESSAGE("BUILD_SHARED_LIBS:    " ${BUILD_SHARED_LIBS})
@@ -197,12 +198,12 @@ if(USE_YAML)
     add_subdirectory (tests)
 endif(USE_YAML)
 
-#############################
-### DISPLAY ALL VARIABLES ###
-#############################
-
-#get_cmake_property (_variableNames VARIABLES)
-#list (SORT _variableNames)
-#foreach (_variableName ${_variableNames})
-#    message (STATUS "${_variableName}=${${_variableName}}")
-#endforeach()
+##############################
+#### DISPLAY ALL VARIABLES ###
+##############################
+#
+##get_cmake_property (_variableNames VARIABLES)
+##list (SORT _variableNames)
+##foreach (_variableName ${_variableNames})
+##    message (STATUS "${_variableName}=${${_variableName}}")
+##endforeach()

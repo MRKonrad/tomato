@@ -1,8 +1,10 @@
 # TOMATO
+TOMATO (Total Mapping Toolbox) is a C++ library for the calculation of parametric maps in cardiac magnetic resonance imaging (MRI). As an open source project, TOMATO allows transparent and standardized cardiac longitudinal relaxation time (T1) mapping in clinical applications. With C++ implementation, TOMATO can easily interface and translate between research software environments like MATLAB, and commercial vendors’ closed-source C++ environments on scanners as well as post-processing software. To complement the core library implementation, a ready-to-use command line tool has been provided. 
 
-A library to calculate parametric maps in MRI. It contains ShMOLLI implementation as in [this article](https://jcmr-online.biomedcentral.com/articles/10.1186/1532-429X-12-69).  
+It contains ShMOLLI implementation as in [this article](https://jcmr-online.biomedcentral.com/articles/10.1186/1532-429X-12-69).  
+
+*   **Code documentation** in doxygen can be found [here](https://mrkonrad.github.io/tomato/html/md__r_e_a_d_m_e.html).
 *   **Github** repository can be found [here](https://github.com/MRKonrad/tomato).  
-*   **Documentation** in doxygen can be found [here](https://mrkonrad.github.io/tomato/html).
 
 | System                                    |     Status                                                         |
 |-------------------------------------------|:------------------------------------------------------------------:|
@@ -43,8 +45,7 @@ Download <https://www.microsoft.com/en-us/download/details.aspx?id=48145> as sug
     *   main operating systems (Windows, MacOS, Linux),
     *   C++98 (to include the library in older code).
 4.  Handling DICOM files.
-5.  Fast calculation.
-6.  Easily interfaced to calculation environments MATLAB, IDL and Python.  
+5.  Fast calculation. 
 
 ## Contributing and code of conduct
 
@@ -66,6 +67,7 @@ Please see [contributing.md](contributing.md) and [codeofconduct.md](codeofcondu
 *   Deployment: exe and lib in one zip
 *   Deployment: cmake to download ITK and lmfit
 *   update comments in configuration yaml files
+*   re-organise start point calculation
 *   output SNR maps
 *   make sure SNR and nAmoebaCalls is the same as in Shmolli
 *   fix downloadITK_linux_osx

@@ -1,6 +1,7 @@
 html
 latex
 thirdparty/lmfit/*
+thirdparty/itk/*
 
 # mac
 *.DS_Store
