@@ -130,7 +130,7 @@ MESSAGE("BUILD_SHARED_LIBS:    " ${BUILD_SHARED_LIBS})
 MESSAGE("CMAKE_INSTALL_PREFIX: " ${CMAKE_INSTALL_PREFIX})
 
 # configure a header file to pass some of the CMake settings to the source code
-configure_file ("${PROJECT_SOURCE_DIR}/CmakeConfigForTomato.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
+configure_file ("${PROJECT_SOURCE_DIR}/cmake/CmakeConfigForTomato.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
 set (LIB_FILES ${LIB_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
 set (API_FILES ${API_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
 
