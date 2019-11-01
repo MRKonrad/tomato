@@ -13,8 +13,8 @@ init:
 # about toolset: https://devblogs.microsoft.com/cppblog/stuck-on-an-older-toolset-version-move-to-visual-studio-2015-without-upgrading-your-toolset/
 environment:
   toolset: v90
-  OPENSOURCE_EXTENDED_NAME: TomatoExe_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
-  FULL_EXTENDED_NAME: TomatoLib_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
+  OPENSOURCE_EXTENDED_NAME: TomatoOpenSource_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
+  FULL_EXTENDED_NAME: TomatoFull_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
 
 install:
   - git submodule update --init --recursive
@@ -29,23 +29,46 @@ configuration:
   - Release
 
 build_script:
+
+  #-----------------------#
+  #   Tomato opensource   #
+  #-----------------------#
+
   # build tomato open source
   - cd %APPVEYOR_BUILD_FOLDER%
-  - cmake -Bopensource -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=%APPVEYOR_BUILD_FOLDER%\opensource_install -T %toolset% -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
+  - >-
+    cmake .
+    -Bopensource
+    -A%PLATFORM%
+    -DCMAKE_INSTALL_PREFIX=%APPVEYOR_BUILD_FOLDER%\opensource_install
+    -T %toolset%
+    -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
   - cd %APPVEYOR_BUILD_FOLDER%\opensource
   - cmake --build . --config %CONFIGURATION% --target ALL_BUILD
   - cmake --build . --config %CONFIGURATION% --target INSTALL
+
+  #-----------------#
+  #   Tomato full   #
+  #-----------------#
+
   # get private code
   - cd %APPVEYOR_BUILD_FOLDER%\..
   - git clone https://MRKonrad:%GH_PERSONAL_ACCESS_TOKEN%@github.com/MRKonrad/tomato_private
   - cd %APPVEYOR_BUILD_FOLDER%\..
+
   # build full tomato
   - cd %APPVEYOR_BUILD_FOLDER%
-  - cmake . -Bfull -A%PLATFORM% -DCMAKE_INSTALL_PREFIX=%APPVEYOR_BUILD_FOLDER%\full_install -T %toolset% -DUSE_PRIVATE_NR2=ON -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
+  - >-
+    cmake .
+    -Bfull
+    -A%PLATFORM%
+    -DCMAKE_INSTALL_PREFIX=%APPVEYOR_BUILD_FOLDER%\full_install
+    -T %toolset%
+    -DUSE_PRIVATE_NR2=ON
+    -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
   - cd %APPVEYOR_BUILD_FOLDER%\full
   - cmake --build . --config %CONFIGURATION% --target ALL_BUILD
   - cmake --build . --config %CONFIGURATION% --target INSTALL
-
 
 after_build:
   # FOR DEPLOYMENT

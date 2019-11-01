@@ -20,7 +20,6 @@ TEST(OxSignCalculatorShmolli, calculateSign_blood) {
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
-    TYPE params[3] = {0, 0, 0};
     TYPE *signal = new TYPE[nSamples];
     TYPE *signs = new TYPE[nSamples];
 
@@ -50,7 +49,6 @@ TEST(OxSignCalculatorShmolli, calculateSign_myocardium) {
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
-    TYPE params[3] = {0, 0, 0};
     TYPE *signal = new TYPE[nSamples];
     TYPE *signs = new TYPE[nSamples];
 
@@ -80,7 +78,6 @@ TEST(OxSignCalculatorShmolli, calculateSign_throwIfInvTimesNotSet) {
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
-    TYPE params[3] = {0, 0, 0};
     TYPE *signal = new TYPE[nSamples];
     TYPE *signs = new TYPE[nSamples];
 
@@ -106,7 +103,6 @@ TEST(OxSignCalculatorShmolli, copConstructor) {
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
-    TYPE params[3] = {0, 0, 0};
     TYPE *signal = new TYPE[nSamples];
     TYPE *signs = new TYPE[nSamples];
 

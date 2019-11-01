@@ -33,7 +33,6 @@ if __name__ == '__main__':
     yaml_dict = yaml.load(yaml_data)
 
     # ### 2.c. define/modify params in the structure. Input params are obligatory for calculation, the rest are optional
-    
     # ## input params ##
     yaml_dict['files_magnitude'] = ''
     yaml_dict['files_phase'] = ''

@@ -72,19 +72,30 @@ install:
     fi
 
 script:
+  #-----------------------#
+  #   Tomato opensource   #
+  #-----------------------#
+
   # configure and generate opensource
   - mkdir ${TRAVIS_BUILD_DIR}/opensource;
   - cd ${TRAVIS_BUILD_DIR}/opensource;
-  - cmake .. -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/opensource_install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DCMAKE_MACOSX_RPATH=ON
+  - >-
+    cmake ..
+    -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/opensource_install
+    -DCMAKE_CXX_STANDARD=${CXX_STANDARD}
+    -DCMAKE_MACOSX_RPATH=ON
 
   # build opensource
   - cmake --build . --config RELEASE
   - cmake --build . --config RELEASE --target install
 
+  #-----------------#
+  #   Tomato full   #
+  #-----------------#
+
   # download tomato_private
   - cd ${TRAVIS_BUILD_DIR}/..
   - git clone https://MRKonrad:${GH_PERSONAL_ACCESS_TOKEN}@github.com/MRKonrad/tomato_private
-
 
   # add coverage option (only in linux g++)
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
@@ -95,7 +106,13 @@ script:
   # configure and generate full 
   - mkdir ${TRAVIS_BUILD_DIR}/full;
   - cd ${TRAVIS_BUILD_DIR}/full;
-  - cmake .. -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/full_install -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DUSE_PRIVATE_NR2=ON -DCMAKE_MACOSX_RPATH=ON
+  - >-
+    cmake ..
+    -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/full_install
+    -DCMAKE_CXX_STANDARD=${CXX_STANDARD}
+    -DCMAKE_MACOSX_RPATH=ON
+    -DUSE_PRIVATE_NR2=ON
+
   # build full
   - cmake --build . --config RELEASE
   - cmake --build . --config RELEASE --target install
@@ -124,7 +141,7 @@ after_success:
       ./generateDocumentationAndDeploy.sh;
     fi
 
-  # getting ready to deploy
+  # getting directories and variables ready for deployment
   - mkdir ${TRAVIS_BUILD_DIR}/deployment
   - export opensource_extended_name=TomatoOpenSource_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
   - export full_extended_name=TomatoFull_${TRAVIS_BRANCH}_${TRAVIS_OS_NAME} # just a variable
@@ -136,14 +153,14 @@ after_success:
   - zip -r ${opensource_extended_name}.zip bin
 
   # prepare to deploy TomatoFull
-  - cd ${TRAVIS_BUILD_DIR}/full_install
+  - cd ${TRAVIS_BUILD_DIR}/opensource_install/${TRAVIS_BUILD_DIR}/full_install
   - zip -r ${full_extended_name}.zip lib/libTomatoLib*
   - zip -r ${full_extended_name}.zip include
   - zip -r ${full_extended_name}.zip bin
 
   # copy the archives
-  - cp ${opensource_extended_name}.zip ${TRAVIS_BUILD_DIR}/deployment/
-  - cp ${full_extended_name}.zip ${TRAVIS_BUILD_DIR}/deployment/
+  - cp ${TRAVIS_BUILD_DIR}/opensource_install/${opensource_extended_name}.zip ${TRAVIS_BUILD_DIR}/deployment/
+  - cp ${TRAVIS_BUILD_DIR}/full_install/${full_extended_name}.zip ${TRAVIS_BUILD_DIR}/deployment/
   - cp ${TRAVIS_BUILD_DIR}/tests/testData/testData.zip ${TRAVIS_BUILD_DIR}/deployment/testData.zip
   - ls ${TRAVIS_BUILD_DIR}/deployment
   - cd ${TRAVIS_BUILD_DIR} # needed for deployment!!!

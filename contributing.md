@@ -17,7 +17,6 @@ clear and has sufficient instructions to be able to reproduce the issue.
 
 We use GitHub issues to track public bugs. Report a bug by [opening a new issue](); it's that easy!
 
-
 ## Pull Requests
 
 We actively welcome your pull requests.
