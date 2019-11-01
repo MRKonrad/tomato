@@ -35,6 +35,15 @@ TEST(OxTestItkImagesFactory, generateImagesWithoutErrros) {
     Image2dType::Pointer imageShmolliB = itkImagesFactory.generateImageResultsShmolliB();
     Image2dType::Pointer imageShmolliT1star = itkImagesFactory.generateImageResultsShmolliT1star();
 
+    EXPECT_EQ(imageMag.IsNull(), false);
+    EXPECT_EQ(imagePha.IsNull(), false);
+    EXPECT_EQ(imageMolliA.IsNull(), false);
+    EXPECT_EQ(imageMolliB.IsNull(), false);
+    EXPECT_EQ(imageMolliT1star.IsNull(), false);
+    EXPECT_EQ(imageShmolliA.IsNull(), false);
+    EXPECT_EQ(imageShmolliB.IsNull(), false);
+    EXPECT_EQ(imageShmolliT1star.IsNull(), false);
+
 }
 
 #endif //USE_ITK

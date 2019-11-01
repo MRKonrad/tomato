@@ -47,7 +47,7 @@ Feel free to contact the maintainers if that's a concern.
     *   getters/setters
     *   disp()
     *   constructors/destructors
-    
+
 *   In **copy constructors** copy primitive types, set all pointers to zero.
 
 ## License

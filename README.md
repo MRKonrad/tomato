@@ -46,7 +46,7 @@ Download <https://www.microsoft.com/en-us/download/details.aspx?id=48145> as sug
 3.  Compatibility with:
     *   main operating systems (Windows, MacOS, Linux),
     *   C++98 (to include the library in older code).
-    
+
 4.  Handling DICOM files.
 
 5.  Fast calculation. 

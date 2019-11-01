@@ -148,8 +148,6 @@ TEST(OxImageCalculatorT1, calculate_shmolli_no_multithread) {
 
     Ox::TestImage<TYPE> *testImage = new Ox::TestImage<TYPE>(nRows, nCols, filePaths);
 
-    int nSamples = testImage->getNSamples();
-
     // init the necessary objects
     Ox::FunctionsT1Shmolli<TYPE> functionsObject;
     Ox::FitterAmoebaPrivateNr2<TYPE> fitter;

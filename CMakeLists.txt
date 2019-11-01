@@ -98,7 +98,6 @@ endif(USE_ITK)
 ### MAIN PROGRAM ###
 ####################
 
-set(LIB_INSTALL_DIR lib CACHE STRING "")
 set(Tomato_BUILD_TESTING ON CACHE BOOL "Do you want to build Tomato tests?")
 
 set(BUILD_APP OFF)
@@ -116,7 +115,6 @@ MESSAGE("USE_YAML:             " ${USE_YAML})
 MESSAGE("BUILD_APP:            " ${BUILD_APP})
 MESSAGE("Tomato_BUILD_TESTING: " ${Tomato_BUILD_TESTING})
 MESSAGE("BUILD_SHARED_LIBS:    " ${BUILD_SHARED_LIBS})
-MESSAGE("LIB_INSTALL_DIR:      " ${LIB_INSTALL_DIR})
 MESSAGE("CMAKE_INSTALL_PREFIX: " ${CMAKE_INSTALL_PREFIX})
 
 # configure a header file to pass some of the CMake settings to the source code
@@ -165,7 +163,9 @@ endif()
 ### Installing ###
 ##################
 
-install (TARGETS TomatoLib DESTINATION ${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR})
+install (TARGETS TomatoLib
+            RUNTIME DESTINATION bin
+            LIBRARY DESTINATION lib)
 install (FILES ${API_FILES} DESTINATION include) # headers
 if(BUILD_APP)
     install (TARGETS TomatoExe DESTINATION bin)
