@@ -30,9 +30,9 @@ set(CMAKE_INSTALL_RPATH
         @loader_path
         @loader_path/lib
         @loader_path/../lib
-        $$ORIGIN
-        $$ORIGIN/lib
-        $$ORIGIN/../lib/)
+        $ORIGIN
+        $ORIGIN/lib
+        $ORIGIN/../lib/)
 
 # scripts to download pre-compiled dependencis, running only if DOWNLOAD_DEPENDENCIES is ON
 set(DOWNLOAD_DEPENDENCIES ON CACHE BOOL "Do you want to download the dependencies?")
