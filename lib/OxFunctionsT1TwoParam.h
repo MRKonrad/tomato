@@ -14,8 +14,7 @@
 namespace Ox {
 
     /**
-     * \class FunctionsT1TwoParams
-     * \brief Container for a TwoParams model function \f$ A-B\exp(t/T_1^*) \f$, cost function and Least-Squares
+     * \brief Container for a TwoParams model function \f$ A(1 - exp( -time / T1 )) \f$, cost function and Least-Squares
      * function and derivatives.
      * \details
      * @tparam MeasureType

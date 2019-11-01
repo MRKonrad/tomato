@@ -14,7 +14,6 @@
 namespace Ox {
 
     /**
-     * \class FunctionsT1ThreeParams
      * \brief Container for a ThreeParams model function \f$ A-B\exp(t/T_1^*) \f$, cost function and Least-Squares
      * function and derivatives.
      * \details
