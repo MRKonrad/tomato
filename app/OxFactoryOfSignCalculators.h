@@ -68,7 +68,7 @@ namespace Ox {
         static void disp(int sign_calc_method = -1){
 
             if (sign_calc_method >= 0) {
-                printf("%-30s%-20s", " sign_calc_method: ", signCalculatorsTypeNames[sign_calc_method]);
+                printf("%-28s%-22s", " sign_calc_method: ", signCalculatorsTypeNames[sign_calc_method]);
             }
 
             printf("options: [ ");

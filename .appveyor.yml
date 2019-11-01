@@ -76,9 +76,9 @@ after_build:
   - mkdir deployment
   # zip the files for the deployment
   - cd %APPVEYOR_BUILD_FOLDER%\opensource_install
-  - 7z a %OPENSOURCE_EXTENDED_NAME%.zip bin\* lib\TomatoLib* include\*  # zip
+  - 7z a %OPENSOURCE_EXTENDED_NAME%.zip bin\* lib\* include\*  # zip
   - cd %APPVEYOR_BUILD_FOLDER%\full_install
-  - 7z a %FULL_EXTENDED_NAME%.zip bin\* lib\TomatoLib* include\*  # zip
+  - 7z a %FULL_EXTENDED_NAME%.zip bin\* lib\* include\*  # zip
   # copy the files for the deployment
   - copy %APPVEYOR_BUILD_FOLDER%\opensource_install\%OPENSOURCE_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%OPENSOURCE_EXTENDED_NAME%.zip
   - copy %APPVEYOR_BUILD_FOLDER%\full_install\%FULL_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%FULL_EXTENDED_NAME%.zip

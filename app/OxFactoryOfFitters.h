@@ -103,7 +103,7 @@ namespace Ox {
         static void disp(int fitting_method = -1){
 
             if (fitting_method >= 0) {
-                printf("%-30s%-20s", " fitting_method: ", fittersTypeNames[fitting_method]);
+                printf("%-28s%-22s", " fitting_method: ", fittersTypeNames[fitting_method]);
             }
 
             printf("options: [ ");

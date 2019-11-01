@@ -70,7 +70,7 @@ namespace Ox {
         static void disp(int functions_type = -1){
 
             if (functions_type >= 0) {
-                printf("%-30s%-20s", " functions_type: ", functionsTypeNames[functions_type]);
+                printf("%-28s%-22s", " functions_type: ", functionsTypeNames[functions_type]);
             }
 
             printf("options: [ ");

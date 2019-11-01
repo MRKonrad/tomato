@@ -177,7 +177,8 @@ endif()
 
 install (TARGETS TomatoLib
             RUNTIME DESTINATION bin
-            LIBRARY DESTINATION lib)
+            LIBRARY DESTINATION lib
+            ARCHIVE DESTINATION lib)
 install (FILES ${API_FILES} DESTINATION include) # headers
 if(BUILD_APP)
     install (TARGETS TomatoExe DESTINATION bin)

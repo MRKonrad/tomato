@@ -70,7 +70,7 @@ namespace Ox {
         static void disp(int start_point_calc_method = -1){
 
             if (start_point_calc_method >= 0) {
-                printf("%-30s%-20s", " start_point_calc_method: ", startPointCalculatorsTypeNames[start_point_calc_method]);
+                printf("%-28s%-22s", " start_point_calc_method: ", startPointCalculatorsTypeNames[start_point_calc_method]);
             }
 
             printf("options: [ ");

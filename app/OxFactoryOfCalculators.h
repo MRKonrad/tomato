@@ -78,7 +78,7 @@ namespace Ox {
         static void disp(int parameter_to_map = -1){
 
             if (parameter_to_map >= 0) {
-                printf("%-30s%-20s", " parameter_to_map: ", calculatorsTypeNames[parameter_to_map]);
+                printf("%-28s%-22s", " parameter_to_map: ", calculatorsTypeNames[parameter_to_map]);
             }
 
             printf("options: [ ");
