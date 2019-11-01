@@ -50,7 +50,7 @@ file (GLOB_RECURSE API_FILES lib/*.h lib/KWUtil.hxx)
 
 # unfortunatelly I cannot publish numerical recipes code according to numerical recipes licence
 set(PRIVATE_NR2_DIR ../tomato_private CACHE PATH "")
-set(USE_PRIVATE_NR2 ON CACHE BOOL "")
+set(USE_PRIVATE_NR2 OFF CACHE BOOL "")
 if (USE_PRIVATE_NR2)
     add_subdirectory(${PRIVATE_NR2_DIR} ${CMAKE_BINARY_DIR}/private)
     include_directories(${PRIVATE_NR2_DIR}/lib)
