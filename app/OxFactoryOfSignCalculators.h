@@ -9,6 +9,7 @@
 
 #include "CmakeConfigForTomato.h"
 #include "OxSignCalculatorNoSign.h"
+#include "OxSignCalculatorRealImag.h"
 #include "OxSignCalculatorShmolli.h"
 
 namespace Ox {
