@@ -84,10 +84,11 @@ script:
   # download tomato_private
   - cd ${TRAVIS_BUILD_DIR}/..
   - git clone https://MRKonrad:${GH_PERSONAL_ACCESS_TOKEN}@github.com/MRKonrad/tomato_private
-  - cd ${TRAVIS_BUILD_DIR}
+
 
   # add coverage option (only in linux g++)
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
+      cd ${TRAVIS_BUILD_DIR}/opensource
       cmake .. -DCMAKE_CXX_FLAGS="--coverage" ;
     fi
 
