@@ -14,8 +14,6 @@ var hierarchy =
       [ "Ox::FunctionsT1ThreeParam< MeasureType >", "class_ox_1_1_functions_t1_three_param.html", null ],
       [ "Ox::FunctionsT1TwoParam< MeasureType >", "class_ox_1_1_functions_t1_two_param.html", null ]
     ] ],
-    [ "FunctionsT1ThreeParams", "class_functions_t1_three_params.html", null ],
-    [ "FunctionsT1TwoParams", "class_functions_t1_two_params.html", null ],
     [ "Ox::ImageCalculatorT1< MeasureType >", "class_ox_1_1_image_calculator_t1.html", null ],
     [ "KWUtil", "class_k_w_util.html", null ],
     [ "Ox::SignCalculator< MeasureType >", "class_ox_1_1_sign_calculator.html", [

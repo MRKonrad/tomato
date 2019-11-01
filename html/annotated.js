@@ -24,7 +24,5 @@ var annotated =
       [ "TestData", "class_ox_1_1_test_data.html", "class_ox_1_1_test_data" ],
       [ "TestImage", "class_ox_1_1_test_image.html", "class_ox_1_1_test_image" ]
     ] ],
-    [ "FunctionsT1ThreeParams", "class_functions_t1_three_params.html", null ],
-    [ "FunctionsT1TwoParams", "class_functions_t1_two_params.html", null ],
     [ "KWUtil", "class_k_w_util.html", null ]
 ];

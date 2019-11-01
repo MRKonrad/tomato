@@ -1,7 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"class_ox_1_1_fitter.html#a926f6cf38998f041c31b079e93bf27ab":[4,0,0,9,25],
-"class_ox_1_1_fitter.html#a9ba79cb05ecc670254b3e7ddafc519ab":[4,0,0,9,30],
 "class_ox_1_1_fitter.html#a9c3401372be5c8698464deb05c0f5533":[4,0,0,9,10],
 "class_ox_1_1_fitter.html#aa1fc4674aa6a3e6c8567c86ec1fa90e0":[4,0,0,9,20],
 "class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43":[4,0,0,9,2],
@@ -249,5 +247,7 @@ var NAVTREEINDEX1 =
 "main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97":[5,0,0,0,0],
 "md__r_e_a_d_m_e.html":[3],
 "md_codeofconduct.html":[0],
-"md_contributing.html":[1]
+"md_contributing.html":[1],
+"md_notepad.html":[2],
+"pages.html":[]
 };

@@ -10,7 +10,5 @@ var searchData=
   ['functionst1',['FunctionsT1',['../class_ox_1_1_functions_t1.html#a7dae9dc71ec97e9eef1308c9937aaaf0',1,'Ox::FunctionsT1::FunctionsT1()'],['../class_ox_1_1_functions_t1.html#a8b14d232e9136a64ea3ae8f7a162daad',1,'Ox::FunctionsT1::FunctionsT1(const FunctionsT1 &amp;old)']]],
   ['functionst1',['FunctionsT1',['../class_ox_1_1_functions_t1.html',1,'Ox']]],
   ['functionst1threeparam',['FunctionsT1ThreeParam',['../class_ox_1_1_functions_t1_three_param.html',1,'Ox']]],
-  ['functionst1threeparams',['FunctionsT1ThreeParams',['../class_functions_t1_three_params.html',1,'']]],
-  ['functionst1twoparam',['FunctionsT1TwoParam',['../class_ox_1_1_functions_t1_two_param.html',1,'Ox']]],
-  ['functionst1twoparams',['FunctionsT1TwoParams',['../class_functions_t1_two_params.html',1,'']]]
+  ['functionst1twoparam',['FunctionsT1TwoParam',['../class_ox_1_1_functions_t1_two_param.html',1,'Ox']]]
 ];

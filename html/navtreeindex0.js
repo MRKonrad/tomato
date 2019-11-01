@@ -159,9 +159,7 @@ var NAVTREEINDEX0 =
 "_tomato_parser__test_8cpp.html":[5,0,2,28],
 "_tomato_parser__test_8cpp.html#a8ea1a56817272728bd597c73b09fac22":[5,0,2,28,0],
 "annotated.html":[4,0],
-"class_functions_t1_three_params.html":[4,0,1],
-"class_functions_t1_two_params.html":[4,0,2],
-"class_k_w_util.html":[4,0,3],
+"class_k_w_util.html":[4,0,1],
 "class_ox_1_1_calculator_t1.html":[4,0,0,7],
 "class_ox_1_1_calculator_t1.html#a08da2ecf1ea83b83854fbe09a03de839":[4,0,0,7,27],
 "class_ox_1_1_calculator_t1.html#a091c2674b79e1c0374637eff90e2becb":[4,0,0,7,37],
@@ -249,5 +247,7 @@ var NAVTREEINDEX0 =
 "class_ox_1_1_fitter.html#a783ba791c88d7208deb4004354b10022":[4,0,0,9,3],
 "class_ox_1_1_fitter.html#a7b42acb389394bc4c496990eea8b9ac9":[4,0,0,9,0],
 "class_ox_1_1_fitter.html#a859dc8c25c99b37f47d41e086b97c897":[4,0,0,9,6],
-"class_ox_1_1_fitter.html#a8f240f0da86d06b339ab2747e87f21b9":[4,0,0,9,15]
+"class_ox_1_1_fitter.html#a8f240f0da86d06b339ab2747e87f21b9":[4,0,0,9,15],
+"class_ox_1_1_fitter.html#a926f6cf38998f041c31b079e93bf27ab":[4,0,0,9,25],
+"class_ox_1_1_fitter.html#a9ba79cb05ecc670254b3e7ddafc519ab":[4,0,0,9,30]
 };

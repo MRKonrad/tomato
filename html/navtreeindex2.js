@@ -1,7 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"md_notepad.html":[2],
-"pages.html":[],
 "struct_ox_1_1_calculator_t1_results.html":[4,0,0,6],
 "struct_ox_1_1_calculator_t1_results.html#a2d8d7c814ea4b00172127fb16899a55e":[4,0,0,6,9],
 "struct_ox_1_1_calculator_t1_results.html#a2ef9ec72b2f7e61bb442fe8e0f61d508":[4,0,0,6,0],
