@@ -36,11 +36,7 @@ namespace Ox {
     static int signCalculatorsAvailability [] = {
             1, // NoSign
             1, // RealImag
-#ifdef USE_PRIVATE_NR2
             1, // MagPhase
-#else
-            0, // MagPhase
-#endif
     };
 
     template<typename TYPE>
@@ -55,11 +51,9 @@ namespace Ox {
                 case RealImag: {
                     return new SignCalculatorRealImag<TYPE>();
                 }
-#ifdef USE_PRIVATE_NR2
                 case MagPhase: {
                     return new SignCalculatorShmolli<TYPE>();
                 }
-#endif
                 default:
                     throw std::runtime_error("sign_calc_method not available");
             }

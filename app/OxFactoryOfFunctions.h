@@ -37,11 +37,7 @@ namespace Ox {
     static int functionsAvailability[] = {
             1, //FunctionsThreeParams
             1, //FunctionsTwoParams
-#ifdef USE_PRIVATE_NR2
             1 // FunctionsShmolli
-#else
-            0 // FunctionsShmolli
-#endif
     };
 
 
@@ -57,11 +53,9 @@ namespace Ox {
                 case FunctionsTwoParams: {
                     return new FunctionsT1TwoParam<TYPE>();
                 }
-#ifdef USE_PRIVATE_NR2
                 case FunctionsShmolli: {
                     return new FunctionsT1Shmolli<TYPE>();
                 }
-#endif
                 default:
                     throw std::runtime_error("functions_type not available");
             }

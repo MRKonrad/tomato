@@ -37,11 +37,7 @@ namespace Ox {
     static int startPointCalculatorsAvailability[] = {
             1, // DefaultThreeParam
             1, // DefaultTwoParam
-#ifdef USE_PRIVATE_NR2
             1, // StartPointSHMOLLI
-#else
-            0, // StartPointSHMOLLI
-#endif
     };
 
 
@@ -57,11 +53,9 @@ namespace Ox {
                 case DefaultTwoParam: {
                     return new StartPointCalculatorDefault2Dims<TYPE>();
                 }
-#ifdef USE_PRIVATE_NR2
                 case StartPointSHMOLLI: {
                     return new StartPointCalculatorShmolli<TYPE>();
                 }
-#endif
                 default:
                     throw std::runtime_error("start_point_calc_method object not available");
             }

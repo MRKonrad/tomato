@@ -35,11 +35,10 @@ namespace Ox {
 
     static int calculatorsAvailability[] = {
             1, // T1_MOLLI
-#ifdef USE_PRIVATE_NR2
             1, // T1_SHMOLLI
+#ifdef USE_PRIVATE_NR2
             1 // T1_SHMOLLI_original
 #else
-            0, // T1_SHMOLLI
             0 // T1_SHMOLLI_original
 #endif
     };
@@ -55,11 +54,11 @@ namespace Ox {
                     calculatorT1 = new CalculatorT1Molli<TYPE>();
                     break;
                 }
-#ifdef USE_PRIVATE_NR2
                 case T1_SHMOLLI: {
                     calculatorT1 = new CalculatorT1Shmolli<TYPE>();
                     break;
                 }
+#ifdef USE_PRIVATE_NR2
                 case T1_SHMOLLI_original: {
                     calculatorT1 = new CalculatorT1ShmolliOriginal<TYPE>();
                     break;
