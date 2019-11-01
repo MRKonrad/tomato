@@ -27,6 +27,5 @@ var struct_ox_1_1_tomato_options =
     [ "sign_calc_method", "struct_ox_1_1_tomato_options.html#a2cf923d6d04fb8cb510db2623e93119d", null ],
     [ "start_point_calc_method", "struct_ox_1_1_tomato_options.html#a9da2993961d10c848b0860284900c869", null ],
     [ "use_colorbar", "struct_ox_1_1_tomato_options.html#aa762826a11ff767aa969bd66c29b577f", null ],
-    [ "use_gradient", "struct_ox_1_1_tomato_options.html#a367c540e5413f8ffa3a6bc6ef5781b45", null ],
-    [ "visualise", "struct_ox_1_1_tomato_options.html#a043a4cf0e29a4482406e95f27ab2f860", null ]
+    [ "use_gradient", "struct_ox_1_1_tomato_options.html#a367c540e5413f8ffa3a6bc6ef5781b45", null ]
 ];

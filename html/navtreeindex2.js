@@ -20,7 +20,6 @@ var NAVTREEINDEX2 =
 "struct_ox_1_1_calculator_t1_results.html#ae5d3edf68b74851c957f2d8af04cac46":[4,0,0,6,11],
 "struct_ox_1_1_tomato_options.html":[4,0,0,0],
 "struct_ox_1_1_tomato_options.html#a008c932c7d65248d2d82e0e654993384":[4,0,0,0,7],
-"struct_ox_1_1_tomato_options.html#a043a4cf0e29a4482406e95f27ab2f860":[4,0,0,0,28],
 "struct_ox_1_1_tomato_options.html#a0d4ad4476a8817e68ead08d1b0645033":[4,0,0,0,23],
 "struct_ox_1_1_tomato_options.html#a2cf923d6d04fb8cb510db2623e93119d":[4,0,0,0,24],
 "struct_ox_1_1_tomato_options.html#a2d1d2149185ef71968980cf8c6afcf14":[4,0,0,0,14],
