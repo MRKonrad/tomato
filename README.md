@@ -68,8 +68,6 @@ Please see [contributing.md](contributing.md) and [codeofconduct.md](codeofcondu
 *   add acceptance test for 2param
 *   maybe rename calculatormolli to calculator3param? 
 *   maybe add calculator2param to produce different results?
-*   Deployment: exe and lib in one zip
-*   Deployment: cmake to download ITK and lmfit
 *   update comments in configuration yaml files
 *   re-organise start point calculation
 *   output SNR maps

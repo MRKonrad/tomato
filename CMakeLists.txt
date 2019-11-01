@@ -5,7 +5,13 @@
 # cmake .
 #       -DCMAKE_BUILD_TYPE=RELEASE
 #       -DCMAKE_INSTALL_PREFIX="install"
+# additionally for osx:
 #       -DCMAKE_MACOSX_RPATH=1
+# additionally for windows:
+#       -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
+# see .travis.yml and appveyor.yml for examples
+#
+# Konrad Werys
 
 cmake_minimum_required (VERSION 2.8)
 
@@ -34,12 +40,18 @@ set(CMAKE_INSTALL_RPATH
         $ORIGIN/lib
         $ORIGIN/../lib/)
 
+#############################
+### DOWNLOAD DEPENDENCIES ###
+#############################
+
 # scripts to download pre-compiled dependencis, running only if DOWNLOAD_DEPENDENCIES is ON
 set(DOWNLOAD_DEPENDENCIES ON CACHE BOOL "Do you want to download the dependencies?")
 include(cmake/downloadItk.cmake)
 include(cmake/downloadLmfit.cmake)
 
-set(CMAKE_POSITION_INDEPENDENT_CODE ON) # TODO: to command line
+##################
+### list files ###
+##################
 
 # list of source files TODO: do not use glob, as it is not recommended https://cmake.org/cmake/help/latest/command/file.html#filesystem
 file (GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)

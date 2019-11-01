@@ -153,7 +153,7 @@ after_success:
   - zip -r ${opensource_extended_name}.zip bin
 
   # prepare to deploy TomatoFull
-  - cd ${TRAVIS_BUILD_DIR}/opensource_install/${TRAVIS_BUILD_DIR}/full_install
+  - cd ${TRAVIS_BUILD_DIR}/full_install
   - zip -r ${full_extended_name}.zip lib/libTomatoLib*
   - zip -r ${full_extended_name}.zip include
   - zip -r ${full_extended_name}.zip bin

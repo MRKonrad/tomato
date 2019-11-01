@@ -3,10 +3,10 @@ if(DOWNLOAD_DEPENDENCIES)
     if (WIN32)
         if(CMAKE_SIZEOF_VOID_P EQUAL 8)
             # windows 64 bit
-            set(LMFIT_ZIP_NAME lmfit_master_windows_x64_v120.zip)
+            set(LMFIT_ZIP_NAME lmfit_master_windows_x64_v120_static.zip)
         elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
             # windows 32 bit
-            set(LMFIT_ZIP_NAME lmfit_master_windows_Win32_v120.zip)
+            set(LMFIT_ZIP_NAME lmfit_master_windows_Win32_v120_static.zip)
         endif()
     endif ()
     if (UNIX AND NOT APPLE)
