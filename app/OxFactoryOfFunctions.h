@@ -11,9 +11,7 @@
 
 #include "OxFunctionsT1ThreeParam.h"
 #include "OxFunctionsT1TwoParam.h"
-#ifdef USE_PRIVATE_NR2
 #include "OxFunctionsT1Shmolli.h"
-#endif
 
 namespace Ox {
 
@@ -39,7 +37,6 @@ namespace Ox {
             1, //FunctionsTwoParams
             1 // FunctionsShmolli
     };
-
 
     template<typename TYPE>
     class FactoryOfFunctions {

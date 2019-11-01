@@ -11,9 +11,7 @@
 
 #include "OxStartPointCalculatorDefault2Dims.h"
 #include "OxStartPointCalculatorDefault3Dims.h"
-#ifdef USE_PRIVATE_NR2
 #include "OxStartPointCalculatorShmolli.h"
-#endif
 
 namespace Ox {
 
@@ -39,7 +37,6 @@ namespace Ox {
             1, // DefaultTwoParam
             1, // StartPointSHMOLLI
     };
-
 
     template<typename TYPE>
     class FactoryOfStartPointCalculators {

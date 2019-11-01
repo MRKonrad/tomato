@@ -9,8 +9,8 @@
 
 #include "CmakeConfigForTomato.h"
 #include "OxCalculatorT1Molli.h"
-#ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1Shmolli.h"
+#ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1ShmolliOriginal.h"
 #endif
 

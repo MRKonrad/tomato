@@ -9,10 +9,7 @@
 
 #include "CmakeConfigForTomato.h"
 #include "OxSignCalculatorNoSign.h"
-#include "OxSignCalculatorRealImag.h"
-#ifdef USE_PRIVATE_NR2
 #include "OxSignCalculatorShmolli.h"
-#endif
 
 namespace Ox {
 
