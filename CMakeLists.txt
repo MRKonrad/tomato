@@ -1,11 +1,10 @@
 ##############
 ### Tomato ###
 ##############
-# you can build tomato wit command:
+# you can build tomato with command:
 # cmake .
-#       -DCMAKE_BUILD_TYPE=DEBUG
+#       -DCMAKE_BUILD_TYPE=RELEASE
 #       -DCMAKE_INSTALL_PREFIX="install"
-#       -DBUILD_SHARED_LIBS=ON
 #       -DCMAKE_MACOSX_RPATH=1
 
 cmake_minimum_required (VERSION 2.8)
@@ -30,7 +29,10 @@ set(CMAKE_INSTALL_RPATH
         @executable_path/../lib
         @loader_path
         @loader_path/lib
-        @loader_path/../lib)
+        @loader_path/../lib
+        $$ORIGIN
+        $$ORIGIN/lib
+        $$ORIGIN/../lib/)
 
 # scripts to download pre-compiled dependencis, running only if DOWNLOAD_DEPENDENCIES is ON
 set(DOWNLOAD_DEPENDENCIES ON CACHE BOOL "Do you want to download the dependencies?")
@@ -175,6 +177,7 @@ endif()
 
 if(Tomato_BUILD_TESTING AND USE_YAML)
     add_subdirectory (tests)
+    install(TARGETS TomatoLib DESTINATION tests)
 endif()
 
 ##############################
