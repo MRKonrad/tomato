@@ -7,11 +7,11 @@
 #
 # files_magnitude: <yaml list of file paths, each in quotes>
 # files_phase: <yaml list of file paths, each in quotes>
-# dir_magnitude: <directory path in quites>
-# dir_phase: <directory path in quites>
-# dir_output_map: <directory path in quites>
+# dir_magnitude: <directory path in quotes>
+# dir_phase: <directory path in quotes>
+# dir_output_map: <directory path in quotes>
 #  output_map_series_number: <number, for example 10007>
-# dir_output_fitparams: <directory path in quites>
+# dir_output_fitparams: <directory path in quotes>
 #  output_fitparams_series_number: <number, for example 10008>
 #
 # parameter_to_map: <T1_Molli/T1_Shmolli/T1_SHMOLLI_original>

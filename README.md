@@ -1,13 +1,16 @@
 # TOMATO
-TOMATO (Total Mapping Toolbox) is a C++ library for the calculation of parametric maps in cardiac magnetic resonance imaging (MRI). As an open source project, TOMATO allows transparent and standardized cardiac longitudinal relaxation time (T1) mapping in clinical applications. With C++ implementation, TOMATO can easily interface and translate between research software environments like MATLAB, and commercial vendors’ closed-source C++ environments on scanners as well as post-processing software. To complement the core library implementation, a ready-to-use command line tool has been provided. 
+TOMATO (Total Mapping Toolbox) is a C++ library for the calculation of parametric maps in cardiac magnetic resonance 
+imaging (MRI). As an open source project, TOMATO allows transparent and standardized cardiac longitudinal relaxation 
+time (T1) mapping in clinical applications. With C++ implementation, TOMATO can easily interface and translate between 
+research software environments, and commercial vendors’ closed-source C++ environments on scanners as well as 
+post-processing software. To complement the core library implementation, a ready-to-use command line tool has been provided.
 
-It contains ShMOLLI implementation as in [this article](https://jcmr-online.biomedcentral.com/articles/10.1186/1532-429X-12-69).  
-
-*   **Code documentation** in doxygen can be found [here](https://mrkonrad.github.io/tomato/html/md__r_e_a_d_m_e.html).
-*   **Github** repository can be found [here](https://github.com/MRKonrad/tomato).  
+It contains ShMOLLI implementation as in [this article](https://jcmr-online.biomedcentral.com/articles/10.1186/1532-429X-12-69).   
 
 | System                                    |     Status                                                         |
 |-------------------------------------------|:------------------------------------------------------------------:|
+| :tomato: [Tutorial][toamto_docs_link] :tomato: | [Tomato Docs][toamto_docs_link]                               |
+| Code documentation                        | [Doxygen](https://mrkonrad.github.io/tomato/html/md__r_e_a_d_m_e.html)|
 | [DOI][zenodo_link]                        | [![DOI][zenodo_badge]][zenodo_link]                                |
 | [OSX/Linux build - Travis][travis_link]   | [![Travis (.org)][travis_badge]][travis_link]                      |
 | [Windows build - AppVeyor][appveyor_link] | [![AppVeyor][appveyor_badge]][appveyor_link]                       |
@@ -15,45 +18,19 @@ It contains ShMOLLI implementation as in [this article](https://jcmr-online.biom
 | [Test coverage - Codecov][codecov_link]   | [![codecov][codecov_badge]][codecov_link]                          |
 | [Downloads][downloads_link]               | [![GitHub Releases (by Release)][downloads_badge]][downloads_link] |
 
-## Usage
+## TomatoOpenSource and TomatoFull
+**Important**
 
-*   App - download the latest version of `TomatoExe` from the [Releases][downloads_link] page and follow the youtube tutorial below
-[![Tomato tutorial](https://img.youtube.com/vi/0tzNZNiZh18/0.jpg)](https://www.youtube.com/watch?v=0tzNZNiZh18)
+There are two `Tomato` version available: `TomatoOpenSource` compiled with publicly available code and `TomatoFull` containing additionally private code used for `AmoebaPrivateNr2` fitting algorithm using Nelder–Mead algorithm based on Numerical Recipes. Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes book. Due to Numerical Recipes licence I cannot share this part of the code online. Please contact me if you would like to use this part of the code. To make up for this limitation we provide a number of alternative fitting procedures.
 
-*   Lib - download the latest version of `TomatoLib` from the [Releases][downloads_link] page
+## Contributing and code of conduct
 
-*   Code - if you want to build the code please take a look at the scripts in the `scriptsBuild` and the continuous integrations scripts `.appveyor.yml` and `travis.yml`
-
-## Tomato and Numerical Recipes
-
-**Important**  
-Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes book. Due to Numerical Recipes licence I cannot share this part of the code online. Please contact me if you would like to use this part of the code. To make up for this limitation we provide a number of alternative fitting procedures.
+Please see [contributing.md](contributing.md) and [codeofconduct.md](codeofconduct.md).
 
 ## Troubleshooting
 
 *   missing msvcp140.dll  
 Download <https://www.microsoft.com/en-us/download/details.aspx?id=48145> as suggested in <https://stackoverflow.com/questions/32998902/msvcp140-dll-missing>
-
-## Software Requirements Specification
-
-1.  Calculate ShMOLLI with exactly the same results as these from the previous implementation.
-
-2.  API for easily choosing
-    *   a map calculation algorithm,
-    *   a fitting algorithm,
-    *   a model function and corresponding energy function.
-    
-3.  Compatibility with:
-    *   main operating systems (Windows, MacOS, Linux),
-    *   C++98 (to include the library in older code).
-
-4.  Handling DICOM files.
-
-5.  Fast calculation. 
-
-## Contributing and code of conduct
-
-Please see [contributing.md](contributing.md) and [codeofconduct.md](codeofconduct.md).
 
 ## Notes
 
@@ -89,3 +66,4 @@ Please see [contributing.md](contributing.md) and [codeofconduct.md](codeofcondu
 [codecov_badge]: https://img.shields.io/codecov/c/github/MRKonrad/tomato.svg?style=flat-square
 [downloads_link]: https://github.com/MRKonrad/tomato/releases
 [downloads_badge]: https://img.shields.io/github/downloads/MRKonrad/tomato/total.svg?style=flat-square
+[toamto_docs_link]: https://github.com/MRKonrad/tomato_docs
