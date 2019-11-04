@@ -1,16 +1,12 @@
-T\-O\-M\-A\-T\-O (Total Mapping Toolbox) is a C++ library for the calculation of parametric maps in cardiac magnetic resonance imaging (M\-R\-I). As an open source project, T\-O\-M\-A\-T\-O allows transparent and standardized cardiac longitudinal relaxation time (T1) mapping in clinical applications. With C++ implementation, T\-O\-M\-A\-T\-O can easily interface and translate between research software environments like M\-A\-T\-L\-A\-B, and commercial vendors’ closed-\/source C++ environments on scanners as well as post-\/processing software. To complement the core library implementation, a ready-\/to-\/use command line tool has been provided.
+T\-O\-M\-A\-T\-O (Total Mapping Toolbox) is a C++ library for the calculation of parametric maps in cardiac magnetic resonance imaging (M\-R\-I). As an open source project, T\-O\-M\-A\-T\-O allows transparent and standardized cardiac longitudinal relaxation time (T1) mapping in clinical applications. With C++ implementation, T\-O\-M\-A\-T\-O can easily interface and translate between research software environments, and commercial vendors’ closed-\/source C++ environments on scanners as well as post-\/processing software. To complement the core library implementation, a ready-\/to-\/use command line tool has been provided.
 
 It contains Sh\-M\-O\-L\-L\-I implementation as in \href{https://jcmr-online.biomedcentral.com/articles/10.1186/1532-429X-12-69}{\tt this article}.
-
-
-\begin{DoxyItemize}
-\item {\bfseries Code documentation} in doxygen can be found \href{https://mrkonrad.github.io/tomato/html/md__r_e_a_d_m_e.html}{\tt here}.
-\item {\bfseries Github} repository can be found \href{https://github.com/MRKonrad/tomato}{\tt here}.
-\end{DoxyItemize}
 
 \begin{TabularC}{2}
 \hline
 \rowcolor{lightgray}{\bf System }&\PBS\centering {\bf Status  }\\\cline{1-2}
+\-:tomato\-: \href{https://github.com/MRKonrad/tomato_docs}{\tt Tutorial} \-:tomato\-: &\PBS\centering \href{https://github.com/MRKonrad/tomato_docs}{\tt Tomato Docs} \\\cline{1-2}
+Code documentation &\PBS\centering \href{https://mrkonrad.github.io/tomato/html/md__r_e_a_d_m_e.html}{\tt Doxygen} \\\cline{1-2}
 \href{https://zenodo.org/badge/latestdoi/142749215}{\tt D\-O\-I} &\PBS\centering \href{https://zenodo.org/badge/latestdoi/142749215}{\tt !\mbox{[}D\-O\-I\mbox{]}\mbox{[}zenodo\-\_\-badge\mbox{]}} \\\cline{1-2}
 \href{https://travis-ci.org/MRKonrad/tomato}{\tt O\-S\-X/\-Linux build -\/ Travis} &\PBS\centering \href{https://travis-ci.org/MRKonrad/tomato}{\tt !\mbox{[}Travis (.org)\mbox{]}\mbox{[}travis\-\_\-badge\mbox{]}} \\\cline{1-2}
 \href{https://ci.appveyor.com/project/MRKonrad/tomato}{\tt Windows build -\/ App\-Veyor} &\PBS\centering \href{https://ci.appveyor.com/project/MRKonrad/tomato}{\tt !\mbox{[}App\-Veyor\mbox{]}\mbox{[}appveyor\-\_\-badge\mbox{]}} \\\cline{1-2}
@@ -18,18 +14,15 @@ It contains Sh\-M\-O\-L\-L\-I implementation as in \href{https://jcmr-online.bio
 \href{https://codecov.io/gh/MRKonrad/tomato}{\tt Test coverage -\/ Codecov} &\PBS\centering \href{https://codecov.io/gh/MRKonrad/tomato}{\tt !\mbox{[}codecov\mbox{]}\mbox{[}codecov\-\_\-badge\mbox{]}} \\\cline{1-2}
 \href{https://github.com/MRKonrad/tomato/releases}{\tt Downloads} &\PBS\centering \href{https://github.com/MRKonrad/tomato/releases}{\tt !\mbox{[}Git\-Hub Releases (by Release)\mbox{]}\mbox{[}downloads\-\_\-badge\mbox{]}} \\\cline{1-2}
 \end{TabularC}
-\subsection*{Usage}
+\subsection*{Tomato\-Open\-Source and Tomato\-Full}
 
+{\bfseries Important}
 
-\begin{DoxyItemize}
-\item App -\/ download the latest version of {\ttfamily Tomato\-Exe} from the \href{https://github.com/MRKonrad/tomato/releases}{\tt Releases} page and follow the youtube tutorial below \href{https://www.youtube.com/watch?v=0tzNZNiZh18}{\tt !\mbox{[}Tomato tutorial\mbox{]}(https\-://img.\-youtube.\-com/vi/0tz\-N\-Z\-Ni\-Zh18/0.\-jpg)}
-\item Lib -\/ download the latest version of {\ttfamily Tomato\-Lib} from the \href{https://github.com/MRKonrad/tomato/releases}{\tt Releases} page
-\item Code -\/ if you want to build the code please take a look at the scripts in the {\ttfamily scripts\-Build} and the continuous integrations scripts {\ttfamily .appveyor.\-yml} and {\ttfamily travis.\-yml}
-\end{DoxyItemize}
+There are two {\ttfamily Tomato} version available\-: {\ttfamily Tomato\-Open\-Source} compiled with publicly available code and {\ttfamily Tomato\-Full} containing additionally private code used for {\ttfamily Amoeba\-Private\-Nr2} fitting algorithm using Nelder–\-Mead algorithm based on Numerical Recipes. Original Sh\-M\-O\-L\-L\-I (and based on it Tomato) uses code based on Numerical Recipes book. Due to Numerical Recipes licence I cannot share this part of the code online. Please contact me if you would like to use this part of the code. To make up for this limitation we provide a number of alternative fitting procedures.
 
-\subsection*{Tomato and Numerical Recipes}
+\subsection*{Contributing and code of conduct}
 
-{\bfseries Important} Original Sh\-M\-O\-L\-L\-I (and based on it Tomato) uses code based on Numerical Recipes book. Due to Numerical Recipes licence I cannot share this part of the code online. Please contact me if you would like to use this part of the code. To make up for this limitation we provide a number of alternative fitting procedures.
+Please see \hyperlink{md_contributing}{contributing.md} and \hyperlink{md_codeofconduct}{codeofconduct.md}.
 
 \subsection*{Troubleshooting}
 
@@ -37,30 +30,6 @@ It contains Sh\-M\-O\-L\-L\-I implementation as in \href{https://jcmr-online.bio
 \begin{DoxyItemize}
 \item missing msvcp140.\-dll Download \href{https://www.microsoft.com/en-us/download/details.aspx?id=48145}{\tt https\-://www.\-microsoft.\-com/en-\/us/download/details.\-aspx?id=48145} as suggested in \href{https://stackoverflow.com/questions/32998902/msvcp140-dll-missing}{\tt https\-://stackoverflow.\-com/questions/32998902/msvcp140-\/dll-\/missing}
 \end{DoxyItemize}
-
-\subsection*{Software Requirements Specification}
-
-
-\begin{DoxyEnumerate}
-\item Calculate Sh\-M\-O\-L\-L\-I with exactly the same results as these from the previous implementation.
-\item A\-P\-I for easily choosing
-\begin{DoxyItemize}
-\item a map calculation algorithm,
-\item a fitting algorithm,
-\item a model function and corresponding energy function.
-\end{DoxyItemize}
-\item Compatibility with\-:
-\begin{DoxyItemize}
-\item main operating systems (Windows, Mac\-O\-S, Linux),
-\item C++98 (to include the library in older code).
-\end{DoxyItemize}
-\item Handling D\-I\-C\-O\-M files.
-\item Fast calculation.
-\end{DoxyEnumerate}
-
-\subsection*{Contributing and code of conduct}
-
-Please see \hyperlink{md_contributing}{contributing.md} and \hyperlink{md_codeofconduct}{codeofconduct.md}.
 
 \subsection*{Notes}
 
