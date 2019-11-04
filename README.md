@@ -21,7 +21,11 @@ It contains ShMOLLI implementation as in [this article](https://jcmr-online.biom
 ## TomatoOpenSource and TomatoFull
 **Important**
 
-There are two `Tomato` version available: `TomatoOpenSource` compiled with publicly available code and `TomatoFull` containing additionally private code used for `AmoebaPrivateNr2` fitting algorithm using Nelder–Mead algorithm based on Numerical Recipes. Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes book. Due to Numerical Recipes licence I cannot share this part of the code online. Please contact me if you would like to use this part of the code. To make up for this limitation we provide a number of alternative fitting procedures.
+There are two `Tomato` version available: `TomatoOpenSource` compiled with publicly available code and `TomatoFull` 
+containing additionally private code used for `AmoebaPrivateNr2` fitting algorithm using Nelder–Mead algorithm based 
+on Numerical Recipes. Original ShMOLLI (and based on it Tomato) uses code based on Numerical Recipes book. Due to 
+Numerical Recipes licence I cannot share this part of the code online. Please contact me if you would like to use this 
+part of the code. To make up for this limitation we provide a number of alternative fitting procedures.
 
 ## Contributing and code of conduct
 
@@ -29,30 +33,9 @@ Please see [contributing.md](contributing.md) and [codeofconduct.md](codeofcondu
 
 ## Troubleshooting
 
-*   missing msvcp140.dll  
-Download <https://www.microsoft.com/en-us/download/details.aspx?id=48145> as suggested in <https://stackoverflow.com/questions/32998902/msvcp140-dll-missing>
-
-## Notes
-
-*   **Continuous integration** was tested [in this repo](https://github.com/MRKonrad/ContinousIntegrationPlayground).
-*   **Gitmodules**: after `git clone` run `git submodule update --init --recursive` to get the submodules code.
-*   It would be nice to follow [CppCoreGuidlines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md) as far as C++98 allows.
-*   Maybe I can write a script for github releases with [github releases REST api](https://developer.github.com/v3/repos/releases/#create-a-release) and [curl REST api](http://www.codingpedia.org/ama/how-to-test-a-rest-api-from-command-line-with-curl/#12_HEAD_requests)?
-*   LMFIT - somehow windows does not like the static library, so the dynamic is used
-
-## TODO
-
-*   add acceptance test for 2param
-*   maybe rename calculatormolli to calculator3param? 
-*   maybe add calculator2param to produce different results?
-*   update comments in configuration yaml files
-*   re-organise start point calculation
-*   output SNR maps
-*   make sure SNR and nAmoebaCalls is the same as in Shmolli
-*   fix downloadITK_linux_osx
-*   separate projects for building tomato dependencies (done for lmfit)
-*   possibly I could make all FunctionsT1 object static
-*   write user-friendly build scripts (and use them in CI)
+*   Problem: missing msvcp140.dll  
+*   Solution: Download <https://www.microsoft.com/en-us/download/details.aspx?id=48145> as suggested in 
+<https://stackoverflow.com/questions/32998902/msvcp140-dll-missing>
 
 [zenodo_link]: https://zenodo.org/badge/latestdoi/142749215
 [zenodo_badge]: https://img.shields.io/badge/DOI-10.5281%2Fzenodo.1489791-blue.svg?style=flat-square
