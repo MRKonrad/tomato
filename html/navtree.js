@@ -3,7 +3,6 @@ var NAVTREE =
   [ "Tomato", "index.html", [
     [ "Code of Conduct", "md_codeofconduct.html", null ],
     [ "Contributing to TOMATO", "md_contributing.html", null ],
-    [ "NOTES", "md_notepad.html", null ],
     [ "TOMATO", "md__r_e_a_d_m_e.html", null ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
