@@ -17,7 +17,7 @@ TEST(OxCalculatorT1ShmolliOriginal, blood_test) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -43,7 +43,7 @@ TEST(OxCalculatorT1ShmolliOriginal, myocardium_test) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/myocardium.yaml";
+    char filePath [] = "testData/T1_myocardium.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 

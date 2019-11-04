@@ -17,7 +17,7 @@ TEST(OxFitterAmoebaPrivateNr2, performFitting) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -45,7 +45,7 @@ TEST(OxFitterAmoebaPrivateNr2, performFitting) {
 TEST(OxFitterAmoebaPrivateNr2, copyConstructor) {
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 

@@ -19,7 +19,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, f) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
     int nDims = 3;
@@ -50,7 +50,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, gradf) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
     int nDims = 3;
@@ -93,7 +93,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, fitting) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
     int nDims = 3;

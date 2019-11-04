@@ -126,7 +126,6 @@ MESSAGE("USE_LMFIT:            " ${USE_LMFIT})
 MESSAGE("USE_YAML:             " ${USE_YAML})
 MESSAGE("BUILD_APP:            " ${BUILD_APP})
 MESSAGE("Tomato_BUILD_TESTING: " ${Tomato_BUILD_TESTING})
-MESSAGE("BUILD_SHARED_LIBS:    " ${BUILD_SHARED_LIBS})
 MESSAGE("CMAKE_INSTALL_PREFIX: " ${CMAKE_INSTALL_PREFIX})
 
 # configure a header file to pass some of the CMake settings to the source code

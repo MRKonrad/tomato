@@ -26,6 +26,7 @@ namespace Ox {
         virtual std::vector<MeasureType> getSigns()     const { return _signs; }
         virtual std::vector<MeasureType> getSignal()    const { return _signal; }
         virtual std::vector<MeasureType> getInvTimes()  const { return _invTimes; }
+        virtual std::vector<MeasureType> getEchoTimes()  const { return _echoTimes; }
         virtual std::vector<MeasureType> getResultsMolli()      const { return _resultsMolli; }
         virtual std::vector<MeasureType> getResultsShmolli()    const { return _resultsShmolli; }
         virtual std::vector<MeasureType> getResultsTwoParam()   const { return _resultsTwoParam; }
@@ -61,6 +62,12 @@ namespace Ox {
                 throw std::runtime_error("Empty invTimes");
             }
             return &_invTimes.at(0);
+        }
+        virtual const MeasureType* getEchoTimesPtr()  const {
+            if (_echoTimes.size() == 0) {
+                throw std::runtime_error("Empty echoTimes");
+            }
+            return &_echoTimes.at(0);
         }
         virtual const MeasureType* getResultsMolliPtr()    const {
             if (_resultsMolli.size() == 0) {
@@ -103,6 +110,7 @@ namespace Ox {
         std::vector<MeasureType> _signal;
         std::vector<MeasureType> _signs;
         std::vector<MeasureType> _invTimes;
+        std::vector<MeasureType> _echoTimes;
 
         std::vector<MeasureType> _resultsMolli;
         std::vector<MeasureType> _resultsShmolli;

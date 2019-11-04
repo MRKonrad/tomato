@@ -75,7 +75,7 @@ namespace Ox {
          */
         const MeasureType *getInvTimes() const;
 
-        //const MeasureType *getEchoTimes() const;
+        const MeasureType *getEchoTimes() const;
 
         const MeasureType *getRepTimes() const;
 
@@ -167,7 +167,7 @@ namespace Ox {
 
             // arrays
             _InvTimes = 0;
-            //_EchoTimes = 0;
+            _EchoTimes = 0;
             _RepTimes = 0;
             _RelAcqTimes = 0;
             _SigMag = 0; // original one
@@ -230,7 +230,7 @@ namespace Ox {
         StartPointCalculator<MeasureType>* _StartPointCalculator;
 
         const MeasureType* _InvTimes;
-        //const MeasureType* _EchoTimes;
+        const MeasureType* _EchoTimes;
         const MeasureType* _RepTimes;
         const MeasureType* _RelAcqTimes;
         const MeasureType* _SigMag; // original one

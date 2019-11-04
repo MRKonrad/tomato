@@ -34,6 +34,7 @@ Please see [contributing.md](contributing.md) and [codeofconduct.md](codeofcondu
 ## Troubleshooting
 
 *   Problem: missing msvcp140.dll  
+
 *   Solution: Download <https://www.microsoft.com/en-us/download/details.aspx?id=48145> as suggested in 
 <https://stackoverflow.com/questions/32998902/msvcp140-dll-missing>
 

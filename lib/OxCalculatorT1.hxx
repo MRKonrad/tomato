@@ -63,12 +63,15 @@ namespace Ox {
         return _InvTimes;
     }
 
-//    template< typename MeasureType >
-//    const MeasureType *
-//    CalculatorT1<MeasureType>
-//    ::getEchoTimes() const {
-//        return _EchoTimes;
-//    }
+    template< typename MeasureType >
+    const MeasureType *
+    CalculatorT1<MeasureType>
+    ::getEchoTimes() const {
+//        if (!_EchoTimes) {
+//            throw std::runtime_error("_EchoTimes equals 0. Set _EchoTimes");
+//        };
+        return _EchoTimes;
+    }
 
     template< typename MeasureType >
     const MeasureType *
@@ -307,7 +310,7 @@ namespace Ox {
                   << " with nSamples: " << nSamples
                   << " nDims: " << _nDims;
         KWUtil::printArray((bool)_InvTimes, nSamples, _InvTimes,       (char*)"\nInvTimes:    ");
-        //KWUtil::printArray((bool)_EchoTimes, nSamples, _EchoTimes,       (char*)"\nEchoTimes:    ");
+        KWUtil::printArray((bool)_EchoTimes, nSamples, _EchoTimes,     (char*)"\nEchoTimes:    ");
         KWUtil::printArray((bool)_RepTimes, nSamples, _RepTimes,       (char*)"\nRepTimes:    ");
         KWUtil::printArray((bool)_RelAcqTimes, nSamples, _RelAcqTimes, (char*)"\nRelAcqTimes: ");
         KWUtil::printArray((bool)_SigMag, nSamples, _SigMag,           (char*)"\nSigMag:      ");

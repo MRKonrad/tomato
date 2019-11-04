@@ -34,8 +34,8 @@ TEST(itkSortInvTimesImageFilter, sortInvTimesAndMag) {
     typedef itk::Testing::ComparisonImageFilter<TImageIn, TImageIn> ComparisonImageFilter3dType;
 
     std::vector< std::string > filePaths;
-    filePaths.push_back("testData/blood.yaml");
-    filePaths.push_back("testData/myocardium.yaml");
+    filePaths.push_back("testData/T1_blood.yaml");
+    filePaths.push_back("testData/T1_myocardium.yaml");
 
     int nRows = 4;
     int nCols = 5;

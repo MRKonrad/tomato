@@ -1,41 +1,38 @@
 /*!
- * \file OxFunctionsT1Shmolli_test.cpp
+ * \file OxFunctionsT2ThreeParams_test.cpp
  * \author Konrad Werys
  * \date 2018/07/29
  */
 
-#include "CmakeConfigForTomato.h"
-
 #include "gtest/gtest.h"
 #include "OxTestData.h"
 
-#ifdef USE_PRIVATE_NR2
-#include "OxFunctionsT1Shmolli.h"
+#include "OxFunctionsT2ThreeParam.h"
 
-TEST(OxFunctionsT1Shmolli, calcModelValueTest) {
+TEST(OxFunctionsT2ThreeParams, calcModelValueTest) {
 
     typedef double TYPE;
 
-    TYPE params[3] = {100, 200, 1000};
+    TYPE params[3] = {5, 100, 50};
 
-    Ox::FunctionsT1Shmolli<TYPE> functionsObject;
+    Ox::FunctionsT2ThreeParam<TYPE> functionsObject;
 
-    EXPECT_DOUBLE_EQ(functionsObject.calcModelValue(params, 0), 100); // because shmolli
+    EXPECT_DOUBLE_EQ(functionsObject.calcModelValue(params, 0), 105);
 }
 
-TEST(OxFunctionsT1Shmolli, calcLSResidualsTest) {
+TEST(OxFunctionsT2ThreeParams, calcLSResidualsTest) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/T1_blood.yaml";
+    char filePath [] = "testData/T2_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
     TYPE params[3] = {0, 0, 0};
 
-    Ox::FunctionsT1Shmolli<TYPE> functionsObject;
+    Ox::FunctionsT2ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
+    functionsObject.setEchoTimes(testData.getEchoTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
     TYPE *residuals = new TYPE[nSamples];
@@ -48,33 +45,37 @@ TEST(OxFunctionsT1Shmolli, calcLSResidualsTest) {
     delete [] residuals;
 }
 
-TEST(OxFunctionsT1Shmolli, calcLSJacobianTest) {
+TEST(OxFunctionsT2ThreeParams, calcLSJacobianTest) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/T1_blood.yaml";
+    char filePath [] = "testData/T2_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
-    TYPE params[3] = {0, 0, 1200};
+    TYPE params[3] = {0, 0, 50};
 
-    Ox::FunctionsT1Shmolli<TYPE> functionsObject;
+    Ox::FunctionsT2ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
+    functionsObject.setEchoTimes(testData.getEchoTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
-    TYPE jacobian[7*3];
+    TYPE jacobian[11*3];
 
     functionsObject.calcLSJacobian(params, jacobian);
 
-    TYPE correct[7*3] = {
-            1, -0.920044,   0,
-            1, -0.860708,   0,
-            1, -0.805198,   0,
-            1, -0.239508,   0,
-            1, -0.0619868,  0,
-            1, -0.0167532,  0,
-            1, -0.00461166, 0,
+    TYPE correct[11*3] = {
+            1,        1,    0,
+            1, 0.367879,    0,
+            1, 0.135335,    0,
+            1, 0.0497871,   0,
+            1, 0.0183156,   0,
+            1, 0.00673795,  0,
+            1, 0.00247875,  0,
+            1, 0.000911882, 0,
+            1, 0.000335463, 0,
+            1, 0.00012341,  0,
+            1, 4.53999e-05, 0,
     };
 
     for (int iSample = 0; iSample < nSamples; iSample++) {
@@ -84,81 +85,81 @@ TEST(OxFunctionsT1Shmolli, calcLSJacobianTest) {
     }
 }
 
-TEST(OxFunctionsT1Shmolli, calcCostValueTest) {
+TEST(OxFunctionsT2ThreeParams, calcCostValueTest) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/T1_blood.yaml";
+    char filePath [] = "testData/T2_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
     TYPE params[3] = {0, 0, 0};
 
-    Ox::FunctionsT1Shmolli<TYPE> functionsObject;
+    Ox::FunctionsT2ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
+    functionsObject.setEchoTimes(testData.getEchoTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
-    EXPECT_DOUBLE_EQ(functionsObject.calcCostValue(params), 17169);
+    EXPECT_DOUBLE_EQ(functionsObject.calcCostValue(params), 18630.38);
 }
 
-TEST(OxFunctionsT1Shmolli, calcCostDerivativeTest) {
+TEST(OxFunctionsT2ThreeParams, calcCostDerivativeTest) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/T1_blood.yaml";
+    char filePath [] = "testData/T2_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
-    TYPE params[3] = {100, 200, 1200};
+    TYPE params[3] = {5, 100, 50};
 
-    Ox::FunctionsT1Shmolli<TYPE> functionsObject;
+    Ox::FunctionsT2ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
+    functionsObject.setEchoTimes(testData.getEchoTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
     TYPE derivative[] = {0, 0, 0};
     functionsObject.calcCostDerivative(params, derivative);
 
-    EXPECT_NEAR(derivative[0], -425.52433072265057, 1e-3);
-    EXPECT_NEAR(derivative[1],  588.84996553808264, 1e-3);
-    EXPECT_NEAR(derivative[2],    7.36064616633549, 1e-3);
+    EXPECT_NEAR(derivative[0], -190.8099429664577, 1e-3);
+    EXPECT_NEAR(derivative[1],  -19.7011203248681, 1e-3);
+    EXPECT_NEAR(derivative[2],  -87.4480936756914, 1e-3);
 
 }
 
-TEST(OxFunctionsT1Shmolli, copyConstructor) {
+TEST(OxFunctionsT2ThreeParams, copyConstructor) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/T1_blood.yaml";
+    char filePath [] = "testData/T2_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
-    TYPE signal[7] = {1, 2, 3, 4, 5, 6, 7};
-    TYPE newSignal[7] = {2, 2, 3, 4, 5, 6, 7};
-    TYPE newSignal2[7] = {3, 2, 3, 4, 5, 6, 7};
+    TYPE signal[11] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+    TYPE newSignal[11] = {2, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+    TYPE newSignal2[11] = {3, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 
     // init the necessary objects
-    Ox::FunctionsT1Shmolli<TYPE> functionsObject;
+    Ox::FunctionsT2ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(testData.getNSamples());
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
+    functionsObject.setEchoTimes(testData.getEchoTimesPtr());
     functionsObject.setSignal(signal);
 
     // copy and set signal
-    Ox::FunctionsT1Shmolli<TYPE> functionsObjectCopy = functionsObject;
+    Ox::FunctionsT2ThreeParam<TYPE> functionsObjectCopy = functionsObject;
     functionsObjectCopy.setSignal(newSignal);
 
     // copy and set signal
-    Ox::FunctionsT1Shmolli<TYPE> functionsObjectCopy2(functionsObject);
+    Ox::FunctionsT2ThreeParam<TYPE> functionsObjectCopy2(functionsObject);
     functionsObjectCopy2.setSignal(newSignal2);
 
     // copy should preserve nSamples
     EXPECT_EQ(functionsObjectCopy.getNSamples(), nSamples);
     EXPECT_EQ(functionsObjectCopy2.getNSamples(), nSamples);
 
-    // copy should reset invTimes pointer
-    EXPECT_FALSE(functionsObjectCopy.getInvTimes());
-    EXPECT_FALSE(functionsObjectCopy2.getInvTimes());
+    // copy should reset echoTimes pointer
+    EXPECT_FALSE(functionsObjectCopy.getEchoTimes());
+    EXPECT_FALSE(functionsObjectCopy2.getEchoTimes());
 
     // copy should not preserve signal pointer
     EXPECT_NE(functionsObject.getSignal(), functionsObjectCopy.getSignal());
@@ -170,4 +171,3 @@ TEST(OxFunctionsT1Shmolli, copyConstructor) {
 
 }
 
-#endif // USE_PRIVATE_NR2

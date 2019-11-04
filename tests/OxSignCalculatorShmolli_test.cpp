@@ -16,7 +16,7 @@ TEST(OxSignCalculatorShmolli, calculateSign_blood) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -45,7 +45,7 @@ TEST(OxSignCalculatorShmolli, calculateSign_myocardium) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/myocardium.yaml";
+    char filePath [] = "testData/T1_myocardium.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -74,7 +74,7 @@ TEST(OxSignCalculatorShmolli, calculateSign_throwIfInvTimesNotSet) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -99,7 +99,7 @@ TEST(OxSignCalculatorShmolli, copConstructor) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 

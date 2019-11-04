@@ -14,7 +14,7 @@ TEST(OxSignCalculatorRealImag, disp) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -42,7 +42,7 @@ TEST(OxSignCalculatorRealImag, calculateSign_blood) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -70,7 +70,7 @@ TEST(OxSignCalculatorRealImag, calculateSign_myocardium) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/myocardium.yaml";
+    char filePath [] = "testData/T1_myocardium.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -98,7 +98,7 @@ TEST(OxSignCalculatorRealImag, calculateSign_throwIfSignalPhaNotSet) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -122,7 +122,7 @@ TEST(OxSignCalculatorRealImag, copyConstructor) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 

@@ -28,7 +28,7 @@ TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -65,7 +65,7 @@ TEST(OxCalculatorT1Molli, calculate_throwIfInvTimesNotSorted) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -108,7 +108,7 @@ TEST(OxCalculatorT1Molli, calculate_WithoutSigns) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -144,7 +144,7 @@ TEST(OxCalculatorT1Molli, calculate_WithSigns) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -180,7 +180,7 @@ TEST(OxCalculatorT1Molli, copyConstructor) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -238,7 +238,7 @@ TEST(OxCalculatorT1Molli, correctSDs) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -279,11 +279,11 @@ TEST(OxCalculatorT1Molli, correctSDs) {
 //    typedef double TYPE;
 //    int nRepetitions = 10000;
 //
-//    char filePath5 [] = "testData/blood_5samples.yaml";
+//    char filePath5 [] = "testData/T1_blood_5samples.yaml";
 //    Ox::TestData<TYPE> testData5(filePath5);
 //    int nSamples5 = testData5.getNSamples();
 //
-//    char filePath7 [] = "testData/blood.yaml";
+//    char filePath7 [] = "testData/T1_blood.yaml";
 //    Ox::TestData<TYPE> testData7(filePath7);
 //    int nSamples7 = testData7.getNSamples();
 //

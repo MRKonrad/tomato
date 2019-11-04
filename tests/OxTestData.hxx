@@ -19,6 +19,7 @@ namespace Ox {
         
         // tokens to be parsed
         parser._sequences["invTimes"];
+        parser._sequences["echoTimes"];
         parser._sequences["signalMag"]; 
         parser._sequences["signalPha"]; 
         parser._sequences["signs"]; 
@@ -34,14 +35,22 @@ namespace Ox {
         copyStrVectorToMemberVector(parser._sequences["signalPha"], _signalPha);
         copyStrVectorToMemberVector(parser._sequences["signs"], _signs);
         copyStrVectorToMemberVector(parser._sequences["invTimes"], _invTimes);
+        copyStrVectorToMemberVector(parser._sequences["echoTimes"], _echoTimes);
 
         copyStrVectorToMemberVector(parser._sequences["resultsMolli"], _resultsMolli);
         copyStrVectorToMemberVector(parser._sequences["resultsShmolli"], _resultsShmolli);
         copyStrVectorToMemberVector(parser._sequences["resultsTwoParam"], _resultsTwoParam);
         copyStrVectorToMemberVector(parser._sequences["resultsThreeParam"], _resultsThreeParam);
 
-        _nSamples = _invTimes.size();
-        
+        int nInvTimes = _invTimes.size();
+        int nEchoTimes = _echoTimes.size();
+
+        if (nInvTimes != 0) {
+            _nSamples = nInvTimes;
+        } else if (nEchoTimes != 0) {
+            _nSamples = nEchoTimes;
+        }
+
         calcSignal();
     }
 

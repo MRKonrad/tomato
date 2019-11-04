@@ -17,8 +17,8 @@ TEST(OxTestItkImagesFactory, generateImagesWithoutErrros) {
     typedef itk::Image <TYPE, 3> Image3dType;
 
     std::vector< std::string > filePaths;
-    filePaths.push_back("testData/blood.yaml");
-    filePaths.push_back("testData/myocardium.yaml");
+    filePaths.push_back("testData/T1_blood.yaml");
+    filePaths.push_back("testData/T1_myocardium.yaml");
 
     int nRows = 30; //y
     int nCols = 20; //x

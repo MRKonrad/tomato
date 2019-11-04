@@ -27,7 +27,7 @@ TEST(OxCalculatorT1_saturation_recovery, twoParam) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/saturation_recovery.yaml";
+    char filePath [] = "testData/T1_saturation_recovery.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -61,7 +61,7 @@ TEST(OxCalculatorT1_saturation_recovery, threeParam) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/saturation_recovery.yaml";
+    char filePath [] = "testData/T1_saturation_recovery.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -97,7 +97,7 @@ TEST(OxCalculatorT1_saturation_recovery, threeParam) {
 //
 //    typedef double TYPE;
 //
-//    char filePath [] = "testData/blood.yaml";
+//    char filePath [] = "testData/T1_blood.yaml";
 //    Ox::TestData<TYPE> testData(filePath);
 //    int nSamples = testData.getNSamples();
 //
@@ -133,7 +133,7 @@ TEST(OxCalculatorT1_saturation_recovery, threeParam) {
 //
 //    typedef double TYPE;
 //
-//    char filePath [] = "testData/blood.yaml";
+//    char filePath [] = "testData/T1_blood.yaml";
 //    Ox::TestData<TYPE> testData(filePath);
 //    int nSamples = testData.getNSamples();
 //
@@ -191,7 +191,7 @@ TEST(OxCalculatorT1_saturation_recovery, threeParam) {
 //
 //    typedef double TYPE;
 //
-//    char filePath [] = "testData/blood.yaml";
+//    char filePath [] = "testData/T1_blood.yaml";
 //    Ox::TestData<TYPE> testData(filePath);
 //    int nSamples = testData.getNSamples();
 //

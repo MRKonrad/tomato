@@ -38,7 +38,7 @@ TEST(OxCalculatorT1Shmolli, calculate_ICE) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/ice.yaml";
+    char filePath [] = "testData/T1_ice.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -74,7 +74,7 @@ TEST(OxCalculatorT1Shmolli, calculate_doNotCalculateIfMaxIterZero) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -111,7 +111,7 @@ TEST(OxCalculatorT1Shmolli, calculate_throwIfInvTimesNotSorted) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -154,7 +154,7 @@ TEST(OxCalculatorT1Shmolli, calculate_WithoutSigns_AmoebaVnl) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -192,7 +192,7 @@ TEST(OxCalculatorT1Shmolli, calculate_WithoutSigns_LevMarVnl) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -230,7 +230,7 @@ TEST(OxCalculatorT1Shmolli, calculate_WithSigns) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -267,7 +267,7 @@ TEST(OxCalculatorT1Shmolli, copyConstructor) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 

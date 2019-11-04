@@ -35,8 +35,8 @@ TEST(OxImageCalculatorT1, calculate_molli_no_multithread) {
     typedef double TYPE;
 
     std::vector< std::string > filePaths;
-    filePaths.push_back("testData/blood.yaml");
-    filePaths.push_back("testData/myocardium.yaml");
+    filePaths.push_back("testData/T1_blood.yaml");
+    filePaths.push_back("testData/T1_myocardium.yaml");
 
     int nRows = 10;
     int nCols = 8;
@@ -140,8 +140,8 @@ TEST(OxImageCalculatorT1, calculate_shmolli_no_multithread) {
     typedef double TYPE;
 
     std::vector< std::string > filePaths;
-    filePaths.push_back("testData/blood.yaml");
-    filePaths.push_back("testData/myocardium.yaml");
+    filePaths.push_back("testData/T1_blood.yaml");
+    filePaths.push_back("testData/T1_myocardium.yaml");
 
     int nRows = 10;
     int nCols = 8;

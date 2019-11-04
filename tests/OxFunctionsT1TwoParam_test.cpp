@@ -25,7 +25,7 @@ TEST(OxFunctionsT1TwoParams, calcLSResidualsTest) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/saturation_recovery.yaml";
+    char filePath [] = "testData/T1_saturation_recovery.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -50,7 +50,7 @@ TEST(OxFunctionsT1TwoParams, calcLSJacobianTest) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/saturation_recovery.yaml";
+    char filePath [] = "testData/T1_saturation_recovery.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -90,7 +90,7 @@ TEST(OxFunctionsT1TwoParams, calcCostValueTest) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/saturation_recovery.yaml";
+    char filePath [] = "testData/T1_saturation_recovery.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -108,7 +108,7 @@ TEST(OxFunctionsT1TwoParams, calcCostDerivativeTest) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/saturation_recovery.yaml";
+    char filePath [] = "testData/T1_saturation_recovery.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
@@ -131,7 +131,7 @@ TEST(OxFunctionsT1TwoParams, copyConstructor) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/saturation_recovery.yaml";
+    char filePath [] = "testData/T1_saturation_recovery.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 

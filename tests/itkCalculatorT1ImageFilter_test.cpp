@@ -32,8 +32,8 @@ TEST(itkCalculatorT1ImageFilter, calculate) {
     typedef itk::Testing::ComparisonImageFilter<TImageOut, TImageOut> ComparisonImageFilter2dType;
 
     std::vector< std::string > filePaths;
-    filePaths.push_back("testData/blood.yaml");
-    filePaths.push_back("testData/myocardium.yaml");
+    filePaths.push_back("testData/T1_blood.yaml");
+    filePaths.push_back("testData/T1_myocardium.yaml");
 
     int nRows = 2;
     int nCols = 3;
@@ -106,8 +106,8 @@ TEST(itkCalculatorT1ImageFilter, calculate_no_phase_given) {
     typedef itk::Testing::ComparisonImageFilter<TImageOut, TImageOut> ComparisonImageFilter2dType;
 
     std::vector< std::string > filePaths;
-    filePaths.push_back("testData/blood.yaml");
-    filePaths.push_back("testData/myocardium.yaml");
+    filePaths.push_back("testData/T1_blood.yaml");
+    filePaths.push_back("testData/T1_myocardium.yaml");
 
     int nRows = 4;
     int nCols = 5;

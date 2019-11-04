@@ -96,7 +96,7 @@ TEST(lmfit, simpleT1_test) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/myocardium.yaml";
+    char filePath [] = "testData/T1_myocardium.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 

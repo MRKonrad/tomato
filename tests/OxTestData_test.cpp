@@ -12,7 +12,7 @@
 TEST(OxTestData, read_file) {
 
     typedef double TYPE;
-    char filePath [] = "testData/blood.yaml";
+    char filePath [] = "testData/T1_blood.yaml";
 
     Ox::TestData<TYPE> testData(filePath);
 
