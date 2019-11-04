@@ -1,2 +1,3 @@
 \form#0:$ A-B\exp(t/T_1^*) $
 \form#1:$ A(1 - exp( -time / T1 )) $
+\form#2:$ A + B\exp(t/T_2) $

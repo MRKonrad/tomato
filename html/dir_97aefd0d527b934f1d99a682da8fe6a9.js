@@ -42,6 +42,8 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "OxFunctionsT1ThreeParam.hxx", "_ox_functions_t1_three_param_8hxx_source.html", null ],
     [ "OxFunctionsT1TwoParam.h", "_ox_functions_t1_two_param_8h_source.html", null ],
     [ "OxFunctionsT1TwoParam.hxx", "_ox_functions_t1_two_param_8hxx_source.html", null ],
+    [ "OxFunctionsT2ThreeParam.h", "_ox_functions_t2_three_param_8h_source.html", null ],
+    [ "OxFunctionsT2ThreeParam.hxx", "_ox_functions_t2_three_param_8hxx_source.html", null ],
     [ "OxImageCalculatorT1.h", "_ox_image_calculator_t1_8h_source.html", null ],
     [ "OxImageCalculatorT1.hxx", "_ox_image_calculator_t1_8hxx_source.html", null ],
     [ "OxSignCalculator.h", "_ox_sign_calculator_8h.html", [

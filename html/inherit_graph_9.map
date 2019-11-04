@@ -1,6 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_ox_1_1_functions_t1.html" title="Container for a model function, cost function and Least&#45;Squares function. And derivatives. " alt="" coords="5,70,187,111"/>
+<area shape="rect" id="node1" href="$class_ox_1_1_functions_t1.html" title="Container for a model function, cost function and Least&#45;Squares function. And derivatives. " alt="" coords="5,103,187,145"/>
 <area shape="rect" id="node2" href="$class_ox_1_1_functions_t1_shmolli.html" title="Container for a CalculatorShmolli model function , cost function and Least&#45;Squares function and deriv..." alt="" coords="249,5,412,46"/>
 <area shape="rect" id="node3" href="$class_ox_1_1_functions_t1_three_param.html" title="Container for a ThreeParams model function , cost function and Least&#45;Squares function and derivatives..." alt="" coords="235,70,426,111"/>
 <area shape="rect" id="node4" href="$class_ox_1_1_functions_t1_two_param.html" title="Container for a TwoParams model function , cost function and Least&#45;Squares function and derivatives..." alt="" coords="239,135,422,177"/>
+<area shape="rect" id="node5" href="$class_ox_1_1_functions_t2_three_param.html" title="Container for a ThreeParams model function , cost function and Least&#45;Squares function and derivatives..." alt="" coords="235,201,426,242"/>
 </map>

@@ -16,6 +16,7 @@ var annotated =
       [ "FunctionsT1Shmolli", "class_ox_1_1_functions_t1_shmolli.html", "class_ox_1_1_functions_t1_shmolli" ],
       [ "FunctionsT1ThreeParam", "class_ox_1_1_functions_t1_three_param.html", "class_ox_1_1_functions_t1_three_param" ],
       [ "FunctionsT1TwoParam", "class_ox_1_1_functions_t1_two_param.html", "class_ox_1_1_functions_t1_two_param" ],
+      [ "FunctionsT2ThreeParam", "class_ox_1_1_functions_t2_three_param.html", "class_ox_1_1_functions_t2_three_param" ],
       [ "ImageCalculatorT1", "class_ox_1_1_image_calculator_t1.html", "class_ox_1_1_image_calculator_t1" ],
       [ "SignCalculator", "class_ox_1_1_sign_calculator.html", "class_ox_1_1_sign_calculator" ],
       [ "SignCalculatorNoSign", "class_ox_1_1_sign_calculator_no_sign.html", "class_ox_1_1_sign_calculator_no_sign" ],
