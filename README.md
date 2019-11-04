@@ -7,16 +7,16 @@ post-processing software. To complement the core library implementation, a ready
 
 It contains ShMOLLI implementation as in [this article](https://jcmr-online.biomedcentral.com/articles/10.1186/1532-429X-12-69).   
 
-| System                                    |     Status                                                         |
-|-------------------------------------------|:------------------------------------------------------------------:|
-| :tomato: [Tutorial][toamto_docs_link] :tomato: | [Tomato Docs][toamto_docs_link]                               |
-| Code documentation                        | [Doxygen](https://mrkonrad.github.io/tomato/html/md__r_e_a_d_m_e.html)|
-| [DOI][zenodo_link]                        | [![DOI][zenodo_badge]][zenodo_link]                                |
-| [OSX/Linux build - Travis][travis_link]   | [![Travis (.org)][travis_badge]][travis_link]                      |
-| [Windows build - AppVeyor][appveyor_link] | [![AppVeyor][appveyor_badge]][appveyor_link]                       |
-| [Code quality - Codacy][codacy_link]      | [![Codacy Badge][codacy_badge]][codacy_link]                       |
-| [Test coverage - Codecov][codecov_link]   | [![codecov][codecov_badge]][codecov_link]                          |
-| [Downloads][downloads_link]               | [![GitHub Releases (by Release)][downloads_badge]][downloads_link] |
+| System                                         |     Status                                            |
+|------------------------------------------------|:-----------------------------------------------------:|
+| :tomato: [Tutorial][toamto_docs_link] :tomato: | :tomato: [Tomato Docs][toamto_docs_link]   :tomato:   |
+| [Code documentation][doxygen_link]             | [Doxygen][doxygen_link]                               |
+| [DOI][zenodo_link]                             | [![DOI][zenodo_badge]][zenodo_link]                   |
+| [OSX/Linux build - Travis][travis_link]        | [![Travis (.org)][travis_badge]][travis_link]         |
+| [Windows build - AppVeyor][appveyor_link]      | [![AppVeyor][appveyor_badge]][appveyor_link]          |
+| [Code quality - Codacy][codacy_link]           | [![Codacy Badge][codacy_badge]][codacy_link]          |
+| [Test coverage - Codecov][codecov_link]        | [![codecov][codecov_badge]][codecov_link]             |
+| [Downloads][downloads_link]                    | [![GitHub Releases][downloads_badge]][downloads_link] |
 
 ## TomatoOpenSource and TomatoFull
 **Important**
@@ -66,4 +66,5 @@ Download <https://www.microsoft.com/en-us/download/details.aspx?id=48145> as sug
 [codecov_badge]: https://img.shields.io/codecov/c/github/MRKonrad/tomato.svg?style=flat-square
 [downloads_link]: https://github.com/MRKonrad/tomato/releases
 [downloads_badge]: https://img.shields.io/github/downloads/MRKonrad/tomato/total.svg?style=flat-square
-[toamto_docs_link]: https://github.com/MRKonrad/tomato_docs
+[doxygen_link]: https://mrkonrad.github.io/tomato/html/md__r_e_a_d_m_e.html
+[toamto_docs_link]: https://mrkonrad.github.io/tomato_docs/
