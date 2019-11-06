@@ -32,6 +32,7 @@ namespace Ox {
         const MeasureType *getInputStartPoint() const {
             return _InputStartPoint;
         }
+
         MeasureType *getCalculatedStartPoint() const {
             if (!_CalculatedStartPoint) throw std::runtime_error("_CalculatedStartPoint equals 0. Set _CalculatedStartPoint");
             return _CalculatedStartPoint;
@@ -40,12 +41,35 @@ namespace Ox {
         int getNDims() const { return _nDims; }
 
         //setters
-        virtual void setNDims(int nDims) { _nDims = nDims; }
+        virtual void setInputStartPoint(const MeasureType *_InputStartPoint) {
+
+            if (_nDimsChanged){
+                delete[] this->_InputStartPoint;
+                this->_InputStartPoint = new MeasureType[this->_nDims];
+                _nDimsChanged = false;
+            }
+
+            if (!_InputStartPoint) {
+                this->_InputStartPoint = new MeasureType[this->_nDims];
+            }
+
+            for (int i = 0; i < this->getNDims(); i++){
+                StartPointCalculator::_InputStartPoint[i] = _InputStartPoint[i];
+            }
+
+        }
+
+        virtual void setNDims(int _nDims) {
+            if (StartPointCalculator::_nDims != _nDims) {
+                StartPointCalculator::_nDims = _nDims;
+                _nDimsChanged = true;
+            }
+        }
+
         virtual void setInvTimes(const MeasureType *_InvTimes) { StartPointCalculator::_InvTimes = _InvTimes; }
         virtual void setEchoTimes(const MeasureType *_EchoTimes) { StartPointCalculator::_EchoTimes = _EchoTimes; }
         virtual void setSigMag(const MeasureType *_SigMag) { StartPointCalculator::_SigMag = _SigMag; }
         virtual void setSigns(const MeasureType *_Signs) { StartPointCalculator::_Signs = _Signs; }
-        virtual void setInputStartPoint(const MeasureType *_InputStartPoint) { StartPointCalculator::_InputStartPoint = _InputStartPoint; }
         virtual void setCalculatedStartPoint(MeasureType *_CalculatedStartPoint) { StartPointCalculator::_CalculatedStartPoint = _CalculatedStartPoint; }
         virtual void setNSamples(int _nSamples) { StartPointCalculator::_nSamples = _nSamples; }
 
@@ -82,6 +106,7 @@ namespace Ox {
 
             _nSamples = 0;
             _nDims = 0;
+            _nDimsChanged = false;
         }
 
         /**
@@ -93,6 +118,7 @@ namespace Ox {
 
             _nSamples = old._nSamples;
             _nDims = old._nDims;
+            _nDimsChanged = old._nDimsChanged;
         };
 
         /**
@@ -105,10 +131,12 @@ namespace Ox {
          * \brief do not forget about the virtual destructor, see
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
-        virtual ~StartPointCalculator(){};
+        virtual ~StartPointCalculator(){
+            delete [] this->_InputStartPoint;
+        };
 
     protected:
-        const MeasureType* _InputStartPoint;
+        MeasureType* _InputStartPoint;
         MeasureType* _CalculatedStartPoint;
 
         const MeasureType* _InvTimes;
@@ -118,6 +146,8 @@ namespace Ox {
 
         int _nSamples;
         int _nDims; // special ShMOLLI parameter
+
+        bool _nDimsChanged;
 
     };
 } //namespace Ox

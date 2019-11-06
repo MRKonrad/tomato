@@ -105,19 +105,10 @@ namespace Ox {
         }
 
         /**
-          * \brief setNDims should only allow for 3 dimenstions as this calculator only works with 3 dimensions
-          */
-        virtual void setNDims(int nDims) {
-            if (this->_nDims != nDims){
-                throw std::runtime_error("StartPointCalculatorShmolli: Incorrect number of dimensions nDims");
-            }
-        }
-
-        /**
           * \brief constructor
           */
         StartPointCalculatorShmolli() : StartPointCalculator<MeasureType>(){
-            this->_nDims = 3;
+            this->setNDims(3);
             _DefaultStartPoint[0] = 100;
             _DefaultStartPoint[1] = 200;
             _DefaultStartPoint[2] = 1000;
@@ -133,7 +124,7 @@ namespace Ox {
             _DefaultStartPoint[1] = old._DefaultStartPoint[1];
             _DefaultStartPoint[2] = old._DefaultStartPoint[2];
             this->_nSamples = old._nSamples;
-            this->_nDims = old._nDims;
+            this->setNDims(old._nDims);
         };
 
         /**
