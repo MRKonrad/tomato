@@ -154,15 +154,27 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memdesc:aaede509b017e5da6102a230ad979539a"><td class="mdescLeft">&#160;</td><td class="mdescRight">do not forget about the virtual destructor, see <a href="https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors">https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors</a> <br/></td></tr>
 <tr class="separator:aaede509b017e5da6102a230ad979539a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_ox_1_1_start_point_calculator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_ox_1_1_start_point_calculator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_ox_1_1_start_point_calculator.html">Ox::StartPointCalculator&lt; MeasureType &gt;</a></td></tr>
+<tr class="memitem:a01bcfb382bec0c4c28ae2bb5783b458c inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a01bcfb382bec0c4c28ae2bb5783b458c"></a>
+const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getInputStartPoint</b> () const </td></tr>
+<tr class="separator:a01bcfb382bec0c4c28ae2bb5783b458c inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48b39c1d6bb733821f7297593e424728 inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a48b39c1d6bb733821f7297593e424728"></a>
 MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getCalculatedStartPoint</b> () const </td></tr>
 <tr class="separator:a48b39c1d6bb733821f7297593e424728 inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75c73487e21a0f4920762c1efc96d573 inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75c73487e21a0f4920762c1efc96d573"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getNDims</b> () const </td></tr>
 <tr class="separator:a75c73487e21a0f4920762c1efc96d573 inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac76047ce4b0d474203cae066471cce61 inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac76047ce4b0d474203cae066471cce61"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setInputStartPoint</b> (const MeasureType *_InputStartPoint)</td></tr>
+<tr class="separator:ac76047ce4b0d474203cae066471cce61 inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02b51af6d6019cfc47d04b752ad96c86 inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a02b51af6d6019cfc47d04b752ad96c86"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setNDims</b> (int _nDims)</td></tr>
+<tr class="separator:a02b51af6d6019cfc47d04b752ad96c86 inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0632bd0dcf7707930058d63e2176fc7a inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0632bd0dcf7707930058d63e2176fc7a"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setInvTimes</b> (const MeasureType *_InvTimes)</td></tr>
 <tr class="separator:a0632bd0dcf7707930058d63e2176fc7a inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab49fe45a4ee7b415edd0948c9fc76fbb inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab49fe45a4ee7b415edd0948c9fc76fbb"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setEchoTimes</b> (const MeasureType *_EchoTimes)</td></tr>
+<tr class="separator:ab49fe45a4ee7b415edd0948c9fc76fbb inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cff5323e92bc00fdc9baa2a3eef7a37 inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7cff5323e92bc00fdc9baa2a3eef7a37"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setSigMag</b> (const MeasureType *_SigMag)</td></tr>
 <tr class="separator:a7cff5323e92bc00fdc9baa2a3eef7a37 inherit pub_methods_class_ox_1_1_start_point_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -201,12 +213,18 @@ Protected Attributes</h2></td></tr>
 MeasureType&#160;</td><td class="memItemRight" valign="bottom"><b>_DefaultStartPoint</b> [3]</td></tr>
 <tr class="separator:acb458533b900c9088d1dd7be30183ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_ox_1_1_start_point_calculator"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_ox_1_1_start_point_calculator')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_ox_1_1_start_point_calculator.html">Ox::StartPointCalculator&lt; MeasureType &gt;</a></td></tr>
+<tr class="memitem:a92176ada269bb53017ed3cbedb3b629d inherit pro_attribs_class_ox_1_1_start_point_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92176ada269bb53017ed3cbedb3b629d"></a>
+MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>_InputStartPoint</b></td></tr>
+<tr class="separator:a92176ada269bb53017ed3cbedb3b629d inherit pro_attribs_class_ox_1_1_start_point_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90c26143db22a371533de08a87cdada0 inherit pro_attribs_class_ox_1_1_start_point_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90c26143db22a371533de08a87cdada0"></a>
 MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>_CalculatedStartPoint</b></td></tr>
 <tr class="separator:a90c26143db22a371533de08a87cdada0 inherit pro_attribs_class_ox_1_1_start_point_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64929ca24726ddf99017b6f18cc03e29 inherit pro_attribs_class_ox_1_1_start_point_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64929ca24726ddf99017b6f18cc03e29"></a>
 const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>_InvTimes</b></td></tr>
 <tr class="separator:a64929ca24726ddf99017b6f18cc03e29 inherit pro_attribs_class_ox_1_1_start_point_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7549a2a735665d8b204c230c817fc5d4 inherit pro_attribs_class_ox_1_1_start_point_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7549a2a735665d8b204c230c817fc5d4"></a>
+const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>_EchoTimes</b></td></tr>
+<tr class="separator:a7549a2a735665d8b204c230c817fc5d4 inherit pro_attribs_class_ox_1_1_start_point_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cf615178da5bb3af984eea616548e05 inherit pro_attribs_class_ox_1_1_start_point_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5cf615178da5bb3af984eea616548e05"></a>
 const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>_SigMag</b></td></tr>
 <tr class="separator:a5cf615178da5bb3af984eea616548e05 inherit pro_attribs_class_ox_1_1_start_point_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -219,6 +237,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_nSamples</b></td></tr
 <tr class="memitem:a1bee9378aff7741838dad45ff6d5dc1d inherit pro_attribs_class_ox_1_1_start_point_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bee9378aff7741838dad45ff6d5dc1d"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>_nDims</b></td></tr>
 <tr class="separator:a1bee9378aff7741838dad45ff6d5dc1d inherit pro_attribs_class_ox_1_1_start_point_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a800e7f49b7956602b4ae9e4eb718eadd inherit pro_attribs_class_ox_1_1_start_point_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a800e7f49b7956602b4ae9e4eb718eadd"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_nDimsChanged</b></td></tr>
+<tr class="separator:a800e7f49b7956602b4ae9e4eb718eadd inherit pro_attribs_class_ox_1_1_start_point_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename MeasureType&gt;<br/>

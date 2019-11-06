@@ -11,6 +11,7 @@ var annotated =
       [ "CalculatorT1", "class_ox_1_1_calculator_t1.html", "class_ox_1_1_calculator_t1" ],
       [ "CalculatorT1Molli", "class_ox_1_1_calculator_t1_molli.html", "class_ox_1_1_calculator_t1_molli" ],
       [ "CalculatorT1Shmolli", "class_ox_1_1_calculator_t1_shmolli.html", "class_ox_1_1_calculator_t1_shmolli" ],
+      [ "CalculatorT2", "class_ox_1_1_calculator_t2.html", "class_ox_1_1_calculator_t2" ],
       [ "Fitter", "class_ox_1_1_fitter.html", "class_ox_1_1_fitter" ],
       [ "FunctionsT1", "class_ox_1_1_functions_t1.html", "class_ox_1_1_functions_t1" ],
       [ "FunctionsT1Shmolli", "class_ox_1_1_functions_t1_shmolli.html", "class_ox_1_1_functions_t1_shmolli" ],
@@ -23,8 +24,7 @@ var annotated =
       [ "SignCalculatorRealImag", "class_ox_1_1_sign_calculator_real_imag.html", "class_ox_1_1_sign_calculator_real_imag" ],
       [ "SignCalculatorShmolli", "class_ox_1_1_sign_calculator_shmolli.html", "class_ox_1_1_sign_calculator_shmolli" ],
       [ "StartPointCalculator", "class_ox_1_1_start_point_calculator.html", "class_ox_1_1_start_point_calculator" ],
-      [ "StartPointCalculatorDefault2Dims", "class_ox_1_1_start_point_calculator_default2_dims.html", "class_ox_1_1_start_point_calculator_default2_dims" ],
-      [ "StartPointCalculatorDefault3Dims", "class_ox_1_1_start_point_calculator_default3_dims.html", "class_ox_1_1_start_point_calculator_default3_dims" ],
+      [ "StartPointCalculatorBasic", "class_ox_1_1_start_point_calculator_basic.html", "class_ox_1_1_start_point_calculator_basic" ],
       [ "StartPointCalculatorShmolli", "class_ox_1_1_start_point_calculator_shmolli.html", "class_ox_1_1_start_point_calculator_shmolli" ],
       [ "TestData", "class_ox_1_1_test_data.html", "class_ox_1_1_test_data" ],
       [ "TestImage", "class_ox_1_1_test_image.html", "class_ox_1_1_test_image" ]

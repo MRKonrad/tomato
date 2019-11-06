@@ -1,6 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_ox_1_1_start_point_calculator.html" title="Ox::StartPointCalculator\l\&lt; MeasureType \&gt;" alt="" coords="6,70,170,111"/>
-<area shape="rect" id="node2" href="$class_ox_1_1_start_point_calculator_default2_dims.html" title="Ox::StartPointCalculator\lDefault2Dims\&lt; MeasureType \&gt;" alt="" coords="219,5,424,46"/>
-<area shape="rect" id="node3" href="$class_ox_1_1_start_point_calculator_default3_dims.html" title="Ox::StartPointCalculator\lDefault3Dims\&lt; MeasureType \&gt;" alt="" coords="219,70,424,111"/>
-<area shape="rect" id="node4" href="$class_ox_1_1_start_point_calculator_shmolli.html" title="Ox::StartPointCalculator\lShmolli\&lt; MeasureType \&gt;" alt="" coords="237,135,405,177"/>
+<area shape="rect" id="node1" href="$class_ox_1_1_start_point_calculator.html" title="Ox::StartPointCalculator\l\&lt; MeasureType \&gt;" alt="" coords="6,38,170,79"/>
+<area shape="rect" id="node2" href="$class_ox_1_1_start_point_calculator_basic.html" title="Ox::StartPointCalculator\lBasic\&lt; MeasureType \&gt;" alt="" coords="221,5,385,46"/>
+<area shape="rect" id="node3" href="$class_ox_1_1_start_point_calculator_shmolli.html" title="Ox::StartPointCalculator\lShmolli\&lt; MeasureType \&gt;" alt="" coords="219,70,387,111"/>
 </map>

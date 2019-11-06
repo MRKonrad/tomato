@@ -1,5 +1,4 @@
 <map id="Ox::StartPointCalculator&lt; MeasureType &gt;" name="Ox::StartPointCalculator&lt; MeasureType &gt;">
-<area shape="rect" id="node2" href="$class_ox_1_1_start_point_calculator_default2_dims.html" title="Ox::StartPointCalculator\lDefault2Dims\&lt; MeasureType \&gt;" alt="" coords="219,5,424,46"/>
-<area shape="rect" id="node3" href="$class_ox_1_1_start_point_calculator_default3_dims.html" title="Ox::StartPointCalculator\lDefault3Dims\&lt; MeasureType \&gt;" alt="" coords="219,70,424,111"/>
-<area shape="rect" id="node4" href="$class_ox_1_1_start_point_calculator_shmolli.html" title="Ox::StartPointCalculator\lShmolli\&lt; MeasureType \&gt;" alt="" coords="237,135,405,177"/>
+<area shape="rect" id="node2" href="$class_ox_1_1_start_point_calculator_basic.html" title="Ox::StartPointCalculator\lBasic\&lt; MeasureType \&gt;" alt="" coords="221,5,385,46"/>
+<area shape="rect" id="node3" href="$class_ox_1_1_start_point_calculator_shmolli.html" title="Ox::StartPointCalculator\lShmolli\&lt; MeasureType \&gt;" alt="" coords="219,70,387,111"/>
 </map>

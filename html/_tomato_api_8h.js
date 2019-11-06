@@ -9,5 +9,5 @@ var _tomato_api_8h =
     [ "SignCalculatorNoSign< double >", "_tomato_api_8h.html#a2e213fe78207181befc0192a210d3adb", null ],
     [ "SignCalculatorRealImag< double >", "_tomato_api_8h.html#ad5bf210ae8e86f164618f26788b595b1", null ],
     [ "StartPointCalculator< double >", "_tomato_api_8h.html#a6c87c0e4ce8f92232a88a13445f8cc4e", null ],
-    [ "StartPointCalculatorDefault3Dims< double >", "_tomato_api_8h.html#a33eae987198917a0878ccb04d4e31bc5", null ]
+    [ "StartPointCalculatorBasic< double >", "_tomato_api_8h.html#ae34d58307825389c7f280474da9297e3", null ]
 ];

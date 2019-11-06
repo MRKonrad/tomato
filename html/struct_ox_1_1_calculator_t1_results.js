@@ -14,5 +14,6 @@ var struct_ox_1_1_calculator_t1_results =
     [ "SD_T1", "struct_ox_1_1_calculator_t1_results.html#ae5d3edf68b74851c957f2d8af04cac46", null ],
     [ "SNR", "struct_ox_1_1_calculator_t1_results.html#a96b57eedae534e2dc531e63f6ec85930", null ],
     [ "T1", "struct_ox_1_1_calculator_t1_results.html#ac949d5ed2093f068a4235f86dc344084", null ],
-    [ "T1star", "struct_ox_1_1_calculator_t1_results.html#aa074dfc8714b618641d409659cb20be3", null ]
+    [ "T1star", "struct_ox_1_1_calculator_t1_results.html#aa074dfc8714b618641d409659cb20be3", null ],
+    [ "T2", "struct_ox_1_1_calculator_t1_results.html#a09435e96bddfa40855d187703dbdbfc3", null ]
 ];

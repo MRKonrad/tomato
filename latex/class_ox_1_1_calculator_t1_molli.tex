@@ -33,14 +33,11 @@ virtual int \hyperlink{class_ox_1_1_calculator_t1_molli_a6f15bc9c026305248c927d6
 virtual \hyperlink{struct_ox_1_1_calculator_t1_results}{Calculator\-T1\-Results}\\*
 $<$ Measure\-Type $>$ \hyperlink{class_ox_1_1_calculator_t1_molli_a9cb84f5e8680e1bf6c3543846fc90c4d}{calculate\-Molli} (int n\-Samples, const Measure\-Type $\ast$inv\-Times, Measure\-Type $\ast$signal, Measure\-Type $\ast$signs)
 \item 
-\hypertarget{class_ox_1_1_calculator_t1_molli_a9c9238dd8a96e06d3e0a96810377b90b}{Measure\-Type {\bfseries calculate\-R2\-Abs\-From\-Model} (int n\-Samples, const Measure\-Type $\ast$inv\-Times, const Measure\-Type $\ast$signal, const Measure\-Type $\ast$parameters)}\label{class_ox_1_1_calculator_t1_molli_a9c9238dd8a96e06d3e0a96810377b90b}
-
+Measure\-Type \hyperlink{class_ox_1_1_calculator_t1_molli_a9c9238dd8a96e06d3e0a96810377b90b}{calculate\-R2\-Abs\-From\-Model} (int n\-Samples, const Measure\-Type $\ast$inv\-Times, const Measure\-Type $\ast$signal, const Measure\-Type $\ast$parameters)
 \item 
-\hypertarget{class_ox_1_1_calculator_t1_molli_a030582bca754a7b81febfae53fe0c10c}{int {\bfseries calculate\-Covariance\-Matrix} (const Measure\-Type $\ast$parameters, Measure\-Type $\ast$covariance\-Matrix)}\label{class_ox_1_1_calculator_t1_molli_a030582bca754a7b81febfae53fe0c10c}
-
+int \hyperlink{class_ox_1_1_calculator_t1_molli_a030582bca754a7b81febfae53fe0c10c}{calculate\-Covariance\-Matrix} (const Measure\-Type $\ast$parameters, Measure\-Type $\ast$covariance\-Matrix)
 \item 
-\hypertarget{class_ox_1_1_calculator_t1_molli_aec374fc512aa3b109138f0c16c53a171}{int {\bfseries calculate\-Inv\-Covariance\-Matrix} (const Measure\-Type $\ast$inv\-Times, const Measure\-Type $\ast$residuals, const Measure\-Type $\ast$parameters, Measure\-Type $\ast$inv\-Covariance\-Matrix)}\label{class_ox_1_1_calculator_t1_molli_aec374fc512aa3b109138f0c16c53a171}
-
+int \hyperlink{class_ox_1_1_calculator_t1_molli_aec374fc512aa3b109138f0c16c53a171}{calculate\-Inv\-Covariance\-Matrix} (const Measure\-Type $\ast$inv\-Times, const Measure\-Type $\ast$residuals, const Measure\-Type $\ast$parameters, Measure\-Type $\ast$inv\-Covariance\-Matrix)
 \item 
 bool \hyperlink{class_ox_1_1_calculator_t1_molli_a06d8579492ee063b129b489e638333be}{get\-Do\-Calculate\-S\-D\-Map} () const 
 \item 
@@ -102,6 +99,48 @@ Implements \hyperlink{class_ox_1_1_calculator_t1_ab8d5ec3f03e070ca11d3accb59a922
 
 Reimplemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_ac689ebbf27f95f6fa2559cc13a824db0}{Ox\-::\-Calculator\-T1\-Shmolli$<$ Measure\-Type $>$}.
 
+\hypertarget{class_ox_1_1_calculator_t1_molli_a030582bca754a7b81febfae53fe0c10c}{\index{Ox\-::\-Calculator\-T1\-Molli@{Ox\-::\-Calculator\-T1\-Molli}!calculate\-Covariance\-Matrix@{calculate\-Covariance\-Matrix}}
+\index{calculate\-Covariance\-Matrix@{calculate\-Covariance\-Matrix}!Ox::CalculatorT1Molli@{Ox\-::\-Calculator\-T1\-Molli}}
+\subsubsection[{calculate\-Covariance\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ int {\bf Ox\-::\-Calculator\-T1\-Molli}$<$ Measure\-Type $>$\-::calculate\-Covariance\-Matrix (
+\begin{DoxyParamCaption}
+\item[{const Measure\-Type $\ast$}]{parameters, }
+\item[{Measure\-Type $\ast$}]{covariance\-Matrix}
+\end{DoxyParamCaption}
+)}}\label{class_ox_1_1_calculator_t1_molli_a030582bca754a7b81febfae53fe0c10c}
+calculate covariance matrix needed for S\-D estimation 
+\begin{DoxyParams}{Parameters}
+{\em parameters} & \\
+\hline
+{\em covariance\-Matrix} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_ox_1_1_calculator_t1_molli_aec374fc512aa3b109138f0c16c53a171}{\index{Ox\-::\-Calculator\-T1\-Molli@{Ox\-::\-Calculator\-T1\-Molli}!calculate\-Inv\-Covariance\-Matrix@{calculate\-Inv\-Covariance\-Matrix}}
+\index{calculate\-Inv\-Covariance\-Matrix@{calculate\-Inv\-Covariance\-Matrix}!Ox::CalculatorT1Molli@{Ox\-::\-Calculator\-T1\-Molli}}
+\subsubsection[{calculate\-Inv\-Covariance\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ int {\bf Ox\-::\-Calculator\-T1\-Molli}$<$ Measure\-Type $>$\-::calculate\-Inv\-Covariance\-Matrix (
+\begin{DoxyParamCaption}
+\item[{const Measure\-Type $\ast$}]{inv\-Times, }
+\item[{const Measure\-Type $\ast$}]{residuals, }
+\item[{const Measure\-Type $\ast$}]{parameters, }
+\item[{Measure\-Type $\ast$}]{inv\-Covariance\-Matrix}
+\end{DoxyParamCaption}
+)}}\label{class_ox_1_1_calculator_t1_molli_aec374fc512aa3b109138f0c16c53a171}
+calculate inverse covariance matrix needed for S\-D estimation 
+\begin{DoxyParams}{Parameters}
+{\em inv\-Times} & \\
+\hline
+{\em residuals} & \\
+\hline
+{\em parameters} & \\
+\hline
+{\em inv\-Covariance\-Matrix} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \hypertarget{class_ox_1_1_calculator_t1_molli_a9cb84f5e8680e1bf6c3543846fc90c4d}{\index{Ox\-::\-Calculator\-T1\-Molli@{Ox\-::\-Calculator\-T1\-Molli}!calculate\-Molli@{calculate\-Molli}}
 \index{calculate\-Molli@{calculate\-Molli}!Ox::CalculatorT1Molli@{Ox\-::\-Calculator\-T1\-Molli}}
 \subsubsection[{calculate\-Molli}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ {\bf Calculator\-T1\-Results}$<$ Measure\-Type $>$ {\bf Ox\-::\-Calculator\-T1\-Molli}$<$ Measure\-Type $>$\-::calculate\-Molli (
@@ -112,7 +151,7 @@ Reimplemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_ac689ebbf27f95f6f
 \item[{Measure\-Type $\ast$}]{signs}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_t1_molli_a9cb84f5e8680e1bf6c3543846fc90c4d}
-The most important function of this class It has all the input parametrs so that I can call it from the shmolli class 
+The most important function of this class It has all the input parameters so that I can call it from the shmolli class 
 \begin{DoxyParams}{Parameters}
 {\em n\-Samples} & \\
 \hline
@@ -125,6 +164,30 @@ The most important function of this class It has all the input parametrs so that
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 success/failure 
+\end{DoxyReturn}
+\hypertarget{class_ox_1_1_calculator_t1_molli_a9c9238dd8a96e06d3e0a96810377b90b}{\index{Ox\-::\-Calculator\-T1\-Molli@{Ox\-::\-Calculator\-T1\-Molli}!calculate\-R2\-Abs\-From\-Model@{calculate\-R2\-Abs\-From\-Model}}
+\index{calculate\-R2\-Abs\-From\-Model@{calculate\-R2\-Abs\-From\-Model}!Ox::CalculatorT1Molli@{Ox\-::\-Calculator\-T1\-Molli}}
+\subsubsection[{calculate\-R2\-Abs\-From\-Model}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ Measure\-Type {\bf Ox\-::\-Calculator\-T1\-Molli}$<$ Measure\-Type $>$\-::calculate\-R2\-Abs\-From\-Model (
+\begin{DoxyParamCaption}
+\item[{int}]{n\-Samples, }
+\item[{const Measure\-Type $\ast$}]{inv\-Times, }
+\item[{const Measure\-Type $\ast$}]{signal, }
+\item[{const Measure\-Type $\ast$}]{parameters}
+\end{DoxyParamCaption}
+)}}\label{class_ox_1_1_calculator_t1_molli_a9c9238dd8a96e06d3e0a96810377b90b}
+Calculate goodness of fit map 
+\begin{DoxyParams}{Parameters}
+{\em n\-Samples} & \\
+\hline
+{\em inv\-Times} & \\
+\hline
+{\em signal} & \\
+\hline
+{\em parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
 \end{DoxyReturn}
 \hypertarget{class_ox_1_1_calculator_t1_molli_a06d8579492ee063b129b489e638333be}{\index{Ox\-::\-Calculator\-T1\-Molli@{Ox\-::\-Calculator\-T1\-Molli}!get\-Do\-Calculate\-S\-D\-Map@{get\-Do\-Calculate\-S\-D\-Map}}
 \index{get\-Do\-Calculate\-S\-D\-Map@{get\-Do\-Calculate\-S\-D\-Map}!Ox::CalculatorT1Molli@{Ox\-::\-Calculator\-T1\-Molli}}

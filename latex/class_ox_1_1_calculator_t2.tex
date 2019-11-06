@@ -1,0 +1,169 @@
+\hypertarget{class_ox_1_1_calculator_t2}{\section{Ox\-:\-:Calculator\-T2$<$ Measure\-Type $>$ Class Template Reference}
+\label{class_ox_1_1_calculator_t2}\index{Ox\-::\-Calculator\-T2$<$ Measure\-Type $>$@{Ox\-::\-Calculator\-T2$<$ Measure\-Type $>$}}
+}
+
+
+{\ttfamily \#include $<$Ox\-Calculator\-T2.\-h$>$}
+
+
+
+Inheritance diagram for Ox\-:\-:Calculator\-T2$<$ Measure\-Type $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{class_ox_1_1_calculator_t2__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ox\-:\-:Calculator\-T2$<$ Measure\-Type $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{class_ox_1_1_calculator_t2__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \hyperlink{class_ox_1_1_calculator_t2_a56e2bcb27465a83dd1a1150b7fe419c8}{prepare\-To\-Calculate} ()
+\item 
+virtual int \hyperlink{class_ox_1_1_calculator_t2_a8afe4974f3253edea4386a87695607ae}{calculate} ()
+\item 
+Measure\-Type \hyperlink{class_ox_1_1_calculator_t2_ace5f0515839bdffffb3d60e4536167b6}{calculate\-R2\-Abs\-From\-Model} (int n\-Samples, const Measure\-Type $\ast$time, const Measure\-Type $\ast$signal, const Measure\-Type $\ast$parameters)
+\item 
+bool \hyperlink{class_ox_1_1_calculator_t2_ab5d0e963ac87d04ae47ecd2a9f10059f}{get\-Do\-Calculate\-S\-D\-Map} () const 
+\item 
+void \hyperlink{class_ox_1_1_calculator_t2_a5dc0b27caa7a50cca6c63a48f6733b47}{set\-Do\-Calculate\-S\-D\-Map} (bool \-\_\-\-Do\-Calculate\-S\-D\-Map)
+\item 
+\hyperlink{class_ox_1_1_calculator_t2_a9d0d9d252c322a6db51693ef42c0bed7}{Calculator\-T2} ()
+\item 
+virtual \hyperlink{class_ox_1_1_calculator_t1}{Calculator\-T1}\\*
+$<$ Measure\-Type $>$ $\ast$ \hyperlink{class_ox_1_1_calculator_t2_ab8d7b3bfcf7e6bf745e84cd504a5104b}{new\-By\-Cloning} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_ox_1_1_calculator_t2_abf89edd4cfbf3ca97149ca6d5c4f5bdc}{bool {\bfseries \-\_\-\-Do\-Calculate\-S\-D\-Map}}\label{class_ox_1_1_calculator_t2_abf89edd4cfbf3ca97149ca6d5c4f5bdc}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Measure\-Type$>$class Ox\-::\-Calculator\-T2$<$ Measure\-Type $>$}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Measure\-Type} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_ox_1_1_calculator_t2_a9d0d9d252c322a6db51693ef42c0bed7}{\index{Ox\-::\-Calculator\-T2@{Ox\-::\-Calculator\-T2}!Calculator\-T2@{Calculator\-T2}}
+\index{Calculator\-T2@{Calculator\-T2}!Ox::CalculatorT2@{Ox\-::\-Calculator\-T2}}
+\subsubsection[{Calculator\-T2}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type$>$ {\bf Ox\-::\-Calculator\-T2}$<$ Measure\-Type $>$\-::{\bf Calculator\-T2} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_ox_1_1_calculator_t2_a9d0d9d252c322a6db51693ef42c0bed7}
+constructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_ox_1_1_calculator_t2_a8afe4974f3253edea4386a87695607ae}{\index{Ox\-::\-Calculator\-T2@{Ox\-::\-Calculator\-T2}!calculate@{calculate}}
+\index{calculate@{calculate}!Ox::CalculatorT2@{Ox\-::\-Calculator\-T2}}
+\subsubsection[{calculate}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ int {\bf Ox\-::\-Calculator\-T2}$<$ Measure\-Type $>$\-::calculate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_t2_a8afe4974f3253edea4386a87695607ae}
+calling calculate\-Molli(int n\-Samples, const Measure\-Type$\ast$ inv\-Times, Measure\-Type$\ast$ signal, Measure\-Type$\ast$ signs) \begin{DoxyReturn}{Returns}
+success/failure 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_ox_1_1_calculator_t1_ab8d5ec3f03e070ca11d3accb59a92299}{Ox\-::\-Calculator\-T1$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_calculator_t2_ace5f0515839bdffffb3d60e4536167b6}{\index{Ox\-::\-Calculator\-T2@{Ox\-::\-Calculator\-T2}!calculate\-R2\-Abs\-From\-Model@{calculate\-R2\-Abs\-From\-Model}}
+\index{calculate\-R2\-Abs\-From\-Model@{calculate\-R2\-Abs\-From\-Model}!Ox::CalculatorT2@{Ox\-::\-Calculator\-T2}}
+\subsubsection[{calculate\-R2\-Abs\-From\-Model}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ Measure\-Type {\bf Ox\-::\-Calculator\-T2}$<$ Measure\-Type $>$\-::calculate\-R2\-Abs\-From\-Model (
+\begin{DoxyParamCaption}
+\item[{int}]{n\-Samples, }
+\item[{const Measure\-Type $\ast$}]{time, }
+\item[{const Measure\-Type $\ast$}]{signal, }
+\item[{const Measure\-Type $\ast$}]{parameters}
+\end{DoxyParamCaption}
+)}}\label{class_ox_1_1_calculator_t2_ace5f0515839bdffffb3d60e4536167b6}
+Calculate goodness of fit map 
+\begin{DoxyParams}{Parameters}
+{\em n\-Samples} & \\
+\hline
+{\em inv\-Times} & \\
+\hline
+{\em signal} & \\
+\hline
+{\em parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_ox_1_1_calculator_t2_ab5d0e963ac87d04ae47ecd2a9f10059f}{\index{Ox\-::\-Calculator\-T2@{Ox\-::\-Calculator\-T2}!get\-Do\-Calculate\-S\-D\-Map@{get\-Do\-Calculate\-S\-D\-Map}}
+\index{get\-Do\-Calculate\-S\-D\-Map@{get\-Do\-Calculate\-S\-D\-Map}!Ox::CalculatorT2@{Ox\-::\-Calculator\-T2}}
+\subsubsection[{get\-Do\-Calculate\-S\-D\-Map}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ bool {\bf Ox\-::\-Calculator\-T2}$<$ Measure\-Type $>$\-::get\-Do\-Calculate\-S\-D\-Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_ox_1_1_calculator_t2_ab5d0e963ac87d04ae47ecd2a9f10059f}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_ox_1_1_calculator_t2_ab8d7b3bfcf7e6bf745e84cd504a5104b}{\index{Ox\-::\-Calculator\-T2@{Ox\-::\-Calculator\-T2}!new\-By\-Cloning@{new\-By\-Cloning}}
+\index{new\-By\-Cloning@{new\-By\-Cloning}!Ox::CalculatorT2@{Ox\-::\-Calculator\-T2}}
+\subsubsection[{new\-By\-Cloning}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type$>$ virtual {\bf Calculator\-T1}$<$Measure\-Type$>$$\ast$ {\bf Ox\-::\-Calculator\-T2}$<$ Measure\-Type $>$\-::new\-By\-Cloning (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_t2_ab8d7b3bfcf7e6bf745e84cd504a5104b}
+cloning \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_ox_1_1_calculator_t1_a0db8102b4dad27368667e6ec89c6e4f3}{Ox\-::\-Calculator\-T1$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_calculator_t2_a56e2bcb27465a83dd1a1150b7fe419c8}{\index{Ox\-::\-Calculator\-T2@{Ox\-::\-Calculator\-T2}!prepare\-To\-Calculate@{prepare\-To\-Calculate}}
+\index{prepare\-To\-Calculate@{prepare\-To\-Calculate}!Ox::CalculatorT2@{Ox\-::\-Calculator\-T2}}
+\subsubsection[{prepare\-To\-Calculate}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ int {\bf Ox\-::\-Calculator\-T2}$<$ Measure\-Type $>$\-::prepare\-To\-Calculate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_t2_a56e2bcb27465a83dd1a1150b7fe419c8}
+do all the checks and prepare to do the calculation, for example calc signal/signs and \-\_\-\-T\-R\-Raverage\-H\-B \begin{DoxyReturn}{Returns}
+success/failure 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_ox_1_1_calculator_t1_af8b7d97caa1f197c937942c8ebc5ae7b}{Ox\-::\-Calculator\-T1$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_calculator_t2_a5dc0b27caa7a50cca6c63a48f6733b47}{\index{Ox\-::\-Calculator\-T2@{Ox\-::\-Calculator\-T2}!set\-Do\-Calculate\-S\-D\-Map@{set\-Do\-Calculate\-S\-D\-Map}}
+\index{set\-Do\-Calculate\-S\-D\-Map@{set\-Do\-Calculate\-S\-D\-Map}!Ox::CalculatorT2@{Ox\-::\-Calculator\-T2}}
+\subsubsection[{set\-Do\-Calculate\-S\-D\-Map}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ void {\bf Ox\-::\-Calculator\-T2}$<$ Measure\-Type $>$\-::set\-Do\-Calculate\-S\-D\-Map (
+\begin{DoxyParamCaption}
+\item[{bool}]{\-\_\-\-Do\-Calculate\-S\-D\-Map}
+\end{DoxyParamCaption}
+)}}\label{class_ox_1_1_calculator_t2_a5dc0b27caa7a50cca6c63a48f6733b47}
+
+\begin{DoxyParams}{Parameters}
+{\em \-\_\-\-Do\-Calculate\-S\-D\-Map} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{_ox_calculator_t2_8h}{Ox\-Calculator\-T2.\-h}\item 
+lib/\hyperlink{_ox_calculator_t2_8hxx}{Ox\-Calculator\-T2.\-hxx}\end{DoxyCompactItemize}

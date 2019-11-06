@@ -306,152 +306,171 @@ $(document).ready(function(){initNavTree('_ox_calculator_t1_8hxx_source.html',''
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordtype">void</span></div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    CalculatorT1&lt;MeasureType&gt;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    ::setSigMag(<span class="keyword">const</span> MeasureType *_SigMag) {</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        CalculatorT1::_SigMag = _SigMag;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    ::setEchoTimes(<span class="keyword">const</span> MeasureType *_EchoTimes) {</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        CalculatorT1::_EchoTimes = _EchoTimes;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    }</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordtype">void</span></div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    CalculatorT1&lt;MeasureType&gt;</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    ::setSigPha(<span class="keyword">const</span> MeasureType *_SigPha) {</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        CalculatorT1::_SigPha = _SigPha;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    ::setSigMag(<span class="keyword">const</span> MeasureType *_SigMag) {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        CalculatorT1::_SigMag = _SigMag;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    }</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordtype">void</span></div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    CalculatorT1&lt;MeasureType&gt;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    ::setMeanCutOff(MeasureType _MeanCutOff) {</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        CalculatorT1::_MeanCutOff = _MeanCutOff;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    ::setSigPha(<span class="keyword">const</span> MeasureType *_SigPha) {</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        CalculatorT1::_SigPha = _SigPha;</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    }</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <a class="code" href="class_ox_1_1_calculator_t1.html#af5d84e582c3793ebe168f24245f04de1">CalculatorT1&lt;MeasureType&gt;</a></div>
-<div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t1.html#af5d84e582c3793ebe168f24245f04de1">  228</a></span>&#160;<a class="code" href="class_ox_1_1_calculator_t1.html#af5d84e582c3793ebe168f24245f04de1">    ::setNSamples</a>(<span class="keywordtype">int</span> _nSamples) {</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <span class="keyword">delete</span> [] _Signal; _Signal = 0;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keyword">delete</span> [] _Signs; _Signs = 0;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        CalculatorT1::_nSamples = _nSamples;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        _Signal = <span class="keyword">new</span> MeasureType[_nSamples];</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        _Signs = <span class="keyword">new</span> MeasureType[_nSamples];</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; _nSamples; ++i){</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            _Signal[i] = 0;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            _Signs[i] = 0;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        }</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    }</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <a class="code" href="class_ox_1_1_calculator_t1.html#abe8decf5aba8ba0de2b6ca76ec9c1386">CalculatorT1&lt;MeasureType&gt;</a></div>
-<div class="line"><a name="l00251"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t1.html#abe8decf5aba8ba0de2b6ca76ec9c1386">  251</a></span>&#160;<a class="code" href="class_ox_1_1_calculator_t1.html#abe8decf5aba8ba0de2b6ca76ec9c1386">    ::setNDims</a>(<span class="keywordtype">int</span> _nDims){</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keyword">delete</span> [] _StartPoint; _StartPoint = 0;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        CalculatorT1::_nDims = _nDims;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        _StartPoint = <span class="keyword">new</span> MeasureType[_nDims];</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; _nDims; ++i){</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            _StartPoint[i] = 0;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        }</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    }</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    CalculatorT1&lt;MeasureType&gt;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    ::setMeanCutOff(MeasureType _MeanCutOff) {</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        CalculatorT1::_MeanCutOff = _MeanCutOff;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    }</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <a class="code" href="class_ox_1_1_calculator_t1.html#af5d84e582c3793ebe168f24245f04de1">CalculatorT1&lt;MeasureType&gt;</a></div>
+<div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t1.html#af5d84e582c3793ebe168f24245f04de1">  235</a></span>&#160;<a class="code" href="class_ox_1_1_calculator_t1.html#af5d84e582c3793ebe168f24245f04de1">    ::setNSamples</a>(<span class="keywordtype">int</span> _nSamples) {</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keyword">delete</span> [] _Signal; _Signal = 0;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <span class="keyword">delete</span> [] _Signs; _Signs = 0;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        CalculatorT1::_nSamples = _nSamples;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        _Signal = <span class="keyword">new</span> MeasureType[_nSamples];</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        _Signs = <span class="keyword">new</span> MeasureType[_nSamples];</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; _nSamples; ++i){</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            _Signal[i] = 0;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            _Signs[i] = 0;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        }</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <a class="code" href="class_ox_1_1_calculator_t1.html#abe8decf5aba8ba0de2b6ca76ec9c1386">CalculatorT1&lt;MeasureType&gt;</a></div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t1.html#abe8decf5aba8ba0de2b6ca76ec9c1386">  258</a></span>&#160;<a class="code" href="class_ox_1_1_calculator_t1.html#abe8decf5aba8ba0de2b6ca76ec9c1386">    ::setNDims</a>(<span class="keywordtype">int</span> _nDims){</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="keyword">delete</span> [] _StartPoint; _StartPoint = 0;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        CalculatorT1::_nDims = _nDims;</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <a class="code" href="class_ox_1_1_calculator_t1.html#af8b7d97caa1f197c937942c8ebc5ae7b">CalculatorT1&lt;MeasureType&gt;</a></div>
-<div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t1.html#af8b7d97caa1f197c937942c8ebc5ae7b">  267</a></span>&#160;<a class="code" href="class_ox_1_1_calculator_t1.html#af8b7d97caa1f197c937942c8ebc5ae7b">    ::prepareToCalculate</a>(){</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <span class="comment">// if fitter does not have to iterate, do not calculate</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keywordflow">if</span> (this-&gt;getFitter()-&gt;getMaxFunctionEvals() == 0){</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            <span class="keywordflow">return</span> 1; <span class="comment">// EXIT_FAILURE</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        }</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="comment">// verify invTimes are sorted</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; getNSamples()-1; i++){</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            <span class="keywordflow">if</span> (getInvTimes()[i] &gt; getInvTimes()[i+1]){</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;InvTimes have to be sorted!&quot;</span>);</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;            }</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        _StartPoint = <span class="keyword">new</span> MeasureType[_nDims];</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; _nDims; ++i){</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            _StartPoint[i] = 0;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        }</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    }</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordtype">int</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <a class="code" href="class_ox_1_1_calculator_t1.html#af8b7d97caa1f197c937942c8ebc5ae7b">CalculatorT1&lt;MeasureType&gt;</a></div>
+<div class="line"><a name="l00274"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t1.html#af8b7d97caa1f197c937942c8ebc5ae7b">  274</a></span>&#160;<a class="code" href="class_ox_1_1_calculator_t1.html#af8b7d97caa1f197c937942c8ebc5ae7b">    ::prepareToCalculate</a>(){</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        <span class="comment">// if fitter does not have to iterate, do not calculate</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        <span class="keywordflow">if</span> (this-&gt;getFitter()-&gt;getMaxFunctionEvals() == 0){</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;            <span class="keywordflow">return</span> 1; <span class="comment">// EXIT_FAILURE</span></div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        }</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="comment">// calculate sign</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        getSignCalculator()-&gt;setNSamples(getNSamples());</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        getSignCalculator()-&gt;setInvTimes(getInvTimes());</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        getSignCalculator()-&gt;setSigMag(getSigMag());</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        getSignCalculator()-&gt;setSigPha(getSigPha());</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        getSignCalculator()-&gt;setSignal(_Signal);</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        getSignCalculator()-&gt;setSigns(_Signs);</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        getSignCalculator()-&gt;calculateSign();</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        <span class="comment">// calculate start point</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        getStartPointCalculator()-&gt;setNSamples(getNSamples());</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        getStartPointCalculator()-&gt;setInvTimes(getInvTimes());</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        getStartPointCalculator()-&gt;setSigMag(getSigMag());</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        getStartPointCalculator()-&gt;setSigns(getSigns());</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        getStartPointCalculator()-&gt;setCalculatedStartPoint(_StartPoint);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="comment">// verify invTimes are sorted</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; getNSamples()-1; i++){</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            <span class="keywordflow">if</span> (getInvTimes()[i] &gt; getInvTimes()[i+1]){</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;InvTimes have to be sorted!&quot;</span>);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            }</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        }</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="comment">// calculate sign</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        getSignCalculator()-&gt;setNSamples(getNSamples());</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        getSignCalculator()-&gt;setInvTimes(getInvTimes());</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        getSignCalculator()-&gt;setSigMag(getSigMag());</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        getSignCalculator()-&gt;setSigPha(getSigPha());</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        getSignCalculator()-&gt;setSignal(_Signal);</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        getSignCalculator()-&gt;setSigns(_Signs);</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        getSignCalculator()-&gt;calculateSign();</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        getStartPointCalculator()-&gt;calculateStartPoint();</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    };</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <a class="code" href="class_ox_1_1_calculator_t1.html#ab820a5163966ce07d7be7f323ead23ae">CalculatorT1&lt;MeasureType&gt;</a></div>
-<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t1.html#ab820a5163966ce07d7be7f323ead23ae">  307</a></span>&#160;<a class="code" href="class_ox_1_1_calculator_t1.html#ab820a5163966ce07d7be7f323ead23ae">    ::disp</a>(){</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keywordtype">int</span> nSamples = this-&gt;getNSamples();</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;\nYou called disp() on a CalculatorT1 object &quot;</span> &lt;&lt; <span class="keyword">this</span></div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot; with nSamples: &quot;</span> &lt;&lt; nSamples</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot; nDims: &quot;</span> &lt;&lt; _nDims;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_InvTimes, nSamples, _InvTimes,       (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nInvTimes:    &quot;</span>);</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_EchoTimes, nSamples, _EchoTimes,     (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nEchoTimes:    &quot;</span>);</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_RepTimes, nSamples, _RepTimes,       (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nRepTimes:    &quot;</span>);</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_RelAcqTimes, nSamples, _RelAcqTimes, (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nRelAcqTimes: &quot;</span>);</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_SigMag, nSamples, _SigMag,           (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nSigMag:      &quot;</span>);</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_SigPha, nSamples, _SigPha,           (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nSigPha:      &quot;</span>);</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_Signal, nSamples, _Signal,           (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nSignal:      &quot;</span>);</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_Signs, nSamples, _Signs,             (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nSigns:       &quot;</span>);</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_StartPoint, _nDims, _StartPoint,     (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nStart point: &quot;</span>);</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        std::cout &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <span class="keywordflow">if</span>(_FunctionsT1) {</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;This CalculatorT1 contains the following FunctionsT1 object: &quot;</span>;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            _FunctionsT1-&gt;<a class="code" href="class_ox_1_1_functions_t1.html#a21708a9d44f261ba53648c2e6fcdd3a5">disp</a>();</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        }</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="keywordflow">if</span>(_Fitter) {</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;This CalculatorT1 contains the following Fitter object: &quot;</span>;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;            _Fitter-&gt;disp();</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        }</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        <span class="keywordflow">if</span>(_SignCalculator) {</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;This CalculatorT1 contains the following SignCalculator object: &quot;</span>;</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;            _SignCalculator-&gt;disp();</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        };</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keywordflow">if</span>(_StartPointCalculator) {</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;This CalculatorT1 contains the following StartPointCalculator object: &quot;</span>;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            _StartPointCalculator-&gt;disp();</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        };</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        _Results.disp();</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    }</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="comment">// calculate start point</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        getStartPointCalculator()-&gt;setNDims(_nDims);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keywordflow">if</span> (!getStartPointCalculator()-&gt;getInputStartPoint()){</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            <span class="keywordflow">if</span> (_nDims == 2){</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                MeasureType <span class="keyword">const</span> temp[] = {100, 1000};</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                getStartPointCalculator()-&gt;setInputStartPoint(temp);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (_nDims == 3){</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                MeasureType <span class="keyword">const</span> temp[] = {100, 200, 1000};</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                getStartPointCalculator()-&gt;setInputStartPoint(temp);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;CalculatorT1: Set InputStartPoint in StartPointCalculator&quot;</span>);</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            }</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        }</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        getStartPointCalculator()-&gt;setNSamples(getNSamples());</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        getStartPointCalculator()-&gt;setInvTimes(getInvTimes());</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        getStartPointCalculator()-&gt;setSigMag(getSigMag());</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        getStartPointCalculator()-&gt;setSigns(getSigns());</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        getStartPointCalculator()-&gt;setCalculatedStartPoint(_StartPoint);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        getStartPointCalculator()-&gt;calculateStartPoint();</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    };</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <a class="code" href="class_ox_1_1_calculator_t1.html#ab820a5163966ce07d7be7f323ead23ae">CalculatorT1&lt;MeasureType&gt;</a></div>
+<div class="line"><a name="l00326"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t1.html#ab820a5163966ce07d7be7f323ead23ae">  326</a></span>&#160;<a class="code" href="class_ox_1_1_calculator_t1.html#ab820a5163966ce07d7be7f323ead23ae">    ::disp</a>(){</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="keywordtype">int</span> nSamples = this-&gt;getNSamples();</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;\nYou called disp() on a CalculatorT1 object &quot;</span> &lt;&lt; <span class="keyword">this</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot; with nSamples: &quot;</span> &lt;&lt; nSamples</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot; nDims: &quot;</span> &lt;&lt; _nDims;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_InvTimes, nSamples, _InvTimes,       (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nInvTimes:    &quot;</span>);</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_EchoTimes, nSamples, _EchoTimes,     (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nEchoTimes:    &quot;</span>);</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_RepTimes, nSamples, _RepTimes,       (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nRepTimes:    &quot;</span>);</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_RelAcqTimes, nSamples, _RelAcqTimes, (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nRelAcqTimes: &quot;</span>);</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_SigMag, nSamples, _SigMag,           (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nSigMag:      &quot;</span>);</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_SigPha, nSamples, _SigPha,           (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nSigPha:      &quot;</span>);</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_Signal, nSamples, _Signal,           (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nSignal:      &quot;</span>);</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_Signs, nSamples, _Signs,             (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nSigns:       &quot;</span>);</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        KWUtil::printArray((<span class="keywordtype">bool</span>)_StartPoint, _nDims, _StartPoint,     (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nStart point: &quot;</span>);</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        std::cout &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        <span class="keywordflow">if</span>(_FunctionsT1) {</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;This CalculatorT1 contains the following FunctionsT1 object: &quot;</span>;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;            _FunctionsT1-&gt;<a class="code" href="class_ox_1_1_functions_t1.html#a21708a9d44f261ba53648c2e6fcdd3a5">disp</a>();</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        }</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;} <span class="comment">//namespace Ox</span></div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="preprocessor">#endif //Tomato_OXCALCULATORT1_H</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        <span class="keywordflow">if</span>(_Fitter) {</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;This CalculatorT1 contains the following Fitter object: &quot;</span>;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;            _Fitter-&gt;disp();</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        }</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        <span class="keywordflow">if</span>(_SignCalculator) {</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;This CalculatorT1 contains the following SignCalculator object: &quot;</span>;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            _SignCalculator-&gt;disp();</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        };</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="keywordflow">if</span>(_StartPointCalculator) {</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;This CalculatorT1 contains the following StartPointCalculator object: &quot;</span>;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            _StartPointCalculator-&gt;disp();</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        };</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        _Results.disp();</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    }</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;} <span class="comment">//namespace Ox</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="preprocessor">#endif //Tomato_OXCALCULATORT1_H</span></div>
 <div class="ttc" id="class_ox_1_1_calculator_t1_html_a7523942a79b9ee44b2b5d81d5836b54d"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html#a7523942a79b9ee44b2b5d81d5836b54d">Ox::CalculatorT1::getNDims</a></div><div class="ttdeci">int getNDims() const </div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.hxx:155</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t1_html_a34cee88c8f78b6486ebbfc910559717b"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html#a34cee88c8f78b6486ebbfc910559717b">Ox::CalculatorT1::getFunctionsT1</a></div><div class="ttdeci">FunctionsT1&lt; MeasureType &gt; * getFunctionsT1() const </div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.hxx:19</div></div>
-<div class="ttc" id="class_ox_1_1_calculator_t1_html_ab820a5163966ce07d7be7f323ead23ae"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html#ab820a5163966ce07d7be7f323ead23ae">Ox::CalculatorT1::disp</a></div><div class="ttdeci">void disp()</div><div class="ttdoc">show me your FunctionsT1 </div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.hxx:307</div></div>
+<div class="ttc" id="class_ox_1_1_calculator_t1_html_ab820a5163966ce07d7be7f323ead23ae"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html#ab820a5163966ce07d7be7f323ead23ae">Ox::CalculatorT1::disp</a></div><div class="ttdeci">void disp()</div><div class="ttdoc">show me your FunctionsT1 </div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.hxx:326</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t1_html"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html">Ox::CalculatorT1</a></div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.h:28</div></div>
-<div class="ttc" id="class_ox_1_1_calculator_t1_html_abe8decf5aba8ba0de2b6ca76ec9c1386"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html#abe8decf5aba8ba0de2b6ca76ec9c1386">Ox::CalculatorT1::setNDims</a></div><div class="ttdeci">virtual void setNDims(int _nDims)</div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.hxx:251</div></div>
+<div class="ttc" id="class_ox_1_1_calculator_t1_html_abe8decf5aba8ba0de2b6ca76ec9c1386"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html#abe8decf5aba8ba0de2b6ca76ec9c1386">Ox::CalculatorT1::setNDims</a></div><div class="ttdeci">virtual void setNDims(int _nDims)</div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.hxx:258</div></div>
 <div class="ttc" id="class_ox_1_1_functions_t1_html_a21708a9d44f261ba53648c2e6fcdd3a5"><div class="ttname"><a href="class_ox_1_1_functions_t1.html#a21708a9d44f261ba53648c2e6fcdd3a5">Ox::FunctionsT1::disp</a></div><div class="ttdeci">virtual void disp()</div><div class="ttdoc">show me your FunctionsT1 </div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:84</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t1_html_affc80bde70a6f44f2474e9e0606ba3e0"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html#affc80bde70a6f44f2474e9e0606ba3e0">Ox::CalculatorT1::getSignCalculator</a></div><div class="ttdeci">SignCalculator&lt; MeasureType &gt; * getSignCalculator() const </div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.hxx:49</div></div>
-<div class="ttc" id="class_ox_1_1_calculator_t1_html_af8b7d97caa1f197c937942c8ebc5ae7b"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html#af8b7d97caa1f197c937942c8ebc5ae7b">Ox::CalculatorT1::prepareToCalculate</a></div><div class="ttdeci">virtual int prepareToCalculate()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.hxx:267</div></div>
+<div class="ttc" id="class_ox_1_1_calculator_t1_html_af8b7d97caa1f197c937942c8ebc5ae7b"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html#af8b7d97caa1f197c937942c8ebc5ae7b">Ox::CalculatorT1::prepareToCalculate</a></div><div class="ttdeci">virtual int prepareToCalculate()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.hxx:274</div></div>
 <div class="ttc" id="class_ox_1_1_functions_t1_html"><div class="ttname"><a href="class_ox_1_1_functions_t1.html">Ox::FunctionsT1</a></div><div class="ttdoc">Container for a model function, cost function and Least-Squares function. And derivatives. </div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:26</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t1_html_a1208138a5257482a5f3acc308f3bfd5a"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html#a1208138a5257482a5f3acc308f3bfd5a">Ox::CalculatorT1::getSigPha</a></div><div class="ttdeci">const MeasureType * getSigPha() const </div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.hxx:103</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t1_html_a8a11b3b6c0dcbc461c11dc55600d7992"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html#a8a11b3b6c0dcbc461c11dc55600d7992">Ox::CalculatorT1::getNSamples</a></div><div class="ttdeci">int getNSamples() const </div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.hxx:145</div></div>
@@ -461,7 +480,7 @@ $(document).ready(function(){initNavTree('_ox_calculator_t1_8hxx_source.html',''
 <div class="ttc" id="class_ox_1_1_calculator_t1_html_a7179ab384f0ff7f9bf28dc492672da00"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html#a7179ab384f0ff7f9bf28dc492672da00">Ox::CalculatorT1::getInvTimes</a></div><div class="ttdeci">const MeasureType * getInvTimes() const </div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.hxx:59</div></div>
 <div class="ttc" id="class_ox_1_1_start_point_calculator_html"><div class="ttname"><a href="class_ox_1_1_start_point_calculator.html">Ox::StartPointCalculator</a></div><div class="ttdef"><b>Definition:</b> OxStartPointCalculator.h:21</div></div>
 <div class="ttc" id="class_ox_1_1_fitter_html"><div class="ttname"><a href="class_ox_1_1_fitter.html">Ox::Fitter</a></div><div class="ttdef"><b>Definition:</b> OxFitter.h:22</div></div>
-<div class="ttc" id="class_ox_1_1_calculator_t1_html_af5d84e582c3793ebe168f24245f04de1"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html#af5d84e582c3793ebe168f24245f04de1">Ox::CalculatorT1::setNSamples</a></div><div class="ttdeci">virtual void setNSamples(int _nSamples)</div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.hxx:228</div></div>
+<div class="ttc" id="class_ox_1_1_calculator_t1_html_af5d84e582c3793ebe168f24245f04de1"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html#af5d84e582c3793ebe168f24245f04de1">Ox::CalculatorT1::setNSamples</a></div><div class="ttdeci">virtual void setNSamples(int _nSamples)</div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.hxx:235</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t1_html_a57f0218fb065b685f4ed5f80051517bd"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html#a57f0218fb065b685f4ed5f80051517bd">Ox::CalculatorT1::getFitter</a></div><div class="ttdeci">Fitter&lt; MeasureType &gt; * getFitter() const </div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.hxx:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

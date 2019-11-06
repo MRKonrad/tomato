@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['getdocalculatesdmap',['getDoCalculateSDMap',['../class_ox_1_1_calculator_t1_molli.html#a06d8579492ee063b129b489e638333be',1,'Ox::CalculatorT1Molli']]],
+  ['getdocalculatesdmap',['getDoCalculateSDMap',['../class_ox_1_1_calculator_t1_molli.html#a06d8579492ee063b129b489e638333be',1,'Ox::CalculatorT1Molli::getDoCalculateSDMap()'],['../class_ox_1_1_calculator_t2.html#ab5d0e963ac87d04ae47ecd2a9f10059f',1,'Ox::CalculatorT2::getDoCalculateSDMap()']]],
   ['getfitter',['getFitter',['../class_ox_1_1_calculator_t1.html#a57f0218fb065b685f4ed5f80051517bd',1,'Ox::CalculatorT1']]],
   ['getfunctionst1',['getFunctionsT1',['../class_ox_1_1_calculator_t1.html#a34cee88c8f78b6486ebbfc910559717b',1,'Ox::CalculatorT1']]],
   ['getinvtimes',['getInvTimes',['../class_ox_1_1_calculator_t1.html#a7179ab384f0ff7f9bf28dc492672da00',1,'Ox::CalculatorT1']]],

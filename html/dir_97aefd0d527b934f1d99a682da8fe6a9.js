@@ -21,6 +21,10 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
       [ "CalculatorT1Shmolli", "class_ox_1_1_calculator_t1_shmolli.html", "class_ox_1_1_calculator_t1_shmolli" ]
     ] ],
     [ "OxCalculatorT1Shmolli.hxx", "_ox_calculator_t1_shmolli_8hxx.html", null ],
+    [ "OxCalculatorT2.h", "_ox_calculator_t2_8h.html", [
+      [ "CalculatorT2", "class_ox_1_1_calculator_t2.html", "class_ox_1_1_calculator_t2" ]
+    ] ],
+    [ "OxCalculatorT2.hxx", "_ox_calculator_t2_8hxx.html", null ],
     [ "OxFitter.h", "_ox_fitter_8h.html", [
       [ "Fitter", "class_ox_1_1_fitter.html", "class_ox_1_1_fitter" ]
     ] ],
@@ -61,11 +65,8 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "OxStartPointCalculator.h", "_ox_start_point_calculator_8h.html", [
       [ "StartPointCalculator", "class_ox_1_1_start_point_calculator.html", "class_ox_1_1_start_point_calculator" ]
     ] ],
-    [ "OxStartPointCalculatorDefault2Dims.h", "_ox_start_point_calculator_default2_dims_8h.html", [
-      [ "StartPointCalculatorDefault2Dims", "class_ox_1_1_start_point_calculator_default2_dims.html", "class_ox_1_1_start_point_calculator_default2_dims" ]
-    ] ],
-    [ "OxStartPointCalculatorDefault3Dims.h", "_ox_start_point_calculator_default3_dims_8h.html", [
-      [ "StartPointCalculatorDefault3Dims", "class_ox_1_1_start_point_calculator_default3_dims.html", "class_ox_1_1_start_point_calculator_default3_dims" ]
+    [ "OxStartPointCalculatorBasic.h", "_ox_start_point_calculator_basic_8h.html", [
+      [ "StartPointCalculatorBasic", "class_ox_1_1_start_point_calculator_basic.html", "class_ox_1_1_start_point_calculator_basic" ]
     ] ],
     [ "OxStartPointCalculatorShmolli.h", "_ox_start_point_calculator_shmolli_8h.html", [
       [ "StartPointCalculatorShmolli", "class_ox_1_1_start_point_calculator_shmolli.html", "class_ox_1_1_start_point_calculator_shmolli" ]

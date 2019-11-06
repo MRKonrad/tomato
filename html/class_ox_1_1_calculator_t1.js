@@ -25,6 +25,7 @@ var class_ox_1_1_calculator_t1 =
     [ "newByCloning", "class_ox_1_1_calculator_t1.html#a0db8102b4dad27368667e6ec89c6e4f3", null ],
     [ "prepareToCalculate", "class_ox_1_1_calculator_t1.html#af8b7d97caa1f197c937942c8ebc5ae7b", null ],
     [ "setAllPointersToNull", "class_ox_1_1_calculator_t1.html#a11f02c5b0ae3f9b0f8a74044a170ee18", null ],
+    [ "setEchoTimes", "class_ox_1_1_calculator_t1.html#a31cd6081870edadc89b50ffa66e34ecb", null ],
     [ "setFitter", "class_ox_1_1_calculator_t1.html#a106746ffcc08288c933c4dc210589f35", null ],
     [ "setFunctionsT1", "class_ox_1_1_calculator_t1.html#a88e23f6ffa2903dc14a6133a90203f02", null ],
     [ "setInvTimes", "class_ox_1_1_calculator_t1.html#a102f4865fc2424e6f30bcbd5bf3580f3", null ],

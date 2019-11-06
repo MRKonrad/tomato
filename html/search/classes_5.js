@@ -5,7 +5,6 @@ var searchData=
   ['signcalculatorrealimag',['SignCalculatorRealImag',['../class_ox_1_1_sign_calculator_real_imag.html',1,'Ox']]],
   ['signcalculatorshmolli',['SignCalculatorShmolli',['../class_ox_1_1_sign_calculator_shmolli.html',1,'Ox']]],
   ['startpointcalculator',['StartPointCalculator',['../class_ox_1_1_start_point_calculator.html',1,'Ox']]],
-  ['startpointcalculatordefault2dims',['StartPointCalculatorDefault2Dims',['../class_ox_1_1_start_point_calculator_default2_dims.html',1,'Ox']]],
-  ['startpointcalculatordefault3dims',['StartPointCalculatorDefault3Dims',['../class_ox_1_1_start_point_calculator_default3_dims.html',1,'Ox']]],
+  ['startpointcalculatorbasic',['StartPointCalculatorBasic',['../class_ox_1_1_start_point_calculator_basic.html',1,'Ox']]],
   ['startpointcalculatorshmolli',['StartPointCalculatorShmolli',['../class_ox_1_1_start_point_calculator_shmolli.html',1,'Ox']]]
 ];

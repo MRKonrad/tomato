@@ -1,5 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_ox_1_1_calculator_t1.html" title="Ox::CalculatorT1\&lt; Measure\lType \&gt;" alt="" coords="6,5,189,46"/>
-<area shape="rect" id="node2" href="$class_ox_1_1_calculator_t1_molli.html" title="Ox::CalculatorT1Molli\l\&lt; MeasureType \&gt;" alt="" coords="238,5,386,46"/>
-<area shape="rect" id="node3" href="$class_ox_1_1_calculator_t1_shmolli.html" title="Ox::CalculatorT1Shmolli\l\&lt; MeasureType \&gt;" alt="" coords="435,5,599,46"/>
+<area shape="rect" id="node1" href="$class_ox_1_1_calculator_t1.html" title="Ox::CalculatorT1\&lt; Measure\lType \&gt;" alt="" coords="6,38,189,79"/>
+<area shape="rect" id="node2" href="$class_ox_1_1_calculator_t1_molli.html" title="Ox::CalculatorT1Molli\l\&lt; MeasureType \&gt;" alt="" coords="255,5,403,46"/>
+<area shape="rect" id="node4" href="$class_ox_1_1_calculator_t2.html" title="Ox::CalculatorT2\&lt; Measure\lType \&gt;" alt="" coords="238,70,421,111"/>
+<area shape="rect" id="node3" href="$class_ox_1_1_calculator_t1_shmolli.html" title="Ox::CalculatorT1Shmolli\l\&lt; MeasureType \&gt;" alt="" coords="470,5,634,46"/>
 </map>

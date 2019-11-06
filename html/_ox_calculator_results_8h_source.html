@@ -119,62 +119,65 @@ $(document).ready(function(){initNavTree('_ox_calculator_results_8h_source.html'
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        MeasureType B;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        MeasureType T1star;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        MeasureType T1;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        MeasureType R2;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        MeasureType ChiSqrt;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        MeasureType SNR;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        MeasureType LastValue;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> NShmolliSamplesUsed;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        MeasureType SD_A;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        MeasureType SD_B;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        MeasureType SD_T1;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">bool</span> hasBeenCalculated;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="struct_ox_1_1_calculator_t1_results.html#a2ef9ec72b2f7e61bb442fe8e0f61d508">   34</a></span>&#160;        <a class="code" href="struct_ox_1_1_calculator_t1_results.html#a2ef9ec72b2f7e61bb442fe8e0f61d508">CalculatorT1Results</a>() {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            A = 0;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            B = 0;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            T1star = 0;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            T1 = 0;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            R2 = 0;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            ChiSqrt = 0;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            SNR = 0;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            LastValue = 1e32;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            NShmolliSamplesUsed = 0;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            SD_A = 0;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            SD_B = 0;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            SD_T1 = 0;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            hasBeenCalculated = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        };</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="comment">// TODO: make static</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> disp(){</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            std::cout &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;CalculatorT1Results: &quot;</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;A: &quot;</span> &lt;&lt; A &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;B: &quot;</span> &lt;&lt; B &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;T1star: &quot;</span> &lt;&lt; T1star &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;T1: &quot;</span> &lt;&lt; T1 &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;R2: &quot;</span> &lt;&lt; R2 &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;ChiSqrt: &quot;</span> &lt;&lt; ChiSqrt &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;SNR: &quot;</span> &lt;&lt; SNR &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;LastValue: &quot;</span> &lt;&lt; LastValue &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;NShmolliSamplesUsed: &quot;</span> &lt;&lt; NShmolliSamplesUsed &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;SD_A: &quot;</span> &lt;&lt; SD_A &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;SD_B: &quot;</span> &lt;&lt; SD_B &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;SD_T1: &quot;</span> &lt;&lt; SD_T1 &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">if</span> (hasBeenCalculated) std::cout &lt;&lt; <span class="stringliteral">&quot;has been calculated&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">else</span> std::cout &lt;&lt; <span class="stringliteral">&quot;has NOT been calculated&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            hasBeenCalculated = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        MeasureType T2;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        MeasureType R2;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        MeasureType ChiSqrt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        MeasureType SNR;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        MeasureType LastValue;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> NShmolliSamplesUsed;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        MeasureType SD_A;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        MeasureType SD_B;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        MeasureType SD_T1;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">bool</span> hasBeenCalculated;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="struct_ox_1_1_calculator_t1_results.html#a2ef9ec72b2f7e61bb442fe8e0f61d508">   35</a></span>&#160;        <a class="code" href="struct_ox_1_1_calculator_t1_results.html#a2ef9ec72b2f7e61bb442fe8e0f61d508">CalculatorT1Results</a>() {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            A = 0;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            B = 0;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            T1star = 0;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            T1 = 0;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            T2 = 0;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            R2 = 0;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            ChiSqrt = 0;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            SNR = 0;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            LastValue = 1e32;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            NShmolliSamplesUsed = 0;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            SD_A = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            SD_B = 0;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            SD_T1 = 0;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            hasBeenCalculated = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        };</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="comment">// TODO: make static</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> disp(){</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            std::cout &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;CalculatorT1Results: &quot;</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;A: &quot;</span> &lt;&lt; A &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;B: &quot;</span> &lt;&lt; B &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;T1star: &quot;</span> &lt;&lt; T1star &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;T1: &quot;</span> &lt;&lt; T1 &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;T2: &quot;</span> &lt;&lt; T2 &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;R2: &quot;</span> &lt;&lt; R2 &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;ChiSqrt: &quot;</span> &lt;&lt; ChiSqrt &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;SNR: &quot;</span> &lt;&lt; SNR &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;LastValue: &quot;</span> &lt;&lt; LastValue &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;NShmolliSamplesUsed: &quot;</span> &lt;&lt; NShmolliSamplesUsed &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;SD_A: &quot;</span> &lt;&lt; SD_A &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;SD_B: &quot;</span> &lt;&lt; SD_B &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;SD_T1: &quot;</span> &lt;&lt; SD_T1 &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">if</span> (hasBeenCalculated) std::cout &lt;&lt; <span class="stringliteral">&quot;has been calculated&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">else</span> std::cout &lt;&lt; <span class="stringliteral">&quot;has NOT been calculated&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    };</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;} <span class="comment">// namespace Ox</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            hasBeenCalculated = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif //Tomato_OXCALCULATORRESULTS_H</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    };</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;} <span class="comment">// namespace Ox</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif //Tomato_OXCALCULATORRESULTS_H</span></div>
 <div class="ttc" id="struct_ox_1_1_calculator_t1_results_html"><div class="ttname"><a href="struct_ox_1_1_calculator_t1_results.html">Ox::CalculatorT1Results</a></div><div class="ttdef"><b>Definition:</b> OxCalculatorResults.h:14</div></div>
-<div class="ttc" id="struct_ox_1_1_calculator_t1_results_html_a2ef9ec72b2f7e61bb442fe8e0f61d508"><div class="ttname"><a href="struct_ox_1_1_calculator_t1_results.html#a2ef9ec72b2f7e61bb442fe8e0f61d508">Ox::CalculatorT1Results::CalculatorT1Results</a></div><div class="ttdeci">CalculatorT1Results()</div><div class="ttdef"><b>Definition:</b> OxCalculatorResults.h:34</div></div>
+<div class="ttc" id="struct_ox_1_1_calculator_t1_results_html_a2ef9ec72b2f7e61bb442fe8e0f61d508"><div class="ttname"><a href="struct_ox_1_1_calculator_t1_results.html#a2ef9ec72b2f7e61bb442fe8e0f61d508">Ox::CalculatorT1Results::CalculatorT1Results</a></div><div class="ttdeci">CalculatorT1Results()</div><div class="ttdef"><b>Definition:</b> OxCalculatorResults.h:35</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
