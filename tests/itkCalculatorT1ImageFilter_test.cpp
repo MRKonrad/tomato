@@ -13,7 +13,7 @@
 #include "OxFitterAmoebaVnl.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
-#include "OxStartPointCalculatorDefault3Dims.h"
+#include "OxStartPointCalculatorBasic.h"
 #include "OxCalculatorT1Molli.h"
 
 #include "itkCalculatorT1ImageFilter.h"
@@ -52,7 +52,7 @@ TEST(itkCalculatorT1ImageFilter, calculate) {
     Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
-    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure calculator
@@ -126,7 +126,7 @@ TEST(itkCalculatorT1ImageFilter, calculate_no_phase_given) {
     Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
-    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure calculator

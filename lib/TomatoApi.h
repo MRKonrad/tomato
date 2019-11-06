@@ -65,7 +65,7 @@
 /* *********************** */
 /* start point calculators */
 /* *********************** */
-#include "OxStartPointCalculatorDefault3Dims.h"
+#include "OxStartPointCalculatorBasic.h"
 #ifdef USE_PRIVATE_NR2
 #include "OxStartPointCalculatorShmolli.h"
 #endif
@@ -137,7 +137,7 @@ namespace Ox {
     /* start point calculators */
     /* *********************** */
     template class TOMATOLIB_EXPORT StartPointCalculator<double>;
-    template class TOMATOLIB_EXPORT StartPointCalculatorDefault3Dims<double>;
+    template class TOMATOLIB_EXPORT StartPointCalculatorBasic<double>;
 #ifdef USE_PRIVATE_NR2
     template class TOMATOLIB_EXPORT StartPointCalculatorShmolli<double>;
 #endif // USE_PRIVATE_NR2

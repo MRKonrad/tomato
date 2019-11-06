@@ -21,7 +21,7 @@
 //#include "OxFitterAmoebaVnl.h"
 //#include "OxFitterLevenbergMarquardtVnl.h"
 //#include "OxSignCalculatorRealImag.h"
-//#include "OxStartPointCalculatorDefault3Dims.h"
+//#include "OxStartPointCalculatorShmolli.h"
 
 Ox::CalculatorT1Results<double> CalculateShmolli(
         int nSamples, double* sigMag, double* sigPha, double* invTimes) {

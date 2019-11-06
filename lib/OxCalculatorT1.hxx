@@ -204,6 +204,13 @@ namespace Ox {
     template< typename MeasureType >
     void
     CalculatorT1<MeasureType>
+    ::setEchoTimes(const MeasureType *_EchoTimes) {
+        CalculatorT1::_EchoTimes = _EchoTimes;
+    }
+
+    template< typename MeasureType >
+    void
+    CalculatorT1<MeasureType>
     ::setSigMag(const MeasureType *_SigMag) {
         CalculatorT1::_SigMag = _SigMag;
     }
@@ -289,6 +296,18 @@ namespace Ox {
         getSignCalculator()->calculateSign();
 
         // calculate start point
+        getStartPointCalculator()->setNDims(_nDims);
+        if (!getStartPointCalculator()->getInputStartPoint()){
+            if (_nDims == 2){
+                MeasureType const temp[] = {100, 1000};
+                getStartPointCalculator()->setInputStartPoint(temp);
+            } else if (_nDims == 3){
+                MeasureType const temp[] = {100, 200, 1000};
+                getStartPointCalculator()->setInputStartPoint(temp);
+            } else {
+                throw std::runtime_error("CalculatorT1: Set InputStartPoint in StartPointCalculator");
+            }
+        }
         getStartPointCalculator()->setNSamples(getNSamples());
         getStartPointCalculator()->setInvTimes(getInvTimes());
         getStartPointCalculator()->setSigMag(getSigMag());

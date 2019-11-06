@@ -1,6 +1,6 @@
 # cmake copies this file, so you better reload cmake if you change this file and you want everything to be working
-resultsTwoParam:   [ 0, 0]
-resultsThreeParam: [ 0, 0, 0]
+resultsTwoParam:   [ 100, 50]
+resultsThreeParam: [ 0, 100, 50]
 
 signalMag: [ 100.0,   36.8,   13.5,    5.0,    1.8,    0.7,    0.3,    0.1,    0.03,    0.01,    0.004]
 echoTimes: [ 0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500]

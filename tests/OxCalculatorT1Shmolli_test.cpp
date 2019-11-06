@@ -14,7 +14,7 @@
 #include "OxFitterAmoebaVnl.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
 #include "OxSignCalculatorRealImag.h"
-#include "OxStartPointCalculatorDefault3Dims.h"
+#include "OxStartPointCalculatorBasic.h"
 
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1Shmolli.h"
@@ -82,7 +82,7 @@ TEST(OxCalculatorT1Shmolli, calculate_doNotCalculateIfMaxIterZero) {
     Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
-    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Shmolli<TYPE> calculatorT1Shmolli;
 
     // configure
@@ -128,7 +128,7 @@ TEST(OxCalculatorT1Shmolli, calculate_throwIfInvTimesNotSorted) {
     Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
-    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Shmolli<TYPE> calculatorT1Shmolli;
 
     // configure
@@ -162,7 +162,7 @@ TEST(OxCalculatorT1Shmolli, calculate_WithoutSigns_AmoebaVnl) {
     Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
-    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Shmolli<TYPE> calculatorT1Shmolli;
 
     // configure
@@ -200,7 +200,7 @@ TEST(OxCalculatorT1Shmolli, calculate_WithoutSigns_LevMarVnl) {
     Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
-    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Shmolli<TYPE> calculatorT1Shmolli;
 
     // configure
@@ -238,7 +238,7 @@ TEST(OxCalculatorT1Shmolli, calculate_WithSigns) {
     Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
-    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Shmolli<TYPE> calculatorT1Shmolli;
 
     // configure
@@ -275,7 +275,7 @@ TEST(OxCalculatorT1Shmolli, copyConstructor) {
     Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
-    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Shmolli<TYPE> calculatorT1Shmolli;
 
     // configure

@@ -30,7 +30,7 @@ namespace Ox {
 
         /**
          * The most important function of this class
-         * It has all the input parametrs so that I can call it from the shmolli class
+         * It has all the input parameters so that I can call it from the shmolli class
          * @param nSamples
          * @param invTimes
          * @param signal
@@ -39,10 +39,32 @@ namespace Ox {
          */
         virtual CalculatorT1Results<MeasureType> calculateMolli(int nSamples, const MeasureType* invTimes, MeasureType* signal, MeasureType* signs);
 
+        /**
+         * Calculate goodness of fit map
+         * @param nSamples
+         * @param invTimes
+         * @param signal
+         * @param parameters
+         * @return
+         */
         MeasureType calculateR2AbsFromModel(int nSamples, const MeasureType* invTimes, const MeasureType* signal, const MeasureType* parameters);
 
+        /**
+         * calculate covariance matrix needed for SD estimation
+         * @param parameters
+         * @param covarianceMatrix
+         * @return
+         */
         int calculateCovarianceMatrix(const MeasureType* parameters, MeasureType *covarianceMatrix);
 
+        /**
+         * calculate inverse covariance matrix needed for SD estimation
+         * @param invTimes
+         * @param residuals
+         * @param parameters
+         * @param invCovarianceMatrix
+         * @return
+         */
         int calculateInvCovarianceMatrix(const MeasureType* invTimes, const MeasureType* residuals, const MeasureType* parameters, MeasureType *invCovarianceMatrix);
 
         /**

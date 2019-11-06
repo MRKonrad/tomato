@@ -12,7 +12,7 @@
 #include "OxFitterAmoebaVnl.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
-#include "OxStartPointCalculatorDefault3Dims.h"
+#include "OxStartPointCalculatorBasic.h"
 #include "OxCalculatorT1Molli.h"
 
 #include "itkCalculatorT1ImageFilter.h"

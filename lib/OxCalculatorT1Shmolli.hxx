@@ -46,6 +46,24 @@ namespace Ox {
 
         this->getSignCalculator()->calculateSign();
 
+        // calculate start point
+        this->getStartPointCalculator()->setNDims(this->_nDims);
+        if (!this->getStartPointCalculator()->getInputStartPoint()){
+            if (this->_nDims == 3){
+                MeasureType const temp[] = {100, 200, 1000};
+                this->getStartPointCalculator()->setInputStartPoint(temp);
+            } else {
+                throw std::runtime_error("CalculatorT1: Set InputStartPoint in StartPointCalculator");
+            }
+        }
+        this->getStartPointCalculator()->setNSamples(this->getNSamples());
+        this->getStartPointCalculator()->setInvTimes(this->getInvTimes());
+        this->getStartPointCalculator()->setSigMag(this->getSigMag());
+        this->getStartPointCalculator()->setSigns(this->getSigns());
+        this->getStartPointCalculator()->setCalculatedStartPoint(this->_StartPoint);
+
+        this->getStartPointCalculator()->calculateStartPoint();
+
         // calculate TRR
         calculateTRRaverageHB();
 

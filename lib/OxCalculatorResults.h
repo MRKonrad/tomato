@@ -17,6 +17,7 @@ namespace Ox {
         MeasureType B;
         MeasureType T1star;
         MeasureType T1;
+        MeasureType T2;
         MeasureType R2;
         MeasureType ChiSqrt;
         MeasureType SNR;
@@ -36,6 +37,7 @@ namespace Ox {
             B = 0;
             T1star = 0;
             T1 = 0;
+            T2 = 0;
             R2 = 0;
             ChiSqrt = 0;
             SNR = 0;
@@ -56,6 +58,7 @@ namespace Ox {
             std::cout << "B: " << B << std::endl;
             std::cout << "T1star: " << T1star << std::endl;
             std::cout << "T1: " << T1 << std::endl;
+            std::cout << "T2: " << T2 << std::endl;
             std::cout << "R2: " << R2 << std::endl;
             std::cout << "ChiSqrt: " << ChiSqrt << std::endl;
             std::cout << "SNR: " << SNR << std::endl;

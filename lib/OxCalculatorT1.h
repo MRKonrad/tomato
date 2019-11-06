@@ -132,6 +132,8 @@ namespace Ox {
         // setters for the data
         virtual void setInvTimes(const MeasureType *_InvTimes);
 
+        virtual void setEchoTimes(const MeasureType *_EchoTimes);
+
         virtual void setSigMag(const MeasureType *_SigMag);
 
         virtual void setSigPha(const MeasureType *_SigPha);

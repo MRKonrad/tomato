@@ -11,7 +11,7 @@
 #include "OxFitterAmoebaVnl.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
-#include "OxStartPointCalculatorDefault3Dims.h"
+#include "OxStartPointCalculatorBasic.h"
 #include "OxCalculatorT1Molli.h"
 
 #include "itkReadFileListFilter.h"
@@ -61,7 +61,7 @@ TEST(itkPipeline, readAndCalculateT1FromMag) {
     Ox::FunctionsT1ThreeParam<InputPixelType> functionsObject;
     Ox::FitterAmoebaVnl<InputPixelType> fitter;
     Ox::SignCalculatorNoSign<InputPixelType> signCalculator;
-    Ox::StartPointCalculatorDefault3Dims<InputPixelType> startPointCalculator;
+    Ox::StartPointCalculatorBasic<InputPixelType> startPointCalculator;
     Ox::CalculatorT1Molli<InputPixelType> calculatorT1;
 
     // configure fitter
@@ -146,7 +146,7 @@ TEST(itkPipeline, calculateT1FromMagAndPhase) {
     Ox::FunctionsT1ThreeParam<InputPixelType> functionsObject;
     Ox::FitterAmoebaVnl<InputPixelType> fitter;
     Ox::SignCalculatorRealImag<InputPixelType> signCalculator;
-    Ox::StartPointCalculatorDefault3Dims<InputPixelType> startPointCalculator;
+    Ox::StartPointCalculatorBasic<InputPixelType> startPointCalculator;
     Ox::CalculatorT1Molli<InputPixelType> calculatorT1;
 
     // configure fitter

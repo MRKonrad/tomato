@@ -14,7 +14,7 @@
 #include "OxFitterLevenbergMarquardtVnl.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
-#include "OxStartPointCalculatorDefault3Dims.h"
+#include "OxStartPointCalculatorBasic.h"
 #include "OxCalculatorT1Molli.h"
 
 #include "OxImageCalculatorT1.h"
@@ -49,7 +49,7 @@ TEST(OxImageCalculatorT1, calculate_molli_no_multithread) {
     Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
-    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculator;
 
     // configure calculator
@@ -212,7 +212,7 @@ TEST(OxImageCalculatorT1, calculate_molli_multithread_Vnl) {
     Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
-    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculator;
 
     // configure
@@ -272,7 +272,7 @@ TEST(OxImageCalculatorT1, calculate_molli_multithread_nr2) {
     Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaPrivateNr2<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
-    Ox::StartPointCalculatorDefault3Dims<TYPE> startPointCalculator;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculator;
 
     // configure
