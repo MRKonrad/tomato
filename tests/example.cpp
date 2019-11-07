@@ -17,7 +17,7 @@
 
 //#ifdef USE_VNL
 //#include "OxSignCalculatorNoSign.h"
-//#include "OxFunctionsT1ThreeParams.h"
+//#include "OxFunctionsT1ThreeParam.h"
 //#include "OxFitterAmoebaVnl.h"
 //#include "OxFitterLevenbergMarquardtVnl.h"
 //#include "OxSignCalculatorRealImag.h"

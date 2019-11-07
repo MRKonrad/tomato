@@ -107,7 +107,6 @@ namespace Ox {
          * \brief constructor
          */
         FunctionsT1(){
-            //std::cout << "FunctionsT1 constructor" << std::endl;
 
             _nSamples = 0;
             _nDims = 0;
@@ -121,7 +120,6 @@ namespace Ox {
          * @param old
          */
         FunctionsT1(const FunctionsT1 &old) {
-            //std::cout<<"FunctionsT1 copy constructor "<<std::endl;
 
             _nSamples = old._nSamples;
             _nDims = old._nDims;

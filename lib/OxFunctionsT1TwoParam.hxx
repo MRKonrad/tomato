@@ -1,11 +1,11 @@
 /*!
- * \file OxFunctionsT1TwoParams.hxx
+ * \file OxFunctionsT1TwoParam.hxx
  * \author Konrad Werys
  * \date 2018/07/29
  */
 
-#ifndef Tomato_OXFUNCTIONST1TwoParams_HXX
-#define Tomato_OXFUNCTIONST1TwoParams_HXX
+#ifndef Tomato_OXFUNCTIONST1TwoParam_HXX
+#define Tomato_OXFUNCTIONST1TwoParam_HXX
 
 namespace Ox {
 
@@ -109,4 +109,4 @@ namespace Ox {
 } //namespace Ox
 
 
-#endif //Tomato_OXFUNCTIONST1TwoParams_HXX
+#endif //Tomato_OXFUNCTIONST1TwoParam_HXX

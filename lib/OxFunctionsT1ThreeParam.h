@@ -1,11 +1,11 @@
 /*!
- * \file OxFunctionsT1ThreeParams.h
+ * \file OxFunctionsT1ThreeParam.h
  * \author Konrad Werys
  * \date 2018/07/29
  */
 
-#ifndef Tomato_OXFUNCTIONST1ThreeParams_H
-#define Tomato_OXFUNCTIONST1ThreeParams_H
+#ifndef Tomato_OXFUNCTIONST1ThreeParam_H
+#define Tomato_OXFUNCTIONST1ThreeParam_H
 
 #include "tomatolib_export.h"
 #include "OxFunctionsT1.h"
@@ -14,7 +14,7 @@
 namespace Ox {
 
     /**
-     * \brief Container for a ThreeParams model function \f$ A-B\exp(t/T_1^*) \f$, cost function and Least-Squares
+     * \brief Container for a ThreeParam model function \f$ A-B\exp(t/T_1^*) \f$, cost function and Least-Squares
      * function and derivatives.
      * \details
      * @tparam MeasureType
@@ -52,4 +52,4 @@ namespace Ox {
 #include "OxFunctionsT1ThreeParam.hxx"
 #endif //TOMATOLIB_COMPILED
 
-#endif //Tomato_OXFUNCTIONST1ThreeParams_H
+#endif //Tomato_OXFUNCTIONST1ThreeParam_H

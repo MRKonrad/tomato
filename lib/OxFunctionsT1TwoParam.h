@@ -1,11 +1,11 @@
 /*!
- * \file OxFunctionsT1TwoParams.h
+ * \file OxFunctionsT1TwoParam.h
  * \author Konrad Werys
  * \date 2018/07/29
  */
 
-#ifndef Tomato_OXFUNCTIONST1TwoParams_H
-#define Tomato_OXFUNCTIONST1TwoParams_H
+#ifndef Tomato_OXFUNCTIONST1TwoParam_H
+#define Tomato_OXFUNCTIONST1TwoParam_H
 
 #include "tomatolib_export.h"
 #include "OxFunctionsT1.h"
@@ -14,7 +14,7 @@
 namespace Ox {
 
     /**
-     * \brief Container for a TwoParams model function \f$ A(1 - exp( -time / T1 )) \f$, cost function and Least-Squares
+     * \brief Container for a TwoParam model function \f$ A(1 - exp( -time / T1 )) \f$, cost function and Least-Squares
      * function and derivatives.
      * \details
      * @tparam MeasureType
@@ -52,4 +52,4 @@ namespace Ox {
 #include "OxFunctionsT1TwoParam.hxx"
 #endif //TOMATOLIB_COMPILED
 
-#endif //Tomato_OXFUNCTIONST1TwoParams_H
+#endif //Tomato_OXFUNCTIONST1TwoParam_H

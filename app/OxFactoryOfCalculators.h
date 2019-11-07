@@ -13,6 +13,7 @@
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1ShmolliOriginal.h"
 #endif
+#include "OxCalculatorT2.h"
 
 
 namespace Ox {
@@ -20,27 +21,44 @@ namespace Ox {
     template<typename TYPE>
     struct TomatoOptions;
 
+    enum paramType_t {
+        T1 = 0,
+        T2 = 1,
+        T2star = 2,
+        Perf = 3
+    };
+
     static const char *calculatorsTypeNames[] = {
             "T1_MOLLI",
             "T1_SHMOLLI",
             "T1_SHMOLLI_original",
+            "T2"
     };
 
     enum calculatorsType_t {
         T1_MOLLI = 0,
         T1_SHMOLLI = 1,
         T1_SHMOLLI_original = 2,
-        lastCalculatorType = T1_SHMOLLI_original
+        T2_ThreeParam = 3,
+        lastCalculatorType = T2_ThreeParam
     };
 
     static int calculatorsAvailability[] = {
             1, // T1_MOLLI
             1, // T1_SHMOLLI
 #ifdef USE_PRIVATE_NR2
-            1 // T1_SHMOLLI_original
+            1, // T1_SHMOLLI_original
 #else
-            0 // T1_SHMOLLI_original
+            0, // T1_SHMOLLI_original
 #endif
+            1 // T2
+    };
+
+    static int calculatorsParamsToCalculate[] = {
+            T1, // T1_MOLLI
+            T1, // T1_SHMOLLI
+            T1, // T1_SHMOLLI_original
+            T2  // T2_ThreeParam
     };
 
     template<typename TYPE>
@@ -64,6 +82,10 @@ namespace Ox {
                     break;
                 }
 #endif
+                case T2_ThreeParam: {
+                    calculatorT1 = new CalculatorT2<TYPE>();
+                    break;
+                }
                 default:
                     throw std::runtime_error("parameter_to_map not available");
 

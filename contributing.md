@@ -50,6 +50,11 @@ Feel free to contact the maintainers if that's a concern.
 
 *   In **copy constructors** copy primitive types, set all pointers to zero.
 
+## Commiting style
+
+*   Folow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) recommendations.  [A cheetsheet is here](https://www.cheatography.com/albelop/cheat-sheets/conventional-commits/pdf/).
+
+
 ## License
 
 By contributing to Draft.js, you agree that your contributions will be licensed

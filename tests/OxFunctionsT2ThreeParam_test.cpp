@@ -1,5 +1,5 @@
 /*!
- * \file OxFunctionsT2ThreeParams_test.cpp
+ * \file OxFunctionsT2ThreeParam_test.cpp
  * \author Konrad Werys
  * \date 2018/07/29
  */
@@ -9,7 +9,7 @@
 
 #include "OxFunctionsT2ThreeParam.h"
 
-TEST(OxFunctionsT2ThreeParams, calcModelValueTest) {
+TEST(OxFunctionsT2ThreeParam, calcModelValueTest) {
 
     typedef double TYPE;
 
@@ -20,7 +20,7 @@ TEST(OxFunctionsT2ThreeParams, calcModelValueTest) {
     EXPECT_DOUBLE_EQ(functionsObject.calcModelValue(params, 0), 105);
 }
 
-TEST(OxFunctionsT2ThreeParams, calcLSResidualsTest) {
+TEST(OxFunctionsT2ThreeParam, calcLSResidualsTest) {
 
     typedef double TYPE;
 
@@ -45,7 +45,7 @@ TEST(OxFunctionsT2ThreeParams, calcLSResidualsTest) {
     delete [] residuals;
 }
 
-TEST(OxFunctionsT2ThreeParams, calcLSJacobianTest) {
+TEST(OxFunctionsT2ThreeParam, calcLSJacobianTest) {
 
     typedef double TYPE;
 
@@ -85,7 +85,7 @@ TEST(OxFunctionsT2ThreeParams, calcLSJacobianTest) {
     }
 }
 
-TEST(OxFunctionsT2ThreeParams, calcCostValueTest) {
+TEST(OxFunctionsT2ThreeParam, calcCostValueTest) {
 
     typedef double TYPE;
 
@@ -103,7 +103,7 @@ TEST(OxFunctionsT2ThreeParams, calcCostValueTest) {
     EXPECT_DOUBLE_EQ(functionsObject.calcCostValue(params), 18630.38);
 }
 
-TEST(OxFunctionsT2ThreeParams, calcCostDerivativeTest) {
+TEST(OxFunctionsT2ThreeParam, calcCostDerivativeTest) {
 
     typedef double TYPE;
 
@@ -127,7 +127,7 @@ TEST(OxFunctionsT2ThreeParams, calcCostDerivativeTest) {
 
 }
 
-TEST(OxFunctionsT2ThreeParams, copyConstructor) {
+TEST(OxFunctionsT2ThreeParam, copyConstructor) {
 
     typedef double TYPE;
 

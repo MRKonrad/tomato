@@ -78,7 +78,6 @@
 #include "itkCalculatorT1ImageFilter.h"
 #include "itkColorbar2DImageFilter.h"
 #include "itkNShmolliSamplesUsedTo123ImageFilter.h"
-#include "itkReadDirectoryFilter.h"
 #include "itkReadFileListFilter.h"
 #include "itkSortInvTimesImageFilter.h"
 
@@ -153,7 +152,7 @@ namespace itk {
     template class TOMATOLIB_EXPORT CalculatorT1ImageFilter< Image<double, 3>, Image<double, 3> >;
     template class TOMATOLIB_EXPORT Colorbar2DImageFilter< Image<double, 3> >;
     template class TOMATOLIB_EXPORT NShmolliSamplesUsedTo123ImageFilter< Image<double, 3> >;
-    template class TOMATOLIB_EXPORT ReadDirectoryFilter< Image<double, 3> >;
+    //template class TOMATOLIB_EXPORT ReadDirectoryFilter< Image<double, 3> >;
     template class TOMATOLIB_EXPORT ReadFileListFilter< Image<double, 3> >;
     template class TOMATOLIB_EXPORT SortInvTimesImageFilter< Image<double, 3>, Image<double, 3> >;
 #endif //USE_ITK

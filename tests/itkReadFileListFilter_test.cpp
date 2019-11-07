@@ -46,6 +46,24 @@ TEST(itkReadFileListFilter, readFromMag) {
 
 }
 
+TEST(itkReadFileListFilter, readFromDir) {
+
+    // primitive data types
+    typedef double InputPixelType;
+    typedef double OutputPixelType;
+
+    // image data types
+    typedef itk::Image< InputPixelType,  3 > InputImageType3D;
+    typedef itk::Image< OutputPixelType, 2 > OutputImageType;
+    typedef itk::ReadFileListFilter<InputImageType3D> ReadFileListFilterType;
+
+    ReadFileListFilterType::Pointer reader = ReadFileListFilterType::New();
+    reader->SetDirName("testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12");
+    reader->Update();
+
+    ASSERT_EQ(reader->GetInvTimes().size(), 7);
+}
+
 
 #endif // USE_ITK
 

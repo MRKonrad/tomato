@@ -1,29 +1,3 @@
-# Tomato configuration file in YAML format.
-# OBLIGATORY fields are: files_magnitude or dir_magnitude.
-# Use one OR the other: files_magnitude OR dir_magnitude,  files_phase OR dir_phase
-# YAML is indent sensitive, do not use unnecessary indent. To indent use SPACES, NOT TABS!
-#
-# Available options:
-#
-# files_magnitude: <yaml list of file paths, each in quotes>
-# files_phase: <yaml list of file paths, each in quotes>
-# dir_magnitude: <directory path in quotes>
-# dir_phase: <directory path in quotes>
-# dir_output_map: <directory path in quotes>
-#  output_map_series_number: <number, for example 10007>
-# dir_output_fitparams: <directory path in quotes>
-#  output_fitparams_series_number: <number, for example 10008>
-#
-# parameter_to_map: <T1_Molli/T1_Shmolli/T1_SHMOLLI_original>
-# functions_object: <FunctionsThreeParams FunctionsTwoParams FunctionsShmolli>
-# fitting_method: <AmoebaVnl/LevMarVnl/AmoebaPrivateNr2>
-#  fTolerance: <number, for example 1e-12>
-#  max_function_evals: <number, for example 4000>
-# sign_calc_method: <MagOnly/MagPhase/RealImag>
-# start_point_calc_method: <Basic StartPointSHMOLLI>
-#
-# numberOfThreads: <number, 0 = max allowed threads>
-
 files_magnitude:
   - "testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0001.dcm"
   - "testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0002.dcm"
@@ -48,7 +22,7 @@ dir_output_fitparams: "testData/tomatoOutput_Molli/fitparams"
 output_fitparams_series_number: 9999
 
 parameter_to_map: T1_MOLLI
-functions_type: FunctionsThreeParams
+functions_type: FunctionsThreeParam
 fitting_method: LevMarVnl
 max_function_evals: 4000
 fTolerance: 1e-12

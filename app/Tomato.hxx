@@ -111,7 +111,7 @@ namespace Ox {
     Tomato<MeasureType>
     ::readAndSortInputDirs(){
 
-        typename ReadDirectoryFilterType::Pointer readerMag = ReadDirectoryFilterType::New();
+        typename ReadFileListFilterType::Pointer readerMag = ReadFileListFilterType::New();
         readerMag->SetDirName(_opts->dir_magnitude);
         readerMag->Update();
 
@@ -125,7 +125,7 @@ namespace Ox {
         sorterMag->SetInput(readerMag->GetOutput());
         sorterMag->Update();
 
-        typename ReadDirectoryFilterType::Pointer readerPha = ReadDirectoryFilterType::New();
+        typename ReadFileListFilterType::Pointer readerPha = ReadFileListFilterType::New();
         typename SortInvTimesImageFilterType::Pointer sorterPha = SortInvTimesImageFilterType::New();
 
         if (_opts->dir_phase.length() > 0) {
@@ -180,6 +180,7 @@ namespace Ox {
         calculatorT1->setSignCalculator(signCalculator);
         calculatorT1->setStartPointCalculator(startPointCalculator);
         calculatorT1->setInvTimes(_invTimes);
+        calculatorT1->setEchoTimes(_echoTimes);
         calculatorT1->setNSamples(_nSamples);
 
         // configure calculator itk filter
@@ -203,7 +204,6 @@ namespace Ox {
         clock.Stop();
         _opts->calculation_time = clock.GetTotal();
         printf("Calculation time: %.4fs.\n", clock.GetTotal());
-
 
         delete functionsT1;
         delete fitter;

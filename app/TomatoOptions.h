@@ -39,6 +39,7 @@ namespace Ox {
         std::string dir_output_fitparams;
 
         calculatorsType_t parameter_to_map;
+        paramType_t parameter_type;
         fittersType_t fitting_method;
         functionsType_t functions_type;
         signCalculatorsType_t sign_calc_method;
@@ -73,7 +74,7 @@ namespace Ox {
 
             parameter_to_map = T1_MOLLI;
             fitting_method = LevMarVnl;
-            functions_type = FunctionsThreeParams;
+            functions_type = FunctionsThreeParam;
             sign_calc_method = NoSign;
             start_point_calc_method = Basic;
 
@@ -156,6 +157,7 @@ namespace Ox {
             // calc options
             if (!parser._scalars["parameter_to_map"].empty())
                 parameter_to_map = (calculatorsType_t) findInArray(lastCalculatorType+1, calculatorsTypeNames, parser._scalars["parameter_to_map"]);
+                parameter_type = (paramType_t)calculatorsParamsToCalculate[(int)parameter_to_map];
             if (!parser._scalars["fitting_method"].empty())
                 fitting_method = (fittersType_t) findInArray(lastFitterType+1, fittersTypeNames, parser._scalars["fitting_method"]);
             if (!parser._scalars["functions_type"].empty())

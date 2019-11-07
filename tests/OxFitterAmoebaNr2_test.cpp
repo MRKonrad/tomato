@@ -11,7 +11,7 @@
 #include "OxTestData.h"
 
 #include "OxFitterAmoebaNr2.h"
-#include "OxFunctionsT1ThreeParams.h"
+#include "OxFunctionsT1ThreeParam.h"
 
 TEST(OxFitterAmoebaNr2, performFitting) {
 
