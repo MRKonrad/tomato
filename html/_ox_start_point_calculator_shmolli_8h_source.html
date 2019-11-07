@@ -138,7 +138,7 @@ $(document).ready(function(){initNavTree('_ox_start_point_calculator_shmolli_8h_
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">int</span> calculateStartPointSKP(<span class="keywordtype">int</span> nSamples, <span class="keyword">const</span> MeasureType *invTimes, <span class="keyword">const</span> MeasureType *ysignalInput, <span class="keyword">const</span> <span class="keywordtype">double</span> *signs, MeasureType *initPoint){</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">int</span> MAX_MOLLI_TI_SAMPLES = 128;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i; <span class="comment">// gen index</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordtype">int</span> i; <span class="comment">// gen index</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordtype">int</span> lSigns[MAX_MOLLI_TI_SAMPLES] ; <span class="comment">// signs local. Always will have first sample inverted and patches the unknown signs from magnitude info</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            MeasureType lSignal[MAX_MOLLI_TI_SAMPLES] ; <span class="comment">// signed local copy of signal</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
