@@ -24,6 +24,7 @@ var struct_ox_1_1_tomato_options =
     [ "output_fitparams_series_number", "struct_ox_1_1_tomato_options.html#a58664e816cde6eff746bd5abe4fe2d1c", null ],
     [ "output_map_series_number", "struct_ox_1_1_tomato_options.html#ab20a779c5a8dd371ec9356e3f9ce79c9", null ],
     [ "parameter_to_map", "struct_ox_1_1_tomato_options.html#a0d4ad4476a8817e68ead08d1b0645033", null ],
+    [ "parameter_type", "struct_ox_1_1_tomato_options.html#a943b1f0402f72d794bf21c62c3333f8b", null ],
     [ "sign_calc_method", "struct_ox_1_1_tomato_options.html#a2cf923d6d04fb8cb510db2623e93119d", null ],
     [ "start_point_calc_method", "struct_ox_1_1_tomato_options.html#a9da2993961d10c848b0860284900c869", null ],
     [ "use_colorbar", "struct_ox_1_1_tomato_options.html#aa762826a11ff767aa969bd66c29b577f", null ],
