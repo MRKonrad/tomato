@@ -70,11 +70,11 @@ namespace Ox {
         virtual void disp(){
             int nSamples = this->getNSamples();
             std::cout << "\nYou called disp() on a SignCalculator object " << this << " with nSamples: " << getNSamples();
-            KWUtil::printArray((bool)_InvTimes, nSamples, _InvTimes,       (char*)"\nInvTimes:    ");
-            KWUtil::printArray((bool)_SigMag, nSamples, _SigMag,           (char*)"\nSigMag:      ");
-            KWUtil::printArray((bool)_SigPha, nSamples, _SigPha,           (char*)"\nSigPha:      ");
-            KWUtil::printArray((bool)_Signal, nSamples, _Signal,           (char*)"\nSignal:      ");
-            KWUtil::printArray((bool)_Signs, nSamples, _Signs,             (char*)"\nSigns:       ");
+            KWUtil::printArray(_InvTimes !=0, nSamples, _InvTimes, (char*)"\nInvTimes:    ");
+            KWUtil::printArray(_SigMag !=0,   nSamples, _SigMag,   (char*)"\nSigMag:      ");
+            KWUtil::printArray(_SigPha !=0,   nSamples, _SigPha,   (char*)"\nSigPha:      ");
+            KWUtil::printArray(_Signal !=0,   nSamples, _Signal,   (char*)"\nSignal:      ");
+            KWUtil::printArray(_Signs !=0,    nSamples, _Signs,    (char*)"\nSigns:       ");
             std::cout << std::endl;
         }
 

@@ -42,10 +42,13 @@ namespace itk {
     void ReadFileListFilter<TImage>::SetDirName(const std::string dirName) {
         m_DirName = dirName;
         typename itk::Directory::Pointer directory = itk::Directory::New();
+        std::cout << "before load" << std::endl;
         directory->Load(dirName.c_str());
+        std::cout << "after load" << std::endl;
         for (size_t i = 0; i < directory->GetNumberOfFiles(); i++){
             std::string fileName = directory->GetFile(i);
-            if (fileName.compare(".") == 0 || fileName.compare("..") == 0){
+            std::cout << "after getfile" << std::endl;
+            if (fileName == "." || fileName == ".."){
                 continue;
             }
             std::cout << fileName << std::endl;

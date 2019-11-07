@@ -328,15 +328,15 @@ namespace Ox {
         std::cout << "\nYou called disp() on a CalculatorT1 object " << this
                   << " with nSamples: " << nSamples
                   << " nDims: " << _nDims;
-        KWUtil::printArray((bool)_InvTimes, nSamples, _InvTimes,       (char*)"\nInvTimes:    ");
-        KWUtil::printArray((bool)_EchoTimes, nSamples, _EchoTimes,     (char*)"\nEchoTimes:    ");
-        KWUtil::printArray((bool)_RepTimes, nSamples, _RepTimes,       (char*)"\nRepTimes:    ");
-        KWUtil::printArray((bool)_RelAcqTimes, nSamples, _RelAcqTimes, (char*)"\nRelAcqTimes: ");
-        KWUtil::printArray((bool)_SigMag, nSamples, _SigMag,           (char*)"\nSigMag:      ");
-        KWUtil::printArray((bool)_SigPha, nSamples, _SigPha,           (char*)"\nSigPha:      ");
-        KWUtil::printArray((bool)_Signal, nSamples, _Signal,           (char*)"\nSignal:      ");
-        KWUtil::printArray((bool)_Signs, nSamples, _Signs,             (char*)"\nSigns:       ");
-        KWUtil::printArray((bool)_StartPoint, _nDims, _StartPoint,     (char*)"\nStart point: ");
+        KWUtil::printArray(_InvTimes != 0, nSamples, _InvTimes,       (char*)"\nInvTimes:    ");
+        KWUtil::printArray(_EchoTimes != 0, nSamples, _EchoTimes,     (char*)"\nEchoTimes:   ");
+        KWUtil::printArray(_RepTimes != 0, nSamples, _RepTimes,       (char*)"\nRepTimes:    ");
+        KWUtil::printArray(_RelAcqTimes != 0, nSamples, _RelAcqTimes, (char*)"\nRelAcqTimes: ");
+        KWUtil::printArray(_SigMag != 0, nSamples, _SigMag,           (char*)"\nSigMag:      ");
+        KWUtil::printArray(_SigPha != 0, nSamples, _SigPha,           (char*)"\nSigPha:      ");
+        KWUtil::printArray(_Signal != 0, nSamples, _Signal,           (char*)"\nSignal:      ");
+        KWUtil::printArray(_Signs != 0, nSamples, _Signs,             (char*)"\nSigns:       ");
+        KWUtil::printArray(_StartPoint != 0, _nDims, _StartPoint,     (char*)"\nStart point: ");
         std::cout << std::endl;
         if(_FunctionsT1) {
             std::cout << "This CalculatorT1 contains the following FunctionsT1 object: ";

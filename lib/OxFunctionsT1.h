@@ -84,11 +84,11 @@ namespace Ox {
         virtual void disp(){
             int nSamples = this->getNSamples();
             std::cout << "\nYou called disp() on a FunctionsT1 object " << this << " with nSamples: " << getNSamples();
-            KWUtil::printArray((bool)_InvTimes, nSamples, _InvTimes,       (char*)"\nInvTimes:    ");
-            KWUtil::printArray((bool)_EchoTimes, nSamples, _EchoTimes,     (char*)"\nEchoTimes:    ");
-            KWUtil::printArray((bool)_RepTimes, nSamples, _RepTimes,       (char*)"\nRepTimes:    ");
-            KWUtil::printArray((bool)_RelAcqTimes, nSamples, _RelAcqTimes, (char*)"\nRelAcqTimes: ");
-            KWUtil::printArray((bool)_Signal, nSamples, _Signal,           (char*)"\nSignal:      ");
+            KWUtil::printArray(_InvTimes   != 0, nSamples, _InvTimes,    (char*)"\nInvTimes:    ");
+            KWUtil::printArray(_EchoTimes  != 0, nSamples, _EchoTimes,   (char*)"\nEchoTimes:   ");
+            KWUtil::printArray(_RepTimes   != 0, nSamples, _RepTimes,    (char*)"\nRepTimes:    ");
+            KWUtil::printArray(_RelAcqTimes!= 0, nSamples, _RelAcqTimes, (char*)"\nRelAcqTimes: ");
+            KWUtil::printArray(_Signal     != 0, nSamples, _Signal,      (char*)"\nSignal:      ");
             std::cout << std::endl;
         }
 

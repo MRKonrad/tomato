@@ -72,7 +72,7 @@ namespace Ox {
          */
         virtual void disp(){
             std::cout << "\nYou called disp() on a Fitter object " << this << "\n";
-            KWUtil::printArray((bool)_Parameters, _FunctionsT1->getNDims(), _Parameters,     (char*)"\nParameters:  ");
+            KWUtil::printArray(_Parameters !=0, _FunctionsT1->getNDims(), _Parameters,     (char*)"\nParameters:  ");
             std::cout << "XTolerance:       " << getXTolerance() << std::endl;
             std::cout << "FTolerance:       " << getFTolerance() << std::endl;
             std::string temp = getUseGradient() ? "true" : "false";

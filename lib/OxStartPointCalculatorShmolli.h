@@ -46,7 +46,7 @@ namespace Ox {
         int calculateStartPointSKP(int nSamples, const MeasureType *invTimes, const MeasureType *ysignalInput, const double *signs, MeasureType *initPoint){
 
             const int MAX_MOLLI_TI_SAMPLES = 128;
-            unsigned int i; // gen index
+            int i; // gen index
             int lSigns[MAX_MOLLI_TI_SAMPLES] ; // signs local. Always will have first sample inverted and patches the unknown signs from magnitude info
             MeasureType lSignal[MAX_MOLLI_TI_SAMPLES] ; // signed local copy of signal
 

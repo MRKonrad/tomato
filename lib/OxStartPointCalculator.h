@@ -78,11 +78,11 @@ namespace Ox {
             std::cout << "\nYou called disp() on a StartPointCalculator object " << this
                       << " with nSamples: " << _nSamples
                       << " nDims: " << _nDims;
-            KWUtil::printArray((bool)_InvTimes, _nSamples, _InvTimes,       (char*)"\nInvTimes:    ");
-            KWUtil::printArray((bool)_EchoTimes, _nSamples, _InvTimes,      (char*)"\nEchoTimes:    ");
-            KWUtil::printArray((bool)_SigMag, _nSamples, _SigMag,           (char*)"\nSigMag:      ");
-            KWUtil::printArray((bool)_Signs, _nSamples, _Signs,             (char*)"\nSigns:       ");
-            KWUtil::printArray(_nDims, this->getCalculatedStartPoint(),     (char*)"\nStart point: ");
+            KWUtil::printArray(_InvTimes  != 0, _nSamples, _InvTimes,   (char*)"\nInvTimes:    ");
+            KWUtil::printArray(_EchoTimes != 0, _nSamples, _InvTimes,   (char*)"\nEchoTimes:    ");
+            KWUtil::printArray(_SigMag    != 0, _nSamples, _SigMag,     (char*)"\nSigMag:      ");
+            KWUtil::printArray(_Signs     != 0, _nSamples, _Signs,      (char*)"\nSigns:       ");
+            KWUtil::printArray(_nDims, this->getCalculatedStartPoint(), (char*)"\nStart point: ");
         }
 
         /**
