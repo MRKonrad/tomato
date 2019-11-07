@@ -48,6 +48,7 @@ namespace itk {
             if (fileName.compare(".") == 0 || fileName.compare("..") == 0){
                 continue;
             }
+            std::cout << fileName << std::endl;
             m_FileList.push_back(dirName + KWUtil::PathSeparator() + fileName);
         }
     }

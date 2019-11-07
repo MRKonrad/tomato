@@ -41,6 +41,7 @@ namespace Ox {
             resultsStruc.A      = tempResults[0];
             resultsStruc.B      = tempResults[1];
             resultsStruc.T1     = tempResults[2];
+            resultsStruc.T2     = tempResults[2];
             resultsStruc.R2     = calculateR2AbsFromModel(this->getNSamples(), this->getEchoTimes(), this->getSigMag(), tempResults);
         }
 
