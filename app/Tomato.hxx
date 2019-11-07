@@ -38,80 +38,9 @@ namespace Ox {
     int
     Tomato<MeasureType>
     ::readAndSort(){
-        if (_opts->files_magnitude.size() > 0){
-            return readAndSortInputFileList();
-        }
-        else{
-            return readAndSortInputDirs();
-        }
-
-    }
-
-    template< typename MeasureType >
-    int
-    Tomato<MeasureType>
-    ::readAndSortInputFileList(){
 
         typename ReadFileListFilterType::Pointer readerMag = ReadFileListFilterType::New();
         readerMag->SetFileList(_opts->files_magnitude);
-        readerMag->Update();
-
-        typename ReadFileListFilterType::Pointer readerPha = ReadFileListFilterType::New();
-        readerPha->SetFileList(_opts->files_phase);
-        readerPha->Update();
-
-        // have we read magnitudes?
-        if (readerMag->GetInvTimes().size() == 0){
-            throw std::runtime_error("\nNo magnitude images read, check the paths!");
-        }
-
-        // is phase empty?
-        if (readerPha->GetInvTimes().size() == 0) {
-            if (_opts->sign_calc_method != NoSign){
-                std::cerr << "\nNo phase images read, setting the sign_calc_method to NoSign" << std::endl;
-                _opts->sign_calc_method = NoSign;
-            }
-        }
-
-        typename SortInvTimesImageFilterType::Pointer sorterMag = SortInvTimesImageFilterType::New();
-        sorterMag->SetInvTimesNonSorted(readerMag->GetInvTimes());
-        sorterMag->SetInput(readerMag->GetOutput());
-        sorterMag->Update();
-
-        typename SortInvTimesImageFilterType::Pointer sorterPha = SortInvTimesImageFilterType::New();
-        if (_opts->sign_calc_method != NoSign) {
-            sorterPha->SetInvTimesNonSorted(readerPha->GetInvTimes());
-            sorterPha->SetInput(readerPha->GetOutput());
-            sorterPha->Update();
-        }
-
-        if (_opts->sign_calc_method != NoSign) {
-            // are the inversion times in magnitude and phase series equal?
-            if (sorterMag->GetInvTimesSorted() != sorterPha->GetInvTimesSorted()) {
-                throw std::runtime_error("\nMag and Pha inv times are not equal");
-            }
-        }
-
-        vnl_vector<InputPixelType > temp = sorterMag->GetInvTimesSorted();
-        _nSamples = (int)temp.size();
-        _invTimes = new InputPixelType[_nSamples];
-        KWUtil::copyArrayToArray(_nSamples, _invTimes, temp.data_block());
-
-        _dictionaryInput = readerMag->GetDicomIO()->GetMetaDataDictionary();
-        _imageMag = sorterMag->GetOutput();
-        if (_opts->sign_calc_method != NoSign) {
-            _imagePha = sorterPha->GetOutput();
-        }
-
-        return 0; // EXIT_SUCCESS
-    }
-
-    template< typename MeasureType >
-    int
-    Tomato<MeasureType>
-    ::readAndSortInputDirs(){
-
-        typename ReadFileListFilterType::Pointer readerMag = ReadFileListFilterType::New();
         readerMag->SetDirName(_opts->dir_magnitude);
         readerMag->Update();
 
@@ -122,38 +51,59 @@ namespace Ox {
 
         typename SortInvTimesImageFilterType::Pointer sorterMag = SortInvTimesImageFilterType::New();
         sorterMag->SetInvTimesNonSorted(readerMag->GetInvTimes());
+        sorterMag->SetEchoTimesNonSorted(readerMag->GetEchoTimes());
         sorterMag->SetInput(readerMag->GetOutput());
+        if (_opts->parameter_type == T1) {
+            sorterMag->SortByInvTimes();
+        } else if (_opts->parameter_type == T2){
+            sorterMag->SortByEchoTimes();
+        }
         sorterMag->Update();
 
         typename ReadFileListFilterType::Pointer readerPha = ReadFileListFilterType::New();
-        typename SortInvTimesImageFilterType::Pointer sorterPha = SortInvTimesImageFilterType::New();
-
-        if (_opts->dir_phase.length() > 0) {
-            readerPha->SetDirName(_opts->dir_phase);
-            readerPha->Update();
-            sorterPha->SetInvTimesNonSorted(readerPha->GetInvTimes());
-            sorterPha->SetInput(readerPha->GetOutput());
-            sorterPha->Update();
-        }
+        readerPha->SetFileList(_opts->files_phase);
+        readerPha->SetDirName(_opts->dir_magnitude);
+        readerPha->Update();
 
         // is phase empty?
-        if (sorterPha->GetInvTimesSorted().size() == 0) {
+        if (readerPha->GetInvTimes().size() == 0) {
             if (_opts->sign_calc_method != NoSign){
                 std::cerr << "\nNo phase images read, setting the sign_calc_method to NoSign" << std::endl;
                 _opts->sign_calc_method = NoSign;
             }
         }
-            // are the inversion times in magnitude and phase series equal?
-        else if (sorterMag->GetInvTimesSorted() != sorterPha->GetInvTimesSorted()){
-            throw std::runtime_error("\nMag and Pha inv times are not equal");
+
+        typename SortInvTimesImageFilterType::Pointer sorterPha = SortInvTimesImageFilterType::New();
+        if (_opts->sign_calc_method != NoSign) {
+            sorterPha->SetInvTimesNonSorted(readerPha->GetInvTimes());
+            sorterPha->SetEchoTimesNonSorted(readerMag->GetEchoTimes());
+            sorterPha->SetInput(readerPha->GetOutput());
+            if (_opts->parameter_type == T1) {
+                sorterPha->SortByInvTimes();
+            } else if (_opts->parameter_type == T2){
+                sorterPha->SortByEchoTimes();
+            }
+            sorterPha->Update();
         }
 
-        vnl_vector<InputPixelType > temp = sorterMag->GetInvTimesSorted();
-        _nSamples = (int)temp.size();
-        _invTimes = new InputPixelType[_nSamples];
-        KWUtil::copyArrayToArray(_nSamples, _invTimes, temp.data_block());
+        // are the inversion times in magnitude and phase series equal?
+        if (_opts->sign_calc_method != NoSign) {
+            if (sorterMag->GetInvTimesSorted() != sorterPha->GetInvTimesSorted()) {
+                throw std::runtime_error("\nMag and Pha inv times are not equal");
+            }
+        }
 
-        _dictionaryInput = readerMag->GetMetaDataDictionary();
+        vnl_vector<InputPixelType > tempInv = sorterMag->GetInvTimesSorted();
+        _nSamples = (int)tempInv.size();
+        _invTimes = new InputPixelType[_nSamples];
+        KWUtil::copyArrayToArray(_nSamples, _invTimes, tempInv.data_block());
+
+        vnl_vector<InputPixelType > tempEcho = sorterMag->GetEchoTimesSorted();
+        _nSamples = (int)tempEcho.size();
+        _echoTimes = new InputPixelType[_nSamples];
+        KWUtil::copyArrayToArray(_nSamples, _echoTimes, tempEcho.data_block());
+
+        _dictionaryInput = readerMag->GetDicomIO()->GetMetaDataDictionary();
         _imageMag = sorterMag->GetOutput();
         if (_opts->sign_calc_method != NoSign) {
             _imagePha = sorterPha->GetOutput();

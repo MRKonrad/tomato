@@ -36,27 +36,46 @@ namespace itk {
         typedef typename TImageIn::PixelType  PixelTypeIn;
         typedef typename TImageOut::PixelType PixelTypeOut;
 
+        void SortIndices(vnl_vector<PixelTypeIn> vector);
+
+        void SortByInvTimes();
+        void SortByEchoTimes();
+        void SortByRepTimes();
+        void SortByTriggerTimes();
+        void SortByAcqTimes();
+        void SortByRelAcqTimes();
+
         itkSetMacro( InvTimesNonSorted, vnl_vector<PixelTypeIn> );
         itkGetMacro( InvTimesNonSorted, vnl_vector<PixelTypeIn> );
-        //itkSetMacro( InvTimesSorted, vnl_vector<PixelTypeIn> );
         itkGetMacro( InvTimesSorted, vnl_vector<PixelTypeIn> );
+
+        itkSetMacro( EchoTimesNonSorted, vnl_vector<PixelTypeIn> );
+        itkGetMacro( EchoTimesNonSorted, vnl_vector<PixelTypeIn> );
+        itkGetMacro( EchoTimesSorted, vnl_vector<PixelTypeIn> );
 
         itkSetMacro( RepTimesNonSorted, vnl_vector<PixelTypeIn> );
         itkGetMacro( RepTimesNonSorted, vnl_vector<PixelTypeIn> );
-        //itkSetMacro( RepTimesSorted, vnl_vector<PixelTypeIn> );
         itkGetMacro( RepTimesSorted, vnl_vector<PixelTypeIn> );
+
+        itkSetMacro( TriggerTimesNonSorted, vnl_vector<PixelTypeIn> );
+        itkGetMacro( TriggerTimesNonSorted, vnl_vector<PixelTypeIn> );
+        itkGetMacro( TriggerTimesSorted, vnl_vector<PixelTypeIn> );
+
+        itkSetMacro( AcqTimesNonSorted, vnl_vector<PixelTypeIn> );
+        itkGetMacro( AcqTimesNonSorted, vnl_vector<PixelTypeIn> );
+        itkGetMacro( AcqTimesSorted, vnl_vector<PixelTypeIn> );
 
         itkSetMacro( RelAcqTimesNonSorted, vnl_vector<PixelTypeIn> );
         itkGetMacro( RelAcqTimesNonSorted, vnl_vector<PixelTypeIn> );
-        //itkSetMacro( RelAcqTimesSorted, vnl_vector<PixelTypeIn> );
         itkGetMacro( RelAcqTimesSorted, vnl_vector<PixelTypeIn> );
 
-        //itkSetMacro( Indices, vnl_vector<int> );
         itkGetMacro( Indices, vnl_vector<int> );
 
     protected:
         /** Constructor. */
-        SortInvTimesImageFilter() {};
+        SortInvTimesImageFilter() {
+            m_nSamples = 0;
+        };
 
         /** Destructor. */
         ~SortInvTimesImageFilter() {};
@@ -68,11 +87,18 @@ namespace itk {
 
         vnl_vector<typename TImageIn::PixelType> m_InvTimesNonSorted;
         vnl_vector<typename TImageIn::PixelType> m_InvTimesSorted;
+        vnl_vector<typename TImageIn::PixelType> m_EchoTimesNonSorted;
+        vnl_vector<typename TImageIn::PixelType> m_EchoTimesSorted;
         vnl_vector<typename TImageIn::PixelType> m_RepTimesNonSorted;
         vnl_vector<typename TImageIn::PixelType> m_RepTimesSorted;
+        vnl_vector<typename TImageIn::PixelType> m_TriggerTimesNonSorted;
+        vnl_vector<typename TImageIn::PixelType> m_TriggerTimesSorted;
+        vnl_vector<typename TImageIn::PixelType> m_AcqTimesNonSorted;
+        vnl_vector<typename TImageIn::PixelType> m_AcqTimesSorted;
         vnl_vector<typename TImageIn::PixelType> m_RelAcqTimesNonSorted;
         vnl_vector<typename TImageIn::PixelType> m_RelAcqTimesSorted;
         vnl_vector<int> m_Indices;
+        size_t m_nSamples;
     };
 
 } //namespace ITK

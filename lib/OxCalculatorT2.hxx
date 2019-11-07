@@ -40,7 +40,7 @@ namespace Ox {
         if (tempResults[0] != 0) {
             resultsStruc.A      = tempResults[0];
             resultsStruc.B      = tempResults[1];
-            resultsStruc.T2     = tempResults[2];
+            resultsStruc.T1     = tempResults[2];
             resultsStruc.R2     = calculateR2AbsFromModel(this->getNSamples(), this->getEchoTimes(), this->getSigMag(), tempResults);
         }
 

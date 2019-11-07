@@ -61,6 +61,7 @@ TEST(itkSortInvTimesImageFilter, sortInvTimesAndMag) {
     SortInvTimesImageFilterType::Pointer sortFilter = SortInvTimesImageFilterType::New();
     sortFilter->SetInput(imageMagNotSorted);
     sortFilter->SetInvTimesNonSorted(notSortedImagesFactory.getInvTimesVnl());
+    sortFilter->SortByInvTimes();
     sortFilter->Update();
 
     // for comparing invTimes

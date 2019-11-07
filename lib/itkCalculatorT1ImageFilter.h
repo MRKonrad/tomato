@@ -66,6 +66,7 @@ namespace itk {
         TImageOut* GetSD_AImage();
         TImageOut* GetSD_BImage();
         TImageOut* GetSD_T1Image();
+        TImageOut* GetT2Image();
 
         /** Getters and setters. */
         void SetCalculator(Ox::CalculatorT1<PixelTypeIn>* calculator){

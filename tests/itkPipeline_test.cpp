@@ -49,6 +49,7 @@ TEST(itkPipeline, readAndCalculateT1FromMag) {
     SortInvTimesImageFilterType::Pointer sorter = SortInvTimesImageFilterType::New();
     sorter->SetInvTimesNonSorted(reader->GetInvTimes());
     sorter->SetInput(reader->GetOutput());
+    sorter->SortByInvTimes();
     sorter->Update();
 
     // if I do not store a copy of inversion times like this, vnl_vector does funny things with the data under
@@ -129,11 +130,13 @@ TEST(itkPipeline, calculateT1FromMagAndPhase) {
     SortInvTimesImageFilterType::Pointer sorterMag = SortInvTimesImageFilterType::New();
     sorterMag->SetInvTimesNonSorted(readerMag->GetInvTimes());
     sorterMag->SetInput(readerMag->GetOutput());
+    sorterMag->SortByInvTimes();
     sorterMag->Update();
 
     SortInvTimesImageFilterType::Pointer sorterPha = SortInvTimesImageFilterType::New();
     sorterPha->SetInvTimesNonSorted(readerPha->GetInvTimes());
     sorterPha->SetInput(readerPha->GetOutput());
+    sorterPha->SortByInvTimes();
     sorterPha->Update();
 
     // if I do not store a copy of inversion times like this, vnl_vector does funny things with the data under

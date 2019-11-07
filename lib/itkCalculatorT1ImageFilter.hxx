@@ -22,7 +22,7 @@ namespace itk {
         this->m_LowerLimitOutputIntensity = 0;
 
         this->SetNumberOfRequiredInputs(1);
-        this->SetNumberOfRequiredOutputs(11);
+        this->SetNumberOfRequiredOutputs(12);
         for (unsigned i = 0; i < this->GetNumberOfRequiredOutputs(); ++i) {
             this->SetNthOutput(i, (TImageOut::New()).GetPointer());
         }
@@ -199,6 +199,7 @@ namespace itk {
         calculator->setStartPointCalculator(startPointCalculator);
         calculator->setNSamples(nSamples);
         calculator->setInvTimes(m_Calculator->getInvTimes());
+        calculator->setEchoTimes(m_Calculator->getEchoTimes());
 
         // set the thread id in the minimiser
         fitter->setThreadId(threadId);
@@ -257,6 +258,7 @@ namespace itk {
             itOutVector[8].Set(LimitResult(calculator->getResults().SD_A));
             itOutVector[9].Set(LimitResult(calculator->getResults().SD_B));
             itOutVector[10].Set(LimitResult(calculator->getResults().SD_T1));
+            itOutVector[11].Set(LimitResult(calculator->getResults().T2));
 
             // iterate all iterators accordingly
             for (unsigned int i = 0; i < outputImagesVector.size(); ++i) {
@@ -362,6 +364,14 @@ namespace itk {
     ::GetSD_T1Image() {
         return dynamic_cast< TImageOut * >(
                 this->ProcessObject::GetOutput(10) );
+    }
+
+    template< typename TImageIn, typename TImageOut >
+    TImageOut*
+    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    ::GetT2Image() {
+        return dynamic_cast< TImageOut * >(
+                this->ProcessObject::GetOutput(11) );
     }
 
 }// end namespace itk

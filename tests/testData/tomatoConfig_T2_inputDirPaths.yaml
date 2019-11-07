@@ -1,8 +1,8 @@
 dir_magnitude: "/Users/kwerys/Code/tomato/tests/testData/dicomT2"
 
-dir_output_map: "/Users/kwerys/Code/tomato/tests/testData/tomatoOutput_T2/map"
+dir_output_map: "/Users/kwerys/Desktop/test/a"
 output_map_series_number: 8800
-dir_output_fitparams: "/Users/kwerys/Code/tomato/tests/testData/tomatoOutput_T2/fitparams"
+dir_output_fitparams: "/Users/kwerys/Desktop/test/b"
 output_fitparams_series_number: 8801
 
 parameter_to_map: T2
@@ -12,4 +12,4 @@ max_function_evals: 40
 fTolerance: 1e-1
 start_point_calc_method: Basic
 
-number_of_threads: 0
+number_of_threads: 1
