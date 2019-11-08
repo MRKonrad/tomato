@@ -42,8 +42,13 @@ namespace itk {
     void ReadFileListFilter<TImage>::SetDirName(const std::string dirName) {
         m_DirName = dirName;
         typename itk::Directory::Pointer directory = itk::Directory::New();
-        std::cout << "before load" << std::endl;
-        directory->Load(dirName.c_str());
+        std::cout << "before load. DirName: " << dirName << "DirName.cstr: " << dirName.c_str() << std::endl;
+        try {
+            directory->Load(dirName.c_str());
+        } catch (const std::exception& e) { // reference to the base of a polymorphic object
+            std::cout << e.what(); // information from length_error printed
+        }
+
         std::cout << "after load" << std::endl;
         for (size_t i = 0; i < directory->GetNumberOfFiles(); i++){
             std::string fileName = directory->GetFile(i);
