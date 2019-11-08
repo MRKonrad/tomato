@@ -125,7 +125,7 @@ namespace Ox {
         StartPointCalculator<InputPixelType> *startPointCalculator = FactoryOfStartPointCalculators<InputPixelType>::newByFactory(_opts);
 
         // configure calculator
-        calculatorT1->setModelT1(ModelT1);
+        calculatorT1->setModel(ModelT1);
         calculatorT1->setFitter(fitter);
         calculatorT1->setSignCalculator(signCalculator);
         calculatorT1->setStartPointCalculator(startPointCalculator);

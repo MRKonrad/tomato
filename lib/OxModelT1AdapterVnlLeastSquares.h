@@ -23,23 +23,23 @@ namespace Ox {
         // least squares function problem formulation
         void f(vnl_vector<double> const& params, vnl_vector<double> &residuals){
 
-            //_ModelT1->copyToParameters(params.data_block());
+            //_Model->copyToParameters(params.data_block());
             _ModelT1->calcLSResiduals(params.data_block(), residuals.data_block());
         }
 
         // least squares function gradient
         void gradf (vnl_vector< double > const &params, vnl_matrix< double > &jacobianVNL){
 
-            //_ModelT1->copyToParameters(params.data_block());
+            //_Model->copyToParameters(params.data_block());
             _ModelT1->calcLSJacobian(params.data_block(), jacobianVNL.data_block());
         }
 
-        void setModelT1(Model<double>* _ModelT1){
+        void setModel(Model<double>* _ModelT1){
             this->_ModelT1 = _ModelT1;
         };
 
         // getters
-        Model<double>* getModelT1(){
+        Model<double>* getModel(){
             return _ModelT1;
         };
 

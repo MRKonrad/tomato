@@ -8,7 +8,7 @@
 #define Tomato_OXCALCULATORT1_H
 
 #include "tomatolib_export.h"
-#include "OxCalculatorResults.h"
+#include "OxCalculatorT1Results.h"
 #include "OxFitter.h"
 #include "OxModel.h"
 #include "OxSignCalculator.h"
@@ -46,10 +46,10 @@ namespace Ox {
         /* ****************** */
 
         /**
-         * /throw exception if _ModelT1 == 0
+         * /throw exception if _Model == 0
          * @return
          */
-        Model<MeasureType> *getModelT1() const;
+        Model<MeasureType> *getModel() const;
 
         /**
          * /throw exception if _Fitter == 0
@@ -121,7 +121,7 @@ namespace Ox {
         /* ****************** */
 
         // setters for the 'has a' classes
-        void setModelT1(Model<MeasureType> *_ModelT1);
+        void setModel(Model<MeasureType> *_Model);
 
         void setFitter(Fitter<MeasureType> *_Fitter);
 
@@ -153,7 +153,7 @@ namespace Ox {
         virtual void setNDims(int _nDims);
 
         /**
-         * \brief show me your ModelT1
+         * \brief show me your Model
          */
         void disp();
 
@@ -162,7 +162,7 @@ namespace Ox {
          */
         void setAllPointersToNull(){
             // objects
-            _ModelT1 = 0;
+            _Model = 0;
             _Fitter = 0;
             _SignCalculator = 0;
             _StartPointCalculator = 0;
@@ -225,7 +225,7 @@ namespace Ox {
     protected:
         CalculatorT1Results<MeasureType> _Results; // we will be working with this one
 
-        Model<MeasureType>* _ModelT1;
+        Model<MeasureType>* _Model;
         Fitter<MeasureType>* _Fitter;
         SignCalculator<MeasureType>* _SignCalculator;
         StartPointCalculator<MeasureType>* _StartPointCalculator;
@@ -243,8 +243,6 @@ namespace Ox {
         int _nSamples;
         int _nDims;
         MeasureType _MeanCutOff;
-
-        const static int MAX_T1_TRESHOLD = 4000;
 
     };
 } //namespace Ox

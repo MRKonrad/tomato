@@ -29,7 +29,7 @@ TEST(OxFitterAmoebaVnl, performFitting) {
     functionsObject.setSignal(testData.getSignalPtr());
 
     Ox::FitterAmoebaVnl<TYPE> fitter;
-    fitter.setModelT1(&functionsObject);
+    fitter.setModel(&functionsObject);
     fitter.setParameters(params);
 
     fitter.setVerbose(false);
@@ -59,7 +59,7 @@ TEST(OxFitterAmoebaVnl, copyConstructor) {
 
 
     Ox::FitterAmoebaVnl<TYPE> fitter;
-    fitter.setModelT1(&functionsObject);
+    fitter.setModel(&functionsObject);
     fitter.setParameters(params);
     fitter.setMaxFunctionEvals(123);
     fitter.setFTolerance(321);
@@ -72,8 +72,8 @@ TEST(OxFitterAmoebaVnl, copyConstructor) {
     EXPECT_EQ( fitterCopy.getFTolerance(), fitter.getFTolerance());
 
     // Model was not declared for the copy, so it should be empty
-    EXPECT_FALSE( fitterCopy.getModelT1());
-    EXPECT_NE( fitterCopy.getModelT1(), fitter.getModelT1());
+    EXPECT_FALSE( fitterCopy.getModel());
+    EXPECT_NE( fitterCopy.getModel(), fitter.getModel());
 
     // new FunctionsAdaptedToVnl should NOT be copied in the constructor
     EXPECT_FALSE( fitterCopy.getFunctionsAdaptedToVnl());
@@ -98,7 +98,7 @@ TEST(OxFitterAmoebaVnl, disp) {
     functionsObject.setSignal(testData.getSignalPtr());
 
     Ox::FitterAmoebaVnl<TYPE> fitter;
-    fitter.setModelT1(&functionsObject);
+    fitter.setModel(&functionsObject);
     fitter.setParameters(params);
 
     testing::internal::CaptureStdout();

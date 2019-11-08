@@ -29,7 +29,7 @@ TEST(OxFitterLevenbergMarquardtVnl, performFitting) {
     functionsObject.setSignal(testData.getSignalPtr());
 
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
-    fitter.setModelT1(&functionsObject);
+    fitter.setModel(&functionsObject);
     fitter.setParameters(params);
 
     fitter.setVerbose(false);
@@ -59,7 +59,7 @@ TEST(OxFitterLevenbergMarquardtVnl, copyConstructor) {
     functionsObject.setSignal(testData.getSignalPtr());
 
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
-    fitter.setModelT1(&functionsObject);
+    fitter.setModel(&functionsObject);
     fitter.setMaxFunctionEvals(123);
     fitter.setParameters(params);
 
@@ -70,8 +70,8 @@ TEST(OxFitterLevenbergMarquardtVnl, copyConstructor) {
     EXPECT_EQ( fitterCopy.getMaxFunctionEvals(), fitter.getMaxFunctionEvals());
 
     // Model was not declared for the copy, so it should be empty
-    EXPECT_FALSE( fitterCopy.getModelT1());
-    EXPECT_NE( fitterCopy.getModelT1(), fitter.getModelT1());
+    EXPECT_FALSE( fitterCopy.getModel());
+    EXPECT_NE( fitterCopy.getModel(), fitter.getModel());
 
     // new FunctionsAdaptedToVnl should NOT be copied in the constructor
     EXPECT_FALSE( fitterCopy.getFunctionsAdaptedToVnl());

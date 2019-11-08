@@ -16,11 +16,11 @@ namespace Ox {
     template< typename MeasureType >
     Model<MeasureType>*
     Calculator<MeasureType>
-    ::getModelT1() const {
-        if (!_ModelT1) {
-            throw std::runtime_error("_ModelT1 equals 0. Set _ModelT1");
+    ::getModel() const {
+        if (!_Model) {
+            throw std::runtime_error("_Model equals 0. Set _Model");
         };
-        return _ModelT1;
+        return _Model;
     }
 
     template< typename MeasureType >
@@ -37,9 +37,9 @@ namespace Ox {
     StartPointCalculator<MeasureType> *
     Calculator<MeasureType>
     ::getStartPointCalculator() const {
-        if (!_StartPointCalculator) {
-            throw std::runtime_error("_StartPointCalculator equals 0. Set _StartPointCalculator");
-        };
+//        if (!_StartPointCalculator) {
+//            throw std::runtime_error("_StartPointCalculator equals 0. Set _StartPointCalculator");
+//        };
         return _StartPointCalculator;
     }
 
@@ -47,9 +47,9 @@ namespace Ox {
     SignCalculator<MeasureType> *
     Calculator<MeasureType>
     ::getSignCalculator() const {
-        if (!_SignCalculator) {
-            throw std::runtime_error("_SignCalculator equals 0. Set _SignCalculator");
-        };
+//        if (!_SignCalculator) {
+//            throw std::runtime_error("_SignCalculator equals 0. Set _SignCalculator");
+//        };
         return _SignCalculator;
     }
 
@@ -167,9 +167,9 @@ namespace Ox {
     template< typename MeasureType >
     void
     Calculator<MeasureType>
-    ::setModelT1(Model<MeasureType> *_ModelT1) {
-        setNDims(_ModelT1->getNDims());
-        Calculator::_ModelT1 = _ModelT1;
+    ::setModel(Model<MeasureType> *_Model) {
+        setNDims(_Model->getNDims());
+        Calculator::_Model = _Model;
     }
 
     template< typename MeasureType >
@@ -244,7 +244,7 @@ namespace Ox {
 
         for (int i = 0; i < _nSamples; ++i){
             _Signal[i] = 0;
-            _Signs[i] = 0;
+            _Signs[i] = 1;
         }
     }
 
@@ -286,9 +286,9 @@ namespace Ox {
         KWUtil::printArray(_Signs != 0, nSamples, _Signs,             (char*)"\nSigns:       ");
         KWUtil::printArray(_StartPoint != 0, _nDims, _StartPoint,     (char*)"\nStart point: ");
         std::cout << std::endl;
-        if(_ModelT1) {
+        if(_Model) {
             std::cout << "This Calculator contains the following Model object: ";
-            _ModelT1->disp();
+            _Model->disp();
         }
 
         if(_Fitter) {

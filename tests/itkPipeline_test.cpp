@@ -69,7 +69,7 @@ TEST(itkPipeline, readAndCalculateT1FromMag) {
     fitter.setMaxFunctionEvals(10); // to accelerate the test
 
     // configure calculator
-    calculatorT1.setModelT1(&functionsObject);
+    calculatorT1.setModel(&functionsObject);
     calculatorT1.setFitter(&fitter);
     calculatorT1.setSignCalculator(&signCalculator);
     calculatorT1.setStartPointCalculator(&startPointCalculator);
@@ -156,7 +156,7 @@ TEST(itkPipeline, calculateT1FromMagAndPhase) {
     fitter.setMaxFunctionEvals(10); // to accelerate the test
 
     // configure calculator
-    calculatorT1.setModelT1(&functionsObject);
+    calculatorT1.setModel(&functionsObject);
     calculatorT1.setFitter(&fitter);
     calculatorT1.setSignCalculator(&signCalculator);
     calculatorT1.setStartPointCalculator(&startPointCalculator);

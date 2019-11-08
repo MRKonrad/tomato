@@ -126,7 +126,7 @@ namespace Ox {
                         _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nDims, nSamples, vnl_least_squares_function::no_gradient);
                     }
 
-                    _FunctionsAdaptedToVnl->setModelT1(this->_ModelT1);
+                    _FunctionsAdaptedToVnl->setModel(this->_ModelT1);
 
                     delete _VnlFitter; _VnlFitter = 0;
                     _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);

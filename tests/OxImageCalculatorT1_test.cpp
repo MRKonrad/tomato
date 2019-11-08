@@ -53,7 +53,7 @@ TEST(OxImageCalculatorT1, calculate_molli_no_multithread) {
     Ox::CalculatorT1Molli<TYPE> calculator;
 
     // configure calculator
-    calculator.setModelT1(&functionsObject);
+    calculator.setModel(&functionsObject);
     calculator.setFitter(&fitter);
     calculator.setSignCalculator(&signCalculator);
     calculator.setStartPointCalculator(&startPointCalculator);
@@ -156,7 +156,7 @@ TEST(OxImageCalculatorT1, calculate_shmolli_no_multithread) {
     Ox::CalculatorT1Shmolli<TYPE> calculator;
 
     // configure calculator
-    calculator.setModelT1(&functionsObject);
+    calculator.setModel(&functionsObject);
     calculator.setFitter(&fitter);
     calculator.setSignCalculator(&signCalculator);
     calculator.setStartPointCalculator(&startPointCalculator);
@@ -216,7 +216,7 @@ TEST(OxImageCalculatorT1, calculate_molli_multithread_Vnl) {
     Ox::CalculatorT1Molli<TYPE> calculator;
 
     // configure
-    calculator.setModelT1(&functionsObject);
+    calculator.setModel(&functionsObject);
     calculator.setFitter(&fitter);
     calculator.setSignCalculator(&signCalculator);
     calculator.setStartPointCalculator(&startPointCalculator);
@@ -276,7 +276,7 @@ TEST(OxImageCalculatorT1, calculate_molli_multithread_nr2) {
     Ox::CalculatorT1Molli<TYPE> calculator;
 
     // configure
-    calculator.setModelT1(&functionsObject);
+    calculator.setModel(&functionsObject);
     calculator.setFitter(&fitter);
     calculator.setSignCalculator(&signCalculator);
     calculator.setStartPointCalculator(&startPointCalculator);

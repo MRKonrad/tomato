@@ -141,13 +141,13 @@ namespace Ox {
 
         // clone the necessary objects
         Ox::Calculator<MeasureType> *calculatorT1 = _calculatorT1->newByCloning();
-        Ox::Model<MeasureType> *functionsObject = _calculatorT1->getModelT1()->newByCloning();
+        Ox::Model<MeasureType> *functionsObject = _calculatorT1->getModel()->newByCloning();
         Ox::Fitter<MeasureType> *fitter = _calculatorT1->getFitter()->newByCloning();
         Ox::SignCalculator<MeasureType> *signCalculator = _calculatorT1->getSignCalculator()->newByCloning();
         Ox::StartPointCalculator<MeasureType> *startPointCalculator = _calculatorT1->getStartPointCalculator()->newByCloning();
 
         // configure
-        calculatorT1->setModelT1(functionsObject);
+        calculatorT1->setModel(functionsObject);
         calculatorT1->setFitter(fitter);
         calculatorT1->setSignCalculator(signCalculator);
         calculatorT1->setStartPointCalculator(startPointCalculator);

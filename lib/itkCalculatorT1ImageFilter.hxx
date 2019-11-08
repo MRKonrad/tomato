@@ -187,13 +187,13 @@ namespace itk {
          */
         int nSamples = magImageSize[2];
         Ox::Calculator<PixelTypeIn> *calculator = m_Calculator->newByCloning();
-        Ox::Model<PixelTypeIn> *functionsObject = m_Calculator->getModelT1()->newByCloning();
+        Ox::Model<PixelTypeIn> *functionsObject = m_Calculator->getModel()->newByCloning();
         Ox::Fitter<PixelTypeIn> *fitter = m_Calculator->getFitter()->newByCloning();
         Ox::SignCalculator<PixelTypeIn> *signCalculator = m_Calculator->getSignCalculator()->newByCloning();
         Ox::StartPointCalculator<PixelTypeIn> *startPointCalculator = m_Calculator->getStartPointCalculator()->newByCloning();
 
         // configure
-        calculator->setModelT1(functionsObject);
+        calculator->setModel(functionsObject);
         calculator->setFitter(fitter);
         calculator->setSignCalculator(signCalculator);
         calculator->setStartPointCalculator(startPointCalculator);

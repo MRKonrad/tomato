@@ -100,7 +100,7 @@ TEST(itkPipeline_CalculatorShmolli, calculateShmolliAndCompareWithDicom) {
     Ox::CalculatorT1Shmolli<InputPixelType> calculatorT1;
 
     // configure calculator
-    calculatorT1.setModelT1(&functionsObject);
+    calculatorT1.setModel(&functionsObject);
     calculatorT1.setFitter(&fitter);
     calculatorT1.setSignCalculator(&signCalculator);
     calculatorT1.setStartPointCalculator(&startPointCalculator);

@@ -34,7 +34,7 @@ TEST(OxModelT1AdapterVnlLeastSquares, f) {
 
     Ox::ModelT1AdapterVnlLeastSquares functionsAdaptedToVnl(nDims, nSamples, vnl_least_squares_function::use_gradient);
     // Ox::ModelT1AdapterVnlLeastSquares functionsAdaptedToVnl(nSamples, vnl_least_squares_function::no_gradient);
-    functionsAdaptedToVnl.setModelT1(&functionsObject);
+    functionsAdaptedToVnl.setModel(&functionsObject);
 
     vnl_vector<TYPE> paramsVnl(params, 3);
     vnl_vector<TYPE> residualsVnl(nSamples, 0);
@@ -65,7 +65,7 @@ TEST(OxModelT1AdapterVnlLeastSquares, gradf) {
 
     Ox::ModelT1AdapterVnlLeastSquares functionsAdaptedToVnl(nDims, nSamples, vnl_least_squares_function::use_gradient);
     // Ox::ModelT1AdapterVnlLeastSquares functionsAdaptedToVnl(nSamples, vnl_least_squares_function::no_gradient);
-    functionsAdaptedToVnl.setModelT1(&functionsObject);
+    functionsAdaptedToVnl.setModel(&functionsObject);
 
     vnl_vector<TYPE> paramsVnl(params, 3);
     vnl_matrix<TYPE> jacobianVnl(nSamples, 3);
@@ -108,7 +108,7 @@ TEST(OxModelT1AdapterVnlLeastSquares, fitting) {
 
     Ox::ModelT1AdapterVnlLeastSquares functionsAdaptedToVnl(nDims, nSamples, vnl_least_squares_function::use_gradient);
     // Ox::ModelT1AdapterVnlLeastSquares functionsAdaptedToVnl(nSamples, vnl_least_squares_function::no_gradient);
-    functionsAdaptedToVnl.setModelT1(&functionsObject);
+    functionsAdaptedToVnl.setModel(&functionsObject);
 
     vnl_vector<TYPE> paramsVnl(params, 3);
     vnl_levenberg_marquardt vnlFitter(functionsAdaptedToVnl);

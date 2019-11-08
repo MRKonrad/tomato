@@ -89,9 +89,9 @@ namespace Ox {
             }
 
             // use global ugliness
-            Ugly::globalFunctonsT1Nr2Array[threadId] = this->_ModelT1;
+            Ugly::globalFunctonsT1Nr2Array[threadId] = this->_Model;
             float(*func)(float*) = Ugly::f_wrapperArray[threadId];
-            int nDims = this->_ModelT1->getNDims();
+            int nDims = this->_Model->getNDims();
 
             // store start point
             float *startPoint = new float[nDims];

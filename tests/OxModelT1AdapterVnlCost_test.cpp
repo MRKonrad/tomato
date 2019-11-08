@@ -32,7 +32,7 @@ TEST(OxModelT1AdapterVnlCost, f) {
     functionsObject.setSignal(testData.getSignalMagPtr());
 
     Ox::ModelT1AdapterVnlCost functionsAdaptedToVnl(nDims);
-    functionsAdaptedToVnl.setModelT1(&functionsObject);
+    functionsAdaptedToVnl.setModel(&functionsObject);
 
     vnl_vector<TYPE> temp(params, 3);
 
@@ -60,7 +60,7 @@ TEST(OxModelT1AdapterVnlCost, gradf) {
     functionsObject.setSignal(testData.getSignalMagPtr());
 
     Ox::ModelT1AdapterVnlCost functionsAdaptedToVnl(nDims);
-    functionsAdaptedToVnl.setModelT1(&functionsObject);
+    functionsAdaptedToVnl.setModel(&functionsObject);
 
     // ModelT1ThreeParam results
     TYPE derivative1[] = {0, 0, 0};
@@ -94,7 +94,7 @@ TEST(OxModelT1AdapterVnlCost, fitting) {
     functionsObject.setSignal(testData.getSignalPtr());
 
     Ox::ModelT1AdapterVnlCost functionsAdaptedToVnl(nDims);
-    functionsAdaptedToVnl.setModelT1(&functionsObject);
+    functionsAdaptedToVnl.setModel(&functionsObject);
 
     vnl_vector<TYPE> paramsVnl(params, 3);
     vnl_amoeba vnlFitter(functionsAdaptedToVnl);

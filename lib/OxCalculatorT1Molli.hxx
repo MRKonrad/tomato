@@ -12,6 +12,74 @@ namespace Ox {
     template< typename MeasureType >
     int
     CalculatorT1Molli<MeasureType>
+    ::prepareToCalculate(){
+
+        // if fitter does not have to iterate, do not calculate
+        if (this->getFitter()->getMaxFunctionEvals() == 0){
+            return 1; // EXIT_FAILURE
+        }
+
+        // check if ndims has been set
+        if (this->_nDims != 2 && this->_nDims != 3){
+            throw std::runtime_error("CalculatorT1Molli::prepareToCalculate currently implemented only for _nDims of 2 or 3");
+        }
+
+        // verify invTimes are sorted
+        for (int i = 0; i < this->getNSamples()-1; i++){
+            if (this->getInvTimes()[i] > this->getInvTimes()[i+1]){
+                throw std::runtime_error("InvTimes have to be sorted!");
+            }
+        }
+
+        // calculate sign
+        if (this->getSignCalculator()) {
+
+            this->getSignCalculator()->setNSamples(this->getNSamples());
+            this->getSignCalculator()->setInvTimes(this->getInvTimes());
+            this->getSignCalculator()->setSigMag(this->getSigMag());
+            this->getSignCalculator()->setSigPha(this->getSigPha());
+            this->getSignCalculator()->setSignal(this->_Signal);
+            this->getSignCalculator()->setSigns(this->_Signs);
+
+            this->getSignCalculator()->calculateSign();
+
+        } else {
+            for (int i = 0; i < this->_nSamples; ++i){
+                this->_Signs[i] = 1; // no flip
+            }
+        }
+
+        // calculate start point
+        if (this->getSignCalculator()) {
+            this->getStartPointCalculator()->setNDims(this->_nDims);
+            if (!this->getStartPointCalculator()->getInputStartPoint()) {
+                if (this->_nDims == 2) {
+                    MeasureType const temp[] = {100, 1000};
+                    this->getStartPointCalculator()->setInputStartPoint(temp);
+                } else if (this->_nDims == 3) {
+                    MeasureType const temp[] = {100, 200, 1000};
+                    this->getStartPointCalculator()->setInputStartPoint(temp);
+                }
+            }
+            this->getStartPointCalculator()->setNSamples(this->getNSamples());
+            this->getStartPointCalculator()->setInvTimes(this->getInvTimes());
+            this->getStartPointCalculator()->setSigMag(this->getSigMag());
+            this->getStartPointCalculator()->setSigns(this->getSigns());
+            this->getStartPointCalculator()->setCalculatedStartPoint(this->_StartPoint);
+
+            this->getStartPointCalculator()->calculateStartPoint();
+        } else {
+            for (int i = 0; i < this->_nDims; ++i){
+                this->_StartPoint[i] = 1;
+            }
+        }
+
+        return 0; // EXIT_SUCCESS
+    };
+
+    template< typename MeasureType >
+    int
+    CalculatorT1Molli<MeasureType>
     ::calculate(){
 
         this->_Results = CalculatorT1Results<MeasureType>();
@@ -44,26 +112,26 @@ namespace Ox {
 
         MeasureType lastValue = 1e32;
         MeasureType lastValueTemp = 1e32;
-        MeasureType tempParameters[3];
-        MeasureType tempResults[3];
+        MeasureType *tempParameters = new MeasureType[this->_nDims];
+        MeasureType *tempResults = new MeasureType[this->_nDims];
 
-        KWUtil::copyArrayToArray(3, tempParameters, this->_StartPoint); // start from the starting point
+        KWUtil::copyArrayToArray(this->_nDims, tempParameters, this->_StartPoint); // start from the starting point
 
         // configure Functions object and fitter object
-        this->getModelT1()->setNSamples(nSamples);
-        this->getModelT1()->setSignal(signal);
-        this->getModelT1()->setInvTimes(invTimes);
+        this->getModel()->setNSamples(nSamples);
+        this->getModel()->setSignal(signal);
+        this->getModel()->setInvTimes(invTimes);
 
         // configure Fitter
         this->getFitter()->setParameters(tempParameters);
-        this->getFitter()->setModelT1(this->getModelT1());
+        this->getFitter()->setModel(this->getModel());
 
         // fit
         this->getFitter()->performFitting();
 
         // save the tempResults at the best tempResults
-        KWUtil::copyArrayToArray(3, tempResults, this->getFitter()->getParameters());
-        lastValue = this->getModelT1()->calcCostValue(this->getFitter()->getParameters());
+        KWUtil::copyArrayToArray(this->_nDims, tempResults, this->getFitter()->getParameters());
+        lastValue = this->getModel()->calcCostValue(this->getFitter()->getParameters());
 
         // look for better solutions than the above one
         for (int iSwap = 0; iSwap < nSamples; iSwap++) {
@@ -82,107 +150,62 @@ namespace Ox {
 
             // fit
             this->getFitter()->performFitting();
-            lastValueTemp = this->getModelT1()->calcCostValue(this->getFitter()->getParameters());
+            lastValueTemp = this->getModel()->calcCostValue(this->getFitter()->getParameters());
 
             // are these the best tempResults?
             if (lastValueTemp < lastValue) {
                 // save the tempResults at the best tempResults
-                KWUtil::copyArrayToArray(3, tempResults, this->getFitter()->getParameters());
+                KWUtil::copyArrayToArray(this->_nDims, tempResults, this->getFitter()->getParameters());
                 lastValue = lastValueTemp;
             }
         }
 
         if (lastValue != 1e32 && tempResults[0] != 0) {
-            resultsStruc.T1     = tempResults[2] * (tempResults[1] / tempResults[0] - 1.);
-            resultsStruc.R2     = calculateR2AbsFromModel(nSamples, invTimes, signal, tempResults);
-            resultsStruc.A      = tempResults[0];
-            resultsStruc.B      = tempResults[1];
-            resultsStruc.T1star = tempResults[2];
-            resultsStruc.ChiSqrt = KWUtil::getChiSqrt(lastValue, nSamples);
-            resultsStruc.SNR =  (resultsStruc.B - resultsStruc.A) / (resultsStruc.ChiSqrt + 0.001);
-            resultsStruc.LastValue = lastValue;
+            if (this->_nDims == 2) {
+                resultsStruc.A = tempResults[0];
+                resultsStruc.T1 = tempResults[1];
+                resultsStruc.R2 = calculateR2AbsFromModel(nSamples, invTimes, signal, tempResults);
+                resultsStruc.ChiSqrt = KWUtil::getChiSqrt(lastValue, nSamples);
+                resultsStruc.LastValue = lastValue;
+            } else if (this->_nDims == 3) {
+                resultsStruc.T1 = tempResults[2] * (tempResults[1] / tempResults[0] - 1.);
+                resultsStruc.R2 = calculateR2AbsFromModel(nSamples, invTimes, signal, tempResults);
+                resultsStruc.A = tempResults[0];
+                resultsStruc.B = tempResults[1];
+                resultsStruc.T1star = tempResults[2];
+                resultsStruc.ChiSqrt = KWUtil::getChiSqrt(lastValue, nSamples);
+                resultsStruc.SNR = (resultsStruc.B - resultsStruc.A) / (resultsStruc.ChiSqrt + 0.001);
+                resultsStruc.LastValue = lastValue;
 
-            MeasureType covarianceMatrix[3*3];
-            calculateCovarianceMatrix(tempResults, covarianceMatrix);
-            if (covarianceMatrix[4] > 0)
-                resultsStruc.SD_A = sqrt(covarianceMatrix[4]); //  (1,1)
-            if (covarianceMatrix[8] > 0)
-                resultsStruc.SD_B = sqrt(covarianceMatrix[8]); //  (2,2)
-            if (covarianceMatrix[0] > 0)
-                resultsStruc.SD_T1 = sqrt(covarianceMatrix[0]); // (0,0)
+                MeasureType covarianceMatrix[3 * 3];
+                calculateCovarianceMatrix(tempResults, covarianceMatrix);
+                if (covarianceMatrix[4] > 0)
+                    resultsStruc.SD_A = sqrt(covarianceMatrix[4]); //  (1,1)
+                if (covarianceMatrix[8] > 0)
+                    resultsStruc.SD_B = sqrt(covarianceMatrix[8]); //  (2,2)
+                if (covarianceMatrix[0] > 0)
+                    resultsStruc.SD_T1 = sqrt(covarianceMatrix[0]); // (0,0)
+            }
 
         }
+
+        delete [] tempParameters;
+        delete [] tempResults;
 
         return resultsStruc;
     }
 
     template< typename MeasureType >
-    int
-    CalculatorT1Molli<MeasureType>
-    ::prepareToCalculate(){
-
-        // if fitter does not have to iterate, do not calculate
-        if (this->getFitter()->getMaxFunctionEvals() == 0){
-            return 1; // EXIT_FAILURE
-        }
-
-        // verify invTimes are sorted
-        for (int i = 0; i < this->getNSamples()-1; i++){
-            if (this->getInvTimes()[i] > this->getInvTimes()[i+1]){
-                throw std::runtime_error("InvTimes have to be sorted!");
-            }
-        }
-
-        // calculate sign
-        this->getSignCalculator()->setNSamples(this->getNSamples());
-        this->getSignCalculator()->setInvTimes(this->getInvTimes());
-        this->getSignCalculator()->setSigMag(this->getSigMag());
-        this->getSignCalculator()->setSigPha(this->getSigPha());
-        this->getSignCalculator()->setSignal(this->_Signal);
-        this->getSignCalculator()->setSigns(this->_Signs);
-
-        this->getSignCalculator()->calculateSign();
-
-        // calculate start point
-        this->getStartPointCalculator()->setNDims(this->_nDims);
-        if (!this->getStartPointCalculator()->getInputStartPoint()){
-            if (this->_nDims == 2){
-                MeasureType const temp[] = {100, 1000};
-                this->getStartPointCalculator()->setInputStartPoint(temp);
-            } else if (this->_nDims == 3){
-                MeasureType const temp[] = {100, 200, 1000};
-                this->getStartPointCalculator()->setInputStartPoint(temp);
-            } else {
-                throw std::runtime_error("Calculator: Set InputStartPoint in StartPointCalculator");
-            }
-        }
-        this->getStartPointCalculator()->setNSamples(this->getNSamples());
-        this->getStartPointCalculator()->setInvTimes(this->getInvTimes());
-        this->getStartPointCalculator()->setSigMag(this->getSigMag());
-        this->getStartPointCalculator()->setSigns(this->getSigns());
-        this->getStartPointCalculator()->setCalculatedStartPoint(this->_StartPoint);
-
-        this->getStartPointCalculator()->calculateStartPoint();
-
-        return 0; // EXIT_SUCCESS
-    };
-
-    template< typename MeasureType >
     MeasureType
     CalculatorT1Molli<MeasureType>
-    ::calculateR2AbsFromModel(int nSamples, const MeasureType* invTimes, const MeasureType* signal, const MeasureType* parameters) {
+    ::calculateR2AbsFromModel(int nSamples, const MeasureType* times, const MeasureType* signal, const MeasureType* parameters) {
 
-        //int nSamples = this->getNSamples();
         MeasureType *absFitted  = new MeasureType[nSamples];
         MeasureType *absYsignal = new MeasureType[nSamples];
 
-        MeasureType A = parameters[0];
-        MeasureType B = parameters[1];
-        MeasureType T1star = parameters[2];
-
         for (int i = 0; i < nSamples; i++){
             MeasureType fitted;
-            fitted = A - B * exp(-invTimes[i] / T1star);
+            fitted = this->_Model->calcModelValue(parameters, times[i]);
             absFitted[i] = fabs(fitted);
             absYsignal[i] = fabs(signal[i]);
         }
@@ -205,13 +228,12 @@ namespace Ox {
 
         if (_DoCalculateSDMap) {
             int nSamples = this->getNSamples();
-            const MeasureType *invTimes = this->getModelT1()->getInvTimes();
+            const MeasureType *invTimes = this->getModel()->getInvTimes();
 
             MeasureType *residuals = new MeasureType[nSamples];
             MeasureType invCovarianceMatrix[3 * 3];
 
-            //this->getModelT1()->copyToParameters(parameters);
-            this->getModelT1()->calcLSResiduals(parameters, residuals);
+            this->getModel()->calcLSResiduals(parameters, residuals);
 
             calculateInvCovarianceMatrix(invTimes, residuals, parameters, invCovarianceMatrix);
 

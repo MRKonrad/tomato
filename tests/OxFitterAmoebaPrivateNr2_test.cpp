@@ -29,7 +29,7 @@ TEST(OxFitterAmoebaPrivateNr2, performFitting) {
     functionsObject.setSignal(testData.getSignalPtr());
 
     Ox::FitterAmoebaPrivateNr2<TYPE> fitterAmoebaNr2;
-    fitterAmoebaNr2.setModelT1(&functionsObject);
+    fitterAmoebaNr2.setModel(&functionsObject);
     fitterAmoebaNr2.setParameters(params);
 
     fitterAmoebaNr2.setVerbose(false);
@@ -57,7 +57,7 @@ TEST(OxFitterAmoebaPrivateNr2, copyConstructor) {
     functionsObject.setSignal(testData.getSignalPtr());
 
     Ox::FitterAmoebaPrivateNr2<TYPE> fitter;
-    fitter.setModelT1(&functionsObject);
+    fitter.setModel(&functionsObject);
     fitter.setMaxFunctionEvals(123);
     fitter.setFTolerance(321);
     fitter.setParameters(params);
@@ -70,8 +70,8 @@ TEST(OxFitterAmoebaPrivateNr2, copyConstructor) {
     EXPECT_EQ( fitterCopy.getFTolerance(), fitter.getFTolerance());
 
     // Model was not declared for the copy, so it should be empty
-    EXPECT_FALSE( fitterCopy.getModelT1());
-    EXPECT_NE( fitterCopy.getModelT1(), fitter.getModelT1());
+    EXPECT_FALSE( fitterCopy.getModel());
+    EXPECT_NE( fitterCopy.getModel(), fitter.getModel());
 }
 
 #endif // USE_PRIVATE_NR2

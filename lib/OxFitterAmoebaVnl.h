@@ -96,10 +96,10 @@ namespace Ox {
                     delete _VnlFitter; _VnlFitter = 0;
                     int nDims = this->_ModelT1->getNDims();
                     _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nDims);
-                    _FunctionsAdaptedToVnl->setModelT1(this->_ModelT1);
+                    _FunctionsAdaptedToVnl->setModel(this->_ModelT1);
                     _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);
                 }
-                _FunctionsAdaptedToVnl->setModelT1(this->_ModelT1);
+                _FunctionsAdaptedToVnl->setModel(this->_ModelT1);
                 _VnlFitter->set_x_tolerance(this->getXTolerance());
                 _VnlFitter->set_f_tolerance(this->getFTolerance());
                 //m_LocalFitter->set_g_tolerance(this->GetGTolerance());

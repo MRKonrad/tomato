@@ -56,7 +56,7 @@ TEST(itkCalculatorT1ImageFilter, calculate) {
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure calculator
-    calculatorT1Molli.setModelT1(&functionsObject);
+    calculatorT1Molli.setModel(&functionsObject);
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
@@ -130,7 +130,7 @@ TEST(itkCalculatorT1ImageFilter, calculate_no_phase_given) {
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure calculator
-    calculatorT1Molli.setModelT1(&functionsObject);
+    calculatorT1Molli.setModel(&functionsObject);
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);

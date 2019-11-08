@@ -29,7 +29,7 @@ namespace Ox {
          */
         virtual int performFitting() = 0;
 
-        virtual const Model<MeasureType>* getModelT1() const { return _ModelT1; }
+        virtual const Model<MeasureType>* getModel() const { return _ModelT1; }
         virtual MeasureType *getParameters() { return _Parameters; }
         virtual const MeasureType getXTolerance() const { return _XTolerance; }
         virtual const MeasureType getFTolerance() const { return _FTolerance; }
@@ -39,7 +39,7 @@ namespace Ox {
         virtual const bool getVerbose() const { return _Verbose; }
         virtual const bool getTrace() const { return _Trace; }
 
-        virtual void setModelT1(Model<MeasureType>* _ModelT1) { Fitter::_ModelT1 = _ModelT1; }
+        virtual void setModel(Model<MeasureType>* _ModelT1) { Fitter::_ModelT1 = _ModelT1; }
         virtual void setParameters( MeasureType *_Parameters) { Fitter::_Parameters = _Parameters; }
         virtual void setXTolerance(const MeasureType _XTolerance) { Fitter::_XTolerance = _XTolerance; }
         virtual void setUseGradient(const bool _UseGradient) { Fitter::_UseGradient = _UseGradient; }
@@ -55,7 +55,7 @@ namespace Ox {
          */
         virtual void copyToParameters(const MeasureType *ptrFrom){
             if (!Fitter::_ModelT1) {
-                throw std::runtime_error("_ModelT1 equals 0. Set _ModelT1");
+                throw std::runtime_error("_Model equals 0. Set _Model");
             }
 
             if (!_Parameters){

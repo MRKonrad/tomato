@@ -29,7 +29,7 @@ TEST(OxFitterAmoebaNr2, performFitting) {
     functionsObject.setSignal(testData.getSignalPtr());
 
     Ox::FitterAmoebaNr2<TYPE> fitterAmoebaNr2;
-    fitterAmoebaNr2.setModelT1(&functionsObject);
+    fitterAmoebaNr2.setModel(&functionsObject);
     fitterAmoebaNr2.setParameters(params);
 
     fitterAmoebaNr2.setVerbose(false);

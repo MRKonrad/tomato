@@ -34,7 +34,7 @@ Ox::CalculatorT1Results<double> CalculateShmolli(
     Ox::StartPointCalculatorShmolli <double> startPointCalculator;
 
     // configure
-    calculatorT1Shmolli.setModelT1(&functionsObject);
+    calculatorT1Shmolli.setModel(&functionsObject);
     calculatorT1Shmolli.setFitter(&fitter);
     calculatorT1Shmolli.setSignCalculator(&signCalculator);
     calculatorT1Shmolli.setStartPointCalculator(&startPointCalculator);

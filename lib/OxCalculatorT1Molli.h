@@ -99,11 +99,13 @@ namespace Ox {
          */
         virtual Calculator<MeasureType> *newByCloning() { return new CalculatorT1Molli<MeasureType>(*this); }
 
-
-
     protected:
+
+        const static int MAX_T1_TRESHOLD = 4000;
+
         double MaxTIForSignInvert;
         bool _DoCalculateSDMap;
+
     };
 
 } //namespace Ox

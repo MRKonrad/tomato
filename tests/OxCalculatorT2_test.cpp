@@ -39,7 +39,7 @@ TEST(OxCalculatorT2, blood) {
     TYPE startPoint[] = {1, 100, 50};
     startPointCalculator.setInputStartPoint(startPoint);
     calculatorT2.setStartPointCalculator(&startPointCalculator);
-    calculatorT2.setModelT1(&functionsObject);
+    calculatorT2.setModel(&functionsObject);
     calculatorT2.setFitter(&fitterAmoebaVnl);
 
     // set the data
@@ -74,7 +74,7 @@ TEST(OxCalculatorT2, myo) {
     TYPE startPoint[] = {1, 100, 50};
     startPointCalculator.setInputStartPoint(startPoint);
     calculatorT2.setStartPointCalculator(&startPointCalculator);
-    calculatorT2.setModelT1(&functionsObject);
+    calculatorT2.setModel(&functionsObject);
     calculatorT2.setFitter(&fitterAmoebaVnl);
 
 

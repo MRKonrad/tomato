@@ -39,7 +39,7 @@ TEST(OxCalculatorT1_saturation_recovery, twoParam) {
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure
-    calculatorT1Molli.setModelT1(&functionsObject);
+    calculatorT1Molli.setModel(&functionsObject);
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
@@ -52,7 +52,7 @@ TEST(OxCalculatorT1_saturation_recovery, twoParam) {
     calculatorT1Molli.calculate();
 
     EXPECT_NEAR(calculatorT1Molli.getResults().A, testData.getResultsTwoParam()[0], 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults().B, testData.getResultsTwoParam()[1], 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults().T1, testData.getResultsTwoParam()[1], 1e-2);
 }
 #endif
 
@@ -73,7 +73,7 @@ TEST(OxCalculatorT1_saturation_recovery, threeParam) {
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure
-    calculatorT1Molli.setModelT1(&functionsObject);
+    calculatorT1Molli.setModel(&functionsObject);
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
