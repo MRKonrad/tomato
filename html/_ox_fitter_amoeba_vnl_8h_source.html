@@ -181,10 +181,10 @@ $(document).ready(function(){initNavTree('_ox_fitter_amoeba_vnl_8h_source.html',
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                    <span class="keyword">delete</span> _VnlFitter; _VnlFitter = 0;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                    <span class="keywordtype">int</span> nDims = this-&gt;_ModelT1-&gt;getNDims();</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    _FunctionsAdaptedToVnl = <span class="keyword">new</span> FunctionsAdaptedToVnlType(nDims);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    _FunctionsAdaptedToVnl-&gt;setModelT1(this-&gt;_ModelT1);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    _FunctionsAdaptedToVnl-&gt;setModel(this-&gt;_ModelT1);</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    _VnlFitter = <span class="keyword">new</span> VnlFitterType(*_FunctionsAdaptedToVnl);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                _FunctionsAdaptedToVnl-&gt;setModelT1(this-&gt;_ModelT1);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                _FunctionsAdaptedToVnl-&gt;setModel(this-&gt;_ModelT1);</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                _VnlFitter-&gt;set_x_tolerance(this-&gt;getXTolerance());</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                _VnlFitter-&gt;set_f_tolerance(this-&gt;getFTolerance());</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="comment">//m_LocalFitter-&gt;set_g_tolerance(this-&gt;GetGTolerance());</span></div>

@@ -117,12 +117,12 @@ $(document).ready(function(){initNavTree('_ox_calculator_8hxx_source.html','');}
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    Model&lt;MeasureType&gt;*</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_ox_1_1_calculator.html#a9432d809de85eeeccd2e6e7a46730af4">Calculator&lt;MeasureType&gt;</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator.html#a9432d809de85eeeccd2e6e7a46730af4">   19</a></span>&#160;<a class="code" href="class_ox_1_1_calculator.html#a9432d809de85eeeccd2e6e7a46730af4">    ::getModelT1</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">if</span> (!_ModelT1) {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;_ModelT1 equals 0. Set _ModelT1&quot;</span>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_ox_1_1_calculator.html#a5589bf7b93a2d1e106532c35745f4329">Calculator&lt;MeasureType&gt;</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator.html#a5589bf7b93a2d1e106532c35745f4329">   19</a></span>&#160;<a class="code" href="class_ox_1_1_calculator.html#a5589bf7b93a2d1e106532c35745f4329">    ::getModel</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">if</span> (!_Model) {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;_Model equals 0. Set _Model&quot;</span>);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        };</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span> _ModelT1;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span> _Model;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
@@ -139,9 +139,9 @@ $(document).ready(function(){initNavTree('_ox_calculator_8hxx_source.html','');}
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_ox_1_1_start_point_calculator.html">StartPointCalculator&lt;MeasureType&gt;</a> *</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_ox_1_1_calculator.html#ad43fbbb3e888e1fa73f95d872a963bac">Calculator&lt;MeasureType&gt;</a></div>
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator.html#ad43fbbb3e888e1fa73f95d872a963bac">   39</a></span>&#160;<a class="code" href="class_ox_1_1_calculator.html#ad43fbbb3e888e1fa73f95d872a963bac">    ::getStartPointCalculator</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">if</span> (!_StartPointCalculator) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;_StartPointCalculator equals 0. Set _StartPointCalculator&quot;</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        };</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">//        if (!_StartPointCalculator) {</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">//            throw std::runtime_error(&quot;_StartPointCalculator equals 0. Set _StartPointCalculator&quot;);</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">//        };</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> _StartPointCalculator;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
@@ -149,9 +149,9 @@ $(document).ready(function(){initNavTree('_ox_calculator_8hxx_source.html','');}
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="class_ox_1_1_sign_calculator.html">SignCalculator&lt;MeasureType&gt;</a> *</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_ox_1_1_calculator.html#a4ee7fdeb4009d2e433ef6a566768eb25">Calculator&lt;MeasureType&gt;</a></div>
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator.html#a4ee7fdeb4009d2e433ef6a566768eb25">   49</a></span>&#160;<a class="code" href="class_ox_1_1_calculator.html#a4ee7fdeb4009d2e433ef6a566768eb25">    ::getSignCalculator</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span> (!_SignCalculator) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;_SignCalculator equals 0. Set _SignCalculator&quot;</span>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        };</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">//        if (!_SignCalculator) {</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">//            throw std::runtime_error(&quot;_SignCalculator equals 0. Set _SignCalculator&quot;);</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">//        };</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> _SignCalculator;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
@@ -269,9 +269,9 @@ $(document).ready(function(){initNavTree('_ox_calculator_8hxx_source.html','');}
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">void</span></div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <a class="code" href="class_ox_1_1_calculator.html">Calculator&lt;MeasureType&gt;</a></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<a class="code" href="class_ox_1_1_calculator.html">    ::setModelT1</a>(<a class="code" href="class_ox_1_1_model.html">Model&lt;MeasureType&gt;</a> *_ModelT1) {</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        setNDims(_ModelT1-&gt;getNDims());</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        Calculator::_ModelT1 = _ModelT1;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<a class="code" href="class_ox_1_1_calculator.html">    ::setModel</a>(<a class="code" href="class_ox_1_1_model.html">Model&lt;MeasureType&gt;</a> *_Model) {</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        setNDims(_Model-&gt;getNDims());</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        Calculator::_Model = _Model;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    }</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
@@ -346,7 +346,7 @@ $(document).ready(function(){initNavTree('_ox_calculator_8hxx_source.html','');}
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; _nSamples; ++i){</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            _Signal[i] = 0;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            _Signs[i] = 0;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            _Signs[i] = 1;</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        }</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    }</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
@@ -384,9 +384,9 @@ $(document).ready(function(){initNavTree('_ox_calculator_8hxx_source.html','');}
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        KWUtil::printArray(_Signs != 0, nSamples, _Signs,             (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nSigns:       &quot;</span>);</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        KWUtil::printArray(_StartPoint != 0, _nDims, _StartPoint,     (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nStart point: &quot;</span>);</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        std::cout &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <span class="keywordflow">if</span>(_ModelT1) {</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <span class="keywordflow">if</span>(_Model) {</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;This Calculator contains the following Model object: &quot;</span>;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            _ModelT1-&gt;<a class="code" href="class_ox_1_1_model.html#ae2c46e9820947efd450a93aaf53a0db5">disp</a>();</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            _Model-&gt;<a class="code" href="class_ox_1_1_model.html#ae2c46e9820947efd450a93aaf53a0db5">disp</a>();</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        }</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keywordflow">if</span>(_Fitter) {</div>
@@ -418,8 +418,7 @@ $(document).ready(function(){initNavTree('_ox_calculator_8hxx_source.html','');}
 <div class="ttc" id="class_ox_1_1_model_html"><div class="ttname"><a href="class_ox_1_1_model.html">Ox::Model</a></div><div class="ttdoc">Container for a model function, cost function and Least-Squares function. And derivatives. </div><div class="ttdef"><b>Definition:</b> OxModel.h:25</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_html_ad9a623ee2bfc77732fa891c47c087aa9"><div class="ttname"><a href="class_ox_1_1_calculator.html#ad9a623ee2bfc77732fa891c47c087aa9">Ox::Calculator::getSigMag</a></div><div class="ttdeci">const MeasureType * getSigMag() const </div><div class="ttdef"><b>Definition:</b> OxCalculator.hxx:93</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_html_a40c854c0d75685ecc1da531f7400e3b1"><div class="ttname"><a href="class_ox_1_1_calculator.html#a40c854c0d75685ecc1da531f7400e3b1">Ox::Calculator::setNDims</a></div><div class="ttdeci">virtual void setNDims(int _nDims)</div><div class="ttdef"><b>Definition:</b> OxCalculator.hxx:258</div></div>
-<div class="ttc" id="class_ox_1_1_calculator_html_a9432d809de85eeeccd2e6e7a46730af4"><div class="ttname"><a href="class_ox_1_1_calculator.html#a9432d809de85eeeccd2e6e7a46730af4">Ox::Calculator::getModelT1</a></div><div class="ttdeci">Model&lt; MeasureType &gt; * getModelT1() const </div><div class="ttdef"><b>Definition:</b> OxCalculator.hxx:19</div></div>
-<div class="ttc" id="class_ox_1_1_calculator_html_a938a4bb0d2bc586bfb6982df28befbbf"><div class="ttname"><a href="class_ox_1_1_calculator.html#a938a4bb0d2bc586bfb6982df28befbbf">Ox::Calculator::disp</a></div><div class="ttdeci">void disp()</div><div class="ttdoc">show me your ModelT1 </div><div class="ttdef"><b>Definition:</b> OxCalculator.hxx:274</div></div>
+<div class="ttc" id="class_ox_1_1_calculator_html_a938a4bb0d2bc586bfb6982df28befbbf"><div class="ttname"><a href="class_ox_1_1_calculator.html#a938a4bb0d2bc586bfb6982df28befbbf">Ox::Calculator::disp</a></div><div class="ttdeci">void disp()</div><div class="ttdoc">show me your Model </div><div class="ttdef"><b>Definition:</b> OxCalculator.hxx:274</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_html_ad43fbbb3e888e1fa73f95d872a963bac"><div class="ttname"><a href="class_ox_1_1_calculator.html#ad43fbbb3e888e1fa73f95d872a963bac">Ox::Calculator::getStartPointCalculator</a></div><div class="ttdeci">StartPointCalculator&lt; MeasureType &gt; * getStartPointCalculator() const </div><div class="ttdef"><b>Definition:</b> OxCalculator.hxx:39</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_html"><div class="ttname"><a href="class_ox_1_1_calculator.html">Ox::Calculator</a></div><div class="ttdef"><b>Definition:</b> OxCalculator.h:28</div></div>
 <div class="ttc" id="class_ox_1_1_sign_calculator_html"><div class="ttname"><a href="class_ox_1_1_sign_calculator.html">Ox::SignCalculator</a></div><div class="ttdef"><b>Definition:</b> OxSignCalculator.h:21</div></div>
@@ -427,6 +426,7 @@ $(document).ready(function(){initNavTree('_ox_calculator_8hxx_source.html','');}
 <div class="ttc" id="class_ox_1_1_fitter_html"><div class="ttname"><a href="class_ox_1_1_fitter.html">Ox::Fitter</a></div><div class="ttdef"><b>Definition:</b> OxFitter.h:22</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_html_acf6021ef084c24636a344a12627caff5"><div class="ttname"><a href="class_ox_1_1_calculator.html#acf6021ef084c24636a344a12627caff5">Ox::Calculator::getSigPha</a></div><div class="ttdeci">const MeasureType * getSigPha() const </div><div class="ttdef"><b>Definition:</b> OxCalculator.hxx:103</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_html_a4ee7fdeb4009d2e433ef6a566768eb25"><div class="ttname"><a href="class_ox_1_1_calculator.html#a4ee7fdeb4009d2e433ef6a566768eb25">Ox::Calculator::getSignCalculator</a></div><div class="ttdeci">SignCalculator&lt; MeasureType &gt; * getSignCalculator() const </div><div class="ttdef"><b>Definition:</b> OxCalculator.hxx:49</div></div>
+<div class="ttc" id="class_ox_1_1_calculator_html_a5589bf7b93a2d1e106532c35745f4329"><div class="ttname"><a href="class_ox_1_1_calculator.html#a5589bf7b93a2d1e106532c35745f4329">Ox::Calculator::getModel</a></div><div class="ttdeci">Model&lt; MeasureType &gt; * getModel() const </div><div class="ttdef"><b>Definition:</b> OxCalculator.hxx:19</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_html_a1d0d07b7840883449168448983d43289"><div class="ttname"><a href="class_ox_1_1_calculator.html#a1d0d07b7840883449168448983d43289">Ox::Calculator::setNSamples</a></div><div class="ttdeci">virtual void setNSamples(int _nSamples)</div><div class="ttdef"><b>Definition:</b> OxCalculator.hxx:235</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_html_af648a7c6c957c9f51532f15c93147d62"><div class="ttname"><a href="class_ox_1_1_calculator.html#af648a7c6c957c9f51532f15c93147d62">Ox::Calculator::getFitter</a></div><div class="ttdeci">Fitter&lt; MeasureType &gt; * getFitter() const </div><div class="ttdef"><b>Definition:</b> OxCalculator.hxx:29</div></div>
 </div><!-- fragment --></div><!-- contents -->

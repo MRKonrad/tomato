@@ -126,13 +126,13 @@ $(document).ready(function(){initNavTree('_ox_calculator_t2_8hxx_source.html',''
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        MeasureType tempParameters[3];</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        KWUtil::copyArrayToArray(3, tempParameters, this-&gt;_StartPoint); <span class="comment">// start from the starting point</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        this-&gt;getModelT1()-&gt;setNSamples(this-&gt;getNSamples());</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        this-&gt;getModelT1()-&gt;setSignal(this-&gt;getSigMag());</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        this-&gt;getModelT1()-&gt;setEchoTimes(this-&gt;getEchoTimes());</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        this-&gt;getModel()-&gt;setNSamples(this-&gt;getNSamples());</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        this-&gt;getModel()-&gt;setSignal(this-&gt;getSigMag());</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        this-&gt;getModel()-&gt;setEchoTimes(this-&gt;getEchoTimes());</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="comment">// configure Fitter</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        this-&gt;getFitter()-&gt;setParameters(tempParameters);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        this-&gt;getFitter()-&gt;setModelT1(this-&gt;getModelT1());</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        this-&gt;getFitter()-&gt;setModel(this-&gt;getModel());</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">// fit</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        this-&gt;getFitter()-&gt;performFitting();</div>
@@ -162,7 +162,7 @@ $(document).ready(function(){initNavTree('_ox_calculator_t2_8hxx_source.html',''
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nSamples; i++){</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            MeasureType fitted;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            fitted = this-&gt;_ModelT1-&gt;calcModelValue(parameters, times[i]);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            fitted = this-&gt;_Model-&gt;calcModelValue(parameters, times[i]);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            absFitted[i] = fabs(fitted);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            absYsignal[i] = fabs(signal[i]);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
@@ -230,7 +230,7 @@ $(document).ready(function(){initNavTree('_ox_calculator_t2_8hxx_source.html',''
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">#endif //Tomato_OXCALCULATORT2_HXX</span></div>
 <div class="ttc" id="class_ox_1_1_calculator_t2_html_ace5f0515839bdffffb3d60e4536167b6"><div class="ttname"><a href="class_ox_1_1_calculator_t2.html#ace5f0515839bdffffb3d60e4536167b6">Ox::CalculatorT2::calculateR2AbsFromModel</a></div><div class="ttdeci">MeasureType calculateR2AbsFromModel(int nSamples, const MeasureType *time, const MeasureType *signal, const MeasureType *parameters)</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2.hxx:56</div></div>
-<div class="ttc" id="struct_ox_1_1_calculator_t1_results_html"><div class="ttname"><a href="struct_ox_1_1_calculator_t1_results.html">Ox::CalculatorT1Results</a></div><div class="ttdef"><b>Definition:</b> OxCalculatorResults.h:14</div></div>
+<div class="ttc" id="struct_ox_1_1_calculator_t1_results_html"><div class="ttname"><a href="struct_ox_1_1_calculator_t1_results.html">Ox::CalculatorT1Results</a></div><div class="ttdef"><b>Definition:</b> OxCalculatorT1Results.h:14</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t2_html_a8afe4974f3253edea4386a87695607ae"><div class="ttname"><a href="class_ox_1_1_calculator_t2.html#a8afe4974f3253edea4386a87695607ae">Ox::CalculatorT2::calculate</a></div><div class="ttdeci">virtual int calculate()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2.hxx:15</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t2_html_a56e2bcb27465a83dd1a1150b7fe419c8"><div class="ttname"><a href="class_ox_1_1_calculator_t2.html#a56e2bcb27465a83dd1a1150b7fe419c8">Ox::CalculatorT2::prepareToCalculate</a></div><div class="ttdeci">virtual int prepareToCalculate()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2.hxx:78</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t2_html_ab5d0e963ac87d04ae47ecd2a9f10059f"><div class="ttname"><a href="class_ox_1_1_calculator_t2.html#ab5d0e963ac87d04ae47ecd2a9f10059f">Ox::CalculatorT2::getDoCalculateSDMap</a></div><div class="ttdeci">bool getDoCalculateSDMap() const </div><div class="ttdef"><b>Definition:</b> OxCalculatorT2.hxx:117</div></div>
