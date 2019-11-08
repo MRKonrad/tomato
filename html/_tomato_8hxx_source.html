@@ -220,14 +220,14 @@ $(document).ready(function(){initNavTree('_tomato_8hxx_source.html','');});
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    ::calculate() {</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="comment">// alloc and init</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        CalculatorT1&lt;InputPixelType&gt; *calculatorT1 = FactoryOfCalculators&lt;InputPixelType&gt;::newByFactory(_opts);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        FunctionsT1&lt;InputPixelType&gt; *functionsT1 = FactoryOfFunctions&lt;InputPixelType&gt;::newByFactory(_opts);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        Calculator&lt;InputPixelType&gt; *calculatorT1 = FactoryOfCalculators&lt;InputPixelType&gt;::newByFactory(_opts);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        Model&lt;InputPixelType&gt; *ModelT1 = FactoryOfFunctions&lt;InputPixelType&gt;::newByFactory(_opts);</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        Fitter&lt;InputPixelType&gt; *fitter = FactoryOfFitters&lt;InputPixelType&gt;::newByFactory(_opts);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        SignCalculator&lt;InputPixelType&gt; *signCalculator = FactoryOfSignCalculators&lt;InputPixelType&gt;::newByFactory(_opts);</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        StartPointCalculator&lt;InputPixelType&gt; *startPointCalculator = FactoryOfStartPointCalculators&lt;InputPixelType&gt;::newByFactory(_opts);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="comment">// configure calculator</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        calculatorT1-&gt;setFunctionsT1(functionsT1);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        calculatorT1-&gt;setModelT1(ModelT1);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        calculatorT1-&gt;setFitter(fitter);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        calculatorT1-&gt;setSignCalculator(signCalculator);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        calculatorT1-&gt;setStartPointCalculator(startPointCalculator);</div>
@@ -257,7 +257,7 @@ $(document).ready(function(){initNavTree('_tomato_8hxx_source.html','');});
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        _opts-&gt;calculation_time = clock.GetTotal();</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        printf(<span class="stringliteral">&quot;Calculation time: %.4fs.\n&quot;</span>, clock.GetTotal());</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keyword">delete</span> functionsT1;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keyword">delete</span> ModelT1;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keyword">delete</span> fitter;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keyword">delete</span> signCalculator;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keyword">delete</span> startPointCalculator;</div>

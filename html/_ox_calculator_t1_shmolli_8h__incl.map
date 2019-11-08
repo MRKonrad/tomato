@@ -1,14 +1,15 @@
 <map id="lib/OxCalculatorT1Shmolli.h" name="lib/OxCalculatorT1Shmolli.h">
-<area shape="rect" id="node3" href="$_ox_calculator_t1_molli_8h.html" title="OxCalculatorT1Molli.h" alt="" coords="194,80,344,107"/>
-<area shape="rect" id="node25" href="$_ox_calculator_t1_shmolli_8hxx.html" title="OxCalculatorT1Shmolli.hxx" alt="" coords="369,80,551,107"/>
-<area shape="rect" id="node4" href="$_ox_calculator_t1_8h_source.html" title="OxCalculatorT1.h" alt="" coords="227,155,351,181"/>
-<area shape="rect" id="node24" href="$_ox_calculator_t1_molli_8hxx.html" title="OxCalculatorT1Molli.hxx" alt="" coords="375,155,539,181"/>
-<area shape="rect" id="node5" href="$_ox_calculator_results_8h_source.html" title="OxCalculatorResults.h" alt="" coords="5,304,159,331"/>
-<area shape="rect" id="node7" href="$_ox_fitter_8h.html" title="OxFitter.h" alt="" coords="288,229,367,256"/>
-<area shape="rect" id="node8" href="$_ox_functions_t1_8h.html" title="OxFunctionsT1.h" alt="" coords="191,304,313,331"/>
-<area shape="rect" id="node9" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="473,379,547,405"/>
-<area shape="rect" id="node21" href="$_ox_sign_calculator_8h.html" title="OxSignCalculator.h" alt="" coords="443,304,577,331"/>
-<area shape="rect" id="node22" href="$_ox_start_point_calculator_8h.html" title="OxStartPointCalculator.h" alt="" coords="602,304,768,331"/>
-<area shape="rect" id="node23" href="$_ox_calculator_t1_8hxx_source.html" title="OxCalculatorT1.hxx" alt="" coords="544,229,683,256"/>
-<area shape="rect" id="node20" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="1035,453,1124,480"/>
+<area shape="rect" id="node3" href="$_ox_calculator_t1_molli_8h.html" title="OxCalculatorT1Molli.h" alt="" coords="174,80,324,107"/>
+<area shape="rect" id="node26" href="$_ox_calculator_t1_shmolli_8hxx.html" title="OxCalculatorT1Shmolli.hxx" alt="" coords="349,80,531,107"/>
+<area shape="rect" id="node4" href="$_ox_calculator_8h.html" title="OxCalculator.h" alt="" coords="325,155,435,181"/>
+<area shape="rect" id="node25" href="$_ox_calculator_t1_molli_8hxx.html" title="OxCalculatorT1Molli.hxx" alt="" coords="459,155,623,181"/>
+<area shape="rect" id="node5" href="$_ox_calculator_results_8h_source.html" title="OxCalculatorResults.h" alt="" coords="144,304,297,331"/>
+<area shape="rect" id="node7" href="$_ox_fitter_8h.html" title="OxFitter.h" alt="" coords="379,229,457,256"/>
+<area shape="rect" id="node8" href="$_ox_model_8h.html" title="OxModel.h" alt="" coords="323,304,408,331"/>
+<area shape="rect" id="node10" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="548,453,621,480"/>
+<area shape="rect" id="node22" href="$_ox_sign_calculator_8h.html" title="OxSignCalculator.h" alt="" coords="534,304,668,331"/>
+<area shape="rect" id="node23" href="$_ox_start_point_calculator_8h.html" title="OxStartPointCalculator.h" alt="" coords="623,379,789,405"/>
+<area shape="rect" id="node24" href="$_ox_calculator_8hxx.html" title="OxCalculator.hxx" alt="" coords="744,229,867,256"/>
+<area shape="rect" id="node9" href="$_ox_model_8hxx_source.html" title="OxModel.hxx" alt="" coords="309,379,408,405"/>
+<area shape="rect" id="node21" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="1127,528,1216,555"/>
 </map>

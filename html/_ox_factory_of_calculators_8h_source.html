@@ -167,8 +167,8 @@ $(document).ready(function(){initNavTree('_ox_factory_of_calculators_8h_source.h
 <div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_ox_1_1_factory_of_calculators.html">   65</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_ox_1_1_factory_of_calculators.html">FactoryOfCalculators</a> {</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_ox_1_1_calculator_t1.html">CalculatorT1&lt;TYPE&gt;</a>* newByFactory(<a class="code" href="struct_ox_1_1_tomato_options.html">TomatoOptions&lt;TYPE&gt;</a> *opts){</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <a class="code" href="class_ox_1_1_calculator_t1.html">CalculatorT1&lt;TYPE&gt;</a> *calculatorT1 = 0; <span class="comment">//nullpointer</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_ox_1_1_calculator.html">Calculator&lt;TYPE&gt;</a>* newByFactory(<a class="code" href="struct_ox_1_1_tomato_options.html">TomatoOptions&lt;TYPE&gt;</a> *opts){</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <a class="code" href="class_ox_1_1_calculator.html">Calculator&lt;TYPE&gt;</a> *calculatorT1 = 0; <span class="comment">//nullpointer</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">switch</span> (opts-&gt;parameter_to_map){</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordflow">case</span> T1_MOLLI: {</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    calculatorT1 = <span class="keyword">new</span> <a class="code" href="class_ox_1_1_calculator_t1_molli.html">CalculatorT1Molli&lt;TYPE&gt;</a>();</div>
@@ -220,7 +220,7 @@ $(document).ready(function(){initNavTree('_ox_factory_of_calculators_8h_source.h
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif //Tomato_OXFACTORYOFCalculators_H</span></div>
 <div class="ttc" id="class_ox_1_1_factory_of_calculators_html"><div class="ttname"><a href="class_ox_1_1_factory_of_calculators.html">Ox::FactoryOfCalculators</a></div><div class="ttdef"><b>Definition:</b> OxFactoryOfCalculators.h:65</div></div>
-<div class="ttc" id="class_ox_1_1_calculator_t1_html"><div class="ttname"><a href="class_ox_1_1_calculator_t1.html">Ox::CalculatorT1</a></div><div class="ttdef"><b>Definition:</b> OxCalculatorT1.h:28</div></div>
+<div class="ttc" id="class_ox_1_1_calculator_html"><div class="ttname"><a href="class_ox_1_1_calculator.html">Ox::Calculator</a></div><div class="ttdef"><b>Definition:</b> OxCalculator.h:28</div></div>
 <div class="ttc" id="_ox_calculator_t2_8h_html"><div class="ttname"><a href="_ox_calculator_t2_8h.html">OxCalculatorT2.h</a></div></div>
 <div class="ttc" id="struct_ox_1_1_tomato_options_html"><div class="ttname"><a href="struct_ox_1_1_tomato_options.html">Ox::TomatoOptions</a></div><div class="ttdef"><b>Definition:</b> OxFactoryOfCalculators.h:22</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t2_html"><div class="ttname"><a href="class_ox_1_1_calculator_t2.html">Ox::CalculatorT2</a></div><div class="ttdef"><b>Definition:</b> OxCalculatorT2.h:22</div></div>

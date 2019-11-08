@@ -1,18 +1,19 @@
 <map id="lib/TomatoApi.h" name="lib/TomatoApi.h">
-<area shape="rect" id="node4" href="$_ox_calculator_t1_8h_source.html" title="OxCalculatorT1.h" alt="" coords="526,155,649,181"/>
-<area shape="rect" id="node7" href="$_ox_fitter_8h.html" title="OxFitter.h" alt="" coords="256,229,335,256"/>
-<area shape="rect" id="node8" href="$_ox_functions_t1_8h.html" title="OxFunctionsT1.h" alt="" coords="299,304,421,331"/>
-<area shape="rect" id="node21" href="$_ox_sign_calculator_8h.html" title="OxSignCalculator.h" alt="" coords="1403,229,1537,256"/>
-<area shape="rect" id="node24" href="$_ox_calculator_t1_molli_8h.html" title="OxCalculatorT1Molli.h" alt="" coords="706,80,856,107"/>
-<area shape="rect" id="node26" href="$_ox_functions_t1_three_param_8h.html" title="OxFunctionsT1ThreeParam.h" alt="" coords="1025,155,1217,181"/>
-<area shape="rect" id="node28" href="$_ox_sign_calculator_no_sign_8h.html" title="OxSignCalculatorNoSign.h" alt="" coords="1276,80,1455,107"/>
-<area shape="rect" id="node29" href="$_ox_sign_calculator_real_imag_8h.html" title="OxSignCalculatorRealImag.h" alt="" coords="1242,155,1432,181"/>
-<area shape="rect" id="node30" href="$_ox_start_point_calculator_basic_8h.html" title="OxStartPointCalculatorBasic.h" alt="" coords="935,80,1133,107"/>
-<area shape="rect" id="node5" href="$_ox_calculator_results_8h_source.html" title="OxCalculatorResults.h" alt="" coords="445,304,599,331"/>
-<area shape="rect" id="node9" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="735,379,808,405"/>
-<area shape="rect" id="node22" href="$_ox_start_point_calculator_8h.html" title="OxStartPointCalculator.h" alt="" coords="675,229,841,256"/>
-<area shape="rect" id="node23" href="$_ox_calculator_t1_8hxx_source.html" title="OxCalculatorT1.hxx" alt="" coords="360,229,499,256"/>
-<area shape="rect" id="node20" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="630,453,719,480"/>
-<area shape="rect" id="node25" href="$_ox_calculator_t1_molli_8hxx.html" title="OxCalculatorT1Molli.hxx" alt="" coords="725,155,889,181"/>
-<area shape="rect" id="node27" href="$_ox_functions_t1_three_param_8hxx.html" title="OxFunctionsT1ThreeParam.hxx" alt="" coords="1019,229,1225,256"/>
+<area shape="rect" id="node4" href="$_ox_calculator_8h.html" title="OxCalculator.h" alt="" coords="631,155,740,181"/>
+<area shape="rect" id="node7" href="$_ox_fitter_8h.html" title="OxFitter.h" alt="" coords="783,229,862,256"/>
+<area shape="rect" id="node8" href="$_ox_model_8h.html" title="OxModel.h" alt="" coords="440,304,526,331"/>
+<area shape="rect" id="node22" href="$_ox_sign_calculator_8h.html" title="OxSignCalculator.h" alt="" coords="1129,229,1263,256"/>
+<area shape="rect" id="node25" href="$_ox_calculator_t1_molli_8h.html" title="OxCalculatorT1Molli.h" alt="" coords="394,80,544,107"/>
+<area shape="rect" id="node27" href="$_ox_model_t1_three_param_8h.html" title="OxModelT1ThreeParam.h" alt="" coords="87,229,258,256"/>
+<area shape="rect" id="node29" href="$_ox_sign_calculator_no_sign_8h.html" title="OxSignCalculatorNoSign.h" alt="" coords="1223,155,1402,181"/>
+<area shape="rect" id="node30" href="$_ox_sign_calculator_real_imag_8h.html" title="OxSignCalculatorRealImag.h" alt="" coords="957,155,1147,181"/>
+<area shape="rect" id="node31" href="$_ox_start_point_calculator_basic_8h.html" title="OxStartPointCalculatorBasic.h" alt="" coords="815,80,1014,107"/>
+<area shape="rect" id="node5" href="$_ox_calculator_results_8h_source.html" title="OxCalculatorResults.h" alt="" coords="572,453,726,480"/>
+<area shape="rect" id="node10" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="832,453,906,480"/>
+<area shape="rect" id="node23" href="$_ox_start_point_calculator_8h.html" title="OxStartPointCalculator.h" alt="" coords="886,229,1052,256"/>
+<area shape="rect" id="node24" href="$_ox_calculator_8hxx.html" title="OxCalculator.hxx" alt="" coords="484,229,607,256"/>
+<area shape="rect" id="node9" href="$_ox_model_8hxx_source.html" title="OxModel.hxx" alt="" coords="440,379,539,405"/>
+<area shape="rect" id="node21" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="822,528,911,555"/>
+<area shape="rect" id="node26" href="$_ox_calculator_t1_molli_8hxx.html" title="OxCalculatorT1Molli.hxx" alt="" coords="383,155,547,181"/>
+<area shape="rect" id="node28" href="$_ox_model_t1_three_param_8hxx.html" title="OxModelT1ThreeParam.hxx" alt="" coords="21,304,206,331"/>
 </map>

@@ -111,10 +111,10 @@ $(document).ready(function(){initNavTree('_ox_factory_of_functions_8h_source.htm
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;CmakeConfigForTomato.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_functions_t1_three_param_8h.html">OxFunctionsT1ThreeParam.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_functions_t1_two_param_8h.html">OxFunctionsT1TwoParam.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_functions_t1_shmolli_8h.html">OxFunctionsT1Shmolli.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_functions_t2_three_param_8h.html">OxFunctionsT2ThreeParam.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_model_t1_three_param_8h.html">OxModelT1ThreeParam.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_model_t1_two_param_8h.html">OxModelT1TwoParam.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_model_t1_shmolli_8h.html">OxModelT1Shmolli.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_model_t2_three_param_8h.html">OxModelT2ThreeParam.h</a>&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>Ox {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
@@ -126,41 +126,41 @@ $(document).ready(function(){initNavTree('_ox_factory_of_functions_8h_source.htm
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="stringliteral">&quot;FunctionsThreeParam&quot;</span>,</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="stringliteral">&quot;FunctionsTwoParam&quot;</span>,</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="stringliteral">&quot;FunctionsShmolli&quot;</span>,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="stringliteral">&quot;FunctionsT2ThreeParam&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="stringliteral">&quot;ModelT2ThreeParam&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    };</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">enum</span> functionsType_t {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        FunctionsThreeParam = 0,</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        FunctionsTwoParam = 1,</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        FunctionsShmolli = 2,</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        _FunctionsT2ThreeParam = 3,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        lastFunctorType = _FunctionsT2ThreeParam</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        _ModelT2ThreeParam = 3,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        lastFunctorType = _ModelT2ThreeParam</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    };</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> functionsAvailability[] = {</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            1, <span class="comment">//FunctionsThreeParam</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            1, <span class="comment">//FunctionsTwoParam</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            1, <span class="comment">// FunctionsShmolli</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            1  <span class="comment">// FunctionsT2ThreeParam</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            1  <span class="comment">// ModelT2ThreeParam</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    };</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt;</div>
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_ox_1_1_factory_of_functions.html">   46</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_ox_1_1_factory_of_functions.html">FactoryOfFunctions</a> {</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_ox_1_1_functions_t1.html">FunctionsT1&lt;TYPE&gt;</a>* newByFactory(<a class="code" href="struct_ox_1_1_tomato_options.html">TomatoOptions&lt;TYPE&gt;</a> *opts){</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_ox_1_1_model.html">Model&lt;TYPE&gt;</a>* newByFactory(<a class="code" href="struct_ox_1_1_tomato_options.html">TomatoOptions&lt;TYPE&gt;</a> *opts){</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">switch</span> (opts-&gt;functions_type){</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">case</span> FunctionsThreeParam: {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_ox_1_1_functions_t1_three_param.html">FunctionsT1ThreeParam&lt;TYPE&gt;</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_ox_1_1_model_t1_three_param.html">ModelT1ThreeParam&lt;TYPE&gt;</a>();</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                }</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">case</span> FunctionsTwoParam: {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_ox_1_1_functions_t1_two_param.html">FunctionsT1TwoParam&lt;TYPE&gt;</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_ox_1_1_model_t1_two_param.html">ModelT1TwoParam&lt;TYPE&gt;</a>();</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                }</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordflow">case</span> FunctionsShmolli: {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_ox_1_1_functions_t1_shmolli.html">FunctionsT1Shmolli&lt;TYPE&gt;</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_ox_1_1_model_t1_shmolli.html">ModelT1Shmolli&lt;TYPE&gt;</a>();</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">case</span> _FunctionsT2ThreeParam: {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_ox_1_1_functions_t2_three_param.html">FunctionsT2ThreeParam&lt;TYPE&gt;</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">case</span> _ModelT2ThreeParam: {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_ox_1_1_model_t2_three_param.html">ModelT2ThreeParam&lt;TYPE&gt;</a>();</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                }</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">default</span>:</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;functions_type not available&quot;</span>);</div>
@@ -189,17 +189,17 @@ $(document).ready(function(){initNavTree('_ox_factory_of_functions_8h_source.htm
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;} <span class="comment">// namespace Ox</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif //Tomato_OXFACTORYOFFUNCTIONS_H</span></div>
-<div class="ttc" id="class_ox_1_1_functions_t1_three_param_html"><div class="ttname"><a href="class_ox_1_1_functions_t1_three_param.html">Ox::FunctionsT1ThreeParam</a></div><div class="ttdoc">Container for a ThreeParam model function , cost function and Least-Squares function and derivatives...</div><div class="ttdef"><b>Definition:</b> OxFunctionsT1ThreeParam.h:23</div></div>
-<div class="ttc" id="_ox_functions_t1_shmolli_8h_html"><div class="ttname"><a href="_ox_functions_t1_shmolli_8h.html">OxFunctionsT1Shmolli.h</a></div></div>
-<div class="ttc" id="_ox_functions_t2_three_param_8h_html"><div class="ttname"><a href="_ox_functions_t2_three_param_8h.html">OxFunctionsT2ThreeParam.h</a></div></div>
+<div class="ttc" id="class_ox_1_1_model_t1_two_param_html"><div class="ttname"><a href="class_ox_1_1_model_t1_two_param.html">Ox::ModelT1TwoParam</a></div><div class="ttdoc">Container for a TwoParam model function , cost function and Least-Squares function and derivatives...</div><div class="ttdef"><b>Definition:</b> OxModelT1TwoParam.h:23</div></div>
+<div class="ttc" id="_ox_model_t1_shmolli_8h_html"><div class="ttname"><a href="_ox_model_t1_shmolli_8h.html">OxModelT1Shmolli.h</a></div></div>
+<div class="ttc" id="class_ox_1_1_model_html"><div class="ttname"><a href="class_ox_1_1_model.html">Ox::Model</a></div><div class="ttdoc">Container for a model function, cost function and Least-Squares function. And derivatives. </div><div class="ttdef"><b>Definition:</b> OxModel.h:25</div></div>
+<div class="ttc" id="_ox_model_t1_two_param_8h_html"><div class="ttname"><a href="_ox_model_t1_two_param_8h.html">OxModelT1TwoParam.h</a></div></div>
+<div class="ttc" id="class_ox_1_1_model_t1_shmolli_html"><div class="ttname"><a href="class_ox_1_1_model_t1_shmolli.html">Ox::ModelT1Shmolli</a></div><div class="ttdoc">Container for a CalculatorShmolli model function , cost function and Least-Squares function and deriv...</div><div class="ttdef"><b>Definition:</b> OxModelT1Shmolli.h:24</div></div>
 <div class="ttc" id="struct_ox_1_1_tomato_options_html"><div class="ttname"><a href="struct_ox_1_1_tomato_options.html">Ox::TomatoOptions</a></div><div class="ttdef"><b>Definition:</b> OxFactoryOfCalculators.h:22</div></div>
-<div class="ttc" id="_ox_functions_t1_three_param_8h_html"><div class="ttname"><a href="_ox_functions_t1_three_param_8h.html">OxFunctionsT1ThreeParam.h</a></div></div>
 <div class="ttc" id="class_ox_1_1_factory_of_functions_html"><div class="ttname"><a href="class_ox_1_1_factory_of_functions.html">Ox::FactoryOfFunctions</a></div><div class="ttdef"><b>Definition:</b> OxFactoryOfFunctions.h:46</div></div>
-<div class="ttc" id="class_ox_1_1_functions_t1_html"><div class="ttname"><a href="class_ox_1_1_functions_t1.html">Ox::FunctionsT1</a></div><div class="ttdoc">Container for a model function, cost function and Least-Squares function. And derivatives. </div><div class="ttdef"><b>Definition:</b> OxFunctionsT1.h:26</div></div>
-<div class="ttc" id="class_ox_1_1_functions_t1_shmolli_html"><div class="ttname"><a href="class_ox_1_1_functions_t1_shmolli.html">Ox::FunctionsT1Shmolli</a></div><div class="ttdoc">Container for a CalculatorShmolli model function , cost function and Least-Squares function and deriv...</div><div class="ttdef"><b>Definition:</b> OxFunctionsT1Shmolli.h:24</div></div>
-<div class="ttc" id="class_ox_1_1_functions_t2_three_param_html"><div class="ttname"><a href="class_ox_1_1_functions_t2_three_param.html">Ox::FunctionsT2ThreeParam</a></div><div class="ttdoc">Container for a ThreeParam model function , cost function and Least-Squares function and derivatives...</div><div class="ttdef"><b>Definition:</b> OxFunctionsT2ThreeParam.h:23</div></div>
-<div class="ttc" id="class_ox_1_1_functions_t1_two_param_html"><div class="ttname"><a href="class_ox_1_1_functions_t1_two_param.html">Ox::FunctionsT1TwoParam</a></div><div class="ttdoc">Container for a TwoParam model function , cost function and Least-Squares function and derivatives...</div><div class="ttdef"><b>Definition:</b> OxFunctionsT1TwoParam.h:23</div></div>
-<div class="ttc" id="_ox_functions_t1_two_param_8h_html"><div class="ttname"><a href="_ox_functions_t1_two_param_8h.html">OxFunctionsT1TwoParam.h</a></div></div>
+<div class="ttc" id="class_ox_1_1_model_t1_three_param_html"><div class="ttname"><a href="class_ox_1_1_model_t1_three_param.html">Ox::ModelT1ThreeParam</a></div><div class="ttdoc">Container for a ThreeParam model function , cost function and Least-Squares function and derivatives...</div><div class="ttdef"><b>Definition:</b> OxModelT1ThreeParam.h:23</div></div>
+<div class="ttc" id="_ox_model_t2_three_param_8h_html"><div class="ttname"><a href="_ox_model_t2_three_param_8h.html">OxModelT2ThreeParam.h</a></div></div>
+<div class="ttc" id="class_ox_1_1_model_t2_three_param_html"><div class="ttname"><a href="class_ox_1_1_model_t2_three_param.html">Ox::ModelT2ThreeParam</a></div><div class="ttdoc">Container for a ThreeParam model function , cost function and Least-Squares function and derivatives...</div><div class="ttdef"><b>Definition:</b> OxModelT2ThreeParam.h:23</div></div>
+<div class="ttc" id="_ox_model_t1_three_param_8h_html"><div class="ttname"><a href="_ox_model_t1_three_param_8h.html">OxModelT1ThreeParam.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

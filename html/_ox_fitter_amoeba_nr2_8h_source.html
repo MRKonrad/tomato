@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('_ox_fitter_amoeba_nr2_8h_source.html',
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">// static because https://stackoverflow.com/questions/14425262/why-include-guards-do-not-prevent-multiple-function-definitions</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">// global array of pointers to OxFunctorT1adapterNr3</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">static</span> FunctionsT1&lt;float&gt; *globalFunctonsT1Nr2Array[NR_MAX_THREADS]; <span class="comment">// could possibly go up to ITK_MAX_THREADS</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">static</span> Model&lt;float&gt; *globalFunctonsT1Nr2Array[NR_MAX_THREADS]; <span class="comment">// could possibly go up to ITK_MAX_THREADS</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">// global wrapper functions. Exactly as in https://isocpp.org/wiki/faq/pointers-to-members</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">float</span> f_wrapper0(<span class="keywordtype">float</span> *params) { <span class="keywordflow">return</span> globalFunctonsT1Nr2Array[0]-&gt;calcCostValue(params+1); }</div>
@@ -178,9 +178,9 @@ $(document).ready(function(){initNavTree('_ox_fitter_amoeba_nr2_8h_source.html',
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="comment">// use global ugliness</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            Ugly::globalFunctonsT1Nr2Array[threadId] = this-&gt;_FunctionsT1;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            Ugly::globalFunctonsT1Nr2Array[threadId] = this-&gt;_ModelT1;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            float(*func)(<span class="keywordtype">float</span>*) = Ugly::f_wrapperArray[threadId];</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordtype">int</span> nDims = this-&gt;_FunctionsT1-&gt;getNDims();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordtype">int</span> nDims = this-&gt;_ModelT1-&gt;getNDims();</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="comment">// store start point</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordtype">float</span> *startPoint = <span class="keyword">new</span> <span class="keywordtype">float</span>[nDims];</div>

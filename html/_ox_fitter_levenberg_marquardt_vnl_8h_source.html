@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('_ox_fitter_levenberg_marquardt_vnl_8h_
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifdef USE_VNL</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_fitter_8h.html">OxFitter.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_functions_t1_adapter_vnl_least_squares_8h.html">OxFunctionsT1AdapterVnlLeastSquares.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_model_t1_adapter_vnl_least_squares_8h.html">OxModelT1AdapterVnlLeastSquares.h</a>&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;vnl/algo/vnl_levenberg_marquardt.h&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>Ox {</div>
@@ -122,13 +122,13 @@ $(document).ready(function(){initNavTree('_ox_fitter_levenberg_marquardt_vnl_8h_
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">typedef</span> vnl_levenberg_marquardt VnlFitterType; <span class="comment">// !!! this is the most important configuration part !!!</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">typedef</span> FunctionsT1AdapterVnlLeastSquares FunctionsAdaptedToVnlType;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">typedef</span> ModelT1AdapterVnlLeastSquares FunctionsAdaptedToVnlType;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> performFitting(){</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            configureMinimizer();</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            vnl_vector&lt;MeasureType&gt; temp(this-&gt;getParameters(), this-&gt;_FunctionsT1-&gt;getNDims());</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            vnl_vector&lt;MeasureType&gt; temp(this-&gt;getParameters(), this-&gt;_ModelT1-&gt;getNDims());</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            _VnlFitter-&gt;minimize(temp);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('_ox_fitter_levenberg_marquardt_vnl_8h_
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                temp.copy_out(this-&gt;getParameters());</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">if</span> (this-&gt;getVerbose()) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;Results: &quot;</span> &lt;&lt; temp &lt;&lt; <span class="stringliteral">&quot; Cost: &quot;</span> &lt;&lt; this-&gt;_FunctionsT1-&gt;calcCostValue(this-&gt;getParameters()) &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;Results: &quot;</span> &lt;&lt; temp &lt;&lt; <span class="stringliteral">&quot; Cost: &quot;</span> &lt;&lt; this-&gt;_ModelT1-&gt;calcCostValue(this-&gt;getParameters()) &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">return</span> 0; <span class="comment">//EXIT_SUCCESS;</span></div>
@@ -178,8 +178,8 @@ $(document).ready(function(){initNavTree('_ox_fitter_levenberg_marquardt_vnl_8h_
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> configureMinimizer() {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordtype">int</span> nSamples = this-&gt;_FunctionsT1-&gt;getNSamples();</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordtype">int</span> nDims = this-&gt;_FunctionsT1-&gt;getNDims();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordtype">int</span> nSamples = this-&gt;_ModelT1-&gt;getNSamples();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordtype">int</span> nDims = this-&gt;_ModelT1-&gt;getNDims();</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keywordtype">bool</span> doReconfigure = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
@@ -195,8 +195,8 @@ $(document).ready(function(){initNavTree('_ox_fitter_levenberg_marquardt_vnl_8h_
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">if</span> (doReconfigure) {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">if</span> (!this-&gt;_FunctionsT1) {</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Set the FunctionsT1 object&quot;</span>);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">if</span> (!this-&gt;_ModelT1) {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Set the Model object&quot;</span>);</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                    <span class="keyword">delete</span> _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;</div>
@@ -207,7 +207,7 @@ $(document).ready(function(){initNavTree('_ox_fitter_levenberg_marquardt_vnl_8h_
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                        _FunctionsAdaptedToVnl = <span class="keyword">new</span> FunctionsAdaptedToVnlType(nDims, nSamples, vnl_least_squares_function::no_gradient);</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                    }</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                    _FunctionsAdaptedToVnl-&gt;setFunctionsT1(this-&gt;_FunctionsT1);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                    _FunctionsAdaptedToVnl-&gt;setModelT1(this-&gt;_ModelT1);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                    <span class="keyword">delete</span> _VnlFitter; _VnlFitter = 0;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                    _VnlFitter = <span class="keyword">new</span> VnlFitterType(*_FunctionsAdaptedToVnl);</div>
@@ -233,7 +233,7 @@ $(document).ready(function(){initNavTree('_ox_fitter_levenberg_marquardt_vnl_8h_
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">#endif //Tomato_OXFITTERLevenbergMarquardtVNL_H</span></div>
 <div class="ttc" id="class_ox_1_1_fitter_html_a0a9b45eb21ba174327f95a894e6331b6"><div class="ttname"><a href="class_ox_1_1_fitter.html#a0a9b45eb21ba174327f95a894e6331b6">Ox::Fitter::disp</a></div><div class="ttdeci">virtual void disp()</div><div class="ttdoc">show me your Fitter </div><div class="ttdef"><b>Definition:</b> OxFitter.h:73</div></div>
-<div class="ttc" id="_ox_functions_t1_adapter_vnl_least_squares_8h_html"><div class="ttname"><a href="_ox_functions_t1_adapter_vnl_least_squares_8h.html">OxFunctionsT1AdapterVnlLeastSquares.h</a></div></div>
+<div class="ttc" id="_ox_model_t1_adapter_vnl_least_squares_8h_html"><div class="ttname"><a href="_ox_model_t1_adapter_vnl_least_squares_8h.html">OxModelT1AdapterVnlLeastSquares.h</a></div></div>
 <div class="ttc" id="_ox_fitter_8h_html"><div class="ttname"><a href="_ox_fitter_8h.html">OxFitter.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

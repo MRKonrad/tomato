@@ -122,7 +122,7 @@ $(document).ready(function(){initNavTree('_ox_calculator_t1_shmolli_8hxx_source.
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        }</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//            // base class prepareToCalculate()</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">//            if(CalculatorT1&lt;MeasureType&gt;::prepareToCalculate() == 1) {</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">//            if(Calculator&lt;MeasureType&gt;::prepareToCalculate() == 1) {</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//                return 1; // EXIT_FAILURE</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">//            }</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
@@ -155,7 +155,7 @@ $(document).ready(function(){initNavTree('_ox_calculator_t1_shmolli_8hxx_source.
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                MeasureType <span class="keyword">const</span> temp[] = {100, 200, 1000};</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                this-&gt;getStartPointCalculator()-&gt;setInputStartPoint(temp);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;CalculatorT1: Set InputStartPoint in StartPointCalculator&quot;</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Calculator: Set InputStartPoint in StartPointCalculator&quot;</span>);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            }</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        this-&gt;getStartPointCalculator()-&gt;setNSamples(this-&gt;getNSamples());</div>

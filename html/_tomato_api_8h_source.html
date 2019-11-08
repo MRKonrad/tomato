@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('_tomato_api_8h_source.html','');});
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/* ************* */</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*  calculators  */</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/* ************* */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;OxCalculatorT1.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_calculator_8h.html">OxCalculator.h</a>&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_calculator_t1_molli_8h.html">OxCalculatorT1Molli.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifdef USE_PRIVATE_NR2</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_ox_calculator_t1_shmolli_8h.html">OxCalculatorT1Shmolli.h</a>&quot;</span></div>
@@ -140,13 +140,13 @@ $(document).ready(function(){initNavTree('_tomato_api_8h_source.html','');});
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">/* ************* */</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">/*   functions   */</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">/* ************* */</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_functions_t1_8h.html">OxFunctionsT1.h</a>&quot;</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_functions_t1_three_param_8h.html">OxFunctionsT1ThreeParam.h</a>&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_model_8h.html">OxModel.h</a>&quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ox_model_t1_three_param_8h.html">OxModelT1ThreeParam.h</a>&quot;</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#ifdef USE_PRIVATE_NR2</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_ox_functions_t1_shmolli_8h.html">OxFunctionsT1Shmolli.h</a>&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_ox_model_t1_shmolli_8h.html">OxModelT1Shmolli.h</a>&quot;</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif //USE_PRIVATE_NR2</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifdef USE_LMFIT</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_ox_functions_t1_adapter_lmfit_least_squares_8h.html">OxFunctionsT1AdapterLmfitLeastSquares.h</a>&quot;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_ox_model_t1_adapter_lmfit_least_squares_8h.html">OxModelT1AdapterLmfitLeastSquares.h</a>&quot;</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif // USE_LMFIT</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">/* **************** */</span></div>
@@ -185,7 +185,7 @@ $(document).ready(function(){initNavTree('_tomato_api_8h_source.html','');});
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">/* ************* */</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">/*  calculators  */</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">/* ************* */</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">template</span> <span class="keyword">class </span>TOMATOLIB_EXPORT CalculatorT1&lt;double&gt;;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">template</span> <span class="keyword">class </span>TOMATOLIB_EXPORT Calculator&lt;double&gt;;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">template</span> <span class="keyword">class </span>TOMATOLIB_EXPORT CalculatorT1Molli&lt;double&gt;;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#ifdef USE_PRIVATE_NR2</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor"></span>    <span class="keyword">template</span> <span class="keyword">class </span>TOMATOLIB_EXPORT CalculatorT1Shmolli&lt;double&gt;;</div>
@@ -210,13 +210,13 @@ $(document).ready(function(){initNavTree('_tomato_api_8h_source.html','');});
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="comment">/* ************* */</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">/*   functions   */</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">/* ************* */</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">template</span> <span class="keyword">class </span>TOMATOLIB_EXPORT FunctionsT1&lt;double&gt;;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">template</span> <span class="keyword">class </span>TOMATOLIB_EXPORT FunctionsT1ThreeParam&lt;double&gt;;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">template</span> <span class="keyword">class </span>TOMATOLIB_EXPORT Model&lt;double&gt;;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">template</span> <span class="keyword">class </span>TOMATOLIB_EXPORT ModelT1ThreeParam&lt;double&gt;;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">#ifdef USE_PRIVATE_NR2</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor"></span>    <span class="keyword">template</span> <span class="keyword">class </span>TOMATOLIB_EXPORT FunctionsT1Shmolli&lt;double&gt;;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor"></span>    <span class="keyword">template</span> <span class="keyword">class </span>TOMATOLIB_EXPORT ModelT1Shmolli&lt;double&gt;;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#endif //USE_PRIVATE_NR2</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifdef USE_LMFIT</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor"></span>    <span class="keyword">template</span> <span class="keyword">class </span>TOMATOLIB_EXPORT FunctionsT1AdapterLmfitLeastSquares&lt;double&gt;;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor"></span>    <span class="keyword">template</span> <span class="keyword">class </span>TOMATOLIB_EXPORT ModelT1AdapterLmfitLeastSquares&lt;double&gt;;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#endif // USE_LMFIT</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment">/* **************** */</span></div>
@@ -257,14 +257,15 @@ $(document).ready(function(){initNavTree('_tomato_api_8h_source.html','');});
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;} <span class="comment">//namespace itk</span></div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="preprocessor">#endif //TOMATO_TOMATOAPI_H</span></div>
+<div class="ttc" id="_ox_model_t1_shmolli_8h_html"><div class="ttname"><a href="_ox_model_t1_shmolli_8h.html">OxModelT1Shmolli.h</a></div></div>
 <div class="ttc" id="_ox_sign_calculator_8h_html"><div class="ttname"><a href="_ox_sign_calculator_8h.html">OxSignCalculator.h</a></div></div>
-<div class="ttc" id="_ox_functions_t1_shmolli_8h_html"><div class="ttname"><a href="_ox_functions_t1_shmolli_8h.html">OxFunctionsT1Shmolli.h</a></div></div>
+<div class="ttc" id="_ox_calculator_8h_html"><div class="ttname"><a href="_ox_calculator_8h.html">OxCalculator.h</a></div></div>
 <div class="ttc" id="_ox_sign_calculator_real_imag_8h_html"><div class="ttname"><a href="_ox_sign_calculator_real_imag_8h.html">OxSignCalculatorRealImag.h</a></div></div>
 <div class="ttc" id="itk_calculator_t1_image_filter_8h_html"><div class="ttname"><a href="itk_calculator_t1_image_filter_8h.html">itkCalculatorT1ImageFilter.h</a></div></div>
 <div class="ttc" id="_ox_sign_calculator_no_sign_8h_html"><div class="ttname"><a href="_ox_sign_calculator_no_sign_8h.html">OxSignCalculatorNoSign.h</a></div></div>
-<div class="ttc" id="_ox_functions_t1_three_param_8h_html"><div class="ttname"><a href="_ox_functions_t1_three_param_8h.html">OxFunctionsT1ThreeParam.h</a></div></div>
+<div class="ttc" id="_ox_model_t1_adapter_lmfit_least_squares_8h_html"><div class="ttname"><a href="_ox_model_t1_adapter_lmfit_least_squares_8h.html">OxModelT1AdapterLmfitLeastSquares.h</a></div></div>
 <div class="ttc" id="_ox_fitter_amoeba_vnl_8h_html"><div class="ttname"><a href="_ox_fitter_amoeba_vnl_8h.html">OxFitterAmoebaVnl.h</a></div></div>
-<div class="ttc" id="_ox_functions_t1_8h_html"><div class="ttname"><a href="_ox_functions_t1_8h.html">OxFunctionsT1.h</a></div></div>
+<div class="ttc" id="_ox_model_8h_html"><div class="ttname"><a href="_ox_model_8h.html">OxModel.h</a></div></div>
 <div class="ttc" id="_ox_fitter_levenberg_marquardt_lmfit_8h_html"><div class="ttname"><a href="_ox_fitter_levenberg_marquardt_lmfit_8h.html">OxFitterLevenbergMarquardtLmfit.h</a></div></div>
 <div class="ttc" id="_ox_start_point_calculator_shmolli_8h_html"><div class="ttname"><a href="_ox_start_point_calculator_shmolli_8h.html">OxStartPointCalculatorShmolli.h</a></div></div>
 <div class="ttc" id="_ox_fitter_levenberg_marquardt_vnl_8h_html"><div class="ttname"><a href="_ox_fitter_levenberg_marquardt_vnl_8h.html">OxFitterLevenbergMarquardtVnl.h</a></div></div>
@@ -273,7 +274,7 @@ $(document).ready(function(){initNavTree('_tomato_api_8h_source.html','');});
 <div class="ttc" id="_ox_sign_calculator_shmolli_8h_html"><div class="ttname"><a href="_ox_sign_calculator_shmolli_8h.html">OxSignCalculatorShmolli.h</a></div></div>
 <div class="ttc" id="_ox_calculator_t1_shmolli_8h_html"><div class="ttname"><a href="_ox_calculator_t1_shmolli_8h.html">OxCalculatorT1Shmolli.h</a></div></div>
 <div class="ttc" id="_ox_calculator_t1_molli_8h_html"><div class="ttname"><a href="_ox_calculator_t1_molli_8h.html">OxCalculatorT1Molli.h</a></div></div>
-<div class="ttc" id="_ox_functions_t1_adapter_lmfit_least_squares_8h_html"><div class="ttname"><a href="_ox_functions_t1_adapter_lmfit_least_squares_8h.html">OxFunctionsT1AdapterLmfitLeastSquares.h</a></div></div>
+<div class="ttc" id="_ox_model_t1_three_param_8h_html"><div class="ttname"><a href="_ox_model_t1_three_param_8h.html">OxModelT1ThreeParam.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

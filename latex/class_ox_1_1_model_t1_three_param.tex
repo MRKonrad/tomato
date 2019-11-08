@@ -1,0 +1,171 @@
+\hypertarget{class_ox_1_1_model_t1_three_param}{\section{Ox\-:\-:Model\-T1\-Three\-Param$<$ Measure\-Type $>$ Class Template Reference}
+\label{class_ox_1_1_model_t1_three_param}\index{Ox\-::\-Model\-T1\-Three\-Param$<$ Measure\-Type $>$@{Ox\-::\-Model\-T1\-Three\-Param$<$ Measure\-Type $>$}}
+}
+
+
+Container for a Three\-Param model function $ A-B\exp(t/T_1^*) $, cost function and Least-\/\-Squares function and derivatives.  
+
+
+
+
+{\ttfamily \#include $<$Ox\-Model\-T1\-Three\-Param.\-h$>$}
+
+
+
+Inheritance diagram for Ox\-:\-:Model\-T1\-Three\-Param$<$ Measure\-Type $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{class_ox_1_1_model_t1_three_param__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ox\-:\-:Model\-T1\-Three\-Param$<$ Measure\-Type $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{class_ox_1_1_model_t1_three_param__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual Measure\-Type \hyperlink{class_ox_1_1_model_t1_three_param_a4b2e40499a77399cc3dd74fbe9a02aee}{calc\-Model\-Value} (const Measure\-Type $\ast$parameters, Measure\-Type time)
+\item 
+virtual void \hyperlink{class_ox_1_1_model_t1_three_param_abef151c12e9b7d49e23955dd1ae9c992}{calc\-L\-S\-Residuals} (const Measure\-Type $\ast$parameters, Measure\-Type $\ast$residuals)
+\item 
+virtual void \hyperlink{class_ox_1_1_model_t1_three_param_a2b6268cb77c6a9d95c7861641cd3a2d5}{calc\-L\-S\-Jacobian} (const Measure\-Type $\ast$parameters, Measure\-Type $\ast$jacobian)
+\item 
+virtual Measure\-Type \hyperlink{class_ox_1_1_model_t1_three_param_ad417e4455caae28f1364f82b5f8f37d5}{calc\-Cost\-Value} (const Measure\-Type $\ast$parameters)
+\item 
+virtual void \hyperlink{class_ox_1_1_model_t1_three_param_a7bd09162c315aa491af661cf8d88bcdd}{calc\-Cost\-Derivative} (const Measure\-Type $\ast$parameters, Measure\-Type $\ast$derivative)
+\item 
+virtual \hyperlink{class_ox_1_1_model}{Model}$<$ Measure\-Type $>$ $\ast$ \hyperlink{class_ox_1_1_model_t1_three_param_afc6ffe41934c513e12a45cc5821fddca}{new\-By\-Cloning} ()
+\item 
+\hypertarget{class_ox_1_1_model_t1_three_param_a533739a9eda1cb9d006e292bae466082}{virtual \hyperlink{class_ox_1_1_model_t1_three_param_a533739a9eda1cb9d006e292bae466082}{$\sim$\-Model\-T1\-Three\-Param} ()}\label{class_ox_1_1_model_t1_three_param_a533739a9eda1cb9d006e292bae466082}
+
+\begin{DoxyCompactList}\small\item\em do not forget about the virtual destructor, see \href{https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors}{\tt https\-://stackoverflow.\-com/questions/461203/when-\/to-\/use-\/virtual-\/destructors} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Measure\-Type$>$class Ox\-::\-Model\-T1\-Three\-Param$<$ Measure\-Type $>$}
+
+Container for a Three\-Param model function $ A-B\exp(t/T_1^*) $, cost function and Least-\/\-Squares function and derivatives. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Measure\-Type} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_ox_1_1_model_t1_three_param_a7bd09162c315aa491af661cf8d88bcdd}{\index{Ox\-::\-Model\-T1\-Three\-Param@{Ox\-::\-Model\-T1\-Three\-Param}!calc\-Cost\-Derivative@{calc\-Cost\-Derivative}}
+\index{calc\-Cost\-Derivative@{calc\-Cost\-Derivative}!Ox::ModelT1ThreeParam@{Ox\-::\-Model\-T1\-Three\-Param}}
+\subsubsection[{calc\-Cost\-Derivative}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ void {\bf Ox\-::\-Model\-T1\-Three\-Param}$<$ Measure\-Type $>$\-::calc\-Cost\-Derivative (
+\begin{DoxyParamCaption}
+\item[{const Measure\-Type $\ast$}]{parameters, }
+\item[{Measure\-Type $\ast$}]{derivative}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_model_t1_three_param_a7bd09162c315aa491af661cf8d88bcdd}
+calc\-Cost\-Derivative the most important function of this class 
+\begin{DoxyParams}{Parameters}
+{\em derivative} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_ox_1_1_model_a274f0efdbbc364e82bba7470f933eecd}{Ox\-::\-Model$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_model_t1_three_param_ad417e4455caae28f1364f82b5f8f37d5}{\index{Ox\-::\-Model\-T1\-Three\-Param@{Ox\-::\-Model\-T1\-Three\-Param}!calc\-Cost\-Value@{calc\-Cost\-Value}}
+\index{calc\-Cost\-Value@{calc\-Cost\-Value}!Ox::ModelT1ThreeParam@{Ox\-::\-Model\-T1\-Three\-Param}}
+\subsubsection[{calc\-Cost\-Value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ Measure\-Type {\bf Ox\-::\-Model\-T1\-Three\-Param}$<$ Measure\-Type $>$\-::calc\-Cost\-Value (
+\begin{DoxyParamCaption}
+\item[{const Measure\-Type $\ast$}]{parameters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_model_t1_three_param_ad417e4455caae28f1364f82b5f8f37d5}
+calc\-Cost\-Value the most important function of this class \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_ox_1_1_model_aa5997cea7114d0e323e79956adb13ba4}{Ox\-::\-Model$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_model_t1_three_param_a2b6268cb77c6a9d95c7861641cd3a2d5}{\index{Ox\-::\-Model\-T1\-Three\-Param@{Ox\-::\-Model\-T1\-Three\-Param}!calc\-L\-S\-Jacobian@{calc\-L\-S\-Jacobian}}
+\index{calc\-L\-S\-Jacobian@{calc\-L\-S\-Jacobian}!Ox::ModelT1ThreeParam@{Ox\-::\-Model\-T1\-Three\-Param}}
+\subsubsection[{calc\-L\-S\-Jacobian}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ void {\bf Ox\-::\-Model\-T1\-Three\-Param}$<$ Measure\-Type $>$\-::calc\-L\-S\-Jacobian (
+\begin{DoxyParamCaption}
+\item[{const Measure\-Type $\ast$}]{parameters, }
+\item[{Measure\-Type $\ast$}]{jacobian}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_model_t1_three_param_a2b6268cb77c6a9d95c7861641cd3a2d5}
+calc\-L\-S\-Jacobian the most important function of this class 
+\begin{DoxyParams}{Parameters}
+{\em jacobian} & -\/ 2d matrix stored as 1d array \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_ox_1_1_model_a4cadb65b8416b4b30e91bf6db00737f3}{Ox\-::\-Model$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_model_t1_three_param_abef151c12e9b7d49e23955dd1ae9c992}{\index{Ox\-::\-Model\-T1\-Three\-Param@{Ox\-::\-Model\-T1\-Three\-Param}!calc\-L\-S\-Residuals@{calc\-L\-S\-Residuals}}
+\index{calc\-L\-S\-Residuals@{calc\-L\-S\-Residuals}!Ox::ModelT1ThreeParam@{Ox\-::\-Model\-T1\-Three\-Param}}
+\subsubsection[{calc\-L\-S\-Residuals}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ void {\bf Ox\-::\-Model\-T1\-Three\-Param}$<$ Measure\-Type $>$\-::calc\-L\-S\-Residuals (
+\begin{DoxyParamCaption}
+\item[{const Measure\-Type $\ast$}]{parameters, }
+\item[{Measure\-Type $\ast$}]{residuals}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_model_t1_three_param_abef151c12e9b7d49e23955dd1ae9c992}
+calc\-L\-S\-Residuals the most important function of this class 
+\begin{DoxyParams}{Parameters}
+{\em residuals} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_ox_1_1_model_a17e0ef71135350d4f61bef2a097fb586}{Ox\-::\-Model$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_model_t1_three_param_a4b2e40499a77399cc3dd74fbe9a02aee}{\index{Ox\-::\-Model\-T1\-Three\-Param@{Ox\-::\-Model\-T1\-Three\-Param}!calc\-Model\-Value@{calc\-Model\-Value}}
+\index{calc\-Model\-Value@{calc\-Model\-Value}!Ox::ModelT1ThreeParam@{Ox\-::\-Model\-T1\-Three\-Param}}
+\subsubsection[{calc\-Model\-Value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ Measure\-Type {\bf Ox\-::\-Model\-T1\-Three\-Param}$<$ Measure\-Type $>$\-::calc\-Model\-Value (
+\begin{DoxyParamCaption}
+\item[{const Measure\-Type $\ast$}]{parameters, }
+\item[{Measure\-Type}]{time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_model_t1_three_param_a4b2e40499a77399cc3dd74fbe9a02aee}
+calc\-Model\-Value the most important function of this class 
+\begin{DoxyParams}{Parameters}
+{\em time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+model(time) 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_ox_1_1_model_ae3a3f5bfeefd8a8c0c012e1761eac1f5}{Ox\-::\-Model$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_model_t1_three_param_afc6ffe41934c513e12a45cc5821fddca}{\index{Ox\-::\-Model\-T1\-Three\-Param@{Ox\-::\-Model\-T1\-Three\-Param}!new\-By\-Cloning@{new\-By\-Cloning}}
+\index{new\-By\-Cloning@{new\-By\-Cloning}!Ox::ModelT1ThreeParam@{Ox\-::\-Model\-T1\-Three\-Param}}
+\subsubsection[{new\-By\-Cloning}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type$>$ virtual {\bf Model}$<$Measure\-Type$>$$\ast$ {\bf Ox\-::\-Model\-T1\-Three\-Param}$<$ Measure\-Type $>$\-::new\-By\-Cloning (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_ox_1_1_model_t1_three_param_afc6ffe41934c513e12a45cc5821fddca}
+cloning \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_ox_1_1_model_a694868476dd17a4d203f4ebc57047d2f}{Ox\-::\-Model$<$ Measure\-Type $>$}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{_ox_model_t1_three_param_8h}{Ox\-Model\-T1\-Three\-Param.\-h}\item 
+lib/\hyperlink{_ox_model_t1_three_param_8hxx}{Ox\-Model\-T1\-Three\-Param.\-hxx}\end{DoxyCompactItemize}
