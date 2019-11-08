@@ -14,9 +14,9 @@
 
 #include "itkLogger.h"
 #include "KWUtil.h"
-#include "OxFunctionsT1.h"
+#include "OxModel.h"
 #include "OxFitter.h"
-#include "OxCalculatorT1.h"
+#include "OxCalculator.h"
 
 #include "itkDataObject.h"
 #include "itkImageToImageFilter.h"
@@ -66,10 +66,9 @@ namespace itk {
         TImageOut* GetSD_AImage();
         TImageOut* GetSD_BImage();
         TImageOut* GetSD_T1Image();
-        TImageOut* GetT2Image();
 
         /** Getters and setters. */
-        void SetCalculator(Ox::CalculatorT1<PixelTypeIn>* calculator){
+        void SetCalculator(Ox::Calculator<PixelTypeIn>* calculator){
             this->m_Calculator = calculator;
         }
 
@@ -114,7 +113,7 @@ namespace itk {
         ITK_DISALLOW_COPY_AND_ASSIGN(CalculatorT1ImageFilter); //purposely not implemented
 
         /** Member variables. */
-        Ox::CalculatorT1<PixelTypeIn>* m_Calculator;
+        Ox::Calculator<PixelTypeIn>* m_Calculator;
 
         bool m_LimitOutputIntensity;
         PixelTypeOut m_UpperLimitOutputIntensity;

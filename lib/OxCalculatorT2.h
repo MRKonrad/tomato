@@ -7,7 +7,7 @@
 #ifndef Tomato_OXCALCULATORT2_H
 #define Tomato_OXCALCULATORT2_H
 
-#include "OxCalculatorT1.h"
+#include "OxCalculator.h"
 #include "tomatolib_export.h"
 
 namespace Ox {
@@ -19,7 +19,7 @@ namespace Ox {
      * @tparam MeasureType
      */
     template< typename MeasureType >
-    class CalculatorT2 : public CalculatorT1<MeasureType> {
+    class CalculatorT2 : public Calculator<MeasureType> {
     public:
 
         /**
@@ -59,7 +59,7 @@ namespace Ox {
         /**
          * constructor
          */
-        CalculatorT2() : CalculatorT1<MeasureType>(){
+        CalculatorT2() : Calculator<MeasureType>(){
             _DoCalculateSDMap = false;
         }
 
@@ -67,7 +67,7 @@ namespace Ox {
          * cloning
          * @return
          */
-        virtual CalculatorT1<MeasureType> *newByCloning() { return new CalculatorT2<MeasureType>(*this); }
+        virtual Calculator<MeasureType> *newByCloning() { return new CalculatorT2<MeasureType>(*this); }
 
 
 

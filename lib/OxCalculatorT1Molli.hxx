@@ -50,20 +50,20 @@ namespace Ox {
         KWUtil::copyArrayToArray(3, tempParameters, this->_StartPoint); // start from the starting point
 
         // configure Functions object and fitter object
-        this->getFunctionsT1()->setNSamples(nSamples);
-        this->getFunctionsT1()->setSignal(signal);
-        this->getFunctionsT1()->setInvTimes(invTimes);
+        this->getModelT1()->setNSamples(nSamples);
+        this->getModelT1()->setSignal(signal);
+        this->getModelT1()->setInvTimes(invTimes);
 
         // configure Fitter
         this->getFitter()->setParameters(tempParameters);
-        this->getFitter()->setFunctionsT1(this->getFunctionsT1());
+        this->getFitter()->setModelT1(this->getModelT1());
 
         // fit
         this->getFitter()->performFitting();
 
         // save the tempResults at the best tempResults
         KWUtil::copyArrayToArray(3, tempResults, this->getFitter()->getParameters());
-        lastValue = this->getFunctionsT1()->calcCostValue(this->getFitter()->getParameters());
+        lastValue = this->getModelT1()->calcCostValue(this->getFitter()->getParameters());
 
         // look for better solutions than the above one
         for (int iSwap = 0; iSwap < nSamples; iSwap++) {
@@ -82,7 +82,7 @@ namespace Ox {
 
             // fit
             this->getFitter()->performFitting();
-            lastValueTemp = this->getFunctionsT1()->calcCostValue(this->getFitter()->getParameters());
+            lastValueTemp = this->getModelT1()->calcCostValue(this->getFitter()->getParameters());
 
             // are these the best tempResults?
             if (lastValueTemp < lastValue) {
@@ -115,6 +115,57 @@ namespace Ox {
 
         return resultsStruc;
     }
+
+    template< typename MeasureType >
+    int
+    CalculatorT1Molli<MeasureType>
+    ::prepareToCalculate(){
+
+        // if fitter does not have to iterate, do not calculate
+        if (this->getFitter()->getMaxFunctionEvals() == 0){
+            return 1; // EXIT_FAILURE
+        }
+
+        // verify invTimes are sorted
+        for (int i = 0; i < this->getNSamples()-1; i++){
+            if (this->getInvTimes()[i] > this->getInvTimes()[i+1]){
+                throw std::runtime_error("InvTimes have to be sorted!");
+            }
+        }
+
+        // calculate sign
+        this->getSignCalculator()->setNSamples(this->getNSamples());
+        this->getSignCalculator()->setInvTimes(this->getInvTimes());
+        this->getSignCalculator()->setSigMag(this->getSigMag());
+        this->getSignCalculator()->setSigPha(this->getSigPha());
+        this->getSignCalculator()->setSignal(this->_Signal);
+        this->getSignCalculator()->setSigns(this->_Signs);
+
+        this->getSignCalculator()->calculateSign();
+
+        // calculate start point
+        this->getStartPointCalculator()->setNDims(this->_nDims);
+        if (!this->getStartPointCalculator()->getInputStartPoint()){
+            if (this->_nDims == 2){
+                MeasureType const temp[] = {100, 1000};
+                this->getStartPointCalculator()->setInputStartPoint(temp);
+            } else if (this->_nDims == 3){
+                MeasureType const temp[] = {100, 200, 1000};
+                this->getStartPointCalculator()->setInputStartPoint(temp);
+            } else {
+                throw std::runtime_error("Calculator: Set InputStartPoint in StartPointCalculator");
+            }
+        }
+        this->getStartPointCalculator()->setNSamples(this->getNSamples());
+        this->getStartPointCalculator()->setInvTimes(this->getInvTimes());
+        this->getStartPointCalculator()->setSigMag(this->getSigMag());
+        this->getStartPointCalculator()->setSigns(this->getSigns());
+        this->getStartPointCalculator()->setCalculatedStartPoint(this->_StartPoint);
+
+        this->getStartPointCalculator()->calculateStartPoint();
+
+        return 0; // EXIT_SUCCESS
+    };
 
     template< typename MeasureType >
     MeasureType
@@ -154,13 +205,13 @@ namespace Ox {
 
         if (_DoCalculateSDMap) {
             int nSamples = this->getNSamples();
-            const MeasureType *invTimes = this->getFunctionsT1()->getInvTimes();
+            const MeasureType *invTimes = this->getModelT1()->getInvTimes();
 
             MeasureType *residuals = new MeasureType[nSamples];
             MeasureType invCovarianceMatrix[3 * 3];
 
-            //this->getFunctionsT1()->copyToParameters(parameters);
-            this->getFunctionsT1()->calcLSResiduals(parameters, residuals);
+            //this->getModelT1()->copyToParameters(parameters);
+            this->getModelT1()->calcLSResiduals(parameters, residuals);
 
             calculateInvCovarianceMatrix(invTimes, residuals, parameters, invCovarianceMatrix);
 

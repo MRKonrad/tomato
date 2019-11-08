@@ -118,14 +118,14 @@ namespace Ox {
     ::calculate() {
 
         // alloc and init
-        CalculatorT1<InputPixelType> *calculatorT1 = FactoryOfCalculators<InputPixelType>::newByFactory(_opts);
-        FunctionsT1<InputPixelType> *functionsT1 = FactoryOfFunctions<InputPixelType>::newByFactory(_opts);
+        Calculator<InputPixelType> *calculatorT1 = FactoryOfCalculators<InputPixelType>::newByFactory(_opts);
+        Model<InputPixelType> *ModelT1 = FactoryOfFunctions<InputPixelType>::newByFactory(_opts);
         Fitter<InputPixelType> *fitter = FactoryOfFitters<InputPixelType>::newByFactory(_opts);
         SignCalculator<InputPixelType> *signCalculator = FactoryOfSignCalculators<InputPixelType>::newByFactory(_opts);
         StartPointCalculator<InputPixelType> *startPointCalculator = FactoryOfStartPointCalculators<InputPixelType>::newByFactory(_opts);
 
         // configure calculator
-        calculatorT1->setFunctionsT1(functionsT1);
+        calculatorT1->setModelT1(ModelT1);
         calculatorT1->setFitter(fitter);
         calculatorT1->setSignCalculator(signCalculator);
         calculatorT1->setStartPointCalculator(startPointCalculator);
@@ -155,7 +155,7 @@ namespace Ox {
         _opts->calculation_time = clock.GetTotal();
         printf("Calculation time: %.4fs.\n", clock.GetTotal());
 
-        delete functionsT1;
+        delete ModelT1;
         delete fitter;
         delete signCalculator;
         delete startPointCalculator;

@@ -7,7 +7,7 @@
 #include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 
-#include "OxFunctionsT1ThreeParam.h"
+#include "OxModelT1ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
@@ -59,7 +59,7 @@ TEST(itkPipeline, readAndCalculateT1FromMag) {
     KWUtil::copyArrayToArray(nSamples, invTimes, sorter->GetInvTimesSorted().data_block());
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<InputPixelType> functionsObject;
+    Ox::ModelT1ThreeParam<InputPixelType> functionsObject;
     Ox::FitterAmoebaVnl<InputPixelType> fitter;
     Ox::SignCalculatorNoSign<InputPixelType> signCalculator;
     Ox::StartPointCalculatorBasic<InputPixelType> startPointCalculator;
@@ -69,7 +69,7 @@ TEST(itkPipeline, readAndCalculateT1FromMag) {
     fitter.setMaxFunctionEvals(10); // to accelerate the test
 
     // configure calculator
-    calculatorT1.setFunctionsT1(&functionsObject);
+    calculatorT1.setModelT1(&functionsObject);
     calculatorT1.setFitter(&fitter);
     calculatorT1.setSignCalculator(&signCalculator);
     calculatorT1.setStartPointCalculator(&startPointCalculator);
@@ -146,7 +146,7 @@ TEST(itkPipeline, calculateT1FromMagAndPhase) {
     KWUtil::copyArrayToArray(nSamples, invTimes, sorterMag->GetInvTimesSorted().data_block());
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<InputPixelType> functionsObject;
+    Ox::ModelT1ThreeParam<InputPixelType> functionsObject;
     Ox::FitterAmoebaVnl<InputPixelType> fitter;
     Ox::SignCalculatorRealImag<InputPixelType> signCalculator;
     Ox::StartPointCalculatorBasic<InputPixelType> startPointCalculator;
@@ -156,7 +156,7 @@ TEST(itkPipeline, calculateT1FromMagAndPhase) {
     fitter.setMaxFunctionEvals(10); // to accelerate the test
 
     // configure calculator
-    calculatorT1.setFunctionsT1(&functionsObject);
+    calculatorT1.setModelT1(&functionsObject);
     calculatorT1.setFitter(&fitter);
     calculatorT1.setSignCalculator(&signCalculator);
     calculatorT1.setStartPointCalculator(&startPointCalculator);

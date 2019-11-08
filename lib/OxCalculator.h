@@ -10,7 +10,7 @@
 #include "tomatolib_export.h"
 #include "OxCalculatorResults.h"
 #include "OxFitter.h"
-#include "OxFunctionsT1.h"
+#include "OxModel.h"
 #include "OxSignCalculator.h"
 #include "OxStartPointCalculator.h"
 
@@ -25,15 +25,9 @@ namespace Ox {
      * @tparam MeasureType
      */
     template< typename MeasureType >
-    class CalculatorT1{
+    class Calculator{
 
     public:
-
-        /**
-         * do all the checks and  prepare to do the calculation, for example calc signal/signs and _TRRaverageHB
-         * @return success/failure
-         */
-        virtual int prepareToCalculate();
 
         /**
          * the most important function of this class
@@ -41,15 +35,21 @@ namespace Ox {
          */
         virtual int calculate() = 0;
 
+        /**
+         * processing before calculate is called
+         * @return success/failure
+         */
+        virtual int prepareToCalculate() = 0;
+
         /* ****************** */
         /* ***  GETTERS   *** */
         /* ****************** */
 
         /**
-         * /throw exception if _FunctionsT1 == 0
+         * /throw exception if _ModelT1 == 0
          * @return
          */
-        FunctionsT1<MeasureType> *getFunctionsT1() const;
+        Model<MeasureType> *getModelT1() const;
 
         /**
          * /throw exception if _Fitter == 0
@@ -121,7 +121,7 @@ namespace Ox {
         /* ****************** */
 
         // setters for the 'has a' classes
-        void setFunctionsT1(FunctionsT1<MeasureType> *_FunctionsT1);
+        void setModelT1(Model<MeasureType> *_ModelT1);
 
         void setFitter(Fitter<MeasureType> *_Fitter);
 
@@ -153,7 +153,7 @@ namespace Ox {
         virtual void setNDims(int _nDims);
 
         /**
-         * \brief show me your FunctionsT1
+         * \brief show me your ModelT1
          */
         void disp();
 
@@ -162,7 +162,7 @@ namespace Ox {
          */
         void setAllPointersToNull(){
             // objects
-            _FunctionsT1 = 0;
+            _ModelT1 = 0;
             _Fitter = 0;
             _SignCalculator = 0;
             _StartPointCalculator = 0;
@@ -182,7 +182,7 @@ namespace Ox {
         /**
          * \brief constructor
          */
-        CalculatorT1() {
+        Calculator() {
 
             setAllPointersToNull();
 
@@ -196,7 +196,7 @@ namespace Ox {
         /**
          * \brief copy constructor
          */
-        CalculatorT1(const CalculatorT1 &old){
+        Calculator(const Calculator &old){
 
             setAllPointersToNull();
 
@@ -210,13 +210,13 @@ namespace Ox {
          * cloning
          * @return
          */
-        virtual CalculatorT1<MeasureType> *newByCloning() = 0;
+        virtual Calculator<MeasureType> *newByCloning() = 0;
 
         /**
          * \brief do not forget about the virtual destructor, see
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
-        virtual ~CalculatorT1(){
+        virtual ~Calculator(){
             delete [] _Signal; _Signal = 0;
             delete [] _Signs; _Signs = 0;
             delete [] _StartPoint; _StartPoint = 0;
@@ -225,7 +225,7 @@ namespace Ox {
     protected:
         CalculatorT1Results<MeasureType> _Results; // we will be working with this one
 
-        FunctionsT1<MeasureType>* _FunctionsT1;
+        Model<MeasureType>* _ModelT1;
         Fitter<MeasureType>* _Fitter;
         SignCalculator<MeasureType>* _SignCalculator;
         StartPointCalculator<MeasureType>* _StartPointCalculator;
@@ -250,7 +250,7 @@ namespace Ox {
 } //namespace Ox
 
 #ifndef TOMATOLIB_COMPILED
-#include "OxCalculatorT1.hxx"
+#include "OxCalculator.hxx"
 #endif //TOMATOLIB_COMPILED
 
 #endif //Tomato_OXCALCULATORT1_H

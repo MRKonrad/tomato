@@ -65,8 +65,8 @@ namespace Ox {
     class FactoryOfCalculators {
     public:
 
-        static CalculatorT1<TYPE>* newByFactory(TomatoOptions<TYPE> *opts){
-            CalculatorT1<TYPE> *calculatorT1 = 0; //nullpointer
+        static Calculator<TYPE>* newByFactory(TomatoOptions<TYPE> *opts){
+            Calculator<TYPE> *calculatorT1 = 0; //nullpointer
             switch (opts->parameter_to_map){
                 case T1_MOLLI: {
                     calculatorT1 = new CalculatorT1Molli<TYPE>();

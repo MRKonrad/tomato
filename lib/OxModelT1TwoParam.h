@@ -1,34 +1,28 @@
 /*!
- * \file OxFunctionsT1Shmolli.h
+ * \file OxModelT1TwoParam.h
  * \author Konrad Werys
- * \date 2018/08/22
+ * \date 2018/07/29
  */
 
-#ifndef Tomato_OXFunctionsT1Shmolli_H
-#define Tomato_OXFunctionsT1Shmolli_H
+#ifndef Tomato_OXModelT1TwoParam_H
+#define Tomato_OXModelT1TwoParam_H
 
 #include "tomatolib_export.h"
-#include "OxFunctionsT1.h"
+#include "OxModel.h"
 #include <cmath>
 
 namespace Ox {
 
     /**
-     * \class FunctionsT1Shmolli
-     * \brief Container for a CalculatorShmolli model function \f$ A-B\exp(t/T_1^*) \f$, cost function and Least-Squares
+     * \brief Container for a TwoParam model function \f$ A(1 - exp( -time / T1 )) \f$, cost function and Least-Squares
      * function and derivatives.
      * \details
      * @tparam MeasureType
      */
     template< typename MeasureType >
-    class FunctionsT1Shmolli : public FunctionsT1<MeasureType>{
+    class ModelT1TwoParam : public Model<MeasureType>{
 
     public:
-
-        bool _expAbsCost;
-        bool _preventUnderOverFlow;
-        bool _costHeuristic;
-        bool _rootMedianSquareCost;
 
         virtual MeasureType calcModelValue(const MeasureType* parameters, MeasureType time);
         virtual void calcLSResiduals(const MeasureType* parameters, MeasureType* residuals);
@@ -36,31 +30,26 @@ namespace Ox {
         virtual MeasureType calcCostValue(const MeasureType* parameters );
         virtual void calcCostDerivative(const MeasureType* parameters, MeasureType* derivative);
 
-        FunctionsT1Shmolli() : FunctionsT1<MeasureType>(){
-            _expAbsCost = true;
-            _preventUnderOverFlow = true;
-            _costHeuristic = true;
-            _rootMedianSquareCost = false;
-
-            this->_nDims = 3;
+        ModelT1TwoParam() : Model<MeasureType>(){
+            this->_nDims = 2;
         }
 
         /**
          * cloning
          * @return
          */
-        virtual FunctionsT1<MeasureType> *newByCloning() { return new FunctionsT1Shmolli<MeasureType>(*this); }
+        virtual Model<MeasureType> *newByCloning() { return new ModelT1TwoParam<MeasureType>(*this); }
 
         /**
          * \brief do not forget about the virtual destructor, see
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
-        virtual ~FunctionsT1Shmolli(){};
+        virtual ~ModelT1TwoParam(){};
     };
 } //namespace Ox
 
 #ifndef TOMATOLIB_COMPILED
-#include "OxFunctionsT1Shmolli.hxx"
+#include "OxModelT1TwoParam.hxx"
 #endif //TOMATOLIB_COMPILED
 
-#endif //Tomato_OXFunctionsT1Shmolli_H
+#endif //Tomato_OXModelT1TwoParam_H

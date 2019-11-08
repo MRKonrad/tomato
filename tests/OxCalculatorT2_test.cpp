@@ -10,7 +10,7 @@
 
 #include "CmakeConfigForTomato.h"
 
-#include "OxFunctionsT2ThreeParam.h"
+#include "OxModelT2ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
 #include "OxStartPointCalculatorBasic.h"
@@ -30,7 +30,7 @@ TEST(OxCalculatorT2, blood) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT2ThreeParam<TYPE> functionsObject;
+    Ox::ModelT2ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2<TYPE> calculatorT2;
@@ -39,7 +39,7 @@ TEST(OxCalculatorT2, blood) {
     TYPE startPoint[] = {1, 100, 50};
     startPointCalculator.setInputStartPoint(startPoint);
     calculatorT2.setStartPointCalculator(&startPointCalculator);
-    calculatorT2.setFunctionsT1(&functionsObject);
+    calculatorT2.setModelT1(&functionsObject);
     calculatorT2.setFitter(&fitterAmoebaVnl);
 
     // set the data
@@ -65,7 +65,7 @@ TEST(OxCalculatorT2, myo) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT2ThreeParam<TYPE> functionsObject;
+    Ox::ModelT2ThreeParam<TYPE> functionsObject;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitterAmoebaVnl;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2<TYPE> calculatorT2;
@@ -74,7 +74,7 @@ TEST(OxCalculatorT2, myo) {
     TYPE startPoint[] = {1, 100, 50};
     startPointCalculator.setInputStartPoint(startPoint);
     calculatorT2.setStartPointCalculator(&startPointCalculator);
-    calculatorT2.setFunctionsT1(&functionsObject);
+    calculatorT2.setModelT1(&functionsObject);
     calculatorT2.setFitter(&fitterAmoebaVnl);
 
 

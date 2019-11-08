@@ -20,7 +20,7 @@ namespace Ox {
         }
 
 //            // base class prepareToCalculate()
-//            if(CalculatorT1<MeasureType>::prepareToCalculate() == 1) {
+//            if(Calculator<MeasureType>::prepareToCalculate() == 1) {
 //                return 1; // EXIT_FAILURE
 //            }
 
@@ -53,7 +53,7 @@ namespace Ox {
                 MeasureType const temp[] = {100, 200, 1000};
                 this->getStartPointCalculator()->setInputStartPoint(temp);
             } else {
-                throw std::runtime_error("CalculatorT1: Set InputStartPoint in StartPointCalculator");
+                throw std::runtime_error("Calculator: Set InputStartPoint in StartPointCalculator");
             }
         }
         this->getStartPointCalculator()->setNSamples(this->getNSamples());

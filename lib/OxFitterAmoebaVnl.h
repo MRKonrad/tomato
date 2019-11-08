@@ -11,7 +11,7 @@
 #ifdef USE_VNL
 
 #include "OxFitter.h"
-#include "OxFunctionsT1AdapterVnlCost.h"
+#include "OxModelT1AdapterVnlCost.h"
 #include <vnl/algo/vnl_amoeba.h>
 
 namespace Ox {
@@ -21,7 +21,7 @@ namespace Ox {
     public:
 
         typedef vnl_amoeba VnlFitterType; // !!! this is the most important configuration part !!!
-        typedef FunctionsT1AdapterVnlCost FunctionsAdaptedToVnlType;
+        typedef ModelT1AdapterVnlCost FunctionsAdaptedToVnlType;
 
         /**
          * the most important function of this class
@@ -31,7 +31,7 @@ namespace Ox {
 
             configureMinimizer();
 
-            vnl_vector<MeasureType> temp(this->getParameters(), this->_FunctionsT1->getNDims());
+            vnl_vector<MeasureType> temp(this->getParameters(), this->_ModelT1->getNDims());
 
             _VnlFitter->minimize(temp);
 
@@ -39,7 +39,7 @@ namespace Ox {
                 temp.copy_out(this->getParameters());
             }
             if (this->getVerbose()) {
-                std::cout << "Results: " << temp << " Cost: " << this->_FunctionsT1->calcCostValue(this->getParameters()) << std::endl;
+                std::cout << "Results: " << temp << " Cost: " << this->_ModelT1->calcCostValue(this->getParameters()) << std::endl;
             }
 
             return 0; //EXIT_SUCCESS;
@@ -89,17 +89,17 @@ namespace Ox {
 
         virtual void configureMinimizer() {
             if (!_VnlFitter) {
-                if (!this->_FunctionsT1) {
-                    throw std::runtime_error("Set the FunctionsT1 object");
+                if (!this->_ModelT1) {
+                    throw std::runtime_error("Set the Model object");
                 } else {
                     delete _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;
                     delete _VnlFitter; _VnlFitter = 0;
-                    int nDims = this->_FunctionsT1->getNDims();
+                    int nDims = this->_ModelT1->getNDims();
                     _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nDims);
-                    _FunctionsAdaptedToVnl->setFunctionsT1(this->_FunctionsT1);
+                    _FunctionsAdaptedToVnl->setModelT1(this->_ModelT1);
                     _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);
                 }
-                _FunctionsAdaptedToVnl->setFunctionsT1(this->_FunctionsT1);
+                _FunctionsAdaptedToVnl->setModelT1(this->_ModelT1);
                 _VnlFitter->set_x_tolerance(this->getXTolerance());
                 _VnlFitter->set_f_tolerance(this->getFTolerance());
                 //m_LocalFitter->set_g_tolerance(this->GetGTolerance());

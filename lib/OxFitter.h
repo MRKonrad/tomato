@@ -7,7 +7,7 @@
 #ifndef Tomato_OXFITTER_H
 #define Tomato_OXFITTER_H
 
-#include "OxFunctionsT1.h"
+#include "OxModel.h"
 #include "KWUtil.h"
 
 namespace Ox {
@@ -29,7 +29,7 @@ namespace Ox {
          */
         virtual int performFitting() = 0;
 
-        virtual const FunctionsT1<MeasureType>* getFunctionsT1() const { return _FunctionsT1; }
+        virtual const Model<MeasureType>* getModelT1() const { return _ModelT1; }
         virtual MeasureType *getParameters() { return _Parameters; }
         virtual const MeasureType getXTolerance() const { return _XTolerance; }
         virtual const MeasureType getFTolerance() const { return _FTolerance; }
@@ -39,7 +39,7 @@ namespace Ox {
         virtual const bool getVerbose() const { return _Verbose; }
         virtual const bool getTrace() const { return _Trace; }
 
-        virtual void setFunctionsT1(FunctionsT1<MeasureType>* _FunctionsT1) { Fitter::_FunctionsT1 = _FunctionsT1; }
+        virtual void setModelT1(Model<MeasureType>* _ModelT1) { Fitter::_ModelT1 = _ModelT1; }
         virtual void setParameters( MeasureType *_Parameters) { Fitter::_Parameters = _Parameters; }
         virtual void setXTolerance(const MeasureType _XTolerance) { Fitter::_XTolerance = _XTolerance; }
         virtual void setUseGradient(const bool _UseGradient) { Fitter::_UseGradient = _UseGradient; }
@@ -54,15 +54,15 @@ namespace Ox {
          * @param ptrFrom
          */
         virtual void copyToParameters(const MeasureType *ptrFrom){
-            if (!Fitter::_FunctionsT1) {
-                throw std::runtime_error("_FunctionsT1 equals 0. Set _FunctionsT1");
+            if (!Fitter::_ModelT1) {
+                throw std::runtime_error("_ModelT1 equals 0. Set _ModelT1");
             }
 
             if (!_Parameters){
                 throw std::runtime_error("_Parameters equals 0. Set _Parameters");
             }
 
-            for (int i = 0; i < Fitter::_FunctionsT1->getNDims(); ++i) {
+            for (int i = 0; i < Fitter::_ModelT1->getNDims(); ++i) {
                 _Parameters[i] = ptrFrom[i];
             }
         }
@@ -72,16 +72,16 @@ namespace Ox {
          */
         virtual void disp(){
             std::cout << "\nYou called disp() on a Fitter object " << this << "\n";
-            KWUtil::printArray(_Parameters !=0, _FunctionsT1->getNDims(), _Parameters,     (char*)"\nParameters:  ");
+            KWUtil::printArray(_Parameters !=0, _ModelT1->getNDims(), _Parameters,     (char*)"\nParameters:  ");
             std::cout << "XTolerance:       " << getXTolerance() << std::endl;
             std::cout << "FTolerance:       " << getFTolerance() << std::endl;
             std::string temp = getUseGradient() ? "true" : "false";
             std::cout << "UseGradient       " << temp << std::endl;
             std::cout << "MaxFunctionEvals: " << getMaxFunctionEvals() << std::endl;
             std::cout << "ThreadId:         " << getThreadId() << std::endl;
-            if(_FunctionsT1) {
-                std::cout << "This Fitter contains the following FunctionsT1 object: ";
-                _FunctionsT1->disp();
+            if(_ModelT1) {
+                std::cout << "This Fitter contains the following Model object: ";
+                _ModelT1->disp();
             };
         }
 
@@ -89,7 +89,7 @@ namespace Ox {
          * \brief constructor
          */
         Fitter(){
-            _FunctionsT1 = 0; //nullpointer
+            _ModelT1 = 0; //nullpointer
             _Parameters = 0; //nullpointer
 
             _XTolerance = 1e-12;
@@ -106,7 +106,7 @@ namespace Ox {
          * @param old
          */
         Fitter(const Fitter &old) {
-            _FunctionsT1 = 0; //nullpointer
+            _ModelT1 = 0; //nullpointer
 
             _XTolerance = old._XTolerance;
             _FTolerance = old._FTolerance;
@@ -130,7 +130,7 @@ namespace Ox {
         virtual ~Fitter(){};
 
     protected:
-        FunctionsT1<MeasureType>* _FunctionsT1;
+        Model<MeasureType>* _ModelT1;
         MeasureType* _Parameters;
 
         MeasureType _XTolerance;

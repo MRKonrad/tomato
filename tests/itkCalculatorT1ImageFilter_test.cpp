@@ -9,7 +9,7 @@
 #ifdef USE_ITK
 
 #include "OxTestItkImagesFactory.h"
-#include "OxFunctionsT1ThreeParam.h"
+#include "OxModelT1ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
@@ -49,14 +49,14 @@ TEST(itkCalculatorT1ImageFilter, calculate) {
     TImageOut::Pointer imageMolliT1star = itkImagesFactory.generateImageResultsMolliT1star();
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure calculator
-    calculatorT1Molli.setFunctionsT1(&functionsObject);
+    calculatorT1Molli.setModelT1(&functionsObject);
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
@@ -123,14 +123,14 @@ TEST(itkCalculatorT1ImageFilter, calculate_no_phase_given) {
     TImageOut::Pointer imageMolliT1star = itkImagesFactory.generateImageResultsMolliT1star();
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure calculator
-    calculatorT1Molli.setFunctionsT1(&functionsObject);
+    calculatorT1Molli.setModelT1(&functionsObject);
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);

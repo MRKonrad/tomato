@@ -33,7 +33,7 @@ namespace Ox {
          * cloning
          * @return
          */
-        virtual CalculatorT1<MeasureType> *newByCloning() { return new CalculatorT1Shmolli<MeasureType>(*this); }
+        virtual Calculator<MeasureType> *newByCloning() { return new CalculatorT1Shmolli<MeasureType>(*this); }
 
         /**
          * prepareToCalculate

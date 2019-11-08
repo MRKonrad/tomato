@@ -24,13 +24,13 @@ namespace Ox {
         MeasureType tempParameters[3];
         KWUtil::copyArrayToArray(3, tempParameters, this->_StartPoint); // start from the starting point
 
-        this->getFunctionsT1()->setNSamples(this->getNSamples());
-        this->getFunctionsT1()->setSignal(this->getSigMag());
-        this->getFunctionsT1()->setEchoTimes(this->getEchoTimes());
+        this->getModelT1()->setNSamples(this->getNSamples());
+        this->getModelT1()->setSignal(this->getSigMag());
+        this->getModelT1()->setEchoTimes(this->getEchoTimes());
 
         // configure Fitter
         this->getFitter()->setParameters(tempParameters);
-        this->getFitter()->setFunctionsT1(this->getFunctionsT1());
+        this->getFitter()->setModelT1(this->getModelT1());
 
         // fit
         this->getFitter()->performFitting();
@@ -60,7 +60,7 @@ namespace Ox {
 
         for (int i = 0; i < nSamples; i++){
             MeasureType fitted;
-            fitted = this->_FunctionsT1->calcModelValue(parameters, times[i]);
+            fitted = this->_ModelT1->calcModelValue(parameters, times[i]);
             absFitted[i] = fabs(fitted);
             absYsignal[i] = fabs(signal[i]);
         }

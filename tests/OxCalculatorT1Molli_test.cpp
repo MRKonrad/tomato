@@ -10,7 +10,7 @@
 
 #include "CmakeConfigForTomato.h"
 
-#include "OxFunctionsT1ThreeParam.h"
+#include "OxModelT1ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
@@ -33,7 +33,7 @@ TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
@@ -41,7 +41,7 @@ TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
 
     // configure
     fitterAmoebaVnl.setMaxFunctionEvals(0); // I set the maxFunctionEvals to zero
-    CalculatorT1Molli.setFunctionsT1(&functionsObject);
+    CalculatorT1Molli.setModelT1(&functionsObject);
     CalculatorT1Molli.setFitter(&fitterAmoebaVnl);
     CalculatorT1Molli.setSignCalculator(&signCalculator);
     CalculatorT1Molli.setStartPointCalculator(&startPointCalculator);
@@ -79,14 +79,14 @@ TEST(OxCalculatorT1Molli, calculate_throwIfInvTimesNotSorted) {
     invTimesNotSorted[6] = testData.getSignalPhaPtr()[6];
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> CalculatorT1Molli;
 
     // configure
-    CalculatorT1Molli.setFunctionsT1(&functionsObject);
+    CalculatorT1Molli.setModelT1(&functionsObject);
     CalculatorT1Molli.setFitter(&fitterAmoebaVnl);
     CalculatorT1Molli.setSignCalculator(&signCalculator);
     CalculatorT1Molli.setStartPointCalculator(&startPointCalculator);
@@ -113,14 +113,14 @@ TEST(OxCalculatorT1Molli, calculate_WithoutSigns) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure
-    calculatorT1Molli.setFunctionsT1(&functionsObject);
+    calculatorT1Molli.setModelT1(&functionsObject);
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
@@ -149,14 +149,14 @@ TEST(OxCalculatorT1Molli, calculate_WithSigns) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure
-    calculatorT1Molli.setFunctionsT1(&functionsObject);
+    calculatorT1Molli.setModelT1(&functionsObject);
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
@@ -185,14 +185,14 @@ TEST(OxCalculatorT1Molli, copyConstructor) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure
-    calculatorT1Molli.setFunctionsT1(&functionsObject);
+    calculatorT1Molli.setModelT1(&functionsObject);
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
@@ -212,7 +212,7 @@ TEST(OxCalculatorT1Molli, copyConstructor) {
     EXPECT_EQ( calculatorT1Molli.getNDims(), calculatorT1MolliCopy.getNDims());
 
     // empty object pointers
-    EXPECT_THROW(calculatorT1MolliCopy.getFunctionsT1(), std::runtime_error);
+    EXPECT_THROW(calculatorT1MolliCopy.getModelT1(), std::runtime_error);
     EXPECT_THROW(calculatorT1MolliCopy.getFitter(), std::runtime_error);
     EXPECT_THROW(calculatorT1MolliCopy.getSignCalculator(), std::runtime_error);
     EXPECT_THROW(calculatorT1MolliCopy.getStartPointCalculator(), std::runtime_error);
@@ -243,14 +243,14 @@ TEST(OxCalculatorT1Molli, correctSDs) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure
-    calculatorT1Molli.setFunctionsT1(&functionsObject);
+    calculatorT1Molli.setModelT1(&functionsObject);
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
@@ -288,14 +288,14 @@ TEST(OxCalculatorT1Molli, correctSDs) {
 //    int nSamples7 = testData7.getNSamples();
 //
 //    // init the necessary objects
-//    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+//    Ox::ModelT1ThreeParam<TYPE> functionsObject;
 //    Ox::FitterLevenbergMarquardtVnl<TYPE> fitterAmoebaVnl;
 //    Ox::SignCalculatorRealImag<TYPE> signCalculator;
 //    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
 //    Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 //
 //    // configure
-//    calculatorT1Molli.setFunctionsT1(&functionsObject);
+//    calculatorT1Molli.setModelT1(&functionsObject);
 //    calculatorT1Molli.setFitter(&fitterAmoebaVnl);
 //    calculatorT1Molli.setSignCalculator(&signCalculator);
 //    calculatorT1Molli.setStartPointCalculator(&startPointCalculator);

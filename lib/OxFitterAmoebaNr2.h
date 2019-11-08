@@ -35,7 +35,7 @@ namespace Ox {
         // static because https://stackoverflow.com/questions/14425262/why-include-guards-do-not-prevent-multiple-function-definitions
 
         // global array of pointers to OxFunctorT1adapterNr3
-        static FunctionsT1<float> *globalFunctonsT1Nr2Array[NR_MAX_THREADS]; // could possibly go up to ITK_MAX_THREADS
+        static Model<float> *globalFunctonsT1Nr2Array[NR_MAX_THREADS]; // could possibly go up to ITK_MAX_THREADS
 
         // global wrapper functions. Exactly as in https://isocpp.org/wiki/faq/pointers-to-members
         static float f_wrapper0(float *params) { return globalFunctonsT1Nr2Array[0]->calcCostValue(params+1); }
@@ -89,9 +89,9 @@ namespace Ox {
             }
 
             // use global ugliness
-            Ugly::globalFunctonsT1Nr2Array[threadId] = this->_FunctionsT1;
+            Ugly::globalFunctonsT1Nr2Array[threadId] = this->_ModelT1;
             float(*func)(float*) = Ugly::f_wrapperArray[threadId];
-            int nDims = this->_FunctionsT1->getNDims();
+            int nDims = this->_ModelT1->getNDims();
 
             // store start point
             float *startPoint = new float[nDims];

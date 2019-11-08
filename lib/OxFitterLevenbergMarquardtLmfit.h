@@ -11,7 +11,7 @@
 #ifdef USE_LMFIT
 
 #include "OxFitter.h"
-#include "OxFunctionsT1AdapterLmfitLeastSquares.h"
+#include "OxModelT1AdapterLmfitLeastSquares.h"
 #include "lmmin.h"
 
 namespace Ox {
@@ -45,12 +45,12 @@ namespace Ox {
             }
 
             lmmin(
-                    this->_FunctionsT1->getNDims(),
+                    this->_ModelT1->getNDims(),
                     this->getParameters(),
-                    this->_FunctionsT1->getNSamples(),
+                    this->_ModelT1->getNSamples(),
                     NULL,
-                    (const void *)this->_FunctionsT1,
-                    FunctionsT1AdapterLmfitLeastSquares<MeasureType>::calcLSResiduals,
+                    (const void *)this->_ModelT1,
+                    ModelT1AdapterLmfitLeastSquares<MeasureType>::calcLSResiduals,
                     &control,
                     &status);
 

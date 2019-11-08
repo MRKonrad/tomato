@@ -13,7 +13,7 @@
 #include <thread>
 #endif
 
-#include "OxCalculatorT1.h"
+#include "OxCalculator.h"
 
 namespace Ox {
 
@@ -32,7 +32,7 @@ namespace Ox {
         void setImageMag(MeasureType *_imageMag);
         void setImagePha(MeasureType *_imagePha);
         void setImageResults(MeasureType *_imageResults);
-        void setCalculatorT1(CalculatorT1<MeasureType> *_calculatorT1);
+        void setCalculatorT1(Calculator<MeasureType> *_calculatorT1);
 
         MeasureType *getImageResults() const;
 
@@ -50,7 +50,7 @@ namespace Ox {
         MeasureType* _imageResults; // nCols * nRows * nDims, address [iCol][iRow][iDim] iDim * (nCols*nRows) + iRow * nCols + iCol
 		MeasureType phaseRange;
 
-        CalculatorT1<MeasureType> *_calculatorT1;
+        Calculator<MeasureType> *_calculatorT1;
     };
 
 } // namespace Ox

@@ -1,29 +1,28 @@
 /*!
- * \file OxFunctionsT1.h
+ * \file OxModel.h
  * \author Konrad Werys
  * \date 2018/07/29
  */
 
-#ifndef Tomato_OXFUNCTIONST1_H
-#define Tomato_OXFUNCTIONST1_H
+#ifndef Tomato_OxModel_HXX
+#define Tomato_OxModel_HXX
 
-#include "KWUtil.h"
-#include <iostream>
+#include "tomatolib_export.h"
 
 namespace Ox {
 
     /**
-     * \class FunctionsT1
+     * \class Model
      * \brief Container for a model function, cost function and Least-Squares function. And derivatives.
      * \details Here model function is defined - calcModelValue(). Fitting algorithms based on optimisation need a cost
      * function - calcCostValue(). Fitting algorithms based on least squares need a residuals calculation -
      * calcLSResiduals(). Some fitting algorithms use derivatives, hence calcLSJacobian() and calcCostDerivative().
-     * The memeber variables are pointers to c-arrays, we need to know how many samples we want to process. Thats the
+     * The member variables are pointers to c-arrays, we need to know how many samples we want to process. That's the
      * nSamples defined in the constructor.
      * @tparam MeasureType
      */
     template< typename MeasureType >
-    class FunctionsT1{
+    class Model{
 
     public:
 
@@ -68,79 +67,45 @@ namespace Ox {
         virtual int getNDims() { return _nDims; }
 
         // setters
-        void setNSamples(int _nSamples) {
-            FunctionsT1::_nSamples = _nSamples;
-            _Residuals = new MeasureType[_nSamples];
-        }
-        virtual void setInvTimes(const MeasureType *_InvTimes) { FunctionsT1::_InvTimes = _InvTimes; }
-        virtual void setEchoTimes(const MeasureType *_EchoTimes) { FunctionsT1::_EchoTimes = _EchoTimes; }
-        virtual void setRepTimes(const MeasureType *_RepTimes) { FunctionsT1::_RepTimes = _RepTimes; }
-        virtual void setRelAcqTimes(const MeasureType *_RelAcqTimes) { FunctionsT1::_RelAcqTimes = _RelAcqTimes; }
-        virtual void setSignal(const MeasureType *_Signal) {FunctionsT1::_Signal = _Signal; }
+        void setNSamples(int _nSamples);
+        virtual void setInvTimes(const MeasureType *_InvTimes) { Model::_InvTimes = _InvTimes; }
+        virtual void setEchoTimes(const MeasureType *_EchoTimes) { Model::_EchoTimes = _EchoTimes; }
+        virtual void setRepTimes(const MeasureType *_RepTimes) { Model::_RepTimes = _RepTimes; }
+        virtual void setRelAcqTimes(const MeasureType *_RelAcqTimes) { Model::_RelAcqTimes = _RelAcqTimes; }
+        virtual void setSignal(const MeasureType *_Signal) { Model::_Signal = _Signal; }
 
         /**
-         * \brief show me your FunctionsT1
+         * \brief show me your ModelT1
          */
-        virtual void disp(){
-            int nSamples = this->getNSamples();
-            std::cout << "\nYou called disp() on a FunctionsT1 object " << this << " with nSamples: " << getNSamples();
-            KWUtil::printArray(_InvTimes   != 0, nSamples, _InvTimes,    (char*)"\nInvTimes:    ");
-            KWUtil::printArray(_EchoTimes  != 0, nSamples, _EchoTimes,   (char*)"\nEchoTimes:   ");
-            KWUtil::printArray(_RepTimes   != 0, nSamples, _RepTimes,    (char*)"\nRepTimes:    ");
-            KWUtil::printArray(_RelAcqTimes!= 0, nSamples, _RelAcqTimes, (char*)"\nRelAcqTimes: ");
-            KWUtil::printArray(_Signal     != 0, nSamples, _Signal,      (char*)"\nSignal:      ");
-            std::cout << std::endl;
-        }
+        virtual void disp();
 
         /**
          * \brief set all the pointers to zero
          */
-        void setAllPointersToNull(){
-            _InvTimes = 0;
-            _EchoTimes = 0;
-            _RepTimes = 0;
-            _RelAcqTimes = 0;
-            _Signal = 0;
-        }
+        void setAllPointersToNull();
 
         /**
          * \brief constructor
          */
-        FunctionsT1(){
-
-            _nSamples = 0;
-            _nDims = 0;
-
-            _Residuals = 0; // pointer
-            setAllPointersToNull();
-        };
+        Model();
 
         /**
          * \brief copy constructor keeps only _nSamples and _nDims
          * @param old
          */
-        FunctionsT1(const FunctionsT1 &old) {
-
-            _nSamples = old._nSamples;
-            _nDims = old._nDims;
-
-            _Residuals = new MeasureType[_nSamples];
-            setAllPointersToNull();
-        }
+        Model(const Model &old);
 
         /**
          * cloning
          * @return
          */
-        virtual FunctionsT1<MeasureType> *newByCloning() = 0;
+        virtual Model<MeasureType> *newByCloning() = 0;
 
         /**
          * \brief do not forget about the virtual destructor, see
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
-        virtual ~FunctionsT1(){
-            delete [] _Residuals;
-        };
+        virtual ~Model();
 
     protected:
 
@@ -157,4 +122,8 @@ namespace Ox {
     };
 } //namespace Ox
 
-#endif //Tomato_OXFUNCTIONST1_H
+#ifndef TOMATOLIB_COMPILED
+#include "OxModel.hxx"
+#endif //TOMATOLIB_COMPILED
+
+#endif //Tomato_OxModel_H

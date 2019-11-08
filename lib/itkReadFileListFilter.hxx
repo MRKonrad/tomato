@@ -40,27 +40,20 @@ namespace itk {
 
     template<typename TImage>
     void ReadFileListFilter<TImage>::SetDirName(const std::string dirName) {
+
         m_DirName = dirName;
         if (m_DirName.empty()) {
             return;
         }
 
         typename itk::Directory::Pointer directory = itk::Directory::New();
-        std::cout << "before load. DirName: " << m_DirName << "DirName.cstr: " << m_DirName.c_str() << std::endl;
-        try {
-            directory->Load(m_DirName.c_str());
-        } catch (const std::exception& e) {
-            std::cout << e.what();
-        }
+        directory->Load(m_DirName.c_str());
 
-        std::cout << "after load" << std::endl;
         for (size_t i = 0; i < directory->GetNumberOfFiles(); i++){
             std::string fileName = directory->GetFile(i);
-            std::cout << "after getfile" << std::endl;
             if (fileName == "." || fileName == ".."){
                 continue;
             }
-            std::cout << fileName << std::endl;
             m_FileList.push_back(m_DirName + KWUtil::PathSeparator() + fileName);
         }
     }

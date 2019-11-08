@@ -1,5 +1,5 @@
 /*!
- * \file OxFunctionsT1AdapterVnlLeastSquares_test.cpp
+ * \file OxModelT1AdapterVnlLeastSquares_test.cpp
  * \author Konrad Werys
  * \date 2018/07/31
  */
@@ -11,11 +11,11 @@
 #include "OxTestData.h"
 
 #include <vnl/algo/vnl_levenberg_marquardt.h>
-#include "OxFunctionsT1ThreeParam.h"
-#include "OxFunctionsT1AdapterVnlLeastSquares.h"
+#include "OxModelT1ThreeParam.h"
+#include "OxModelT1AdapterVnlLeastSquares.h"
 
 
-TEST(OxFunctionsT1AdapterVnlLeastSquares, f) {
+TEST(OxModelT1AdapterVnlLeastSquares, f) {
 
     typedef double TYPE;
 
@@ -26,15 +26,15 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, f) {
 
     TYPE params[3] = {0, 0, 0};
 
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
-    Ox::FunctionsT1AdapterVnlLeastSquares functionsAdaptedToVnl(nDims, nSamples, vnl_least_squares_function::use_gradient);
-    // Ox::FunctionsT1AdapterVnlLeastSquares functionsAdaptedToVnl(nSamples, vnl_least_squares_function::no_gradient);
-    functionsAdaptedToVnl.setFunctionsT1(&functionsObject);
+    Ox::ModelT1AdapterVnlLeastSquares functionsAdaptedToVnl(nDims, nSamples, vnl_least_squares_function::use_gradient);
+    // Ox::ModelT1AdapterVnlLeastSquares functionsAdaptedToVnl(nSamples, vnl_least_squares_function::no_gradient);
+    functionsAdaptedToVnl.setModelT1(&functionsObject);
 
     vnl_vector<TYPE> paramsVnl(params, 3);
     vnl_vector<TYPE> residualsVnl(nSamples, 0);
@@ -46,7 +46,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, f) {
     }
 }
 
-TEST(OxFunctionsT1AdapterVnlLeastSquares, gradf) {
+TEST(OxModelT1AdapterVnlLeastSquares, gradf) {
 
     typedef double TYPE;
 
@@ -57,15 +57,15 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, gradf) {
 
     TYPE params[3] = {0, 0, 1200};
 
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalMagPtr());
 
-    Ox::FunctionsT1AdapterVnlLeastSquares functionsAdaptedToVnl(nDims, nSamples, vnl_least_squares_function::use_gradient);
-    // Ox::FunctionsT1AdapterVnlLeastSquares functionsAdaptedToVnl(nSamples, vnl_least_squares_function::no_gradient);
-    functionsAdaptedToVnl.setFunctionsT1(&functionsObject);
+    Ox::ModelT1AdapterVnlLeastSquares functionsAdaptedToVnl(nDims, nSamples, vnl_least_squares_function::use_gradient);
+    // Ox::ModelT1AdapterVnlLeastSquares functionsAdaptedToVnl(nSamples, vnl_least_squares_function::no_gradient);
+    functionsAdaptedToVnl.setModelT1(&functionsObject);
 
     vnl_vector<TYPE> paramsVnl(params, 3);
     vnl_matrix<TYPE> jacobianVnl(nSamples, 3);
@@ -89,7 +89,7 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, gradf) {
     }
 }
 
-TEST(OxFunctionsT1AdapterVnlLeastSquares, fitting) {
+TEST(OxModelT1AdapterVnlLeastSquares, fitting) {
 
     typedef double TYPE;
 
@@ -100,15 +100,15 @@ TEST(OxFunctionsT1AdapterVnlLeastSquares, fitting) {
 
     TYPE params[3] = {0, 0, 1200};
 
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     //functionsObject.setParameters(params);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
 
-    Ox::FunctionsT1AdapterVnlLeastSquares functionsAdaptedToVnl(nDims, nSamples, vnl_least_squares_function::use_gradient);
-    // Ox::FunctionsT1AdapterVnlLeastSquares functionsAdaptedToVnl(nSamples, vnl_least_squares_function::no_gradient);
-    functionsAdaptedToVnl.setFunctionsT1(&functionsObject);
+    Ox::ModelT1AdapterVnlLeastSquares functionsAdaptedToVnl(nDims, nSamples, vnl_least_squares_function::use_gradient);
+    // Ox::ModelT1AdapterVnlLeastSquares functionsAdaptedToVnl(nSamples, vnl_least_squares_function::no_gradient);
+    functionsAdaptedToVnl.setModelT1(&functionsObject);
 
     vnl_vector<TYPE> paramsVnl(params, 3);
     vnl_levenberg_marquardt vnlFitter(functionsAdaptedToVnl);

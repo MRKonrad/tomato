@@ -16,4 +16,4 @@
 *   re-organise start point calculation
 *   output SNR maps
 *   make sure SNR and nAmoebaCalls is the same as in Shmolli
-*   possibly I could make all FunctionsT1 object static
+*   possibly I could make all Model object static

@@ -11,7 +11,7 @@
 #include "OxTestData.h"
 
 #include "OxFitterAmoebaNr2.h"
-#include "OxFunctionsT1ThreeParam.h"
+#include "OxModelT1ThreeParam.h"
 
 TEST(OxFitterAmoebaNr2, performFitting) {
 
@@ -23,13 +23,13 @@ TEST(OxFitterAmoebaNr2, performFitting) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
 
     Ox::FitterAmoebaNr2<TYPE> fitterAmoebaNr2;
-    fitterAmoebaNr2.setFunctionsT1(&functionsObject);
+    fitterAmoebaNr2.setModelT1(&functionsObject);
     fitterAmoebaNr2.setParameters(params);
 
     fitterAmoebaNr2.setVerbose(false);

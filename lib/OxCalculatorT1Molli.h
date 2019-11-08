@@ -7,7 +7,7 @@
 #ifndef Tomato_OXCALCULATORT1MOLLI_H
 #define Tomato_OXCALCULATORT1MOLLI_H
 
-#include "OxCalculatorT1.h"
+#include "OxCalculator.h"
 #include "tomatolib_export.h"
 
 namespace Ox {
@@ -19,7 +19,7 @@ namespace Ox {
      * @tparam MeasureType
      */
     template< typename MeasureType >
-    class CalculatorT1Molli : public CalculatorT1<MeasureType> {
+    class CalculatorT1Molli : public Calculator<MeasureType> {
     public:
 
         /**
@@ -27,6 +27,12 @@ namespace Ox {
          * @return success/failure
          */
         virtual int calculate();
+
+        /**
+         * do all the checks and  prepare to do the calculation, for example calc signal/signs and _TRRaverageHB
+         * @return
+         */
+        virtual int prepareToCalculate();
 
         /**
          * The most important function of this class
@@ -82,7 +88,7 @@ namespace Ox {
         /**
          * constructor
          */
-        CalculatorT1Molli() : CalculatorT1<MeasureType>(){
+        CalculatorT1Molli() : Calculator<MeasureType>(){
             MaxTIForSignInvert = this->MAX_T1_TRESHOLD * 0.67;
             _DoCalculateSDMap = false;
         }
@@ -91,7 +97,7 @@ namespace Ox {
          * cloning
          * @return
          */
-        virtual CalculatorT1<MeasureType> *newByCloning() { return new CalculatorT1Molli<MeasureType>(*this); }
+        virtual Calculator<MeasureType> *newByCloning() { return new CalculatorT1Molli<MeasureType>(*this); }
 
 
 

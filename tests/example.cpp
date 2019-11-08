@@ -10,14 +10,14 @@
 
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1Shmolli.h"
-#include "OxFunctionsT1Shmolli.h"
+#include "OxModelT1Shmolli.h"
 #include "OxFitterAmoebaPrivateNr2.h"
 #include "OxSignCalculatorShmolli.h"
 #include "OxStartPointCalculatorShmolli.h"
 
 //#ifdef USE_VNL
 //#include "OxSignCalculatorNoSign.h"
-//#include "OxFunctionsT1ThreeParam.h"
+//#include "OxModelT1ThreeParam.h"
 //#include "OxFitterAmoebaVnl.h"
 //#include "OxFitterLevenbergMarquardtVnl.h"
 //#include "OxSignCalculatorRealImag.h"
@@ -28,13 +28,13 @@ Ox::CalculatorT1Results<double> CalculateShmolli(
 
     // initialise the necessary objects
     Ox::CalculatorT1Shmolli <double> calculatorT1Shmolli;
-    Ox::FunctionsT1Shmolli <double> functionsObject;
+    Ox::ModelT1Shmolli <double> functionsObject;
     Ox::FitterAmoebaPrivateNr2 <double> fitter;
     Ox::SignCalculatorShmolli <double> signCalculator;
     Ox::StartPointCalculatorShmolli <double> startPointCalculator;
 
     // configure
-    calculatorT1Shmolli.setFunctionsT1(&functionsObject);
+    calculatorT1Shmolli.setModelT1(&functionsObject);
     calculatorT1Shmolli.setFitter(&fitter);
     calculatorT1Shmolli.setSignCalculator(&signCalculator);
     calculatorT1Shmolli.setStartPointCalculator(&startPointCalculator);

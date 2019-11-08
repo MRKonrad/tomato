@@ -9,10 +9,10 @@
 
 #include "CmakeConfigForTomato.h"
 
-#include "OxFunctionsT1ThreeParam.h"
-#include "OxFunctionsT1TwoParam.h"
-#include "OxFunctionsT1Shmolli.h"
-#include "OxFunctionsT2ThreeParam.h"
+#include "OxModelT1ThreeParam.h"
+#include "OxModelT1TwoParam.h"
+#include "OxModelT1Shmolli.h"
+#include "OxModelT2ThreeParam.h"
 
 namespace Ox {
 
@@ -24,41 +24,41 @@ namespace Ox {
             "FunctionsThreeParam",
             "FunctionsTwoParam",
             "FunctionsShmolli",
-            "FunctionsT2ThreeParam"
+            "ModelT2ThreeParam"
     };
 
     enum functionsType_t {
         FunctionsThreeParam = 0,
         FunctionsTwoParam = 1,
         FunctionsShmolli = 2,
-        _FunctionsT2ThreeParam = 3,
-        lastFunctorType = _FunctionsT2ThreeParam
+        _ModelT2ThreeParam = 3,
+        lastFunctorType = _ModelT2ThreeParam
     };
 
     static int functionsAvailability[] = {
             1, //FunctionsThreeParam
             1, //FunctionsTwoParam
             1, // FunctionsShmolli
-            1  // FunctionsT2ThreeParam
+            1  // ModelT2ThreeParam
     };
 
     template<typename TYPE>
     class FactoryOfFunctions {
     public:
 
-        static FunctionsT1<TYPE>* newByFactory(TomatoOptions<TYPE> *opts){
+        static Model<TYPE>* newByFactory(TomatoOptions<TYPE> *opts){
             switch (opts->functions_type){
                 case FunctionsThreeParam: {
-                    return new FunctionsT1ThreeParam<TYPE>();
+                    return new ModelT1ThreeParam<TYPE>();
                 }
                 case FunctionsTwoParam: {
-                    return new FunctionsT1TwoParam<TYPE>();
+                    return new ModelT1TwoParam<TYPE>();
                 }
                 case FunctionsShmolli: {
-                    return new FunctionsT1Shmolli<TYPE>();
+                    return new ModelT1Shmolli<TYPE>();
                 }
-                case _FunctionsT2ThreeParam: {
-                    return new FunctionsT2ThreeParam<TYPE>();
+                case _ModelT2ThreeParam: {
+                    return new ModelT2ThreeParam<TYPE>();
                 }
                 default:
                     throw std::runtime_error("functions_type not available");

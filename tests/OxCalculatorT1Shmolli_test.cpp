@@ -10,7 +10,7 @@
 #include "OxTestData.h"
 
 #include "OxSignCalculatorNoSign.h"
-#include "OxFunctionsT1ThreeParam.h"
+#include "OxModelT1ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
 #include "OxSignCalculatorRealImag.h"
@@ -18,7 +18,7 @@
 
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1Shmolli.h"
-#include "OxFunctionsT1Shmolli.h"
+#include "OxModelT1Shmolli.h"
 #include "OxFitterAmoebaPrivateNr2.h"
 #include "OxSignCalculatorShmolli.h"
 #include "OxStartPointCalculatorShmolli.h"
@@ -43,14 +43,14 @@ TEST(OxCalculatorT1Shmolli, calculate_ICE) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1Shmolli<TYPE> functionsObject;
+    Ox::ModelT1Shmolli<TYPE> functionsObject;
     Ox::FitterAmoebaPrivateNr2<TYPE> fitter;
     Ox::SignCalculatorShmolli<TYPE> signCalculator;
     Ox::StartPointCalculatorShmolli<TYPE> startPointCalculator;
     Ox::CalculatorT1Shmolli<TYPE> calculatorT1Shmolli;
 
     // configure
-    calculatorT1Shmolli.setFunctionsT1(&functionsObject);
+    calculatorT1Shmolli.setModelT1(&functionsObject);
     calculatorT1Shmolli.setFitter(&fitter);
     calculatorT1Shmolli.setSignCalculator(&signCalculator);
     calculatorT1Shmolli.setStartPointCalculator(&startPointCalculator);
@@ -79,7 +79,7 @@ TEST(OxCalculatorT1Shmolli, calculate_doNotCalculateIfMaxIterZero) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
@@ -87,7 +87,7 @@ TEST(OxCalculatorT1Shmolli, calculate_doNotCalculateIfMaxIterZero) {
 
     // configure
     fitter.setMaxFunctionEvals(0); // I set the maxFunctionEvals to zero
-    calculatorT1Shmolli.setFunctionsT1(&functionsObject);
+    calculatorT1Shmolli.setModelT1(&functionsObject);
     calculatorT1Shmolli.setFitter(&fitter);
     calculatorT1Shmolli.setSignCalculator(&signCalculator);
     calculatorT1Shmolli.setStartPointCalculator(&startPointCalculator);
@@ -125,14 +125,14 @@ TEST(OxCalculatorT1Shmolli, calculate_throwIfInvTimesNotSorted) {
     invTimesNotSorted[6] = testData.getSignalPhaPtr()[6];
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Shmolli<TYPE> calculatorT1Shmolli;
 
     // configure
-    calculatorT1Shmolli.setFunctionsT1(&functionsObject);
+    calculatorT1Shmolli.setModelT1(&functionsObject);
     calculatorT1Shmolli.setFitter(&fitter);
     calculatorT1Shmolli.setSignCalculator(&signCalculator);
     calculatorT1Shmolli.setStartPointCalculator(&startPointCalculator);
@@ -159,14 +159,14 @@ TEST(OxCalculatorT1Shmolli, calculate_WithoutSigns_AmoebaVnl) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Shmolli<TYPE> calculatorT1Shmolli;
 
     // configure
-    calculatorT1Shmolli.setFunctionsT1(&functionsObject);
+    calculatorT1Shmolli.setModelT1(&functionsObject);
     calculatorT1Shmolli.setFitter(&fitter);
     calculatorT1Shmolli.setSignCalculator(&signCalculator);
     calculatorT1Shmolli.setStartPointCalculator(&startPointCalculator);
@@ -197,14 +197,14 @@ TEST(OxCalculatorT1Shmolli, calculate_WithoutSigns_LevMarVnl) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Shmolli<TYPE> calculatorT1Shmolli;
 
     // configure
-    calculatorT1Shmolli.setFunctionsT1(&functionsObject);
+    calculatorT1Shmolli.setModelT1(&functionsObject);
     calculatorT1Shmolli.setFitter(&fitter);
     calculatorT1Shmolli.setSignCalculator(&signCalculator);
     calculatorT1Shmolli.setStartPointCalculator(&startPointCalculator);
@@ -235,14 +235,14 @@ TEST(OxCalculatorT1Shmolli, calculate_WithSigns) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Shmolli<TYPE> calculatorT1Shmolli;
 
     // configure
-    calculatorT1Shmolli.setFunctionsT1(&functionsObject);
+    calculatorT1Shmolli.setModelT1(&functionsObject);
     calculatorT1Shmolli.setFitter(&fitter);
     calculatorT1Shmolli.setSignCalculator(&signCalculator);
     calculatorT1Shmolli.setStartPointCalculator(&startPointCalculator);
@@ -272,14 +272,14 @@ TEST(OxCalculatorT1Shmolli, copyConstructor) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Shmolli<TYPE> calculatorT1Shmolli;
 
     // configure
-    calculatorT1Shmolli.setFunctionsT1(&functionsObject);
+    calculatorT1Shmolli.setModelT1(&functionsObject);
     calculatorT1Shmolli.setFitter(&fitter);
     calculatorT1Shmolli.setSignCalculator(&signCalculator);
     calculatorT1Shmolli.setStartPointCalculator(&startPointCalculator);
@@ -298,7 +298,7 @@ TEST(OxCalculatorT1Shmolli, copyConstructor) {
     EXPECT_EQ( calculatorT1Shmolli.getNDims(), calculatorT1ShmolliCopy.getNDims());
 
     // empty object pointers
-    EXPECT_THROW(calculatorT1ShmolliCopy.getFunctionsT1(), std::runtime_error);
+    EXPECT_THROW(calculatorT1ShmolliCopy.getModelT1(), std::runtime_error);
     EXPECT_THROW(calculatorT1ShmolliCopy.getFitter(), std::runtime_error);
     EXPECT_THROW(calculatorT1ShmolliCopy.getSignCalculator(), std::runtime_error);
     EXPECT_THROW(calculatorT1ShmolliCopy.getStartPointCalculator(), std::runtime_error);

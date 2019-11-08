@@ -1,18 +1,18 @@
 /*!
- * \file OxFunctionsT1TwoParam.hxx
+ * \file OxModelT1TwoParam.hxx
  * \author Konrad Werys
  * \date 2018/07/29
  */
 
-#ifndef Tomato_OXFUNCTIONST1TwoParam_HXX
-#define Tomato_OXFUNCTIONST1TwoParam_HXX
+#ifndef Tomato_OXModelT1TwoParam_HXX
+#define Tomato_OXModelT1TwoParam_HXX
 
 namespace Ox {
 
 
     template< typename MeasureType >
     MeasureType
-    FunctionsT1TwoParam<MeasureType>
+    ModelT1TwoParam<MeasureType>
     ::calcModelValue(const MeasureType* parameters, MeasureType time){
 
         MeasureType A = parameters[0];
@@ -26,7 +26,7 @@ namespace Ox {
 
     template< typename MeasureType >
     void
-    FunctionsT1TwoParam<MeasureType>
+    ModelT1TwoParam<MeasureType>
     ::calcLSResiduals(const MeasureType* parameters, MeasureType* residuals){
 
         unsigned int nSamples = this->_nSamples;
@@ -44,7 +44,7 @@ namespace Ox {
 
     template< typename MeasureType >
     void
-    FunctionsT1TwoParam<MeasureType>
+    ModelT1TwoParam<MeasureType>
     ::calcLSJacobian(const MeasureType* parameters, MeasureType* jacobian){
 
         int nSamples = this->_nSamples;
@@ -65,7 +65,7 @@ namespace Ox {
 
     template< typename MeasureType >
     MeasureType
-    FunctionsT1TwoParam<MeasureType>
+    ModelT1TwoParam<MeasureType>
     ::calcCostValue(const MeasureType* parameters){
 
         int nSamples = this->_nSamples;
@@ -82,7 +82,7 @@ namespace Ox {
 
     template< typename MeasureType >
     void
-    FunctionsT1TwoParam<MeasureType>
+    ModelT1TwoParam<MeasureType>
     ::calcCostDerivative(const MeasureType* parameters, MeasureType* derivative){
 
         int nSamples = this->_nSamples;
@@ -109,4 +109,4 @@ namespace Ox {
 } //namespace Ox
 
 
-#endif //Tomato_OXFUNCTIONST1TwoParam_HXX
+#endif //Tomato_OXModelT1TwoParam_HXX

@@ -83,7 +83,7 @@ namespace Ox {
     template<typename MeasureType>
     void
     ImageCalculatorT1<MeasureType>
-    ::setCalculatorT1(CalculatorT1 <MeasureType> *_calculatorT1) {
+    ::setCalculatorT1(Calculator <MeasureType> *_calculatorT1) {
         ImageCalculatorT1::_calculatorT1 = _calculatorT1;
     }
 
@@ -140,14 +140,14 @@ namespace Ox {
         // perform all the calculations on the copies of original objects!!!
 
         // clone the necessary objects
-        Ox::CalculatorT1<MeasureType> *calculatorT1 = _calculatorT1->newByCloning();
-        Ox::FunctionsT1<MeasureType> *functionsObject = _calculatorT1->getFunctionsT1()->newByCloning();
+        Ox::Calculator<MeasureType> *calculatorT1 = _calculatorT1->newByCloning();
+        Ox::Model<MeasureType> *functionsObject = _calculatorT1->getModelT1()->newByCloning();
         Ox::Fitter<MeasureType> *fitter = _calculatorT1->getFitter()->newByCloning();
         Ox::SignCalculator<MeasureType> *signCalculator = _calculatorT1->getSignCalculator()->newByCloning();
         Ox::StartPointCalculator<MeasureType> *startPointCalculator = _calculatorT1->getStartPointCalculator()->newByCloning();
 
         // configure
-        calculatorT1->setFunctionsT1(functionsObject);
+        calculatorT1->setModelT1(functionsObject);
         calculatorT1->setFitter(fitter);
         calculatorT1->setSignCalculator(signCalculator);
         calculatorT1->setStartPointCalculator(startPointCalculator);

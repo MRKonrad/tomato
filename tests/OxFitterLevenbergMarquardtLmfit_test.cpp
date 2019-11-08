@@ -10,11 +10,11 @@
 #include "gtest/gtest.h"
 #include "OxTestData.h"
 
-#include "OxFunctionsT1ThreeParam.h"
+#include "OxModelT1ThreeParam.h"
 #include "OxFitterLevenbergMarquardtLmfit.h"
 
 #ifdef USE_PRIVATE_NR2
-#include "OxFunctionsT1Shmolli.h"
+#include "OxModelT1Shmolli.h"
 #endif // USE_PRIVATE_NR2
 
 TEST(OxFitterLevenbergMarquardtLmfit, performFitting) {
@@ -27,13 +27,13 @@ TEST(OxFitterLevenbergMarquardtLmfit, performFitting) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
 
     Ox::FitterLevenbergMarquardtLmfit<TYPE> fitter;
-    fitter.setFunctionsT1(&functionsObject);
+    fitter.setModelT1(&functionsObject);
     fitter.setParameters(params);
 
     fitter.setVerbose(false);
@@ -58,13 +58,13 @@ TEST(OxFitterLevenbergMarquardtLmfit, performFitting_shmolli) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1Shmolli<TYPE> functionsObject;
+    Ox::ModelT1Shmolli<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
 
     Ox::FitterLevenbergMarquardtLmfit<TYPE> fitter;
-    fitter.setFunctionsT1(&functionsObject);
+    fitter.setModelT1(&functionsObject);
     fitter.setParameters(params);
 
     fitter.setVerbose(false);
@@ -89,14 +89,14 @@ TEST(OxFitterLevenbergMarquardtLmfit, copyConstructor) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
 
 
     Ox::FitterLevenbergMarquardtLmfit<TYPE> fitter;
-    fitter.setFunctionsT1(&functionsObject);
+    fitter.setModelT1(&functionsObject);
     fitter.setParameters(params);
     fitter.setMaxFunctionEvals(123);
     fitter.setFTolerance(321);
@@ -108,9 +108,9 @@ TEST(OxFitterLevenbergMarquardtLmfit, copyConstructor) {
     EXPECT_EQ( fitterCopy.getMaxFunctionEvals(), fitter.getMaxFunctionEvals());
     EXPECT_EQ( fitterCopy.getFTolerance(), fitter.getFTolerance());
 
-    // FunctionsT1 was not declared for the copy, so it should be empty
-    EXPECT_FALSE( fitterCopy.getFunctionsT1());
-    EXPECT_NE( fitterCopy.getFunctionsT1(), fitter.getFunctionsT1());
+    // Model was not declared for the copy, so it should be empty
+    EXPECT_FALSE( fitterCopy.getModelT1());
+    EXPECT_NE( fitterCopy.getModelT1(), fitter.getModelT1());
 
 }
 
@@ -126,13 +126,13 @@ TEST(OxFitterLevenbergMarquardtLmfit, disp) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
 
     Ox::FitterLevenbergMarquardtLmfit<TYPE> fitter;
-    fitter.setFunctionsT1(&functionsObject);
+    fitter.setModelT1(&functionsObject);
     fitter.setParameters(params);
 
     testing::internal::CaptureStdout();

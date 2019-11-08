@@ -1,26 +1,26 @@
 /*!
- * \file OxFunctionsT1TwoParam.h
+ * \file OxModelT2ThreeParam.h
  * \author Konrad Werys
- * \date 2018/07/29
+ * \date 2019/11/04
  */
 
-#ifndef Tomato_OXFUNCTIONST1TwoParam_H
-#define Tomato_OXFUNCTIONST1TwoParam_H
+#ifndef Tomato_OXModelT2ThreeParam_H
+#define Tomato_OXModelT2ThreeParam_H
 
 #include "tomatolib_export.h"
-#include "OxFunctionsT1.h"
+#include "OxModel.h"
 #include <cmath>
 
 namespace Ox {
 
     /**
-     * \brief Container for a TwoParam model function \f$ A(1 - exp( -time / T1 )) \f$, cost function and Least-Squares
+     * \brief Container for a ThreeParam model function \f$ A + B\exp(t/T_2) \f$, cost function and Least-Squares
      * function and derivatives.
      * \details
      * @tparam MeasureType
      */
     template< typename MeasureType >
-    class FunctionsT1TwoParam : public FunctionsT1<MeasureType>{
+    class ModelT2ThreeParam : public Model<MeasureType>{
 
     public:
 
@@ -30,26 +30,26 @@ namespace Ox {
         virtual MeasureType calcCostValue(const MeasureType* parameters );
         virtual void calcCostDerivative(const MeasureType* parameters, MeasureType* derivative);
 
-        FunctionsT1TwoParam() : FunctionsT1<MeasureType>(){
-            this->_nDims = 2;
+        ModelT2ThreeParam() : Model<MeasureType>(){
+            this->_nDims = 3;
         }
 
         /**
          * cloning
          * @return
          */
-        virtual FunctionsT1<MeasureType> *newByCloning() { return new FunctionsT1TwoParam<MeasureType>(*this); }
+        virtual Model<MeasureType> *newByCloning() { return new ModelT2ThreeParam<MeasureType>(*this); }
 
         /**
          * \brief do not forget about the virtual destructor, see
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
-        virtual ~FunctionsT1TwoParam(){};
+        virtual ~ModelT2ThreeParam(){};
     };
 } //namespace Ox
 
 #ifndef TOMATOLIB_COMPILED
-#include "OxFunctionsT1TwoParam.hxx"
+#include "OxModelT2ThreeParam.hxx"
 #endif //TOMATOLIB_COMPILED
 
-#endif //Tomato_OXFUNCTIONST1TwoParam_H
+#endif //Tomato_OXModelT2ThreeParam_H

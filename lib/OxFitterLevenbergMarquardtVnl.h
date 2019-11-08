@@ -11,7 +11,7 @@
 #ifdef USE_VNL
 
 #include "OxFitter.h"
-#include "OxFunctionsT1AdapterVnlLeastSquares.h"
+#include "OxModelT1AdapterVnlLeastSquares.h"
 #include <vnl/algo/vnl_levenberg_marquardt.h>
 
 namespace Ox {
@@ -20,7 +20,7 @@ namespace Ox {
 
     public:
         typedef vnl_levenberg_marquardt VnlFitterType; // !!! this is the most important configuration part !!!
-        typedef FunctionsT1AdapterVnlLeastSquares FunctionsAdaptedToVnlType;
+        typedef ModelT1AdapterVnlLeastSquares FunctionsAdaptedToVnlType;
 
         /**
          * the most important function of this class
@@ -30,7 +30,7 @@ namespace Ox {
 
             configureMinimizer();
 
-            vnl_vector<MeasureType> temp(this->getParameters(), this->_FunctionsT1->getNDims());
+            vnl_vector<MeasureType> temp(this->getParameters(), this->_ModelT1->getNDims());
 
             _VnlFitter->minimize(temp);
 
@@ -38,7 +38,7 @@ namespace Ox {
                 temp.copy_out(this->getParameters());
             }
             if (this->getVerbose()) {
-                std::cout << "Results: " << temp << " Cost: " << this->_FunctionsT1->calcCostValue(this->getParameters()) << std::endl;
+                std::cout << "Results: " << temp << " Cost: " << this->_ModelT1->calcCostValue(this->getParameters()) << std::endl;
             }
 
             return 0; //EXIT_SUCCESS;
@@ -97,8 +97,8 @@ namespace Ox {
     protected:
 
         virtual void configureMinimizer() {
-            int nSamples = this->_FunctionsT1->getNSamples();
-            int nDims = this->_FunctionsT1->getNDims();
+            int nSamples = this->_ModelT1->getNSamples();
+            int nDims = this->_ModelT1->getNDims();
 
             bool doReconfigure = false;
 
@@ -114,8 +114,8 @@ namespace Ox {
 
 
             if (doReconfigure) {
-                if (!this->_FunctionsT1) {
-                    throw std::runtime_error("Set the FunctionsT1 object");
+                if (!this->_ModelT1) {
+                    throw std::runtime_error("Set the Model object");
                 } else {
 
                     delete _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;
@@ -126,7 +126,7 @@ namespace Ox {
                         _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nDims, nSamples, vnl_least_squares_function::no_gradient);
                     }
 
-                    _FunctionsAdaptedToVnl->setFunctionsT1(this->_FunctionsT1);
+                    _FunctionsAdaptedToVnl->setModelT1(this->_ModelT1);
 
                     delete _VnlFitter; _VnlFitter = 0;
                     _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);

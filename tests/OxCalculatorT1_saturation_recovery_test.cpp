@@ -10,8 +10,8 @@
 
 #include "CmakeConfigForTomato.h"
 
-#include "OxFunctionsT1TwoParam.h"
-#include "OxFunctionsT1ThreeParam.h"
+#include "OxModelT1TwoParam.h"
+#include "OxModelT1ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxStartPointCalculatorBasic.h"
@@ -32,14 +32,14 @@ TEST(OxCalculatorT1_saturation_recovery, twoParam) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1TwoParam<TYPE> functionsObject;
+    Ox::ModelT1TwoParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure
-    calculatorT1Molli.setFunctionsT1(&functionsObject);
+    calculatorT1Molli.setModelT1(&functionsObject);
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
@@ -66,14 +66,14 @@ TEST(OxCalculatorT1_saturation_recovery, threeParam) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
 
     // configure
-    calculatorT1Molli.setFunctionsT1(&functionsObject);
+    calculatorT1Molli.setModelT1(&functionsObject);
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);

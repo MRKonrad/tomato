@@ -17,7 +17,7 @@
 #ifdef USE_PRIVATE_NR2
 #include "OxFitterAmoebaPrivateNr2.h"
 #include "OxCalculatorT1Shmolli.h"
-#include "OxFunctionsT1Shmolli.h"
+#include "OxModelT1Shmolli.h"
 #include "OxSignCalculatorShmolli.h"
 #include "OxStartPointCalculatorShmolli.h"
 
@@ -93,14 +93,14 @@ TEST(itkPipeline_CalculatorShmolli, calculateShmolliAndCompareWithDicom) {
     KWUtil::copyArrayToArray(nSamples, invTimes, sorterMag->GetInvTimesSorted().data_block());
 
     // init the necessary objects
-    Ox::FunctionsT1Shmolli<InputPixelType> functionsObject;
+    Ox::ModelT1Shmolli<InputPixelType> functionsObject;
     Ox::FitterAmoebaPrivateNr2<InputPixelType> fitter;
     Ox::SignCalculatorShmolli<InputPixelType> signCalculator;
     Ox::StartPointCalculatorShmolli<InputPixelType> startPointCalculator;
     Ox::CalculatorT1Shmolli<InputPixelType> calculatorT1;
 
     // configure calculator
-    calculatorT1.setFunctionsT1(&functionsObject);
+    calculatorT1.setModelT1(&functionsObject);
     calculatorT1.setFitter(&fitter);
     calculatorT1.setSignCalculator(&signCalculator);
     calculatorT1.setStartPointCalculator(&startPointCalculator);

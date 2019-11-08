@@ -14,18 +14,18 @@ namespace Ox {
     /* ****************** */
 
     template< typename MeasureType >
-    FunctionsT1<MeasureType>*
-    CalculatorT1<MeasureType>
-    ::getFunctionsT1() const {
-        if (!_FunctionsT1) {
-            throw std::runtime_error("_FunctionsT1 equals 0. Set _FunctionsT1");
+    Model<MeasureType>*
+    Calculator<MeasureType>
+    ::getModelT1() const {
+        if (!_ModelT1) {
+            throw std::runtime_error("_ModelT1 equals 0. Set _ModelT1");
         };
-        return _FunctionsT1;
+        return _ModelT1;
     }
 
     template< typename MeasureType >
     Fitter<MeasureType> *
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getFitter() const {
         if (!_Fitter) {
             throw std::runtime_error("_Fitter equals 0. Set _Fitter");
@@ -35,7 +35,7 @@ namespace Ox {
 
     template< typename MeasureType >
     StartPointCalculator<MeasureType> *
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getStartPointCalculator() const {
         if (!_StartPointCalculator) {
             throw std::runtime_error("_StartPointCalculator equals 0. Set _StartPointCalculator");
@@ -45,7 +45,7 @@ namespace Ox {
 
     template< typename MeasureType >
     SignCalculator<MeasureType> *
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getSignCalculator() const {
         if (!_SignCalculator) {
             throw std::runtime_error("_SignCalculator equals 0. Set _SignCalculator");
@@ -55,7 +55,7 @@ namespace Ox {
 
     template< typename MeasureType >
     const MeasureType *
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getInvTimes() const {
         if (!_InvTimes) {
             throw std::runtime_error("_InvTimes equals 0. Set _InvTimes");
@@ -65,7 +65,7 @@ namespace Ox {
 
     template< typename MeasureType >
     const MeasureType *
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getEchoTimes() const {
 //        if (!_EchoTimes) {
 //            throw std::runtime_error("_EchoTimes equals 0. Set _EchoTimes");
@@ -75,21 +75,21 @@ namespace Ox {
 
     template< typename MeasureType >
     const MeasureType *
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getRepTimes() const {
         return _RepTimes;
     }
 
     template< typename MeasureType >
     const MeasureType *
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getRelAcqTimes() const {
         return _RelAcqTimes;
     }
 
     template< typename MeasureType >
     const MeasureType *
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getSigMag() const {
         if (!_SigMag) {
             throw std::runtime_error("_SigMag equals 0. Set _SigMag" );
@@ -99,49 +99,49 @@ namespace Ox {
 
     template< typename MeasureType >
     const MeasureType *
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getSigPha() const {
         return _SigPha;
     }
 
     template< typename MeasureType >
     MeasureType *
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getSignal() const {
         return _Signal;
     }
 
     template< typename MeasureType >
     MeasureType *
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getSigns() const {
         return _Signs;
     }
 
     template< typename MeasureType >
     MeasureType *
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getStartPoint()  {
         return _StartPoint;
     }
 
     template< typename MeasureType >
     const CalculatorT1Results<MeasureType>
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getResults() const {
         return _Results;
     }
 
     template< typename MeasureType >
     MeasureType
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getMeanCutOff() const {
         return _MeanCutOff;
     }
 
     template< typename MeasureType >
     int
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getNSamples() const {
         if (!_nSamples) {
             throw std::runtime_error("_nSamples equals 0. Set _nSamples");
@@ -151,7 +151,7 @@ namespace Ox {
 
     template< typename MeasureType >
     int
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::getNDims() const {
         if (!_nDims) {
             throw std::runtime_error("_nDims equals 0. Set _nDims");
@@ -166,78 +166,78 @@ namespace Ox {
     // setters for the 'has a' classes
     template< typename MeasureType >
     void
-    CalculatorT1<MeasureType>
-    ::setFunctionsT1(FunctionsT1<MeasureType> *_FunctionsT1) {
-        setNDims(_FunctionsT1->getNDims());
-        CalculatorT1::_FunctionsT1 = _FunctionsT1;
+    Calculator<MeasureType>
+    ::setModelT1(Model<MeasureType> *_ModelT1) {
+        setNDims(_ModelT1->getNDims());
+        Calculator::_ModelT1 = _ModelT1;
     }
 
     template< typename MeasureType >
     void
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::setFitter(Fitter<MeasureType> *_Fitter) {
-        CalculatorT1::_Fitter = _Fitter;
+        Calculator::_Fitter = _Fitter;
     }
 
     template< typename MeasureType >
     void
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::setSignCalculator(SignCalculator<MeasureType> *_SignCalculator) {
-        CalculatorT1::_SignCalculator = _SignCalculator;
+        Calculator::_SignCalculator = _SignCalculator;
     }
 
     template< typename MeasureType >
     void
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::setStartPointCalculator(StartPointCalculator<MeasureType> *_StartPointCalculator) {
-        CalculatorT1::_StartPointCalculator = _StartPointCalculator;
+        Calculator::_StartPointCalculator = _StartPointCalculator;
     }
 
     // setters for the data
     template< typename MeasureType >
     void
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::setInvTimes(const MeasureType *_InvTimes) {
-        CalculatorT1::_InvTimes = _InvTimes;
+        Calculator::_InvTimes = _InvTimes;
     }
 
     template< typename MeasureType >
     void
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::setEchoTimes(const MeasureType *_EchoTimes) {
-        CalculatorT1::_EchoTimes = _EchoTimes;
+        Calculator::_EchoTimes = _EchoTimes;
     }
 
     template< typename MeasureType >
     void
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::setSigMag(const MeasureType *_SigMag) {
-        CalculatorT1::_SigMag = _SigMag;
+        Calculator::_SigMag = _SigMag;
     }
 
     template< typename MeasureType >
     void
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::setSigPha(const MeasureType *_SigPha) {
-        CalculatorT1::_SigPha = _SigPha;
+        Calculator::_SigPha = _SigPha;
     }
 
     template< typename MeasureType >
     void
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::setMeanCutOff(MeasureType _MeanCutOff) {
-        CalculatorT1::_MeanCutOff = _MeanCutOff;
+        Calculator::_MeanCutOff = _MeanCutOff;
     }
 
     template< typename MeasureType >
     void
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::setNSamples(int _nSamples) {
 
         delete [] _Signal; _Signal = 0;
         delete [] _Signs; _Signs = 0;
 
-        CalculatorT1::_nSamples = _nSamples;
+        Calculator::_nSamples = _nSamples;
 
         _Signal = new MeasureType[_nSamples];
         _Signs = new MeasureType[_nSamples];
@@ -254,12 +254,12 @@ namespace Ox {
      */
     template< typename MeasureType >
     void
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::setNDims(int _nDims){
 
         delete [] _StartPoint; _StartPoint = 0;
 
-        CalculatorT1::_nDims = _nDims;
+        Calculator::_nDims = _nDims;
 
         _StartPoint = new MeasureType[_nDims];
 
@@ -269,63 +269,11 @@ namespace Ox {
     }
 
     template< typename MeasureType >
-    int
-    CalculatorT1<MeasureType>
-    ::prepareToCalculate(){
-
-        // if fitter does not have to iterate, do not calculate
-        if (this->getFitter()->getMaxFunctionEvals() == 0){
-            return 1; // EXIT_FAILURE
-        }
-
-        // verify invTimes are sorted
-        for (int i = 0; i < getNSamples()-1; i++){
-            if (getInvTimes()[i] > getInvTimes()[i+1]){
-                throw std::runtime_error("InvTimes have to be sorted!");
-            }
-        }
-
-        // calculate sign
-        getSignCalculator()->setNSamples(getNSamples());
-        getSignCalculator()->setInvTimes(getInvTimes());
-        getSignCalculator()->setSigMag(getSigMag());
-        getSignCalculator()->setSigPha(getSigPha());
-        getSignCalculator()->setSignal(_Signal);
-        getSignCalculator()->setSigns(_Signs);
-
-        getSignCalculator()->calculateSign();
-
-        // calculate start point
-        getStartPointCalculator()->setNDims(_nDims);
-        if (!getStartPointCalculator()->getInputStartPoint()){
-            if (_nDims == 2){
-                MeasureType const temp[] = {100, 1000};
-                getStartPointCalculator()->setInputStartPoint(temp);
-            } else if (_nDims == 3){
-                MeasureType const temp[] = {100, 200, 1000};
-                getStartPointCalculator()->setInputStartPoint(temp);
-            } else {
-                throw std::runtime_error("CalculatorT1: Set InputStartPoint in StartPointCalculator");
-            }
-        }
-        getStartPointCalculator()->setNSamples(getNSamples());
-        getStartPointCalculator()->setInvTimes(getInvTimes());
-        getStartPointCalculator()->setSigMag(getSigMag());
-        getStartPointCalculator()->setSigns(getSigns());
-        getStartPointCalculator()->setCalculatedStartPoint(_StartPoint);
-
-        getStartPointCalculator()->calculateStartPoint();
-
-        return 0; // EXIT_SUCCESS
-    };
-
-
-    template< typename MeasureType >
     void
-    CalculatorT1<MeasureType>
+    Calculator<MeasureType>
     ::disp(){
         int nSamples = this->getNSamples();
-        std::cout << "\nYou called disp() on a CalculatorT1 object " << this
+        std::cout << "\nYou called disp() on a Calculator object " << this
                   << " with nSamples: " << nSamples
                   << " nDims: " << _nDims;
         KWUtil::printArray(_InvTimes != 0, nSamples, _InvTimes,       (char*)"\nInvTimes:    ");
@@ -338,23 +286,23 @@ namespace Ox {
         KWUtil::printArray(_Signs != 0, nSamples, _Signs,             (char*)"\nSigns:       ");
         KWUtil::printArray(_StartPoint != 0, _nDims, _StartPoint,     (char*)"\nStart point: ");
         std::cout << std::endl;
-        if(_FunctionsT1) {
-            std::cout << "This CalculatorT1 contains the following FunctionsT1 object: ";
-            _FunctionsT1->disp();
+        if(_ModelT1) {
+            std::cout << "This Calculator contains the following Model object: ";
+            _ModelT1->disp();
         }
 
         if(_Fitter) {
-            std::cout << "This CalculatorT1 contains the following Fitter object: ";
+            std::cout << "This Calculator contains the following Fitter object: ";
             _Fitter->disp();
         }
 
         if(_SignCalculator) {
-            std::cout << "This CalculatorT1 contains the following SignCalculator object: ";
+            std::cout << "This Calculator contains the following SignCalculator object: ";
             _SignCalculator->disp();
         };
 
         if(_StartPointCalculator) {
-            std::cout << "This CalculatorT1 contains the following StartPointCalculator object: ";
+            std::cout << "This Calculator contains the following StartPointCalculator object: ";
             _StartPointCalculator->disp();
         };
 

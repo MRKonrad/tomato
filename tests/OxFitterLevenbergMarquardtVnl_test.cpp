@@ -10,7 +10,7 @@
 #include "gtest/gtest.h"
 #include "OxTestData.h"
 
-#include "OxFunctionsT1ThreeParam.h"
+#include "OxModelT1ThreeParam.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
 
 TEST(OxFitterLevenbergMarquardtVnl, performFitting) {
@@ -23,13 +23,13 @@ TEST(OxFitterLevenbergMarquardtVnl, performFitting) {
 
     double params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
 
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
-    fitter.setFunctionsT1(&functionsObject);
+    fitter.setModelT1(&functionsObject);
     fitter.setParameters(params);
 
     fitter.setVerbose(false);
@@ -53,13 +53,13 @@ TEST(OxFitterLevenbergMarquardtVnl, copyConstructor) {
 
     double params[3] = {100, 200, 1200};
 
-    Ox::FunctionsT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
     functionsObject.setNSamples(nSamples);
     functionsObject.setInvTimes(testData.getInvTimesPtr());
     functionsObject.setSignal(testData.getSignalPtr());
 
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
-    fitter.setFunctionsT1(&functionsObject);
+    fitter.setModelT1(&functionsObject);
     fitter.setMaxFunctionEvals(123);
     fitter.setParameters(params);
 
@@ -69,9 +69,9 @@ TEST(OxFitterLevenbergMarquardtVnl, copyConstructor) {
     // MaxFunctionEvals should be the same
     EXPECT_EQ( fitterCopy.getMaxFunctionEvals(), fitter.getMaxFunctionEvals());
 
-    // FunctionsT1 was not declared for the copy, so it should be empty
-    EXPECT_FALSE( fitterCopy.getFunctionsT1());
-    EXPECT_NE( fitterCopy.getFunctionsT1(), fitter.getFunctionsT1());
+    // Model was not declared for the copy, so it should be empty
+    EXPECT_FALSE( fitterCopy.getModelT1());
+    EXPECT_NE( fitterCopy.getModelT1(), fitter.getModelT1());
 
     // new FunctionsAdaptedToVnl should NOT be copied in the constructor
     EXPECT_FALSE( fitterCopy.getFunctionsAdaptedToVnl());

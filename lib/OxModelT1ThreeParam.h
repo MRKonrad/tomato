@@ -1,14 +1,14 @@
 /*!
- * \file OxFunctionsT1ThreeParam.h
+ * \file OxModelT1ThreeParam.h
  * \author Konrad Werys
  * \date 2018/07/29
  */
 
-#ifndef Tomato_OXFUNCTIONST1ThreeParam_H
-#define Tomato_OXFUNCTIONST1ThreeParam_H
+#ifndef Tomato_OXModelT1ThreeParam_H
+#define Tomato_OXModelT1ThreeParam_H
 
 #include "tomatolib_export.h"
-#include "OxFunctionsT1.h"
+#include "OxModel.h"
 #include <cmath>
 
 namespace Ox {
@@ -20,7 +20,7 @@ namespace Ox {
      * @tparam MeasureType
      */
     template< typename MeasureType >
-    class FunctionsT1ThreeParam : public FunctionsT1<MeasureType>{
+    class ModelT1ThreeParam : public Model<MeasureType>{
 
     public:
 
@@ -30,7 +30,7 @@ namespace Ox {
         virtual MeasureType calcCostValue(const MeasureType* parameters );
         virtual void calcCostDerivative(const MeasureType* parameters, MeasureType* derivative);
 
-        FunctionsT1ThreeParam() : FunctionsT1<MeasureType>(){
+        ModelT1ThreeParam() : Model<MeasureType>(){
             this->_nDims = 3;
         }
 
@@ -38,18 +38,18 @@ namespace Ox {
          * cloning
          * @return
          */
-        virtual FunctionsT1<MeasureType> *newByCloning() { return new FunctionsT1ThreeParam<MeasureType>(*this); }
+        virtual Model<MeasureType> *newByCloning() { return new ModelT1ThreeParam<MeasureType>(*this); }
 
         /**
          * \brief do not forget about the virtual destructor, see
          * https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
          */
-        virtual ~FunctionsT1ThreeParam(){};
+        virtual ~ModelT1ThreeParam(){};
     };
 } //namespace Ox
 
 #ifndef TOMATOLIB_COMPILED
-#include "OxFunctionsT1ThreeParam.hxx"
+#include "OxModelT1ThreeParam.hxx"
 #endif //TOMATOLIB_COMPILED
 
-#endif //Tomato_OXFUNCTIONST1ThreeParam_H
+#endif //Tomato_OXModelT1ThreeParam_H

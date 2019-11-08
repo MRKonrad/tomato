@@ -18,7 +18,7 @@
 /* ************* */
 /*  calculators  */
 /* ************* */
-#include "OxCalculatorT1.h"
+#include "OxCalculator.h"
 #include "OxCalculatorT1Molli.h"
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1Shmolli.h"
@@ -43,13 +43,13 @@
 /* ************* */
 /*   functions   */
 /* ************* */
-#include "OxFunctionsT1.h"
-#include "OxFunctionsT1ThreeParam.h"
+#include "OxModel.h"
+#include "OxModelT1ThreeParam.h"
 #ifdef USE_PRIVATE_NR2
-#include "OxFunctionsT1Shmolli.h"
+#include "OxModelT1Shmolli.h"
 #endif //USE_PRIVATE_NR2
 #ifdef USE_LMFIT
-#include "OxFunctionsT1AdapterLmfitLeastSquares.h"
+#include "OxModelT1AdapterLmfitLeastSquares.h"
 #endif // USE_LMFIT
 
 /* **************** */
@@ -88,7 +88,7 @@ namespace Ox {
     /* ************* */
     /*  calculators  */
     /* ************* */
-    template class TOMATOLIB_EXPORT CalculatorT1<double>;
+    template class TOMATOLIB_EXPORT Calculator<double>;
     template class TOMATOLIB_EXPORT CalculatorT1Molli<double>;
 #ifdef USE_PRIVATE_NR2
     template class TOMATOLIB_EXPORT CalculatorT1Shmolli<double>;
@@ -113,13 +113,13 @@ namespace Ox {
     /* ************* */
     /*   functions   */
     /* ************* */
-    template class TOMATOLIB_EXPORT FunctionsT1<double>;
-    template class TOMATOLIB_EXPORT FunctionsT1ThreeParam<double>;
+    template class TOMATOLIB_EXPORT Model<double>;
+    template class TOMATOLIB_EXPORT ModelT1ThreeParam<double>;
 #ifdef USE_PRIVATE_NR2
-    template class TOMATOLIB_EXPORT FunctionsT1Shmolli<double>;
+    template class TOMATOLIB_EXPORT ModelT1Shmolli<double>;
 #endif //USE_PRIVATE_NR2
 #ifdef USE_LMFIT
-    template class TOMATOLIB_EXPORT FunctionsT1AdapterLmfitLeastSquares<double>;
+    template class TOMATOLIB_EXPORT ModelT1AdapterLmfitLeastSquares<double>;
 #endif // USE_LMFIT
 
     /* **************** */
