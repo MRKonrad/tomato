@@ -135,9 +135,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6f15bc9c026305248c927d62748903bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a591ec9658fb5a3e4f48715057cf62b38"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t1_molli.html#a591ec9658fb5a3e4f48715057cf62b38">prepareToCalculate</a> ()</td></tr>
 <tr class="separator:a591ec9658fb5a3e4f48715057cf62b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cb84f5e8680e1bf6c3543846fc90c4d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_ox_1_1_calculator_t1_results.html">CalculatorT1Results</a><br class="typebreak"/>
-&lt; MeasureType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t1_molli.html#a9cb84f5e8680e1bf6c3543846fc90c4d">calculateMolli</a> (int nSamples, const MeasureType *invTimes, MeasureType *signal, MeasureType *signs)</td></tr>
-<tr class="separator:a9cb84f5e8680e1bf6c3543846fc90c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac275f14715caf983839e13f89a87e8d1"><td class="memItemLeft" align="right" valign="top">virtual std::map&lt; std::string, <br class="typebreak"/>
+MeasureType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t1_molli.html#ac275f14715caf983839e13f89a87e8d1">calculateMolli</a> (int nSamples, const MeasureType *invTimes, MeasureType *signal, MeasureType *signs)</td></tr>
+<tr class="separator:ac275f14715caf983839e13f89a87e8d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c9238dd8a96e06d3e0a96810377b90b"><td class="memItemLeft" align="right" valign="top">MeasureType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t1_molli.html#a9c9238dd8a96e06d3e0a96810377b90b">calculateR2AbsFromModel</a> (int nSamples, const MeasureType *invTimes, const MeasureType *signal, const MeasureType *parameters)</td></tr>
 <tr class="separator:a9c9238dd8a96e06d3e0a96810377b90b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a030582bca754a7b81febfae53fe0c10c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t1_molli.html#a030582bca754a7b81febfae53fe0c10c">calculateCovarianceMatrix</a> (const MeasureType *parameters, MeasureType *covarianceMatrix)</td></tr>
@@ -153,14 +153,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2a924ff09d446b51542dc246a6a04bd3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_ox_1_1_calculator.html">Calculator</a>&lt; MeasureType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t1_molli.html#a2a924ff09d446b51542dc246a6a04bd3">newByCloning</a> ()</td></tr>
 <tr class="separator:a2a924ff09d446b51542dc246a6a04bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_ox_1_1_calculator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_ox_1_1_calculator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_ox_1_1_calculator.html">Ox::Calculator&lt; MeasureType &gt;</a></td></tr>
+<tr class="memitem:a4b04d48cb906764aa235c387b631dca4 inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b04d48cb906764aa235c387b631dca4"></a>
+std::map&lt; std::string, <br class="typebreak"/>
+MeasureType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getResults</b> () const </td></tr>
+<tr class="separator:a4b04d48cb906764aa235c387b631dca4 inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5589bf7b93a2d1e106532c35745f4329 inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ox_1_1_model.html">Model</a>&lt; MeasureType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator.html#a5589bf7b93a2d1e106532c35745f4329">getModel</a> () const </td></tr>
 <tr class="separator:a5589bf7b93a2d1e106532c35745f4329 inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af648a7c6c957c9f51532f15c93147d62 inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ox_1_1_fitter.html">Fitter</a>&lt; MeasureType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator.html#af648a7c6c957c9f51532f15c93147d62">getFitter</a> () const </td></tr>
 <tr class="separator:af648a7c6c957c9f51532f15c93147d62 inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad43fbbb3e888e1fa73f95d872a963bac inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ox_1_1_start_point_calculator.html">StartPointCalculator</a><br class="typebreak"/>
-&lt; MeasureType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator.html#ad43fbbb3e888e1fa73f95d872a963bac">getStartPointCalculator</a> () const </td></tr>
+<tr class="memitem:ad43fbbb3e888e1fa73f95d872a963bac inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad43fbbb3e888e1fa73f95d872a963bac"></a>
+<a class="el" href="class_ox_1_1_start_point_calculator.html">StartPointCalculator</a><br class="typebreak"/>
+&lt; MeasureType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getStartPointCalculator</b> () const </td></tr>
 <tr class="separator:ad43fbbb3e888e1fa73f95d872a963bac inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ee7fdeb4009d2e433ef6a566768eb25 inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ox_1_1_sign_calculator.html">SignCalculator</a>&lt; MeasureType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator.html#a4ee7fdeb4009d2e433ef6a566768eb25">getSignCalculator</a> () const </td></tr>
+<tr class="memitem:a4ee7fdeb4009d2e433ef6a566768eb25 inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4ee7fdeb4009d2e433ef6a566768eb25"></a>
+<a class="el" href="class_ox_1_1_sign_calculator.html">SignCalculator</a>&lt; MeasureType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getSignCalculator</b> () const </td></tr>
 <tr class="separator:a4ee7fdeb4009d2e433ef6a566768eb25 inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab844b24dfedd27d52466203ec0c913fa inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top">const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator.html#ab844b24dfedd27d52466203ec0c913fa">getInvTimes</a> () const </td></tr>
 <tr class="separator:ab844b24dfedd27d52466203ec0c913fa inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,10 +192,6 @@ MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getSigns</b>
 <tr class="memitem:aebf55897e1f11cdd3afec75d24c8ea13 inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebf55897e1f11cdd3afec75d24c8ea13"></a>
 MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getStartPoint</b> ()</td></tr>
 <tr class="separator:aebf55897e1f11cdd3afec75d24c8ea13 inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98d3b018916c58f01f200085f20c219f inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98d3b018916c58f01f200085f20c219f"></a>
-const <a class="el" href="struct_ox_1_1_calculator_t1_results.html">CalculatorT1Results</a><br class="typebreak"/>
-&lt; MeasureType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getResults</b> () const </td></tr>
-<tr class="separator:a98d3b018916c58f01f200085f20c219f inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8232921e636ebc91a102bc2e95596a7b inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8232921e636ebc91a102bc2e95596a7b"></a>
 MeasureType&#160;</td><td class="memItemRight" valign="bottom"><b>getMeanCutOff</b> () const </td></tr>
 <tr class="separator:a8232921e636ebc91a102bc2e95596a7b inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -258,9 +260,6 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>MaxTIForSignInvert<
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>_DoCalculateSDMap</b></td></tr>
 <tr class="separator:adbe23b503f5695ff35734d2c20972277"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_ox_1_1_calculator"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_ox_1_1_calculator')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_ox_1_1_calculator.html">Ox::Calculator&lt; MeasureType &gt;</a></td></tr>
-<tr class="memitem:a33781b22c48568477b0a1ac24d9eae17 inherit pro_attribs_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33781b22c48568477b0a1ac24d9eae17"></a>
-<a class="el" href="struct_ox_1_1_calculator_t1_results.html">CalculatorT1Results</a>&lt; MeasureType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_Results</b></td></tr>
-<tr class="separator:a33781b22c48568477b0a1ac24d9eae17 inherit pro_attribs_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37dee4f1bb2fcae66c6710a642fe6d7b inherit pro_attribs_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37dee4f1bb2fcae66c6710a642fe6d7b"></a>
 <a class="el" href="class_ox_1_1_model.html">Model</a>&lt; MeasureType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>_Model</b></td></tr>
 <tr class="separator:a37dee4f1bb2fcae66c6710a642fe6d7b inherit pro_attribs_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -310,6 +309,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_nDims</b></td></tr>
 <tr class="memitem:a27f0852e7c77218109b9fc3df8b92b07 inherit pro_attribs_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27f0852e7c77218109b9fc3df8b92b07"></a>
 MeasureType&#160;</td><td class="memItemRight" valign="bottom"><b>_MeanCutOff</b></td></tr>
 <tr class="separator:a27f0852e7c77218109b9fc3df8b92b07 inherit pro_attribs_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adae260195d2f056224dbae5e9e34288d inherit pro_attribs_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adae260195d2f056224dbae5e9e34288d"></a>
+std::map&lt; std::string, <br class="typebreak"/>
+MeasureType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_Results</b></td></tr>
+<tr class="separator:adae260195d2f056224dbae5e9e34288d inherit pro_attribs_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
@@ -377,7 +380,7 @@ template&lt;typename MeasureType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>calling <a class="el" href="class_ox_1_1_calculator_t1_molli.html#a9cb84f5e8680e1bf6c3543846fc90c4d">calculateMolli(int nSamples, const MeasureType* invTimes, MeasureType* signal, MeasureType* signs)</a> </p>
+<p>calling <a class="el" href="class_ox_1_1_calculator_t1_molli.html#ac275f14715caf983839e13f89a87e8d1">calculateMolli(int nSamples, const MeasureType* invTimes, MeasureType* signal, MeasureType* signs)</a> </p>
 <dl class="section return"><dt>Returns</dt><dd>success/failure </dd></dl>
 
 <p>Implements <a class="el" href="class_ox_1_1_calculator.html#a9638894f2ec526b68f46f02122bae0c3">Ox::Calculator&lt; MeasureType &gt;</a>.</p>
@@ -474,7 +477,7 @@ template&lt;typename MeasureType &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a9cb84f5e8680e1bf6c3543846fc90c4d"></a>
+<a class="anchor" id="ac275f14715caf983839e13f89a87e8d1"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -484,7 +487,7 @@ template&lt;typename MeasureType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_ox_1_1_calculator_t1_results.html">CalculatorT1Results</a>&lt; MeasureType &gt; <a class="el" href="class_ox_1_1_calculator_t1_molli.html">Ox::CalculatorT1Molli</a>&lt; MeasureType &gt;::calculateMolli </td>
+          <td class="memname">std::map&lt; std::string, MeasureType &gt; <a class="el" href="class_ox_1_1_calculator_t1_molli.html">Ox::CalculatorT1Molli</a>&lt; MeasureType &gt;::calculateMolli </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>nSamples</em>, </td>
@@ -529,7 +532,7 @@ template&lt;typename MeasureType &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>success/failure </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>results </dd></dl>
 
 </div>
 </div>

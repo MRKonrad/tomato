@@ -20,9 +20,6 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
       [ "CalculatorT1Molli", "class_ox_1_1_calculator_t1_molli.html", "class_ox_1_1_calculator_t1_molli" ]
     ] ],
     [ "OxCalculatorT1Molli.hxx", "_ox_calculator_t1_molli_8hxx.html", null ],
-    [ "OxCalculatorT1Results.h", "_ox_calculator_t1_results_8h.html", [
-      [ "CalculatorT1Results", "struct_ox_1_1_calculator_t1_results.html", "struct_ox_1_1_calculator_t1_results" ]
-    ] ],
     [ "OxCalculatorT1Shmolli.h", "_ox_calculator_t1_shmolli_8h.html", [
       [ "CalculatorT1Shmolli", "class_ox_1_1_calculator_t1_shmolli.html", "class_ox_1_1_calculator_t1_shmolli" ]
     ] ],

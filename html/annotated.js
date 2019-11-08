@@ -9,7 +9,6 @@ var annotated =
       [ "FactoryOfStartPointCalculators", "class_ox_1_1_factory_of_start_point_calculators.html", null ],
       [ "Calculator", "class_ox_1_1_calculator.html", "class_ox_1_1_calculator" ],
       [ "CalculatorT1Molli", "class_ox_1_1_calculator_t1_molli.html", "class_ox_1_1_calculator_t1_molli" ],
-      [ "CalculatorT1Results", "struct_ox_1_1_calculator_t1_results.html", "struct_ox_1_1_calculator_t1_results" ],
       [ "CalculatorT1Shmolli", "class_ox_1_1_calculator_t1_shmolli.html", "class_ox_1_1_calculator_t1_shmolli" ],
       [ "CalculatorT2", "class_ox_1_1_calculator_t2.html", "class_ox_1_1_calculator_t2" ],
       [ "Fitter", "class_ox_1_1_fitter.html", "class_ox_1_1_fitter" ],
@@ -30,7 +29,6 @@ var annotated =
       [ "TestImage", "class_ox_1_1_test_image.html", "class_ox_1_1_test_image" ]
     ] ],
     [ "CalculatorT1", "class_calculator_t1.html", null ],
-    [ "CalculatorT2ImageFilter", "class_calculator_t2_image_filter.html", null ],
     [ "KWUtil", "class_k_w_util.html", null ],
     [ "OxCalculatorT1Shmolli", "class_ox_calculator_t1_shmolli.html", null ]
 ];

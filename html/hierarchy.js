@@ -7,8 +7,6 @@ var hierarchy =
       [ "Ox::CalculatorT2< MeasureType >", "class_ox_1_1_calculator_t2.html", null ]
     ] ],
     [ "CalculatorT1", "class_calculator_t1.html", null ],
-    [ "Ox::CalculatorT1Results< MeasureType >", "struct_ox_1_1_calculator_t1_results.html", null ],
-    [ "CalculatorT2ImageFilter", "class_calculator_t2_image_filter.html", null ],
     [ "Ox::FactoryOfCalculators< TYPE >", "class_ox_1_1_factory_of_calculators.html", null ],
     [ "Ox::FactoryOfFitters< TYPE >", "class_ox_1_1_factory_of_fitters.html", null ],
     [ "Ox::FactoryOfFunctions< TYPE >", "class_ox_1_1_factory_of_functions.html", null ],

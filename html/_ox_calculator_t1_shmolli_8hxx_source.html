@@ -244,7 +244,7 @@ $(document).ready(function(){initNavTree('_ox_calculator_t1_shmolli_8hxx_source.
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <a class="code" href="class_ox_1_1_calculator_t1_shmolli.html#ac689ebbf27f95f6fa2559cc13a824db0">CalculatorT1Shmolli&lt;MeasureType&gt;</a></div>
 <div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t1_shmolli.html#ac689ebbf27f95f6fa2559cc13a824db0">  143</a></span>&#160;<a class="code" href="class_ox_1_1_calculator_t1_shmolli.html#ac689ebbf27f95f6fa2559cc13a824db0">    ::calculate</a>(){</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        this-&gt;_Results = <a class="code" href="struct_ox_1_1_calculator_t1_results.html">CalculatorT1Results&lt;MeasureType&gt;</a>();</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        this-&gt;_Results = std::map &lt;std::string, MeasureType&gt;();</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="comment">// calculate if higher than the cutoff</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">if</span> (KWUtil::calcMeanArray(this-&gt;getNSamples(), this-&gt;getSigMag()) &lt; this-&gt;getMeanCutOff()) {</div>
@@ -271,7 +271,7 @@ $(document).ready(function(){initNavTree('_ox_calculator_t1_shmolli_8hxx_source.
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nShmolliSamplesUsed = 0;</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        MeasureType TRRaverageHB = this-&gt;_TRRaverageHB;</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <a class="code" href="struct_ox_1_1_calculator_t1_results.html">CalculatorT1Results&lt;MeasureType&gt;</a> results0, results5, results6, results7;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        std::map &lt;std::string, MeasureType&gt; results0, results5, results6, results7;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        MeasureType signal5[5],   signal6[6],   signal7[7];</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        MeasureType invTimes5[5], invTimes6[6], invTimes7[7];</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        MeasureType signs5[5],    signs6[6],    signs7[7];</div>
@@ -291,35 +291,35 @@ $(document).ready(function(){initNavTree('_ox_calculator_t1_shmolli_8hxx_source.
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="comment">// 5els fitting</span></div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        results5 = this-&gt;calculateMolli(5, invTimes5, signal5, signs5);</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="keywordflow">if</span> (results5.A &gt; 1){ <span class="comment">// converged</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="keywordflow">if</span> (results5[<span class="stringliteral">&quot;A&quot;</span>] &gt; 1){ <span class="comment">// converged</span></div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            nShmolliSamplesUsed = 5;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            T1temp = results5.T1;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            chiTemp = results5.ChiSqrt; <span class="comment">// legacy</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            T1temp = results5[<span class="stringliteral">&quot;T1&quot;</span>];</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            chiTemp = results5[<span class="stringliteral">&quot;ChiSqrt&quot;</span>]; <span class="comment">// legacy</span></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            chiTemp = results5.LastValue; <span class="comment">// legacy, very small amount of pixels (3) influenced by it</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            chiTemp = results5[<span class="stringliteral">&quot;LastValue&quot;</span>]; <span class="comment">// legacy, very small amount of pixels (3) influenced by it</span></div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        }</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="comment">// 6els fitting</span></div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        results6 = this-&gt;calculateMolli(6, invTimes6, signal6, signs6);</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">if</span> ((T1temp &lt;= TRRaverageHB) <span class="comment">// KW: has to be T1temp in these cases that do not converge</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            || (results6.A &lt;= 1) <span class="comment">// not converged</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            || (results6.T1 &lt;= 0.4 * TRRaverageHB) <span class="comment">// prevent from errors in v.short range. KW: very small amount of pixels (14) influenced by it</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            || (results6[<span class="stringliteral">&quot;A&quot;</span>] &lt;= 1) <span class="comment">// not converged</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            || (results6[<span class="stringliteral">&quot;T1&quot;</span>] &lt;= 0.4 * TRRaverageHB) <span class="comment">// prevent from errors in v.short range. KW: very small amount of pixels (14) influenced by it</span></div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                )</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        {</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            <span class="keywordflow">if</span> ((results6.A &gt; 1) <span class="comment">// converged</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                &amp;&amp; (results6.ChiSqrt * results6.T1 &lt; chiTemp * TRRaverageHB))</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            <span class="keywordflow">if</span> ((results6[<span class="stringliteral">&quot;A&quot;</span>] &gt; 1) <span class="comment">// converged</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                &amp;&amp; (results6[<span class="stringliteral">&quot;ChiSqrt&quot;</span>] * results6[<span class="stringliteral">&quot;T1&quot;</span>] &lt; chiTemp * TRRaverageHB))</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            {</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                nShmolliSamplesUsed = 6;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                T1temp = results6.T1;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                T1temp = results6[<span class="stringliteral">&quot;T1&quot;</span>];</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            }</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            <span class="comment">// 7els fitting</span></div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            results7 = this-&gt;calculateMolli(7, invTimes7, signal7, signs7);</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            <span class="keywordflow">if</span> ((results7.A &gt; 1) <span class="comment">// converged</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                &amp;&amp; (results7.ChiSqrt * results7.T1 &lt; results6.ChiSqrt * TRRaverageHB * 0.4) <span class="comment">// KW: in the article results5 instead of 6. 1422 pixels influenced by change</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            <span class="keywordflow">if</span> ((results7[<span class="stringliteral">&quot;A&quot;</span>] &gt; 1) <span class="comment">// converged</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                &amp;&amp; (results7[<span class="stringliteral">&quot;ChiSqrt&quot;</span>] * results7[<span class="stringliteral">&quot;T1&quot;</span>] &lt; results6[<span class="stringliteral">&quot;ChiSqrt&quot;</span>] * TRRaverageHB * 0.4) <span class="comment">// KW: in the article results5 instead of 6. 1422 pixels influenced by change</span></div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                &amp;&amp; (T1temp &lt; TRRaverageHB) <span class="comment">// KW: not a single pixel influenced by it</span></div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                    )</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            {</div>
@@ -341,8 +341,8 @@ $(document).ready(function(){initNavTree('_ox_calculator_t1_shmolli_8hxx_source.
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            <span class="comment">//std::cout &lt;&lt; &quot;ShMOLLI calculation error&quot; &lt;&lt; std::endl;</span></div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            <span class="comment">//throw itk::ExceptionObject(__FILE__, __LINE__, &quot;ShMOLLI calculation error&quot;);</span></div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        }</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        this-&gt;_Results.NShmolliSamplesUsed = nShmolliSamplesUsed;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        this-&gt;_Results.hasBeenCalculated = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        this-&gt;_Results[<span class="stringliteral">&quot;NShmolliSamplesUsed&quot;</span>] = nShmolliSamplesUsed;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        this-&gt;_Results[<span class="stringliteral">&quot;hasBeenCalculated&quot;</span>] = 1;</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    }</div>
@@ -366,7 +366,6 @@ $(document).ready(function(){initNavTree('_ox_calculator_t1_shmolli_8hxx_source.
 <div class="ttc" id="class_ox_1_1_calculator_t1_shmolli_html_a2c4444b1aa40e3f01b7cf0b8e7f7672b"><div class="ttname"><a href="class_ox_1_1_calculator_t1_shmolli.html#a2c4444b1aa40e3f01b7cf0b8e7f7672b">Ox::CalculatorT1Shmolli::calculateTRRaverageHB</a></div><div class="ttdeci">int calculateTRRaverageHB()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT1Shmolli.hxx:122</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t1_shmolli_html_ac689ebbf27f95f6fa2559cc13a824db0"><div class="ttname"><a href="class_ox_1_1_calculator_t1_shmolli.html#ac689ebbf27f95f6fa2559cc13a824db0">Ox::CalculatorT1Shmolli::calculate</a></div><div class="ttdeci">virtual int calculate()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT1Shmolli.hxx:143</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t1_shmolli_html_a6464c63f20ecd9de842d722e5d9d2866"><div class="ttname"><a href="class_ox_1_1_calculator_t1_shmolli.html#a6464c63f20ecd9de842d722e5d9d2866">Ox::CalculatorT1Shmolli::prepareToCalculate</a></div><div class="ttdeci">virtual int prepareToCalculate()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT1Shmolli.hxx:15</div></div>
-<div class="ttc" id="struct_ox_1_1_calculator_t1_results_html"><div class="ttname"><a href="struct_ox_1_1_calculator_t1_results.html">Ox::CalculatorT1Results</a></div><div class="ttdef"><b>Definition:</b> OxCalculatorT1Results.h:14</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t1_shmolli_html"><div class="ttname"><a href="class_ox_1_1_calculator_t1_shmolli.html">Ox::CalculatorT1Shmolli</a></div><div class="ttdef"><b>Definition:</b> OxCalculatorT1Shmolli.h:22</div></div>
 <div class="ttc" id="class_ox_1_1_start_point_calculator_html"><div class="ttname"><a href="class_ox_1_1_start_point_calculator.html">Ox::StartPointCalculator</a></div><div class="ttdef"><b>Definition:</b> OxStartPointCalculator.h:21</div></div>
 <div class="ttc" id="class_ox_1_1_start_point_calculator_html_a9d1132410d68eb16f3f71ec4015c0b2f"><div class="ttname"><a href="class_ox_1_1_start_point_calculator.html#a9d1132410d68eb16f3f71ec4015c0b2f">Ox::StartPointCalculator::calculateStartPoint</a></div><div class="ttdeci">virtual int calculateStartPoint()=0</div></div>

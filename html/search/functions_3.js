@@ -7,7 +7,5 @@ var searchData=
   ['getndims',['getNDims',['../class_ox_1_1_calculator.html#a3a4266dedca7e02707e732a312b85048',1,'Ox::Calculator']]],
   ['getnsamples',['getNSamples',['../class_ox_1_1_calculator.html#a5e5b6e1af84b8713c833a25d7c0dd90d',1,'Ox::Calculator']]],
   ['getsigmag',['getSigMag',['../class_ox_1_1_calculator.html#ad9a623ee2bfc77732fa891c47c087aa9',1,'Ox::Calculator']]],
-  ['getsigncalculator',['getSignCalculator',['../class_ox_1_1_calculator.html#a4ee7fdeb4009d2e433ef6a566768eb25',1,'Ox::Calculator']]],
-  ['getsigpha',['getSigPha',['../class_ox_1_1_calculator.html#acf6021ef084c24636a344a12627caff5',1,'Ox::Calculator']]],
-  ['getstartpointcalculator',['getStartPointCalculator',['../class_ox_1_1_calculator.html#ad43fbbb3e888e1fa73f95d872a963bac',1,'Ox::Calculator']]]
+  ['getsigpha',['getSigPha',['../class_ox_1_1_calculator.html#acf6021ef084c24636a344a12627caff5',1,'Ox::Calculator']]]
 ];
