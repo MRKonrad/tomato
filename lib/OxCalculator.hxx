@@ -7,11 +7,20 @@
 #ifndef Tomato_OXCALCULATORT1_HXX
 #define Tomato_OXCALCULATORT1_HXX
 
+#include "OxCalculator.h"
+
 namespace Ox {
 
     /* ****************** */
     /* ***  GETTERS   *** */
     /* ****************** */
+
+    template<typename MeasureType>
+    std::map<std::string, MeasureType>
+    Calculator<MeasureType>
+    ::getResults() const {
+        return _Results;
+    }
 
     template< typename MeasureType >
     Model<MeasureType>*
@@ -125,12 +134,6 @@ namespace Ox {
         return _StartPoint;
     }
 
-    template< typename MeasureType >
-    const CalculatorT1Results<MeasureType>
-    Calculator<MeasureType>
-    ::getResults() const {
-        return _Results;
-    }
 
     template< typename MeasureType >
     MeasureType
@@ -305,10 +308,7 @@ namespace Ox {
             std::cout << "This Calculator contains the following StartPointCalculator object: ";
             _StartPointCalculator->disp();
         };
-
-        _Results.disp();
     }
-
 
 } //namespace Ox
 

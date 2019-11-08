@@ -23,7 +23,7 @@
 //#include "OxSignCalculatorRealImag.h"
 //#include "OxStartPointCalculatorShmolli.h"
 
-Ox::CalculatorT1Results<double> CalculateShmolli(
+std::map <std::string, double> CalculateShmolli(
         int nSamples, double* sigMag, double* sigPha, double* invTimes) {
 
     // initialise the necessary objects
@@ -56,11 +56,11 @@ TEST(OxCalculatorT1Shmolli, calculate_anything) {
     double sigPha[7] = {3918, 3560, 3587, -809, -729, -784, -795};
     double invTimes[7] = {100,  180,  260, 1715, 3337, 4907, 6455};
 
-    Ox::CalculatorT1Results<double> results = CalculateShmolli(nSamples, sigMag, sigPha, invTimes);
+    std::map <std::string, double> results = CalculateShmolli(nSamples, sigMag, sigPha, invTimes);
 
     //results.disp();
 
-    EXPECT_NE(results.T1, 0);
+    EXPECT_NE(results["T1"], 0);
 }
 
 //#endif // USE_VNL

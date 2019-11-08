@@ -54,9 +54,9 @@ TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
 
     CalculatorT1Molli.calculate();
 
-    EXPECT_DOUBLE_EQ(CalculatorT1Molli.getResults().A, 0);
-    EXPECT_DOUBLE_EQ(CalculatorT1Molli.getResults().B, 0);
-    EXPECT_DOUBLE_EQ(CalculatorT1Molli.getResults().T1star, 0);
+    EXPECT_DOUBLE_EQ(CalculatorT1Molli.getResults()["A"], 0);
+    EXPECT_DOUBLE_EQ(CalculatorT1Molli.getResults()["B"], 0);
+    EXPECT_DOUBLE_EQ(CalculatorT1Molli.getResults()["T1star"], 0);
 }
 #endif
 
@@ -133,9 +133,9 @@ TEST(OxCalculatorT1Molli, calculate_WithoutSigns) {
 
     calculatorT1Molli.calculate();
 
-    EXPECT_NEAR(calculatorT1Molli.getResults().A, testData.getResultsMolli()[0], 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults().B, testData.getResultsMolli()[1], 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults().T1star, testData.getResultsMolli()[2], 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults()["A"], testData.getResultsMolli()[0], 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults()["B"], testData.getResultsMolli()[1], 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults()["T1star"], testData.getResultsMolli()[2], 1e-2);
 }
 #endif
 
@@ -169,9 +169,9 @@ TEST(OxCalculatorT1Molli, calculate_WithSigns) {
 
     calculatorT1Molli.calculate();
 
-    EXPECT_NEAR(calculatorT1Molli.getResults().A, testData.getResultsMolli()[0], 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults().B, testData.getResultsMolli()[1], 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults().T1star, testData.getResultsMolli()[2], 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults()["A"], testData.getResultsMolli()[0], 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults()["B"], testData.getResultsMolli()[1], 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults()["T1star"], testData.getResultsMolli()[2], 1e-2);
 }
 #endif
 
@@ -262,9 +262,9 @@ TEST(OxCalculatorT1Molli, correctSDs) {
 
     calculatorT1Molli.calculate();
 
-    EXPECT_NEAR(calculatorT1Molli.getResults().SD_T1, 48.31, 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults().SD_A, 1.96, 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults().SD_B, 2.07, 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults()["SD_T1"], 48.31, 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults()["SD_A"], 1.96, 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults()["SD_B"], 2.07, 1e-2);
 }
 
 #endif

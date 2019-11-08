@@ -16,7 +16,6 @@ namespace itk {
     CalculatorT1ImageFilter<TImageIn, TImageOut>
     ::CalculatorT1ImageFilter() {
 
-        //this->UseShmolliOn();
         this->m_LimitOutputIntensity = true;
         this->m_UpperLimitOutputIntensity = 4000;
         this->m_LowerLimitOutputIntensity = 0;
@@ -30,9 +29,6 @@ namespace itk {
         this->m_ImageRegionSplitter = ImageRegionSplitterDirection::New();
         this->m_ImageRegionSplitter->SetDirection(2);
 
-//        this->SetCoordinateTolerance(1e-5);
-//        this->SetDirectionTolerance(1e-5);
-//        std::cout << this->GetCoordinateTolerance() << std::endl;
     }
 
     template<typename TImageIn, typename TImageOut>
@@ -95,17 +91,6 @@ namespace itk {
         direction[1][0] = imageMag->GetDirection()[1][0];
         direction[1][1] = imageMag->GetDirection()[1][1];
 
-
-//        vcl_cout << imageMag->GetSpacing() << vcl_endl;
-//        vcl_cout << imageMag->GetSpacing()[0] << vcl_endl;
-//        vcl_cout << imageMag->GetSpacing()[1] << vcl_endl;
-//        vcl_cout << imageMag->GetSpacing()[2] << vcl_endl;
-//        //spacing[0] = imageMag->GetSpacing()[0];
-//        vcl_cout << spacing << vcl_endl;
-//
-//        vcl_cout << imageMag->GetDirection() << vcl_endl;
-//        vcl_cout << this->GetOutput(0)->GetDirection() << vcl_endl;
-
         for (unsigned int i = 0; i < this->GetNumberOfOutputs(); i++){
             this->GetOutput(i)->SetLargestPossibleRegion(region);
             this->GetOutput(i)->SetSpacing(spacing);
@@ -118,7 +103,7 @@ namespace itk {
     typename TImageOut::PixelType
     CalculatorT1ImageFilter<TImageIn, TImageOut>
     ::LimitResult( typename TImageOut::PixelType result ) {
-        //typename TImageOut::InputPixelType result = std::round(resultBeforeCasting);
+
         if (GetLimitOutputIntensity()) {
             if (result < m_LowerLimitOutputIntensity) {
                 result = m_LowerLimitOutputIntensity;
@@ -134,9 +119,6 @@ namespace itk {
     void
     CalculatorT1ImageFilter<TImageIn, TImageOut>
     ::ThreadedGenerateData( const OutputImageRegionType& outputRegionForThread, ThreadIdType threadId ){
-
-        //std::cout << threadId << std::endl;
-        //std::cout << outputRegionForThread << std::endl;
 
         typename TImageIn::IndexType idx;
 
@@ -247,17 +229,17 @@ namespace itk {
             // to add/remove output
             // 1. change this->SetNumberOfRequiredOutputs(XXX); in the constructor
             // 2. add GetXXXImage method. Numbers below have to agree with GetXXXImage methods
-            itOutVector[0].Set(LimitResult(calculator->getResults().T1));
-            itOutVector[1].Set(LimitResult(calculator->getResults().R2));
-            itOutVector[2].Set(LimitResult(calculator->getResults().A));
-            itOutVector[3].Set(LimitResult(calculator->getResults().B));
-            itOutVector[4].Set(LimitResult(calculator->getResults().T1star));
-            itOutVector[5].Set(LimitResult(calculator->getResults().ChiSqrt));
-            itOutVector[6].Set(LimitResult(calculator->getResults().SNR));
-            itOutVector[7].Set(LimitResult(calculator->getResults().NShmolliSamplesUsed));
-            itOutVector[8].Set(LimitResult(calculator->getResults().SD_A));
-            itOutVector[9].Set(LimitResult(calculator->getResults().SD_B));
-            itOutVector[10].Set(LimitResult(calculator->getResults().SD_T1));
+            itOutVector[0].Set(LimitResult(calculator->getResults()["T1"]));
+            itOutVector[1].Set(LimitResult(calculator->getResults()["R2"]));
+            itOutVector[2].Set(LimitResult(calculator->getResults()["A"]));
+            itOutVector[3].Set(LimitResult(calculator->getResults()["B"]));
+            itOutVector[4].Set(LimitResult(calculator->getResults()["T1star"]));
+            itOutVector[5].Set(LimitResult(calculator->getResults()["ChiSqrt"]));
+            itOutVector[6].Set(LimitResult(calculator->getResults()["SNR"]));
+            itOutVector[7].Set(LimitResult(calculator->getResults()["NShmolliSamplesUsed"]));
+            itOutVector[8].Set(LimitResult(calculator->getResults()["SD_A"]));
+            itOutVector[9].Set(LimitResult(calculator->getResults()["SD_B"]));
+            itOutVector[10].Set(LimitResult(calculator->getResults()["SD_T1"]));
 
             // iterate all iterators accordingly
             for (unsigned int i = 0; i < outputImagesVector.size(); ++i) {

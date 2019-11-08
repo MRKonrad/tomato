@@ -172,9 +172,9 @@ namespace Ox {
 
             calculatorT1->calculate();
 
-            _imageResults[0 * (_nCols * _nRows) + pos] = calculatorT1->getResults().A;
-            _imageResults[1 * (_nCols * _nRows) + pos] = calculatorT1->getResults().B;
-            _imageResults[2 * (_nCols * _nRows) + pos] = calculatorT1->getResults().T1star;
+            _imageResults[0 * (_nCols * _nRows) + pos] = calculatorT1->getResults()["A"];
+            _imageResults[1 * (_nCols * _nRows) + pos] = calculatorT1->getResults()["B"];
+            _imageResults[2 * (_nCols * _nRows) + pos] = calculatorT1->getResults()["T1star"];
 
             delete [] sigMag;
             delete [] sigPha;

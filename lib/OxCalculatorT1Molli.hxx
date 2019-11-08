@@ -82,8 +82,6 @@ namespace Ox {
     CalculatorT1Molli<MeasureType>
     ::calculate(){
 
-        this->_Results = CalculatorT1Results<MeasureType>();
-
         // calculate if higher than the cutoff
         if (KWUtil::calcMeanArray(this->getNSamples(), this->getSigMag()) < this->getMeanCutOff()) {
             return 0; // EXIT_SUCCESS
@@ -103,12 +101,12 @@ namespace Ox {
     }
 
     template< typename MeasureType >
-    CalculatorT1Results<MeasureType>
+    std::map <std::string, MeasureType>
     CalculatorT1Molli<MeasureType>
     ::calculateMolli(int nSamples, const MeasureType* invTimes, MeasureType* signal, MeasureType* signs){
 
         // some initialisation
-        CalculatorT1Results<MeasureType> resultsStruc;
+        std::map <std::string, MeasureType> results;
 
         MeasureType lastValue = 1e32;
         MeasureType lastValueTemp = 1e32;
@@ -162,29 +160,29 @@ namespace Ox {
 
         if (lastValue != 1e32 && tempResults[0] != 0) {
             if (this->_nDims == 2) {
-                resultsStruc.A = tempResults[0];
-                resultsStruc.T1 = tempResults[1];
-                resultsStruc.R2 = calculateR2AbsFromModel(nSamples, invTimes, signal, tempResults);
-                resultsStruc.ChiSqrt = KWUtil::getChiSqrt(lastValue, nSamples);
-                resultsStruc.LastValue = lastValue;
+                results["A"] = tempResults[0];
+                results["T1"] = tempResults[1];
+                results["R2"] = calculateR2AbsFromModel(nSamples, invTimes, signal, tempResults);
+                results["ChiSqrt"] = KWUtil::getChiSqrt(lastValue, nSamples);
+                results["LastValue"] = lastValue;
             } else if (this->_nDims == 3) {
-                resultsStruc.T1 = tempResults[2] * (tempResults[1] / tempResults[0] - 1.);
-                resultsStruc.R2 = calculateR2AbsFromModel(nSamples, invTimes, signal, tempResults);
-                resultsStruc.A = tempResults[0];
-                resultsStruc.B = tempResults[1];
-                resultsStruc.T1star = tempResults[2];
-                resultsStruc.ChiSqrt = KWUtil::getChiSqrt(lastValue, nSamples);
-                resultsStruc.SNR = (resultsStruc.B - resultsStruc.A) / (resultsStruc.ChiSqrt + 0.001);
-                resultsStruc.LastValue = lastValue;
+                results["T1"] = tempResults[2] * (tempResults[1] / tempResults[0] - 1.);
+                results["R2"] = calculateR2AbsFromModel(nSamples, invTimes, signal, tempResults);
+                results["A"] = tempResults[0];
+                results["B"] = tempResults[1];
+                results["T1star"] = tempResults[2];
+                results["ChiSqrt"] = KWUtil::getChiSqrt(lastValue, nSamples);
+                results["SNR"] = (results["B"] - results["A"]) / (results["ChiSqrt"] + 0.001);
+                results["LastValue"] = lastValue;
 
                 MeasureType covarianceMatrix[3 * 3];
                 calculateCovarianceMatrix(tempResults, covarianceMatrix);
                 if (covarianceMatrix[4] > 0)
-                    resultsStruc.SD_A = sqrt(covarianceMatrix[4]); //  (1,1)
+                    results["SD_A"] = sqrt(covarianceMatrix[4]); //  (1,1)
                 if (covarianceMatrix[8] > 0)
-                    resultsStruc.SD_B = sqrt(covarianceMatrix[8]); //  (2,2)
+                    results["SD_B"] = sqrt(covarianceMatrix[8]); //  (2,2)
                 if (covarianceMatrix[0] > 0)
-                    resultsStruc.SD_T1 = sqrt(covarianceMatrix[0]); // (0,0)
+                    results["SD_T1"] = sqrt(covarianceMatrix[0]); // (0,0)
             }
 
         }
@@ -192,7 +190,7 @@ namespace Ox {
         delete [] tempParameters;
         delete [] tempResults;
 
-        return resultsStruc;
+        return results;
     }
 
     template< typename MeasureType >

@@ -49,9 +49,9 @@ TEST(OxCalculatorT2, blood) {
 
     calculatorT2.calculate();
 
-    EXPECT_NEAR(calculatorT2.getResults().A,  testData.getResultsThreeParam()[0], 1e-1);
-    EXPECT_NEAR(calculatorT2.getResults().B,  testData.getResultsThreeParam()[1], 1e-1);
-    EXPECT_NEAR(calculatorT2.getResults().T2, testData.getResultsThreeParam()[2], 1e-1);
+    EXPECT_NEAR(calculatorT2.getResults()["A"],  testData.getResultsThreeParam()[0], 1e-1);
+    EXPECT_NEAR(calculatorT2.getResults()["B"],  testData.getResultsThreeParam()[1], 1e-1);
+    EXPECT_NEAR(calculatorT2.getResults()["T2"], testData.getResultsThreeParam()[2], 1e-1);
 }
 #endif
 
@@ -85,8 +85,8 @@ TEST(OxCalculatorT2, myo) {
 
     calculatorT2.calculate();
 
-    EXPECT_NEAR(calculatorT2.getResults().A,  testData.getResultsThreeParam()[0], 1e-1);
-    EXPECT_NEAR(calculatorT2.getResults().B,  testData.getResultsThreeParam()[1], 1e-1);
-    EXPECT_NEAR(calculatorT2.getResults().T2, testData.getResultsThreeParam()[2], 1e-1);
+    EXPECT_NEAR(calculatorT2.getResults()["A"],  testData.getResultsThreeParam()[0], 1e-1);
+    EXPECT_NEAR(calculatorT2.getResults()["B"],  testData.getResultsThreeParam()[1], 1e-1);
+    EXPECT_NEAR(calculatorT2.getResults()["T2"], testData.getResultsThreeParam()[2], 1e-1);
 }
 #endif

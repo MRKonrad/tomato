@@ -51,8 +51,8 @@ TEST(OxCalculatorT1_saturation_recovery, twoParam) {
 
     calculatorT1Molli.calculate();
 
-    EXPECT_NEAR(calculatorT1Molli.getResults().A, testData.getResultsTwoParam()[0], 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults().T1, testData.getResultsTwoParam()[1], 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults()["A"], testData.getResultsTwoParam()[0], 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults()["T1"], testData.getResultsTwoParam()[1], 1e-2);
 }
 #endif
 
@@ -85,9 +85,9 @@ TEST(OxCalculatorT1_saturation_recovery, threeParam) {
 
     calculatorT1Molli.calculate();
 
-    EXPECT_NEAR(calculatorT1Molli.getResults().A, testData.getResultsThreeParam()[0], 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults().B, testData.getResultsThreeParam()[1], 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults().T1star, testData.getResultsThreeParam()[2], 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults()["A"], testData.getResultsThreeParam()[0], 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults()["B"], testData.getResultsThreeParam()[1], 1e-2);
+    EXPECT_NEAR(calculatorT1Molli.getResults()["T1star"], testData.getResultsThreeParam()[2], 1e-2);
 }
 #endif
 

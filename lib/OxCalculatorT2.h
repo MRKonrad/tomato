@@ -69,9 +69,8 @@ namespace Ox {
          */
         virtual Calculator<MeasureType> *newByCloning() { return new CalculatorT2<MeasureType>(*this); }
 
-
-
     protected:
+
         bool _DoCalculateSDMap;
     };
 

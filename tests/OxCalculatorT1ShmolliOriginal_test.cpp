@@ -33,9 +33,9 @@ TEST(OxCalculatorT1ShmolliOriginal, blood_test) {
 
     calculatorT1ShmolliOriginal.calculate();
 
-    EXPECT_NEAR(calculatorT1ShmolliOriginal.getResults().A, testData.getResultsShmolli()[0], 1e-0);
-    EXPECT_NEAR(calculatorT1ShmolliOriginal.getResults().B, testData.getResultsShmolli()[1], 1e-0);
-    EXPECT_NEAR(calculatorT1ShmolliOriginal.getResults().T1star, testData.getResultsShmolli()[2], 1e-0);
+    EXPECT_NEAR(calculatorT1ShmolliOriginal.getResults()["A"], testData.getResultsShmolli()[0], 1e-0);
+    EXPECT_NEAR(calculatorT1ShmolliOriginal.getResults()["B"], testData.getResultsShmolli()[1], 1e-0);
+    EXPECT_NEAR(calculatorT1ShmolliOriginal.getResults()["T1star"], testData.getResultsShmolli()[2], 1e-0);
 
 }
 
@@ -59,9 +59,9 @@ TEST(OxCalculatorT1ShmolliOriginal, myocardium_test) {
 
     calculatorT1ShmolliOriginal.calculate();
 
-    EXPECT_NEAR(calculatorT1ShmolliOriginal.getResults().A, testData.getResultsShmolli()[0], 1e-0);
-    EXPECT_NEAR(calculatorT1ShmolliOriginal.getResults().B, testData.getResultsShmolli()[1], 1e-0);
-    EXPECT_NEAR(calculatorT1ShmolliOriginal.getResults().T1star, testData.getResultsShmolli()[2], 1e-0);
+    EXPECT_NEAR(calculatorT1ShmolliOriginal.getResults()["A"], testData.getResultsShmolli()[0], 1e-0);
+    EXPECT_NEAR(calculatorT1ShmolliOriginal.getResults()["B"], testData.getResultsShmolli()[1], 1e-0);
+    EXPECT_NEAR(calculatorT1ShmolliOriginal.getResults()["T1star"], testData.getResultsShmolli()[2], 1e-0);
 
 }
 

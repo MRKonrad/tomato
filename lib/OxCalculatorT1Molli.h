@@ -41,9 +41,9 @@ namespace Ox {
          * @param invTimes
          * @param signal
          * @param signs
-         * @return success/failure
+         * @return results
          */
-        virtual CalculatorT1Results<MeasureType> calculateMolli(int nSamples, const MeasureType* invTimes, MeasureType* signal, MeasureType* signs);
+        virtual std::map <std::string, MeasureType> calculateMolli(int nSamples, const MeasureType* invTimes, MeasureType* signal, MeasureType* signs);
 
         /**
          * Calculate goodness of fit map

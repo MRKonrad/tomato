@@ -8,11 +8,11 @@
 #define Tomato_OXCALCULATORT1_H
 
 #include "tomatolib_export.h"
-#include "OxCalculatorT1Results.h"
 #include "OxFitter.h"
 #include "OxModel.h"
 #include "OxSignCalculator.h"
 #include "OxStartPointCalculator.h"
+#include <map>
 
 #include "KWUtil.h"
 
@@ -45,6 +45,8 @@ namespace Ox {
         /* ***  GETTERS   *** */
         /* ****************** */
 
+        std::map <std::string, MeasureType> getResults() const;
+
         /**
          * /throw exception if _Model == 0
          * @return
@@ -57,16 +59,8 @@ namespace Ox {
          */
         Fitter<MeasureType> *getFitter() const;
 
-        /**
-         * /throw exception if _StartPointCalculator == 0
-         * @return
-         */
         StartPointCalculator<MeasureType> *getStartPointCalculator() const;
 
-        /**
-         * /throw exception if _SignCalculator == 0
-         * @return
-         */
         SignCalculator<MeasureType> *getSignCalculator() const;
 
         /**
@@ -98,8 +92,6 @@ namespace Ox {
         MeasureType *getSigns() const;
 
         MeasureType * getStartPoint() ;
-
-        const CalculatorT1Results<MeasureType> getResults() const;
 
         MeasureType getMeanCutOff() const;
 
@@ -223,7 +215,6 @@ namespace Ox {
          };
 
     protected:
-        CalculatorT1Results<MeasureType> _Results; // we will be working with this one
 
         Model<MeasureType>* _Model;
         Fitter<MeasureType>* _Fitter;
@@ -243,6 +234,8 @@ namespace Ox {
         int _nSamples;
         int _nDims;
         MeasureType _MeanCutOff;
+
+        std::map <std::string, MeasureType> _Results;
 
     };
 } //namespace Ox

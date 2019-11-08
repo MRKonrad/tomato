@@ -142,7 +142,7 @@ namespace Ox {
     CalculatorT1Shmolli<MeasureType>
     ::calculate(){
 
-        this->_Results = CalculatorT1Results<MeasureType>();
+        this->_Results = std::map <std::string, MeasureType>();
 
         // calculate if higher than the cutoff
         if (KWUtil::calcMeanArray(this->getNSamples(), this->getSigMag()) < this->getMeanCutOff()) {
@@ -169,7 +169,7 @@ namespace Ox {
         unsigned int nShmolliSamplesUsed = 0;
         MeasureType TRRaverageHB = this->_TRRaverageHB;
 
-        CalculatorT1Results<MeasureType> results0, results5, results6, results7;
+        std::map <std::string, MeasureType> results0, results5, results6, results7;
         MeasureType signal5[5],   signal6[6],   signal7[7];
         MeasureType invTimes5[5], invTimes6[6], invTimes7[7];
         MeasureType signs5[5],    signs6[6],    signs7[7];
@@ -189,35 +189,35 @@ namespace Ox {
         // 5els fitting
         results5 = this->calculateMolli(5, invTimes5, signal5, signs5);
 
-        if (results5.A > 1){ // converged
+        if (results5["A"] > 1){ // converged
             nShmolliSamplesUsed = 5;
-            T1temp = results5.T1;
-            chiTemp = results5.ChiSqrt; // legacy
+            T1temp = results5["T1"];
+            chiTemp = results5["ChiSqrt"]; // legacy
         } else {
-            chiTemp = results5.LastValue; // legacy, very small amount of pixels (3) influenced by it
+            chiTemp = results5["LastValue"]; // legacy, very small amount of pixels (3) influenced by it
         }
 
         // 6els fitting
         results6 = this->calculateMolli(6, invTimes6, signal6, signs6);
 
         if ((T1temp <= TRRaverageHB) // KW: has to be T1temp in these cases that do not converge
-            || (results6.A <= 1) // not converged
-            || (results6.T1 <= 0.4 * TRRaverageHB) // prevent from errors in v.short range. KW: very small amount of pixels (14) influenced by it
+            || (results6["A"] <= 1) // not converged
+            || (results6["T1"] <= 0.4 * TRRaverageHB) // prevent from errors in v.short range. KW: very small amount of pixels (14) influenced by it
                 )
         {
 
-            if ((results6.A > 1) // converged
-                && (results6.ChiSqrt * results6.T1 < chiTemp * TRRaverageHB))
+            if ((results6["A"] > 1) // converged
+                && (results6["ChiSqrt"] * results6["T1"] < chiTemp * TRRaverageHB))
             {
                 nShmolliSamplesUsed = 6;
-                T1temp = results6.T1;
+                T1temp = results6["T1"];
             }
 
             // 7els fitting
             results7 = this->calculateMolli(7, invTimes7, signal7, signs7);
 
-            if ((results7.A > 1) // converged
-                && (results7.ChiSqrt * results7.T1 < results6.ChiSqrt * TRRaverageHB * 0.4) // KW: in the article results5 instead of 6. 1422 pixels influenced by change
+            if ((results7["A"] > 1) // converged
+                && (results7["ChiSqrt"] * results7["T1"] < results6["ChiSqrt"] * TRRaverageHB * 0.4) // KW: in the article results5 instead of 6. 1422 pixels influenced by change
                 && (T1temp < TRRaverageHB) // KW: not a single pixel influenced by it
                     )
             {
@@ -239,8 +239,8 @@ namespace Ox {
             //std::cout << "ShMOLLI calculation error" << std::endl;
             //throw itk::ExceptionObject(__FILE__, __LINE__, "ShMOLLI calculation error");
         }
-        this->_Results.NShmolliSamplesUsed = nShmolliSamplesUsed;
-        this->_Results.hasBeenCalculated = true;
+        this->_Results["NShmolliSamplesUsed"] = nShmolliSamplesUsed;
+        this->_Results["hasBeenCalculated"] = 1;
 
         return 0; // EXIT_SUCCESS
     }

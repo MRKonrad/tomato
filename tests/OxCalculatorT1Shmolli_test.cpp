@@ -63,9 +63,9 @@ TEST(OxCalculatorT1Shmolli, calculate_ICE) {
 
     calculatorT1Shmolli.calculate();
 
-    EXPECT_NEAR(calculatorT1Shmolli.getResults().A, 42.88, 1e-2);
-    EXPECT_NEAR(calculatorT1Shmolli.getResults().B, -21.82, 1e-2);
-    EXPECT_NEAR(calculatorT1Shmolli.getResults().T1star, 511.3, 1e-2);
+    EXPECT_NEAR(calculatorT1Shmolli.getResults()["A"], 42.88, 1e-2);
+    EXPECT_NEAR(calculatorT1Shmolli.getResults()["B"], -21.82, 1e-2);
+    EXPECT_NEAR(calculatorT1Shmolli.getResults()["T1star"], 511.3, 1e-2);
 }
 #endif
 
@@ -100,9 +100,9 @@ TEST(OxCalculatorT1Shmolli, calculate_doNotCalculateIfMaxIterZero) {
 
     calculatorT1Shmolli.calculate();
 
-    EXPECT_DOUBLE_EQ(calculatorT1Shmolli.getResults().A, 0);
-    EXPECT_DOUBLE_EQ(calculatorT1Shmolli.getResults().B, 0);
-    EXPECT_DOUBLE_EQ(calculatorT1Shmolli.getResults().T1star, 0);
+    EXPECT_DOUBLE_EQ(calculatorT1Shmolli.getResults()["A"], 0);
+    EXPECT_DOUBLE_EQ(calculatorT1Shmolli.getResults()["B"], 0);
+    EXPECT_DOUBLE_EQ(calculatorT1Shmolli.getResults()["T1star"], 0);
 }
 #endif
 
@@ -180,9 +180,9 @@ TEST(OxCalculatorT1Shmolli, calculate_WithoutSigns_AmoebaVnl) {
 
     calculatorT1Shmolli.calculate();
 
-    EXPECT_NEAR(calculatorT1Shmolli.getResults().A, testData.getResultsShmolli()[0], 1e-2);
-    EXPECT_NEAR(calculatorT1Shmolli.getResults().B, testData.getResultsShmolli()[1], 1e-2);
-    EXPECT_NEAR(calculatorT1Shmolli.getResults().T1star, testData.getResultsShmolli()[2], 1e-2);
+    EXPECT_NEAR(calculatorT1Shmolli.getResults()["A"], testData.getResultsShmolli()[0], 1e-2);
+    EXPECT_NEAR(calculatorT1Shmolli.getResults()["B"], testData.getResultsShmolli()[1], 1e-2);
+    EXPECT_NEAR(calculatorT1Shmolli.getResults()["T1star"], testData.getResultsShmolli()[2], 1e-2);
 
 }
 #endif
@@ -218,9 +218,9 @@ TEST(OxCalculatorT1Shmolli, calculate_WithoutSigns_LevMarVnl) {
 
     calculatorT1Shmolli.calculate();
 
-    EXPECT_NEAR(calculatorT1Shmolli.getResults().A, testData.getResultsShmolli()[0], 1e-2);
-    EXPECT_NEAR(calculatorT1Shmolli.getResults().B, testData.getResultsShmolli()[1], 1e-2);
-    EXPECT_NEAR(calculatorT1Shmolli.getResults().T1star, testData.getResultsShmolli()[2], 1e-2);
+    EXPECT_NEAR(calculatorT1Shmolli.getResults()["A"], testData.getResultsShmolli()[0], 1e-2);
+    EXPECT_NEAR(calculatorT1Shmolli.getResults()["B"], testData.getResultsShmolli()[1], 1e-2);
+    EXPECT_NEAR(calculatorT1Shmolli.getResults()["T1star"], testData.getResultsShmolli()[2], 1e-2);
 
 }
 #endif
@@ -256,9 +256,9 @@ TEST(OxCalculatorT1Shmolli, calculate_WithSigns) {
 
     calculatorT1Shmolli.calculate();
 
-    EXPECT_NEAR(calculatorT1Shmolli.getResults().A, testData.getResultsShmolli()[0], 1e-2);
-    EXPECT_NEAR(calculatorT1Shmolli.getResults().B, testData.getResultsShmolli()[1], 1e-2);
-    EXPECT_NEAR(calculatorT1Shmolli.getResults().T1star, testData.getResultsShmolli()[2], 1e-2);
+    EXPECT_NEAR(calculatorT1Shmolli.getResults()["A"], testData.getResultsShmolli()[0], 1e-2);
+    EXPECT_NEAR(calculatorT1Shmolli.getResults()["B"], testData.getResultsShmolli()[1], 1e-2);
+    EXPECT_NEAR(calculatorT1Shmolli.getResults()["T1star"], testData.getResultsShmolli()[2], 1e-2);
 }
 #endif
 
