@@ -119,7 +119,7 @@ namespace Ox {
 
         // alloc and init
         Calculator<InputPixelType> *calculator = FactoryOfCalculators<InputPixelType>::newByFactory(_opts);
-        Model<InputPixelType> *model = FactoryOfFunctions<InputPixelType>::newByFactory(_opts);
+        Model<InputPixelType> *model = FactoryOfModels<InputPixelType>::newByFactory(_opts);
         Fitter<InputPixelType> *fitter = FactoryOfFitters<InputPixelType>::newByFactory(_opts);
         SignCalculator<InputPixelType> *signCalculator = FactoryOfSignCalculators<InputPixelType>::newByFactory(_opts);
         StartPointCalculator<InputPixelType> *startPointCalculator = FactoryOfStartPointCalculators<InputPixelType>::newByFactory(_opts);

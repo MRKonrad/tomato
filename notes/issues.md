@@ -3,18 +3,18 @@
 ## Different results from the configurations
 
 parameter_to_map: T1_SHMOLLI  
-functions_type: **FunctionsThreeParam/FunctionsShmolli**  
+functions_type: **ModelT1ThreeParam/ModelT1Shmolli**  
 fitting_method: LevMarVnl  
 max_function_evals: 4000  
 fTolerance: 1e-12  
 sign_calc_method: MagPhase  
 start_point_calc_method: Default  
 
-FunctionsThreeParam: 10s and seemingly correct results  
-FunctionsShmolli: 2.2s and wrong results  
+ModelT1ThreeParam: 10s and seemingly correct results  
+ModelT1Shmolli: 2.2s and wrong results  
 
 parameter_to_map: T1_SHMOLLI  
-functions_type: FunctionsShmolli  
+functions_type: ModelT1Shmolli  
 fitting_method: LevMarVnl  
 max_function_evals: 4000  
 fTolerance: 1e-12  

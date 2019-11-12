@@ -1,8 +1,8 @@
-dir_magnitude: "/Users/kwerys/Code/tomato/tests/testData/dicomT2/raw"
+dir_magnitude: "testData/dicomT2/raw"
 
-dir_output_map: "/Users/kwerys/Desktop/test/a"
+dir_output_map: "testData/tomatoOutput_T2/map"
 output_map_series_number: 8800
-dir_output_fitparams: "/Users/kwerys/Desktop/test/b"
+dir_output_fitparams: "testData/tomatoOutput_T2/fitparams"
 output_fitparams_series_number: 8801
 
 parameter_to_map: T2

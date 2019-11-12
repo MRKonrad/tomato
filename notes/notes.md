@@ -9,7 +9,6 @@
 ## TODO
 
 *   update factoryoffitter name to factoryofmodels
-*   work on exportT2
 *   results - currently a map, and an akward itkCapculatorT1 filter. Maybe there is a better approach to results?
 *   provide yaml config files for MOLLI, ShMOLLI, SASHA, SMART1 etc 
 *   add acceptance test for T1 2param and T2

@@ -21,40 +21,40 @@ namespace Ox {
 
 
     static const char *functionsTypeNames[] = {
-            "FunctionsThreeParam",
-            "FunctionsTwoParam",
-            "FunctionsShmolli",
+            "ModelT1ThreeParam",
+            "ModelT1TwoParam",
+            "ModelT1Shmolli",
             "ModelT2ThreeParam"
     };
 
     enum functionsType_t {
-        FunctionsThreeParam = 0,
-        FunctionsTwoParam = 1,
-        FunctionsShmolli = 2,
+        _ModelT1ThreeParam = 0,
+        _ModelT1TwoParam = 1,
+        _ModelT1Shmolli = 2,
         _ModelT2ThreeParam = 3,
         lastFunctorType = _ModelT2ThreeParam
     };
 
     static int functionsAvailability[] = {
-            1, //FunctionsThreeParam
-            1, //FunctionsTwoParam
-            1, // FunctionsShmolli
+            1, // ModelT1ThreeParam
+            1, // ModelT1TwoParam
+            1, // ModelT1Shmolli
             1  // ModelT2ThreeParam
     };
 
     template<typename TYPE>
-    class FactoryOfFunctions {
+    class FactoryOfModels {
     public:
 
         static Model<TYPE>* newByFactory(TomatoOptions<TYPE> *opts){
             switch (opts->functions_type){
-                case FunctionsThreeParam: {
+                case _ModelT1ThreeParam: {
                     return new ModelT1ThreeParam<TYPE>();
                 }
-                case FunctionsTwoParam: {
+                case _ModelT1TwoParam: {
                     return new ModelT1TwoParam<TYPE>();
                 }
-                case FunctionsShmolli: {
+                case _ModelT1Shmolli: {
                     return new ModelT1Shmolli<TYPE>();
                 }
                 case _ModelT2ThreeParam: {

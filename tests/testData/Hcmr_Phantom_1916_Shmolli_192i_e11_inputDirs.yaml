@@ -15,7 +15,7 @@
 #  output_fitparams_series_number: <number, for example 10008>
 #
 # parameter_to_map: <T1_Molli/T1_Shmolli/T1_SHMOLLI_original>
-# functions_object: <FunctionsThreeParam FunctionsTwoParam FunctionsShmolli>
+# functions_object: <ModelT1ThreeParam ModelT1TwoParam ModelT1Shmolli>
 # fitting_method: <AmoebaVnl/LevMarVnl/AmoebaPrivateNr2>
 #  fTolerance: <number, for example 1e-12>
 #  max_function_evals: <number, for example 4000>
@@ -32,7 +32,7 @@ dir_output_fitparams: "testData/tomatoOutput_Molli/fitparams"
 output_fitparams_series_number: 9999
 
 parameter_to_map: T1_MOLLI
-functions_type: FunctionsThreeParam
+functions_type: ModelT1ThreeParam
 fitting_method: LevMarVnl
 max_function_evals: 4000
 fTolerance: 1e-12

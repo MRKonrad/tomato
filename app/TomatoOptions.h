@@ -15,7 +15,7 @@
 
 #include "OxFactoryOfCalculators.h"
 #include "OxFactoryOfFitters.h"
-#include "OxFactoryOfFunctions.h"
+#include "OxFactoryOfModels.h"
 #include "OxFactoryOfSignCalculators.h"
 #include "OxFactoryOfStartPointCalculators.h"
 
@@ -74,7 +74,7 @@ namespace Ox {
 
             parameter_to_map = T1_MOLLI;
             fitting_method = LevMarVnl;
-            functions_type = FunctionsThreeParam;
+            functions_type = _ModelT1ThreeParam;
             sign_calc_method = NoSign;
             start_point_calc_method = Basic;
 
@@ -213,7 +213,7 @@ namespace Ox {
             printf("\n");
             Ox::FactoryOfCalculators<double>::disp(parameter_to_map);
             Ox::FactoryOfFitters<double>::disp(fitting_method);
-            Ox::FactoryOfFunctions<double>::disp(functions_type);
+            Ox::FactoryOfModels<double>::disp(functions_type);
             Ox::FactoryOfSignCalculators<double>::disp(sign_calc_method);
             Ox::FactoryOfStartPointCalculators<double>::disp(start_point_calc_method);
 
