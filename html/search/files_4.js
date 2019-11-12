@@ -14,7 +14,6 @@ var searchData=
   ['oxcalculatort2_5ftest_2ecpp',['OxCalculatorT2_test.cpp',['../_ox_calculator_t2__test_8cpp.html',1,'']]],
   ['oxfactoryofcalculators_2eh',['OxFactoryOfCalculators.h',['../_ox_factory_of_calculators_8h.html',1,'']]],
   ['oxfactoryoffitters_2eh',['OxFactoryOfFitters.h',['../_ox_factory_of_fitters_8h.html',1,'']]],
-  ['oxfactoryoffunctions_2eh',['OxFactoryOfFunctions.h',['../_ox_factory_of_functions_8h.html',1,'']]],
   ['oxfactoryofsigncalculators_2eh',['OxFactoryOfSignCalculators.h',['../_ox_factory_of_sign_calculators_8h.html',1,'']]],
   ['oxfactoryofstartpointcalculators_2eh',['OxFactoryOfStartPointCalculators.h',['../_ox_factory_of_start_point_calculators_8h.html',1,'']]],
   ['oxfitter_2eh',['OxFitter.h',['../_ox_fitter_8h.html',1,'']]],

@@ -4,7 +4,7 @@ var annotated =
       [ "TomatoOptions", "struct_ox_1_1_tomato_options.html", "struct_ox_1_1_tomato_options" ],
       [ "FactoryOfCalculators", "class_ox_1_1_factory_of_calculators.html", null ],
       [ "FactoryOfFitters", "class_ox_1_1_factory_of_fitters.html", null ],
-      [ "FactoryOfFunctions", "class_ox_1_1_factory_of_functions.html", null ],
+      [ "FactoryOfModels", "class_ox_1_1_factory_of_models.html", null ],
       [ "FactoryOfSignCalculators", "class_ox_1_1_factory_of_sign_calculators.html", null ],
       [ "FactoryOfStartPointCalculators", "class_ox_1_1_factory_of_start_point_calculators.html", null ],
       [ "Calculator", "class_ox_1_1_calculator.html", "class_ox_1_1_calculator" ],

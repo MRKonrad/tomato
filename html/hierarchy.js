@@ -9,7 +9,7 @@ var hierarchy =
     [ "CalculatorT1", "class_calculator_t1.html", null ],
     [ "Ox::FactoryOfCalculators< TYPE >", "class_ox_1_1_factory_of_calculators.html", null ],
     [ "Ox::FactoryOfFitters< TYPE >", "class_ox_1_1_factory_of_fitters.html", null ],
-    [ "Ox::FactoryOfFunctions< TYPE >", "class_ox_1_1_factory_of_functions.html", null ],
+    [ "Ox::FactoryOfModels< TYPE >", "class_ox_1_1_factory_of_models.html", null ],
     [ "Ox::FactoryOfSignCalculators< TYPE >", "class_ox_1_1_factory_of_sign_calculators.html", null ],
     [ "Ox::FactoryOfStartPointCalculators< TYPE >", "class_ox_1_1_factory_of_start_point_calculators.html", null ],
     [ "Ox::Fitter< MeasureType >", "class_ox_1_1_fitter.html", null ],

@@ -1,11 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"class_ox_1_1_calculator.html#ab5f694e40a431677359b6933154eebc0":[3,0,0,6,38],
-"class_ox_1_1_calculator.html#ab814b8876ab6ddd7585f73dd23024624":[3,0,0,6,29],
-"class_ox_1_1_calculator.html#ab844b24dfedd27d52466203ec0c913fa":[3,0,0,6,7],
-"class_ox_1_1_calculator.html#abf7ad737349c2c4f92c25b3a7a02a063":[3,0,0,6,41],
-"class_ox_1_1_calculator.html#ac05783e37c8e6f3f457778ebbfa2e6a5":[3,0,0,6,18],
-"class_ox_1_1_calculator.html#acaa46125d5a97260020dcb8e880d8ca4":[3,0,0,6,44],
 "class_ox_1_1_calculator.html#acaaddad6379df03cccd825d565c9dd0e":[3,0,0,6,24],
 "class_ox_1_1_calculator.html#acc5f2033f9e72e394abae75abdb70076":[3,0,0,6,36],
 "class_ox_1_1_calculator.html#acf6021ef084c24636a344a12627caff5":[3,0,0,6,19],
@@ -49,7 +43,7 @@ var NAVTREEINDEX1 =
 "class_ox_1_1_calculator_t2.html#ace5f0515839bdffffb3d60e4536167b6":[3,0,0,9,2],
 "class_ox_1_1_factory_of_calculators.html":[3,0,0,1],
 "class_ox_1_1_factory_of_fitters.html":[3,0,0,2],
-"class_ox_1_1_factory_of_functions.html":[3,0,0,3],
+"class_ox_1_1_factory_of_models.html":[3,0,0,3],
 "class_ox_1_1_factory_of_sign_calculators.html":[3,0,0,4],
 "class_ox_1_1_factory_of_start_point_calculators.html":[3,0,0,5],
 "class_ox_1_1_fitter.html":[3,0,0,10],
@@ -249,5 +243,11 @@ var NAVTREEINDEX1 =
 "class_ox_1_1_start_point_calculator.html#a7549a2a735665d8b204c230c817fc5d4":[3,0,0,21,19],
 "class_ox_1_1_start_point_calculator.html#a75c73487e21a0f4920762c1efc96d573":[3,0,0,21,7],
 "class_ox_1_1_start_point_calculator.html#a7cff5323e92bc00fdc9baa2a3eef7a37":[3,0,0,21,16],
-"class_ox_1_1_start_point_calculator.html#a800e7f49b7956602b4ae9e4eb718eadd":[3,0,0,21,23]
+"class_ox_1_1_start_point_calculator.html#a800e7f49b7956602b4ae9e4eb718eadd":[3,0,0,21,23],
+"class_ox_1_1_start_point_calculator.html#a90c26143db22a371533de08a87cdada0":[3,0,0,21,18],
+"class_ox_1_1_start_point_calculator.html#a92176ada269bb53017ed3cbedb3b629d":[3,0,0,21,20],
+"class_ox_1_1_start_point_calculator.html#a9d1132410d68eb16f3f71ec4015c0b2f":[3,0,0,21,3],
+"class_ox_1_1_start_point_calculator.html#ab49fe45a4ee7b415edd0948c9fc76fbb":[3,0,0,21,11],
+"class_ox_1_1_start_point_calculator.html#ab6b12ed8fa6b47b3335b5c7a92b94623":[3,0,0,21,1],
+"class_ox_1_1_start_point_calculator.html#abce7ef554368d8739ac27dddb63382df":[3,0,0,21,26]
 };
