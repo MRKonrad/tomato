@@ -8,12 +8,14 @@
 
 ## TODO
 
+*   update factoryoffitter name to factoryofmodels
+*   work on exportT2
+*   results - currently a map, and an akward itkCapculatorT1 filter. Maybe there is a better approach to results?
 *   provide yaml config files for MOLLI, ShMOLLI, SASHA, SMART1 etc 
-*   add acceptance test for 2param
+*   add acceptance test for T1 2param and T2
 *   maybe rename calculatormolli to calculator3param? 
 *   maybe add calculator2param to produce different results?
 *   update comments in configuration yaml files
-*   re-organise start point calculation
 *   output SNR maps
 *   make sure SNR and nAmoebaCalls is the same as in Shmolli
 *   possibly I could make all Model object static

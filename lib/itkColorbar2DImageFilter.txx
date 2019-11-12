@@ -41,6 +41,12 @@ namespace  itk {
 
             iteratorOutput.Set(input->GetPixel(idx));
 
+            if (!GetAddColorbar()){
+                ++iteratorInput;
+                ++iteratorOutput;
+                continue;
+            }
+
             if (idx[0] >= (int) (0.94 * nCols)) {
                 if (idx[0] < (int) (0.96 * nCols)) {
                     iteratorOutput.Set(0);

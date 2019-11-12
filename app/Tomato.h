@@ -79,7 +79,7 @@ namespace Ox {
         int calculate();
 
         /**
-         * method so long and ugly, that I put it in a separate file
+         * calls exportT1ToDicom or exportT2ToDicom
          * @return success/failure
          */
         int exportToDicom();
@@ -102,6 +102,18 @@ namespace Ox {
          * I cant delete it to be compatible with c++98
          */
         Tomato(){};
+
+        /**
+         * method so long and ugly, that I put it in a separate file
+         * @return success/failure
+         */
+        int exportT1ToDicom();
+
+        /**
+         * method so long and ugly, that I put it in a separate file
+         * @return success/failure
+         */
+        int exportT2ToDicom();
 
     };
 

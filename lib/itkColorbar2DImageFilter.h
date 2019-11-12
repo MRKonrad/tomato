@@ -45,9 +45,13 @@ namespace itk {
         itkSetMacro(ZerosInsteadOfColorbar, bool);
         itkGetMacro(ZerosInsteadOfColorbar, bool);
 
+        itkSetMacro(AddColorbar, bool);
+        itkGetMacro(AddColorbar, bool);
+
     protected:
         /** Constructor. */
         Colorbar2DImageFilter() {
+            m_AddColorbar = true;
             m_ZerosInsteadOfColorbar = false;
         };
 
@@ -60,6 +64,7 @@ namespace itk {
     private:
 
         bool m_ZerosInsteadOfColorbar;
+        bool m_AddColorbar;
 
         ITK_DISALLOW_COPY_AND_ASSIGN(Colorbar2DImageFilter); //purposely not implemented
 

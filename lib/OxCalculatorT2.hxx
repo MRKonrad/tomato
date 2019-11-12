@@ -37,7 +37,7 @@ namespace Ox {
         MeasureType tempResults[3];
         KWUtil::copyArrayToArray(3, tempResults, this->getFitter()->getParameters());
         if (tempResults[0] != 0) {
-            this->_Results["A"]     = tempResults[0];
+            this->_Results["A"]      = tempResults[0];
             this->_Results["B"]      = tempResults[1];
             this->_Results["T2"]     = tempResults[2];
             this->_Results["R2"]     = calculateR2AbsFromModel(this->getNSamples(), this->getEchoTimes(), this->getSigMag(), tempResults);

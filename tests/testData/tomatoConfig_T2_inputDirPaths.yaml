@@ -1,4 +1,4 @@
-dir_magnitude: "/Users/kwerys/Code/tomato/tests/testData/dicomT2"
+dir_magnitude: "/Users/kwerys/Code/tomato/tests/testData/dicomT2/raw"
 
 dir_output_map: "/Users/kwerys/Desktop/test/a"
 output_map_series_number: 8800
@@ -12,4 +12,6 @@ max_function_evals: 40
 fTolerance: 1e-1
 start_point_calc_method: Basic
 
-number_of_threads: 1
+use_colorbar: 0
+
+#number_of_threads: 1

@@ -118,20 +118,20 @@ namespace Ox {
     ::calculate() {
 
         // alloc and init
-        Calculator<InputPixelType> *calculatorT1 = FactoryOfCalculators<InputPixelType>::newByFactory(_opts);
-        Model<InputPixelType> *ModelT1 = FactoryOfFunctions<InputPixelType>::newByFactory(_opts);
+        Calculator<InputPixelType> *calculator = FactoryOfCalculators<InputPixelType>::newByFactory(_opts);
+        Model<InputPixelType> *model = FactoryOfFunctions<InputPixelType>::newByFactory(_opts);
         Fitter<InputPixelType> *fitter = FactoryOfFitters<InputPixelType>::newByFactory(_opts);
         SignCalculator<InputPixelType> *signCalculator = FactoryOfSignCalculators<InputPixelType>::newByFactory(_opts);
         StartPointCalculator<InputPixelType> *startPointCalculator = FactoryOfStartPointCalculators<InputPixelType>::newByFactory(_opts);
 
         // configure calculator
-        calculatorT1->setModel(ModelT1);
-        calculatorT1->setFitter(fitter);
-        calculatorT1->setSignCalculator(signCalculator);
-        calculatorT1->setStartPointCalculator(startPointCalculator);
-        calculatorT1->setInvTimes(_invTimes);
-        calculatorT1->setEchoTimes(_echoTimes);
-        calculatorT1->setNSamples(_nSamples);
+        calculator->setModel(model);
+        calculator->setFitter(fitter);
+        calculator->setSignCalculator(signCalculator);
+        calculator->setStartPointCalculator(startPointCalculator);
+        calculator->setInvTimes(_invTimes);
+        calculator->setEchoTimes(_echoTimes);
+        calculator->setNSamples(_nSamples);
 
         // configure calculator itk filter
         //CalculatorT1ImageFilterType::Pointer _imageCalculatorItk = CalculatorT1ImageFilterType::New();
@@ -140,7 +140,7 @@ namespace Ox {
         _imageCalculatorItk->SetInputPhaImage(_imagePha);
         if (_opts->number_of_threads > 0)
             _imageCalculatorItk->SetNumberOfThreads(_opts->number_of_threads);
-        _imageCalculatorItk->SetCalculator(calculatorT1);
+        _imageCalculatorItk->SetCalculator(calculator);
 
         // calculations
         itk::TimeProbe clock;
@@ -155,11 +155,11 @@ namespace Ox {
         _opts->calculation_time = clock.GetTotal();
         printf("Calculation time: %.4fs.\n", clock.GetTotal());
 
-        delete ModelT1;
+        delete model;
         delete fitter;
         delete signCalculator;
         delete startPointCalculator;
-        delete calculatorT1;
+        delete calculator;
 
         return 0; // EXIT_SUCCESS
     }
