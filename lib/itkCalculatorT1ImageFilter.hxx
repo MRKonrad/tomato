@@ -50,9 +50,23 @@ namespace itk {
     CalculatorT1ImageFilter<TImageIn, TImageOut>
     ::BeforeThreadedGenerateData() {
 
+        if(!m_Calculator) throw itk::ExceptionObject(__FILE__, __LINE__, "Set the Calculator!");
+
         printf("Number of threads: %d. ", this->GetNumberOfThreads());
 
-        if(!m_Calculator) throw itk::ExceptionObject(__FILE__, __LINE__, "Set the Calculator!");
+        if (m_Calculator->getInvTimes()) {
+            printf("\nInvTimes: ");
+            for (size_t i = 0; i < m_Calculator->getNSamples(); i++) {
+                printf("%.0f ", m_Calculator->getInvTimes()[i]);
+            }
+        }
+
+        if (m_Calculator->getEchoTimes()) {
+            printf("\nEchoTimes: ");
+            for (size_t i = 0; i < m_Calculator->getNSamples(); i++) {
+                printf("%.0f ", m_Calculator->getEchoTimes()[i]);
+            }
+        }
 
         printf("\n");
     }
@@ -171,8 +185,14 @@ namespace itk {
         Ox::Calculator<PixelTypeIn> *calculator = m_Calculator->newByCloning();
         Ox::Model<PixelTypeIn> *functionsObject = m_Calculator->getModel()->newByCloning();
         Ox::Fitter<PixelTypeIn> *fitter = m_Calculator->getFitter()->newByCloning();
-        Ox::SignCalculator<PixelTypeIn> *signCalculator = m_Calculator->getSignCalculator()->newByCloning();
-        Ox::StartPointCalculator<PixelTypeIn> *startPointCalculator = m_Calculator->getStartPointCalculator()->newByCloning();
+        Ox::SignCalculator<PixelTypeIn> *signCalculator = 0;
+        if (m_Calculator->getSignCalculator()) {
+            signCalculator = m_Calculator->getSignCalculator()->newByCloning();
+        }
+        Ox::StartPointCalculator<PixelTypeIn> *startPointCalculator = 0;
+        if (m_Calculator->getStartPointCalculator()) {
+            startPointCalculator = m_Calculator->getStartPointCalculator()->newByCloning();
+        }
 
         // configure
         calculator->setModel(functionsObject);

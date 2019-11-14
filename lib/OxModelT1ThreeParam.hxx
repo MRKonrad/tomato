@@ -39,6 +39,7 @@ namespace Ox {
             calculated = calcModelValue(parameters, invTime);
 
             residuals[i] = calculated - measured;
+
         }
     }
 
@@ -68,7 +69,6 @@ namespace Ox {
     MeasureType
     ModelT1ThreeParam<MeasureType>
     ::calcCostValue(const MeasureType* parameters){
-        //std::cout << "calcCostValue" << std::endl;
 
         int nSamples = this->_nSamples;
 
@@ -86,7 +86,6 @@ namespace Ox {
     void
     ModelT1ThreeParam<MeasureType>
     ::calcCostDerivative(const MeasureType* parameters, MeasureType* derivative){
-        //std::cout << "calcCostDerivative" << std::endl;
 
         int nSamples = this->_nSamples;
 

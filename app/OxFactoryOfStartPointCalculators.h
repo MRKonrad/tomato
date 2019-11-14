@@ -20,18 +20,21 @@ namespace Ox {
 
     static const char *startPointCalculatorsTypeNames[] = {
             "Basic",
-            "StartPointSHMOLLI"
+            "StartPointSHMOLLI",
+            "NoStartPointCalculators"
     };
 
     enum startPointCalculatorsType_t {
         Basic = 0,
         StartPointSHMOLLI = 1,
-        lastStartPointCalculatorType = StartPointSHMOLLI
+        NoStartPointCalculators = 2,
+        lastStartPointCalculatorType = NoStartPointCalculators
     };
 
     static int startPointCalculatorsAvailability[] = {
             1, // Basic
             1, // StartPointSHMOLLI
+            1  // NoStartPointCalculators
     };
 
     template<typename TYPE>
@@ -45,6 +48,9 @@ namespace Ox {
                 }
                 case StartPointSHMOLLI: {
                     return new StartPointCalculatorShmolli<TYPE>();
+                }
+                case NoStartPointCalculators: {
+                    return 0;
                 }
                 default:
                     throw std::runtime_error("start_point_calc_method object not available");

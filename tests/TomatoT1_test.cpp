@@ -101,7 +101,7 @@ TEST(ActeptanceTests_TomatoT1Test, readAndSort_calculate_export_incorrect_fitter
 TEST(ActeptanceTests_TomatoT1Test, readAndSort_calculate_export_incorrect_functions) {
 
     Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
-    Tomato_object._opts->functions_type = (Ox::functionsType_t)118;
+    Tomato_object._opts->model_type = (Ox::modelType_t)118;
     EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
     EXPECT_THROW(Tomato_object.calculate(), std::runtime_error);
 
@@ -181,5 +181,16 @@ TEST(ActeptanceTests_TomatoT1Test, readAndSortInputDirs_calculate_export_GE) {
 
 }
 #endif //USE_PRIVATE_NR2
+
+TEST(ActeptanceTests_TomatoT1Test, readAndSort_calculate_export_no_sign_calculator) {
+
+    Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+    Tomato_object._opts->max_function_evals = 5; // to make the calculations faster
+    Tomato_object._opts->sign_calc_method = Ox::None;
+    EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
+    EXPECT_EQ(Tomato_object.calculate(), 0); // EXIT_SUCCESS
+    EXPECT_EQ(Tomato_object.exportToDicom(), 0); // EXIT_SUCCESS
+
+}
 
 #endif // USE_ITK

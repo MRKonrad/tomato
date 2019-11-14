@@ -41,7 +41,7 @@ namespace Ox {
         calculatorsType_t parameter_to_map;
         paramType_t parameter_type;
         fittersType_t fitting_method;
-        functionsType_t functions_type;
+        modelType_t model_type;
         signCalculatorsType_t sign_calc_method;
         startPointCalculatorsType_t start_point_calc_method;
 
@@ -74,7 +74,7 @@ namespace Ox {
 
             parameter_to_map = T1_MOLLI;
             fitting_method = LevMarVnl;
-            functions_type = _ModelT1ThreeParam;
+            model_type = _ModelT1ThreeParam;
             sign_calc_method = NoSign;
             start_point_calc_method = Basic;
 
@@ -121,7 +121,7 @@ namespace Ox {
 
             parser._scalars["parameter_to_map"];
             parser._scalars["fitting_method"];
-            parser._scalars["functions_type"];
+            parser._scalars["model_type"];
             parser._scalars["sign_calc_method"];
             parser._scalars["start_point_calc_method"];
 
@@ -160,8 +160,8 @@ namespace Ox {
                 parameter_type = (paramType_t)calculatorsParamsToCalculate[(int)parameter_to_map];
             if (!parser._scalars["fitting_method"].empty())
                 fitting_method = (fittersType_t) findInArray(lastFitterType+1, fittersTypeNames, parser._scalars["fitting_method"]);
-            if (!parser._scalars["functions_type"].empty())
-                functions_type = (functionsType_t) findInArray(lastFunctorType+1, functionsTypeNames, parser._scalars["functions_type"]);
+            if (!parser._scalars["model_type"].empty())
+                model_type = (modelType_t) findInArray(lastFunctorType + 1, modelTypeNames, parser._scalars["model_type"]);
             if (!parser._scalars["sign_calc_method"].empty())
                 sign_calc_method = (signCalculatorsType_t) findInArray(lastSignCalculatorType+1, signCalculatorsTypeNames, parser._scalars["sign_calc_method"]);
             if (!parser._scalars["start_point_calc_method"].empty())
@@ -213,7 +213,7 @@ namespace Ox {
             printf("\n");
             Ox::FactoryOfCalculators<double>::disp(parameter_to_map);
             Ox::FactoryOfFitters<double>::disp(fitting_method);
-            Ox::FactoryOfModels<double>::disp(functions_type);
+            Ox::FactoryOfModels<double>::disp(model_type);
             Ox::FactoryOfSignCalculators<double>::disp(sign_calc_method);
             Ox::FactoryOfStartPointCalculators<double>::disp(start_point_calc_method);
 
@@ -271,7 +271,7 @@ namespace Ox {
 
             KWUtilYaml::addMapping(&document, mapping_node_number, "parameter_to_map", calculatorsTypeNames[parameter_to_map]);
             KWUtilYaml::addMapping(&document, mapping_node_number, "fitting_method", fittersTypeNames[fitting_method]);
-            KWUtilYaml::addMapping(&document, mapping_node_number, "functions_type", functionsTypeNames[functions_type]);
+            KWUtilYaml::addMapping(&document, mapping_node_number, "model_type", modelTypeNames[model_type]);
             KWUtilYaml::addMapping(&document, mapping_node_number, "sign_calc_method" , signCalculatorsTypeNames[sign_calc_method]);
             KWUtilYaml::addMapping(&document, mapping_node_number, "start_point_calc_method", startPointCalculatorsTypeNames[start_point_calc_method]);
 

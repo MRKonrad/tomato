@@ -21,20 +21,23 @@ namespace Ox {
     static const char *signCalculatorsTypeNames[] = {
             "NoSign",
             "RealImag",
-            "MagPhase"
+            "MagPhase",
+            "None"
     };
 
     enum signCalculatorsType_t {
         NoSign = 0,
         RealImag = 1,
         MagPhase = 2,
-        lastSignCalculatorType = MagPhase
+        None = 3,
+        lastSignCalculatorType = None
     };
 
     static int signCalculatorsAvailability [] = {
             1, // NoSign
             1, // RealImag
             1, // MagPhase
+            1, // None
     };
 
     template<typename TYPE>
@@ -51,6 +54,9 @@ namespace Ox {
                 }
                 case MagPhase: {
                     return new SignCalculatorShmolli<TYPE>();
+                }
+                case None: {
+                    return 0;
                 }
                 default:
                     throw std::runtime_error("sign_calc_method not available");

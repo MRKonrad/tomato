@@ -32,7 +32,7 @@ dir_output_fitparams: "testData/tomatoOutput_Molli/fitparams"
 output_fitparams_series_number: 9999
 
 parameter_to_map: T1_MOLLI
-functions_type: ModelT1ThreeParam
+model_type: ModelT1ThreeParam
 fitting_method: LevMarVnl
 max_function_evals: 4000
 fTolerance: 1e-12

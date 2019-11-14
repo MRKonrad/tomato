@@ -33,7 +33,7 @@ dir_output_fitparams: "testData/tomatoOutput_Shmolli/fitparams"
 output_fitparams_series_number: 8801
 
 parameter_to_map: T1_SHMOLLI
-functions_type: ModelT1Shmolli
+model_type: ModelT1Shmolli
 fitting_method: AmoebaPrivateNr2
 max_function_evals: 4000
 fTolerance: 1e-12

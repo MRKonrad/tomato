@@ -4,7 +4,7 @@
  * \date 2018/08/01
  */
 
-#include <OxFitterLevenbergMarquardtVnl.h>
+
 #include "gtest/gtest.h"
 #include "OxTestData.h"
 
@@ -12,6 +12,7 @@
 
 #include "OxModelT1ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
+#include "OxFitterLevenbergMarquardtVnl.h"
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
 #include "OxStartPointCalculatorBasic.h"

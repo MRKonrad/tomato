@@ -45,12 +45,13 @@ namespace Ox {
 
         } else {
             for (int i = 0; i < this->_nSamples; ++i){
+                this->_Signal[i] = this->_SigMag[i];
                 this->_Signs[i] = 1; // no flip
             }
         }
 
         // calculate start point
-        if (this->getSignCalculator()) {
+        if (this->getStartPointCalculator()) {
             this->getStartPointCalculator()->setNDims(this->_nDims);
             if (!this->getStartPointCalculator()->getInputStartPoint()) {
                 if (this->_nDims == 2) {
@@ -70,7 +71,7 @@ namespace Ox {
             this->getStartPointCalculator()->calculateStartPoint();
         } else {
             for (int i = 0; i < this->_nDims; ++i){
-                this->_StartPoint[i] = 1;
+                this->_StartPoint[i] = 500;
             }
         }
 
@@ -81,6 +82,8 @@ namespace Ox {
     int
     CalculatorT1Molli<MeasureType>
     ::calculate(){
+
+        this->_Results = std::map <std::string, MeasureType>();
 
         // calculate if higher than the cutoff
         if (KWUtil::calcMeanArray(this->getNSamples(), this->getSigMag()) < this->getMeanCutOff()) {

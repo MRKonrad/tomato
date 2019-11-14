@@ -6,7 +6,7 @@ dir_output_fitparams: "testData/tomatoOutput_T2/fitparams"
 output_fitparams_series_number: 8801
 
 parameter_to_map: T2
-functions_type: ModelT2ThreeParam
+model_type: ModelT2ThreeParam
 fitting_method: LevMarVnl
 max_function_evals: 40
 fTolerance: 1e-1
