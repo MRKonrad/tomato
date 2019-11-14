@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"class_ox_1_1_start_point_calculator.html#ab6b12ed8fa6b47b3335b5c7a92b94623":[3,0,0,21,1],
+"class_ox_1_1_start_point_calculator.html#abce7ef554368d8739ac27dddb63382df":[3,0,0,21,26],
 "class_ox_1_1_start_point_calculator.html#ac76047ce4b0d474203cae066471cce61":[3,0,0,21,12],
 "class_ox_1_1_start_point_calculator.html#acd2a221872002157f232e1e7f73a1859":[3,0,0,21,8],
 "class_ox_1_1_start_point_calculator.html#aebb0511e802eff920369dec99b6c00fb":[3,0,0,21,10],
@@ -118,6 +120,7 @@ var NAVTREEINDEX2 =
 "struct_ox_1_1_tomato_options.html#a2cf923d6d04fb8cb510db2623e93119d":[3,0,0,0,25],
 "struct_ox_1_1_tomato_options.html#a2d1d2149185ef71968980cf8c6afcf14":[3,0,0,0,14],
 "struct_ox_1_1_tomato_options.html#a367c540e5413f8ffa3a6bc6ef5781b45":[3,0,0,0,28],
+"struct_ox_1_1_tomato_options.html#a4a5e32c79e597006aaaa79600ddaa564":[3,0,0,0,19],
 "struct_ox_1_1_tomato_options.html#a54efb4945f2857ee4ed9e1d5552fc3dd":[3,0,0,0,20],
 "struct_ox_1_1_tomato_options.html#a58664e816cde6eff746bd5abe4fe2d1c":[3,0,0,0,21],
 "struct_ox_1_1_tomato_options.html#a76497b53cadad720af7ff0f83b99096b":[3,0,0,0,5],
@@ -127,19 +130,18 @@ var NAVTREEINDEX2 =
 "struct_ox_1_1_tomato_options.html#a943b1f0402f72d794bf21c62c3333f8b":[3,0,0,0,24],
 "struct_ox_1_1_tomato_options.html#a9630620338003eb675fdfe242449c915":[3,0,0,0,4],
 "struct_ox_1_1_tomato_options.html#a974a7659d7eaefe712b1bb00cbd46a93":[3,0,0,0,0],
-"struct_ox_1_1_tomato_options.html#a9b864c01b6b0b4e4d5a56470f6c5f004":[3,0,0,0,18],
+"struct_ox_1_1_tomato_options.html#a9b864c01b6b0b4e4d5a56470f6c5f004":[3,0,0,0,17],
 "struct_ox_1_1_tomato_options.html#a9da2993961d10c848b0860284900c869":[3,0,0,0,26],
 "struct_ox_1_1_tomato_options.html#aa762826a11ff767aa969bd66c29b577f":[3,0,0,0,27],
 "struct_ox_1_1_tomato_options.html#ab20a779c5a8dd371ec9356e3f9ce79c9":[3,0,0,0,22],
-"struct_ox_1_1_tomato_options.html#ab245e10cf32b36c48d66208a5f505099":[3,0,0,0,17],
+"struct_ox_1_1_tomato_options.html#ab245e10cf32b36c48d66208a5f505099":[3,0,0,0,16],
 "struct_ox_1_1_tomato_options.html#ab50a9d1d7044fa64878b9b7141fd4c81":[3,0,0,0,6],
 "struct_ox_1_1_tomato_options.html#ab8e2816968affd97a0ba0b13c44c4c02":[3,0,0,0,9],
 "struct_ox_1_1_tomato_options.html#abd502ef8966b09c671e2b7a5b565ce38":[3,0,0,0,1],
 "struct_ox_1_1_tomato_options.html#acd13f26343647d05164a33cb5b4163f3":[3,0,0,0,13],
-"struct_ox_1_1_tomato_options.html#aced156934915e4bb658d9f8433f69ee2":[3,0,0,0,16],
 "struct_ox_1_1_tomato_options.html#ad123055506ec1c4c73b397a5f771d2e7":[3,0,0,0,12],
 "struct_ox_1_1_tomato_options.html#ae2ac4c46e46b4d183c6944771701040b":[3,0,0,0,15],
 "struct_ox_1_1_tomato_options.html#aeffcb3fc69397596ce852699a2f3b05d":[3,0,0,0,8],
 "struct_ox_1_1_tomato_options.html#af31a50b6e23004912a1512812c823a29":[3,0,0,0,10],
-"struct_ox_1_1_tomato_options.html#af81d1a55409036109d253b313d59e972":[3,0,0,0,19]
+"struct_ox_1_1_tomato_options.html#af81d1a55409036109d253b313d59e972":[3,0,0,0,18]
 };
