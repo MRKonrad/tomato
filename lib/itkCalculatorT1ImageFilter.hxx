@@ -64,7 +64,7 @@ namespace itk {
         if (m_Calculator->getEchoTimes()) {
             printf("\nEchoTimes: ");
             for (size_t i = 0; i < m_Calculator->getNSamples(); i++) {
-                printf("%.0f ", m_Calculator->getEchoTimes()[i]);
+                printf("%.1f ", m_Calculator->getEchoTimes()[i]);
             }
         }
 

@@ -1,0 +1,7 @@
+# cmake copies this file, so you better reload cmake if you change this file and you want everything to be working
+resultsTwoParam:   [ 684.3, 49.5]
+resultsThreeParam: [ 0, 680, 233]
+
+signalMag: [ 679, 610, 536, 0]
+echoTimes: [ 0.0, 7.2, 10.9, 10000]
+#echoTimes: [ 0.0, 28, 43, 10000]

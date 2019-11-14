@@ -10,6 +10,7 @@
 
 #include "CmakeConfigForTomato.h"
 
+#include "OxModelT2TwoParam.h"
 #include "OxModelT2ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
@@ -31,7 +32,7 @@ TEST(OxCalculatorT2, blood) {
 
     // init the necessary objects
     Ox::ModelT2ThreeParam<TYPE> functionsObject;
-    Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
+    Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2<TYPE> calculatorT2;
 
@@ -40,7 +41,7 @@ TEST(OxCalculatorT2, blood) {
     startPointCalculator.setInputStartPoint(startPoint);
     calculatorT2.setStartPointCalculator(&startPointCalculator);
     calculatorT2.setModel(&functionsObject);
-    calculatorT2.setFitter(&fitterAmoebaVnl);
+    calculatorT2.setFitter(&fitter);
 
     // set the data
     calculatorT2.setNSamples(nSamples);
@@ -53,9 +54,7 @@ TEST(OxCalculatorT2, blood) {
     EXPECT_NEAR(calculatorT2.getResults()["B"],  testData.getResultsThreeParam()[1], 1e-1);
     EXPECT_NEAR(calculatorT2.getResults()["T2"], testData.getResultsThreeParam()[2], 1e-1);
 }
-#endif
 
-#ifdef USE_VNL
 TEST(OxCalculatorT2, myo) {
 
     typedef double TYPE;
@@ -66,7 +65,7 @@ TEST(OxCalculatorT2, myo) {
 
     // init the necessary objects
     Ox::ModelT2ThreeParam<TYPE> functionsObject;
-    Ox::FitterLevenbergMarquardtVnl<TYPE> fitterAmoebaVnl;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2<TYPE> calculatorT2;
 
@@ -75,7 +74,7 @@ TEST(OxCalculatorT2, myo) {
     startPointCalculator.setInputStartPoint(startPoint);
     calculatorT2.setStartPointCalculator(&startPointCalculator);
     calculatorT2.setModel(&functionsObject);
-    calculatorT2.setFitter(&fitterAmoebaVnl);
+    calculatorT2.setFitter(&fitter);
 
 
     // set the data
@@ -89,4 +88,69 @@ TEST(OxCalculatorT2, myo) {
     EXPECT_NEAR(calculatorT2.getResults()["B"],  testData.getResultsThreeParam()[1], 1e-1);
     EXPECT_NEAR(calculatorT2.getResults()["T2"], testData.getResultsThreeParam()[2], 1e-1);
 }
+
+TEST(OxCalculatorT2, myo_3samples) {
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/T2_myocardium_3samples.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    // init the necessary objects
+    Ox::ModelT2TwoParam<TYPE> functionsObject;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
+    Ox::CalculatorT2<TYPE> calculatorT2;
+
+    // configure
+    TYPE startPoint[] = {500,80};
+    startPointCalculator.setInputStartPoint(startPoint);
+    calculatorT2.setStartPointCalculator(&startPointCalculator);
+    calculatorT2.setModel(&functionsObject);
+    calculatorT2.setFitter(&fitter);
+
+    // set the data
+    calculatorT2.setNSamples(nSamples);
+    calculatorT2.setEchoTimes(testData.getEchoTimesPtr());
+    calculatorT2.setSigMag(testData.getSignalMagPtr());
+
+    calculatorT2.calculate();
+
+    EXPECT_NEAR(calculatorT2.getResults()["A"],  testData.getResultsTwoParam()[0], 1e-1);
+    EXPECT_NEAR(calculatorT2.getResults()["T2"], testData.getResultsTwoParam()[1], 1e-1);
+}
+
+TEST(OxCalculatorT2, blood_3samples) {
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/T2_blood_3samples.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    // init the necessary objects
+    Ox::ModelT2TwoParam<TYPE> functionsObject;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
+    Ox::CalculatorT2<TYPE> calculatorT2;
+
+    // configure
+    TYPE startPoint[] = {500,80};
+    startPointCalculator.setInputStartPoint(startPoint);
+    calculatorT2.setStartPointCalculator(&startPointCalculator);
+    calculatorT2.setModel(&functionsObject);
+    calculatorT2.setFitter(&fitter);
+
+    // set the data
+    calculatorT2.setNSamples(nSamples);
+    calculatorT2.setEchoTimes(testData.getEchoTimesPtr());
+    calculatorT2.setSigMag(testData.getSignalMagPtr());
+
+    calculatorT2.calculate();
+
+    EXPECT_NEAR(calculatorT2.getResults()["A"],  testData.getResultsTwoParam()[0], 1e-1);
+    EXPECT_NEAR(calculatorT2.getResults()["T2"], testData.getResultsTwoParam()[1], 1e-1);
+}
+
 #endif

@@ -84,6 +84,7 @@ namespace itk {
         std::vector<double> m_InvTimesFromImageComments;
         std::vector<double> m_RepTimes;
         std::vector<double> m_EchoTimes;
+        std::vector<double> m_EchoTimes00191016;
         std::vector<double> m_TriggerTimes;
         std::vector<double> m_AcqTimes;
         MetaDataDictionaryArrayType m_MetaDataDictionaryArray;
@@ -94,6 +95,7 @@ namespace itk {
         double FindInversionTimeFromImageComments(ReaderType* reader);
         double FindRepetitionTime(ReaderType* reader);
         double FindEchoTime(ReaderType* reader);
+        double FindEchoTime00191016(ReaderType* reader);
         double FindTriggerTime(ReaderType* reader);
         double FindAcqTime(ReaderType* reader);
     };

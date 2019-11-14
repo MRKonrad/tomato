@@ -74,13 +74,13 @@ namespace itk {
     vnl_vector<double>
     ReadFileListFilter<TImage>
     ::GetInvTimes(){
-        vnl_vector<double> invTimeVnl = GetVnlVectorFromStdVector(m_InvTimes);
-        vnl_vector<double> invTimeFromImageCommentsVnl = GetVnlVectorFromStdVector(m_InvTimesFromImageComments);
+        vnl_vector<double> invTimesVnl = GetVnlVectorFromStdVector(m_InvTimes);
+        vnl_vector<double> invTimesFromImageCommentsVnl = GetVnlVectorFromStdVector(m_InvTimesFromImageComments);
         vnl_vector<double> triggerTimesVnl = GetVnlVectorFromStdVector(m_TriggerTimes);
-        if (invTimeVnl.min_value() != invTimeVnl.max_value()) {
-            return invTimeVnl;
-        } else if (invTimeFromImageCommentsVnl.min_value() != invTimeFromImageCommentsVnl.max_value()) {
-            return invTimeFromImageCommentsVnl;
+        if (invTimesVnl.min_value() != invTimesVnl.max_value()) {
+            return invTimesVnl;
+        } else if (invTimesFromImageCommentsVnl.min_value() != invTimesFromImageCommentsVnl.max_value()) {
+            return invTimesFromImageCommentsVnl;
         } else {
             return triggerTimesVnl;
         }
@@ -97,7 +97,15 @@ namespace itk {
     vnl_vector<double>
     ReadFileListFilter<TImage>
     ::GetEchoTimes(){
-        return GetVnlVectorFromStdVector(m_EchoTimes);
+        vnl_vector<double> echoTimesVnl = GetVnlVectorFromStdVector(m_EchoTimes);
+        vnl_vector<double> echoTimes00191016Vnl = GetVnlVectorFromStdVector(m_EchoTimes00191016);
+        if (echoTimesVnl.min_value() != echoTimesVnl.max_value()) {
+            return echoTimesVnl;
+        } else if (echoTimes00191016Vnl.min_value() != echoTimes00191016Vnl.max_value()) {
+            return echoTimes00191016Vnl;
+        } else {
+            return echoTimesVnl;
+        }
     }
 
     template< typename TImage >
@@ -134,6 +142,7 @@ namespace itk {
         typename ImageType3D::Pointer outputImage;
 
         m_DicomIO = GDCMImageIO::New();
+        m_DicomIO->LoadPrivateTagsOn();
 
         itk::FixedArray< PixelType, 3 > layout;
         layout[0] = 1;
@@ -165,6 +174,7 @@ namespace itk {
                 m_InvTimesFromImageComments.push_back(FindInversionTimeFromImageComments(reader));
                 m_RepTimes.push_back(FindRepetitionTime(reader));
                 m_EchoTimes.push_back(FindEchoTime(reader));
+                m_EchoTimes00191016.push_back(FindEchoTime00191016(reader));
                 m_TriggerTimes.push_back(FindTriggerTime(reader));
                 m_AcqTimes.push_back(FindAcqTime(reader));
                 inputImageNumber++;
@@ -323,6 +333,33 @@ namespace itk {
         }
         return echoTime;
     };
+
+    template< class TImage>
+    double
+    ReadFileListFilter< TImage>
+    ::FindEchoTime00191016(ReaderType* reader) {
+
+        typedef itk::MetaDataDictionary   DictionaryType;
+        typedef itk::MetaDataObject< std::string > MetaDataStringType;
+        double echoTime = 0;
+
+        const  DictionaryType & dictionary = reader->GetMetaDataDictionary();
+        DictionaryType::ConstIterator end = dictionary.End();
+
+        std::string entryId = "0019|1016";
+        DictionaryType::ConstIterator tagItr = dictionary.Find(entryId);
+        if ( tagItr != end ) {
+            MetaDataStringType::ConstPointer entryvalueStr =
+                    dynamic_cast<const MetaDataStringType *>(tagItr->second.GetPointer());
+
+            if (entryvalueStr) {
+                std::string tagvalue = entryvalueStr->GetMetaDataObjectValue();
+                echoTime = KWUtil::StringToNumber<double>(tagvalue);
+            }
+        }
+        return echoTime;
+    };
+
 
     template< class TImage>
     double

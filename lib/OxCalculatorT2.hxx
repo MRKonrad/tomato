@@ -19,9 +19,8 @@ namespace Ox {
             return 1; // EXIT_FAILURE
         }
 
-
         MeasureType tempParameters[3];
-        KWUtil::copyArrayToArray(3, tempParameters, this->_StartPoint); // start from the starting point
+        KWUtil::copyArrayToArray(this->_nDims, tempParameters, this->_StartPoint); // start from the starting point
 
         this->getModel()->setNSamples(this->getNSamples());
         this->getModel()->setSignal(this->getSigMag());
@@ -35,12 +34,18 @@ namespace Ox {
         this->getFitter()->performFitting();
 
         MeasureType tempResults[3];
-        KWUtil::copyArrayToArray(3, tempResults, this->getFitter()->getParameters());
+        KWUtil::copyArrayToArray(this->_nDims, tempResults, this->getFitter()->getParameters());
         if (tempResults[0] != 0) {
-            this->_Results["A"]      = tempResults[0];
-            this->_Results["B"]      = tempResults[1];
-            this->_Results["T2"]     = tempResults[2];
-            this->_Results["R2"]     = calculateR2AbsFromModel(this->getNSamples(), this->getEchoTimes(), this->getSigMag(), tempResults);
+            if (this->_nDims == 2) {
+                this->_Results["A"]  = tempResults[0];
+                this->_Results["T2"] = tempResults[1];
+                this->_Results["R2"] = calculateR2AbsFromModel(this->getNSamples(), this->getEchoTimes(),this->getSigMag(), tempResults);
+            } else if (this->_nDims == 3){
+                this->_Results["A"]  = tempResults[0];
+                this->_Results["B"]  = tempResults[1];
+                this->_Results["T2"] = tempResults[2];
+                this->_Results["R2"] = calculateR2AbsFromModel(this->getNSamples(), this->getEchoTimes(), this->getSigMag(), tempResults);
+            }
         }
 
         return 0; // EXIT_SUCCESS
@@ -89,7 +94,7 @@ namespace Ox {
         this->getStartPointCalculator()->setNDims(this->_nDims);
         if (!this->getStartPointCalculator()->getInputStartPoint()){
             if (this->_nDims == 2){
-                MeasureType const temp[] = {100, 50};
+                MeasureType const temp[] = {500, 100};
                 this->getStartPointCalculator()->setInputStartPoint(temp);
             } else if (this->_nDims == 3){
                 MeasureType const temp[] = {1, 100, 50};

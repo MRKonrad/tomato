@@ -13,6 +13,7 @@
 #include "OxModelT1TwoParam.h"
 #include "OxModelT1Shmolli.h"
 #include "OxModelT2ThreeParam.h"
+#include "OxModelT2TwoParam.h"
 
 namespace Ox {
 
@@ -24,7 +25,8 @@ namespace Ox {
             "ModelT1ThreeParam",
             "ModelT1TwoParam",
             "ModelT1Shmolli",
-            "ModelT2ThreeParam"
+            "ModelT2ThreeParam",
+            "ModelT2TwoParam"
     };
 
     enum modelType_t {
@@ -32,14 +34,16 @@ namespace Ox {
         _ModelT1TwoParam = 1,
         _ModelT1Shmolli = 2,
         _ModelT2ThreeParam = 3,
-        lastFunctorType = _ModelT2ThreeParam
+        _ModelT2TwoParam = 4,
+        lastFunctorType = _ModelT2TwoParam
     };
 
     static int modelAvailability[] = {
             1, // ModelT1ThreeParam
             1, // ModelT1TwoParam
             1, // ModelT1Shmolli
-            1  // ModelT2ThreeParam
+            1, // ModelT2ThreeParam
+            1  // ModelT2TwoParam
     };
 
     template<typename TYPE>
@@ -59,6 +63,9 @@ namespace Ox {
                 }
                 case _ModelT2ThreeParam: {
                     return new ModelT2ThreeParam<TYPE>();
+                }
+                case _ModelT2TwoParam: {
+                    return new ModelT2TwoParam<TYPE>();
                 }
                 default:
                     throw std::runtime_error("model_type not available");
