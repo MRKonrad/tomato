@@ -18,6 +18,7 @@ var annotated =
       [ "ModelT1ThreeParam", "class_ox_1_1_model_t1_three_param.html", "class_ox_1_1_model_t1_three_param" ],
       [ "ModelT1TwoParam", "class_ox_1_1_model_t1_two_param.html", "class_ox_1_1_model_t1_two_param" ],
       [ "ModelT2ThreeParam", "class_ox_1_1_model_t2_three_param.html", "class_ox_1_1_model_t2_three_param" ],
+      [ "ModelT2TwoParam", "class_ox_1_1_model_t2_two_param.html", "class_ox_1_1_model_t2_two_param" ],
       [ "SignCalculator", "class_ox_1_1_sign_calculator.html", "class_ox_1_1_sign_calculator" ],
       [ "SignCalculatorNoSign", "class_ox_1_1_sign_calculator_no_sign.html", "class_ox_1_1_sign_calculator_no_sign" ],
       [ "SignCalculatorRealImag", "class_ox_1_1_sign_calculator_real_imag.html", "class_ox_1_1_sign_calculator_real_imag" ],

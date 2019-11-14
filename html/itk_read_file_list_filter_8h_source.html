@@ -182,31 +182,33 @@ $(document).ready(function(){initNavTree('itk_read_file_list_filter_8h_source.ht
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        std::vector&lt;<span class="keywordtype">double</span>&gt; m_InvTimesFromImageComments;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        std::vector&lt;<span class="keywordtype">double</span>&gt; m_RepTimes;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        std::vector&lt;<span class="keywordtype">double</span>&gt; m_EchoTimes;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        std::vector&lt;<span class="keywordtype">double</span>&gt; m_TriggerTimes;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        std::vector&lt;<span class="keywordtype">double</span>&gt; m_AcqTimes;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        MetaDataDictionaryArrayType m_MetaDataDictionaryArray;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        GDCMImageIO::Pointer m_DicomIO;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">bool</span> m_Verbose;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">double</span> FindInversionTime(ReaderType* reader);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">double</span> FindInversionTimeFromImageComments(ReaderType* reader);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordtype">double</span> FindRepetitionTime(ReaderType* reader);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordtype">double</span> FindEchoTime(ReaderType* reader);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordtype">double</span> FindTriggerTime(ReaderType* reader);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordtype">double</span> FindAcqTime(ReaderType* reader);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    };</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#ifndef TOMATOLIB_COMPILED</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifndef ITK_MANUAL_INSTANTIATION</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;itkReadFileListFilter.hxx&quot;</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif //ITK_MANUAL_INSTANTIATION</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif //TOMATOLIB_COMPILED</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif // USE_ITK</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        std::vector&lt;<span class="keywordtype">double</span>&gt; m_EchoTimes00191016;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        std::vector&lt;<span class="keywordtype">double</span>&gt; m_TriggerTimes;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        std::vector&lt;<span class="keywordtype">double</span>&gt; m_AcqTimes;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        MetaDataDictionaryArrayType m_MetaDataDictionaryArray;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        GDCMImageIO::Pointer m_DicomIO;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">bool</span> m_Verbose;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">double</span> FindInversionTime(ReaderType* reader);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordtype">double</span> FindInversionTimeFromImageComments(ReaderType* reader);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordtype">double</span> FindRepetitionTime(ReaderType* reader);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordtype">double</span> FindEchoTime(ReaderType* reader);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordtype">double</span> FindEchoTime00191016(ReaderType* reader);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">double</span> FindTriggerTime(ReaderType* reader);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordtype">double</span> FindAcqTime(ReaderType* reader);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    };</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#ifndef TOMATOLIB_COMPILED</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifndef ITK_MANUAL_INSTANTIATION</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;itkReadFileListFilter.hxx&quot;</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif //ITK_MANUAL_INSTANTIATION</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif //TOMATOLIB_COMPILED</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#endif //TomatoLIB_ITKREADFILELISTFILTER_H</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#endif // USE_ITK</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif //TomatoLIB_ITKREADFILELISTFILTER_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

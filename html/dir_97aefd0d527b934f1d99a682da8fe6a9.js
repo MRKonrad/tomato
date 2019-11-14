@@ -2,8 +2,6 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
 [
     [ "itkCalculatorT1ImageFilter.h", "itk_calculator_t1_image_filter_8h.html", null ],
     [ "itkCalculatorT1ImageFilter.hxx", "itk_calculator_t1_image_filter_8hxx.html", null ],
-    [ "itkCalculatorT2ImageFilter.h", "itk_calculator_t2_image_filter_8h.html", null ],
-    [ "itkCalculatorT2ImageFilter.hxx", "itk_calculator_t2_image_filter_8hxx.html", null ],
     [ "itkColorbar2DImageFilter.h", "itk_colorbar2_d_image_filter_8h_source.html", null ],
     [ "itkNShmolliSamplesUsedTo123ImageFilter.h", "itk_n_shmolli_samples_used_to123_image_filter_8h_source.html", null ],
     [ "itkReadFileListFilter.h", "itk_read_file_list_filter_8h_source.html", null ],
@@ -60,6 +58,10 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
       [ "ModelT2ThreeParam", "class_ox_1_1_model_t2_three_param.html", "class_ox_1_1_model_t2_three_param" ]
     ] ],
     [ "OxModelT2ThreeParam.hxx", "_ox_model_t2_three_param_8hxx.html", null ],
+    [ "OxModelT2TwoParam.h", "_ox_model_t2_two_param_8h.html", [
+      [ "ModelT2TwoParam", "class_ox_1_1_model_t2_two_param.html", "class_ox_1_1_model_t2_two_param" ]
+    ] ],
+    [ "OxModelT2TwoParam.hxx", "_ox_model_t2_two_param_8hxx.html", null ],
     [ "OxSignCalculator.h", "_ox_sign_calculator_8h.html", [
       [ "SignCalculator", "class_ox_1_1_sign_calculator.html", "class_ox_1_1_sign_calculator" ]
     ] ],

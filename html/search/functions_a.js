@@ -7,6 +7,7 @@ var searchData=
   ['_7emodelt1threeparam',['~ModelT1ThreeParam',['../class_ox_1_1_model_t1_three_param.html#a533739a9eda1cb9d006e292bae466082',1,'Ox::ModelT1ThreeParam']]],
   ['_7emodelt1twoparam',['~ModelT1TwoParam',['../class_ox_1_1_model_t1_two_param.html#ae6870d10db397016649989969c613f32',1,'Ox::ModelT1TwoParam']]],
   ['_7emodelt2threeparam',['~ModelT2ThreeParam',['../class_ox_1_1_model_t2_three_param.html#a504f1b6e964c67bbf251469f2ae880ff',1,'Ox::ModelT2ThreeParam']]],
+  ['_7emodelt2twoparam',['~ModelT2TwoParam',['../class_ox_1_1_model_t2_two_param.html#aa6ff3c3c4b24a3479c8ed6f3490f12ed',1,'Ox::ModelT2TwoParam']]],
   ['_7esigncalculator',['~SignCalculator',['../class_ox_1_1_sign_calculator.html#a5143a172e360633d8df758756d146889',1,'Ox::SignCalculator']]],
   ['_7esigncalculatornosign',['~SignCalculatorNoSign',['../class_ox_1_1_sign_calculator_no_sign.html#a1da2b6c351daf89811c6d9618df2bb74',1,'Ox::SignCalculatorNoSign']]],
   ['_7estartpointcalculator',['~StartPointCalculator',['../class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a',1,'Ox::StartPointCalculator']]],

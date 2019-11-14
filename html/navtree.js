@@ -26,8 +26,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"class_ox_1_1_calculator.html#ac05783e37c8e6f3f457778ebbfa2e6a5",
-"class_ox_1_1_start_point_calculator.html#ab6b12ed8fa6b47b3335b5c7a92b94623"
+"class_ox_1_1_calculator.html#ab5f694e40a431677359b6933154eebc0",
+"class_ox_1_1_start_point_calculator.html#a408ce85b6fbf0ee69f4eca3176b814d6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

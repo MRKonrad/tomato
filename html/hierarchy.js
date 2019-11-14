@@ -19,7 +19,8 @@ var hierarchy =
       [ "Ox::ModelT1Shmolli< MeasureType >", "class_ox_1_1_model_t1_shmolli.html", null ],
       [ "Ox::ModelT1ThreeParam< MeasureType >", "class_ox_1_1_model_t1_three_param.html", null ],
       [ "Ox::ModelT1TwoParam< MeasureType >", "class_ox_1_1_model_t1_two_param.html", null ],
-      [ "Ox::ModelT2ThreeParam< MeasureType >", "class_ox_1_1_model_t2_three_param.html", null ]
+      [ "Ox::ModelT2ThreeParam< MeasureType >", "class_ox_1_1_model_t2_three_param.html", null ],
+      [ "Ox::ModelT2TwoParam< MeasureType >", "class_ox_1_1_model_t2_two_param.html", null ]
     ] ],
     [ "OxCalculatorT1Shmolli", "class_ox_calculator_t1_shmolli.html", null ],
     [ "Ox::SignCalculator< MeasureType >", "class_ox_1_1_sign_calculator.html", [
