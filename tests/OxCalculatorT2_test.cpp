@@ -104,7 +104,7 @@ TEST(OxCalculatorT2, myo_3samples) {
     Ox::CalculatorT2<TYPE> calculatorT2;
 
     // configure
-    TYPE startPoint[] = {500,80};
+    TYPE startPoint[] = { 500, 80 };
     startPointCalculator.setInputStartPoint(startPoint);
     calculatorT2.setStartPointCalculator(&startPointCalculator);
     calculatorT2.setModel(&functionsObject);
@@ -136,7 +136,7 @@ TEST(OxCalculatorT2, blood_3samples) {
     Ox::CalculatorT2<TYPE> calculatorT2;
 
     // configure
-    TYPE startPoint[] = {500,80};
+    TYPE startPoint[] = { 500, 80 };
     startPointCalculator.setInputStartPoint(startPoint);
     calculatorT2.setStartPointCalculator(&startPointCalculator);
     calculatorT2.setModel(&functionsObject);

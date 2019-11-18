@@ -14,9 +14,10 @@
 #ifdef USE_ITK
 
 #include <iostream>
-#include "itkImageFileReader.h"
+#include "itkImageFileReaderKW.h"
 #include "itkTileImageFilter.h"
 #include "itkGDCMImageIO.h"
+#include "itkMetaDataObject.h"
 
 namespace itk {
     /**
@@ -40,11 +41,14 @@ namespace itk {
         typedef TImage ImageType3D;
         typedef typename ImageType3D::PixelType PixelType;
         typedef itk::Image< PixelType, 2 > ImageType2D;
-        typedef itk::ImageFileReader< ImageType3D > ReaderType;
+        typedef itk::ImageFileReaderKW< ImageType3D > ReaderType;
         typedef itk::TileImageFilter< ImageType3D, ImageType3D > TileImageType;
 
         typedef std::vector<std::string> FileListType;
         typedef std::vector<MetaDataDictionary> MetaDataDictionaryArrayType;
+
+        typedef itk::MetaDataDictionary   DictionaryType;
+        typedef itk::MetaDataObject< std::string > MetaDataStringType;
 
         // setters
         void SetFileList(std::vector<std::string> fileList);
@@ -81,10 +85,12 @@ namespace itk {
         std::vector<std::string> m_FileList;
         std::string m_DirName;
         std::vector<double> m_InvTimes;
+        std::vector<double> m_InvTimes20051572;
         std::vector<double> m_InvTimesFromImageComments;
         std::vector<double> m_RepTimes;
         std::vector<double> m_EchoTimes;
         std::vector<double> m_EchoTimes00191016;
+        std::vector<double> m_EchoTimes00209158;
         std::vector<double> m_TriggerTimes;
         std::vector<double> m_AcqTimes;
         MetaDataDictionaryArrayType m_MetaDataDictionaryArray;
@@ -92,10 +98,12 @@ namespace itk {
         bool m_Verbose;
 
         double FindInversionTime(ReaderType* reader);
+        double FindInversionTime20051572(ReaderType* reader);
         double FindInversionTimeFromImageComments(ReaderType* reader);
         double FindRepetitionTime(ReaderType* reader);
         double FindEchoTime(ReaderType* reader);
         double FindEchoTime00191016(ReaderType* reader);
+        double FindEchoTime00209158(ReaderType* reader);
         double FindTriggerTime(ReaderType* reader);
         double FindAcqTime(ReaderType* reader);
     };

@@ -10,18 +10,20 @@
 #define TomatoLIB_ITKREADFILELISTFILTER_HXX
 
 #include "CmakeConfigForTomato.h"
+#include "gdcmTomatoReadTags.h"
 
 #ifdef USE_ITK
 
 #include <iostream>
 #include <string>
 #include "itkGDCMImageIO.h"
-#include "itkMetaDataObject.h"
+
 #include "itkStatisticsImageFilter.h"
 #include "KWUtil.h"
 #include "itkReadFileListFilter.h"
 #include "itkDirectory.h"
-
+#include "gdcmBase64.h"
+#include "gdcmTomatoReadTags.h"
 
 namespace itk {
 
@@ -51,7 +53,7 @@ namespace itk {
 
         for (size_t i = 0; i < directory->GetNumberOfFiles(); i++){
             std::string fileName = directory->GetFile(i);
-            if (fileName == "." || fileName == ".."){
+            if (fileName == "." || fileName == ".." || fileName == ".DS_Store"){
                 continue;
             }
             m_FileList.push_back(m_DirName + KWUtil::PathSeparator() + fileName);
@@ -75,14 +77,19 @@ namespace itk {
     ReadFileListFilter<TImage>
     ::GetInvTimes(){
         vnl_vector<double> invTimesVnl = GetVnlVectorFromStdVector(m_InvTimes);
-        vnl_vector<double> invTimesFromImageCommentsVnl = GetVnlVectorFromStdVector(m_InvTimesFromImageComments);
+        vnl_vector<double> invTimesVnl20051572 = GetVnlVectorFromStdVector(m_InvTimes20051572);
+        vnl_vector<double> invTimesVnlFromImageCommentsVnl = GetVnlVectorFromStdVector(m_InvTimesFromImageComments);
         vnl_vector<double> triggerTimesVnl = GetVnlVectorFromStdVector(m_TriggerTimes);
         if (invTimesVnl.min_value() != invTimesVnl.max_value()) {
             return invTimesVnl;
-        } else if (invTimesFromImageCommentsVnl.min_value() != invTimesFromImageCommentsVnl.max_value()) {
-            return invTimesFromImageCommentsVnl;
-        } else {
+        } else if (invTimesVnl20051572.min_value() != invTimesVnl20051572.max_value()) {
+            return invTimesVnl20051572;
+        } else if (invTimesVnlFromImageCommentsVnl.min_value() != invTimesVnlFromImageCommentsVnl.max_value()) {
+            return invTimesVnlFromImageCommentsVnl;
+        } else if (triggerTimesVnl.min_value() != triggerTimesVnl.max_value()) {
             return triggerTimesVnl;
+        } else {
+            return invTimesVnl;
         }
     }
 
@@ -99,10 +106,13 @@ namespace itk {
     ::GetEchoTimes(){
         vnl_vector<double> echoTimesVnl = GetVnlVectorFromStdVector(m_EchoTimes);
         vnl_vector<double> echoTimes00191016Vnl = GetVnlVectorFromStdVector(m_EchoTimes00191016);
+        vnl_vector<double> echoTimes00209158Vnl = GetVnlVectorFromStdVector(m_EchoTimes00209158);
         if (echoTimesVnl.min_value() != echoTimesVnl.max_value()) {
             return echoTimesVnl;
         } else if (echoTimes00191016Vnl.min_value() != echoTimes00191016Vnl.max_value()) {
             return echoTimes00191016Vnl;
+        } else if (echoTimes00209158Vnl.min_value() != echoTimes00209158Vnl.max_value()) {
+            return echoTimes00209158Vnl;
         } else {
             return echoTimesVnl;
         }
@@ -163,18 +173,23 @@ namespace itk {
             reader = ReaderType::New();
             reader->SetImageIO(m_DicomIO);
             reader->SetFileName( m_FileList[i] );
-            //reader->MetaDataDictionaryArrayUpdateOn();
-            tiler->SetInput(i,reader->GetOutput());
+            m_DicomIO->SetFileName(m_FileList[i]);
+            m_DicomIO->ReadImageInformation();
+            reader->Update();
+
+            tiler->SetInput(i, reader->GetOutput());
 
             try {
                 tiler->Update();
                 //std::cout << std::setprecision(9) << reader->GetOutput()->GetOrigin() << std::endl;
                 m_MetaDataDictionaryArray.push_back(reader->GetMetaDataDictionary());
                 m_InvTimes.push_back(FindInversionTime(reader));
+                m_InvTimes20051572.push_back(FindInversionTime20051572(reader));
                 m_InvTimesFromImageComments.push_back(FindInversionTimeFromImageComments(reader));
                 m_RepTimes.push_back(FindRepetitionTime(reader));
                 m_EchoTimes.push_back(FindEchoTime(reader));
                 m_EchoTimes00191016.push_back(FindEchoTime00191016(reader));
+                m_EchoTimes00209158.push_back(FindEchoTime00209158(reader));
                 m_TriggerTimes.push_back(FindTriggerTime(reader));
                 m_AcqTimes.push_back(FindAcqTime(reader));
                 inputImageNumber++;
@@ -234,8 +249,6 @@ namespace itk {
     ReadFileListFilter< TImage>
     ::FindInversionTime(ReaderType* reader) {
 
-        typedef itk::MetaDataDictionary DictionaryType;
-        typedef itk::MetaDataObject< std::string > MetaDataStringType;
         double invTime = 0;
 
         const  DictionaryType & dictionary = reader->GetMetaDataDictionary();
@@ -259,10 +272,40 @@ namespace itk {
     template< class TImage>
     double
     ReadFileListFilter< TImage>
+    ::FindInversionTime20051572(ReaderType* reader) {
+
+        double invTime = 0;
+
+        const  DictionaryType & dictionary = reader->GetMetaDataDictionary();
+        DictionaryType::ConstIterator end = dictionary.End();
+
+        std::string entryId = "2005|1572";
+        DictionaryType::ConstIterator tagItr = dictionary.Find(entryId);
+
+        if ( tagItr != end ) {
+            MetaDataStringType::ConstPointer entryvalueStr =
+                    dynamic_cast<const MetaDataStringType *>(tagItr->second.GetPointer());
+
+            if (entryvalueStr) {
+                std::string decoded;
+                std::string tagvalue = entryvalueStr->GetMetaDataObjectValue();
+
+                int dlen = gdcm::Base64::GetDecodeLength(tagvalue.c_str(), tagvalue.size() );
+                decoded.resize(dlen);
+                gdcm::Base64::Decode(&decoded[0], decoded.size(), tagvalue.c_str(), tagvalue.size());
+                float * fDecoded = (float *)&decoded[0];
+                invTime = (double)(*fDecoded);
+            }
+        }
+        return invTime;
+    };
+
+
+    template< class TImage>
+    double
+    ReadFileListFilter< TImage>
     ::FindInversionTimeFromImageComments(ReaderType* reader) {
 
-        typedef itk::MetaDataDictionary DictionaryType;
-        typedef itk::MetaDataObject< std::string > MetaDataStringType;
         int invTime = 0;
 
         const  DictionaryType & dictionary = reader->GetMetaDataDictionary();
@@ -287,8 +330,6 @@ namespace itk {
     ReadFileListFilter< TImage>
     ::FindRepetitionTime(ReaderType* reader) {
 
-        typedef itk::MetaDataDictionary   DictionaryType;
-        typedef itk::MetaDataObject< std::string > MetaDataStringType;
         double repTime = 0;
 
         const  DictionaryType & dictionary = reader->GetMetaDataDictionary();
@@ -313,8 +354,6 @@ namespace itk {
     ReadFileListFilter< TImage>
     ::FindEchoTime(ReaderType* reader) {
 
-        typedef itk::MetaDataDictionary   DictionaryType;
-        typedef itk::MetaDataObject< std::string > MetaDataStringType;
         double echoTime = 0;
 
         const  DictionaryType & dictionary = reader->GetMetaDataDictionary();
@@ -339,8 +378,6 @@ namespace itk {
     ReadFileListFilter< TImage>
     ::FindEchoTime00191016(ReaderType* reader) {
 
-        typedef itk::MetaDataDictionary   DictionaryType;
-        typedef itk::MetaDataObject< std::string > MetaDataStringType;
         double echoTime = 0;
 
         const  DictionaryType & dictionary = reader->GetMetaDataDictionary();
@@ -360,14 +397,31 @@ namespace itk {
         return echoTime;
     };
 
+    template< class TImage>
+    double
+    ReadFileListFilter< TImage>
+    ::FindEchoTime00209158(ReaderType* reader) {
+
+        int echoTime = 0;
+
+        std::vector<std::pair<int, int> > tags;
+        tags.push_back(std::pair<int, int>(0x5200, 0x9230));
+        tags.push_back(std::pair<int, int>(0x0020, 0x9111));
+        tags.push_back(std::pair<int, int>(0x0020, 0x9158));
+
+        std::string tagvalue;
+        gdcmTomatoReadTags(tags, reader->GetFileName(), tagvalue);
+        std::sscanf(tagvalue.c_str(), "T2 prep. duration = %i ms", &echoTime);
+
+        return (double)echoTime;
+    };
+
 
     template< class TImage>
     double
     ReadFileListFilter< TImage>
     ::FindTriggerTime(ReaderType* reader) {
 
-        typedef itk::MetaDataDictionary   DictionaryType;
-        typedef itk::MetaDataObject< std::string > MetaDataStringType;
         double triggerTime = 0;
 
         const  DictionaryType & dictionary = reader->GetMetaDataDictionary();
@@ -392,8 +446,6 @@ namespace itk {
     ReadFileListFilter< TImage>
     ::FindAcqTime(ReaderType* reader) {
 
-        typedef itk::MetaDataDictionary   DictionaryType;
-        typedef itk::MetaDataObject< std::string > MetaDataStringType;
         double acqTime = 0;
 
         const  DictionaryType & dictionary = reader->GetMetaDataDictionary();
@@ -412,8 +464,6 @@ namespace itk {
         }
         return acqTime;
     }
-
-
 
 }
 

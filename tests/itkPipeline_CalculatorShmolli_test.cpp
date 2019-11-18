@@ -13,6 +13,7 @@
 #include "itkCalculatorT1ImageFilter.h"
 #include "itkColorbar2DImageFilter.h"
 #include "itkTestingComparisonImageFilter.h"
+#include "itkImageFileReader.h"
 
 #ifdef USE_PRIVATE_NR2
 #include "OxFitterAmoebaPrivateNr2.h"
