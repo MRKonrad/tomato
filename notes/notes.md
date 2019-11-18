@@ -8,6 +8,8 @@
 
 ## TODO
 
+*   matlab 1 pixel calculation
+*   yaml input that gets the start point and the inversion/echo times as array
 *   better signCalculatorsTypeNames and startPointCalculatorsTypeNames
 *   results - currently a map, and an akward itkCapculatorT1 filter. Maybe there is a better approach to results?
 *   provide yaml config files for MOLLI, ShMOLLI, SASHA, SMART1 etc 
