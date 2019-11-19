@@ -118,7 +118,7 @@ namespace itk
 
     protected:
         ImageFileReaderKW();
-        ~ImageFileReaderKW() ITK_OVERRIDE;
+        ~ImageFileReaderKW();
         void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
         /** Convert a block of pixels from one type to another. */

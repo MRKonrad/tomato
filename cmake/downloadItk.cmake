@@ -1,5 +1,6 @@
 if(DOWNLOAD_DEPENDENCIES)
 
+    set(TOMATO_ITK_VERSION v4.13.0)
     if (WIN32)
         if(NOT DEFINED CMAKE_GENERATOR_TOOLSET)
             set(ITK_TOOLSET v140)
@@ -10,20 +11,20 @@ if(DOWNLOAD_DEPENDENCIES)
         endif()
         if(CMAKE_SIZEOF_VOID_P EQUAL 8)
             # windows 64 bit
-            set(ITK_ZIP_NAME itk_v4.13.0_windows_x64_${ITK_TOOLSET}.zip)
+            set(ITK_ZIP_NAME itk_${TOMATO_ITK}_windows_x64_${ITK_TOOLSET}.zip)
         elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
             # windows 32 bit
-            set(ITK_ZIP_NAME itk_v4.13.0_windows_Win32_${ITK_TOOLSET}.zip)
+            set(ITK_ZIP_NAME itk_${TOMATO_ITK}_windows_Win32_${ITK_TOOLSET}.zip)
         endif()
     endif ()
     if (UNIX AND NOT APPLE)
-        set(ITK_ZIP_NAME itk_v4.13.0_linux_g++_CXX98.zip)
+        set(ITK_ZIP_NAME itk_${TOMATO_ITK}_linux_g++_CXX98.zip)
     endif ()
     if (APPLE)
-        set(ITK_ZIP_NAME itk_v4.13.0_osx_g++_CXX98.zip)
+        set(ITK_ZIP_NAME itk_${TOMATO_ITK}_osx_g++_CXX98.zip)
     endif ()
 
-    set(DOWNLOAD_URL https://github.com/MRKonrad/build-itk/releases/download/itk_v4.13.0/${ITK_ZIP_NAME})
+    set(DOWNLOAD_URL https://github.com/MRKonrad/build-itk/releases/download/itk_${TOMATO_ITK}/${ITK_ZIP_NAME})
     MESSAGE(STATUS "Downloading ${DOWNLOAD_URL}")
 
     if (NOT EXISTS ${PROJECT_SOURCE_DIR}/thirdParty/itk)
