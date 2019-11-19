@@ -1,6 +1,9 @@
 if(DOWNLOAD_DEPENDENCIES)
 
-    set(TOMATO_ITK_VERSION v4.13.0)
+    # using 4.12 because 4.13 causes error:
+    # /usr/bin/ld: ../thirdParty/itk/lib/libitksys-4.13.a(SystemTools.cxx.o): unrecognized relocation (0x2a) in section `.text'
+    set(TOMATO_ITK_VERSION v4.12.0)
+
     if (WIN32)
         if(NOT DEFINED CMAKE_GENERATOR_TOOLSET)
             set(ITK_TOOLSET v140)
