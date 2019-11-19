@@ -1,10 +1,13 @@
 var searchData=
 [
-  ['imagecalculatort1',['ImageCalculatorT1',['../class_ox_1_1_image_calculator_t1.html',1,'Ox']]],
-  ['init',['init',['../struct_ox_1_1_tomato_options.html#a76497b53cadad720af7ff0f83b99096b',1,'Ox::TomatoOptions']]],
-  ['itkcalculatort1imagefilter_2eh',['itkCalculatorT1ImageFilter.h',['../itk_calculator_t1_image_filter_8h.html',1,'']]],
-  ['itkcalculatort1imagefilter_2ehxx',['itkCalculatorT1ImageFilter.hxx',['../itk_calculator_t1_image_filter_8hxx.html',1,'']]],
-  ['itkpipeline_5fcalculatorshmolli_5ftest_2ecpp',['itkPipeline_CalculatorShmolli_test.cpp',['../itk_pipeline___calculator_shmolli__test_8cpp.html',1,'']]],
-  ['itkpipeline_5ftest_2ecpp',['itkPipeline_test.cpp',['../itk_pipeline__test_8cpp.html',1,'']]],
-  ['itksortinvtimesimagefilter_5ftest_2ecpp',['itkSortInvTimesImageFilter_test.cpp',['../itk_sort_inv_times_image_filter__test_8cpp.html',1,'']]]
+  ['generatedata',['GenerateData',['../classitk_1_1_image_file_reader_k_w.html#a1096f13bf512a24092565fa6a3a82508',1,'itk::ImageFileReaderKW']]],
+  ['generateoutputinformation',['GenerateOutputInformation',['../classitk_1_1_image_file_reader_k_w.html#a5fc2235fca283e451de26035fd237cda',1,'itk::ImageFileReaderKW']]],
+  ['getdocalculatesdmap',['getDoCalculateSDMap',['../class_ox_1_1_calculator_t1_molli.html#a06d8579492ee063b129b489e638333be',1,'Ox::CalculatorT1Molli::getDoCalculateSDMap()'],['../class_ox_1_1_calculator_t2.html#ab5d0e963ac87d04ae47ecd2a9f10059f',1,'Ox::CalculatorT2::getDoCalculateSDMap()']]],
+  ['getfitter',['getFitter',['../class_ox_1_1_calculator.html#af648a7c6c957c9f51532f15c93147d62',1,'Ox::Calculator']]],
+  ['getinvtimes',['getInvTimes',['../class_ox_1_1_calculator.html#ab844b24dfedd27d52466203ec0c913fa',1,'Ox::Calculator']]],
+  ['getmodel',['getModel',['../class_ox_1_1_calculator.html#a5589bf7b93a2d1e106532c35745f4329',1,'Ox::Calculator']]],
+  ['getndims',['getNDims',['../class_ox_1_1_calculator.html#a3a4266dedca7e02707e732a312b85048',1,'Ox::Calculator']]],
+  ['getnsamples',['getNSamples',['../class_ox_1_1_calculator.html#a5e5b6e1af84b8713c833a25d7c0dd90d',1,'Ox::Calculator']]],
+  ['getsigmag',['getSigMag',['../class_ox_1_1_calculator.html#ad9a623ee2bfc77732fa891c47c087aa9',1,'Ox::Calculator']]],
+  ['getsigpha',['getSigPha',['../class_ox_1_1_calculator.html#acf6021ef084c24636a344a12627caff5',1,'Ox::Calculator']]]
 ];

@@ -1,5 +1,8 @@
 var annotated =
 [
+    [ "itk", null, [
+      [ "ImageFileReaderKW", "classitk_1_1_image_file_reader_k_w.html", "classitk_1_1_image_file_reader_k_w" ]
+    ] ],
     [ "Ox", null, [
       [ "TomatoOptions", "struct_ox_1_1_tomato_options.html", "struct_ox_1_1_tomato_options" ],
       [ "FactoryOfCalculators", "class_ox_1_1_factory_of_calculators.html", null ],

@@ -14,6 +14,9 @@ var hierarchy =
     [ "Ox::FactoryOfStartPointCalculators< TYPE >", "class_ox_1_1_factory_of_start_point_calculators.html", null ],
     [ "Ox::Fitter< MeasureType >", "class_ox_1_1_fitter.html", null ],
     [ "Ox::ImageCalculatorT1< MeasureType >", "class_ox_1_1_image_calculator_t1.html", null ],
+    [ "ImageSource", null, [
+      [ "itk::ImageFileReaderKW< TOutputImage, ConvertPixelTraits >", "classitk_1_1_image_file_reader_k_w.html", null ]
+    ] ],
     [ "KWUtil", "class_k_w_util.html", null ],
     [ "Ox::Model< MeasureType >", "class_ox_1_1_model.html", [
       [ "Ox::ModelT1Shmolli< MeasureType >", "class_ox_1_1_model_t1_shmolli.html", null ],

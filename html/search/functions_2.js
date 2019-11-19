@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fitter',['Fitter',['../class_ox_1_1_fitter.html#a7b42acb389394bc4c496990eea8b9ac9',1,'Ox::Fitter::Fitter()'],['../class_ox_1_1_fitter.html#ac51130b722159f88a0dad59877b76417',1,'Ox::Fitter::Fitter(const Fitter &amp;old)']]]
+  ['enlargeoutputrequestedregion',['EnlargeOutputRequestedRegion',['../classitk_1_1_image_file_reader_k_w.html#a313f37f91aad5e0c91fe9b37b9f1e156',1,'itk::ImageFileReaderKW']]]
 ];
