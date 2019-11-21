@@ -304,7 +304,7 @@ $(document).ready(function(){initNavTree('_tomato__export_t2_8hxx_source.html','
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            <span class="keyword">typename</span> ThresholdImageFilterType::Pointer thresholdFilter = ThresholdImageFilterType::New();</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            thresholdFilter-&gt;SetInput(multiplyT2Filter-&gt;GetOutput());</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            <span class="comment">// thresholdFilter-&gt;SetUpper(pow(2, 16) - 1);</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            thresholdFilter-&gt;SetUpper(pow(2, 12) - 1);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            thresholdFilter-&gt;SetUpper(powl(2, 12) - 1);</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            thresholdFilter-&gt;SetOutsideValue(thresholdFilter-&gt;GetUpper());</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            <span class="comment">// export T2 color</span></div>
