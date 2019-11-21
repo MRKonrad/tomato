@@ -22,9 +22,22 @@ namespace Ox {
         MeasureType tempParameters[3];
         KWUtil::copyArrayToArray(this->_nDims, tempParameters, this->_StartPoint); // start from the starting point
 
-        this->getModel()->setNSamples(this->getNSamples());
-        this->getModel()->setSignal(this->getSigMag());
-        this->getModel()->setEchoTimes(this->getEchoTimes());
+        MeasureType tempSig[4];
+        KWUtil::copyArrayToArray(3, tempSig, this->getSigMag());
+        tempSig[3] = 0;
+
+        MeasureType tempEcho[4];
+        KWUtil::copyArrayToArray(3, tempEcho, this->getEchoTimes());
+        tempEcho[3] = 10000;
+
+
+        this->getModel()->setNSamples(4);
+        this->getModel()->setSignal(tempSig);
+        this->getModel()->setEchoTimes(tempEcho);
+
+//        this->getModel()->setNSamples(this->getNSamples());
+//        this->getModel()->setSignal(this->getSigMag());
+//        this->getModel()->setEchoTimes(this->getEchoTimes());
 
         // configure Fitter
         this->getFitter()->setParameters(tempParameters);

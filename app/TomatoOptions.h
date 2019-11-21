@@ -203,11 +203,11 @@ namespace Ox {
             printf("######################################\n");
             KWUtil::printVector(" files_magnitude: ", files_magnitude);
             KWUtil::printVector(" files_phase: ", files_phase);
-            printf(" dir_magnitude: %s ", dir_magnitude.c_str());
-            printf("\n dir_phase: %s ", dir_phase.c_str());
-            printf("\n dir_output_map: %s ", dir_output_map.c_str());
+            printf(  " dir_magnitude: %s ", dir_magnitude.c_str());
+            printf("\n dir_phase:     %s ", dir_phase.c_str());
+            printf("\n dir_output_map:       %s ", dir_output_map.c_str());
             printf("\n dir_output_fitparams: %s ", dir_output_fitparams.c_str());
-            printf("\n output_map_series_number: %d", output_map_series_number);
+            printf("\n output_map_series_number:       %d", output_map_series_number);
             printf("\n output_fitparams_series_number: %d", output_fitparams_series_number);
             printf("\n");
             printf("\n");

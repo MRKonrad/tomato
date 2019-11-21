@@ -86,11 +86,13 @@ namespace itk {
         std::string m_DirName;
         std::vector<double> m_InvTimes;
         std::vector<double> m_InvTimes20051572;
+        std::vector<double> m_InvTimes00211189;
         std::vector<double> m_InvTimesFromImageComments;
         std::vector<double> m_RepTimes;
         std::vector<double> m_EchoTimes;
         std::vector<double> m_EchoTimes00191016;
         std::vector<double> m_EchoTimes00209158;
+        std::vector<double> m_EchoTimesFromImageComments;
         std::vector<double> m_TriggerTimes;
         std::vector<double> m_AcqTimes;
         MetaDataDictionaryArrayType m_MetaDataDictionaryArray;
@@ -99,11 +101,13 @@ namespace itk {
 
         double FindInversionTime(ReaderType* reader);
         double FindInversionTime20051572(ReaderType* reader);
+        double FindInversionTime00211189(ReaderType* reader);
         double FindInversionTimeFromImageComments(ReaderType* reader);
         double FindRepetitionTime(ReaderType* reader);
         double FindEchoTime(ReaderType* reader);
         double FindEchoTime00191016(ReaderType* reader);
         double FindEchoTime00209158(ReaderType* reader);
+        double FindEchoTimeFromImageComments(ReaderType* reader);
         double FindTriggerTime(ReaderType* reader);
         double FindAcqTime(ReaderType* reader);
     };

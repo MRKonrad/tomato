@@ -12,7 +12,7 @@
 
 using namespace gdcm;
 
-int gdcmTomatoReadTags(const std::vector<std::pair<int, int> > tags, const std::string filename, std::string &tagContent, int verbose = 0){
+int gdcmTomatoReadTags(const std::vector<std::pair<int, int> > tags, const std::string filename, std::string &tagContent, bool verbose = false){
 
     tagContent = "";
 

@@ -78,12 +78,15 @@ namespace itk {
     ::GetInvTimes(){
         vnl_vector<double> invTimesVnl = GetVnlVectorFromStdVector(m_InvTimes);
         vnl_vector<double> invTimesVnl20051572 = GetVnlVectorFromStdVector(m_InvTimes20051572);
+        vnl_vector<double> invTimesVnl00211189 = GetVnlVectorFromStdVector(m_InvTimes00211189);
         vnl_vector<double> invTimesVnlFromImageCommentsVnl = GetVnlVectorFromStdVector(m_InvTimesFromImageComments);
         vnl_vector<double> triggerTimesVnl = GetVnlVectorFromStdVector(m_TriggerTimes);
         if (invTimesVnl.min_value() != invTimesVnl.max_value()) {
             return invTimesVnl;
         } else if (invTimesVnl20051572.min_value() != invTimesVnl20051572.max_value()) {
             return invTimesVnl20051572;
+        } else if (invTimesVnl00211189.min_value() != invTimesVnl00211189.max_value()) {
+            return invTimesVnl00211189;
         } else if (invTimesVnlFromImageCommentsVnl.min_value() != invTimesVnlFromImageCommentsVnl.max_value()) {
             return invTimesVnlFromImageCommentsVnl;
         } else if (triggerTimesVnl.min_value() != triggerTimesVnl.max_value()) {
@@ -107,8 +110,11 @@ namespace itk {
         vnl_vector<double> echoTimesVnl = GetVnlVectorFromStdVector(m_EchoTimes);
         vnl_vector<double> echoTimes00191016Vnl = GetVnlVectorFromStdVector(m_EchoTimes00191016);
         vnl_vector<double> echoTimes00209158Vnl = GetVnlVectorFromStdVector(m_EchoTimes00209158);
+        vnl_vector<double> echoTimesFromImageCommentsVnl = GetVnlVectorFromStdVector(m_EchoTimesFromImageComments);
         if (echoTimesVnl.min_value() != echoTimesVnl.max_value()) {
             return echoTimesVnl;
+        } else if (echoTimesFromImageCommentsVnl.min_value() != echoTimesFromImageCommentsVnl.max_value()) {
+            return echoTimesFromImageCommentsVnl;
         } else if (echoTimes00191016Vnl.min_value() != echoTimes00191016Vnl.max_value()) {
             return echoTimes00191016Vnl;
         } else if (echoTimes00209158Vnl.min_value() != echoTimes00209158Vnl.max_value()) {
@@ -185,11 +191,13 @@ namespace itk {
                 m_MetaDataDictionaryArray.push_back(reader->GetMetaDataDictionary());
                 m_InvTimes.push_back(FindInversionTime(reader));
                 m_InvTimes20051572.push_back(FindInversionTime20051572(reader));
+                m_InvTimes00211189.push_back(FindInversionTime00211189(reader));
                 m_InvTimesFromImageComments.push_back(FindInversionTimeFromImageComments(reader));
                 m_RepTimes.push_back(FindRepetitionTime(reader));
                 m_EchoTimes.push_back(FindEchoTime(reader));
                 m_EchoTimes00191016.push_back(FindEchoTime00191016(reader));
                 m_EchoTimes00209158.push_back(FindEchoTime00209158(reader));
+                m_EchoTimesFromImageComments.push_back(FindEchoTimeFromImageComments(reader));
                 m_TriggerTimes.push_back(FindTriggerTime(reader));
                 m_AcqTimes.push_back(FindAcqTime(reader));
                 inputImageNumber++;
@@ -297,6 +305,26 @@ namespace itk {
                 invTime = (double)(*fDecoded);
             }
         }
+        return invTime;
+    };
+
+    template< class TImage>
+    double
+    ReadFileListFilter< TImage>
+    ::FindInversionTime00211189(itk::ReadFileListFilter<TImage>::ReaderType *reader) {
+
+        double invTime = 0;
+
+        std::vector<std::pair<int, int> > tags;
+        tags.push_back(std::pair<int, int>(0x5200, 0x9230));
+        tags.push_back(std::pair<int, int>(0x0021, 0x11fe));
+        tags.push_back(std::pair<int, int>(0x0021, 0x1189));
+
+        std::string tagvalue;
+        if (gdcmTomatoReadTags(tags, reader->GetFileName(), tagvalue) == 0) { // EXIT_SUCCESS
+            invTime = *(double*)&tagvalue[0];
+        }
+
         return invTime;
     };
 
@@ -410,12 +438,36 @@ namespace itk {
         tags.push_back(std::pair<int, int>(0x0020, 0x9158));
 
         std::string tagvalue;
-        gdcmTomatoReadTags(tags, reader->GetFileName(), tagvalue);
-        std::sscanf(tagvalue.c_str(), "T2 prep. duration = %i ms", &echoTime);
+        if ( gdcmTomatoReadTags(tags, reader->GetFileName(), tagvalue) == 0) { // EXIT_SUCCESS
+            std::sscanf(tagvalue.c_str(), "T2 prep. duration = %i ms", &echoTime);
+        }
 
         return (double)echoTime;
     };
 
+    template< class TImage>
+    double
+    ReadFileListFilter< TImage>
+    ::FindEchoTimeFromImageComments(ReaderType* reader) {
+
+        int echoTime = 0;
+
+        const  DictionaryType & dictionary = reader->GetMetaDataDictionary();
+        DictionaryType::ConstIterator end = dictionary.End();
+
+        std::string entryId = "0020|4000";
+        DictionaryType::ConstIterator tagItr = dictionary.Find(entryId);
+
+        if ( tagItr != end ) {
+            MetaDataStringType::ConstPointer entryvalueStr = dynamic_cast<const MetaDataStringType *>(tagItr->second.GetPointer());
+
+            if (entryvalueStr) {
+                std::string tagvalue = entryvalueStr->GetMetaDataObjectValue();
+                std::sscanf(tagvalue.c_str(), "T2 prep. duration = %i ms ", &echoTime);
+            }
+        }
+        return (double)echoTime;
+    };
 
     template< class TImage>
     double

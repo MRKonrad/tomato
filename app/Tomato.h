@@ -20,14 +20,6 @@
 #include "itkNShmolliSamplesUsedTo123ImageFilter.h"
 
 #include "itkTimeProbe.h"
-// for exporting
-#include "gdcmUIDGenerator.h"
-#include "itkGDCMImageIO.h"
-#include "itkGDCMSeriesFileNames.h"
-#include "itkMultiplyImageFilter.h"
-#include "itkImageFileWriter.h"
-#include "itkFileTools.h"
-#include "itkAdaptImageFilter.h"
 
 namespace Ox {
 
@@ -120,7 +112,8 @@ namespace Ox {
 } // namespace Ox
 
 #include "Tomato.hxx"
-#include "Tomato_export.hxx"
+#include "Tomato_exportT1.hxx"
+#include "Tomato_exportT2.hxx"
 
 #endif
 

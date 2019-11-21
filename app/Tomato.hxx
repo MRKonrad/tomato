@@ -164,6 +164,41 @@ namespace Ox {
         return 0; // EXIT_SUCCESS
     }
 
+    template< typename MeasureType >
+    int
+    Tomato<MeasureType>
+    ::exportToDicom(){
+        if (_opts->parameter_type == Ox::T1){
+            return exportT1ToDicom();
+        }
+        else if (_opts->parameter_type == Ox::T2){
+            return exportT2ToDicom();
+        }
+        else {
+            std::cerr << "Tomato::exportToDicom: Export has not been implemented" << std::endl;
+            return 0; // EXIT_FAILURE
+        }
+    }
+
+    template< typename IType, typename EType >
+    class CastPixelAccessor
+    {
+    public:
+
+        typedef IType InternalType;
+        typedef EType ExternalType;
+
+        static void Set(InternalType & output, const ExternalType & input)
+        {
+            output = static_cast<InternalType>( input );
+        }
+
+        static ExternalType Get( const InternalType & input )
+        {
+            return static_cast<ExternalType>( input );
+        }
+    };
+
 } // namespace Ox
 
 #endif
