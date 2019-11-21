@@ -202,7 +202,7 @@ namespace Ox {
             typename ThresholdImageFilterType::Pointer thresholdFilter = ThresholdImageFilterType::New();
             thresholdFilter->SetInput(multiplyT2Filter->GetOutput());
             // thresholdFilter->SetUpper(pow(2, 16) - 1);
-            thresholdFilter->SetUpper(pow<MeasureType>(2, 12) - 1);
+            thresholdFilter->SetUpper(powl(2, 12) - 1);
             thresholdFilter->SetOutsideValue(thresholdFilter->GetUpper());
 
             // export T2 color
