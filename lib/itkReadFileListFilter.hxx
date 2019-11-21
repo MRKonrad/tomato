@@ -311,7 +311,7 @@ namespace itk {
     template< class TImage>
     double
     ReadFileListFilter< TImage>
-    ::FindInversionTime00211189(itk::ReadFileListFilter<TImage>::ReaderType *reader) {
+    ::FindInversionTime00211189(ReaderType *reader) {
 
         double invTime = 0;
 
