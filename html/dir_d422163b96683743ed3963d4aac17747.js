@@ -10,6 +10,7 @@ var dir_d422163b96683743ed3963d4aac17747 =
     [ "OxOriginalShmolliDicomReader.hxx", "_ox_original_shmolli_dicom_reader_8hxx.html", null ],
     [ "Tomato.h", "_tomato_8h.html", null ],
     [ "Tomato.hxx", "_tomato_8hxx_source.html", null ],
-    [ "Tomato_export.hxx", "_tomato__export_8hxx_source.html", null ],
+    [ "Tomato_exportT1.hxx", "_tomato__export_t1_8hxx.html", null ],
+    [ "Tomato_exportT2.hxx", "_tomato__export_t2_8hxx.html", null ],
     [ "TomatoOptions.h", "_tomato_options_8h.html", "_tomato_options_8h" ]
 ];
