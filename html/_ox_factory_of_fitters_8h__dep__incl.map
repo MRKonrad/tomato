@@ -1,4 +1,5 @@
 <map id="app/OxFactoryOfFitters.h" name="app/OxFactoryOfFitters.h">
-<area shape="rect" id="node2" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="17,80,164,107"/>
-<area shape="rect" id="node3" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="41,155,140,181"/>
+<area shape="rect" id="node2" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="155,80,301,107"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="5,155,104,181"/>
+<area shape="rect" id="node4" href="$_ox_factory_of_calculators_8h.html" title="app/OxFactoryOfCalculators.h" alt="" coords="129,155,327,181"/>
 </map>

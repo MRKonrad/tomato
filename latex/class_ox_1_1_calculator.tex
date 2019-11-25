@@ -18,62 +18,66 @@ virtual int \hyperlink{class_ox_1_1_calculator_a9638894f2ec526b68f46f02122bae0c3
 \item 
 virtual int \hyperlink{class_ox_1_1_calculator_a01267c4e842b35f7eacaa9aacdd7e766}{prepare\-To\-Calculate} ()=0
 \item 
-\hypertarget{class_ox_1_1_calculator_a4b04d48cb906764aa235c387b631dca4}{std\-::map$<$ std\-::string, \\*
+\hypertarget{class_ox_1_1_calculator_a4b04d48cb906764aa235c387b631dca4}{virtual std\-::map$<$ std\-::string, \\*
 Measure\-Type $>$ {\bfseries get\-Results} () const }\label{class_ox_1_1_calculator_a4b04d48cb906764aa235c387b631dca4}
 
 \item 
-\hyperlink{class_ox_1_1_model}{Model}$<$ Measure\-Type $>$ $\ast$ \hyperlink{class_ox_1_1_calculator_a5589bf7b93a2d1e106532c35745f4329}{get\-Model} () const 
+virtual \hyperlink{class_ox_1_1_model}{Model}$<$ Measure\-Type $>$ $\ast$ \hyperlink{class_ox_1_1_calculator_a5589bf7b93a2d1e106532c35745f4329}{get\-Model} () const 
 \item 
-\hyperlink{class_ox_1_1_fitter}{Fitter}$<$ Measure\-Type $>$ $\ast$ \hyperlink{class_ox_1_1_calculator_af648a7c6c957c9f51532f15c93147d62}{get\-Fitter} () const 
+virtual \hyperlink{class_ox_1_1_fitter}{Fitter}$<$ Measure\-Type $>$ $\ast$ \hyperlink{class_ox_1_1_calculator_af648a7c6c957c9f51532f15c93147d62}{get\-Fitter} () const 
 \item 
-\hypertarget{class_ox_1_1_calculator_ad43fbbb3e888e1fa73f95d872a963bac}{\hyperlink{class_ox_1_1_start_point_calculator}{Start\-Point\-Calculator}\\*
+\hypertarget{class_ox_1_1_calculator_ad43fbbb3e888e1fa73f95d872a963bac}{virtual \hyperlink{class_ox_1_1_start_point_calculator}{Start\-Point\-Calculator}\\*
 $<$ Measure\-Type $>$ $\ast$ {\bfseries get\-Start\-Point\-Calculator} () const }\label{class_ox_1_1_calculator_ad43fbbb3e888e1fa73f95d872a963bac}
 
 \item 
-\hypertarget{class_ox_1_1_calculator_a4ee7fdeb4009d2e433ef6a566768eb25}{\hyperlink{class_ox_1_1_sign_calculator}{Sign\-Calculator}$<$ Measure\-Type $>$ $\ast$ {\bfseries get\-Sign\-Calculator} () const }\label{class_ox_1_1_calculator_a4ee7fdeb4009d2e433ef6a566768eb25}
+\hypertarget{class_ox_1_1_calculator_a4ee7fdeb4009d2e433ef6a566768eb25}{virtual \hyperlink{class_ox_1_1_sign_calculator}{Sign\-Calculator}\\*
+$<$ Measure\-Type $>$ $\ast$ {\bfseries get\-Sign\-Calculator} () const }\label{class_ox_1_1_calculator_a4ee7fdeb4009d2e433ef6a566768eb25}
 
 \item 
-const Measure\-Type $\ast$ \hyperlink{class_ox_1_1_calculator_ab844b24dfedd27d52466203ec0c913fa}{get\-Inv\-Times} () const 
+virtual const Measure\-Type $\ast$ \hyperlink{class_ox_1_1_calculator_ab844b24dfedd27d52466203ec0c913fa}{get\-Inv\-Times} () const 
 \item 
-\hypertarget{class_ox_1_1_calculator_a6a46eb89732759c2544398f9a694f5c7}{const Measure\-Type $\ast$ {\bfseries get\-Echo\-Times} () const }\label{class_ox_1_1_calculator_a6a46eb89732759c2544398f9a694f5c7}
+\hypertarget{class_ox_1_1_calculator_a6a46eb89732759c2544398f9a694f5c7}{virtual const Measure\-Type $\ast$ {\bfseries get\-Echo\-Times} () const }\label{class_ox_1_1_calculator_a6a46eb89732759c2544398f9a694f5c7}
 
 \item 
-\hypertarget{class_ox_1_1_calculator_a2e708f33e09e1e08345bea3024e99ec1}{const Measure\-Type $\ast$ {\bfseries get\-Rep\-Times} () const }\label{class_ox_1_1_calculator_a2e708f33e09e1e08345bea3024e99ec1}
+\hypertarget{class_ox_1_1_calculator_a2e708f33e09e1e08345bea3024e99ec1}{virtual const Measure\-Type $\ast$ {\bfseries get\-Rep\-Times} () const }\label{class_ox_1_1_calculator_a2e708f33e09e1e08345bea3024e99ec1}
 
 \item 
-\hypertarget{class_ox_1_1_calculator_a6698aa9563e9c7d251d4ff73810dd12c}{const Measure\-Type $\ast$ {\bfseries get\-Rel\-Acq\-Times} () const }\label{class_ox_1_1_calculator_a6698aa9563e9c7d251d4ff73810dd12c}
+\hypertarget{class_ox_1_1_calculator_a6698aa9563e9c7d251d4ff73810dd12c}{virtual const Measure\-Type $\ast$ {\bfseries get\-Rel\-Acq\-Times} () const }\label{class_ox_1_1_calculator_a6698aa9563e9c7d251d4ff73810dd12c}
 
 \item 
-const Measure\-Type $\ast$ \hyperlink{class_ox_1_1_calculator_ad9a623ee2bfc77732fa891c47c087aa9}{get\-Sig\-Mag} () const 
+virtual const Measure\-Type $\ast$ \hyperlink{class_ox_1_1_calculator_ad9a623ee2bfc77732fa891c47c087aa9}{get\-Sig\-Mag} () const 
 \item 
-const Measure\-Type $\ast$ \hyperlink{class_ox_1_1_calculator_acf6021ef084c24636a344a12627caff5}{get\-Sig\-Pha} () const 
+virtual const Measure\-Type $\ast$ \hyperlink{class_ox_1_1_calculator_acf6021ef084c24636a344a12627caff5}{get\-Sig\-Pha} () const 
 \item 
-\hypertarget{class_ox_1_1_calculator_a10c8a3e18079c680cbdf54366d5dfed0}{Measure\-Type $\ast$ {\bfseries get\-Signal} () const }\label{class_ox_1_1_calculator_a10c8a3e18079c680cbdf54366d5dfed0}
+\hypertarget{class_ox_1_1_calculator_abff843bf55042e78ce613caceef8e6a3}{virtual const Measure\-Type $\ast$ {\bfseries get\-Noise} () const }\label{class_ox_1_1_calculator_abff843bf55042e78ce613caceef8e6a3}
 
 \item 
-\hypertarget{class_ox_1_1_calculator_ac05783e37c8e6f3f457778ebbfa2e6a5}{Measure\-Type $\ast$ {\bfseries get\-Signs} () const }\label{class_ox_1_1_calculator_ac05783e37c8e6f3f457778ebbfa2e6a5}
+\hypertarget{class_ox_1_1_calculator_a10c8a3e18079c680cbdf54366d5dfed0}{virtual Measure\-Type $\ast$ {\bfseries get\-Signal} () const }\label{class_ox_1_1_calculator_a10c8a3e18079c680cbdf54366d5dfed0}
 
 \item 
-\hypertarget{class_ox_1_1_calculator_aebf55897e1f11cdd3afec75d24c8ea13}{Measure\-Type $\ast$ {\bfseries get\-Start\-Point} ()}\label{class_ox_1_1_calculator_aebf55897e1f11cdd3afec75d24c8ea13}
+\hypertarget{class_ox_1_1_calculator_ac05783e37c8e6f3f457778ebbfa2e6a5}{virtual Measure\-Type $\ast$ {\bfseries get\-Signs} () const }\label{class_ox_1_1_calculator_ac05783e37c8e6f3f457778ebbfa2e6a5}
 
 \item 
-\hypertarget{class_ox_1_1_calculator_a8232921e636ebc91a102bc2e95596a7b}{Measure\-Type {\bfseries get\-Mean\-Cut\-Off} () const }\label{class_ox_1_1_calculator_a8232921e636ebc91a102bc2e95596a7b}
+\hypertarget{class_ox_1_1_calculator_aebf55897e1f11cdd3afec75d24c8ea13}{virtual Measure\-Type $\ast$ {\bfseries get\-Start\-Point} ()}\label{class_ox_1_1_calculator_aebf55897e1f11cdd3afec75d24c8ea13}
 
 \item 
-int \hyperlink{class_ox_1_1_calculator_a5e5b6e1af84b8713c833a25d7c0dd90d}{get\-N\-Samples} () const 
-\item 
-int \hyperlink{class_ox_1_1_calculator_a3a4266dedca7e02707e732a312b85048}{get\-N\-Dims} () const 
-\item 
-\hypertarget{class_ox_1_1_calculator_ab814b8876ab6ddd7585f73dd23024624}{void {\bfseries set\-Model} (\hyperlink{class_ox_1_1_model}{Model}$<$ Measure\-Type $>$ $\ast$\-\_\-\-Model)}\label{class_ox_1_1_calculator_ab814b8876ab6ddd7585f73dd23024624}
+\hypertarget{class_ox_1_1_calculator_a8232921e636ebc91a102bc2e95596a7b}{virtual Measure\-Type {\bfseries get\-Mean\-Cut\-Off} () const }\label{class_ox_1_1_calculator_a8232921e636ebc91a102bc2e95596a7b}
 
 \item 
-\hypertarget{class_ox_1_1_calculator_a65d901e63b2f59b77a7dea82eaaa8215}{void {\bfseries set\-Fitter} (\hyperlink{class_ox_1_1_fitter}{Fitter}$<$ Measure\-Type $>$ $\ast$\-\_\-\-Fitter)}\label{class_ox_1_1_calculator_a65d901e63b2f59b77a7dea82eaaa8215}
+virtual int \hyperlink{class_ox_1_1_calculator_a5e5b6e1af84b8713c833a25d7c0dd90d}{get\-N\-Samples} () const 
+\item 
+virtual int \hyperlink{class_ox_1_1_calculator_a3a4266dedca7e02707e732a312b85048}{get\-N\-Dims} () const 
+\item 
+\hypertarget{class_ox_1_1_calculator_ab814b8876ab6ddd7585f73dd23024624}{virtual void {\bfseries set\-Model} (\hyperlink{class_ox_1_1_model}{Model}$<$ Measure\-Type $>$ $\ast$\-\_\-\-Model)}\label{class_ox_1_1_calculator_ab814b8876ab6ddd7585f73dd23024624}
 
 \item 
-\hypertarget{class_ox_1_1_calculator_a9b29545ec9a0e911217f496f7d539471}{void {\bfseries set\-Sign\-Calculator} (\hyperlink{class_ox_1_1_sign_calculator}{Sign\-Calculator}$<$ Measure\-Type $>$ $\ast$\-\_\-\-Sign\-Calculator)}\label{class_ox_1_1_calculator_a9b29545ec9a0e911217f496f7d539471}
+\hypertarget{class_ox_1_1_calculator_a65d901e63b2f59b77a7dea82eaaa8215}{virtual void {\bfseries set\-Fitter} (\hyperlink{class_ox_1_1_fitter}{Fitter}$<$ Measure\-Type $>$ $\ast$\-\_\-\-Fitter)}\label{class_ox_1_1_calculator_a65d901e63b2f59b77a7dea82eaaa8215}
 
 \item 
-\hypertarget{class_ox_1_1_calculator_a1ea380bc76e9cd19f0a04254ae167230}{void {\bfseries set\-Start\-Point\-Calculator} (\hyperlink{class_ox_1_1_start_point_calculator}{Start\-Point\-Calculator}$<$ Measure\-Type $>$ $\ast$\-\_\-\-Start\-Point\-Calculator)}\label{class_ox_1_1_calculator_a1ea380bc76e9cd19f0a04254ae167230}
+\hypertarget{class_ox_1_1_calculator_a9b29545ec9a0e911217f496f7d539471}{virtual void {\bfseries set\-Sign\-Calculator} (\hyperlink{class_ox_1_1_sign_calculator}{Sign\-Calculator}$<$ Measure\-Type $>$ $\ast$\-\_\-\-Sign\-Calculator)}\label{class_ox_1_1_calculator_a9b29545ec9a0e911217f496f7d539471}
+
+\item 
+\hypertarget{class_ox_1_1_calculator_a1ea380bc76e9cd19f0a04254ae167230}{virtual void {\bfseries set\-Start\-Point\-Calculator} (\hyperlink{class_ox_1_1_start_point_calculator}{Start\-Point\-Calculator}$<$ Measure\-Type $>$ $\ast$\-\_\-\-Start\-Point\-Calculator)}\label{class_ox_1_1_calculator_a1ea380bc76e9cd19f0a04254ae167230}
 
 \item 
 \hypertarget{class_ox_1_1_calculator_a1dcb241d551a06436108a9f4bf916ece}{virtual void {\bfseries set\-Inv\-Times} (const Measure\-Type $\ast$\-\_\-\-Inv\-Times)}\label{class_ox_1_1_calculator_a1dcb241d551a06436108a9f4bf916ece}
@@ -86,6 +90,9 @@ int \hyperlink{class_ox_1_1_calculator_a3a4266dedca7e02707e732a312b85048}{get\-N
 
 \item 
 \hypertarget{class_ox_1_1_calculator_a7b753dac0897ee4a5cb9c4d7a21d0926}{virtual void {\bfseries set\-Sig\-Pha} (const Measure\-Type $\ast$\-\_\-\-Sig\-Pha)}\label{class_ox_1_1_calculator_a7b753dac0897ee4a5cb9c4d7a21d0926}
+
+\item 
+\hypertarget{class_ox_1_1_calculator_ac78f71339011991131c3b142ae1a9f45}{virtual void {\bfseries set\-Noise} (const Measure\-Type $\ast$\-\_\-\-Noise)}\label{class_ox_1_1_calculator_ac78f71339011991131c3b142ae1a9f45}
 
 \item 
 \hypertarget{class_ox_1_1_calculator_ad945e3f4dd3405c940bc8a22ea3f3ee9}{virtual void {\bfseries set\-Mean\-Cut\-Off} (Measure\-Type \-\_\-\-Mean\-Cut\-Off)}\label{class_ox_1_1_calculator_ad945e3f4dd3405c940bc8a22ea3f3ee9}
@@ -146,6 +153,9 @@ $<$ Measure\-Type $>$ $\ast$ {\bfseries \-\_\-\-Start\-Point\-Calculator}}\label
 \hypertarget{class_ox_1_1_calculator_a369ce1a35879f24950dd23af0e14761c}{const Measure\-Type $\ast$ {\bfseries \-\_\-\-Sig\-Pha}}\label{class_ox_1_1_calculator_a369ce1a35879f24950dd23af0e14761c}
 
 \item 
+\hypertarget{class_ox_1_1_calculator_acb769c5cbf95ad5a59ccc1f587c8c421}{const Measure\-Type $\ast$ {\bfseries \-\_\-\-Noise}}\label{class_ox_1_1_calculator_acb769c5cbf95ad5a59ccc1f587c8c421}
+
+\item 
 \hypertarget{class_ox_1_1_calculator_a5bccc8796af4025d3f072406d839d3a6}{Measure\-Type $\ast$ {\bfseries \-\_\-\-Signal}}\label{class_ox_1_1_calculator_a5bccc8796af4025d3f072406d839d3a6}
 
 \item 
@@ -183,7 +193,7 @@ success/failure
 \end{DoxyReturn}
 
 
-Implemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_ac689ebbf27f95f6fa2559cc13a824db0}{Ox\-::\-Calculator\-T1\-Shmolli$<$ Measure\-Type $>$}, \hyperlink{class_ox_1_1_calculator_t2_a8afe4974f3253edea4386a87695607ae}{Ox\-::\-Calculator\-T2$<$ Measure\-Type $>$}, and \hyperlink{class_ox_1_1_calculator_t1_molli_a6f15bc9c026305248c927d62748903bf}{Ox\-::\-Calculator\-T1\-Molli$<$ Measure\-Type $>$}.
+Implemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_ac689ebbf27f95f6fa2559cc13a824db0}{Ox\-::\-Calculator\-T1\-Shmolli$<$ Measure\-Type $>$}, \hyperlink{class_ox_1_1_calculator_t2_a8afe4974f3253edea4386a87695607ae}{Ox\-::\-Calculator\-T2$<$ Measure\-Type $>$}, \hyperlink{class_ox_1_1_calculator_t2_truncation_a90077df2125150b62324c83da464b02b}{Ox\-::\-Calculator\-T2\-Truncation$<$ Measure\-Type $>$}, and \hyperlink{class_ox_1_1_calculator_t1_molli_a6f15bc9c026305248c927d62748903bf}{Ox\-::\-Calculator\-T1\-Molli$<$ Measure\-Type $>$}.
 
 \hypertarget{class_ox_1_1_calculator_af648a7c6c957c9f51532f15c93147d62}{\index{Ox\-::\-Calculator@{Ox\-::\-Calculator}!get\-Fitter@{get\-Fitter}}
 \index{get\-Fitter@{get\-Fitter}!Ox::Calculator@{Ox\-::\-Calculator}}
@@ -191,7 +201,7 @@ Implemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_ac689ebbf27f95f6fa2
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_ox_1_1_calculator_af648a7c6c957c9f51532f15c93147d62}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_af648a7c6c957c9f51532f15c93147d62}
 /throw exception if \-\_\-\-Fitter == 0 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
@@ -201,7 +211,7 @@ Implemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_ac689ebbf27f95f6fa2
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_ox_1_1_calculator_ab844b24dfedd27d52466203ec0c913fa}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_ab844b24dfedd27d52466203ec0c913fa}
 /throw exception if \-\_\-\-Inv\-Times == 0 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
@@ -211,7 +221,7 @@ Implemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_ac689ebbf27f95f6fa2
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_ox_1_1_calculator_a5589bf7b93a2d1e106532c35745f4329}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_a5589bf7b93a2d1e106532c35745f4329}
 /throw exception if \-\_\-\-Model == 0 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
@@ -221,7 +231,7 @@ Implemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_ac689ebbf27f95f6fa2
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_ox_1_1_calculator_a3a4266dedca7e02707e732a312b85048}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_a3a4266dedca7e02707e732a312b85048}
 /throw exception if \-\_\-n\-Dims == 0 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
@@ -231,7 +241,7 @@ Implemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_ac689ebbf27f95f6fa2
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_ox_1_1_calculator_a5e5b6e1af84b8713c833a25d7c0dd90d}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_a5e5b6e1af84b8713c833a25d7c0dd90d}
 /throw exception if \-\_\-n\-Samples == 0 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
@@ -241,7 +251,7 @@ Implemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_ac689ebbf27f95f6fa2
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_ox_1_1_calculator_ad9a623ee2bfc77732fa891c47c087aa9}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_ad9a623ee2bfc77732fa891c47c087aa9}
 /throw exception if \-\_\-\-Sig\-Mag == 0 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
@@ -251,7 +261,7 @@ Implemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_ac689ebbf27f95f6fa2
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_ox_1_1_calculator_acf6021ef084c24636a344a12627caff5}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_acf6021ef084c24636a344a12627caff5}
 does not have to be set \begin{DoxyReturn}{Returns}
 Sig\-Pha pointer, can be 0 (N\-U\-L\-L) 
 \end{DoxyReturn}
@@ -267,7 +277,7 @@ cloning \begin{DoxyReturn}{Returns}
 \end{DoxyReturn}
 
 
-Implemented in \hyperlink{class_ox_1_1_calculator_t1_molli_a2a924ff09d446b51542dc246a6a04bd3}{Ox\-::\-Calculator\-T1\-Molli$<$ Measure\-Type $>$}, \hyperlink{class_ox_1_1_calculator_t2_aaec3b1e6254b67b309c9beedb54ad9e7}{Ox\-::\-Calculator\-T2$<$ Measure\-Type $>$}, and \hyperlink{class_ox_1_1_calculator_t1_shmolli_a1e4e7b6f59b6a0ca4cbe3ed60452b8e9}{Ox\-::\-Calculator\-T1\-Shmolli$<$ Measure\-Type $>$}.
+Implemented in \hyperlink{class_ox_1_1_calculator_t1_molli_a2a924ff09d446b51542dc246a6a04bd3}{Ox\-::\-Calculator\-T1\-Molli$<$ Measure\-Type $>$}, \hyperlink{class_ox_1_1_calculator_t2_truncation_a6accdab54ee98182f12707786a461c20}{Ox\-::\-Calculator\-T2\-Truncation$<$ Measure\-Type $>$}, \hyperlink{class_ox_1_1_calculator_t2_aaec3b1e6254b67b309c9beedb54ad9e7}{Ox\-::\-Calculator\-T2$<$ Measure\-Type $>$}, and \hyperlink{class_ox_1_1_calculator_t1_shmolli_a1e4e7b6f59b6a0ca4cbe3ed60452b8e9}{Ox\-::\-Calculator\-T1\-Shmolli$<$ Measure\-Type $>$}.
 
 \hypertarget{class_ox_1_1_calculator_a01267c4e842b35f7eacaa9aacdd7e766}{\index{Ox\-::\-Calculator@{Ox\-::\-Calculator}!prepare\-To\-Calculate@{prepare\-To\-Calculate}}
 \index{prepare\-To\-Calculate@{prepare\-To\-Calculate}!Ox::Calculator@{Ox\-::\-Calculator}}
@@ -281,13 +291,13 @@ success/failure
 \end{DoxyReturn}
 
 
-Implemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_a6464c63f20ecd9de842d722e5d9d2866}{Ox\-::\-Calculator\-T1\-Shmolli$<$ Measure\-Type $>$}, \hyperlink{class_ox_1_1_calculator_t1_molli_a591ec9658fb5a3e4f48715057cf62b38}{Ox\-::\-Calculator\-T1\-Molli$<$ Measure\-Type $>$}, and \hyperlink{class_ox_1_1_calculator_t2_a56e2bcb27465a83dd1a1150b7fe419c8}{Ox\-::\-Calculator\-T2$<$ Measure\-Type $>$}.
+Implemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_a6464c63f20ecd9de842d722e5d9d2866}{Ox\-::\-Calculator\-T1\-Shmolli$<$ Measure\-Type $>$}, \hyperlink{class_ox_1_1_calculator_t1_molli_a591ec9658fb5a3e4f48715057cf62b38}{Ox\-::\-Calculator\-T1\-Molli$<$ Measure\-Type $>$}, \hyperlink{class_ox_1_1_calculator_t2_a56e2bcb27465a83dd1a1150b7fe419c8}{Ox\-::\-Calculator\-T2$<$ Measure\-Type $>$}, and \hyperlink{class_ox_1_1_calculator_t2_truncation_a87a5d80163f3909658498c341c7c1a7a}{Ox\-::\-Calculator\-T2\-Truncation$<$ Measure\-Type $>$}.
 
 \hypertarget{class_ox_1_1_calculator_a40c854c0d75685ecc1da531f7400e3b1}{\index{Ox\-::\-Calculator@{Ox\-::\-Calculator}!set\-N\-Dims@{set\-N\-Dims}}
 \index{set\-N\-Dims@{set\-N\-Dims}!Ox::Calculator@{Ox\-::\-Calculator}}
 \subsubsection[{set\-N\-Dims}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ void {\bf Ox\-::\-Calculator}$<$ Measure\-Type $>$\-::set\-N\-Dims (
 \begin{DoxyParamCaption}
-\item[{int}]{\-\_\-n\-Dims}
+\item[{int}]{n\-Dims}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_a40c854c0d75685ecc1da531f7400e3b1}
 \-\_\-\-Start\-Point is allocated here!!! 

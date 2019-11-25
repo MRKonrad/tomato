@@ -2,7 +2,7 @@ var searchData=
 [
   ['generatedata',['GenerateData',['../classitk_1_1_image_file_reader_k_w.html#a1096f13bf512a24092565fa6a3a82508',1,'itk::ImageFileReaderKW']]],
   ['generateoutputinformation',['GenerateOutputInformation',['../classitk_1_1_image_file_reader_k_w.html#a5fc2235fca283e451de26035fd237cda',1,'itk::ImageFileReaderKW']]],
-  ['getdocalculatesdmap',['getDoCalculateSDMap',['../class_ox_1_1_calculator_t1_molli.html#a06d8579492ee063b129b489e638333be',1,'Ox::CalculatorT1Molli::getDoCalculateSDMap()'],['../class_ox_1_1_calculator_t2.html#ab5d0e963ac87d04ae47ecd2a9f10059f',1,'Ox::CalculatorT2::getDoCalculateSDMap()']]],
+  ['getdocalculatesdmap',['getDoCalculateSDMap',['../class_ox_1_1_calculator_t1_molli.html#a06d8579492ee063b129b489e638333be',1,'Ox::CalculatorT1Molli']]],
   ['getfitter',['getFitter',['../class_ox_1_1_calculator.html#af648a7c6c957c9f51532f15c93147d62',1,'Ox::Calculator']]],
   ['getinvtimes',['getInvTimes',['../class_ox_1_1_calculator.html#ab844b24dfedd27d52466203ec0c913fa',1,'Ox::Calculator']]],
   ['getmodel',['getModel',['../class_ox_1_1_calculator.html#a5589bf7b93a2d1e106532c35745f4329',1,'Ox::Calculator']]],

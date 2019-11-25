@@ -14,6 +14,7 @@ var annotated =
       [ "CalculatorT1Molli", "class_ox_1_1_calculator_t1_molli.html", "class_ox_1_1_calculator_t1_molli" ],
       [ "CalculatorT1Shmolli", "class_ox_1_1_calculator_t1_shmolli.html", "class_ox_1_1_calculator_t1_shmolli" ],
       [ "CalculatorT2", "class_ox_1_1_calculator_t2.html", "class_ox_1_1_calculator_t2" ],
+      [ "CalculatorT2Truncation", "class_ox_1_1_calculator_t2_truncation.html", "class_ox_1_1_calculator_t2_truncation" ],
       [ "Fitter", "class_ox_1_1_fitter.html", "class_ox_1_1_fitter" ],
       [ "ImageCalculatorT1", "class_ox_1_1_image_calculator_t1.html", "class_ox_1_1_image_calculator_t1" ],
       [ "Model", "class_ox_1_1_model.html", "class_ox_1_1_model" ],

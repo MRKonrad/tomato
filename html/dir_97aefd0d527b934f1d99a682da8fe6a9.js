@@ -29,6 +29,10 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
       [ "CalculatorT2", "class_ox_1_1_calculator_t2.html", "class_ox_1_1_calculator_t2" ]
     ] ],
     [ "OxCalculatorT2.hxx", "_ox_calculator_t2_8hxx.html", null ],
+    [ "OxCalculatorT2Truncation.h", "_ox_calculator_t2_truncation_8h.html", [
+      [ "CalculatorT2Truncation", "class_ox_1_1_calculator_t2_truncation.html", "class_ox_1_1_calculator_t2_truncation" ]
+    ] ],
+    [ "OxCalculatorT2Truncation.hxx", "_ox_calculator_t2_truncation_8hxx.html", null ],
     [ "OxFitter.h", "_ox_fitter_8h.html", [
       [ "Fitter", "class_ox_1_1_fitter.html", "class_ox_1_1_fitter" ]
     ] ],

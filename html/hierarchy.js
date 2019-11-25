@@ -4,7 +4,8 @@ var hierarchy =
       [ "Ox::CalculatorT1Molli< MeasureType >", "class_ox_1_1_calculator_t1_molli.html", [
         [ "Ox::CalculatorT1Shmolli< MeasureType >", "class_ox_1_1_calculator_t1_shmolli.html", null ]
       ] ],
-      [ "Ox::CalculatorT2< MeasureType >", "class_ox_1_1_calculator_t2.html", null ]
+      [ "Ox::CalculatorT2< MeasureType >", "class_ox_1_1_calculator_t2.html", null ],
+      [ "Ox::CalculatorT2Truncation< MeasureType >", "class_ox_1_1_calculator_t2_truncation.html", null ]
     ] ],
     [ "CalculatorT1", "class_calculator_t1.html", null ],
     [ "Ox::FactoryOfCalculators< TYPE >", "class_ox_1_1_factory_of_calculators.html", null ],

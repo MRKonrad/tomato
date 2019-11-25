@@ -1,6 +1,8 @@
 var searchData=
 [
   ['_7ecalculator',['~Calculator',['../class_ox_1_1_calculator.html#a0e0d0f525a80e54f17ab14e4073d780d',1,'Ox::Calculator']]],
+  ['_7ecalculatort2',['~CalculatorT2',['../class_ox_1_1_calculator_t2.html#a0a8e02ccb647bb1faf00dbcd4f61124c',1,'Ox::CalculatorT2']]],
+  ['_7ecalculatort2truncation',['~CalculatorT2Truncation',['../class_ox_1_1_calculator_t2_truncation.html#a7f5dabe2ee97aae7b67941023d92fdd6',1,'Ox::CalculatorT2Truncation']]],
   ['_7efitter',['~Fitter',['../class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43',1,'Ox::Fitter']]],
   ['_7emodel',['~Model',['../class_ox_1_1_model.html#a6353ac7352cdbbed2d00d9ed9e697c88',1,'Ox::Model']]],
   ['_7emodelt1shmolli',['~ModelT1Shmolli',['../class_ox_1_1_model_t1_shmolli.html#ad5dd9c59e049f1c356541ac278bc1e18',1,'Ox::ModelT1Shmolli']]],

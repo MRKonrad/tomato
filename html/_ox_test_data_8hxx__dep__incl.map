@@ -1,17 +1,18 @@
 <map id="tests/OxTestData.hxx" name="tests/OxTestData.hxx">
-<area shape="rect" id="node2" href="$_ox_test_data_8h.html" title="tests/OxTestData.h" alt="" coords="1191,80,1328,107"/>
+<area shape="rect" id="node2" href="$_ox_test_data_8h.html" title="tests/OxTestData.h" alt="" coords="1255,80,1392,107"/>
 <area shape="rect" id="node3" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="5,155,179,197"/>
 <area shape="rect" id="node4" href="$_ox_calculator_t1_shmolli__test_8cpp.html" title="tests/OxCalculatorT1Shmolli\l_test.cpp" alt="" coords="203,155,392,197"/>
-<area shape="rect" id="node5" href="$_ox_calculator_t2__test_8cpp.html" title="tests/OxCalculatorT2\l_test.cpp" alt="" coords="416,155,563,197"/>
-<area shape="rect" id="node6" href="$_ox_fitter_amoeba_vnl__test_8cpp.html" title="tests/OxFitterAmoebaVnl\l_test.cpp" alt="" coords="587,155,756,197"/>
-<area shape="rect" id="node7" href="$_ox_test_image_8h.html" title="tests/OxTestImage.h" alt="" coords="781,163,925,189"/>
-<area shape="rect" id="node9" href="$_ox_model_t1_three_param__test_8cpp.html" title="tests/OxModelT1ThreeParam\l_test.cpp" alt="" coords="950,155,1143,197"/>
-<area shape="rect" id="node10" href="$_ox_model_t1_two_param__test_8cpp.html" title="tests/OxModelT1TwoParam\l_test.cpp" alt="" coords="1167,155,1352,197"/>
-<area shape="rect" id="node11" href="$_ox_model_t2_three_param__test_8cpp.html" title="tests/OxModelT2ThreeParam\l_test.cpp" alt="" coords="1377,155,1569,197"/>
-<area shape="rect" id="node12" href="$_ox_sign_calculator_real_imag__test_8cpp.html" title="tests/OxSignCalculatorReal\lImag_test.cpp" alt="" coords="1595,155,1779,197"/>
-<area shape="rect" id="node13" href="$_ox_sign_calculator_shmolli__test_8cpp.html" title="tests/OxSignCalculatorShmolli\l_test.cpp" alt="" coords="1803,155,2001,197"/>
-<area shape="rect" id="node14" href="$_ox_start_point_calculator_basic__test_8cpp.html" title="tests/OxStartPointCalculator\lBasic_test.cpp" alt="" coords="2027,155,2216,197"/>
-<area shape="rect" id="node15" href="$_ox_start_point_calculator_shmolli__test_8cpp.html" title="tests/OxStartPointCalculator\lShmolli_test.cpp" alt="" coords="2240,155,2429,197"/>
-<area shape="rect" id="node16" href="$_ox_test_data__test_8cpp.html" title="tests/OxTestData_test.cpp" alt="" coords="2454,163,2633,189"/>
-<area shape="rect" id="node8" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="762,246,944,287"/>
+<area shape="rect" id="node5" href="$_ox_calculator_t2__factory__test_8cpp.html" title="tests/OxCalculatorT2\l_factory_test.cpp" alt="" coords="416,155,563,197"/>
+<area shape="rect" id="node6" href="$_ox_calculator_t2__test_8cpp.html" title="tests/OxCalculatorT2\l_test.cpp" alt="" coords="587,155,733,197"/>
+<area shape="rect" id="node7" href="$_ox_fitter_amoeba_vnl__test_8cpp.html" title="tests/OxFitterAmoebaVnl\l_test.cpp" alt="" coords="758,155,927,197"/>
+<area shape="rect" id="node8" href="$_ox_test_image_8h.html" title="tests/OxTestImage.h" alt="" coords="951,163,1096,189"/>
+<area shape="rect" id="node10" href="$_ox_model_t1_three_param__test_8cpp.html" title="tests/OxModelT1ThreeParam\l_test.cpp" alt="" coords="1121,155,1313,197"/>
+<area shape="rect" id="node11" href="$_ox_model_t1_two_param__test_8cpp.html" title="tests/OxModelT1TwoParam\l_test.cpp" alt="" coords="1338,155,1523,197"/>
+<area shape="rect" id="node12" href="$_ox_model_t2_three_param__test_8cpp.html" title="tests/OxModelT2ThreeParam\l_test.cpp" alt="" coords="1547,155,1740,197"/>
+<area shape="rect" id="node13" href="$_ox_sign_calculator_real_imag__test_8cpp.html" title="tests/OxSignCalculatorReal\lImag_test.cpp" alt="" coords="1765,155,1949,197"/>
+<area shape="rect" id="node14" href="$_ox_sign_calculator_shmolli__test_8cpp.html" title="tests/OxSignCalculatorShmolli\l_test.cpp" alt="" coords="1973,155,2172,197"/>
+<area shape="rect" id="node15" href="$_ox_start_point_calculator_basic__test_8cpp.html" title="tests/OxStartPointCalculator\lBasic_test.cpp" alt="" coords="2197,155,2387,197"/>
+<area shape="rect" id="node16" href="$_ox_start_point_calculator_shmolli__test_8cpp.html" title="tests/OxStartPointCalculator\lShmolli_test.cpp" alt="" coords="2411,155,2600,197"/>
+<area shape="rect" id="node17" href="$_ox_test_data__test_8cpp.html" title="tests/OxTestData_test.cpp" alt="" coords="2625,163,2804,189"/>
+<area shape="rect" id="node9" href="$_ox_image_calculator_t1__test_8cpp.html" title="tests/OxImageCalculatorT1\l_test.cpp" alt="" coords="933,246,1115,287"/>
 </map>

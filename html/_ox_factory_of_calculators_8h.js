@@ -6,7 +6,8 @@ var _ox_factory_of_calculators_8h =
       [ "T1_MOLLI", "_ox_factory_of_calculators_8h.html#abb931b4999efe4037bc02b4ece1e4ce3aa81157fb3559cdfc23e00c23bfb439a6", null ],
       [ "T1_SHMOLLI", "_ox_factory_of_calculators_8h.html#abb931b4999efe4037bc02b4ece1e4ce3aff96224fc60d6c6377eca43cdd609c41", null ],
       [ "T1_SHMOLLI_original", "_ox_factory_of_calculators_8h.html#abb931b4999efe4037bc02b4ece1e4ce3a3c7bd6f0bc8161109555217bb3003a98", null ],
-      [ "T2_ThreeParam", "_ox_factory_of_calculators_8h.html#abb931b4999efe4037bc02b4ece1e4ce3abd0b7f0dd811de7ca257b4cf9b53e85a", null ],
+      [ "T2_basic", "_ox_factory_of_calculators_8h.html#abb931b4999efe4037bc02b4ece1e4ce3a1af2a1815bf0094302f9eb08a9c70417", null ],
+      [ "T2_truncation", "_ox_factory_of_calculators_8h.html#abb931b4999efe4037bc02b4ece1e4ce3a768ea7724509b1e8b8de703556d3b853", null ],
       [ "lastCalculatorType", "_ox_factory_of_calculators_8h.html#abb931b4999efe4037bc02b4ece1e4ce3afd5f998ae2573f17789f200ca9c5740f", null ]
     ] ],
     [ "paramType_t", "_ox_factory_of_calculators_8h.html#a5f3318dc1cf074d85f61c2cf6bdbf5ad", [
