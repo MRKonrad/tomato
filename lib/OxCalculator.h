@@ -45,67 +45,69 @@ namespace Ox {
         /* ***  GETTERS   *** */
         /* ****************** */
 
-        std::map <std::string, MeasureType> getResults() const;
+        virtual std::map <std::string, MeasureType> getResults() const;
 
         /**
          * /throw exception if _Model == 0
          * @return
          */
-        Model<MeasureType> *getModel() const;
+        virtual  Model<MeasureType> *getModel() const;
 
         /**
          * /throw exception if _Fitter == 0
          * @return
          */
-        Fitter<MeasureType> *getFitter() const;
+        virtual Fitter<MeasureType> *getFitter() const;
 
-        StartPointCalculator<MeasureType> *getStartPointCalculator() const;
+        virtual StartPointCalculator<MeasureType> *getStartPointCalculator() const;
 
-        SignCalculator<MeasureType> *getSignCalculator() const;
+        virtual SignCalculator<MeasureType> *getSignCalculator() const;
 
         /**
          * /throw exception if _InvTimes == 0
          * @return
          */
-        const MeasureType *getInvTimes() const;
+        virtual const MeasureType *getInvTimes() const;
 
-        const MeasureType *getEchoTimes() const;
+        virtual const MeasureType *getEchoTimes() const;
 
-        const MeasureType *getRepTimes() const;
+        virtual const MeasureType *getRepTimes() const;
 
-        const MeasureType *getRelAcqTimes() const;
+        virtual const MeasureType *getRelAcqTimes() const;
 
         /**
          * /throw exception if _SigMag == 0
          * @return
          */
-        const MeasureType *getSigMag() const;
+        virtual const MeasureType *getSigMag() const;
 
         /**
          * does not have to be set
          * @return SigPha pointer, can be 0 (NULL)
          */
-        const MeasureType *getSigPha() const;
+        virtual const MeasureType *getSigPha() const;
 
-        MeasureType *getSignal() const;
+        virtual const MeasureType *getNoise() const;
 
-        MeasureType *getSigns() const;
+        virtual MeasureType *getSignal() const;
 
-        MeasureType * getStartPoint() ;
+        virtual MeasureType *getSigns() const;
 
-        MeasureType getMeanCutOff() const;
+        virtual MeasureType * getStartPoint() ;
+
+        virtual MeasureType getMeanCutOff() const;
 
         /**
           * /throw exception if _nSamples == 0
           * @return
           */
-        int getNSamples() const;
+        virtual int getNSamples() const;
 
         /**
           * /throw exception if _nDims == 0
           * @return
           */
-        int getNDims() const;
+        virtual int getNDims() const;
 
 
         /* ****************** */
@@ -113,13 +115,13 @@ namespace Ox {
         /* ****************** */
 
         // setters for the 'has a' classes
-        void setModel(Model<MeasureType> *_Model);
+        virtual void setModel(Model<MeasureType> *_Model);
 
-        void setFitter(Fitter<MeasureType> *_Fitter);
+        virtual void setFitter(Fitter<MeasureType> *_Fitter);
 
-        void setSignCalculator(SignCalculator<MeasureType> *_SignCalculator);
+        virtual void setSignCalculator(SignCalculator<MeasureType> *_SignCalculator);
 
-        void setStartPointCalculator(StartPointCalculator<MeasureType> *_StartPointCalculator);
+        virtual void setStartPointCalculator(StartPointCalculator<MeasureType> *_StartPointCalculator);
 
         // setters for the data
         virtual void setInvTimes(const MeasureType *_InvTimes);
@@ -129,6 +131,8 @@ namespace Ox {
         virtual void setSigMag(const MeasureType *_SigMag);
 
         virtual void setSigPha(const MeasureType *_SigPha);
+
+        virtual void setNoise(const MeasureType *_Noise);
 
         virtual void setMeanCutOff(MeasureType _MeanCutOff);
 
@@ -166,6 +170,7 @@ namespace Ox {
             _RelAcqTimes = 0;
             _SigMag = 0; // original one
             _SigPha = 0; // original one
+            _Noise = 0;
             _Signal = 0; // we will be working with this one
             _Signs = 0;  // we will be working with this one
             _StartPoint = 0;
@@ -227,6 +232,7 @@ namespace Ox {
         const MeasureType* _RelAcqTimes;
         const MeasureType* _SigMag; // original one
         const MeasureType* _SigPha; // original one
+        const MeasureType* _Noise;
         MeasureType* _Signal; // size: nSamples. We will be working with this one
         MeasureType* _Signs;  // size: nSamples. We will be working with this one
         MeasureType* _StartPoint; // size: nDims. We will be working with this one

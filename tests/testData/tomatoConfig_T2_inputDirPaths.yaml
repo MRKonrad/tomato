@@ -14,4 +14,5 @@ start_point_calc_method: Basic
 
 use_colorbar: 0
 
-#number_of_threads: 1
+echo_times: [ 0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500]
+

@@ -202,6 +202,7 @@ namespace itk {
         calculator->setNSamples(nSamples);
         calculator->setInvTimes(m_Calculator->getInvTimes());
         calculator->setEchoTimes(m_Calculator->getEchoTimes());
+        calculator->setNoise(m_Calculator->getNoise());
 
         // set the thread id in the minimiser
         fitter->setThreadId(threadId);

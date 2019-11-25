@@ -1,11 +1,11 @@
 /*!
- * \file OxCalculatorT2.h
+ * \file OxCalculatorT2Truncation.h
  * \author Konrad Werys
- * \date 2019/11/05
+ * \date 2019/11/25
  */
 
-#ifndef Tomato_OXCALCULATORT2_H
-#define Tomato_OXCALCULATORT2_H
+#ifndef Tomato_OXCalculatorT2Truncation_H
+#define Tomato_OXCalculatorT2Truncation_H
 
 #include "OxCalculator.h"
 #include "tomatolib_export.h"
@@ -13,13 +13,13 @@
 namespace Ox {
 
     /**
-     * \class CalculatorT2
+     * \class CalculatorT2Truncation
      * \brief
      * \details
      * @tparam MeasureType
      */
     template< typename MeasureType >
-    class CalculatorT2 : public Calculator<MeasureType> {
+    class CalculatorT2Truncation : public Calculator<MeasureType> {
     public:
 
         /**
@@ -48,26 +48,39 @@ namespace Ox {
         /**
          * constructor
          */
-        CalculatorT2() : Calculator<MeasureType>(){}
+        CalculatorT2Truncation() : Calculator<MeasureType>(){
+            _SignalAboveSnrLimit = 0;
+            _EchoTimesOfSignalAboveSnrLimit = 0;
+            _NSamplesAboveSnrLimit = 0;
+            _NoiseLimit = 2.;
+        }
 
         /**
          * destructor
          */
-        virtual ~CalculatorT2(){}
+        virtual ~CalculatorT2Truncation(){
+            delete [] _SignalAboveSnrLimit;
+            delete [] _EchoTimesOfSignalAboveSnrLimit;
+        }
 
         /**
          * cloning
          * @return
          */
-        virtual Calculator<MeasureType> *newByCloning() { return new CalculatorT2<MeasureType>(*this); }
+        virtual Calculator<MeasureType> *newByCloning() { return new CalculatorT2Truncation<MeasureType>(*this); }
 
+    private:
+        MeasureType _NoiseLimit;
+        MeasureType *_SignalAboveSnrLimit; // TODO: Static allocation
+        MeasureType *_EchoTimesOfSignalAboveSnrLimit; // TODO: Static allocation
+        size_t _NSamplesAboveSnrLimit;
 
     };
 
 } //namespace Ox
 
 #ifndef TOMATOLIB_COMPILED
-#include "OxCalculatorT2.hxx"
+#include "OxCalculatorT2Truncation.hxx"
 #endif //TOMATOLIB_COMPILED
 
-#endif //Tomato_OXCALCULATORT2_H
+#endif //Tomato_OXCalculatorT2Truncation_H

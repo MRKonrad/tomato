@@ -1,7 +1,7 @@
 /*!
  * \file OxCalculatorT2_test.cpp
  * \author Konrad Werys
- * \date 2018/08/01
+ * \date 2019/11/01
  */
 
 #include <OxFitterLevenbergMarquardtVnl.h>

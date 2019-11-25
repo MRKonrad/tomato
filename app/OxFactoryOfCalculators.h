@@ -14,6 +14,8 @@
 #include "OxCalculatorT1ShmolliOriginal.h"
 #endif
 #include "OxCalculatorT2.h"
+#include "OxCalculatorT2Truncation.h"
+#include "TomatoOptions.h"
 
 
 namespace Ox {
@@ -32,15 +34,17 @@ namespace Ox {
             "T1_MOLLI",
             "T1_SHMOLLI",
             "T1_SHMOLLI_original",
-            "T2"
+            "T2",
+            "T2_truncation"
     };
 
     enum calculatorsType_t {
         T1_MOLLI = 0,
         T1_SHMOLLI = 1,
         T1_SHMOLLI_original = 2,
-        T2_ThreeParam = 3,
-        lastCalculatorType = T2_ThreeParam
+        T2_basic = 3,
+        T2_truncation = 4,
+        lastCalculatorType = T2_truncation
     };
 
     static int calculatorsAvailability[] = {
@@ -51,14 +55,16 @@ namespace Ox {
 #else
             0, // T1_SHMOLLI_original
 #endif
-            1 // T2
+            1, // T2_basic
+            1 // T2_truncation
     };
 
     static int calculatorsParamsToCalculate[] = {
             T1, // T1_MOLLI
             T1, // T1_SHMOLLI
             T1, // T1_SHMOLLI_original
-            T2  // T2_ThreeParam
+            T2, // T2_basic
+            T2  // T2_truncation
     };
 
     template<typename TYPE>
@@ -66,24 +72,31 @@ namespace Ox {
     public:
 
         static Calculator<TYPE>* newByFactory(TomatoOptions<TYPE> *opts){
-            Calculator<TYPE> *calculatorT1 = 0; //nullpointer
+            Calculator<TYPE> *calculator = 0; //nullpointer
             switch (opts->parameter_to_map){
                 case T1_MOLLI: {
-                    calculatorT1 = new CalculatorT1Molli<TYPE>();
+                    calculator = new CalculatorT1Molli<TYPE>();
                     break;
                 }
                 case T1_SHMOLLI: {
-                    calculatorT1 = new CalculatorT1Shmolli<TYPE>();
+                    calculator = new CalculatorT1Shmolli<TYPE>();
                     break;
                 }
 #ifdef USE_PRIVATE_NR2
                 case T1_SHMOLLI_original: {
-                    calculatorT1 = new CalculatorT1ShmolliOriginal<TYPE>();
+                    calculator = new CalculatorT1ShmolliOriginal<TYPE>();
                     break;
                 }
 #endif
-                case T2_ThreeParam: {
-                    calculatorT1 = new CalculatorT2<TYPE>();
+                case T2_basic: {
+//                    CalculatorT2<TYPE> *temp = new CalculatorT2<TYPE>();
+//                    temp->SetNoise(&(opts->noise)[0]);
+//                    calculator = temp;
+                    calculator = new CalculatorT2<TYPE>();
+                    break;
+                }
+                case T2_truncation: {
+                    calculator = new CalculatorT2Truncation<TYPE>();
                     break;
                 }
                 default:
@@ -91,9 +104,9 @@ namespace Ox {
 
             }
 
-            calculatorT1->setMeanCutOff(opts->mean_cut_off);
+            calculator->setMeanCutOff(opts->mean_cut_off);
 
-            return calculatorT1;
+            return calculator;
         }
 
         static void disp(int parameter_to_map = -1){

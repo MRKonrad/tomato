@@ -38,6 +38,7 @@ namespace Ox {
         std::string dir_output_map;
         std::string dir_output_fitparams;
 
+        // caclulation types
         calculatorsType_t parameter_to_map;
         paramType_t parameter_type;
         fittersType_t fitting_method;
@@ -45,9 +46,14 @@ namespace Ox {
         signCalculatorsType_t sign_calc_method;
         startPointCalculatorsType_t start_point_calc_method;
 
+        // calculation params
         MeasureType fTolerance;
         int max_function_evals;
         bool use_gradient;
+        std::vector <MeasureType> inversion_times;
+        std::vector <MeasureType> echo_times;
+        std::vector <MeasureType> start_point;
+        std::vector <MeasureType> noise;
 
         // image
         MeasureType mean_cut_off;
@@ -100,6 +106,7 @@ namespace Ox {
          * constructor with defaults
          */
         TomatoOptions() {
+            //std::cout << "TomatoOptions " << this << " Constructor" << std::endl;
             init();
         }
 
@@ -108,6 +115,7 @@ namespace Ox {
          * @param filePath
          */
         TomatoOptions(std::string filePath) {
+            //std::cout << "TomatoOptions " << this << " Constructor" << std::endl;
             init();
 
             Ox::TomatoParser<MeasureType> parser;
@@ -128,6 +136,11 @@ namespace Ox {
             parser._scalars["fTolerance"];
             parser._scalars["max_function_evals"];
             parser._scalars["use_gradient"];
+
+            parser._sequences["inversion_times"];
+            parser._sequences["echo_times"];
+            parser._sequences["start_point"];
+            parser._sequences["noise"];
 
             parser._scalars["mean_cut_off"];
             parser._scalars["map_scale_factor"];
@@ -174,6 +187,11 @@ namespace Ox {
             if (!parser._scalars["use_gradient"].empty())
                 use_gradient = (bool)KWUtil::StringToNumber<MeasureType>(parser._scalars["use_gradient"]);
 
+            copyStrVectorToMemberVector(parser._sequences["inversion_times"], inversion_times);
+            copyStrVectorToMemberVector(parser._sequences["echo_times"], echo_times);
+            copyStrVectorToMemberVector(parser._sequences["start_point"], start_point);
+            copyStrVectorToMemberVector(parser._sequences["noise"], noise);
+
             if (!parser._scalars["mean_cut_off"].empty())
                 mean_cut_off = KWUtil::StringToNumber<MeasureType>(parser._scalars["mean_cut_off"]);
             if (!parser._scalars["map_scale_factor"].empty())
@@ -185,6 +203,13 @@ namespace Ox {
 
         }
 
+        /**
+         *
+         */
+        ~TomatoOptions(){
+            //std::cout << "TomatoOptions " << this << " Destructor" << std::endl;
+        }
+
         int findInArray(int size, const char *nameArray[], std::string name){
             for (int i = 0; i < size; ++i){
                 std::string nameFromArray(nameArray[i]);
@@ -194,6 +219,14 @@ namespace Ox {
             }
             std::string errorMessage = "Option \"" + name + "\" not found";
             throw std::runtime_error(errorMessage);
+        }
+
+        void copyStrVectorToMemberVector(std::vector<std::string> strVector, std::vector<MeasureType> &memberVector) {
+
+            //memberVector.resize(strVector.size());
+            for (unsigned int i = 0; i < strVector.size(); ++i) {
+                memberVector.push_back(KWUtil::StringToNumber<MeasureType>(strVector[i]));
+            }
         }
 
         void printCurrent() {
@@ -221,6 +254,10 @@ namespace Ox {
             //printf("xTolerance: %.2e ", xTolerance);
             printf("\n max_function_evals: %d", max_function_evals);
             printf("\n use_gradient: %s", use_gradient ? "1" : "0");
+            KWUtil::printVector(" inversion_times: ", inversion_times);
+            KWUtil::printVector(" echo_times: ", echo_times);
+            KWUtil::printVector(" start_point: ", start_point);
+            KWUtil::printVector(" noise: ", noise);
             printf("\n mean_cut_off: %.2f", mean_cut_off);
             printf("\n map_scale_factor: %.2f", map_scale_factor);
             printf("\n use_colorbar: %s", use_colorbar ? "1" : "0");
@@ -250,7 +287,6 @@ namespace Ox {
 
         int exportToYaml(std::string filePath){
 
-
             yaml_document_t document;
             yaml_emitter_t emitter;
             size_t written = 0;
@@ -278,6 +314,11 @@ namespace Ox {
             KWUtilYaml::addMapping(&document, mapping_node_number, "fTolerance", KWUtil::NumberToString(fTolerance));
             KWUtilYaml::addMapping(&document, mapping_node_number, "max_function_evals", KWUtil::NumberToString(max_function_evals));
             KWUtilYaml::addMapping(&document, mapping_node_number, "use_gradient", use_gradient ? "1" : "0");
+
+            KWUtilYaml::addSequenceOfNumbers(&document, mapping_node_number, "inversion_times", inversion_times);
+            KWUtilYaml::addSequenceOfNumbers(&document, mapping_node_number, "echo_times", echo_times);
+            KWUtilYaml::addSequenceOfNumbers(&document, mapping_node_number, "start_point", start_point);
+            KWUtilYaml::addSequenceOfNumbers(&document, mapping_node_number, "noise", noise);
 
             KWUtilYaml::addMapping(&document, mapping_node_number, "mean_cut_off", KWUtil::NumberToString(mean_cut_off));
             KWUtilYaml::addMapping(&document, mapping_node_number, "map_scale_factor", KWUtil::NumberToString(map_scale_factor));

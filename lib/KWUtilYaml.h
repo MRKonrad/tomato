@@ -29,6 +29,15 @@ public:
         return 0; // EXIT_SUCCESS
     }
 
+    template< typename MeasureType >
+    static int addSequenceOfNumbers(yaml_document_t *document, int mapping_node_number, std::string name, std::vector<MeasureType> vectorOfValues){
+        std::vector<std::string> vectorStrOfValues;
+        for (size_t i = 0; i < vectorOfValues.size(); i++){
+            vectorStrOfValues[i] = KWUtil::NumberToString(vectorOfValues[i]);
+        }
+        return addSequence(document, mapping_node_number, name, vectorStrOfValues);
+    }
+
     static int addSequence(yaml_document_t *document, int mapping_node_number, std::string name, std::vector<std::string> vectorOfValues){
 
         int last_node = (int)(document->nodes.top - document->nodes.start + 1);

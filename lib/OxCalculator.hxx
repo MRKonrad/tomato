@@ -46,9 +46,6 @@ namespace Ox {
     StartPointCalculator<MeasureType> *
     Calculator<MeasureType>
     ::getStartPointCalculator() const {
-//        if (!_StartPointCalculator) {
-//            throw std::runtime_error("_StartPointCalculator equals 0. Set _StartPointCalculator");
-//        };
         return _StartPointCalculator;
     }
 
@@ -56,9 +53,6 @@ namespace Ox {
     SignCalculator<MeasureType> *
     Calculator<MeasureType>
     ::getSignCalculator() const {
-//        if (!_SignCalculator) {
-//            throw std::runtime_error("_SignCalculator equals 0. Set _SignCalculator");
-//        };
         return _SignCalculator;
     }
 
@@ -76,9 +70,6 @@ namespace Ox {
     const MeasureType *
     Calculator<MeasureType>
     ::getEchoTimes() const {
-//        if (!_EchoTimes) {
-//            throw std::runtime_error("_EchoTimes equals 0. Set _EchoTimes");
-//        };
         return _EchoTimes;
     }
 
@@ -111,6 +102,13 @@ namespace Ox {
     Calculator<MeasureType>
     ::getSigPha() const {
         return _SigPha;
+    }
+
+    template< typename MeasureType >
+    const MeasureType *
+    Calculator<MeasureType>
+    ::getNoise() const {
+        return _Noise;
     }
 
     template< typename MeasureType >
@@ -228,6 +226,13 @@ namespace Ox {
     template< typename MeasureType >
     void
     Calculator<MeasureType>
+    ::setNoise(const MeasureType *_Noise) {
+        Calculator::_Noise = _Noise;
+    }
+
+    template< typename MeasureType >
+    void
+    Calculator<MeasureType>
     ::setMeanCutOff(MeasureType _MeanCutOff) {
         Calculator::_MeanCutOff = _MeanCutOff;
     }
@@ -235,17 +240,17 @@ namespace Ox {
     template< typename MeasureType >
     void
     Calculator<MeasureType>
-    ::setNSamples(int _nSamples) {
+    ::setNSamples(int nSamples) {
 
         delete [] _Signal; _Signal = 0;
         delete [] _Signs; _Signs = 0;
 
-        Calculator::_nSamples = _nSamples;
+        Calculator::_nSamples = nSamples;
 
-        _Signal = new MeasureType[_nSamples];
-        _Signs = new MeasureType[_nSamples];
+        _Signal = new MeasureType[nSamples];
+        _Signs = new MeasureType[nSamples];
 
-        for (int i = 0; i < _nSamples; ++i){
+        for (int i = 0; i < nSamples; ++i){
             _Signal[i] = 0;
             _Signs[i] = 1;
         }
@@ -258,15 +263,15 @@ namespace Ox {
     template< typename MeasureType >
     void
     Calculator<MeasureType>
-    ::setNDims(int _nDims){
+    ::setNDims(int nDims){
 
         delete [] _StartPoint; _StartPoint = 0;
 
-        Calculator::_nDims = _nDims;
+        Calculator::_nDims = nDims;
 
-        _StartPoint = new MeasureType[_nDims];
+        _StartPoint = new MeasureType[nDims];
 
-        for (int i = 0; i < _nDims; ++i){
+        for (int i = 0; i < nDims; ++i){
             _StartPoint[i] = 0;
         }
     }
@@ -285,6 +290,7 @@ namespace Ox {
         KWUtil::printArray(_RelAcqTimes != 0, nSamples, _RelAcqTimes, (char*)"\nRelAcqTimes: ");
         KWUtil::printArray(_SigMag != 0, nSamples, _SigMag,           (char*)"\nSigMag:      ");
         KWUtil::printArray(_SigPha != 0, nSamples, _SigPha,           (char*)"\nSigPha:      ");
+        KWUtil::printArray(_Noise != 0, nSamples, _Noise,             (char*)"\nNoise:       ");
         KWUtil::printArray(_Signal != 0, nSamples, _Signal,           (char*)"\nSignal:      ");
         KWUtil::printArray(_Signs != 0, nSamples, _Signs,             (char*)"\nSigns:       ");
         KWUtil::printArray(_StartPoint != 0, _nDims, _StartPoint,     (char*)"\nStart point: ");
