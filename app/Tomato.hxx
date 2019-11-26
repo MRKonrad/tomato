@@ -131,7 +131,7 @@ namespace Ox {
         calculator->setStartPointCalculator(startPointCalculator);
         calculator->setInvTimes(_invTimes);
         calculator->setEchoTimes(_echoTimes);
-        if (_opts->noise && (_opts->noise.size() > 0)){
+        if (_opts->noise.size() > 0){
             calculator->setNoise(&(_opts->noise)[0]);
         }
         calculator->setNSamples(_nSamples);
