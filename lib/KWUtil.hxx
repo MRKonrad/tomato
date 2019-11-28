@@ -32,7 +32,16 @@ void KWUtil::copyArrayToArray(int nSamples, TYPE1 *arrayTo, const TYPE2 *arrayFr
 /***********************/
 
 template<typename TYPE>
-void KWUtil::printVector(const std::string name, const std::vector<TYPE> vector){
+void KWUtil::printVector(const std::string& name, const std::vector<TYPE> vector){
+    std::cout << name << " ";
+    for (unsigned int i = 0; i < vector.size(); ++i){
+        std::cout << "  " << vector.at(i);
+    }
+    std::cout << std::endl;
+}
+
+template<typename TYPE>
+void KWUtil::printVectorNewline(const std::string &name, const std::vector<TYPE> vector){
     std::cout << name << std::endl;
     for (unsigned int i = 0; i < vector.size(); ++i){
         std::cout << "  " << vector.at(i) << std::endl;

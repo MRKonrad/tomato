@@ -8,6 +8,8 @@
 #define Tomato_OxOriginalShmolliDicomReader_H
 
 #include "CmakeConfigForTomato.h"
+#include "tomatolib_export.h"
+
 #ifdef USE_ITK
 
 #include "itkReadFileListFilter.h"
@@ -94,7 +96,9 @@ namespace Ox {
 
 } // namespace Ox
 
+#ifndef TOMATOLIB_COMPILED
 #include "OxOriginalShmolliDicomReader.hxx"
+#endif //TOMATOLIB_COMPILED
 
 #endif
 

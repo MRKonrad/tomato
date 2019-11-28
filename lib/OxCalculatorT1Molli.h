@@ -79,6 +79,13 @@ namespace Ox {
          */
         bool getDoCalculateSDMap() const;
 
+
+        /**
+         * /throw exception if _InvTimes == 0
+         * @return
+         */
+        const MeasureType * getInvTimes() const;
+
         /**
          *
          * @param _DoCalculateSDMap

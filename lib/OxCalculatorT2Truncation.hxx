@@ -140,7 +140,17 @@ namespace Ox {
         }
 
         return 0; // EXIT_SUCCESS
-    };
+    }
+
+    template< typename MeasureType >
+    const MeasureType *
+    CalculatorT2Truncation<MeasureType>
+    ::getEchoTimes() const {
+        if (!this->_EchoTimes) {
+            throw std::runtime_error("_EchoTimes equals 0. Set _EchoTimes");
+        };
+        return this->_EchoTimes;
+    }
 
 
 } //namespace Ox

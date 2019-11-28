@@ -27,7 +27,7 @@ namespace Ox {
     Calculator<MeasureType>
     ::getModel() const {
         if (!_Model) {
-            throw std::runtime_error("_Model equals 0. Set _Model");
+            throw std::runtime_error("Calculator: _Model equals 0. Set _Model");
         };
         return _Model;
     }
@@ -37,7 +37,7 @@ namespace Ox {
     Calculator<MeasureType>
     ::getFitter() const {
         if (!_Fitter) {
-            throw std::runtime_error("_Fitter equals 0. Set _Fitter");
+            throw std::runtime_error("Calculator: _Fitter equals 0. Set _Fitter");
         };
         return _Fitter;
     }
@@ -60,9 +60,6 @@ namespace Ox {
     const MeasureType *
     Calculator<MeasureType>
     ::getInvTimes() const {
-        if (!_InvTimes) {
-            throw std::runtime_error("_InvTimes equals 0. Set _InvTimes");
-        };
         return _InvTimes;
     }
 
@@ -92,7 +89,7 @@ namespace Ox {
     Calculator<MeasureType>
     ::getSigMag() const {
         if (!_SigMag) {
-            throw std::runtime_error("_SigMag equals 0. Set _SigMag" );
+            throw std::runtime_error("Calculator: _SigMag equals 0. Set _SigMag" );
         };
         return _SigMag;
     }
@@ -145,7 +142,7 @@ namespace Ox {
     Calculator<MeasureType>
     ::getNSamples() const {
         if (!_nSamples) {
-            throw std::runtime_error("_nSamples equals 0. Set _nSamples");
+            throw std::runtime_error("Calculator: _nSamples equals 0. Set _nSamples");
         };
         return _nSamples;
     }
@@ -155,7 +152,7 @@ namespace Ox {
     Calculator<MeasureType>
     ::getNDims() const {
         if (!_nDims) {
-            throw std::runtime_error("_nDims equals 0. Set _nDims");
+            throw std::runtime_error("Calculator: _nDims equals 0. Set _nDims");
         };
         return _nDims;
     }

@@ -56,7 +56,7 @@ include(cmake/downloadLmfit.cmake)
 # list of source files TODO: do not use glob, as it is not recommended https://cmake.org/cmake/help/latest/command/file.html#filesystem
 file (GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)
 file (GLOB_RECURSE LIB_FILES lib/*.c* lib/*.h* lib/*.t*)
-file (GLOB_RECURSE API_FILES lib/*.h lib/KWUtil.hxx)
+file (GLOB_RECURSE API_FILES lib/*.h app/*.h lib/KWUtil.hxx)
 
 ###############
 ### PRIVATE ###

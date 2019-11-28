@@ -72,28 +72,6 @@ namespace Ox {
     }
 
     template< typename MeasureType >
-    MeasureType
-    CalculatorT2<MeasureType>
-    ::calculateR2AbsFromModel(int nSamples, const MeasureType* times, const MeasureType* signal, const MeasureType* parameters) {
-
-        MeasureType *absFitted  = new MeasureType[nSamples];
-        MeasureType *absYsignal = new MeasureType[nSamples];
-
-        for (int i = 0; i < nSamples; i++){
-            MeasureType fitted;
-            fitted = this->_Model->calcModelValue(parameters, times[i]);
-            absFitted[i] = fabs(fitted);
-            absYsignal[i] = fabs(signal[i]);
-        }
-
-        double result = KWUtil::calcR2cor(nSamples, absFitted, absYsignal);
-
-        delete[] absFitted;
-        delete[] absYsignal;
-        return result;
-    }
-
-    template< typename MeasureType >
     int
     CalculatorT2<MeasureType>
     ::prepareToCalculate(){
@@ -146,8 +124,39 @@ namespace Ox {
         }
 
         return 0; // EXIT_SUCCESS
-    };
+    }
 
+    template< typename MeasureType >
+    MeasureType
+    CalculatorT2<MeasureType>
+    ::calculateR2AbsFromModel(int nSamples, const MeasureType* times, const MeasureType* signal, const MeasureType* parameters) {
+
+        MeasureType *absFitted  = new MeasureType[nSamples];
+        MeasureType *absYsignal = new MeasureType[nSamples];
+
+        for (int i = 0; i < nSamples; i++){
+            MeasureType fitted;
+            fitted = this->_Model->calcModelValue(parameters, times[i]);
+            absFitted[i] = fabs(fitted);
+            absYsignal[i] = fabs(signal[i]);
+        }
+
+        double result = KWUtil::calcR2cor(nSamples, absFitted, absYsignal);
+
+        delete[] absFitted;
+        delete[] absYsignal;
+        return result;
+    }
+
+    template< typename MeasureType >
+    const MeasureType *
+    CalculatorT2<MeasureType>
+    ::getEchoTimes() const {
+        if (!this->_EchoTimes) {
+            throw std::runtime_error("_EchoTimes equals 0. Set _EchoTimes");
+        };
+        return this->_EchoTimes;
+    }
 
 } //namespace Ox
 

@@ -24,32 +24,32 @@ namespace Ox {
 
         // getters
         virtual const MeasureType *getInvTimes() const {
-            if (!_InvTimes) throw std::runtime_error("_InvTimes equals 0. Set _InvTimes");
+            if (!_InvTimes) throw std::runtime_error("SignCalculator: _InvTimes equals 0. Set _InvTimes");
             return _InvTimes;
         }
 
         virtual const MeasureType *getSigMag() const {
-            if (!_SigMag) throw std::runtime_error("_SigMag equals 0. Set _SigMag");
+            if (!_SigMag) throw std::runtime_error("SignCalculator: _SigMag equals 0. Set _SigMag");
             return _SigMag;
         }
 
         virtual const MeasureType *getSigPha() const {
-            if (!_SigPha) throw std::runtime_error("_SigPha equals 0. Set _SigPha");
+            if (!_SigPha) throw std::runtime_error("SignCalculator: _SigPha equals 0. Set _SigPha");
             return _SigPha;
         }
 
         virtual MeasureType *getSignal() {
-            if (!_Signal) throw std::runtime_error("_SigMag equals 0. Set _SigMag");
+            if (!_Signal) throw std::runtime_error("SignCalculator: _SigMag equals 0. Set _SigMag");
             return _Signal;
         }
 
         virtual MeasureType *getSigns() {
-            if (!_Signs) throw std::runtime_error("_Signs equals 0. Set _Signs");
+            if (!_Signs) throw std::runtime_error("SignCalculator: _Signs equals 0. Set _Signs");
             return _Signs;
         }
 
         virtual int getNSamples() {
-            if (!_nSamples) throw std::runtime_error("_nSamples equals 0. Set _nSamples");
+            if (!_nSamples) throw std::runtime_error("SignCalculator: _nSamples equals 0. Set _nSamples");
             return _nSamples;
         }
 

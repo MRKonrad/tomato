@@ -71,6 +71,15 @@
 #endif
 
 /* ********* */
+/* factories */
+/* ********* */
+#include "OxFactoryOfCalculators.h"
+#include "OxFactoryOfFitters.h"
+#include "OxFactoryOfModels.h"
+#include "OxFactoryOfSignCalculators.h"
+#include "OxFactoryOfStartPointCalculators.h"
+
+/* ********* */
 /*    ITK    */
 /* ********* */
 
@@ -140,6 +149,20 @@ namespace Ox {
 #ifdef USE_PRIVATE_NR2
     template class TOMATOLIB_EXPORT StartPointCalculatorShmolli<double>;
 #endif // USE_PRIVATE_NR2
+
+    /* ********* */
+    /* factories */
+    /* ********* */
+    template class TOMATOLIB_EXPORT FactoryOfCalculators<double>;
+    template class TOMATOLIB_EXPORT FactoryOfFitters<double>;
+    template class TOMATOLIB_EXPORT FactoryOfModels<double>;
+    template class TOMATOLIB_EXPORT FactoryOfSignCalculators<double>;
+    template class TOMATOLIB_EXPORT FactoryOfStartPointCalculators<double>;
+
+    /* ********* */
+    /* options  */
+    /* ********* */
+    template class TOMATOLIB_EXPORT TomatoOptions<double>;
 
 } //namespace Ox
 

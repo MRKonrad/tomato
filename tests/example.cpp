@@ -58,8 +58,6 @@ TEST(OxCalculatorT1Shmolli, calculate_anything) {
 
     std::map <std::string, double> results = CalculateShmolli(nSamples, sigMag, sigPha, invTimes);
 
-    //results.disp();
-
     EXPECT_NE(results["T1"], 0);
 }
 

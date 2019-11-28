@@ -4,7 +4,6 @@
  * \date 2019/11/01
  */
 
-#include <OxFitterLevenbergMarquardtVnl.h>
 #include "gtest/gtest.h"
 #include "OxTestData.h"
 
@@ -16,10 +15,6 @@
 #include "OxFitterLevenbergMarquardtVnl.h"
 #include "OxStartPointCalculatorBasic.h"
 #include "OxCalculatorT2.h"
-
-#ifdef USE_ITK
-#include "itkTimeProbe.h"
-#endif
 
 #ifdef USE_VNL
 TEST(OxCalculatorT2, blood) {
@@ -153,4 +148,54 @@ TEST(OxCalculatorT2, blood_3samples) {
     EXPECT_NEAR(calculatorT2.getResults()["T2"], testData.getResultsTwoParam()[1], 1e-1);
 }
 
-#endif
+TEST(OxCalculatorT2, copyConstructor) {
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/T2_blood_3samples.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    // init the necessary objects
+    Ox::ModelT2TwoParam<TYPE> functionsObject;
+    Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
+    Ox::CalculatorT2<TYPE> calculator;
+
+    // configure
+    calculator.setModel(&functionsObject);
+    calculator.setFitter(&fitterAmoebaVnl);
+    calculator.setStartPointCalculator(&startPointCalculator);
+
+    // set the data
+    calculator.setNSamples(nSamples);
+    calculator.setEchoTimes(testData.getEchoTimesPtr());
+    calculator.setSigMag(testData.getSignalMagPtr());
+
+    calculator.setMeanCutOff(123);
+
+    Ox::CalculatorT2<TYPE> calculatorCopy = calculator;
+
+    EXPECT_EQ(calculator.getMeanCutOff(), calculatorCopy.getMeanCutOff());
+    EXPECT_EQ(calculator.getNSamples(), calculatorCopy.getNSamples());
+    EXPECT_EQ(calculator.getNDims(), calculatorCopy.getNDims());
+
+    // empty object pointers
+    EXPECT_THROW(calculatorCopy.getModel(), std::runtime_error);
+    EXPECT_THROW(calculatorCopy.getFitter(), std::runtime_error);
+
+    // empty array pointers
+    EXPECT_THROW(calculatorCopy.getEchoTimes(), std::runtime_error);
+    EXPECT_FALSE(calculatorCopy.getRepTimes());
+    EXPECT_FALSE(calculatorCopy.getRelAcqTimes());
+    EXPECT_THROW(calculatorCopy.getSigMag(), std::runtime_error);
+    EXPECT_FALSE(calculatorCopy.getSigPha());
+
+    // non-empty pointers of internal arrays
+    EXPECT_TRUE(calculatorCopy.getSignal());
+    EXPECT_TRUE(calculatorCopy.getSigns());
+    EXPECT_TRUE(calculatorCopy.getStartPoint());
+
+}
+
+#endif // USE_VNL

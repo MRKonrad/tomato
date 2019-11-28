@@ -5,6 +5,8 @@
  */
 
 #include "TomatoColormap.h"
+#include "gdcmGlobal.h"
+#include "gdcmBase64.h"
 
 #ifdef USE_ITK
 

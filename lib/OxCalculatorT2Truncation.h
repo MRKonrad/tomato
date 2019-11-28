@@ -44,6 +44,11 @@ namespace Ox {
          */
         MeasureType calculateR2AbsFromModel(int nSamples, const MeasureType* time, const MeasureType* signal, const MeasureType* parameters);
 
+        /**
+         * /throw exception if _EchoTimes == 0
+         * @return
+         */
+        const MeasureType * getEchoTimes() const;
 
         /**
          * constructor

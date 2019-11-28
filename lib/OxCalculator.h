@@ -63,10 +63,6 @@ namespace Ox {
 
         virtual SignCalculator<MeasureType> *getSignCalculator() const;
 
-        /**
-         * /throw exception if _InvTimes == 0
-         * @return
-         */
         virtual const MeasureType *getInvTimes() const;
 
         virtual const MeasureType *getEchoTimes() const;

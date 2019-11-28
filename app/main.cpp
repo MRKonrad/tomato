@@ -17,15 +17,12 @@
  */
 int main(int argc, char* argv[]) {
 
-    if (argc != 2){
-        printf("\nUse: TomatoExe(<input_file.yaml>). Please see an example .yaml file in testData folder. Below all the possible options are listed.\n");
-        Ox::TomatoOptions<double> opts;
-        opts.printCurrent();
-    }
-    else if (argc == 2) {
+    if (argc == 2) {
 
         // process only if ITK is available
+
 #ifdef USE_ITK
+
         std::string inputFileName(argv[1]);
         Ox::Tomato<double> Tomato_object(inputFileName);
         Tomato_object._opts->printCurrent();
@@ -38,6 +35,10 @@ int main(int argc, char* argv[]) {
         throw std::runtime_error("You need ITK to run the executable");
 #endif
 
+    } else {
+        printf("\nUse: TomatoExe(<input_file.yaml>). Please see an example .yaml file in testData folder. Below all the possible options are listed.\n");
+        Ox::TomatoOptions<double> opts;
+        opts.printCurrent();
     }
 
     printf("\nThank you for using tomato v%d.%d\n", Tomato_VERSION_MAJOR, Tomato_VERSION_MINOR);

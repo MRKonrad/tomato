@@ -24,10 +24,14 @@ namespace Ox {
             throw std::runtime_error("CalculatorT1Molli::prepareToCalculate currently implemented only for _nDims of 2 or 3");
         }
 
+        if (!this->getInvTimes()){
+            throw std::runtime_error("CalculatorT1Molli::prepareToCalculate InvTimes have to be provided!");
+        }
+
         // verify invTimes are sorted
         for (int i = 0; i < this->getNSamples()-1; i++){
             if (this->getInvTimes()[i] > this->getInvTimes()[i+1]){
-                throw std::runtime_error("InvTimes have to be sorted!");
+                throw std::runtime_error("CalculatorT1Molli::prepareToCalculate InvTimes have to be sorted!");
             }
         }
 
@@ -317,6 +321,16 @@ namespace Ox {
         }
 
         return 0; // EXIT_SUCCESS
+    }
+
+    template< typename MeasureType >
+    const MeasureType *
+    CalculatorT1Molli<MeasureType>
+    ::getInvTimes() const {
+        if (!this->_InvTimes) {
+            throw std::runtime_error("_InvTimes equals 0. Set _InvTimes");
+        };
+        return this->_InvTimes;
     }
 
     template<typename MeasureType>

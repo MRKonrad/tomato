@@ -8,6 +8,7 @@
 #define Tomato_Tomato_H
 
 #include "CmakeConfigForTomato.h"
+#include "tomatolib_export.h"
 #ifdef USE_ITK
 
 #include "TomatoOptions.h"
@@ -70,6 +71,12 @@ namespace Ox {
          */
         int calculate();
 
+//        /**
+//        * calculate
+//        * @return success/failure
+//        */
+//        static int calculateOnePixel(TomatoOptions<InputPixelType> opts);
+
         /**
          * calls exportT1ToDicom or exportT2ToDicom
          * @return success/failure
@@ -111,10 +118,12 @@ namespace Ox {
 
 } // namespace Ox
 
+#ifndef TOMATOLIB_COMPILED
 #include "Tomato.hxx"
 #include "Tomato_exportT1.hxx"
 #include "Tomato_exportT2.hxx"
+#endif // TOMATOLIB_COMPILED
 
-#endif
+#endif // USE_ITK
 
-#endif //Tomato_Tomato_H
+#endif // Tomato_Tomato_H

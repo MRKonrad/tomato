@@ -52,8 +52,22 @@ public:
     /* printVector         */
     /***********************/
 
+    /** printVector
+     * @tparam TYPE
+     * @param name
+     * @param vector
+     */
     template<typename TYPE>
-    static void printVector(const std::string name, const std::vector<TYPE> vector);
+    static void printVector(const std::string& name, const std::vector<TYPE> vector);
+
+    /** printVectorn
+     * with newlines after every element
+     * @tparam TYPE
+     * @param name
+     * @param vector
+     */
+    template<typename TYPE>
+    static void printVectorNewline(const std::string &name, const std::vector<TYPE> vector);
 
     /***********************/
     /* printArray 1D       */
@@ -258,6 +272,7 @@ private:
 
     template< typename TYPE >
     static void quickSortIndex(TYPE arr[], int indexArray[], int left, int right);
+
 };
 
 #include "KWUtil.hxx"
