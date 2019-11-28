@@ -10,7 +10,7 @@
 
 #ifdef USE_ITK
 
-std::string getEncodedSting(std::vector < std::std::uint16_t > encodeSource){
+std::string getEncodedSting(std::vector < std::uint16_t > encodeSource){
 
     // because I want to use &vector.front()
     if ( encodeSource.size() == 0 ){
