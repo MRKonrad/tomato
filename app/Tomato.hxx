@@ -167,65 +167,6 @@ namespace Ox {
         return 0; // EXIT_SUCCESS
     }
 
-//    template< typename MeasureType >
-//    int
-//    Tomato<MeasureType>
-//    ::calculateOnePixel(TomatoOptions<InputPixelType> opts){
-//
-//        // alloc and init
-//        Calculator<InputPixelType> *calculator = FactoryOfCalculators<InputPixelType>::newByFactory(opts);
-//        Model<InputPixelType> *model = FactoryOfModels<InputPixelType>::newByFactory(opts);
-//        Fitter<InputPixelType> *fitter = FactoryOfFitters<InputPixelType>::newByFactory(opts);
-//        SignCalculator<InputPixelType> *signCalculator = FactoryOfSignCalculators<InputPixelType>::newByFactory(opts);
-//        StartPointCalculator<InputPixelType> *startPointCalculator = FactoryOfStartPointCalculators<InputPixelType>::newByFactory(opts);
-//
-//        if (opts->signal_magnitude.size() > 0){
-//            calculator->setNSamples(opts->signal_magnitude.size());
-//            calculator->setSigMag(&(opts->signal_magnitude)[0]);
-//        } else {
-//            throw std::runtime_error("\nNo magnitude signal, I cannot calculate anything");
-//        }
-//
-//        if (opts->signal_phase.size() > 0){
-//            calculator->setSigMag(&(opts->signal_phase)[0]);
-//        }
-//
-//        if (opts->noise.size() > 0){
-//            calculator->setNoise(&(opts->noise)[0]);
-//        }
-//
-//        if (opts->inversion_times.size() > 0){
-//            calculator->setNoise(&(opts->inversion_times)[0]);
-//        }
-//
-//        if (opts->echo_times.size() > 0){
-//            calculator->setNoise(&(opts->echo_times)[0]);
-//        }
-//
-//        // configure calculator
-//        calculator->setModel(model);
-//        calculator->setFitter(fitter);
-//        calculator->setSignCalculator(signCalculator);
-//        calculator->setStartPointCalculator(startPointCalculator);
-//
-//        calculator->calculate();
-//
-//        std::map <std::string, MeasureType> results = calculator->getResults();
-//
-//        std::cout << "Results: \n";
-//        for(typename std::map<std::string, MeasureType >::const_iterator it = results.begin(); it != results.end(); ++it){
-//            std::cout << it->first << " " << it->second << "\n";
-//        }
-//
-//        delete model;
-//        delete fitter;
-//        delete signCalculator;
-//        delete startPointCalculator;
-//        delete calculator;
-//
-//        return 0; // EXIT_SUCCESS
-//    }
-
     template< typename MeasureType >
     int
     Tomato<MeasureType>

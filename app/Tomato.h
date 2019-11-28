@@ -71,12 +71,6 @@ namespace Ox {
          */
         int calculate();
 
-//        /**
-//        * calculate
-//        * @return success/failure
-//        */
-//        static int calculateOnePixel(TomatoOptions<InputPixelType> opts);
-
         /**
          * calls exportT1ToDicom or exportT2ToDicom
          * @return success/failure

@@ -14,6 +14,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <cstdint>
 
 #ifdef USE_ITK
 
