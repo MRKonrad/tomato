@@ -89,7 +89,6 @@
 #include "itkNShmolliSamplesUsedTo123ImageFilter.h"
 #include "itkReadFileListFilter.h"
 #include "itkSortInvTimesImageFilter.h"
-
 #endif //USE_ITK
 
 namespace Ox {

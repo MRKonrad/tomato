@@ -4,8 +4,8 @@
  * \date 2018/07/29
  */
 
-#ifndef Tomato_OxModel_HXX
-#define Tomato_OxModel_HXX
+#ifndef Tomato_OxModel_H
+#define Tomato_OxModel_H
 
 #include "tomatolib_export.h"
 

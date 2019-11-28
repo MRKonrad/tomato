@@ -4,8 +4,8 @@
  * \date 2018/07/29
  */
 
-#ifndef Tomato_OxModel_H
-#define Tomato_OxModel_H
+#ifndef Tomato_OxModel_HXX
+#define Tomato_OxModel_HXX
 
 #include "KWUtil.h"
 #include <iostream>
@@ -77,4 +77,4 @@ namespace Ox {
 
 } //namespace Ox
 
-#endif //Tomato_OxModel_H
+#endif //Tomato_OxModel_HXX
