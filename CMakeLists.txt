@@ -9,6 +9,8 @@
 #       -DCMAKE_MACOSX_RPATH=1
 # additionally for windows:
 #       -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
+# additionally for linux:
+#       -DCMAKE_POSITION_INDEPENDENT_CODE=ON
 # see .travis.yml and appveyor.yml for examples
 #
 # Konrad Werys
