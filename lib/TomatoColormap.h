@@ -19,15 +19,15 @@
 #ifdef USE_ITK
 
 
-std::string getEncodedSting(std::vector < uint16_t > encodeSource);
+std::string getEncodedSting(std::vector < std::uint16_t > encodeSource);
 
-std::vector < uint16_t > getShmolliColormapRed3TArray();
-std::vector < uint16_t > getShmolliColormapGreen3TArray();
-std::vector < uint16_t > getShmolliColormapBlue3TArray();
+std::vector < std::uint16_t > getShmolliColormapRed3TArray();
+std::vector < std::uint16_t > getShmolliColormapGreen3TArray();
+std::vector < std::uint16_t > getShmolliColormapBlue3TArray();
 
-std::vector < uint16_t > getShmolliColormapRed15TArray();
-std::vector < uint16_t > getShmolliColormapGreen15TArray();
-std::vector < uint16_t > getShmolliColormapBlue15TArray();
+std::vector < std::uint16_t > getShmolliColormapRed15TArray();
+std::vector < std::uint16_t > getShmolliColormapGreen15TArray();
+std::vector < std::uint16_t > getShmolliColormapBlue15TArray();
 
 
 #endif //USE_ITK
