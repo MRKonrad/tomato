@@ -10,8 +10,9 @@
 \hypertarget{class_k_w_util_a74cbba48bf115ff4ddb90e4c8abfaaac}{{\footnotesize template$<$typename T\-Y\-P\-E1 , typename T\-Y\-P\-E2 $>$ }\\static void {\bfseries copy\-Array\-To\-Array} (int n\-Samples, T\-Y\-P\-E1 $\ast$array\-To, const T\-Y\-P\-E2 $\ast$array\-From)}\label{class_k_w_util_a74cbba48bf115ff4ddb90e4c8abfaaac}
 
 \item 
-\hypertarget{class_k_w_util_aea07ca36b5b4f986426f2c03d7a84b6e}{{\footnotesize template$<$typename T\-Y\-P\-E $>$ }\\static void {\bfseries print\-Vector} (const std\-::string name, const std\-::vector$<$ T\-Y\-P\-E $>$ vector)}\label{class_k_w_util_aea07ca36b5b4f986426f2c03d7a84b6e}
-
+{\footnotesize template$<$typename T\-Y\-P\-E $>$ }\\static void \hyperlink{class_k_w_util_acc956bb7cbedc39fbca11a6414b66dac}{print\-Vector} (const std\-::string \&name, const std\-::vector$<$ T\-Y\-P\-E $>$ vector)
+\item 
+{\footnotesize template$<$typename T\-Y\-P\-E $>$ }\\static void \hyperlink{class_k_w_util_aec00dd2420ac8d850284db70c71c1c16}{print\-Vector\-Newline} (const std\-::string \&name, const std\-::vector$<$ T\-Y\-P\-E $>$ vector)
 \item 
 \hypertarget{class_k_w_util_a9a809d578ed4b3647b7a92a8ee349a0e}{{\footnotesize template$<$typename T\-Y\-P\-E $>$ }\\static void {\bfseries print\-Array} (int n\-Samples, const T\-Y\-P\-E $\ast$myarray)}\label{class_k_w_util_a9a809d578ed4b3647b7a92a8ee349a0e}
 
@@ -149,6 +150,46 @@
 \begin{DoxyReturn}{Returns}
 0 if success, 1 if det == 0 
 \end{DoxyReturn}
+\hypertarget{class_k_w_util_acc956bb7cbedc39fbca11a6414b66dac}{\index{K\-W\-Util@{K\-W\-Util}!print\-Vector@{print\-Vector}}
+\index{print\-Vector@{print\-Vector}!KWUtil@{K\-W\-Util}}
+\subsubsection[{print\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\-Y\-P\-E $>$ void K\-W\-Util\-::print\-Vector (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{name, }
+\item[{const std\-::vector$<$ T\-Y\-P\-E $>$}]{vector}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_k_w_util_acc956bb7cbedc39fbca11a6414b66dac}
+print\-Vector 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T\-Y\-P\-E} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em vector} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_k_w_util_aec00dd2420ac8d850284db70c71c1c16}{\index{K\-W\-Util@{K\-W\-Util}!print\-Vector\-Newline@{print\-Vector\-Newline}}
+\index{print\-Vector\-Newline@{print\-Vector\-Newline}!KWUtil@{K\-W\-Util}}
+\subsubsection[{print\-Vector\-Newline}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\-Y\-P\-E $>$ void K\-W\-Util\-::print\-Vector\-Newline (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{name, }
+\item[{const std\-::vector$<$ T\-Y\-P\-E $>$}]{vector}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_k_w_util_aec00dd2420ac8d850284db70c71c1c16}
+print\-Vectorn with newlines after every element 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T\-Y\-P\-E} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em vector} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

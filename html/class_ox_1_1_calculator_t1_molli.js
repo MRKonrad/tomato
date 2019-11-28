@@ -7,6 +7,7 @@ var class_ox_1_1_calculator_t1_molli =
     [ "calculateMolli", "class_ox_1_1_calculator_t1_molli.html#ac275f14715caf983839e13f89a87e8d1", null ],
     [ "calculateR2AbsFromModel", "class_ox_1_1_calculator_t1_molli.html#a9c9238dd8a96e06d3e0a96810377b90b", null ],
     [ "getDoCalculateSDMap", "class_ox_1_1_calculator_t1_molli.html#a06d8579492ee063b129b489e638333be", null ],
+    [ "getInvTimes", "class_ox_1_1_calculator_t1_molli.html#af0ec071b9742038460f2987d24182030", null ],
     [ "newByCloning", "class_ox_1_1_calculator_t1_molli.html#a2a924ff09d446b51542dc246a6a04bd3", null ],
     [ "prepareToCalculate", "class_ox_1_1_calculator_t1_molli.html#a591ec9658fb5a3e4f48715057cf62b38", null ],
     [ "setDoCalculateSDMap", "class_ox_1_1_calculator_t1_molli.html#a65a51dcadaafdefc576201de535f8810", null ],

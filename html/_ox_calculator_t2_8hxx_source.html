@@ -174,89 +174,99 @@ $(document).ready(function(){initNavTree('_ox_calculator_t2_8hxx_source.html',''
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    MeasureType</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="class_ox_1_1_calculator_t2.html#ace5f0515839bdffffb3d60e4536167b6">CalculatorT2&lt;MeasureType&gt;</a></div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t2.html#ace5f0515839bdffffb3d60e4536167b6">   77</a></span>&#160;<a class="code" href="class_ox_1_1_calculator_t2.html#ace5f0515839bdffffb3d60e4536167b6">    ::calculateR2AbsFromModel</a>(<span class="keywordtype">int</span> nSamples, <span class="keyword">const</span> MeasureType* times, <span class="keyword">const</span> MeasureType* signal, <span class="keyword">const</span> MeasureType* parameters) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">int</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="class_ox_1_1_calculator_t2.html#a56e2bcb27465a83dd1a1150b7fe419c8">CalculatorT2&lt;MeasureType&gt;</a></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t2.html#a56e2bcb27465a83dd1a1150b7fe419c8">   77</a></span>&#160;<a class="code" href="class_ox_1_1_calculator_t2.html#a56e2bcb27465a83dd1a1150b7fe419c8">    ::prepareToCalculate</a>(){</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        MeasureType *absFitted  = <span class="keyword">new</span> MeasureType[nSamples];</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        MeasureType *absYsignal = <span class="keyword">new</span> MeasureType[nSamples];</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nSamples; i++){</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            MeasureType fitted;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            fitted = this-&gt;_Model-&gt;calcModelValue(parameters, times[i]);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            absFitted[i] = fabs(fitted);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            absYsignal[i] = fabs(signal[i]);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordtype">double</span> result = KWUtil::calcR2cor(nSamples, absFitted, absYsignal);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="comment">// if fitter does not have to iterate, do not calculate</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span> (this-&gt;getFitter()-&gt;getMaxFunctionEvals() == 0){</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">return</span> 1; <span class="comment">// EXIT_FAILURE</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="comment">// verify echoTimes are sorted</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; this-&gt;getNSamples()-1; i++){</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordflow">if</span> (this-&gt;getEchoTimes()[i] &gt; this-&gt;getEchoTimes()[i+1]){</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Echo times have to be sorted!&quot;</span>);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keyword">delete</span>[] absFitted;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">delete</span>[] absYsignal;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="class_ox_1_1_calculator_t2.html#a56e2bcb27465a83dd1a1150b7fe419c8">CalculatorT2&lt;MeasureType&gt;</a></div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t2.html#a56e2bcb27465a83dd1a1150b7fe419c8">   99</a></span>&#160;<a class="code" href="class_ox_1_1_calculator_t2.html#a56e2bcb27465a83dd1a1150b7fe419c8">    ::prepareToCalculate</a>(){</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment">// if fitter does not have to iterate, do not calculate</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">if</span> (this-&gt;getFitter()-&gt;getMaxFunctionEvals() == 0){</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keywordflow">return</span> 1; <span class="comment">// EXIT_FAILURE</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="comment">// verify echoTimes are sorted</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; this-&gt;getNSamples()-1; i++){</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordflow">if</span> (this-&gt;getEchoTimes()[i] &gt; this-&gt;getEchoTimes()[i+1]){</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Echo times have to be sorted!&quot;</span>);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="comment">// calculate start point</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        MeasureType <span class="keyword">const</span> defaultStartPoint2[] = {500, 100};</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        MeasureType <span class="keyword">const</span> defaultStartPoint3[] = {5, 100, 50};</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">if</span> (!this-&gt;getStartPointCalculator()){</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="comment">// no start point calculator</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keywordflow">if</span> (this-&gt;_nDims == 2) {</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                KWUtil::copyArrayToArray(this-&gt;_nDims, this-&gt;_StartPoint, defaultStartPoint2);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (this-&gt;_nDims == 3) {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                KWUtil::copyArrayToArray(this-&gt;_nDims, this-&gt;_StartPoint, defaultStartPoint3);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;CalculatorT2: No default start point for this number of dimensions, &quot;</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                                         <span class="stringliteral">&quot;consider using StartPointCalculator &quot;</span>);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="comment">// start point calculator</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            this-&gt;getStartPointCalculator()-&gt;setNDims(this-&gt;_nDims);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="keywordflow">if</span> (!this-&gt;getStartPointCalculator()-&gt;getInputStartPoint()) {</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                <span class="keywordflow">if</span> (this-&gt;_nDims == 2) {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                    this-&gt;getStartPointCalculator()-&gt;setInputStartPoint(defaultStartPoint2);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (this-&gt;_nDims == 3) {</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                    this-&gt;getStartPointCalculator()-&gt;setInputStartPoint(defaultStartPoint3);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;CalculatorT2: Set InputStartPoint in StartPointCalculator&quot;</span>);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                }</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            }</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            this-&gt;getStartPointCalculator()-&gt;setNSamples(this-&gt;getNSamples());</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            this-&gt;getStartPointCalculator()-&gt;setEchoTimes(this-&gt;getEchoTimes());</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            this-&gt;getStartPointCalculator()-&gt;setSigMag(this-&gt;getSigMag());</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            this-&gt;getStartPointCalculator()-&gt;setSigns(this-&gt;getSigns());</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            this-&gt;getStartPointCalculator()-&gt;setCalculatedStartPoint(this-&gt;_StartPoint);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            this-&gt;getStartPointCalculator()-&gt;calculateStartPoint();</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        }</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    };</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">// calculate start point</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        MeasureType <span class="keyword">const</span> defaultStartPoint2[] = {500, 100};</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        MeasureType <span class="keyword">const</span> defaultStartPoint3[] = {5, 100, 50};</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">if</span> (!this-&gt;getStartPointCalculator()){</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="comment">// no start point calculator</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordflow">if</span> (this-&gt;_nDims == 2) {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                KWUtil::copyArrayToArray(this-&gt;_nDims, this-&gt;_StartPoint, defaultStartPoint2);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (this-&gt;_nDims == 3) {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                KWUtil::copyArrayToArray(this-&gt;_nDims, this-&gt;_StartPoint, defaultStartPoint3);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;CalculatorT2: No default start point for this number of dimensions, &quot;</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                         <span class="stringliteral">&quot;consider using StartPointCalculator &quot;</span>);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="comment">// start point calculator</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            this-&gt;getStartPointCalculator()-&gt;setNDims(this-&gt;_nDims);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordflow">if</span> (!this-&gt;getStartPointCalculator()-&gt;getInputStartPoint()) {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keywordflow">if</span> (this-&gt;_nDims == 2) {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    this-&gt;getStartPointCalculator()-&gt;setInputStartPoint(defaultStartPoint2);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (this-&gt;_nDims == 3) {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    this-&gt;getStartPointCalculator()-&gt;setInputStartPoint(defaultStartPoint3);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;CalculatorT2: Set InputStartPoint in StartPointCalculator&quot;</span>);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            this-&gt;getStartPointCalculator()-&gt;setNSamples(this-&gt;getNSamples());</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            this-&gt;getStartPointCalculator()-&gt;setEchoTimes(this-&gt;getEchoTimes());</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            this-&gt;getStartPointCalculator()-&gt;setSigMag(this-&gt;getSigMag());</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            this-&gt;getStartPointCalculator()-&gt;setSigns(this-&gt;getSigns());</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            this-&gt;getStartPointCalculator()-&gt;setCalculatedStartPoint(this-&gt;_StartPoint);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            this-&gt;getStartPointCalculator()-&gt;calculateStartPoint();</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">return</span> 0; <span class="comment">// EXIT_SUCCESS</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    MeasureType</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <a class="code" href="class_ox_1_1_calculator_t2.html#ace5f0515839bdffffb3d60e4536167b6">CalculatorT2&lt;MeasureType&gt;</a></div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t2.html#ace5f0515839bdffffb3d60e4536167b6">  132</a></span>&#160;<a class="code" href="class_ox_1_1_calculator_t2.html#ace5f0515839bdffffb3d60e4536167b6">    ::calculateR2AbsFromModel</a>(<span class="keywordtype">int</span> nSamples, <span class="keyword">const</span> MeasureType* times, <span class="keyword">const</span> MeasureType* signal, <span class="keyword">const</span> MeasureType* parameters) {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        MeasureType *absFitted  = <span class="keyword">new</span> MeasureType[nSamples];</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        MeasureType *absYsignal = <span class="keyword">new</span> MeasureType[nSamples];</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nSamples; i++){</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            MeasureType fitted;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            fitted = this-&gt;_Model-&gt;calcModelValue(parameters, times[i]);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            absFitted[i] = fabs(fitted);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            absYsignal[i] = fabs(signal[i]);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordtype">double</span> result = KWUtil::calcR2cor(nSamples, absFitted, absYsignal);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keyword">delete</span>[] absFitted;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keyword">delete</span>[] absYsignal;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    }</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;} <span class="comment">//namespace Ox</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="preprocessor">#endif //Tomato_OXCALCULATORT2_HXX</span></div>
-<div class="ttc" id="class_ox_1_1_calculator_t2_html_ace5f0515839bdffffb3d60e4536167b6"><div class="ttname"><a href="class_ox_1_1_calculator_t2.html#ace5f0515839bdffffb3d60e4536167b6">Ox::CalculatorT2::calculateR2AbsFromModel</a></div><div class="ttdeci">MeasureType calculateR2AbsFromModel(int nSamples, const MeasureType *time, const MeasureType *signal, const MeasureType *parameters)</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2.hxx:77</div></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> MeasureType &gt;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keyword">const</span> MeasureType *</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <a class="code" href="class_ox_1_1_calculator_t2.html#a1f43cfb6a385e6eeb2ff8fe167ab347d">CalculatorT2&lt;MeasureType&gt;</a></div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t2.html#a1f43cfb6a385e6eeb2ff8fe167ab347d">  154</a></span>&#160;<a class="code" href="class_ox_1_1_calculator_t2.html#a1f43cfb6a385e6eeb2ff8fe167ab347d">    ::getEchoTimes</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">if</span> (!this-&gt;_EchoTimes) {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;_EchoTimes equals 0. Set _EchoTimes&quot;</span>);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        };</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">return</span> this-&gt;_EchoTimes;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;} <span class="comment">//namespace Ox</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor">#endif //Tomato_OXCALCULATORT2_HXX</span></div>
+<div class="ttc" id="class_ox_1_1_calculator_t2_html_ace5f0515839bdffffb3d60e4536167b6"><div class="ttname"><a href="class_ox_1_1_calculator_t2.html#ace5f0515839bdffffb3d60e4536167b6">Ox::CalculatorT2::calculateR2AbsFromModel</a></div><div class="ttdeci">MeasureType calculateR2AbsFromModel(int nSamples, const MeasureType *time, const MeasureType *signal, const MeasureType *parameters)</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2.hxx:132</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t2_html_a8afe4974f3253edea4386a87695607ae"><div class="ttname"><a href="class_ox_1_1_calculator_t2.html#a8afe4974f3253edea4386a87695607ae">Ox::CalculatorT2::calculate</a></div><div class="ttdeci">virtual int calculate()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2.hxx:15</div></div>
-<div class="ttc" id="class_ox_1_1_calculator_t2_html_a56e2bcb27465a83dd1a1150b7fe419c8"><div class="ttname"><a href="class_ox_1_1_calculator_t2.html#a56e2bcb27465a83dd1a1150b7fe419c8">Ox::CalculatorT2::prepareToCalculate</a></div><div class="ttdeci">virtual int prepareToCalculate()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2.hxx:99</div></div>
+<div class="ttc" id="class_ox_1_1_calculator_t2_html_a56e2bcb27465a83dd1a1150b7fe419c8"><div class="ttname"><a href="class_ox_1_1_calculator_t2.html#a56e2bcb27465a83dd1a1150b7fe419c8">Ox::CalculatorT2::prepareToCalculate</a></div><div class="ttdeci">virtual int prepareToCalculate()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2.hxx:77</div></div>
+<div class="ttc" id="class_ox_1_1_calculator_t2_html_a1f43cfb6a385e6eeb2ff8fe167ab347d"><div class="ttname"><a href="class_ox_1_1_calculator_t2.html#a1f43cfb6a385e6eeb2ff8fe167ab347d">Ox::CalculatorT2::getEchoTimes</a></div><div class="ttdeci">const MeasureType * getEchoTimes() const </div><div class="ttdef"><b>Definition:</b> OxCalculatorT2.hxx:154</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

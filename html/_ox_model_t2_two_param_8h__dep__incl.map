@@ -1,8 +1,14 @@
 <map id="lib/OxModelT2TwoParam.h" name="lib/OxModelT2TwoParam.h">
-<area shape="rect" id="node2" href="$_ox_factory_of_models_8h_source.html" title="app/OxFactoryOfModels.h" alt="" coords="141,88,315,115"/>
-<area shape="rect" id="node7" href="$_ox_calculator_t2__test_8cpp.html" title="tests/OxCalculatorT2\l_test.cpp" alt="" coords="340,81,487,122"/>
-<area shape="rect" id="node3" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="155,171,301,197"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="5,245,104,272"/>
-<area shape="rect" id="node5" href="$_ox_factory_of_calculators_8h.html" title="app/OxFactoryOfCalculators.h" alt="" coords="129,245,327,272"/>
-<area shape="rect" id="node6" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="352,245,523,272"/>
+<area shape="rect" id="node2" href="$_ox_factory_of_models_8hxx_source.html" title="lib/OxFactoryOfModels.hxx" alt="" coords="547,88,728,115"/>
+<area shape="rect" id="node12" href="$_ox_calculator_t2__test_8cpp.html" title="tests/OxCalculatorT2\l_test.cpp" alt="" coords="752,81,899,122"/>
+<area shape="rect" id="node13" href="$_ox_calculator_t2_truncation__test_8cpp.html" title="tests/OxCalculatorT2Truncation\l_test.cpp" alt="" coords="923,81,1129,122"/>
+<area shape="rect" id="node3" href="$_ox_factory_of_models_8h_source.html" title="lib/OxFactoryOfModels.h" alt="" coords="554,171,720,197"/>
+<area shape="rect" id="node4" href="$_tomato_options_8h.html" title="lib/TomatoOptions.h" alt="" coords="425,245,564,272"/>
+<area shape="rect" id="node8" href="$_tomato_api_8h.html" title="lib/TomatoApi.h" alt="" coords="238,469,351,496"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="643,320,743,347"/>
+<area shape="rect" id="node6" href="$_ox_factory_of_calculators_8hxx.html" title="lib/OxFactoryOfCalculators.hxx" alt="" coords="192,320,397,347"/>
+<area shape="rect" id="node10" href="$_ox_factory_of_fitters_8h.html" title="lib/OxFactoryOfFitters.h" alt="" coords="5,320,168,347"/>
+<area shape="rect" id="node11" href="$_tomato_one_pixel_8h.html" title="lib/TomatoOnePixel.h" alt="" coords="421,320,568,347"/>
+<area shape="rect" id="node7" href="$_ox_factory_of_calculators_8h.html" title="lib/OxFactoryOfCalculators.h" alt="" coords="199,395,389,421"/>
+<area shape="rect" id="node9" href="$_tomato_api_8cpp.html" title="lib/TomatoApi.cpp" alt="" coords="231,544,357,571"/>
 </map>

@@ -33,6 +33,16 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
       [ "CalculatorT2Truncation", "class_ox_1_1_calculator_t2_truncation.html", "class_ox_1_1_calculator_t2_truncation" ]
     ] ],
     [ "OxCalculatorT2Truncation.hxx", "_ox_calculator_t2_truncation_8hxx.html", null ],
+    [ "OxFactoryOfCalculators.h", "_ox_factory_of_calculators_8h.html", "_ox_factory_of_calculators_8h" ],
+    [ "OxFactoryOfCalculators.hxx", "_ox_factory_of_calculators_8hxx.html", null ],
+    [ "OxFactoryOfFitters.h", "_ox_factory_of_fitters_8h.html", "_ox_factory_of_fitters_8h" ],
+    [ "OxFactoryOfFitters.hxx", "_ox_factory_of_fitters_8hxx.html", null ],
+    [ "OxFactoryOfModels.h", "_ox_factory_of_models_8h_source.html", null ],
+    [ "OxFactoryOfModels.hxx", "_ox_factory_of_models_8hxx_source.html", null ],
+    [ "OxFactoryOfSignCalculators.h", "_ox_factory_of_sign_calculators_8h.html", "_ox_factory_of_sign_calculators_8h" ],
+    [ "OxFactoryOfSignCalculators.hxx", "_ox_factory_of_sign_calculators_8hxx.html", null ],
+    [ "OxFactoryOfStartPointCalculators.h", "_ox_factory_of_start_point_calculators_8h.html", "_ox_factory_of_start_point_calculators_8h" ],
+    [ "OxFactoryOfStartPointCalculators.hxx", "_ox_factory_of_start_point_calculators_8hxx.html", null ],
     [ "OxFitter.h", "_ox_fitter_8h.html", [
       [ "Fitter", "class_ox_1_1_fitter.html", "class_ox_1_1_fitter" ]
     ] ],
@@ -94,6 +104,11 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "TomatoApi.h", "_tomato_api_8h.html", "_tomato_api_8h" ],
     [ "TomatoColormap.cpp", "_tomato_colormap_8cpp.html", null ],
     [ "TomatoColormap.h", "_tomato_colormap_8h.html", null ],
+    [ "TomatoOnePixel.h", "_tomato_one_pixel_8h.html", "_tomato_one_pixel_8h" ],
+    [ "TomatoOptions.h", "_tomato_options_8h.html", [
+      [ "TomatoOptions", "struct_ox_1_1_tomato_options.html", "struct_ox_1_1_tomato_options" ]
+    ] ],
+    [ "TomatoOptions.hxx", "_tomato_options_8hxx.html", "_tomato_options_8hxx" ],
     [ "TomatoParser.h", "_tomato_parser_8h.html", null ],
     [ "TomatoParser.hxx", "_tomato_parser_8hxx.html", null ]
 ];

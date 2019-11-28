@@ -146,6 +146,8 @@ MeasureType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <tr class="separator:aec374fc512aa3b109138f0c16c53a171"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06d8579492ee063b129b489e638333be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t1_molli.html#a06d8579492ee063b129b489e638333be">getDoCalculateSDMap</a> () const </td></tr>
 <tr class="separator:a06d8579492ee063b129b489e638333be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0ec071b9742038460f2987d24182030"><td class="memItemLeft" align="right" valign="top">const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t1_molli.html#af0ec071b9742038460f2987d24182030">getInvTimes</a> () const </td></tr>
+<tr class="separator:af0ec071b9742038460f2987d24182030"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65a51dcadaafdefc576201de535f8810"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t1_molli.html#a65a51dcadaafdefc576201de535f8810">setDoCalculateSDMap</a> (bool _DoCalculateSDMap)</td></tr>
 <tr class="separator:a65a51dcadaafdefc576201de535f8810"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1892de078822ea106fcaebcf81047be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t1_molli.html#ab1892de078822ea106fcaebcf81047be">CalculatorT1Molli</a> ()</td></tr>
@@ -169,8 +171,6 @@ virtual <a class="el" href="class_ox_1_1_start_point_calculator.html">StartPoint
 virtual <a class="el" href="class_ox_1_1_sign_calculator.html">SignCalculator</a><br class="typebreak"/>
 &lt; MeasureType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getSignCalculator</b> () const </td></tr>
 <tr class="separator:a4ee7fdeb4009d2e433ef6a566768eb25 inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab844b24dfedd27d52466203ec0c913fa inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top">virtual const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator.html#ab844b24dfedd27d52466203ec0c913fa">getInvTimes</a> () const </td></tr>
-<tr class="separator:ab844b24dfedd27d52466203ec0c913fa inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a46eb89732759c2544398f9a694f5c7 inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a46eb89732759c2544398f9a694f5c7"></a>
 virtual const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getEchoTimes</b> () const </td></tr>
 <tr class="separator:a6a46eb89732759c2544398f9a694f5c7 inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -612,6 +612,35 @@ template&lt;typename MeasureType &gt; </div>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af0ec071b9742038460f2987d24182030"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MeasureType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const MeasureType * <a class="el" href="class_ox_1_1_calculator_t1_molli.html">Ox::CalculatorT1Molli</a>&lt; MeasureType &gt;::getInvTimes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>/throw exception if _InvTimes == 0 </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Reimplemented from <a class="el" href="class_ox_1_1_calculator.html">Ox::Calculator&lt; MeasureType &gt;</a>.</p>
 
 </div>
 </div>

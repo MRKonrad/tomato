@@ -135,6 +135,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a90077df2125150b62324c83da464b02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dba06e66ae1dc710f9af18af68107db"><td class="memItemLeft" align="right" valign="top">MeasureType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t2_truncation.html#a7dba06e66ae1dc710f9af18af68107db">calculateR2AbsFromModel</a> (int nSamples, const MeasureType *time, const MeasureType *signal, const MeasureType *parameters)</td></tr>
 <tr class="separator:a7dba06e66ae1dc710f9af18af68107db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad433198801084c091bcea9430c47412f"><td class="memItemLeft" align="right" valign="top">const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t2_truncation.html#ad433198801084c091bcea9430c47412f">getEchoTimes</a> () const </td></tr>
+<tr class="separator:ad433198801084c091bcea9430c47412f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f9e6e96cebf84643a055aef0ffb3630"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t2_truncation.html#a3f9e6e96cebf84643a055aef0ffb3630">CalculatorT2Truncation</a> ()</td></tr>
 <tr class="separator:a3f9e6e96cebf84643a055aef0ffb3630"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f5dabe2ee97aae7b67941023d92fdd6"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator_t2_truncation.html#a7f5dabe2ee97aae7b67941023d92fdd6">~CalculatorT2Truncation</a> ()</td></tr>
@@ -158,11 +160,9 @@ virtual <a class="el" href="class_ox_1_1_start_point_calculator.html">StartPoint
 virtual <a class="el" href="class_ox_1_1_sign_calculator.html">SignCalculator</a><br class="typebreak"/>
 &lt; MeasureType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getSignCalculator</b> () const </td></tr>
 <tr class="separator:a4ee7fdeb4009d2e433ef6a566768eb25 inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab844b24dfedd27d52466203ec0c913fa inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top">virtual const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ox_1_1_calculator.html#ab844b24dfedd27d52466203ec0c913fa">getInvTimes</a> () const </td></tr>
+<tr class="memitem:ab844b24dfedd27d52466203ec0c913fa inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab844b24dfedd27d52466203ec0c913fa"></a>
+virtual const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getInvTimes</b> () const </td></tr>
 <tr class="separator:ab844b24dfedd27d52466203ec0c913fa inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a46eb89732759c2544398f9a694f5c7 inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a46eb89732759c2544398f9a694f5c7"></a>
-virtual const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getEchoTimes</b> () const </td></tr>
-<tr class="separator:a6a46eb89732759c2544398f9a694f5c7 inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e708f33e09e1e08345bea3024e99ec1 inherit pub_methods_class_ox_1_1_calculator"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2e708f33e09e1e08345bea3024e99ec1"></a>
 virtual const MeasureType *&#160;</td><td class="memItemRight" valign="bottom"><b>getRepTimes</b> () const </td></tr>
 <tr class="separator:a2e708f33e09e1e08345bea3024e99ec1 inherit pub_methods_class_ox_1_1_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -448,6 +448,35 @@ template&lt;typename MeasureType &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad433198801084c091bcea9430c47412f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MeasureType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const MeasureType * <a class="el" href="class_ox_1_1_calculator_t2_truncation.html">Ox::CalculatorT2Truncation</a>&lt; MeasureType &gt;::getEchoTimes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>/throw exception if _EchoTimes == 0 </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Reimplemented from <a class="el" href="class_ox_1_1_calculator.html">Ox::Calculator&lt; MeasureType &gt;</a>.</p>
 
 </div>
 </div>

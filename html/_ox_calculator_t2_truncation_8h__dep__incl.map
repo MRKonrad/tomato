@@ -1,7 +1,12 @@
 <map id="lib/OxCalculatorT2Truncation.h" name="lib/OxCalculatorT2Truncation.h">
-<area shape="rect" id="node2" href="$_ox_factory_of_calculators_8h.html" title="app/OxFactoryOfCalculators.h" alt="" coords="115,80,313,107"/>
-<area shape="rect" id="node6" href="$_ox_calculator_t2_truncation_8hxx.html" title="lib/OxCalculatorT2Truncation.hxx" alt="" coords="339,80,555,107"/>
-<area shape="rect" id="node3" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="141,155,288,181"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="5,229,104,256"/>
-<area shape="rect" id="node5" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="129,229,300,256"/>
+<area shape="rect" id="node2" href="$_ox_calculator_t2_truncation_8hxx.html" title="lib/OxCalculatorT2Truncation.hxx" alt="" coords="5,88,221,115"/>
+<area shape="rect" id="node3" href="$_ox_factory_of_calculators_8hxx.html" title="lib/OxFactoryOfCalculators.hxx" alt="" coords="245,88,451,115"/>
+<area shape="rect" id="node11" href="$_ox_calculator_t2_truncation__test_8cpp.html" title="tests/OxCalculatorT2Truncation\l_test.cpp" alt="" coords="475,81,681,122"/>
+<area shape="rect" id="node4" href="$_ox_factory_of_calculators_8h.html" title="lib/OxFactoryOfCalculators.h" alt="" coords="253,171,443,197"/>
+<area shape="rect" id="node5" href="$_tomato_options_8h.html" title="lib/TomatoOptions.h" alt="" coords="145,245,284,272"/>
+<area shape="rect" id="node8" href="$_tomato_api_8h.html" title="lib/TomatoApi.h" alt="" coords="302,395,415,421"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="9,320,108,347"/>
+<area shape="rect" id="node7" href="$_ox_factory_of_fitters_8h.html" title="lib/OxFactoryOfFitters.h" alt="" coords="133,320,296,347"/>
+<area shape="rect" id="node10" href="$_tomato_one_pixel_8h.html" title="lib/TomatoOnePixel.h" alt="" coords="320,320,467,347"/>
+<area shape="rect" id="node9" href="$_tomato_api_8cpp.html" title="lib/TomatoApi.cpp" alt="" coords="295,469,421,496"/>
 </map>

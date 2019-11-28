@@ -124,42 +124,44 @@ $(document).ready(function(){initNavTree('_ox_calculator_t2_truncation_8h_source
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        MeasureType <a class="code" href="class_ox_1_1_calculator_t2_truncation.html#a7dba06e66ae1dc710f9af18af68107db">calculateR2AbsFromModel</a>(<span class="keywordtype">int</span> nSamples, <span class="keyword">const</span> MeasureType* time, <span class="keyword">const</span> MeasureType* signal, <span class="keyword">const</span> MeasureType* parameters);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t2_truncation.html#a3f9e6e96cebf84643a055aef0ffb3630">   51</a></span>&#160;        <a class="code" href="class_ox_1_1_calculator_t2_truncation.html#a3f9e6e96cebf84643a055aef0ffb3630">CalculatorT2Truncation</a>() : <a class="code" href="class_ox_1_1_calculator.html">Calculator</a>&lt;MeasureType&gt;(){</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            _SignalAboveSnrLimit = 0;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            _EchoTimesOfSignalAboveSnrLimit = 0;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            _NSamplesAboveSnrLimit = 0;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            _NoiseLimit = 2.;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t2_truncation.html#a7f5dabe2ee97aae7b67941023d92fdd6">   61</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_calculator_t2_truncation.html#a7f5dabe2ee97aae7b67941023d92fdd6">~CalculatorT2Truncation</a>(){</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keyword">delete</span> [] _SignalAboveSnrLimit;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keyword">delete</span> [] _EchoTimesOfSignalAboveSnrLimit;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t2_truncation.html#a6accdab54ee98182f12707786a461c20">   70</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_calculator.html">Calculator&lt;MeasureType&gt;</a> *<a class="code" href="class_ox_1_1_calculator_t2_truncation.html#a6accdab54ee98182f12707786a461c20">newByCloning</a>() { <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_ox_1_1_calculator_t2_truncation.html">CalculatorT2Truncation&lt;MeasureType&gt;</a>(*this); }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        MeasureType _NoiseLimit;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        MeasureType *_SignalAboveSnrLimit; <span class="comment">// TODO: Static allocation</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        MeasureType *_EchoTimesOfSignalAboveSnrLimit; <span class="comment">// TODO: Static allocation</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">size_t</span> _NSamplesAboveSnrLimit;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    };</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;} <span class="comment">//namespace Ox</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#ifndef TOMATOLIB_COMPILED</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_ox_calculator_t2_truncation_8hxx.html">OxCalculatorT2Truncation.hxx</a>&quot;</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif //TOMATOLIB_COMPILED</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif //Tomato_OXCalculatorT2Truncation_H</span></div>
-<div class="ttc" id="class_ox_1_1_calculator_t2_truncation_html_a7f5dabe2ee97aae7b67941023d92fdd6"><div class="ttname"><a href="class_ox_1_1_calculator_t2_truncation.html#a7f5dabe2ee97aae7b67941023d92fdd6">Ox::CalculatorT2Truncation::~CalculatorT2Truncation</a></div><div class="ttdeci">virtual ~CalculatorT2Truncation()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2Truncation.h:61</div></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">const</span> MeasureType * <a class="code" href="class_ox_1_1_calculator_t2_truncation.html#ad433198801084c091bcea9430c47412f">getEchoTimes</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t2_truncation.html#a3f9e6e96cebf84643a055aef0ffb3630">   56</a></span>&#160;        <a class="code" href="class_ox_1_1_calculator_t2_truncation.html#a3f9e6e96cebf84643a055aef0ffb3630">CalculatorT2Truncation</a>() : <a class="code" href="class_ox_1_1_calculator.html">Calculator</a>&lt;MeasureType&gt;(){</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            _SignalAboveSnrLimit = 0;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            _EchoTimesOfSignalAboveSnrLimit = 0;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            _NSamplesAboveSnrLimit = 0;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            _NoiseLimit = 2.;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t2_truncation.html#a7f5dabe2ee97aae7b67941023d92fdd6">   66</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_calculator_t2_truncation.html#a7f5dabe2ee97aae7b67941023d92fdd6">~CalculatorT2Truncation</a>(){</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keyword">delete</span> [] _SignalAboveSnrLimit;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keyword">delete</span> [] _EchoTimesOfSignalAboveSnrLimit;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_ox_1_1_calculator_t2_truncation.html#a6accdab54ee98182f12707786a461c20">   75</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_calculator.html">Calculator&lt;MeasureType&gt;</a> *<a class="code" href="class_ox_1_1_calculator_t2_truncation.html#a6accdab54ee98182f12707786a461c20">newByCloning</a>() { <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_ox_1_1_calculator_t2_truncation.html">CalculatorT2Truncation&lt;MeasureType&gt;</a>(*this); }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        MeasureType _NoiseLimit;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        MeasureType *_SignalAboveSnrLimit; <span class="comment">// TODO: Static allocation</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        MeasureType *_EchoTimesOfSignalAboveSnrLimit; <span class="comment">// TODO: Static allocation</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">size_t</span> _NSamplesAboveSnrLimit;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    };</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;} <span class="comment">//namespace Ox</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#ifndef TOMATOLIB_COMPILED</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_ox_calculator_t2_truncation_8hxx.html">OxCalculatorT2Truncation.hxx</a>&quot;</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif //TOMATOLIB_COMPILED</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif //Tomato_OXCalculatorT2Truncation_H</span></div>
+<div class="ttc" id="class_ox_1_1_calculator_t2_truncation_html_a7f5dabe2ee97aae7b67941023d92fdd6"><div class="ttname"><a href="class_ox_1_1_calculator_t2_truncation.html#a7f5dabe2ee97aae7b67941023d92fdd6">Ox::CalculatorT2Truncation::~CalculatorT2Truncation</a></div><div class="ttdeci">virtual ~CalculatorT2Truncation()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2Truncation.h:66</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t2_truncation_html_a87a5d80163f3909658498c341c7c1a7a"><div class="ttname"><a href="class_ox_1_1_calculator_t2_truncation.html#a87a5d80163f3909658498c341c7c1a7a">Ox::CalculatorT2Truncation::prepareToCalculate</a></div><div class="ttdeci">virtual int prepareToCalculate()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2Truncation.hxx:84</div></div>
 <div class="ttc" id="_ox_calculator_8h_html"><div class="ttname"><a href="_ox_calculator_8h.html">OxCalculator.h</a></div></div>
-<div class="ttc" id="class_ox_1_1_calculator_t2_truncation_html_a6accdab54ee98182f12707786a461c20"><div class="ttname"><a href="class_ox_1_1_calculator_t2_truncation.html#a6accdab54ee98182f12707786a461c20">Ox::CalculatorT2Truncation::newByCloning</a></div><div class="ttdeci">virtual Calculator&lt; MeasureType &gt; * newByCloning()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2Truncation.h:70</div></div>
+<div class="ttc" id="class_ox_1_1_calculator_t2_truncation_html_a6accdab54ee98182f12707786a461c20"><div class="ttname"><a href="class_ox_1_1_calculator_t2_truncation.html#a6accdab54ee98182f12707786a461c20">Ox::CalculatorT2Truncation::newByCloning</a></div><div class="ttdeci">virtual Calculator&lt; MeasureType &gt; * newByCloning()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2Truncation.h:75</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_html"><div class="ttname"><a href="class_ox_1_1_calculator.html">Ox::Calculator</a></div><div class="ttdef"><b>Definition:</b> OxCalculator.h:28</div></div>
-<div class="ttc" id="class_ox_1_1_calculator_t2_truncation_html_a3f9e6e96cebf84643a055aef0ffb3630"><div class="ttname"><a href="class_ox_1_1_calculator_t2_truncation.html#a3f9e6e96cebf84643a055aef0ffb3630">Ox::CalculatorT2Truncation::CalculatorT2Truncation</a></div><div class="ttdeci">CalculatorT2Truncation()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2Truncation.h:51</div></div>
+<div class="ttc" id="class_ox_1_1_calculator_t2_truncation_html_ad433198801084c091bcea9430c47412f"><div class="ttname"><a href="class_ox_1_1_calculator_t2_truncation.html#ad433198801084c091bcea9430c47412f">Ox::CalculatorT2Truncation::getEchoTimes</a></div><div class="ttdeci">const MeasureType * getEchoTimes() const </div><div class="ttdef"><b>Definition:</b> OxCalculatorT2Truncation.hxx:148</div></div>
+<div class="ttc" id="class_ox_1_1_calculator_t2_truncation_html_a3f9e6e96cebf84643a055aef0ffb3630"><div class="ttname"><a href="class_ox_1_1_calculator_t2_truncation.html#a3f9e6e96cebf84643a055aef0ffb3630">Ox::CalculatorT2Truncation::CalculatorT2Truncation</a></div><div class="ttdeci">CalculatorT2Truncation()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2Truncation.h:56</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t2_truncation_html_a7dba06e66ae1dc710f9af18af68107db"><div class="ttname"><a href="class_ox_1_1_calculator_t2_truncation.html#a7dba06e66ae1dc710f9af18af68107db">Ox::CalculatorT2Truncation::calculateR2AbsFromModel</a></div><div class="ttdeci">MeasureType calculateR2AbsFromModel(int nSamples, const MeasureType *time, const MeasureType *signal, const MeasureType *parameters)</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2Truncation.hxx:62</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t2_truncation_html_a90077df2125150b62324c83da464b02b"><div class="ttname"><a href="class_ox_1_1_calculator_t2_truncation.html#a90077df2125150b62324c83da464b02b">Ox::CalculatorT2Truncation::calculate</a></div><div class="ttdeci">virtual int calculate()</div><div class="ttdef"><b>Definition:</b> OxCalculatorT2Truncation.hxx:17</div></div>
 <div class="ttc" id="class_ox_1_1_calculator_t2_truncation_html"><div class="ttname"><a href="class_ox_1_1_calculator_t2_truncation.html">Ox::CalculatorT2Truncation</a></div><div class="ttdef"><b>Definition:</b> OxCalculatorT2Truncation.h:22</div></div>

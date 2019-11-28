@@ -121,10 +121,12 @@ template&lt;typename TYPE &gt; </td></tr>
 template&lt;typename TYPE1 , typename TYPE2 &gt; </td></tr>
 <tr class="memitem:a74cbba48bf115ff4ddb90e4c8abfaaac"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>copyArrayToArray</b> (int nSamples, TYPE1 *arrayTo, const TYPE2 *arrayFrom)</td></tr>
 <tr class="separator:a74cbba48bf115ff4ddb90e4c8abfaaac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea07ca36b5b4f986426f2c03d7a84b6e"><td class="memTemplParams" colspan="2"><a class="anchor" id="aea07ca36b5b4f986426f2c03d7a84b6e"></a>
-template&lt;typename TYPE &gt; </td></tr>
-<tr class="memitem:aea07ca36b5b4f986426f2c03d7a84b6e"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>printVector</b> (const std::string name, const std::vector&lt; TYPE &gt; vector)</td></tr>
-<tr class="separator:aea07ca36b5b4f986426f2c03d7a84b6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc956bb7cbedc39fbca11a6414b66dac"><td class="memTemplParams" colspan="2">template&lt;typename TYPE &gt; </td></tr>
+<tr class="memitem:acc956bb7cbedc39fbca11a6414b66dac"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_k_w_util.html#acc956bb7cbedc39fbca11a6414b66dac">printVector</a> (const std::string &amp;name, const std::vector&lt; TYPE &gt; vector)</td></tr>
+<tr class="separator:acc956bb7cbedc39fbca11a6414b66dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec00dd2420ac8d850284db70c71c1c16"><td class="memTemplParams" colspan="2">template&lt;typename TYPE &gt; </td></tr>
+<tr class="memitem:aec00dd2420ac8d850284db70c71c1c16"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_k_w_util.html#aec00dd2420ac8d850284db70c71c1c16">printVectorNewline</a> (const std::string &amp;name, const std::vector&lt; TYPE &gt; vector)</td></tr>
+<tr class="separator:aec00dd2420ac8d850284db70c71c1c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a809d578ed4b3647b7a92a8ee349a0e"><td class="memTemplParams" colspan="2"><a class="anchor" id="a9a809d578ed4b3647b7a92a8ee349a0e"></a>
 template&lt;typename TYPE &gt; </td></tr>
 <tr class="memitem:a9a809d578ed4b3647b7a92a8ee349a0e"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>printArray</b> (int nSamples, const TYPE *myarray)</td></tr>
@@ -318,6 +320,106 @@ template&lt;typename TYPE &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if success, 1 if det == 0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acc956bb7cbedc39fbca11a6414b66dac"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TYPE &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KWUtil::printVector </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; TYPE &gt;&#160;</td>
+          <td class="paramname"><em>vector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>printVector </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TYPE</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td></td></tr>
+    <tr><td class="paramname">vector</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aec00dd2420ac8d850284db70c71c1c16"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TYPE &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KWUtil::printVectorNewline </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; TYPE &gt;&#160;</td>
+          <td class="paramname"><em>vector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>printVectorn with newlines after every element </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TYPE</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td></td></tr>
+    <tr><td class="paramname">vector</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
