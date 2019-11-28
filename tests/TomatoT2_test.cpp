@@ -36,4 +36,15 @@ TEST(ActeptanceTests_TomatoT2Test, readAndSort_calculate_export) {
 
 }
 
+TEST(ActeptanceTests_TomatoT2Test, readAndSort_calculate_exportDicom_exportYaml) {
+
+    Ox::Tomato<double> Tomato_object("testData/tomatoConfig_T2_inputDirPaths.yaml");
+    Tomato_object._opts->max_function_evals = 5; // to make the calculations faster
+    EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
+    EXPECT_EQ(Tomato_object.calculate(), 0); // EXIT_SUCCESS
+    EXPECT_EQ(Tomato_object.exportToDicom(), 0); // EXIT_SUCCESS
+    EXPECT_EQ(Tomato_object._opts->exportToYaml(), 0);
+
+}
+
 #endif // USE_ITK

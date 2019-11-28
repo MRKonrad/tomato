@@ -18,7 +18,7 @@
 class KWUtilYaml {
 public:
 
-    static int addMapping(yaml_document_t *document, int mapping_node_number, std::string name, std::string value){
+    static int addMapping(yaml_document_t *document, int mapping_node_number, const std::string& name, const std::string& value){
 
         int last_node = (int)(document->nodes.top - document->nodes.start + 1);
 
@@ -30,25 +30,39 @@ public:
     }
 
     template< typename MeasureType >
-    static int addSequenceOfNumbers(yaml_document_t *document, int mapping_node_number, std::string name, std::vector<MeasureType> vectorOfValues){
-        std::vector<std::string> vectorStrOfValues;
-        for (size_t i = 0; i < vectorOfValues.size(); i++){
-            vectorStrOfValues[i] = KWUtil::NumberToString(vectorOfValues[i]);
+    static int addSequenceOfNumbers(yaml_document_t *document, int mapping_node_number, const std::string& name, std::vector<MeasureType> vectorOfNumberValues){
+
+        std::vector<std::string> vectorOfValues(vectorOfNumberValues.size());
+        for (size_t i = 0; i < vectorOfNumberValues.size(); i++){
+            vectorOfValues[i] = KWUtil::NumberToString(vectorOfNumberValues[i]);
         }
-        return addSequence(document, mapping_node_number, name, vectorStrOfValues);
+
+        int last_node = (int)(document->nodes.top - document->nodes.start + 1);
+        yaml_document_add_sequence(document, (yaml_char_t*)YAML_DEFAULT_SEQUENCE_TAG, YAML_FLOW_SEQUENCE_STYLE);
+        yaml_document_add_scalar(document, (yaml_char_t*)YAML_DEFAULT_SCALAR_TAG, (yaml_char_t*)name.c_str(), (int)name.length(), YAML_PLAIN_SCALAR_STYLE);
+
+        for (size_t i = 0; i < vectorOfValues.size(); i++) {
+            yaml_document_add_scalar(document, (yaml_char_t *) YAML_DEFAULT_SCALAR_TAG, (yaml_char_t*)vectorOfValues.at(i).c_str(), (int)vectorOfValues[i].length(), YAML_PLAIN_SCALAR_STYLE);
+        }
+        yaml_document_append_mapping_pair(document, mapping_node_number, last_node+1, last_node);
+        for (size_t i = 0; i < vectorOfValues.size(); i++) {
+            yaml_document_append_sequence_item(document, last_node, last_node+i+2);
+        }
+
+        return 0; // EXIT_SUCCESS
     }
 
-    static int addSequence(yaml_document_t *document, int mapping_node_number, std::string name, std::vector<std::string> vectorOfValues){
+    static int addSequence(yaml_document_t *document, int mapping_node_number, const std::string& name, std::vector<std::string> vectorOfValues){
 
         int last_node = (int)(document->nodes.top - document->nodes.start + 1);
         yaml_document_add_sequence(document, (yaml_char_t*)YAML_DEFAULT_SEQUENCE_TAG, YAML_ANY_SEQUENCE_STYLE);
         yaml_document_add_scalar(document, (yaml_char_t*)YAML_DEFAULT_SCALAR_TAG, (yaml_char_t*)name.c_str(), (int)name.length(), YAML_PLAIN_SCALAR_STYLE);
 
-        for (unsigned int i = 0; i < vectorOfValues.size(); i++) {
+        for (size_t i = 0; i < vectorOfValues.size(); i++) {
             yaml_document_add_scalar(document, (yaml_char_t *) YAML_DEFAULT_SCALAR_TAG, (yaml_char_t*)vectorOfValues.at(i).c_str(), (int)vectorOfValues[i].length(), YAML_PLAIN_SCALAR_STYLE);
         }
         yaml_document_append_mapping_pair(document, mapping_node_number, last_node+1, last_node);
-        for (unsigned int i = 0; i < vectorOfValues.size(); i++) {
+        for (size_t i = 0; i < vectorOfValues.size(); i++) {
             yaml_document_append_sequence_item(document, last_node, last_node+i+2);
         }
 

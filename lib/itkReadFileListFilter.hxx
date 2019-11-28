@@ -517,6 +517,16 @@ namespace itk {
         return acqTime;
     }
 
+    template<typename TImage>
+    const std::vector<std::string> &ReadFileListFilter<TImage>::GetFileList() const {
+        return m_FileList;
+    }
+
+    template<typename TImage>
+    const std::string &ReadFileListFilter<TImage>::GetDirName() const {
+        return m_DirName;
+    }
+
 }
 
 #endif // USE_ITK

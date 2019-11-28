@@ -66,6 +66,9 @@ namespace itk {
         vnl_vector<double> GetAcqTimes();
         vnl_vector<double> GetRelAcqTimes();
 
+        const std::vector<std::string> &GetFileList() const;
+        const std::string &GetDirName() const;
+
         itkGetMacro(MetaDataDictionaryArray, MetaDataDictionaryArrayType);
         itkGetObjectMacro(DicomIO, GDCMImageIO);
         itkGetMacro(Verbose, bool);

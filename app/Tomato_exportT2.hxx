@@ -54,13 +54,12 @@ namespace Ox {
         std::string seriesUID_T2 = suid.Generate();
 
         // seriesNumber
-        std::string seriesNumber, newSeriesNumber_T2;
+        std::string seriesNumber;
         itk::ExposeMetaData<std::string>(_dictionaryInput, "0020|0011", seriesNumber);
-        if (_opts->output_map_series_number == 0){
-            newSeriesNumber_T2 = KWUtil::NumberToString(KWUtil::StringToNumber<int>(seriesNumber) + 10002);
-        } else {
-            newSeriesNumber_T2 = KWUtil::NumberToString(_opts->output_map_series_number);
+        if (_opts->output_map_series_number == 0) {
+            _opts->output_map_series_number = KWUtil::StringToNumber<int>(seriesNumber) + 10002;
         }
+        std::string newSeriesNumber_T2 = KWUtil::NumberToString(_opts->output_map_series_number);
 
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_T2, std::string("0008|0018"), sopInstanceUID_T2);
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_T2, std::string("0002|0003"), sopInstanceUID_T2);
@@ -79,13 +78,12 @@ namespace Ox {
         std::string sopInstanceUID_R2 = sopuid.Generate();
         std::string seriesUID_R2 = suid.Generate();
 
-        std::string newSeriesNumber_R2;
         itk::ExposeMetaData<std::string>(_dictionaryInput, "0020|0011", seriesNumber);
         if (_opts->output_fitparams_series_number == 0) {
-            newSeriesNumber_R2 = KWUtil::NumberToString(KWUtil::StringToNumber<int>(seriesNumber) + 10003);
-        } else {
-            newSeriesNumber_R2 = KWUtil::NumberToString(_opts->output_fitparams_series_number);
+            _opts->output_fitparams_series_number = KWUtil::StringToNumber<int>(seriesNumber) + 10003;
         }
+        std::string newSeriesNumber_R2 = KWUtil::NumberToString(_opts->output_fitparams_series_number);
+
 
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_R2, std::string("0008|0018"), sopInstanceUID_R2);
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_R2, std::string("0002|0003"), sopInstanceUID_R2);

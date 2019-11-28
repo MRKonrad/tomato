@@ -52,14 +52,13 @@ namespace Ox {
         std::string seriesUID_T1 = suid.Generate();
 
         // seriesNumber
-        std::string seriesNumber, newSeriesNumber_T1;
+        std::string seriesNumber;
         itk::ExposeMetaData<std::string>(_dictionaryInput, "0020|0011", seriesNumber);
-        if (_opts->output_map_series_number == 0){
-            newSeriesNumber_T1 = KWUtil::NumberToString(KWUtil::StringToNumber<int>(seriesNumber) + 10002);
-            // newSeriesNumber_T1 = std::to_string( stoi(seriesNumber) + 10002 ); // C++11 needed to do this
-        } else {
-            newSeriesNumber_T1 = KWUtil::NumberToString(_opts->output_map_series_number);
+        if (_opts->output_map_series_number == 0) {
+            _opts->output_map_series_number = KWUtil::StringToNumber<int>(seriesNumber) + 10002;
         }
+        std::string newSeriesNumber_T1 = KWUtil::NumberToString(_opts->output_map_series_number);
+
 
         // dicom tags dependent on the MagneticFieldStrength
         std::string MagneticFieldStrength;
@@ -84,7 +83,6 @@ namespace Ox {
         // PaletteColorLookupTableUID
         std::string PaletteColorLookupTableUID;
         itk::ExposeMetaData<std::string>(_dictionaryInput, "0028|1199", PaletteColorLookupTableUID);
-        //std::cout << "PaletteColorLookupTableUID: " << PaletteColorLookupTableUID << std::endl;
 
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_T1Color, std::string("0008|0018"), sopInstanceUID_T1Color);
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_T1Color, std::string("0002|0003"), sopInstanceUID_T1Color);
@@ -132,14 +130,11 @@ namespace Ox {
         std::string sopInstanceUID_R2 = sopuid.Generate();
         std::string seriesUID_R2 = suid.Generate();
 
-        std::string newSeriesNumber_R2;
         itk::ExposeMetaData<std::string>(_dictionaryInput, "0020|0011", seriesNumber);
         if (_opts->output_fitparams_series_number == 0) {
-            newSeriesNumber_R2 = KWUtil::NumberToString(KWUtil::StringToNumber<int>(seriesNumber) + 10003);
-            //newSeriesNumber_R2 = std::to_string( std::stoi(seriesNumber) + 10003 ); // C++11
-        } else {
-            newSeriesNumber_R2 = KWUtil::NumberToString(_opts->output_fitparams_series_number);
+            _opts->output_fitparams_series_number = KWUtil::StringToNumber<int>(seriesNumber) + 10003;
         }
+        std::string newSeriesNumber_R2 = KWUtil::NumberToString(_opts->output_fitparams_series_number);
 
 
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_R2, std::string("0008|0018"), sopInstanceUID_R2);

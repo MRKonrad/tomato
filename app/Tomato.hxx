@@ -45,8 +45,12 @@ namespace Ox {
         readerMag->Update();
 
         // have we read magnitudes?
-        if (readerMag->GetInvTimes().size() == 0){
+        if (readerMag->GetInvTimes().empty()){
             throw std::runtime_error("\nNo magnitude images read, check the paths!");
+        }
+
+        if (_opts->files_magnitude.empty()){
+            _opts->files_magnitude = readerMag->GetFileList();
         }
 
         typename SortInvTimesImageFilterType::Pointer sorterMag = SortInvTimesImageFilterType::New();
@@ -62,15 +66,19 @@ namespace Ox {
 
         typename ReadFileListFilterType::Pointer readerPha = ReadFileListFilterType::New();
         readerPha->SetFileList(_opts->files_phase);
-        readerPha->SetDirName(_opts->dir_magnitude);
+        readerPha->SetDirName(_opts->dir_phase);
         readerPha->Update();
 
         // is phase empty?
-        if (readerPha->GetInvTimes().size() == 0) {
+        if (readerPha->GetInvTimes().empty()) {
             if (_opts->sign_calc_method != NoSign){
                 std::cerr << "\nNo phase images read, setting the sign_calc_method to NoSign" << std::endl;
                 _opts->sign_calc_method = NoSign;
             }
+        }
+
+        if (_opts->files_phase.empty()){
+            _opts->files_phase = readerPha->GetFileList();
         }
 
         typename SortInvTimesImageFilterType::Pointer sorterPha = SortInvTimesImageFilterType::New();
@@ -98,10 +106,18 @@ namespace Ox {
         _invTimes = new InputPixelType[_nSamples];
         KWUtil::copyArrayToArray(_nSamples, _invTimes, tempInv.data_block());
 
+        if (_opts->inversion_times.empty()){
+            _opts->inversion_times = std::vector<InputPixelType >(tempInv.begin(), tempInv.end());
+        }
+
         vnl_vector<InputPixelType > tempEcho = sorterMag->GetEchoTimesSorted();
         _nSamples = (int)tempEcho.size();
         _echoTimes = new InputPixelType[_nSamples];
         KWUtil::copyArrayToArray(_nSamples, _echoTimes, tempEcho.data_block());
+
+        if (_opts->echo_times.empty()){
+            _opts->echo_times = std::vector<InputPixelType >(tempEcho.begin(), tempEcho.end());
+        }
 
         _dictionaryInput = readerMag->GetDicomIO()->GetMetaDataDictionary();
         _imageMag = sorterMag->GetOutput();
