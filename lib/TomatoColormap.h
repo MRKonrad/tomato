@@ -14,20 +14,25 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <stdint.h>
+
 
 #ifdef USE_ITK
 
+#if defined __UINT32_MAX__ or UINT32_MAX
+#include <cstdint>
+#else
+typedef unsigned short uint16_t;
+#endif
 
-std::string getEncodedSting(std::vector < std::uint16_t > encodeSource);
+std::string getEncodedSting(std::vector < uint16_t > encodeSource);
 
-std::vector < std::uint16_t > getShmolliColormapRed3TArray();
-std::vector < std::uint16_t > getShmolliColormapGreen3TArray();
-std::vector < std::uint16_t > getShmolliColormapBlue3TArray();
+std::vector < uint16_t > getShmolliColormapRed3TArray();
+std::vector < uint16_t > getShmolliColormapGreen3TArray();
+std::vector < uint16_t > getShmolliColormapBlue3TArray();
 
-std::vector < std::uint16_t > getShmolliColormapRed15TArray();
-std::vector < std::uint16_t > getShmolliColormapGreen15TArray();
-std::vector < std::uint16_t > getShmolliColormapBlue15TArray();
+std::vector < uint16_t > getShmolliColormapRed15TArray();
+std::vector < uint16_t > getShmolliColormapGreen15TArray();
+std::vector < uint16_t > getShmolliColormapBlue15TArray();
 
 
 #endif //USE_ITK
