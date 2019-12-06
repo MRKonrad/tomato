@@ -1,5 +1,5 @@
 # cmake copies this file, so you better reload cmake if you change this file and you want everything to be working
-resultsTwoParam:   [ 519.5, 18.6]
+resultsTwoParam:   [ 2, 18.6]
 resultsThreeParam: [ 0, 519, 87]
 
 signalMag: [ 515, 372, 273, 0]

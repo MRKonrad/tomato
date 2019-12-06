@@ -107,6 +107,7 @@ namespace Ox {
         KWUtil::copyArrayToArray(_nSamples, _invTimes, tempInv.data_block());
 
         if (_opts->inversion_times.empty()){
+            tempInv = sorterMag->GetInvTimesNonSorted();
             _opts->inversion_times = std::vector<InputPixelType >(tempInv.begin(), tempInv.end());
         }
 
@@ -116,6 +117,7 @@ namespace Ox {
         KWUtil::copyArrayToArray(_nSamples, _echoTimes, tempEcho.data_block());
 
         if (_opts->echo_times.empty()){
+            tempEcho = sorterMag->GetEchoTimesNonSorted();
             _opts->echo_times = std::vector<InputPixelType >(tempEcho.begin(), tempEcho.end());
         }
 

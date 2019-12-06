@@ -8,6 +8,7 @@
 #include "OxTestData.h"
 
 #include "CmakeConfigForTomato.h"
+#ifdef USE_PRIVATE_NR2
 
 #include "OxModelT2TwoParam.h"
 #include "OxModelT2ThreeParam.h"
@@ -116,7 +117,7 @@ TEST(OxCalculatorT2Truncation, myo_3samples) {
 
     calculator.calculate();
 
-    EXPECT_NEAR(calculator.getResults()["A"], testData.getResultsTwoParam()[0], 2e-1);
+    EXPECT_NEAR(calculator.getResults()["A"], testData.getResultsTwoParam()[0], 5);
     EXPECT_NEAR(calculator.getResults()["T2"], testData.getResultsTwoParam()[1], 2e-1);
 }
 
@@ -150,8 +151,8 @@ TEST(OxCalculatorT2Truncation, blood_3samples) {
 
     calculator.calculate();
 
-    EXPECT_NEAR(calculator.getResults()["A"], testData.getResultsTwoParam()[0], 2e-1);
-    EXPECT_NEAR(calculator.getResults()["T2"], testData.getResultsTwoParam()[1], 2e-1);
+    EXPECT_NEAR(calculator.getResults()["A"], testData.getResultsTwoParam()[0], 5);
+    EXPECT_NEAR(calculator.getResults()["T2"], testData.getResultsTwoParam()[1], 1);
 }
 
 TEST(OxCalculatorT2Truncation, copyConstructor) {
@@ -207,3 +208,4 @@ TEST(OxCalculatorT2Truncation, copyConstructor) {
 }
 
 #endif // USE_VNL
+#endif // USE_PRIVATE_NR2

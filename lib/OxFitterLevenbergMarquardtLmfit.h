@@ -45,11 +45,11 @@ namespace Ox {
             }
 
             lmmin(
-                    this->_ModelT1->getNDims(),
+                    this->_Model->getNDims(),
                     this->getParameters(),
-                    this->_ModelT1->getNSamples(),
+                    this->_Model->getNSamples(),
                     NULL,
-                    (const void *)this->_ModelT1,
+                    (const void *)this->_Model,
                     ModelT1AdapterLmfitLeastSquares<MeasureType>::calcLSResiduals,
                     &control,
                     &status);

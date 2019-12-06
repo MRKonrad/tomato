@@ -23,7 +23,8 @@ namespace Ox {
             "ModelT1TwoParam",
             "ModelT1Shmolli",
             "ModelT2ThreeParam",
-            "ModelT2TwoParam"
+            "ModelT2TwoParam",
+            "ModelT2OneParam"
     };
 
     enum modelType_t {
@@ -32,15 +33,23 @@ namespace Ox {
         _ModelT1Shmolli = 2,
         _ModelT2ThreeParam = 3,
         _ModelT2TwoParam = 4,
-        lastFunctorType = _ModelT2TwoParam
+        _ModelT2OneParam = 5,
+        lastFunctorType = _ModelT2OneParam
     };
 
     static int modelAvailability[] = {
             1, // ModelT1ThreeParam
             1, // ModelT1TwoParam
             1, // ModelT1Shmolli
+#ifdef USE_PRIVATE_NR2
             1, // ModelT2ThreeParam
-            1  // ModelT2TwoParam
+            1, // ModelT2TwoParam
+            1  // ModelT2OneParam
+#else
+            0, // ModelT2ThreeParam
+            0, // ModelT2TwoParam
+            0  // ModelT2OneParam
+#endif
     };
 
     template<typename TYPE>

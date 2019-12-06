@@ -30,7 +30,7 @@ namespace Ox {
 
             configureMinimizer();
 
-            vnl_vector<MeasureType> temp(this->getParameters(), this->_ModelT1->getNDims());
+            vnl_vector<MeasureType> temp(this->getParameters(), this->_Model->getNDims());
 
             _VnlFitter->minimize(temp);
 
@@ -38,7 +38,7 @@ namespace Ox {
                 temp.copy_out(this->getParameters());
             }
             if (this->getVerbose()) {
-                std::cout << "Results: " << temp << " Cost: " << this->_ModelT1->calcCostValue(this->getParameters()) << std::endl;
+                std::cout << "Results: " << temp << " Cost: " << this->_Model->calcCostValue(this->getParameters()) << std::endl;
             }
 
             return 0; //EXIT_SUCCESS;
@@ -97,8 +97,8 @@ namespace Ox {
     protected:
 
         virtual void configureMinimizer() {
-            int nSamples = this->_ModelT1->getNSamples();
-            int nDims = this->_ModelT1->getNDims();
+            int nSamples = this->_Model->getNSamples();
+            int nDims = this->_Model->getNDims();
 
             bool doReconfigure = false;
 
@@ -114,7 +114,7 @@ namespace Ox {
 
 
             if (doReconfigure) {
-                if (!this->_ModelT1) {
+                if (!this->_Model) {
                     throw std::runtime_error("Set the Model object");
                 } else {
 
@@ -126,7 +126,7 @@ namespace Ox {
                         _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nDims, nSamples, vnl_least_squares_function::no_gradient);
                     }
 
-                    _FunctionsAdaptedToVnl->setModel(this->_ModelT1);
+                    _FunctionsAdaptedToVnl->setModel(this->_Model);
 
                     delete _VnlFitter; _VnlFitter = 0;
                     _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);

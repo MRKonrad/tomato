@@ -5,6 +5,7 @@
  */
 
 #include "CmakeConfigForTomato.h"
+#ifdef USE_PRIVATE_NR2
 #ifdef USE_ITK
 
 #include "gtest/gtest.h"
@@ -48,3 +49,4 @@ TEST(ActeptanceTests_TomatoT2Test, readAndSort_calculate_exportDicom_exportYaml)
 }
 
 #endif // USE_ITK
+#endif // USE_PRIVATE_NR2

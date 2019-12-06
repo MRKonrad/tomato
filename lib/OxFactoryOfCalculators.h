@@ -45,11 +45,14 @@ namespace Ox {
             1, // T1_SHMOLLI
 #ifdef USE_PRIVATE_NR2
             1, // T1_SHMOLLI_original
+            1, // T2_basic
+            1  // T2_truncation
 #else
             0, // T1_SHMOLLI_original
+            0, // T2_basic
+            0  // T2_truncation
 #endif
-            1, // T2_basic
-            1 // T2_truncation
+
     };
 
     static int calculatorsParamsToCalculate[] = {

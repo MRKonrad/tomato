@@ -59,7 +59,7 @@ public:
         yaml_document_add_scalar(document, (yaml_char_t*)YAML_DEFAULT_SCALAR_TAG, (yaml_char_t*)name.c_str(), (int)name.length(), YAML_PLAIN_SCALAR_STYLE);
 
         for (size_t i = 0; i < vectorOfValues.size(); i++) {
-            yaml_document_add_scalar(document, (yaml_char_t *) YAML_DEFAULT_SCALAR_TAG, (yaml_char_t*)vectorOfValues.at(i).c_str(), (int)vectorOfValues[i].length(), YAML_PLAIN_SCALAR_STYLE);
+            yaml_document_add_scalar(document, (yaml_char_t *) YAML_DEFAULT_SCALAR_TAG, (yaml_char_t*)vectorOfValues.at(i).c_str(), (int)vectorOfValues[i].length(), YAML_DOUBLE_QUOTED_SCALAR_STYLE);
         }
         yaml_document_append_mapping_pair(document, mapping_node_number, last_node+1, last_node);
         for (size_t i = 0; i < vectorOfValues.size(); i++) {

@@ -10,8 +10,11 @@
 #include "OxModelT1ThreeParam.h"
 #include "OxModelT1TwoParam.h"
 #include "OxModelT1Shmolli.h"
+#ifdef USE_PRIVATE_NR2
 #include "OxModelT2ThreeParam.h"
 #include "OxModelT2TwoParam.h"
+#include "OxModelT2OneParam.h"
+#endif
 
 namespace Ox {
     template < typename TYPE >
@@ -28,12 +31,17 @@ namespace Ox {
             case _ModelT1Shmolli: {
                 return new ModelT1Shmolli<TYPE>();
             }
+#ifdef USE_PRIVATE_NR2
             case _ModelT2ThreeParam: {
                 return new ModelT2ThreeParam<TYPE>();
             }
             case _ModelT2TwoParam: {
                 return new ModelT2TwoParam<TYPE>();
             }
+            case _ModelT2OneParam: {
+                return new ModelT2OneParam<TYPE>();
+            }
+#endif
             default:
                 throw std::runtime_error("model_type not available");
         }

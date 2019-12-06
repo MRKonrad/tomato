@@ -53,11 +53,11 @@ namespace Ox {
 
         std::map<std::string, MeasureType> results = calculator->getResults();
 
-        std::cout << "Results: \n";
-        for (typename std::map<std::string, MeasureType>::const_iterator it = results.begin(); it != results.end(); ++it) {
-            std::cout << it->first << " " << it->second << "\n";
-        }
-        std::cout << std::endl;
+//        std::cout << "Results: \n";
+//        for (typename std::map<std::string, MeasureType>::const_iterator it = results.begin(); it != results.end(); ++it) {
+//            std::cout << it->first << " " << it->second << "\n";
+//        }
+//        std::cout << std::endl;
 
         delete model;
         delete fitter;

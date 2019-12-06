@@ -29,7 +29,7 @@ namespace Ox {
          */
         virtual int performFitting() = 0;
 
-        virtual const Model<MeasureType>* getModel() const { return _ModelT1; }
+        virtual const Model<MeasureType>* getModel() const { return _Model; }
         virtual MeasureType *getParameters() { return _Parameters; }
         virtual const MeasureType getXTolerance() const { return _XTolerance; }
         virtual const MeasureType getFTolerance() const { return _FTolerance; }
@@ -39,7 +39,7 @@ namespace Ox {
         virtual const bool getVerbose() const { return _Verbose; }
         virtual const bool getTrace() const { return _Trace; }
 
-        virtual void setModel(Model<MeasureType>* _ModelT1) { Fitter::_ModelT1 = _ModelT1; }
+        virtual void setModel(Model<MeasureType>* _ModelT1) { Fitter::_Model = _ModelT1; }
         virtual void setParameters( MeasureType *_Parameters) { Fitter::_Parameters = _Parameters; }
         virtual void setXTolerance(const MeasureType _XTolerance) { Fitter::_XTolerance = _XTolerance; }
         virtual void setUseGradient(const bool _UseGradient) { Fitter::_UseGradient = _UseGradient; }
@@ -54,7 +54,7 @@ namespace Ox {
          * @param ptrFrom
          */
         virtual void copyToParameters(const MeasureType *ptrFrom){
-            if (!Fitter::_ModelT1) {
+            if (!Fitter::_Model) {
                 throw std::runtime_error("_Model equals 0. Set _Model");
             }
 
@@ -62,7 +62,7 @@ namespace Ox {
                 throw std::runtime_error("_Parameters equals 0. Set _Parameters");
             }
 
-            for (int i = 0; i < Fitter::_ModelT1->getNDims(); ++i) {
+            for (int i = 0; i < Fitter::_Model->getNDims(); ++i) {
                 _Parameters[i] = ptrFrom[i];
             }
         }
@@ -78,10 +78,10 @@ namespace Ox {
             std::cout << "UseGradient       " << temp << std::endl;
             std::cout << "MaxFunctionEvals: " << getMaxFunctionEvals() << std::endl;
             std::cout << "ThreadId:         " << getThreadId() << std::endl;
-            if(_ModelT1) {
-                KWUtil::printArray(_Parameters, _ModelT1->getNDims(), _Parameters,     (char*)"\nParameters:  ");
+            if(_Model) {
+                KWUtil::printArray(_Parameters, _Model->getNDims(), _Parameters, (char*)"\nParameters:  ");
                 std::cout << "This Fitter contains the following Model object: ";
-                _ModelT1->disp();
+                _Model->disp();
             };
         }
 
@@ -89,7 +89,7 @@ namespace Ox {
          * \brief constructor
          */
         Fitter(){
-            _ModelT1 = 0; //nullpointer
+            _Model = 0; //nullpointer
             _Parameters = 0; //nullpointer
 
             _XTolerance = 1e-12;
@@ -106,7 +106,7 @@ namespace Ox {
          * @param old
          */
         Fitter(const Fitter &old) {
-            _ModelT1 = 0; //nullpointer
+            _Model = 0; //nullpointer
 
             _XTolerance = old._XTolerance;
             _FTolerance = old._FTolerance;
@@ -130,7 +130,7 @@ namespace Ox {
         virtual ~Fitter(){};
 
     protected:
-        Model<MeasureType>* _ModelT1;
+        Model<MeasureType>* _Model;
         MeasureType* _Parameters;
 
         MeasureType _XTolerance;

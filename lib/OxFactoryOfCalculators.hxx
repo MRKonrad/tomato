@@ -11,9 +11,9 @@
 #include "OxCalculatorT1Shmolli.h"
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1ShmolliOriginal.h"
-#endif
 #include "OxCalculatorT2.h"
 #include "OxCalculatorT2Truncation.h"
+#endif
 #include "TomatoOptions.h"
 #include "OxFactoryOfCalculators.h"
 
@@ -39,11 +39,7 @@ namespace Ox {
                 calculator = new CalculatorT1ShmolliOriginal<TYPE>();
                 break;
             }
-#endif
             case T2_basic: {
-//                    CalculatorT2<TYPE> *temp = new CalculatorT2<TYPE>();
-//                    temp->SetNoise(&(opts->noise)[0]);
-//                    calculator = temp;
                 calculator = new CalculatorT2<TYPE>();
                 break;
             }
@@ -51,6 +47,7 @@ namespace Ox {
                 calculator = new CalculatorT2Truncation<TYPE>();
                 break;
             }
+#endif
             default:
                 throw std::runtime_error("parameter_to_map not available");
 
