@@ -121,7 +121,7 @@ $(document).ready(function(){initNavTree('_ox_fitter_8h_source.html','');});
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_ox_1_1_fitter.html#a8f240f0da86d06b339ab2747e87f21b9">performFitting</a>() = 0;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="class_ox_1_1_model.html">Model&lt;MeasureType&gt;</a>* getModel()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _ModelT1; }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="class_ox_1_1_model.html">Model&lt;MeasureType&gt;</a>* getModel()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _Model; }</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">virtual</span> MeasureType *getParameters() { <span class="keywordflow">return</span> _Parameters; }</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> MeasureType getXTolerance()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _XTolerance; }</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> MeasureType getFTolerance()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _FTolerance; }</div>
@@ -131,7 +131,7 @@ $(document).ready(function(){initNavTree('_ox_fitter_8h_source.html','');});
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> getVerbose()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _Verbose; }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> getTrace()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _Trace; }</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setModel(<a class="code" href="class_ox_1_1_model.html">Model&lt;MeasureType&gt;</a>* _ModelT1) { Fitter::_ModelT1 = _ModelT1; }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setModel(<a class="code" href="class_ox_1_1_model.html">Model&lt;MeasureType&gt;</a>* _ModelT1) { Fitter::_Model = _ModelT1; }</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setParameters( MeasureType *_Parameters) { Fitter::_Parameters = _Parameters; }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setXTolerance(<span class="keyword">const</span> MeasureType _XTolerance) { Fitter::_XTolerance = _XTolerance; }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setUseGradient(<span class="keyword">const</span> <span class="keywordtype">bool</span> _UseGradient) { Fitter::_UseGradient = _UseGradient; }</div>
@@ -142,7 +142,7 @@ $(document).ready(function(){initNavTree('_ox_fitter_8h_source.html','');});
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setTrace(<span class="keyword">const</span> <span class="keywordtype">bool</span> _Trace) { Fitter::_Trace = _Trace; }</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_ox_1_1_fitter.html#a783ba791c88d7208deb4004354b10022">   56</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_ox_1_1_fitter.html#a783ba791c88d7208deb4004354b10022">copyToParameters</a>(<span class="keyword">const</span> MeasureType *ptrFrom){</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">if</span> (!Fitter::_ModelT1) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">if</span> (!Fitter::_Model) {</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;_Model equals 0. Set _Model&quot;</span>);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
@@ -150,7 +150,7 @@ $(document).ready(function(){initNavTree('_ox_fitter_8h_source.html','');});
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;_Parameters equals 0. Set _Parameters&quot;</span>);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; Fitter::_ModelT1-&gt;getNDims(); ++i) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; Fitter::_Model-&gt;getNDims(); ++i) {</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                _Parameters[i] = ptrFrom[i];</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
@@ -163,15 +163,15 @@ $(document).ready(function(){initNavTree('_ox_fitter_8h_source.html','');});
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;UseGradient       &quot;</span> &lt;&lt; temp &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;MaxFunctionEvals: &quot;</span> &lt;&lt; getMaxFunctionEvals() &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;ThreadId:         &quot;</span> &lt;&lt; getThreadId() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">if</span>(_ModelT1) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                KWUtil::printArray(_Parameters, _ModelT1-&gt;getNDims(), _Parameters,     (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nParameters:  &quot;</span>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">if</span>(_Model) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                KWUtil::printArray(_Parameters, _Model-&gt;getNDims(), _Parameters, (<span class="keywordtype">char</span>*)<span class="stringliteral">&quot;\nParameters:  &quot;</span>);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;This Fitter contains the following Model object: &quot;</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                _ModelT1-&gt;<a class="code" href="class_ox_1_1_model.html#ae2c46e9820947efd450a93aaf53a0db5">disp</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                _Model-&gt;disp();</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            };</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="class_ox_1_1_fitter.html#a7b42acb389394bc4c496990eea8b9ac9">   91</a></span>&#160;        <a class="code" href="class_ox_1_1_fitter.html#a7b42acb389394bc4c496990eea8b9ac9">Fitter</a>(){</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            _ModelT1 = 0; <span class="comment">//nullpointer</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            _Model = 0; <span class="comment">//nullpointer</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            _Parameters = 0; <span class="comment">//nullpointer</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            _XTolerance = 1e-12;</div>
@@ -184,7 +184,7 @@ $(document).ready(function(){initNavTree('_ox_fitter_8h_source.html','');});
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
 <div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="class_ox_1_1_fitter.html#ac51130b722159f88a0dad59877b76417">  108</a></span>&#160;        <a class="code" href="class_ox_1_1_fitter.html#ac51130b722159f88a0dad59877b76417">Fitter</a>(<span class="keyword">const</span> <a class="code" href="class_ox_1_1_fitter.html">Fitter</a> &amp;old) {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            _ModelT1 = 0; <span class="comment">//nullpointer</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            _Model = 0; <span class="comment">//nullpointer</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            _XTolerance = old._XTolerance;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            _FTolerance = old._FTolerance;</div>
@@ -200,7 +200,7 @@ $(document).ready(function(){initNavTree('_ox_fitter_8h_source.html','');});
 <div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43">  130</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43">~Fitter</a>(){};</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <a class="code" href="class_ox_1_1_model.html">Model&lt;MeasureType&gt;</a>* _ModelT1;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <a class="code" href="class_ox_1_1_model.html">Model&lt;MeasureType&gt;</a>* _Model;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        MeasureType* _Parameters;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        MeasureType _XTolerance;</div>
@@ -216,7 +216,6 @@ $(document).ready(function(){initNavTree('_ox_fitter_8h_source.html','');});
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor">#endif //Tomato_OXFITTER_H</span></div>
 <div class="ttc" id="class_ox_1_1_fitter_html_ab56eef37096f6f0687d83b8d15e00d43"><div class="ttname"><a href="class_ox_1_1_fitter.html#ab56eef37096f6f0687d83b8d15e00d43">Ox::Fitter::~Fitter</a></div><div class="ttdeci">virtual ~Fitter()</div><div class="ttdoc">do not forget about the virtual destructor, see https://stackoverflow.com/questions/461203/when-to-us...</div><div class="ttdef"><b>Definition:</b> OxFitter.h:130</div></div>
-<div class="ttc" id="class_ox_1_1_model_html_ae2c46e9820947efd450a93aaf53a0db5"><div class="ttname"><a href="class_ox_1_1_model.html#ae2c46e9820947efd450a93aaf53a0db5">Ox::Model::disp</a></div><div class="ttdeci">virtual void disp()</div><div class="ttdoc">show me your ModelT1 </div><div class="ttdef"><b>Definition:</b> OxModel.hxx:26</div></div>
 <div class="ttc" id="class_ox_1_1_model_html"><div class="ttname"><a href="class_ox_1_1_model.html">Ox::Model</a></div><div class="ttdoc">Container for a model function, cost function and Least-Squares function. And derivatives. </div><div class="ttdef"><b>Definition:</b> OxModel.h:25</div></div>
 <div class="ttc" id="class_ox_1_1_fitter_html_a7b42acb389394bc4c496990eea8b9ac9"><div class="ttname"><a href="class_ox_1_1_fitter.html#a7b42acb389394bc4c496990eea8b9ac9">Ox::Fitter::Fitter</a></div><div class="ttdeci">Fitter()</div><div class="ttdoc">constructor </div><div class="ttdef"><b>Definition:</b> OxFitter.h:91</div></div>
 <div class="ttc" id="class_ox_1_1_fitter_html_a8f240f0da86d06b339ab2747e87f21b9"><div class="ttname"><a href="class_ox_1_1_fitter.html#a8f240f0da86d06b339ab2747e87f21b9">Ox::Fitter::performFitting</a></div><div class="ttdeci">virtual int performFitting()=0</div></div>

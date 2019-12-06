@@ -3,9 +3,7 @@ var hierarchy =
     [ "Ox::Calculator< MeasureType >", "class_ox_1_1_calculator.html", [
       [ "Ox::CalculatorT1Molli< MeasureType >", "class_ox_1_1_calculator_t1_molli.html", [
         [ "Ox::CalculatorT1Shmolli< MeasureType >", "class_ox_1_1_calculator_t1_shmolli.html", null ]
-      ] ],
-      [ "Ox::CalculatorT2< MeasureType >", "class_ox_1_1_calculator_t2.html", null ],
-      [ "Ox::CalculatorT2Truncation< MeasureType >", "class_ox_1_1_calculator_t2_truncation.html", null ]
+      ] ]
     ] ],
     [ "CalculatorT1", "class_calculator_t1.html", null ],
     [ "Ox::FactoryOfCalculators< TYPE >", "class_ox_1_1_factory_of_calculators.html", null ],
@@ -22,9 +20,7 @@ var hierarchy =
     [ "Ox::Model< MeasureType >", "class_ox_1_1_model.html", [
       [ "Ox::ModelT1Shmolli< MeasureType >", "class_ox_1_1_model_t1_shmolli.html", null ],
       [ "Ox::ModelT1ThreeParam< MeasureType >", "class_ox_1_1_model_t1_three_param.html", null ],
-      [ "Ox::ModelT1TwoParam< MeasureType >", "class_ox_1_1_model_t1_two_param.html", null ],
-      [ "Ox::ModelT2ThreeParam< MeasureType >", "class_ox_1_1_model_t2_three_param.html", null ],
-      [ "Ox::ModelT2TwoParam< MeasureType >", "class_ox_1_1_model_t2_two_param.html", null ]
+      [ "Ox::ModelT1TwoParam< MeasureType >", "class_ox_1_1_model_t1_two_param.html", null ]
     ] ],
     [ "OxCalculatorT1Shmolli", "class_ox_calculator_t1_shmolli.html", null ],
     [ "Ox::SignCalculator< MeasureType >", "class_ox_1_1_sign_calculator.html", [

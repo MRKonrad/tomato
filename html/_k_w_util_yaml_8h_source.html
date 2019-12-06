@@ -160,7 +160,7 @@ $(document).ready(function(){initNavTree('_k_w_util_yaml_8h_source.html','');});
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        yaml_document_add_scalar(document, (yaml_char_t*)YAML_DEFAULT_SCALAR_TAG, (yaml_char_t*)name.c_str(), (int)name.length(), YAML_PLAIN_SCALAR_STYLE);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; vectorOfValues.size(); i++) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            yaml_document_add_scalar(document, (yaml_char_t *) YAML_DEFAULT_SCALAR_TAG, (yaml_char_t*)vectorOfValues.at(i).c_str(), (int)vectorOfValues[i].length(), YAML_PLAIN_SCALAR_STYLE);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            yaml_document_add_scalar(document, (yaml_char_t *) YAML_DEFAULT_SCALAR_TAG, (yaml_char_t*)vectorOfValues.at(i).c_str(), (int)vectorOfValues[i].length(), YAML_DOUBLE_QUOTED_SCALAR_STYLE);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        yaml_document_append_mapping_pair(document, mapping_node_number, last_node+1, last_node);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; vectorOfValues.size(); i++) {</div>

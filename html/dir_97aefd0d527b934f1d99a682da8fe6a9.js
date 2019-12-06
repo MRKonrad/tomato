@@ -25,14 +25,6 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
       [ "CalculatorT1Shmolli", "class_ox_1_1_calculator_t1_shmolli.html", "class_ox_1_1_calculator_t1_shmolli" ]
     ] ],
     [ "OxCalculatorT1Shmolli.hxx", "_ox_calculator_t1_shmolli_8hxx.html", null ],
-    [ "OxCalculatorT2.h", "_ox_calculator_t2_8h.html", [
-      [ "CalculatorT2", "class_ox_1_1_calculator_t2.html", "class_ox_1_1_calculator_t2" ]
-    ] ],
-    [ "OxCalculatorT2.hxx", "_ox_calculator_t2_8hxx.html", null ],
-    [ "OxCalculatorT2Truncation.h", "_ox_calculator_t2_truncation_8h.html", [
-      [ "CalculatorT2Truncation", "class_ox_1_1_calculator_t2_truncation.html", "class_ox_1_1_calculator_t2_truncation" ]
-    ] ],
-    [ "OxCalculatorT2Truncation.hxx", "_ox_calculator_t2_truncation_8hxx.html", null ],
     [ "OxFactoryOfCalculators.h", "_ox_factory_of_calculators_8h.html", "_ox_factory_of_calculators_8h" ],
     [ "OxFactoryOfCalculators.hxx", "_ox_factory_of_calculators_8hxx.html", null ],
     [ "OxFactoryOfFitters.h", "_ox_factory_of_fitters_8h.html", "_ox_factory_of_fitters_8h" ],
@@ -71,14 +63,6 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
       [ "ModelT1TwoParam", "class_ox_1_1_model_t1_two_param.html", "class_ox_1_1_model_t1_two_param" ]
     ] ],
     [ "OxModelT1TwoParam.hxx", "_ox_model_t1_two_param_8hxx.html", null ],
-    [ "OxModelT2ThreeParam.h", "_ox_model_t2_three_param_8h.html", [
-      [ "ModelT2ThreeParam", "class_ox_1_1_model_t2_three_param.html", "class_ox_1_1_model_t2_three_param" ]
-    ] ],
-    [ "OxModelT2ThreeParam.hxx", "_ox_model_t2_three_param_8hxx.html", null ],
-    [ "OxModelT2TwoParam.h", "_ox_model_t2_two_param_8h.html", [
-      [ "ModelT2TwoParam", "class_ox_1_1_model_t2_two_param.html", "class_ox_1_1_model_t2_two_param" ]
-    ] ],
-    [ "OxModelT2TwoParam.hxx", "_ox_model_t2_two_param_8hxx.html", null ],
     [ "OxSignCalculator.h", "_ox_sign_calculator_8h.html", [
       [ "SignCalculator", "class_ox_1_1_sign_calculator.html", "class_ox_1_1_sign_calculator" ]
     ] ],

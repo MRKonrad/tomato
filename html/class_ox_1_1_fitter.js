@@ -27,7 +27,7 @@ var class_ox_1_1_fitter =
     [ "setXTolerance", "class_ox_1_1_fitter.html#ad2b680ee88b12dd51538a2da865b2589", null ],
     [ "_FTolerance", "class_ox_1_1_fitter.html#a926f6cf38998f041c31b079e93bf27ab", null ],
     [ "_MaxFunctionEvals", "class_ox_1_1_fitter.html#a3be7ea1c1f19d3f4fb384474e2b1a033", null ],
-    [ "_ModelT1", "class_ox_1_1_fitter.html#abe055a1231bcc600f387f34194d7fc0e", null ],
+    [ "_Model", "class_ox_1_1_fitter.html#ae5a2d2967fb117386a4b73123f188213", null ],
     [ "_Parameters", "class_ox_1_1_fitter.html#a508e5654aaf79dd744ec816d95b7e33c", null ],
     [ "_ThreadId", "class_ox_1_1_fitter.html#a0d97d7a9c9fad0349484151464fefe4f", null ],
     [ "_Trace", "class_ox_1_1_fitter.html#a9ba79cb05ecc670254b3e7ddafc519ab", null ],

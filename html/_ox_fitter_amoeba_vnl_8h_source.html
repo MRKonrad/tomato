@@ -129,7 +129,7 @@ $(document).ready(function(){initNavTree('_ox_fitter_amoeba_vnl_8h_source.html',
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            configureMinimizer();</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            vnl_vector&lt;MeasureType&gt; temp(this-&gt;getParameters(), this-&gt;_ModelT1-&gt;getNDims());</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            vnl_vector&lt;MeasureType&gt; temp(this-&gt;getParameters(), this-&gt;_Model-&gt;getNDims());</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            _VnlFitter-&gt;minimize(temp);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
@@ -137,7 +137,7 @@ $(document).ready(function(){initNavTree('_ox_fitter_amoeba_vnl_8h_source.html',
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                temp.copy_out(this-&gt;getParameters());</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            }</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">if</span> (this-&gt;getVerbose()) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;Results: &quot;</span> &lt;&lt; temp &lt;&lt; <span class="stringliteral">&quot; Cost: &quot;</span> &lt;&lt; this-&gt;_ModelT1-&gt;calcCostValue(this-&gt;getParameters()) &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;Results: &quot;</span> &lt;&lt; temp &lt;&lt; <span class="stringliteral">&quot; Cost: &quot;</span> &lt;&lt; this-&gt;_Model-&gt;calcCostValue(this-&gt;getParameters()) &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">return</span> 0; <span class="comment">//EXIT_SUCCESS;</span></div>
@@ -174,17 +174,17 @@ $(document).ready(function(){initNavTree('_ox_fitter_amoeba_vnl_8h_source.html',
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> configureMinimizer() {</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordflow">if</span> (!_VnlFitter) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordflow">if</span> (!this-&gt;_ModelT1) {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordflow">if</span> (!this-&gt;_Model) {</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Set the Model object&quot;</span>);</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                    <span class="keyword">delete</span> _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                    <span class="keyword">delete</span> _VnlFitter; _VnlFitter = 0;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                    <span class="keywordtype">int</span> nDims = this-&gt;_ModelT1-&gt;getNDims();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                    <span class="keywordtype">int</span> nDims = this-&gt;_Model-&gt;getNDims();</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    _FunctionsAdaptedToVnl = <span class="keyword">new</span> FunctionsAdaptedToVnlType(nDims);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    _FunctionsAdaptedToVnl-&gt;setModel(this-&gt;_ModelT1);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    _FunctionsAdaptedToVnl-&gt;setModel(this-&gt;_Model);</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    _VnlFitter = <span class="keyword">new</span> VnlFitterType(*_FunctionsAdaptedToVnl);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                _FunctionsAdaptedToVnl-&gt;setModel(this-&gt;_ModelT1);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                _FunctionsAdaptedToVnl-&gt;setModel(this-&gt;_Model);</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                _VnlFitter-&gt;set_x_tolerance(this-&gt;getXTolerance());</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                _VnlFitter-&gt;set_f_tolerance(this-&gt;getFTolerance());</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="comment">//m_LocalFitter-&gt;set_g_tolerance(this-&gt;GetGTolerance());</span></div>
