@@ -19,7 +19,7 @@
 /*  calculators  */
 /* ************* */
 #include "OxCalculator.h"
-#include "OxCalculatorT1Molli.h"
+#include "OxCalculatorT1WithSignCheck.h"
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1Shmolli.h"
 #include "OxCalculatorT1ShmolliOriginal.h"
@@ -97,7 +97,7 @@ namespace Ox {
     /*  calculators  */
     /* ************* */
     template class TOMATOLIB_EXPORT Calculator<double>;
-    template class TOMATOLIB_EXPORT CalculatorT1Molli<double>;
+    template class TOMATOLIB_EXPORT CalculatorT1WithSignCheck<double>;
 #ifdef USE_PRIVATE_NR2
     template class TOMATOLIB_EXPORT CalculatorT1Shmolli<double>;
     template class TOMATOLIB_EXPORT CalculatorT1ShmolliOriginal<double>;

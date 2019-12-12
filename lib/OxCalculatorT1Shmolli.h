@@ -8,7 +8,7 @@
 #define Tomato_OXCalculatorT1Shmolli_H
 
 #include "tomatolib_export.h"
-#include "OxCalculatorT1Molli.h"
+#include "OxCalculatorT1WithSignCheck.h"
 
 namespace Ox {
 
@@ -19,13 +19,13 @@ namespace Ox {
      * @tparam MeasureType
      */
     template< typename MeasureType >
-    class CalculatorT1Shmolli : public CalculatorT1Molli<MeasureType> {
+    class CalculatorT1Shmolli : public CalculatorT1WithSignCheck<MeasureType> {
     public:
 
         /**
          * constructor
          */
-        CalculatorT1Shmolli() :  CalculatorT1Molli<MeasureType>(){
+        CalculatorT1Shmolli() : CalculatorT1WithSignCheck<MeasureType>(){
             _TRRaverageHB = 0;
         }
 

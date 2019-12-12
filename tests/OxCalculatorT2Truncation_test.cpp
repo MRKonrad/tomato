@@ -94,7 +94,7 @@ TEST(OxCalculatorT2Truncation, myo_3samples) {
     char filePath [] = "testData/T2_myocardium_3samples.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
-    TYPE noise[] = {2.3, 1.2, 3.2, 1.1, 4.3, 2.3, 1.2, 3.2, 1.1, 4.3, 3.4};
+    TYPE noise[] = { 2.3, 1.2, 3.2 };
     //TYPE startPoint[] = {500, 80};
 
     // init the necessary objects
@@ -117,7 +117,7 @@ TEST(OxCalculatorT2Truncation, myo_3samples) {
 
     calculator.calculate();
 
-    EXPECT_NEAR(calculator.getResults()["A"], testData.getResultsTwoParam()[0], 5);
+    EXPECT_NEAR(calculator.getResults()["A"], testData.getResultsTwoParam()[0], 2e-1);
     EXPECT_NEAR(calculator.getResults()["T2"], testData.getResultsTwoParam()[1], 2e-1);
 }
 
@@ -128,7 +128,7 @@ TEST(OxCalculatorT2Truncation, blood_3samples) {
     char filePath [] = "testData/T2_blood_3samples.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
-    TYPE noise[] = {2.3, 1.2, 3.2, 1.1, 4.3, 2.3, 1.2, 3.2, 1.1, 4.3, 3.4};
+    TYPE noise[] = { 2.3, 1.2, 3.2 };
     //TYPE startPoint[] = { 500, 80 };
 
     // init the necessary objects
@@ -151,8 +151,8 @@ TEST(OxCalculatorT2Truncation, blood_3samples) {
 
     calculator.calculate();
 
-    EXPECT_NEAR(calculator.getResults()["A"], testData.getResultsTwoParam()[0], 5);
-    EXPECT_NEAR(calculator.getResults()["T2"], testData.getResultsTwoParam()[1], 1);
+    EXPECT_NEAR(calculator.getResults()["A"], testData.getResultsTwoParam()[0], 2e-1);
+    EXPECT_NEAR(calculator.getResults()["T2"], testData.getResultsTwoParam()[1], 2e-1);
 }
 
 TEST(OxCalculatorT2Truncation, copyConstructor) {

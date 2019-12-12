@@ -16,7 +16,7 @@
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
 #include "OxStartPointCalculatorBasic.h"
-#include "OxCalculatorT1Molli.h"
+#include "OxCalculatorT1WithSignCheck.h"
 
 #ifdef USE_ITK
 #include "itkTimeProbe.h"
@@ -38,7 +38,7 @@ TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1Molli<TYPE> CalculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> CalculatorT1Molli;
 
     // configure
     fitterAmoebaVnl.setMaxFunctionEvals(0); // I set the maxFunctionEvals to zero
@@ -84,7 +84,7 @@ TEST(OxCalculatorT1Molli, calculate_throwIfInvTimesNotSorted) {
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1Molli<TYPE> CalculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> CalculatorT1Molli;
 
     // configure
     CalculatorT1Molli.setModel(&functionsObject);
@@ -118,7 +118,7 @@ TEST(OxCalculatorT1Molli, calculate_WithoutSigns) {
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
 
     // configure
     calculatorT1Molli.setModel(&functionsObject);
@@ -154,7 +154,7 @@ TEST(OxCalculatorT1Molli, calculate_WithSigns) {
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
 
     // configure
     calculatorT1Molli.setModel(&functionsObject);
@@ -190,7 +190,7 @@ TEST(OxCalculatorT1Molli, copyConstructor) {
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
 
     // configure
     calculatorT1Molli.setModel(&functionsObject);
@@ -206,7 +206,7 @@ TEST(OxCalculatorT1Molli, copyConstructor) {
 
     calculatorT1Molli.setMeanCutOff(123);
 
-    Ox::CalculatorT1Molli<TYPE> calculatorT1MolliCopy = calculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1MolliCopy = calculatorT1Molli;
 
     EXPECT_EQ( calculatorT1Molli.getMeanCutOff(), calculatorT1MolliCopy.getMeanCutOff());
     EXPECT_EQ( calculatorT1Molli.getNSamples(), calculatorT1MolliCopy.getNSamples());
@@ -246,7 +246,7 @@ TEST(OxCalculatorT1Molli, correctSDs) {
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
 
     // configure
     calculatorT1Molli.setModel(&functionsObject);
@@ -291,7 +291,7 @@ TEST(OxCalculatorT1Molli, correctSDs) {
 //    Ox::FitterLevenbergMarquardtVnl<TYPE> fitterAmoebaVnl;
 //    Ox::SignCalculatorRealImag<TYPE> signCalculator;
 //    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-//    Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
+//    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
 //
 //    // configure
 //    calculatorT1Molli.setModel(&functionsObject);

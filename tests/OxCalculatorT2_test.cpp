@@ -113,8 +113,8 @@ TEST(OxCalculatorT2, myo_3samples) {
 
     calculatorT2.calculate();
 
-    EXPECT_NEAR(calculatorT2.getResults()["A"],  testData.getResultsTwoParam()[0], 1e-1);
-    EXPECT_NEAR(calculatorT2.getResults()["T2"], testData.getResultsTwoParam()[1], 1e-1);
+    EXPECT_NEAR(calculatorT2.getResults()["A"],  testData.getResultsTwoParam()[0], 2e-1);
+    EXPECT_NEAR(calculatorT2.getResults()["T2"], testData.getResultsTwoParam()[1], 2e-1);
 }
 
 TEST(OxCalculatorT2, blood_3samples) {
@@ -145,8 +145,8 @@ TEST(OxCalculatorT2, blood_3samples) {
 
     calculatorT2.calculate();
 
-    EXPECT_NEAR(calculatorT2.getResults()["A"],  testData.getResultsTwoParam()[0], 3e-1);
-    EXPECT_NEAR(calculatorT2.getResults()["T2"], testData.getResultsTwoParam()[1], 3e-1);
+    EXPECT_NEAR(calculatorT2.getResults()["A"],  testData.getResultsTwoParam()[0], 2e-1);
+    EXPECT_NEAR(calculatorT2.getResults()["T2"], testData.getResultsTwoParam()[1], 2e-1);
 }
 
 TEST(OxCalculatorT2, copyConstructor) {

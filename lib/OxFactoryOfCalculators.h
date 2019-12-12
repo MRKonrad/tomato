@@ -28,7 +28,8 @@ namespace Ox {
             "T1_SHMOLLI",
             "T1_SHMOLLI_original",
             "T2",
-            "T2_truncation"
+            "T2_truncation",
+            "T2_linear"
     };
 
     enum calculatorsType_t {
@@ -37,7 +38,8 @@ namespace Ox {
         T1_SHMOLLI_original = 2,
         T2_basic = 3,
         T2_truncation = 4,
-        lastCalculatorType = T2_truncation
+        T2_linear = 5,
+        lastCalculatorType = T2_linear
     };
 
     static int calculatorsAvailability[] = {
@@ -46,13 +48,14 @@ namespace Ox {
 #ifdef USE_PRIVATE_NR2
             1, // T1_SHMOLLI_original
             1, // T2_basic
-            1  // T2_truncation
+            1, // T2_truncation
+            1, // T2_linear
 #else
             0, // T1_SHMOLLI_original
             0, // T2_basic
-            0  // T2_truncation
+            0, // T2_truncation
+            0, // T2_linear
 #endif
-
     };
 
     static int calculatorsParamsToCalculate[] = {
@@ -60,7 +63,8 @@ namespace Ox {
             T1, // T1_SHMOLLI
             T1, // T1_SHMOLLI_original
             T2, // T2_basic
-            T2  // T2_truncation
+            T2, // T2_truncation
+            T2, // T2_linear
     };
 
     template<typename TYPE>

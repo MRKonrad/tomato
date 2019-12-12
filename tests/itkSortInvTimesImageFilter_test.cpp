@@ -13,7 +13,7 @@
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
 #include "OxStartPointCalculatorBasic.h"
-#include "OxCalculatorT1Molli.h"
+#include "OxCalculatorT1WithSignCheck.h"
 
 #include "itkCalculatorT1ImageFilter.h"
 #include "itkSortInvTimesImageFilter.h"

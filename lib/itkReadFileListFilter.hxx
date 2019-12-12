@@ -178,7 +178,7 @@ namespace itk {
             //reader
             reader = ReaderType::New();
             reader->SetImageIO(m_DicomIO);
-            reader->SetFileName( m_FileList[i] );
+            reader->SetFileName(m_FileList[i]);
             m_DicomIO->SetFileName(m_FileList[i]);
             m_DicomIO->ReadImageInformation();
             reader->Update();
@@ -228,8 +228,7 @@ namespace itk {
             typename ImageType3D::PixelType rescaleSlope = m_DicomIO->GetRescaleSlope();
 
             typedef itk::StatisticsImageFilter<ImageType3D> StatisticsImageFilterType;
-            typename StatisticsImageFilterType::Pointer statisticsImageFilter
-                    = StatisticsImageFilterType::New();
+            typename StatisticsImageFilterType::Pointer statisticsImageFilter = StatisticsImageFilterType::New();
             statisticsImageFilter->SetInput(outputImage);
             statisticsImageFilter->Update();
 
@@ -239,8 +238,6 @@ namespace itk {
             std::cout << ", Max: " << statisticsImageFilter->GetMaximum();
 
             std::cout << ", RescaleIntercept: " << rescaleIntercept << ", RescaleSlope: " << rescaleSlope << std::endl;
-
-            //std::cout << outputImage << std::endl;
 
             vcl_cout << "Inversion Times: " << GetInvTimes() << vcl_endl;
             vcl_cout << "Repetition Times: " << GetRepTimes() << vcl_endl;

@@ -7,12 +7,13 @@
 #ifndef Tomato_OXFACTORYOFCalculators_HXX
 #define Tomato_OXFACTORYOFCalculators_HXX
 
-#include "OxCalculatorT1Molli.h"
+#include "OxCalculatorT1WithSignCheck.h"
 #include "OxCalculatorT1Shmolli.h"
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1ShmolliOriginal.h"
 #include "OxCalculatorT2.h"
 #include "OxCalculatorT2Truncation.h"
+#include "OxCalculatorT2Linear.h"
 #endif
 #include "TomatoOptions.h"
 #include "OxFactoryOfCalculators.h"
@@ -27,7 +28,7 @@ namespace Ox {
         Calculator<TYPE> *calculator = 0; //nullpointer
         switch (opts->parameter_to_map){
             case T1_MOLLI: {
-                calculator = new CalculatorT1Molli<TYPE>();
+                calculator = new CalculatorT1WithSignCheck<TYPE>();
                 break;
             }
             case T1_SHMOLLI: {
@@ -45,6 +46,10 @@ namespace Ox {
             }
             case T2_truncation: {
                 calculator = new CalculatorT2Truncation<TYPE>();
+                break;
+            }
+            case T2_linear: {
+                calculator = new CalculatorT2Linear<TYPE>();
                 break;
             }
 #endif

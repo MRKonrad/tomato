@@ -34,6 +34,26 @@ TEST(TomatoOnePixel, T1_blood) {
     EXPECT_NEAR(results["T1star"], testData.getResultsMolli()[2], 1e-1);
 }
 
+TEST(TomatoOnePixel, T1_long) {
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/T1_long.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+
+    Ox::TomatoOptions<TYPE> options;
+    options.signal_magnitude = testData.getSignalMag();
+    options.inversion_times = testData.getInvTimes();
+    options.parameter_to_map = Ox::T1_MOLLI;
+    options.model_type = Ox::_ModelT1ThreeParam;
+
+    std::map<std::string, TYPE > results = Ox::calculateOnePixel(options);
+
+    EXPECT_NEAR(results["A"],  testData.getResultsMolli()[0], 1e-1);
+    EXPECT_NEAR(results["B"], testData.getResultsMolli()[1], 1e-1);
+    EXPECT_NEAR(results["T1star"], testData.getResultsMolli()[2], 1e-1);
+}
+
 #ifdef USE_PRIVATE_NR2
 TEST(TomatoOnePixel, T2_blood) {
 

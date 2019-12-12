@@ -16,7 +16,7 @@
 #include "OxSignCalculatorNoSign.h"
 #include "OxStartPointCalculatorBasic.h"
 #include "OxStartPointCalculatorBasic.h"
-#include "OxCalculatorT1Molli.h"
+#include "OxCalculatorT1WithSignCheck.h"
 
 #ifdef USE_ITK
 #include "itkTimeProbe.h"
@@ -36,7 +36,7 @@ TEST(OxCalculatorT1_saturation_recovery, twoParam) {
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
 
     // configure
     calculatorT1Molli.setModel(&functionsObject);
@@ -70,7 +70,7 @@ TEST(OxCalculatorT1_saturation_recovery, threeParam) {
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
 
     // configure
     calculatorT1Molli.setModel(&functionsObject);

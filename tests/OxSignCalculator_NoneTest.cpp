@@ -12,7 +12,7 @@
 #include "OxModelT1ThreeParam.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
 #include "OxStartPointCalculatorBasic.h"
-#include "OxCalculatorT1Molli.h"
+#include "OxCalculatorT1WithSignCheck.h"
 
 #ifdef USE_VNL
 TEST(OxSignCalculator, None) {
@@ -27,7 +27,7 @@ TEST(OxSignCalculator, None) {
         Ox::ModelT1ThreeParam<TYPE> functionsObject;
         Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
         Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-        Ox::CalculatorT1Molli<TYPE> calculatorT1Molli;
+        Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
 
         // configure
         calculatorT1Molli.setModel(&functionsObject);

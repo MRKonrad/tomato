@@ -16,6 +16,8 @@
 #include <iostream>
 #include "itkImageFileReaderKW.h"
 #include "itkTileImageFilter.h"
+#include "itkMultiplyImageFilter.h"
+#include "itkAddImageFilter.h"
 #include "itkGDCMImageIO.h"
 #include "itkMetaDataObject.h"
 
@@ -43,6 +45,8 @@ namespace itk {
         typedef itk::Image< PixelType, 2 > ImageType2D;
         typedef itk::ImageFileReaderKW< ImageType3D > ReaderType;
         typedef itk::TileImageFilter< ImageType3D, ImageType3D > TileImageType;
+        typedef itk::AddImageFilter< ImageType3D, ImageType3D > AddImageType;
+        typedef itk::MultiplyImageFilter< ImageType3D, ImageType3D > MultiplyImageType;
 
         typedef std::vector<std::string> FileListType;
         typedef std::vector<MetaDataDictionary> MetaDataDictionaryArrayType;

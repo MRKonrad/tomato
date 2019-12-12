@@ -187,7 +187,7 @@ namespace Ox {
         signal5[0] = -fabs(signal5[0]);
 
         // 5els fitting
-        results5 = this->calculateMolli(5, invTimes5, signal5, signs5);
+        results5 = this->calculateWithSignCheck(5, invTimes5, signal5, signs5);
 
         if (results5["A"] > 1){ // converged
             nShmolliSamplesUsed = 5;
@@ -198,7 +198,7 @@ namespace Ox {
         }
 
         // 6els fitting
-        results6 = this->calculateMolli(6, invTimes6, signal6, signs6);
+        results6 = this->calculateWithSignCheck(6, invTimes6, signal6, signs6);
 
         if ((T1temp <= TRRaverageHB) // KW: has to be T1temp in these cases that do not converge
             || (results6["A"] <= 1) // not converged
@@ -214,7 +214,7 @@ namespace Ox {
             }
 
             // 7els fitting
-            results7 = this->calculateMolli(7, invTimes7, signal7, signs7);
+            results7 = this->calculateWithSignCheck(7, invTimes7, signal7, signs7);
 
             if ((results7["A"] > 1) // converged
                 && (results7["ChiSqrt"] * results7["T1"] < results6["ChiSqrt"] * TRRaverageHB * 0.4) // KW: in the article results5 instead of 6. 1422 pixels influenced by change

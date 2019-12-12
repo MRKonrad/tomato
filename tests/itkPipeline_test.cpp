@@ -12,7 +12,7 @@
 #include "OxSignCalculatorNoSign.h"
 #include "OxSignCalculatorRealImag.h"
 #include "OxStartPointCalculatorBasic.h"
-#include "OxCalculatorT1Molli.h"
+#include "OxCalculatorT1WithSignCheck.h"
 
 #include "itkReadFileListFilter.h"
 #include "itkSortInvTimesImageFilter.h"
@@ -63,7 +63,7 @@ TEST(itkPipeline, readAndCalculateT1FromMag) {
     Ox::FitterAmoebaVnl<InputPixelType> fitter;
     Ox::SignCalculatorNoSign<InputPixelType> signCalculator;
     Ox::StartPointCalculatorBasic<InputPixelType> startPointCalculator;
-    Ox::CalculatorT1Molli<InputPixelType> calculatorT1;
+    Ox::CalculatorT1WithSignCheck<InputPixelType> calculatorT1;
 
     // configure fitter
     fitter.setMaxFunctionEvals(10); // to accelerate the test
@@ -150,7 +150,7 @@ TEST(itkPipeline, calculateT1FromMagAndPhase) {
     Ox::FitterAmoebaVnl<InputPixelType> fitter;
     Ox::SignCalculatorRealImag<InputPixelType> signCalculator;
     Ox::StartPointCalculatorBasic<InputPixelType> startPointCalculator;
-    Ox::CalculatorT1Molli<InputPixelType> calculatorT1;
+    Ox::CalculatorT1WithSignCheck<InputPixelType> calculatorT1;
 
     // configure fitter
     fitter.setMaxFunctionEvals(10); // to accelerate the test

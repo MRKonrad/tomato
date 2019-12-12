@@ -1,17 +1,17 @@
 /*!
- * \file OxCalculatorT1Molli.hxx
+ * \file OxCalculatorT1WithSignCheck.hxx
  * \author Konrad Werys
  * \date 2019/01/15
  */
 
-#ifndef Tomato_OXCALCULATORT1MOLLI_HXX
-#define Tomato_OXCALCULATORT1MOLLI_HXX
+#ifndef Tomato_OXCALCULATORT1WithSignCheck_HXX
+#define Tomato_OXCALCULATORT1WithSignCheck_HXX
 
 namespace Ox {
 
     template< typename MeasureType >
     int
-    CalculatorT1Molli<MeasureType>
+    CalculatorT1WithSignCheck<MeasureType>
     ::prepareToCalculate(){
 
         // if fitter does not have to iterate, do not calculate
@@ -21,17 +21,17 @@ namespace Ox {
 
         // check if ndims has been set
         if (this->_nDims != 2 && this->_nDims != 3){
-            throw std::runtime_error("CalculatorT1Molli::prepareToCalculate currently implemented only for _nDims of 2 or 3");
+            throw std::runtime_error("CalculatorT1WithSignCheck::prepareToCalculate currently implemented only for _nDims of 2 or 3");
         }
 
         if (!this->getInvTimes()){
-            throw std::runtime_error("CalculatorT1Molli::prepareToCalculate InvTimes have to be provided!");
+            throw std::runtime_error("CalculatorT1WithSignCheck::prepareToCalculate InvTimes have to be provided!");
         }
 
         // verify invTimes are sorted
         for (int i = 0; i < this->getNSamples()-1; i++){
             if (this->getInvTimes()[i] > this->getInvTimes()[i+1]){
-                throw std::runtime_error("CalculatorT1Molli::prepareToCalculate InvTimes have to be sorted!");
+                throw std::runtime_error("CalculatorT1WithSignCheck::prepareToCalculate InvTimes have to be sorted!");
             }
         }
 
@@ -84,7 +84,7 @@ namespace Ox {
 
     template< typename MeasureType >
     int
-    CalculatorT1Molli<MeasureType>
+    CalculatorT1WithSignCheck<MeasureType>
     ::calculate(){
 
         this->_Results = std::map <std::string, MeasureType>();
@@ -99,7 +99,7 @@ namespace Ox {
             return 1; // EXIT_FAILURE
         }
 
-        this->_Results = calculateMolli( this->getNSamples(),
+        this->_Results = calculateWithSignCheck( this->getNSamples(),
                                          this->getInvTimes(),
                                          this->getSignal(),
                                          this->getSigns());
@@ -109,8 +109,8 @@ namespace Ox {
 
     template< typename MeasureType >
     std::map <std::string, MeasureType>
-    CalculatorT1Molli<MeasureType>
-    ::calculateMolli(int nSamples, const MeasureType* invTimes, MeasureType* signal, MeasureType* signs){
+    CalculatorT1WithSignCheck<MeasureType>
+    ::calculateWithSignCheck(int nSamples, const MeasureType* invTimes, MeasureType* signal, MeasureType* signs){
 
         // some initialisation
         std::map <std::string, MeasureType> results;
@@ -202,7 +202,7 @@ namespace Ox {
 
     template< typename MeasureType >
     MeasureType
-    CalculatorT1Molli<MeasureType>
+    CalculatorT1WithSignCheck<MeasureType>
     ::calculateR2AbsFromModel(int nSamples, const MeasureType* times, const MeasureType* signal, const MeasureType* parameters) {
 
         MeasureType *absFitted  = new MeasureType[nSamples];
@@ -224,7 +224,7 @@ namespace Ox {
 
     template< typename MeasureType >
     int
-    CalculatorT1Molli<MeasureType>
+    CalculatorT1WithSignCheck<MeasureType>
     ::calculateCovarianceMatrix(const MeasureType* parameters, MeasureType *covarianceMatrix) {
 
         for (int i = 0; i < 3*3; ++i) {
@@ -253,7 +253,7 @@ namespace Ox {
 
     template< typename MeasureType >
     int
-    CalculatorT1Molli<MeasureType>
+    CalculatorT1WithSignCheck<MeasureType>
     ::calculateInvCovarianceMatrix(const MeasureType* invTimes, const MeasureType* residuals, const MeasureType* parameters, MeasureType *invCovarianceMatrix) {
 
         // invCovarianceMatrix - indexing by column,row
@@ -325,7 +325,7 @@ namespace Ox {
 
     template< typename MeasureType >
     const MeasureType *
-    CalculatorT1Molli<MeasureType>
+    CalculatorT1WithSignCheck<MeasureType>
     ::getInvTimes() const {
         if (!this->_InvTimes) {
             throw std::runtime_error("_InvTimes equals 0. Set _InvTimes");
@@ -334,16 +334,16 @@ namespace Ox {
     }
 
     template<typename MeasureType>
-    bool CalculatorT1Molli<MeasureType>::getDoCalculateSDMap() const {
+    bool CalculatorT1WithSignCheck<MeasureType>::getDoCalculateSDMap() const {
         return _DoCalculateSDMap;
     }
 
     template<typename MeasureType>
-    void CalculatorT1Molli<MeasureType>::setDoCalculateSDMap(bool _DoCalculateSDMap) {
-        CalculatorT1Molli::_DoCalculateSDMap = _DoCalculateSDMap;
+    void CalculatorT1WithSignCheck<MeasureType>::setDoCalculateSDMap(bool _DoCalculateSDMap) {
+        CalculatorT1WithSignCheck::_DoCalculateSDMap = _DoCalculateSDMap;
     }
 
 
 } //namespace Ox
 
-#endif //Tomato_OXCALCULATORT1MOLLI_HXX
+#endif //Tomato_OXCALCULATORT1WithSignCheck_HXX

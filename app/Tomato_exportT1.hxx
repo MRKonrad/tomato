@@ -42,6 +42,10 @@ namespace Ox {
         //typedef itk::MetaDataDictionary DictionaryType;
         //DictionaryType & _dictionaryInput = reader->GetDicomIO()->GetMetaDataDictionary();
 
+        // this one I want to reset
+        itk::EncapsulateMetaData<std::string>( _dictionaryInput, std::string("0028|1052"), "0"); // Rescale intercept
+        itk::EncapsulateMetaData<std::string>( _dictionaryInput, std::string("0028|1053"), "1"); // Rescale slope
+
         // T1 map with color
         DictionaryType dictionaryOutput_T1Color(_dictionaryInput);
 
@@ -70,7 +74,7 @@ namespace Ox {
             clutGreenString = getEncodedSting(getShmolliColormapGreen15TArray());
             clutBlueString = getEncodedSting(getShmolliColormapBlue15TArray());
             printf("Colormap for MagneticFieldStrength 1.5T is used.\n");
-        } else if (MagneticFieldStrength.find("3") != std::string::npos){
+        } else if (MagneticFieldStrength.find('3') != std::string::npos){
             ImageCommentsT1mapWithColormap = ImageCommentsT1mapWithColormap.append("ShMOLLI color 1198SD175ms");
             clutRedString = getEncodedSting(getShmolliColormapRed3TArray());
             clutGreenString = getEncodedSting(getShmolliColormapGreen3TArray());
@@ -83,6 +87,7 @@ namespace Ox {
         // PaletteColorLookupTableUID
         std::string PaletteColorLookupTableUID;
         itk::ExposeMetaData<std::string>(_dictionaryInput, "0028|1199", PaletteColorLookupTableUID);
+
 
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_T1Color, std::string("0008|0018"), sopInstanceUID_T1Color);
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_T1Color, std::string("0002|0003"), sopInstanceUID_T1Color);
