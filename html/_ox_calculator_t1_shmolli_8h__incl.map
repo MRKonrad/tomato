@@ -1,8 +1,8 @@
 <map id="lib/OxCalculatorT1Shmolli.h" name="lib/OxCalculatorT1Shmolli.h">
-<area shape="rect" id="node3" href="$_ox_calculator_t1_molli_8h.html" title="OxCalculatorT1Molli.h" alt="" coords="259,80,409,107"/>
-<area shape="rect" id="node26" href="$_ox_calculator_t1_shmolli_8hxx.html" title="OxCalculatorT1Shmolli.hxx" alt="" coords="435,80,616,107"/>
+<area shape="rect" id="node3" href="$_ox_calculator_t1_with_sign_check_8h.html" title="OxCalculatorT1WithSignCheck.h" alt="" coords="243,80,457,107"/>
+<area shape="rect" id="node26" href="$_ox_calculator_t1_shmolli_8hxx.html" title="OxCalculatorT1Shmolli.hxx" alt="" coords="483,80,664,107"/>
 <area shape="rect" id="node4" href="$_ox_calculator_8h.html" title="OxCalculator.h" alt="" coords="383,155,492,181"/>
-<area shape="rect" id="node25" href="$_ox_calculator_t1_molli_8hxx.html" title="OxCalculatorT1Molli.hxx" alt="" coords="516,155,680,181"/>
+<area shape="rect" id="node25" href="$_ox_calculator_t1_with_sign_check_8hxx.html" title="OxCalculatorT1WithSignCheck.hxx" alt="" coords="516,155,745,181"/>
 <area shape="rect" id="node5" href="$_ox_fitter_8h.html" title="OxFitter.h" alt="" coords="320,229,399,256"/>
 <area shape="rect" id="node6" href="$_ox_model_8h.html" title="OxModel.h" alt="" coords="261,304,347,331"/>
 <area shape="rect" id="node8" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="439,453,512,480"/>

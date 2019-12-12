@@ -1,7 +1,7 @@
 var _tomato_api_8h =
 [
     [ "Calculator< double >", "_tomato_api_8h.html#a9b8230abbabcc9e797ae3d9844af1bea", null ],
-    [ "CalculatorT1Molli< double >", "_tomato_api_8h.html#a7d0473f70666fc11f4c370f408240086", null ],
+    [ "CalculatorT1WithSignCheck< double >", "_tomato_api_8h.html#aae555ee9af0ac7c4cd4cecc1122d4065", null ],
     [ "FactoryOfCalculators< double >", "_tomato_api_8h.html#aa83e31e2e31bbebcfed7bde36002a414", null ],
     [ "FactoryOfFitters< double >", "_tomato_api_8h.html#a497e84110dc4925fc099a9692fe0b512", null ],
     [ "FactoryOfModels< double >", "_tomato_api_8h.html#af45688636f18c18a0b6131286fd29495", null ],

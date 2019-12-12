@@ -5,8 +5,8 @@ var annotated =
     ] ],
     [ "Ox", null, [
       [ "Calculator", "class_ox_1_1_calculator.html", "class_ox_1_1_calculator" ],
-      [ "CalculatorT1Molli", "class_ox_1_1_calculator_t1_molli.html", "class_ox_1_1_calculator_t1_molli" ],
       [ "CalculatorT1Shmolli", "class_ox_1_1_calculator_t1_shmolli.html", "class_ox_1_1_calculator_t1_shmolli" ],
+      [ "CalculatorT1WithSignCheck", "class_ox_1_1_calculator_t1_with_sign_check.html", "class_ox_1_1_calculator_t1_with_sign_check" ],
       [ "TomatoOptions", "struct_ox_1_1_tomato_options.html", "struct_ox_1_1_tomato_options" ],
       [ "FactoryOfCalculators", "class_ox_1_1_factory_of_calculators.html", null ],
       [ "FactoryOfFitters", "class_ox_1_1_factory_of_fitters.html", null ],

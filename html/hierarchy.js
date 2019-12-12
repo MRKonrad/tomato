@@ -1,7 +1,7 @@
 var hierarchy =
 [
     [ "Ox::Calculator< MeasureType >", "class_ox_1_1_calculator.html", [
-      [ "Ox::CalculatorT1Molli< MeasureType >", "class_ox_1_1_calculator_t1_molli.html", [
+      [ "Ox::CalculatorT1WithSignCheck< MeasureType >", "class_ox_1_1_calculator_t1_with_sign_check.html", [
         [ "Ox::CalculatorT1Shmolli< MeasureType >", "class_ox_1_1_calculator_t1_shmolli.html", null ]
       ] ]
     ] ],

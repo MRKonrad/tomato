@@ -8,6 +8,7 @@ var _ox_factory_of_calculators_8h =
       [ "T1_SHMOLLI_original", "_ox_factory_of_calculators_8h.html#abb931b4999efe4037bc02b4ece1e4ce3a3c7bd6f0bc8161109555217bb3003a98", null ],
       [ "T2_basic", "_ox_factory_of_calculators_8h.html#abb931b4999efe4037bc02b4ece1e4ce3a1af2a1815bf0094302f9eb08a9c70417", null ],
       [ "T2_truncation", "_ox_factory_of_calculators_8h.html#abb931b4999efe4037bc02b4ece1e4ce3a768ea7724509b1e8b8de703556d3b853", null ],
+      [ "T2_linear", "_ox_factory_of_calculators_8h.html#abb931b4999efe4037bc02b4ece1e4ce3a68b24b454d41f67fea0fc88146f8d948", null ],
       [ "lastCalculatorType", "_ox_factory_of_calculators_8h.html#abb931b4999efe4037bc02b4ece1e4ce3afd5f998ae2573f17789f200ca9c5740f", null ]
     ] ],
     [ "paramType_t", "_ox_factory_of_calculators_8h.html#a5f3318dc1cf074d85f61c2cf6bdbf5ad", [

@@ -10,6 +10,7 @@ var dir_59425e443f801f1f2fd8bbe4959a3ccf =
     [ "OxCalculatorT1ShmolliOriginal_test.cpp", "_ox_calculator_t1_shmolli_original__test_8cpp.html", null ],
     [ "OxCalculatorT2_factory_test.cpp", "_ox_calculator_t2__factory__test_8cpp.html", null ],
     [ "OxCalculatorT2_test.cpp", "_ox_calculator_t2__test_8cpp.html", null ],
+    [ "OxCalculatorT2Linear_test.cpp", "_ox_calculator_t2_linear__test_8cpp.html", null ],
     [ "OxCalculatorT2Truncation_test.cpp", "_ox_calculator_t2_truncation__test_8cpp.html", null ],
     [ "OxFitterAmoebaPrivateNr2_test.cpp", "_ox_fitter_amoeba_private_nr2__test_8cpp.html", null ],
     [ "OxFitterAmoebaVnl_test.cpp", "_ox_fitter_amoeba_vnl__test_8cpp.html", null ],

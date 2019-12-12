@@ -2,7 +2,7 @@ var searchData=
 [
   ['self',['Self',['../classitk_1_1_image_file_reader_k_w.html#a6616e1e0fe9f4aceb7f693250b5f5b5c',1,'itk::ImageFileReaderKW']]],
   ['setallpointerstonull',['setAllPointersToNull',['../class_ox_1_1_calculator.html#acaaddad6379df03cccd825d565c9dd0e',1,'Ox::Calculator::setAllPointersToNull()'],['../class_ox_1_1_model.html#a8186fd758a6f94d9e3af204b6c1aac3c',1,'Ox::Model::setAllPointersToNull()'],['../class_ox_1_1_sign_calculator.html#a59de754f72402b4cf7dc2f8766f0a1ff',1,'Ox::SignCalculator::setAllPointersToNull()'],['../class_ox_1_1_start_point_calculator.html#a00a48e8845623b57e414380924a3f82b',1,'Ox::StartPointCalculator::setAllPointersToNull()']]],
-  ['setdocalculatesdmap',['setDoCalculateSDMap',['../class_ox_1_1_calculator_t1_molli.html#a65a51dcadaafdefc576201de535f8810',1,'Ox::CalculatorT1Molli']]],
+  ['setdocalculatesdmap',['setDoCalculateSDMap',['../class_ox_1_1_calculator_t1_with_sign_check.html#a1e08ddf2db6d50734abbe015d1e796e1',1,'Ox::CalculatorT1WithSignCheck']]],
   ['setimageio',['SetImageIO',['../classitk_1_1_image_file_reader_k_w.html#a5f6df1f414ee32ffc1a7042a2ac7769d',1,'itk::ImageFileReaderKW']]],
   ['setndims',['setNDims',['../class_ox_1_1_calculator.html#a40c854c0d75685ecc1da531f7400e3b1',1,'Ox::Calculator']]],
   ['setnsamples',['setNSamples',['../class_ox_1_1_calculator.html#a1d0d07b7840883449168448983d43289',1,'Ox::Calculator']]],

@@ -17,14 +17,14 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
       [ "Calculator", "class_ox_1_1_calculator.html", "class_ox_1_1_calculator" ]
     ] ],
     [ "OxCalculator.hxx", "_ox_calculator_8hxx.html", null ],
-    [ "OxCalculatorT1Molli.h", "_ox_calculator_t1_molli_8h.html", [
-      [ "CalculatorT1Molli", "class_ox_1_1_calculator_t1_molli.html", "class_ox_1_1_calculator_t1_molli" ]
-    ] ],
-    [ "OxCalculatorT1Molli.hxx", "_ox_calculator_t1_molli_8hxx.html", null ],
     [ "OxCalculatorT1Shmolli.h", "_ox_calculator_t1_shmolli_8h.html", [
       [ "CalculatorT1Shmolli", "class_ox_1_1_calculator_t1_shmolli.html", "class_ox_1_1_calculator_t1_shmolli" ]
     ] ],
     [ "OxCalculatorT1Shmolli.hxx", "_ox_calculator_t1_shmolli_8hxx.html", null ],
+    [ "OxCalculatorT1WithSignCheck.h", "_ox_calculator_t1_with_sign_check_8h.html", [
+      [ "CalculatorT1WithSignCheck", "class_ox_1_1_calculator_t1_with_sign_check.html", "class_ox_1_1_calculator_t1_with_sign_check" ]
+    ] ],
+    [ "OxCalculatorT1WithSignCheck.hxx", "_ox_calculator_t1_with_sign_check_8hxx.html", null ],
     [ "OxFactoryOfCalculators.h", "_ox_factory_of_calculators_8h.html", "_ox_factory_of_calculators_8h" ],
     [ "OxFactoryOfCalculators.hxx", "_ox_factory_of_calculators_8hxx.html", null ],
     [ "OxFactoryOfFitters.h", "_ox_factory_of_fitters_8h.html", "_ox_factory_of_fitters_8h" ],

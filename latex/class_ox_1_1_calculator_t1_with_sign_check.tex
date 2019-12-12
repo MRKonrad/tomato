@@ -1,0 +1,277 @@
+\hypertarget{class_ox_1_1_calculator_t1_with_sign_check}{\section{Ox\-:\-:Calculator\-T1\-With\-Sign\-Check$<$ Measure\-Type $>$ Class Template Reference}
+\label{class_ox_1_1_calculator_t1_with_sign_check}\index{Ox\-::\-Calculator\-T1\-With\-Sign\-Check$<$ Measure\-Type $>$@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check$<$ Measure\-Type $>$}}
+}
+
+
+{\ttfamily \#include $<$Ox\-Calculator\-T1\-With\-Sign\-Check.\-h$>$}
+
+
+
+Inheritance diagram for Ox\-:\-:Calculator\-T1\-With\-Sign\-Check$<$ Measure\-Type $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{class_ox_1_1_calculator_t1_with_sign_check__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ox\-:\-:Calculator\-T1\-With\-Sign\-Check$<$ Measure\-Type $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{class_ox_1_1_calculator_t1_with_sign_check__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \hyperlink{class_ox_1_1_calculator_t1_with_sign_check_ae5b9cb33d60b5c4d96f8890b3ca991c4}{calculate} ()
+\item 
+virtual int \hyperlink{class_ox_1_1_calculator_t1_with_sign_check_ad93dba810e34daf87ac35839cb0ff671}{prepare\-To\-Calculate} ()
+\item 
+virtual std\-::map$<$ std\-::string, \\*
+Measure\-Type $>$ \hyperlink{class_ox_1_1_calculator_t1_with_sign_check_af6f5e9b8fabb1a71ace382c33621d779}{calculate\-With\-Sign\-Check} (int n\-Samples, const Measure\-Type $\ast$inv\-Times, Measure\-Type $\ast$signal, Measure\-Type $\ast$signs)
+\item 
+Measure\-Type \hyperlink{class_ox_1_1_calculator_t1_with_sign_check_a08dfb14e6c69bbf05394512cd1f0ab9a}{calculate\-R2\-Abs\-From\-Model} (int n\-Samples, const Measure\-Type $\ast$inv\-Times, const Measure\-Type $\ast$signal, const Measure\-Type $\ast$parameters)
+\item 
+int \hyperlink{class_ox_1_1_calculator_t1_with_sign_check_a39d31020ec78a35ead3019a1f92f837a}{calculate\-Covariance\-Matrix} (const Measure\-Type $\ast$parameters, Measure\-Type $\ast$covariance\-Matrix)
+\item 
+int \hyperlink{class_ox_1_1_calculator_t1_with_sign_check_a5c17fcfc1ca0390052d98256f4a0bf62}{calculate\-Inv\-Covariance\-Matrix} (const Measure\-Type $\ast$inv\-Times, const Measure\-Type $\ast$residuals, const Measure\-Type $\ast$parameters, Measure\-Type $\ast$inv\-Covariance\-Matrix)
+\item 
+bool \hyperlink{class_ox_1_1_calculator_t1_with_sign_check_ab4a3d7795d055bc22b7da2db83c44e1f}{get\-Do\-Calculate\-S\-D\-Map} () const 
+\item 
+const Measure\-Type $\ast$ \hyperlink{class_ox_1_1_calculator_t1_with_sign_check_ab6cd6c2a3d32b153d78839230582c793}{get\-Inv\-Times} () const 
+\item 
+void \hyperlink{class_ox_1_1_calculator_t1_with_sign_check_a1e08ddf2db6d50734abbe015d1e796e1}{set\-Do\-Calculate\-S\-D\-Map} (bool \-\_\-\-Do\-Calculate\-S\-D\-Map)
+\item 
+\hyperlink{class_ox_1_1_calculator_t1_with_sign_check_a964319b777d2e4c703647208117aca3f}{Calculator\-T1\-With\-Sign\-Check} ()
+\item 
+virtual \hyperlink{class_ox_1_1_calculator}{Calculator}$<$ Measure\-Type $>$ $\ast$ \hyperlink{class_ox_1_1_calculator_t1_with_sign_check_a59e5be9935b9c235f4958a461fda081e}{new\-By\-Cloning} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_ox_1_1_calculator_t1_with_sign_check_afce5bda5ac3751598e6c650943f3b818}{double {\bfseries Max\-T\-I\-For\-Sign\-Invert}}\label{class_ox_1_1_calculator_t1_with_sign_check_afce5bda5ac3751598e6c650943f3b818}
+
+\item 
+\hypertarget{class_ox_1_1_calculator_t1_with_sign_check_a876d4995b15f612f15bbdd253c379a2b}{bool {\bfseries \-\_\-\-Do\-Calculate\-S\-D\-Map}}\label{class_ox_1_1_calculator_t1_with_sign_check_a876d4995b15f612f15bbdd253c379a2b}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_ox_1_1_calculator_t1_with_sign_check_a20fbb003a018e0f62707ac306b0c6ac3}{static const int {\bfseries M\-A\-X\-\_\-\-T1\-\_\-\-T\-R\-E\-S\-H\-O\-L\-D} = 4000}\label{class_ox_1_1_calculator_t1_with_sign_check_a20fbb003a018e0f62707ac306b0c6ac3}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Measure\-Type$>$class Ox\-::\-Calculator\-T1\-With\-Sign\-Check$<$ Measure\-Type $>$}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Measure\-Type} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_ox_1_1_calculator_t1_with_sign_check_a964319b777d2e4c703647208117aca3f}{\index{Ox\-::\-Calculator\-T1\-With\-Sign\-Check@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}!Calculator\-T1\-With\-Sign\-Check@{Calculator\-T1\-With\-Sign\-Check}}
+\index{Calculator\-T1\-With\-Sign\-Check@{Calculator\-T1\-With\-Sign\-Check}!Ox::CalculatorT1WithSignCheck@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}}
+\subsubsection[{Calculator\-T1\-With\-Sign\-Check}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type$>$ {\bf Ox\-::\-Calculator\-T1\-With\-Sign\-Check}$<$ Measure\-Type $>$\-::{\bf Calculator\-T1\-With\-Sign\-Check} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_ox_1_1_calculator_t1_with_sign_check_a964319b777d2e4c703647208117aca3f}
+constructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_ox_1_1_calculator_t1_with_sign_check_ae5b9cb33d60b5c4d96f8890b3ca991c4}{\index{Ox\-::\-Calculator\-T1\-With\-Sign\-Check@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}!calculate@{calculate}}
+\index{calculate@{calculate}!Ox::CalculatorT1WithSignCheck@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}}
+\subsubsection[{calculate}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ int {\bf Ox\-::\-Calculator\-T1\-With\-Sign\-Check}$<$ Measure\-Type $>$\-::calculate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_t1_with_sign_check_ae5b9cb33d60b5c4d96f8890b3ca991c4}
+calling \hyperlink{class_ox_1_1_calculator_t1_with_sign_check_af6f5e9b8fabb1a71ace382c33621d779}{calculate\-With\-Sign\-Check(int n\-Samples, const Measure\-Type$\ast$ inv\-Times, Measure\-Type$\ast$ signal, Measure\-Type$\ast$ signs)} \begin{DoxyReturn}{Returns}
+success/failure 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_ox_1_1_calculator_a9638894f2ec526b68f46f02122bae0c3}{Ox\-::\-Calculator$<$ Measure\-Type $>$}.
+
+
+
+Reimplemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_ac689ebbf27f95f6fa2559cc13a824db0}{Ox\-::\-Calculator\-T1\-Shmolli$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_calculator_t1_with_sign_check_a39d31020ec78a35ead3019a1f92f837a}{\index{Ox\-::\-Calculator\-T1\-With\-Sign\-Check@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}!calculate\-Covariance\-Matrix@{calculate\-Covariance\-Matrix}}
+\index{calculate\-Covariance\-Matrix@{calculate\-Covariance\-Matrix}!Ox::CalculatorT1WithSignCheck@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}}
+\subsubsection[{calculate\-Covariance\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ int {\bf Ox\-::\-Calculator\-T1\-With\-Sign\-Check}$<$ Measure\-Type $>$\-::calculate\-Covariance\-Matrix (
+\begin{DoxyParamCaption}
+\item[{const Measure\-Type $\ast$}]{parameters, }
+\item[{Measure\-Type $\ast$}]{covariance\-Matrix}
+\end{DoxyParamCaption}
+)}}\label{class_ox_1_1_calculator_t1_with_sign_check_a39d31020ec78a35ead3019a1f92f837a}
+calculate covariance matrix needed for S\-D estimation 
+\begin{DoxyParams}{Parameters}
+{\em parameters} & \\
+\hline
+{\em covariance\-Matrix} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_ox_1_1_calculator_t1_with_sign_check_a5c17fcfc1ca0390052d98256f4a0bf62}{\index{Ox\-::\-Calculator\-T1\-With\-Sign\-Check@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}!calculate\-Inv\-Covariance\-Matrix@{calculate\-Inv\-Covariance\-Matrix}}
+\index{calculate\-Inv\-Covariance\-Matrix@{calculate\-Inv\-Covariance\-Matrix}!Ox::CalculatorT1WithSignCheck@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}}
+\subsubsection[{calculate\-Inv\-Covariance\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ int {\bf Ox\-::\-Calculator\-T1\-With\-Sign\-Check}$<$ Measure\-Type $>$\-::calculate\-Inv\-Covariance\-Matrix (
+\begin{DoxyParamCaption}
+\item[{const Measure\-Type $\ast$}]{inv\-Times, }
+\item[{const Measure\-Type $\ast$}]{residuals, }
+\item[{const Measure\-Type $\ast$}]{parameters, }
+\item[{Measure\-Type $\ast$}]{inv\-Covariance\-Matrix}
+\end{DoxyParamCaption}
+)}}\label{class_ox_1_1_calculator_t1_with_sign_check_a5c17fcfc1ca0390052d98256f4a0bf62}
+calculate inverse covariance matrix needed for S\-D estimation 
+\begin{DoxyParams}{Parameters}
+{\em inv\-Times} & \\
+\hline
+{\em residuals} & \\
+\hline
+{\em parameters} & \\
+\hline
+{\em inv\-Covariance\-Matrix} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_ox_1_1_calculator_t1_with_sign_check_a08dfb14e6c69bbf05394512cd1f0ab9a}{\index{Ox\-::\-Calculator\-T1\-With\-Sign\-Check@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}!calculate\-R2\-Abs\-From\-Model@{calculate\-R2\-Abs\-From\-Model}}
+\index{calculate\-R2\-Abs\-From\-Model@{calculate\-R2\-Abs\-From\-Model}!Ox::CalculatorT1WithSignCheck@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}}
+\subsubsection[{calculate\-R2\-Abs\-From\-Model}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ Measure\-Type {\bf Ox\-::\-Calculator\-T1\-With\-Sign\-Check}$<$ Measure\-Type $>$\-::calculate\-R2\-Abs\-From\-Model (
+\begin{DoxyParamCaption}
+\item[{int}]{n\-Samples, }
+\item[{const Measure\-Type $\ast$}]{inv\-Times, }
+\item[{const Measure\-Type $\ast$}]{signal, }
+\item[{const Measure\-Type $\ast$}]{parameters}
+\end{DoxyParamCaption}
+)}}\label{class_ox_1_1_calculator_t1_with_sign_check_a08dfb14e6c69bbf05394512cd1f0ab9a}
+Calculate goodness of fit map 
+\begin{DoxyParams}{Parameters}
+{\em n\-Samples} & \\
+\hline
+{\em inv\-Times} & \\
+\hline
+{\em signal} & \\
+\hline
+{\em parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_ox_1_1_calculator_t1_with_sign_check_af6f5e9b8fabb1a71ace382c33621d779}{\index{Ox\-::\-Calculator\-T1\-With\-Sign\-Check@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}!calculate\-With\-Sign\-Check@{calculate\-With\-Sign\-Check}}
+\index{calculate\-With\-Sign\-Check@{calculate\-With\-Sign\-Check}!Ox::CalculatorT1WithSignCheck@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}}
+\subsubsection[{calculate\-With\-Sign\-Check}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ std\-::map$<$ std\-::string, Measure\-Type $>$ {\bf Ox\-::\-Calculator\-T1\-With\-Sign\-Check}$<$ Measure\-Type $>$\-::calculate\-With\-Sign\-Check (
+\begin{DoxyParamCaption}
+\item[{int}]{n\-Samples, }
+\item[{const Measure\-Type $\ast$}]{inv\-Times, }
+\item[{Measure\-Type $\ast$}]{signal, }
+\item[{Measure\-Type $\ast$}]{signs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_t1_with_sign_check_af6f5e9b8fabb1a71ace382c33621d779}
+The most important function of this class It has all the input parameters so that I can call it from the sh\-With\-Sign\-Check class 
+\begin{DoxyParams}{Parameters}
+{\em n\-Samples} & \\
+\hline
+{\em inv\-Times} & \\
+\hline
+{\em signal} & \\
+\hline
+{\em signs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+results 
+\end{DoxyReturn}
+\hypertarget{class_ox_1_1_calculator_t1_with_sign_check_ab4a3d7795d055bc22b7da2db83c44e1f}{\index{Ox\-::\-Calculator\-T1\-With\-Sign\-Check@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}!get\-Do\-Calculate\-S\-D\-Map@{get\-Do\-Calculate\-S\-D\-Map}}
+\index{get\-Do\-Calculate\-S\-D\-Map@{get\-Do\-Calculate\-S\-D\-Map}!Ox::CalculatorT1WithSignCheck@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}}
+\subsubsection[{get\-Do\-Calculate\-S\-D\-Map}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ bool {\bf Ox\-::\-Calculator\-T1\-With\-Sign\-Check}$<$ Measure\-Type $>$\-::get\-Do\-Calculate\-S\-D\-Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_ox_1_1_calculator_t1_with_sign_check_ab4a3d7795d055bc22b7da2db83c44e1f}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_ox_1_1_calculator_t1_with_sign_check_ab6cd6c2a3d32b153d78839230582c793}{\index{Ox\-::\-Calculator\-T1\-With\-Sign\-Check@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}!get\-Inv\-Times@{get\-Inv\-Times}}
+\index{get\-Inv\-Times@{get\-Inv\-Times}!Ox::CalculatorT1WithSignCheck@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}}
+\subsubsection[{get\-Inv\-Times}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ const Measure\-Type $\ast$ {\bf Ox\-::\-Calculator\-T1\-With\-Sign\-Check}$<$ Measure\-Type $>$\-::get\-Inv\-Times (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_t1_with_sign_check_ab6cd6c2a3d32b153d78839230582c793}
+/throw exception if \-\_\-\-Inv\-Times == 0 \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_ox_1_1_calculator}{Ox\-::\-Calculator$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_calculator_t1_with_sign_check_a59e5be9935b9c235f4958a461fda081e}{\index{Ox\-::\-Calculator\-T1\-With\-Sign\-Check@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}!new\-By\-Cloning@{new\-By\-Cloning}}
+\index{new\-By\-Cloning@{new\-By\-Cloning}!Ox::CalculatorT1WithSignCheck@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}}
+\subsubsection[{new\-By\-Cloning}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type$>$ virtual {\bf Calculator}$<$Measure\-Type$>$$\ast$ {\bf Ox\-::\-Calculator\-T1\-With\-Sign\-Check}$<$ Measure\-Type $>$\-::new\-By\-Cloning (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_t1_with_sign_check_a59e5be9935b9c235f4958a461fda081e}
+cloning \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_ox_1_1_calculator_aaec48f39f9b0ea1b622485cf25fba484}{Ox\-::\-Calculator$<$ Measure\-Type $>$}.
+
+
+
+Reimplemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_a1e4e7b6f59b6a0ca4cbe3ed60452b8e9}{Ox\-::\-Calculator\-T1\-Shmolli$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_calculator_t1_with_sign_check_ad93dba810e34daf87ac35839cb0ff671}{\index{Ox\-::\-Calculator\-T1\-With\-Sign\-Check@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}!prepare\-To\-Calculate@{prepare\-To\-Calculate}}
+\index{prepare\-To\-Calculate@{prepare\-To\-Calculate}!Ox::CalculatorT1WithSignCheck@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}}
+\subsubsection[{prepare\-To\-Calculate}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ int {\bf Ox\-::\-Calculator\-T1\-With\-Sign\-Check}$<$ Measure\-Type $>$\-::prepare\-To\-Calculate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_ox_1_1_calculator_t1_with_sign_check_ad93dba810e34daf87ac35839cb0ff671}
+do all the checks and prepare to do the calculation, for example calc signal/signs and \-\_\-\-T\-R\-Raverage\-H\-B \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_ox_1_1_calculator_a01267c4e842b35f7eacaa9aacdd7e766}{Ox\-::\-Calculator$<$ Measure\-Type $>$}.
+
+
+
+Reimplemented in \hyperlink{class_ox_1_1_calculator_t1_shmolli_a6464c63f20ecd9de842d722e5d9d2866}{Ox\-::\-Calculator\-T1\-Shmolli$<$ Measure\-Type $>$}.
+
+\hypertarget{class_ox_1_1_calculator_t1_with_sign_check_a1e08ddf2db6d50734abbe015d1e796e1}{\index{Ox\-::\-Calculator\-T1\-With\-Sign\-Check@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}!set\-Do\-Calculate\-S\-D\-Map@{set\-Do\-Calculate\-S\-D\-Map}}
+\index{set\-Do\-Calculate\-S\-D\-Map@{set\-Do\-Calculate\-S\-D\-Map}!Ox::CalculatorT1WithSignCheck@{Ox\-::\-Calculator\-T1\-With\-Sign\-Check}}
+\subsubsection[{set\-Do\-Calculate\-S\-D\-Map}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\-Type $>$ void {\bf Ox\-::\-Calculator\-T1\-With\-Sign\-Check}$<$ Measure\-Type $>$\-::set\-Do\-Calculate\-S\-D\-Map (
+\begin{DoxyParamCaption}
+\item[{bool}]{\-\_\-\-Do\-Calculate\-S\-D\-Map}
+\end{DoxyParamCaption}
+)}}\label{class_ox_1_1_calculator_t1_with_sign_check_a1e08ddf2db6d50734abbe015d1e796e1}
+
+\begin{DoxyParams}{Parameters}
+{\em \-\_\-\-Do\-Calculate\-S\-D\-Map} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{_ox_calculator_t1_with_sign_check_8h}{Ox\-Calculator\-T1\-With\-Sign\-Check.\-h}\item 
+lib/\hyperlink{_ox_calculator_t1_with_sign_check_8hxx}{Ox\-Calculator\-T1\-With\-Sign\-Check.\-hxx}\end{DoxyCompactItemize}

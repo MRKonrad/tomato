@@ -4,10 +4,10 @@
 <area shape="rect" id="node18" href="$_ox_start_point_calculator_basic_8h.html" title="lib/OxStartPointCalculator\lBasic.h" alt="" coords="1160,171,1333,213"/>
 <area shape="rect" id="node22" href="$_ox_start_point_calculator_shmolli_8h.html" title="lib/OxStartPointCalculator\lShmolli.h" alt="" coords="1036,81,1209,122"/>
 <area shape="rect" id="node3" href="$_ox_calculator_8hxx.html" title="lib/OxCalculator.hxx" alt="" coords="5,179,144,205"/>
-<area shape="rect" id="node4" href="$_ox_calculator_t1_molli_8h.html" title="lib/OxCalculatorT1Molli.h" alt="" coords="360,179,528,205"/>
+<area shape="rect" id="node4" href="$_ox_calculator_t1_with_sign_check_8h.html" title="lib/OxCalculatorT1WithSign\lCheck.h" alt="" coords="349,171,531,213"/>
 <area shape="rect" id="node7" href="$_ox_factory_of_calculators_8h.html" title="lib/OxFactoryOfCalculators.h" alt="" coords="351,435,541,461"/>
 <area shape="rect" id="node11" href="$_tomato_api_8h.html" title="lib/TomatoApi.h" alt="" coords="485,667,597,693"/>
-<area shape="rect" id="node16" href="$_ox_image_calculator_t1_8h_source.html" title="lib/OxImageCalculatorT1.h" alt="" coords="569,179,745,205"/>
+<area shape="rect" id="node16" href="$_ox_image_calculator_t1_8h_source.html" title="lib/OxImageCalculatorT1.h" alt="" coords="570,179,747,205"/>
 <area shape="rect" id="node5" href="$_ox_calculator_t1_shmolli_8h.html" title="lib/OxCalculatorT1Shmolli.h" alt="" coords="321,269,505,296"/>
 <area shape="rect" id="node6" href="$_ox_factory_of_calculators_8hxx.html" title="lib/OxFactoryOfCalculators.hxx" alt="" coords="344,352,549,379"/>
 <area shape="rect" id="node14" href="$_ox_calculator_t1_molli__test_8cpp.html" title="tests/OxCalculatorT1Molli\l_test.cpp" alt="" coords="788,262,961,303"/>
