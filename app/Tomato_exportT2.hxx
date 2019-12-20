@@ -44,6 +44,10 @@ namespace Ox {
         OxColorbarFilter->SetInput(_imageCalculatorItk->GetT2Image());
         OxColorbarFilter->SetAddColorbar(_opts->use_colorbar);
 
+        // this one I want to reset
+        itk::EncapsulateMetaData<std::string>( _dictionaryInput, std::string("0028|1052"), "0"); // Rescale intercept
+        itk::EncapsulateMetaData<std::string>( _dictionaryInput, std::string("0028|1053"), "1"); // Rescale slope
+
         // T2 map with color
         DictionaryType dictionaryOutput_T2(_dictionaryInput);
 
@@ -91,7 +95,7 @@ namespace Ox {
 
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_R2, std::string("0020|0011"), newSeriesNumber_R2); // series number
 
-        itk::EncapsulateMetaData<std::string>( dictionaryOutput_R2, std::string("0020|4000"), std::string("Rsquare*4000 Map")); // series number
+        itk::EncapsulateMetaData<std::string>( dictionaryOutput_R2, std::string("0020|4000"), std::string("Rsquare*4000 Map")); // image comments
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_R2, std::string("0020|0013"), std::string("3")); // instance number
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_R2, std::string("0028|0106"), std::string("0")); // smallest pixel
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_R2, std::string("0028|0107"), std::string("4096")); // largest pixel
@@ -110,7 +114,7 @@ namespace Ox {
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_A, std::string("0020|0011"), newSeriesNumber_R2); // series number
 
     //        itk::EncapsulateMetaData<std::string>( dictionaryOutput_A, std::string("0020|4000"), std::string("Signal(TI)=[___AMap___]-B*exp(-TI/T2star)"));
-        itk::EncapsulateMetaData<std::string>( dictionaryOutput_A, std::string("0020|4000"), std::string("A"));
+        itk::EncapsulateMetaData<std::string>( dictionaryOutput_A, std::string("0020|4000"), std::string("A"));  // image comments
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_A, std::string("0020|0013"), std::string("4")); // instance number
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_A, std::string("0028|0106"), std::string("0")); // smallest pixel
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_A, std::string("0028|0107"), std::string("4096")); // largest pixel
@@ -332,6 +336,6 @@ namespace Ox {
 
 } // namespace Ox
 
-#endif
+#endif // USE_ITK
 
 #endif //TOMATO_TOMATO_EXPORTT2_HXX

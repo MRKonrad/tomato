@@ -141,11 +141,12 @@ namespace Ox {
         // look for better solutions than the above one
         for (int iSwap = 0; iSwap < nSamples; iSwap++) {
 
-            // continue only if TI in reasonable range
-            if (invTimes[iSwap] > this->MaxTIForSignInvert) continue;
-
             // continue if sign was already calculated before
             if (signs[iSwap] != 0) continue;
+            signs[iSwap] = 1;
+
+            // continue only if TI in reasonable range
+            if (invTimes[iSwap] > this->MaxTIForSignInvert) continue;
 
             // in each iteration change the sign of one of the signal elements
             signal[iSwap] = -fabs(signal[iSwap]);
@@ -162,6 +163,7 @@ namespace Ox {
                 // save the tempResults at the best tempResults
                 KWUtil::copyArrayToArray(this->_nDims, tempResults, this->getFitter()->getParameters());
                 lastValue = lastValueTemp;
+                signs[iSwap] = -1;
             }
         }
 

@@ -190,14 +190,16 @@ namespace Ox {
     Tomato<MeasureType>
     ::exportToDicom(){
         if (_opts->parameter_type == Ox::T1){
-            return exportT1ToDicom();
+            exportT1ToDicom();
+            exportT1MagSignRecovToDicom();
+            return 0; // EXIT_SUCCESS
         }
         else if (_opts->parameter_type == Ox::T2){
             return exportT2ToDicom();
         }
         else {
             std::cerr << "Tomato::exportToDicom: Export has not been implemented" << std::endl;
-            return 0; // EXIT_FAILURE
+            return 1; // EXIT_FAILURE
         }
     }
 

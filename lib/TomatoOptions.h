@@ -33,6 +33,7 @@ namespace Ox {
         std::string dir_phase;
         std::string dir_output_map;
         std::string dir_output_fitparams;
+        std::string dir_output_magSignRecov;
 
         // data for one pixel calculation
         std::vector <MeasureType> signal_magnitude;
@@ -64,6 +65,7 @@ namespace Ox {
         // export
         int output_map_series_number;
         int output_fitparams_series_number;
+        int output_magSignRecov_series_number;
 
         // output params
         double calculation_time;
@@ -77,6 +79,7 @@ namespace Ox {
             dir_phase = "";
             dir_output_map = "";
             dir_output_fitparams = "";
+            dir_output_magSignRecov = "";
 
             parameter_to_map = T1_MOLLI;
             fitting_method = LevMarVnl;
@@ -97,6 +100,7 @@ namespace Ox {
             // export
             output_map_series_number = 0;
             output_fitparams_series_number = 0;
+            output_magSignRecov_series_number = 0;
 
             // output params
             calculation_time = 0;

@@ -12,10 +12,9 @@
 
 namespace itk {
 
-    template< typename TImageIn, typename TImageOut >
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2> 
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::CalculatorT1ImageFilter() {
-
         this->m_LimitOutputIntensity = true;
         this->m_UpperLimitOutputIntensity = 4000;
         this->m_LowerLimitOutputIntensity = 0;
@@ -23,31 +22,33 @@ namespace itk {
         this->SetNumberOfRequiredInputs(1);
         this->SetNumberOfRequiredOutputs(12);
         for (unsigned i = 0; i < this->GetNumberOfRequiredOutputs(); ++i) {
-            this->SetNthOutput(i, (TImageOut::New()).GetPointer());
+            this->SetNthOutput(i, (TImageOut1::New()).GetPointer());
         }
+        this->SetNumberOfRequiredOutputs(this->GetNumberOfRequiredOutputs() + 1);
+        this->SetNthOutput(this->GetNumberOfRequiredOutputs()-1, (TImageOut2::New()).GetPointer());
 
         this->m_ImageRegionSplitter = ImageRegionSplitterDirection::New();
         this->m_ImageRegionSplitter->SetDirection(2);
 
     }
 
-    template<typename TImageIn, typename TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
     void
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::SetInputMagImage(const TImageIn *image) {
         this->SetNthInput(0, const_cast<TImageIn *>(image));
     }
 
-    template<typename TImageIn, typename TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
     void
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::SetInputPhaImage(const TImageIn *image) {
         this->SetNthInput(1, const_cast<TImageIn *>(image));
     }
 
-    template<typename TImageIn, typename TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
     void
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::BeforeThreadedGenerateData() {
 
         if(!m_Calculator) throw itk::ExceptionObject(__FILE__, __LINE__, "Set the Calculator!");
@@ -71,52 +72,62 @@ namespace itk {
         printf("\n");
     }
 
-    template<typename TImageIn, typename TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
     void
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::GenerateOutputInformation(){
         typename TImageIn::ConstPointer imageMag = this->GetInput(0);
         typename TImageIn::RegionType magImageRegion = imageMag->GetLargestPossibleRegion();
 
-        typename TImageOut::IndexType start;
+        typename TImageOut1::IndexType start;
         start[0] = magImageRegion.GetIndex()[0];
         start[1] = magImageRegion.GetIndex()[1];
 
-        typename TImageOut::SizeType size;
+        typename TImageOut1::SizeType size;
         size[0] = magImageRegion.GetSize()[0];
         size[1] = magImageRegion.GetSize()[1];
 
-        typename TImageOut::RegionType region;
+        typename TImageOut1::RegionType region;
         region.SetSize(size);
         region.SetIndex(start);
 
-        typename TImageOut::SpacingType spacing;
+        typename TImageOut1::SpacingType spacing;
         spacing[0] = imageMag->GetSpacing()[0];
         spacing[1] = imageMag->GetSpacing()[1];
 
-        typename TImageOut::PointType origin;
+        typename TImageOut1::PointType origin;
         origin[0] = imageMag->GetOrigin()[0];
         origin[1] = imageMag->GetOrigin()[1];
 
-        typename TImageOut::DirectionType direction;
+        typename TImageOut1::DirectionType direction;
 
         direction[0][0] = imageMag->GetDirection()[0][0];
         direction[0][1] = imageMag->GetDirection()[0][1];
         direction[1][0] = imageMag->GetDirection()[1][0];
         direction[1][1] = imageMag->GetDirection()[1][1];
 
-        for (unsigned int i = 0; i < this->GetNumberOfOutputs(); i++){
-            this->GetOutput(i)->SetLargestPossibleRegion(region);
+        // last output has different type and is configured below
+        for (unsigned int i = 0; i < this->GetNumberOfOutputs()-1; i++){
+            this->GetOutput(i)->SetRegions(region);
             this->GetOutput(i)->SetSpacing(spacing);
             this->GetOutput(i)->SetOrigin(origin);
             this->GetOutput(i)->SetDirection(direction);
         }
+
+        // last output
+        this->GetMagSignRecovered()->SetRegions(magImageRegion);
+        this->GetMagSignRecovered()->SetSpacing(imageMag->GetSpacing());
+        this->GetMagSignRecovered()->SetOrigin(imageMag->GetOrigin());
+        this->GetMagSignRecovered()->SetDirection(imageMag->GetDirection());
+        this->GetMagSignRecovered()->Allocate();
+        this->GetMagSignRecovered()->FillBuffer(0);
+
     }
 
-    template<typename TImageIn, typename TImageOut>
-    typename TImageOut::PixelType
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
-    ::LimitResult( typename TImageOut::PixelType result ) {
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
+    typename TImageOut1::PixelType
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
+    ::LimitResult( typename TImageOut1::PixelType result ) {
 
         if (GetLimitOutputIntensity()) {
             if (result < m_LowerLimitOutputIntensity) {
@@ -129,9 +140,9 @@ namespace itk {
         return result;
     }
 
-    template<typename TImageIn, typename TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
     void
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::ThreadedGenerateData( const OutputImageRegionType& outputRegionForThread, ThreadIdType threadId ){
 
         typename TImageIn::IndexType idx;
@@ -139,10 +150,11 @@ namespace itk {
         typename TImageIn::ConstPointer imageMag = this->GetInput(0);
         typename TImageIn::ConstPointer imagePha = this->GetInput(1);
 
-        std::vector<typename TImageOut::Pointer> outputImagesVector;
-        for (unsigned int i = 0; i < this->GetNumberOfOutputs(); ++i){
+        std::vector<typename TImageOut1::Pointer> outputImagesVector;
+        for (unsigned int i = 0; i < this->GetNumberOfOutputs()-1; ++i){
             outputImagesVector.push_back(this->GetOutput(i));
         }
+        typename TImageOut2::Pointer imageMagSignRecov = this->GetMagSignRecovered();
 
         typename TImageIn::SizeType magImageSize = imageMag->GetLargestPossibleRegion().GetSize();
 
@@ -159,7 +171,8 @@ namespace itk {
         inputRegion.SetIndex(inputIndex);
 
         typedef itk::ImageLinearConstIteratorWithIndex< TImageIn > InputIteratorType;
-        typedef itk::ImageRegionIterator< TImageOut > OutputIteratorType;
+        typedef itk::ImageRegionIterator< TImageOut1 > Output2dIteratorType;
+        typedef itk::ImageLinearIteratorWithIndex< TImageIn > Output3dIteratorType;
 
         InputIteratorType  itMag( imageMag, inputRegion );
         InputIteratorType  itPha;
@@ -169,13 +182,15 @@ namespace itk {
             itPha = temp;
         }
 
-        std::vector<OutputIteratorType> itOutVector;
+        std::vector<Output2dIteratorType> itOutVector;
         for (unsigned int i = 0; i < outputImagesVector.size(); ++i){
-            itOutVector.push_back(OutputIteratorType(outputImagesVector[i], outputRegionForThread));
+            itOutVector.push_back(Output2dIteratorType(outputImagesVector[i], outputRegionForThread));
         }
+        Output3dIteratorType itOutMagSignRecov(imageMagSignRecov, inputRegion);
 
         itMag.SetDirection( 2 ); // Walk along third dimension it.GoToBegin();
         if (imagePha) itPha.SetDirection( 2 ); // Walk along third dimension it.GoToBegin();
+        itOutMagSignRecov.SetDirection(2);
 
         /**
          * Each thread needs its own calculator object, so
@@ -207,13 +222,11 @@ namespace itk {
         // set the thread id in the minimiser
         fitter->setThreadId(threadId);
 
-//        // make sure calculator is ready to calculate
-//        calculator->VerifyReadyToCalculate();
-
         // move output iterators
         for (unsigned int i = 0; i < outputImagesVector.size(); ++i) {
             itOutVector[i].GoToBegin();
         }
+        itOutMagSignRecov.GoToBegin();
 
         // init alloc
         PixelTypeIn *sigMag = new PixelTypeIn[nSamples];
@@ -222,7 +235,6 @@ namespace itk {
         while( !itMag.IsAtEnd() ) {
             // move input iterators
             itMag.GoToBeginOfLine();
-            // itPha.GoToBeginOfLine();
             if (imagePha) itPha.GoToBeginOfLine();
 
             // get mag and phase from the iterators
@@ -263,14 +275,24 @@ namespace itk {
             itOutVector[10].Set(LimitResult(calculator->getResults()["SD_T1"]));
             itOutVector[11].Set(LimitResult(calculator->getResults()["T2"]));
 
+            if (calculator->getSigns()) {
+                itOutMagSignRecov.GoToBeginOfLine();
+                while (!itOutMagSignRecov.IsAtEndOfLine()) {
+                    idx = itOutMagSignRecov.GetIndex();
+                    PixelTypeOut temp = calculator->getSigMag()[idx[2]] * calculator->getSigns()[idx[2]] + 4095;
+                    itOutMagSignRecov.Set(temp);
+                    ++itOutMagSignRecov;
+                }
+            }
+
             // iterate all iterators accordingly
             for (unsigned int i = 0; i < outputImagesVector.size(); ++i) {
                 ++itOutVector[i];
             }
             itMag.NextLine();
             if (imagePha) itPha.NextLine();
+            itOutMagSignRecov.NextLine();
         }
-
         // cleanup
         delete functionsObject;
         delete fitter;
@@ -281,100 +303,107 @@ namespace itk {
         delete [] sigPha;
     }
 
-    template< typename TImageIn, typename TImageOut >
-    TImageOut*
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
+    TImageOut1*
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::GetT1Image() {
-        return dynamic_cast< TImageOut * >(
+        return dynamic_cast< TImageOut1 * >(
                 this->ProcessObject::GetOutput(0) );
     }
 
-    template< typename TImageIn, typename TImageOut >
-    TImageOut*
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
+    TImageOut1*
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::GetR2Image() {
-        return dynamic_cast< TImageOut * >(
+        return dynamic_cast< TImageOut1 * >(
                 this->ProcessObject::GetOutput(1) );
     }
 
-    template< typename TImageIn, typename TImageOut >
-    TImageOut*
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
+    TImageOut1*
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::GetAImage() {
-        return dynamic_cast< TImageOut * >(
+        return dynamic_cast< TImageOut1 * >(
                 this->ProcessObject::GetOutput(2) );
     }
 
-    template< typename TImageIn, typename TImageOut >
-    TImageOut*
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
+    TImageOut1*
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::GetBImage() {
-        return dynamic_cast< TImageOut * >(
+        return dynamic_cast< TImageOut1 * >(
                 this->ProcessObject::GetOutput(3) );
     }
 
-    template< typename TImageIn, typename TImageOut >
-    TImageOut*
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
+    TImageOut1*
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::GetT1starImage() {
-        return dynamic_cast< TImageOut * >(
+        return dynamic_cast< TImageOut1 * >(
                 this->ProcessObject::GetOutput(4) );
     }
 
-    template< typename TImageIn, typename TImageOut >
-    TImageOut*
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
+    TImageOut1*
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::GetChiSqrtImage(){
-        return dynamic_cast< TImageOut * >(
+        return dynamic_cast< TImageOut1 * >(
                 this->ProcessObject::GetOutput(5) );
     }
 
-    template< typename TImageIn, typename TImageOut >
-    TImageOut*
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
+    TImageOut1*
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::GetSNRImage() {
-        return dynamic_cast< TImageOut * >(
+        return dynamic_cast< TImageOut1 * >(
                 this->ProcessObject::GetOutput(6) );
     }
 
-    template< typename TImageIn, typename TImageOut >
-    TImageOut*
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
+    TImageOut1*
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::GetNShmolliSamplesUsedImage() {
-        return dynamic_cast< TImageOut * >(
+        return dynamic_cast< TImageOut1 * >(
                 this->ProcessObject::GetOutput(7) );
     }
 
-    template< typename TImageIn, typename TImageOut >
-    TImageOut*
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
+    TImageOut1*
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::GetSD_AImage() {
-        return dynamic_cast< TImageOut * >(
+        return dynamic_cast< TImageOut1 * >(
                 this->ProcessObject::GetOutput(8) );
     }
 
-    template< typename TImageIn, typename TImageOut >
-    TImageOut*
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
+    TImageOut1*
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::GetSD_BImage() {
-        return dynamic_cast< TImageOut * >(
+        return dynamic_cast< TImageOut1 * >(
                 this->ProcessObject::GetOutput(9) );
     }
 
-    template< typename TImageIn, typename TImageOut >
-    TImageOut*
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
+    TImageOut1*
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::GetSD_T1Image() {
-        return dynamic_cast< TImageOut * >(
+        return dynamic_cast< TImageOut1 * >(
                 this->ProcessObject::GetOutput(10) );
     }
 
-    template< typename TImageIn, typename TImageOut >
-    TImageOut*
-    CalculatorT1ImageFilter<TImageIn, TImageOut>
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
+    TImageOut1*
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::GetT2Image() {
-        return dynamic_cast< TImageOut * >(
+        return dynamic_cast< TImageOut1 * >(
                 this->ProcessObject::GetOutput(11) );
+    }
+
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
+    TImageOut2*
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
+    ::GetMagSignRecovered(){
+        return dynamic_cast< TImageOut2 * >(this->ProcessObject::GetOutput(12) );
     }
 
 }// end namespace itk

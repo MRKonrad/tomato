@@ -30,14 +30,14 @@ namespace itk {
     /**
      * \class CalculatorT1ImageFilter
      * @tparam TImageIn
-     * @tparam TImageOut
+     * @tparam TImageOut1
      */
-    template<typename TImageIn, typename TImageOut>
-    class CalculatorT1ImageFilter : public ImageToImageFilter<TImageIn, TImageOut> {
+    template<typename TImageIn, typename TImageOut1, typename TImageOut2 = TImageIn>
+    class CalculatorT1ImageFilter : public ImageToImageFilter<TImageIn, TImageOut1> {
     public:
         /** Standard class typedefs. */
         typedef CalculatorT1ImageFilter Self;
-        typedef ImageToImageFilter<TImageIn, TImageOut> Superclass;
+        typedef ImageToImageFilter<TImageIn, TImageOut1> Superclass;
         typedef SmartPointer<Self> Pointer;
 
         /** Needed for threads */
@@ -50,28 +50,35 @@ namespace itk {
         itkTypeMacro(CalculatorT1ImageFilter, ImageToImageFilter);
 
         typedef typename TImageIn::PixelType  PixelTypeIn;
-        typedef typename TImageOut::PixelType PixelTypeOut;
+        typedef typename TImageOut1::PixelType PixelTypeOut;
 
         void SetInputMagImage(const TImageIn *magImage);
         void SetInputPhaImage(const TImageIn *phaImage);
 
-        TImageOut* GetAImage();
-        TImageOut* GetBImage();
-        TImageOut* GetT1starImage();
-        TImageOut* GetT1Image();
-        TImageOut* GetR2Image();
-        TImageOut* GetChiSqrtImage();
-        TImageOut* GetSNRImage();
-        TImageOut* GetNShmolliSamplesUsedImage();
-        TImageOut* GetSD_AImage();
-        TImageOut* GetSD_BImage();
-        TImageOut* GetSD_T1Image();
-        TImageOut* GetT2Image();
+        TImageOut2* GetMagSignRecovered();
+
+        TImageOut1* GetAImage();
+        TImageOut1* GetBImage();
+        TImageOut1* GetT1starImage();
+        TImageOut1* GetT1Image();
+        TImageOut1* GetR2Image();
+        TImageOut1* GetChiSqrtImage();
+        TImageOut1* GetSNRImage();
+        TImageOut1* GetNShmolliSamplesUsedImage();
+        TImageOut1* GetSD_AImage();
+        TImageOut1* GetSD_BImage();
+        TImageOut1* GetSD_T1Image();
+        TImageOut1* GetT2Image();
 
         /** Getters and setters. */
         void SetCalculator(Ox::Calculator<PixelTypeIn>* calculator){
             this->m_Calculator = calculator;
         }
+
+        Ox::Calculator<PixelTypeIn> *GetCalculator() const{
+            return m_Calculator;
+        }
+
 
         itkSetMacro( LimitOutputIntensity, bool );
         itkGetMacro( LimitOutputIntensity, bool );
@@ -108,7 +115,7 @@ namespace itk {
         typename ImageRegionSplitterDirection::Pointer m_ImageRegionSplitter;
 
         /** Enforce maximum and minimum output value. */
-        typename TImageOut::PixelType LimitResult( typename TImageOut::PixelType result );
+        typename TImageOut1::PixelType LimitResult(typename TImageOut1::PixelType result );
 
     private:
         ITK_DISALLOW_COPY_AND_ASSIGN(CalculatorT1ImageFilter); //purposely not implemented

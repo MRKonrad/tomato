@@ -20,8 +20,6 @@
 
 namespace Ox {
 
-
-
     template< typename MeasureType >
     int
     Tomato<MeasureType>
@@ -37,10 +35,6 @@ namespace Ox {
         typename OxColorbarImageFilterType::Pointer OxColorbarFilter = OxColorbarImageFilterType::New();
         OxColorbarFilter->SetInput(_imageCalculatorItk->GetT1Image());
         OxColorbarFilter->SetAddColorbar(_opts->use_colorbar);
-
-        // get the dictionary ready before export
-        //typedef itk::MetaDataDictionary DictionaryType;
-        //DictionaryType & _dictionaryInput = reader->GetDicomIO()->GetMetaDataDictionary();
 
         // this one I want to reset
         itk::EncapsulateMetaData<std::string>( _dictionaryInput, std::string("0028|1052"), "0"); // Rescale intercept
@@ -87,7 +81,6 @@ namespace Ox {
         // PaletteColorLookupTableUID
         std::string PaletteColorLookupTableUID;
         itk::ExposeMetaData<std::string>(_dictionaryInput, "0028|1199", PaletteColorLookupTableUID);
-
 
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_T1Color, std::string("0008|0018"), sopInstanceUID_T1Color);
         itk::EncapsulateMetaData<std::string>( dictionaryOutput_T1Color, std::string("0002|0003"), sopInstanceUID_T1Color);
@@ -464,12 +457,14 @@ namespace Ox {
             }
             std::cout << " Saved!" << std::endl;
         }
+
+
         
         return 0; // EXIT_SUCCESS
     }
 
 } // namespace Ox
 
-#endif
+#endif // USE_ITK
 
 #endif //Tomato_Tomato_EXPORT_HXX

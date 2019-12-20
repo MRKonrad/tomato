@@ -106,6 +106,12 @@ namespace Ox {
          * method so long and ugly, that I put it in a separate file
          * @return success/failure
          */
+        int exportT1MagSignRecovToDicom();
+
+        /**
+         * method so long and ugly, that I put it in a separate file
+         * @return success/failure
+         */
         int exportT2ToDicom();
 
     };
@@ -115,6 +121,7 @@ namespace Ox {
 #ifndef TOMATOLIB_COMPILED
 #include "Tomato.hxx"
 #include "Tomato_exportT1.hxx"
+#include "Tomato_exportT1_magSignRecov.hxx"
 #include "Tomato_exportT2.hxx"
 #endif // TOMATOLIB_COMPILED
 

@@ -20,6 +20,8 @@ dir_output_map: "testData/tomatoOutput_Molli/map"
 output_map_series_number: 9998
 dir_output_fitparams: "testData/tomatoOutput_Molli/fitparams"
 output_fitparams_series_number: 9999
+dir_output_magSignRecov: "testData/tomatoOutput_Molli/dir_output_magSignRecov"
+output_magSignRecov_series_number: 9997
 
 parameter_to_map: T1_MOLLI
 model_type: ModelT1ThreeParam

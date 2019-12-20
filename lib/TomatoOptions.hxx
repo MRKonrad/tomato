@@ -39,6 +39,7 @@ namespace Ox {
         parser._scalars["dir_phase"];
         parser._scalars["dir_output_map"];
         parser._scalars["dir_output_fitparams"];
+        parser._scalars["dir_output_magSignRecov"];
 
         parser._scalars["parameter_to_map"];
         parser._scalars["fitting_method"];
@@ -62,6 +63,7 @@ namespace Ox {
 
         parser._scalars["output_map_series_number"];
         parser._scalars["output_fitparams_series_number"];
+        parser._scalars["output_magSignRecov_series_number"];
 
         parser.parse();
 
@@ -74,11 +76,14 @@ namespace Ox {
         // output
         dir_output_map = parser._scalars["dir_output_map"];
         dir_output_fitparams = parser._scalars["dir_output_fitparams"];
+        dir_output_magSignRecov = parser._scalars["dir_output_magSignRecov"];
 
         if (!parser._scalars["output_map_series_number"].empty())
             output_map_series_number = KWUtil::StringToNumber<MeasureType>(parser._scalars["output_map_series_number"]);
         if (!parser._scalars["output_fitparams_series_number"].empty())
             output_fitparams_series_number = KWUtil::StringToNumber<MeasureType>(parser._scalars["output_fitparams_series_number"]);
+        if (!parser._scalars["output_magSignRecov_series_number"].empty())
+            output_magSignRecov_series_number = KWUtil::StringToNumber<MeasureType>(parser._scalars["output_magSignRecov_series_number"]);
 
         // calc options
         if (!parser._scalars["parameter_to_map"].empty())
@@ -163,8 +168,10 @@ namespace Ox {
         printf("\n dir_phase:     %s ", dir_phase.c_str());
         printf("\n dir_output_map:       %s ", dir_output_map.c_str());
         printf("\n dir_output_fitparams: %s ", dir_output_fitparams.c_str());
+        printf("\n dir_output_magSignRecov: %s ", dir_output_magSignRecov.c_str());
         printf("\n output_map_series_number:       %d", output_map_series_number);
         printf("\n output_fitparams_series_number: %d", output_fitparams_series_number);
+        printf("\n output_magSignRecov_series_number: %d", output_magSignRecov_series_number);
         printf("\n");
         printf("\n");
         Ox::FactoryOfCalculators<double>::disp(parameter_to_map);
@@ -208,6 +215,11 @@ namespace Ox {
             exportToYaml(filePath);
         }
 
+        if (dir_output_magSignRecov.length() > 0){
+            std::string filePath = dir_output_magSignRecov + KWUtil::PathSeparator() + "tomato_output_config.yaml";
+            exportToYaml(filePath);
+        }
+
         return 0; // EXIT_SUCCESS
     }
 
@@ -231,8 +243,10 @@ namespace Ox {
         KWUtilYaml::addMapping(&document, mapping_node_number, "dir_phase", dir_phase);
         KWUtilYaml::addMapping(&document, mapping_node_number, "dir_output_map", dir_output_map);
         KWUtilYaml::addMapping(&document, mapping_node_number, "dir_output_fitparams", dir_output_fitparams);
+        KWUtilYaml::addMapping(&document, mapping_node_number, "dir_output_magSignRecov", dir_output_magSignRecov);
         KWUtilYaml::addMapping(&document, mapping_node_number, "output_map_series_number", KWUtil::NumberToString(output_map_series_number));
         KWUtilYaml::addMapping(&document, mapping_node_number, "output_fitparams_series_number", KWUtil::NumberToString(output_fitparams_series_number));
+        KWUtilYaml::addMapping(&document, mapping_node_number, "output_magSignRecov_series_number", KWUtil::NumberToString(output_magSignRecov_series_number));
 
         KWUtilYaml::addMapping(&document, mapping_node_number, "parameter_to_map", calculatorsTypeNames[parameter_to_map]);
         KWUtilYaml::addMapping(&document, mapping_node_number, "fitting_method", fittersTypeNames[fitting_method]);
