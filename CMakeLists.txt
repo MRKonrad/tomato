@@ -87,6 +87,9 @@ include(cmake/libyaml.cmake)
 set(USE_LMFIT ON CACHE BOOL "Do you want to use LMFIT?")
 include(cmake/lmfit.cmake)
 
+set(USE_TOMATOFIT ON CACHE BOOL "Do you want to use TOMATOFIT?")
+include(cmake/tomatofit.cmake)
+
 ###########
 ### ITK ###
 ###########
@@ -125,6 +128,7 @@ MESSAGE("USE_ITK:               " ${USE_ITK})
 MESSAGE("USE_VNL:               " ${USE_VNL})
 MESSAGE("USE_PRIVATE_NR2:       " ${USE_PRIVATE_NR2})
 MESSAGE("USE_LMFIT:             " ${USE_LMFIT})
+MESSAGE("USE_TOMATOFIT:         " ${USE_TOMATOFIT})
 MESSAGE("USE_YAML:              " ${USE_YAML})
 MESSAGE("BUILD_APP:             " ${BUILD_APP})
 MESSAGE("Tomato_BUILD_TESTING:  " ${Tomato_BUILD_TESTING})

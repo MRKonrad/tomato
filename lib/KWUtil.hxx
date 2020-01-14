@@ -211,7 +211,7 @@ double KWUtil::calcStandardDeviationArray(int nSamples, const TYPE *myarray) {
         for (unsigned int i = 0; i < nSamples; ++i){
             sum = sum + (myarray[i] - mymean) * (myarray[i] - mymean);
         }
-        return (sqrt(sum)/(nSamples-1));
+        return sqrt(sum/(nSamples-1));
     }
 }
 

@@ -24,9 +24,9 @@ namespace Ox {
         void
         calcLSResiduals(const double *parameters, int nSamples, const void *data_void, double *residuals, int *info ){
 
-            Model<TYPE> *Functor = const_cast<Model<TYPE> *>(reinterpret_cast<const Model<TYPE> *>(data_void));
+            Model<TYPE> *model = const_cast<Model<TYPE> *>(reinterpret_cast<const Model<TYPE> *>(data_void));
 
-            Functor->calcLSResiduals(parameters, residuals);
+            model->calcLSResiduals(parameters, residuals);
 
         }
 

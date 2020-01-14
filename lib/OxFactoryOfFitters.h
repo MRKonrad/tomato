@@ -27,7 +27,8 @@ namespace Ox {
             "AmoebaVnl",
             "LevMarVnl",
             "AmoebaPrivateNr2",
-            "LevMarLmfit"
+            "LevMarLmfit",
+            "LevMarTomatoFit"
     };
 
     enum fittersType_t {
@@ -35,7 +36,8 @@ namespace Ox {
         LevMarVnl = 1,
         AmoebaPrivateNr2 = 2,
         LevMarLmfit = 3,
-        lastFitterType = LevMarLmfit
+        LevMarTomatoFit = 4,
+        lastFitterType = LevMarTomatoFit
     };
 
     static int fittersAvailability[] = {
@@ -48,9 +50,14 @@ namespace Ox {
 #endif
 
 #ifdef USE_LMFIT
-            1 // LevMarLmfit
+            1, // LevMarLmfit
 #else
-            0 // LevMarLmfit
+            0, // LevMarLmfit
+#endif
+#ifdef USE_TOMATOFIT
+            1 // LevMarTomatoFit
+#else
+            0 // LevMarTomatoFit
 #endif
     };
 

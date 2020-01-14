@@ -15,6 +15,9 @@
 #ifdef USE_LMFIT
 #include "OxFitterLevenbergMarquardtLmfit.h"
 #endif
+#ifdef USE_TOMATOFIT
+#include "OxFitterLevenbergMarquardtTomatoFit.h"
+#endif
 
 
 namespace Ox {
@@ -44,6 +47,12 @@ namespace Ox {
 #ifdef USE_LMFIT
             case LevMarLmfit: {
                 fitter = new FitterLevenbergMarquardtLmfit<TYPE>();
+                break;
+            }
+#endif
+#ifdef USE_TOMATOFIT
+            case LevMarTomatoFit: {
+                fitter = new FitterLevenbergMarquardtTomatoFit<TYPE>();
                 break;
             }
 #endif

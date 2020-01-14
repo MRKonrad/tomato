@@ -8,5 +8,6 @@
 #cmakedefine USE_PRIVATE_NR2
 #cmakedefine USE_YAML
 #cmakedefine USE_LMFIT
+#cmakedefine USE_TOMATOFIT
 
 

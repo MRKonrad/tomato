@@ -56,6 +56,22 @@ TEST(ActeptanceTests_TomatoT1Test, readAndSort_calculate_export_LevMarLmfit) {
 }
 #endif
 
+#ifdef USE_TOMATOFIT
+TEST(ActeptanceTests_TomatoT1Test, readAndSort_calculate_export_LevMarTomatoFit) {
+
+    Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
+//    Tomato_object._opts->max_function_evals = 5; // to make the calculations faster
+//    Tomato_object._opts->number_of_threads = 1;
+    Tomato_object._opts->fitting_method = Ox::LevMarTomatoFit;
+    Tomato_object._opts->dir_output_map = "testData/tomatoOutput_Molli_tomatofit/map";
+    Tomato_object._opts->dir_output_fitparams = "testData/tomatoOutput_Molli_tomatofit/fitparams";
+    EXPECT_EQ(Tomato_object.readAndSort(), 0); // EXIT_SUCCESS
+    EXPECT_EQ(Tomato_object.calculate(), 0); // EXIT_SUCCESS
+    EXPECT_EQ(Tomato_object.exportToDicom(), 0); // EXIT_SUCCESS
+
+}
+#endif
+
 TEST(ActeptanceTests_TomatoT1Test, readAndSort_calculate_export_AmoebaVnl) {
 
     Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");
