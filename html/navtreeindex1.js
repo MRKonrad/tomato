@@ -1,5 +1,11 @@
 var NAVTREEINDEX1 =
 {
+"class_ox_1_1_calculator.html#a4b04d48cb906764aa235c387b631dca4":[3,0,1,0,15],
+"class_ox_1_1_calculator.html#a4ee7fdeb4009d2e433ef6a566768eb25":[3,0,1,0,18],
+"class_ox_1_1_calculator.html#a51fb95a1a68b1e14b659761c1f64aaab":[3,0,1,0,34],
+"class_ox_1_1_calculator.html#a5589bf7b93a2d1e106532c35745f4329":[3,0,1,0,9],
+"class_ox_1_1_calculator.html#a5bccc8796af4025d3f072406d839d3a6":[3,0,1,0,50],
+"class_ox_1_1_calculator.html#a5e5b6e1af84b8713c833a25d7c0dd90d":[3,0,1,0,12],
 "class_ox_1_1_calculator.html#a600434abcaff13ac70d0d4b06b9df583":[3,0,1,0,1],
 "class_ox_1_1_calculator.html#a65d901e63b2f59b77a7dea82eaaa8215":[3,0,1,0,27],
 "class_ox_1_1_calculator.html#a6698aa9563e9c7d251d4ff73810dd12c":[3,0,1,0,13],
@@ -243,11 +249,5 @@ var NAVTREEINDEX1 =
 "class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a":[3,0,1,19,2],
 "class_ox_1_1_start_point_calculator.html#a408ce85b6fbf0ee69f4eca3176b814d6":[3,0,1,19,0],
 "class_ox_1_1_start_point_calculator.html#a48b39c1d6bb733821f7297593e424728":[3,0,1,19,5],
-"class_ox_1_1_start_point_calculator.html#a5cf615178da5bb3af984eea616548e05":[3,0,1,19,25],
-"class_ox_1_1_start_point_calculator.html#a64929ca24726ddf99017b6f18cc03e29":[3,0,1,19,21],
-"class_ox_1_1_start_point_calculator.html#a72195ac7840734cd9001d0303ab859f4":[3,0,1,19,15],
-"class_ox_1_1_start_point_calculator.html#a7549a2a735665d8b204c230c817fc5d4":[3,0,1,19,19],
-"class_ox_1_1_start_point_calculator.html#a75c73487e21a0f4920762c1efc96d573":[3,0,1,19,7],
-"class_ox_1_1_start_point_calculator.html#a7cff5323e92bc00fdc9baa2a3eef7a37":[3,0,1,19,16],
-"class_ox_1_1_start_point_calculator.html#a800e7f49b7956602b4ae9e4eb718eadd":[3,0,1,19,23]
+"class_ox_1_1_start_point_calculator.html#a5cf615178da5bb3af984eea616548e05":[3,0,1,19,25]
 };

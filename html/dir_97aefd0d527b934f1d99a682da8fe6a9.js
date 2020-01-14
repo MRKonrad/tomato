@@ -49,6 +49,7 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     ] ],
     [ "OxModel.hxx", "_ox_model_8hxx_source.html", null ],
     [ "OxModelT1AdapterLmfitLeastSquares.h", "_ox_model_t1_adapter_lmfit_least_squares_8h.html", null ],
+    [ "OxModelT1AdapterTomatoFitLeastSquares.h", "_ox_model_t1_adapter_tomato_fit_least_squares_8h.html", null ],
     [ "OxModelT1AdapterVnlCost.h", "_ox_model_t1_adapter_vnl_cost_8h.html", null ],
     [ "OxModelT1AdapterVnlLeastSquares.h", "_ox_model_t1_adapter_vnl_least_squares_8h.html", null ],
     [ "OxModelT1Shmolli.h", "_ox_model_t1_shmolli_8h.html", [
