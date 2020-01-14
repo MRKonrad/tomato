@@ -17,6 +17,7 @@
 #endif
 #ifdef USE_TOMATOFIT
 #include "OxFitterLevenbergMarquardtTomatoFit.h"
+#include "OxFitterRobustTomatoFit.h"
 #endif
 
 
@@ -53,6 +54,10 @@ namespace Ox {
 #ifdef USE_TOMATOFIT
             case LevMarTomatoFit: {
                 fitter = new FitterLevenbergMarquardtTomatoFit<TYPE>();
+                break;
+            }
+            case RobustTomatoFit: {
+                fitter = new FitterRobustTomatoFit<TYPE>();
                 break;
             }
 #endif
