@@ -51,12 +51,13 @@ var NAVTREEINDEX0 =
 "_ox_factory_of_calculators_8hxx_source.html":[4,0,1,20],
 "_ox_factory_of_fitters_8h.html":[4,0,1,21],
 "_ox_factory_of_fitters_8h.html#a2894c58af49acd3ab25739653eca4743":[4,0,1,21,2],
+"_ox_factory_of_fitters_8h.html#a2894c58af49acd3ab25739653eca4743a00fd72a3c3c455bbf4a5b00ec3108d68":[4,0,1,21,2,5],
 "_ox_factory_of_fitters_8h.html#a2894c58af49acd3ab25739653eca4743a2583a82bb5834944e322f14544845463":[4,0,1,21,2,4],
 "_ox_factory_of_fitters_8h.html#a2894c58af49acd3ab25739653eca4743a4e9ea11d05d9846d31c3b990f51f0c6d":[4,0,1,21,2,0],
 "_ox_factory_of_fitters_8h.html#a2894c58af49acd3ab25739653eca4743ab4b3b4e7fa54d3070a034d0cf5c83f6d":[4,0,1,21,2,2],
 "_ox_factory_of_fitters_8h.html#a2894c58af49acd3ab25739653eca4743ace3acb566e8d94769e46ed87ad8d5350":[4,0,1,21,2,1],
 "_ox_factory_of_fitters_8h.html#a2894c58af49acd3ab25739653eca4743ad362fb6029d73ccedb0c4ea9c7220613":[4,0,1,21,2,3],
-"_ox_factory_of_fitters_8h.html#a2894c58af49acd3ab25739653eca4743ae071622b94239d928da61cf3b6e44445":[4,0,1,21,2,5],
+"_ox_factory_of_fitters_8h.html#a2894c58af49acd3ab25739653eca4743ae071622b94239d928da61cf3b6e44445":[4,0,1,21,2,6],
 "_ox_factory_of_fitters_8h_source.html":[4,0,1,21],
 "_ox_factory_of_fitters_8hxx.html":[4,0,1,22],
 "_ox_factory_of_fitters_8hxx_source.html":[4,0,1,22],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "class_ox_1_1_calculator.html#a369ce1a35879f24950dd23af0e14761c":[3,0,1,0,53],
 "class_ox_1_1_calculator.html#a37dee4f1bb2fcae66c6710a642fe6d7b":[3,0,1,0,42],
 "class_ox_1_1_calculator.html#a3a4266dedca7e02707e732a312b85048":[3,0,1,0,10],
-"class_ox_1_1_calculator.html#a40c854c0d75685ecc1da531f7400e3b1":[3,0,1,0,31],
-"class_ox_1_1_calculator.html#a4a3762f0c260cb0e34f72e40a7329d27":[3,0,1,0,0]
+"class_ox_1_1_calculator.html#a40c854c0d75685ecc1da531f7400e3b1":[3,0,1,0,31]
 };

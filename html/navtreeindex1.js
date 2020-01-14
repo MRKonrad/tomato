@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"class_ox_1_1_calculator.html#a4a3762f0c260cb0e34f72e40a7329d27":[3,0,1,0,0],
 "class_ox_1_1_calculator.html#a4b04d48cb906764aa235c387b631dca4":[3,0,1,0,15],
 "class_ox_1_1_calculator.html#a4ee7fdeb4009d2e433ef6a566768eb25":[3,0,1,0,18],
 "class_ox_1_1_calculator.html#a51fb95a1a68b1e14b659761c1f64aaab":[3,0,1,0,34],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "class_ox_1_1_start_point_calculator.html#a1e68d3a23cee006d4dbdd47583c5d316":[3,0,1,19,4],
 "class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a":[3,0,1,19,2],
 "class_ox_1_1_start_point_calculator.html#a408ce85b6fbf0ee69f4eca3176b814d6":[3,0,1,19,0],
-"class_ox_1_1_start_point_calculator.html#a48b39c1d6bb733821f7297593e424728":[3,0,1,19,5],
-"class_ox_1_1_start_point_calculator.html#a5cf615178da5bb3af984eea616548e05":[3,0,1,19,25]
+"class_ox_1_1_start_point_calculator.html#a48b39c1d6bb733821f7297593e424728":[3,0,1,19,5]
 };
