@@ -115,8 +115,8 @@ namespace Ox {
         // some initialisation
         std::map <std::string, MeasureType> results;
 
-        MeasureType lastValue = 1e32;
-        MeasureType lastValueTemp = 1e32;
+        MeasureType mse = 1e32;
+        MeasureType mseTemp = 1e32;
         MeasureType *tempParameters = new MeasureType[this->_nDims];
         MeasureType *tempResults = new MeasureType[this->_nDims];
 
@@ -136,8 +136,7 @@ namespace Ox {
 
         // save the tempResults at the best tempResults
         KWUtil::copyArrayToArray(this->_nDims, tempResults, this->getFitter()->getParameters());
-        lastValue = this->getModel()->calcCostValue(this->getFitter()->getParameters());
-
+        mse = this->getFitter()->getMse();
         // look for better solutions than the above one
         for (int iSwap = 0; iSwap < nSamples; iSwap++) {
 
@@ -156,33 +155,33 @@ namespace Ox {
 
             // fit
             this->getFitter()->performFitting();
-            lastValueTemp = this->getModel()->calcCostValue(this->getFitter()->getParameters());
+            mseTemp = this->getFitter()->getMse();
 
             // are these the best tempResults?
-            if (lastValueTemp < lastValue) {
+            if (mseTemp < mse) {
                 // save the tempResults at the best tempResults
                 KWUtil::copyArrayToArray(this->_nDims, tempResults, this->getFitter()->getParameters());
-                lastValue = lastValueTemp;
+                mse = mseTemp;
                 signs[iSwap] = -1;
             }
         }
 
-        if (lastValue != 1e32 && tempResults[0] != 0) {
+        if (mse != 1e32 && tempResults[0] != 0) {
             if (this->_nDims == 2) {
                 results["A"] = tempResults[0];
                 results["T1"] = tempResults[1];
                 results["R2"] = calculateR2AbsFromModel(nSamples, invTimes, signal, tempResults);
-                results["ChiSqrt"] = KWUtil::getChiSqrt(lastValue, nSamples);
-                results["LastValue"] = lastValue;
+                results["ChiSqrt"] = KWUtil::getChiSqrt(mse*nSamples, nSamples);
+                results["LastValue"] = mse*nSamples;
             } else if (this->_nDims == 3) {
                 results["T1"] = tempResults[2] * (tempResults[1] / tempResults[0] - 1.);
                 results["R2"] = calculateR2AbsFromModel(nSamples, invTimes, signal, tempResults);
                 results["A"] = tempResults[0];
                 results["B"] = tempResults[1];
                 results["T1star"] = tempResults[2];
-                results["ChiSqrt"] = KWUtil::getChiSqrt(lastValue, nSamples);
+                results["ChiSqrt"] = KWUtil::getChiSqrt(mse*nSamples, nSamples);
                 results["SNR"] = (results["B"] - results["A"]) / (results["ChiSqrt"] + 0.001);
-                results["LastValue"] = lastValue;
+                results["LastValue"] = mse*nSamples;
 
                 MeasureType covarianceMatrix[3 * 3];
                 calculateCovarianceMatrix(tempResults, covarianceMatrix);

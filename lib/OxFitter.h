@@ -31,6 +31,9 @@ namespace Ox {
 
         virtual const Model<MeasureType>* getModel() const { return _Model; }
         virtual MeasureType *getParameters() { return _Parameters; }
+        virtual MeasureType getMse() const {
+            return _Model->calcCostValue(_Parameters) / _Model->getNSamples();
+        }
         virtual const MeasureType getXTolerance() const { return _XTolerance; }
         virtual const MeasureType getFTolerance() const { return _FTolerance; }
         virtual const bool getUseGradient() const { return _UseGradient; }
@@ -41,6 +44,7 @@ namespace Ox {
 
         virtual void setModel(Model<MeasureType>* _ModelT1) { Fitter::_Model = _ModelT1; }
         virtual void setParameters( MeasureType *_Parameters) { Fitter::_Parameters = _Parameters; }
+        virtual void setMse(MeasureType mse) { _Mse = mse; }
         virtual void setXTolerance(const MeasureType _XTolerance) { Fitter::_XTolerance = _XTolerance; }
         virtual void setUseGradient(const bool _UseGradient) { Fitter::_UseGradient = _UseGradient; }
         virtual void setFTolerance(const MeasureType _FTolerance) { Fitter::_FTolerance = _FTolerance; }
@@ -91,6 +95,7 @@ namespace Ox {
         Fitter(){
             _Model = 0; //nullpointer
             _Parameters = 0; //nullpointer
+            _Mse = 0;
 
             _XTolerance = 1e-12;
             _FTolerance = 1e-12;
@@ -107,6 +112,8 @@ namespace Ox {
          */
         Fitter(const Fitter &old) {
             _Model = 0; //nullpointer
+            _Parameters = 0; //nullpointer
+            _Mse = 0;
 
             _XTolerance = old._XTolerance;
             _FTolerance = old._FTolerance;
@@ -132,6 +139,7 @@ namespace Ox {
     protected:
         Model<MeasureType>* _Model;
         MeasureType* _Parameters;
+        MeasureType _Mse;
 
         MeasureType _XTolerance;
         MeasureType _FTolerance;
