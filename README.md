@@ -11,7 +11,7 @@ It contains ShMOLLI implementation as in [this article](https://jcmr-online.biom
 |------------------------------------------------|:-----------------------------------------------------:|
 | :tomato: [Tutorial][toamto_docs_link] :tomato: | :tomato: [Tomato Docs][toamto_docs_link]   :tomato:   |
 | [Code documentation][doxygen_link]             | [Doxygen][doxygen_link]                               |
-| [DOI][zenodo_link]                             | [![DOI][zenodo_badge]][zenodo_link]                   |
+| [DOI][doi_link]                                | [![DOI][doi_badge]][doi_link]                         |
 | [OSX/Linux build - Travis][travis_link]        | [![Travis (.org)][travis_badge]][travis_link]         |
 | [Windows build - AppVeyor][appveyor_link]      | [![AppVeyor][appveyor_badge]][appveyor_link]          |
 | [Code quality - Codacy][codacy_link]           | [![Codacy Badge][codacy_badge]][codacy_link]          |
@@ -38,8 +38,8 @@ Please see [contributing.md](contributing.md) and [codeofconduct.md](codeofcondu
 *   Solution: Download <https://www.microsoft.com/en-us/download/details.aspx?id=48145> as suggested in 
 <https://stackoverflow.com/questions/32998902/msvcp140-dll-missing>
 
-[zenodo_link]: https://zenodo.org/badge/latestdoi/142749215
-[zenodo_badge]: https://img.shields.io/badge/DOI-10.5281%2Fzenodo.1489791-blue.svg?style=flat-square
+[doi_link]: https://doi.org/10.1016/j.softx.2019.100369
+[doi_badge]: https://img.shields.io/badge/DOI-10.1016%2Fj.softx.2019.100369-blue?style=flat-square
 [travis_link]: https://travis-ci.org/MRKonrad/tomato
 [travis_badge]: https://img.shields.io/travis/MRKonrad/tomato/master.svg?style=flat-square
 [appveyor_link]: https://ci.appveyor.com/project/MRKonrad/tomato
