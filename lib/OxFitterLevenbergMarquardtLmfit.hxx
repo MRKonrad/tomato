@@ -1,7 +1,7 @@
 /*!
  * \file OxFitterLevenbergMarquardtLmfit.h
  * \author Konrad Werys
- * \date 2019/08/14
+ * \date 2020/10/23
  */
 
 #ifndef Tomato_OXFITTERLEVENBERGMARQUARDTLMFIT_HXX

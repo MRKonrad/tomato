@@ -137,6 +137,7 @@ TEST(OxCalculatorT1Molli, calculate_WithoutSigns) {
     EXPECT_NEAR(calculatorT1Molli.getResults()["A"], testData.getResultsMolli()[0], 1e-2);
     EXPECT_NEAR(calculatorT1Molli.getResults()["B"], testData.getResultsMolli()[1], 1e-2);
     EXPECT_NEAR(calculatorT1Molli.getResults()["T1star"], testData.getResultsMolli()[2], 1e-2);
+    EXPECT_EQ(calculatorT1Molli.getResults()["timeFlip"], 2);
 }
 #endif
 

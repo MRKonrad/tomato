@@ -119,6 +119,7 @@ namespace Ox {
         MeasureType mseTemp = 1e32;
         MeasureType *tempParameters = new MeasureType[this->_nDims];
         MeasureType *tempResults = new MeasureType[this->_nDims];
+        int timeFlip = 0;
 
         KWUtil::copyArrayToArray(this->_nDims, tempParameters, this->_StartPoint); // start from the starting point
 
@@ -163,6 +164,7 @@ namespace Ox {
                 KWUtil::copyArrayToArray(this->_nDims, tempResults, this->getFitter()->getParameters());
                 mse = mseTemp;
                 signs[iSwap] = -1;
+                timeFlip = iSwap;
             }
         }
 
@@ -173,6 +175,7 @@ namespace Ox {
                 results["R2"] = calculateR2AbsFromModel(nSamples, invTimes, signal, tempResults);
                 results["ChiSqrt"] = KWUtil::getChiSqrt(mse*nSamples, nSamples);
                 results["LastValue"] = mse*nSamples;
+                results["timeFlip"] = timeFlip;
             } else if (this->_nDims == 3) {
                 results["T1"] = tempResults[2] * (tempResults[1] / tempResults[0] - 1.);
                 results["R2"] = calculateR2AbsFromModel(nSamples, invTimes, signal, tempResults);
@@ -182,6 +185,7 @@ namespace Ox {
                 results["ChiSqrt"] = KWUtil::getChiSqrt(mse*nSamples, nSamples);
                 results["SNR"] = (results["B"] - results["A"]) / (results["ChiSqrt"] + 0.001);
                 results["LastValue"] = mse*nSamples;
+                results["timeFlip"] = timeFlip;
 
                 MeasureType covarianceMatrix[3 * 3];
                 calculateCovarianceMatrix(tempResults, covarianceMatrix);

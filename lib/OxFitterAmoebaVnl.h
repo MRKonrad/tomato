@@ -11,65 +11,35 @@
 #ifdef USE_VNL
 
 #include "OxFitter.h"
-#include "OxModelT1AdapterVnlCost.h"
-#include <vnl/algo/vnl_amoeba.h>
+
+class vnl_amoeba;
 
 namespace Ox {
+
+    class ModelT1AdapterVnlCost;
+
     template<typename MeasureType>
     class FitterAmoebaVnl : public Fitter<MeasureType> {
 
     public:
-
-        typedef vnl_amoeba VnlFitterType; // !!! this is the most important configuration part !!!
-        typedef ModelT1AdapterVnlCost FunctionsAdaptedToVnlType;
-
         /**
          * the most important function of this class
          * @return success/failure
          */
-        virtual int performFitting(){
-
-            configureMinimizer();
-
-            vnl_vector<MeasureType> temp(this->getParameters(), this->_Model->getNDims());
-
-            _VnlFitter->minimize(temp);
-
-            if (temp.size() != 0) {
-                temp.copy_out(this->getParameters());
-            }
-            if (this->getVerbose()) {
-                std::cout << "Results: " << temp << " Cost: " << this->_Model->calcCostValue(this->getParameters()) << std::endl;
-            }
-
-            return 0; //EXIT_SUCCESS;
-        };
+        virtual int performFitting();
 
         // getters
-        FunctionsAdaptedToVnlType *getFunctionsAdaptedToVnl() const {
-            return _FunctionsAdaptedToVnl;
-        }
+        ModelT1AdapterVnlCost *getModelAdaptedToVnl() const;
 
         /**
          * \brief show me your Fitter
          */
-        virtual void disp(){
-            std::cout << "\nYou called disp() on a FitterAmoebaVnl object " << this << "\n";
-            std::cout << "It has VnlFitter " << _VnlFitter << std::endl;
-            std::cout << "It has FunctionsAdaptedToVnl " << _FunctionsAdaptedToVnl << std::endl;
-            std::cout << "It's base class is as follows: ";
-
-            Fitter<MeasureType>::disp();
-        }
+        virtual void disp();
 
         /**
          * \brief constructor
          */
-        FitterAmoebaVnl() {
-            // I cannot initialise _FunctionsAdaptedToVnl here, as I do not know nDims yet
-            _FunctionsAdaptedToVnl = 0;
-            _VnlFitter = 0;
-        };
+        FitterAmoebaVnl();
 
         /**
          * cloning
@@ -80,41 +50,24 @@ namespace Ox {
         /**
          * \brief destructor
          */
-        virtual ~FitterAmoebaVnl() {
-            delete _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;
-            delete _VnlFitter; _VnlFitter = 0;
-        };
+        virtual ~FitterAmoebaVnl();
 
     protected:
 
-        virtual void configureMinimizer() {
-            if (!_VnlFitter) {
-                if (!this->_Model) {
-                    throw std::runtime_error("Set the Model object");
-                } else {
-                    delete _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;
-                    delete _VnlFitter; _VnlFitter = 0;
-                    int nDims = this->_Model->getNDims();
-                    _FunctionsAdaptedToVnl = new FunctionsAdaptedToVnlType(nDims);
-                    _FunctionsAdaptedToVnl->setModel(this->_Model);
-                    _VnlFitter = new VnlFitterType(*_FunctionsAdaptedToVnl);
-                }
-                _FunctionsAdaptedToVnl->setModel(this->_Model);
-                _VnlFitter->set_x_tolerance(this->getXTolerance());
-                _VnlFitter->set_f_tolerance(this->getFTolerance());
-                //m_LocalFitter->set_g_tolerance(this->GetGTolerance());
-                _VnlFitter->set_max_iterations(this->getMaxFunctionEvals());
-            }
-        };
+        virtual void configureMinimizer();
 
     private:
 
-        VnlFitterType *_VnlFitter; // not meant to be see outside
-        FunctionsAdaptedToVnlType *_FunctionsAdaptedToVnl; // not meant to be see outside
+        vnl_amoeba *_VnlFitter; // not meant to be see outside
+        ModelT1AdapterVnlCost *_FunctionsAdaptedToVnl; // not meant to be see outside
 
     };
 
 } // namespace Ox
+
+#ifndef TOMATOLIB_COMPILED
+#include "OxFitterAmoebaVnl.hxx"
+#endif // TOMATOLIB_COMPILED
 
 #endif //USE_VNL
 

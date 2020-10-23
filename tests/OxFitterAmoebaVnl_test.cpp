@@ -76,7 +76,7 @@ TEST(OxFitterAmoebaVnl, copyConstructor) {
     EXPECT_NE( fitterCopy.getModel(), fitter.getModel());
 
     // new FunctionsAdaptedToVnl should NOT be copied in the constructor
-    EXPECT_FALSE( fitterCopy.getFunctionsAdaptedToVnl());
+    EXPECT_FALSE( fitterCopy.getModelAdaptedToVnl());
 
 }
 
