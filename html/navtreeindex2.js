@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"class_ox_1_1_start_point_calculator.html#a1245375d6cad369f18ab4a32ddb28446":[3,0,1,19,17],
+"class_ox_1_1_start_point_calculator.html#a17601c059cd679301597bc897e297c2f":[3,0,1,19,24],
 "class_ox_1_1_start_point_calculator.html#a1bee9378aff7741838dad45ff6d5dc1d":[3,0,1,19,22],
 "class_ox_1_1_start_point_calculator.html#a1e68d3a23cee006d4dbdd47583c5d316":[3,0,1,19,4],
 "class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a":[3,0,1,19,2],

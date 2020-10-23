@@ -40,9 +40,11 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     ] ],
     [ "OxFitterAmoebaNr2.h", "_ox_fitter_amoeba_nr2_8h.html", null ],
     [ "OxFitterAmoebaVnl.h", "_ox_fitter_amoeba_vnl_8h.html", null ],
+    [ "OxFitterAmoebaVnl.hxx", "_ox_fitter_amoeba_vnl_8hxx_source.html", null ],
     [ "OxFitterLevenbergMarquardtLmfit.h", "_ox_fitter_levenberg_marquardt_lmfit_8h.html", null ],
     [ "OxFitterLevenbergMarquardtLmfit.hxx", "_ox_fitter_levenberg_marquardt_lmfit_8hxx_source.html", null ],
     [ "OxFitterLevenbergMarquardtVnl.h", "_ox_fitter_levenberg_marquardt_vnl_8h.html", null ],
+    [ "OxFitterLevenbergMarquardtVnl.hxx", "_ox_fitter_levenberg_marquardt_vnl_8hxx_source.html", null ],
     [ "OxImageCalculatorT1.h", "_ox_image_calculator_t1_8h_source.html", null ],
     [ "OxImageCalculatorT1.hxx", "_ox_image_calculator_t1_8hxx_source.html", null ],
     [ "OxModel.h", "_ox_model_8h.html", [
