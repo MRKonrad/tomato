@@ -30,18 +30,6 @@ if(CMAKE_CXX_STANDARD EQUAL 98)
     set(CXX_STANDARD_98 ON) # flag used in the code
 endif()
 
-# RPATH preparation for the executables
-set(CMAKE_INSTALL_RPATH
-        @executable_path
-        @executable_path/lib
-        @executable_path/../lib
-        @loader_path
-        @loader_path/lib
-        @loader_path/../lib
-        $ORIGIN
-        $ORIGIN/lib
-        $ORIGIN/../lib/)
-
 #############################
 ### DOWNLOAD DEPENDENCIES ###
 #############################
@@ -118,7 +106,7 @@ endif(USE_ITK)
 set(Tomato_BUILD_TESTING ON CACHE BOOL "Do you want to build Tomato tests?")
 
 set(BUILD_APP OFF)
-if(USE_ITK AND  USE_YAML)
+if(USE_ITK AND USE_YAML)
     set(BUILD_APP ON)
 endif()
 
@@ -148,7 +136,7 @@ include_directories(lib)
 include_directories("${PROJECT_BINARY_DIR}") # for the configuration header
 
 # target
-add_library(TomatoLib SHARED ${LIB_FILES})
+add_library(TomatoLib ${LIB_FILES})
 
 #link
 target_link_libraries(TomatoLib ${TOMATO_LIBS_TO_LINK})
@@ -174,6 +162,17 @@ if(BUILD_APP)
     # link
     target_link_libraries(TomatoExe ${TOMATO_LIBS_TO_LINK})
 
+    # RPATH preparation for the executables
+    set_target_properties(TomatoExe PROPERTIES INSTALL_RPATH
+            @executable_path
+            @executable_path/lib
+            @executable_path/../lib
+            @loader_path
+            @loader_path/lib
+            @loader_path/../lib
+            $ORIGIN
+            $ORIGIN/lib
+            $ORIGIN/../lib/)
 endif()
 
 ##################
