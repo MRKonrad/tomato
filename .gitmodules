@@ -7,3 +7,6 @@
 [submodule "thirdParty/yamlmatlab"]
 	path = thirdParty/yamlmatlab
 	url = https://github.com/ewiger/yamlmatlab.git
+[submodule "thirdParty/vxl"]
+	path = thirdParty/vxl
+	url = https://github.com/vxl/vxl.git/

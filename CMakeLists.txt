@@ -86,7 +86,6 @@ set(USE_ITK ON CACHE BOOL "Do you want to use ITK?")
 
 if(USE_ITK)
     set(USE_ITK OFF)
-    set(USE_VNL OFF)
     find_package(ITK HINTS ${ITK_DIR_HINTS})
     MESSAGE("ITK version:" ${ITK_VERSION})
     if(ITK_FOUND)
@@ -95,9 +94,23 @@ if(USE_ITK)
         include(${ITK_USE_FILE})
         set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} ${ITK_LIBRARIES})
     endif()
-else()
-    set(USE_VNL OFF)
 endif(USE_ITK)
+
+###########
+### VNL ###
+###########
+
+set(USE_VNL ON CACHE BOOL "Do you want to use VNL?")
+
+if(USE_VNL AND NOT USE_ITK)
+    # this option works only with CMAKE_CXX_STANDARD 11 or higher
+    add_subdirectory (${PROJECT_SOURCE_DIR}/thirdParty/vxl)
+    set(VXL_BUILD_CORE_NUMERICS_ONLY ON)
+    include_directories(${PROJECT_BINARY_DIR}/thirdParty/vxl/core)
+    include_directories(${PROJECT_BINARY_DIR}/thirdParty/vxl/vcl)
+    include_directories(${PROJECT_SOURCE_DIR}/thirdParty/vxl/core)
+    set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} vnl vnl_algo)
+endif()
 
 ####################
 ### MAIN PROGRAM ###

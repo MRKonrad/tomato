@@ -5,10 +5,12 @@
  */
 
 #include "TomatoColormap.h"
+
+#ifdef USE_ITK
+
 #include "gdcmGlobal.h"
 #include "gdcmBase64.h"
 
-#ifdef USE_ITK
 
 std::string getEncodedSting(std::vector < unsigned short > encodeSource){
 

@@ -28,7 +28,9 @@ namespace Ox {
     template< typename MeasureType >
     TomatoOptions<MeasureType>
     ::TomatoOptions(const std::string& filePath) {
-        //std::cout << "TomatoOptions " << this << " Constructor" << std::endl;
+#ifndef USE_YAML
+        throw std::runtime_error("Yaml parser not available");
+#else
         init();
 
         Ox::TomatoParser<MeasureType> parser;
@@ -118,13 +120,12 @@ namespace Ox {
             use_colorbar = KWUtil::StringToNumber<MeasureType>(parser._scalars["use_colorbar"]);
         if (!parser._scalars["number_of_threads"].empty())
             number_of_threads = KWUtil::StringToNumber<MeasureType>(parser._scalars["number_of_threads"]);
-
+#endif
     }
 
     template< typename MeasureType >
     TomatoOptions<MeasureType>
     ::~TomatoOptions(){
-        //std::cout << "TomatoOptions " << this << " Destructor" << std::endl;
     }
 
     template< typename MeasureType >
@@ -146,7 +147,6 @@ namespace Ox {
     TomatoOptions<MeasureType>
     ::copyStrVectorToMemberVector(std::vector<std::string> strVector, std::vector<MeasureType> &memberVector) {
 
-        //memberVector.resize(strVector.size());
         for (unsigned int i = 0; i < strVector.size(); ++i) {
             memberVector.push_back(KWUtil::StringToNumber<MeasureType>(strVector[i]));
         }
@@ -204,7 +204,9 @@ namespace Ox {
     int
     TomatoOptions<MeasureType>
     ::exportToYaml(){
-
+#ifndef USE_YAML
+        throw std::runtime_error("Yaml parser not available");
+#else
         if (dir_output_map.length() > 0){
             std::string filePath = dir_output_map + KWUtil::PathSeparator() + "tomato_output_config.yaml";
             exportToYaml(filePath);
@@ -221,13 +223,16 @@ namespace Ox {
         }
 
         return 0; // EXIT_SUCCESS
+#endif
     }
 
     template< typename MeasureType >
     int
     TomatoOptions<MeasureType>
     ::exportToYaml(std::string filePath){
-
+#ifndef USE_YAML
+        throw std::runtime_error("Yaml parser not available");
+#else
         yaml_document_t document;
         yaml_emitter_t emitter;
         size_t written = 0;
@@ -287,7 +292,7 @@ namespace Ox {
         fclose(file);
 
         return 0; // EXIT_SUCCESS
-
+#endif
     }
 
 } // namespace Ox
