@@ -3,7 +3,7 @@
 #include "gdcmTomatoReadTags.h"
 
 // TODO: find a sample dataset for testing
-
+#ifdef USE_ITK
 TEST(GDCMTags, wrong_file){
 
     std::string result;
@@ -35,6 +35,8 @@ TEST(GDCMTags, wrong_tag){
     ASSERT_STREQ(result.c_str(), "");
 
 }
+
+#endif // USE_ITK
 
 //TEST(GDCMTags, no_nesting){
 //

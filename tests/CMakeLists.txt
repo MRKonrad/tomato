@@ -2,21 +2,15 @@
 ### TESTING ###
 ###############
 
-if(Tomato_BUILD_TESTING)
-
-    include(../cmake/gtest.cmake)
-
+if(BUILD_TESTING)
+    find_package(gtest REQUIRED)
     enable_testing()
-
-    # Threads are needed for testing
-    find_package(Threads REQUIRED)
-    target_link_libraries(gtest ${CMAKE_THREAD_LIBS_INIT})
 
     # Test executable
     file(GLOB_RECURSE TESTS_FILES ${PROJECT_SOURCE_DIR}/tests/*.c* ${PROJECT_SOURCE_DIR}/tests/*.h* ${PROJECT_SOURCE_DIR}/tests/*.t*)
 
     add_executable(TomatoTests ${TESTS_FILES})
-    target_link_libraries(TomatoTests gtest)
+    target_link_libraries(TomatoTests gtest::gtest)
     target_link_libraries(TomatoTests TomatoLib)
 
     # RPATH preparation for the executables
@@ -38,4 +32,4 @@ if(Tomato_BUILD_TESTING)
     install(TARGETS TomatoTests DESTINATION tests)
     install(DIRECTORY ${CMAKE_BINARY_DIR}/tests/testData DESTINATION tests)
 
-endif(Tomato_BUILD_TESTING)
+endif(BUILD_TESTING)

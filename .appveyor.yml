@@ -12,21 +12,34 @@ init:
 
 # about toolset: https://devblogs.microsoft.com/cppblog/stuck-on-an-older-toolset-version-move-to-visual-studio-2015-without-upgrading-your-toolset/
 environment:
-  toolset: v90
+  toolset: v140 #v90 # TODO: go back to v90
   OPENSOURCE_EXTENDED_NAME: TomatoOpenSource_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
   FULL_EXTENDED_NAME: TomatoFull_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
-
-install:
-  - git submodule update --init --recursive
-  - cd %APPVEYOR_BUILD_FOLDER%\thirdParty\googletest
-  - git checkout tags/release-1.4.0 # version that works with this toolset
+  PYTHON: "C:\\Python36"
 
 platform:
-  - Win32
+  #  - Win32
   - x64
 
 configuration:
   - Release
+
+install:
+  # TODO: find path configuration that works
+  - cmd: set PATH=%PATH%;%PYTHON%\Scripts\
+  - cmd: echo %PATH%
+#  - "set PATH=%PATH%;%PYTHON%\\Scripts\\"
+#  - echo %PATH%
+  - "%PYTHON%\\Scripts\\pip.exe install conan"
+  - cmd: conan user # Create the conan data directory
+  - cmd: conan --version
+  - cmd: cd %APPVEYOR_BUILD_FOLDER%/conan-recipes
+  - cmd: conan create conan-libyaml user/testing -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset%
+  # TODO: enable lmfit
+  #  - cmd: conan create conan-lmfit user/testing -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset%
+  - cmd: conan create conan-gtest-1.8.1 user/testing -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset%
+  - cmd: conan create conan-vxl-v1.18.0 user/testing -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset%
+  - cmd: cd %APPVEYOR_BUILD_FOLDER%
 
 build_script:
 
@@ -35,15 +48,16 @@ build_script:
   #-----------------------#
 
   # build tomato open source
-  - cd %APPVEYOR_BUILD_FOLDER%
+  - mkdir %APPVEYOR_BUILD_FOLDER%\opensource
+  - cd %APPVEYOR_BUILD_FOLDER%\opensource
+  - conan install .. -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset% -g cmake_find_package -o use_lmfit=False
   - >-
-    cmake .
-    -Bopensource
+    cmake ..
     -A%PLATFORM%
     -DCMAKE_INSTALL_PREFIX=%APPVEYOR_BUILD_FOLDER%\opensource_install
     -T %toolset%
     -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
-  - cd %APPVEYOR_BUILD_FOLDER%\opensource
+    -DUSE_LMFIT=OFF
   - cmake --build . --config %CONFIGURATION% --target ALL_BUILD
   - cmake --build . --config %CONFIGURATION% --target INSTALL
 
@@ -57,31 +71,33 @@ build_script:
   - cd %APPVEYOR_BUILD_FOLDER%\..
 
   # build full tomato
-  - cd %APPVEYOR_BUILD_FOLDER%
+  - mkdir %APPVEYOR_BUILD_FOLDER%\full
+  - cd %APPVEYOR_BUILD_FOLDER%\full
+  - conan install .. -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset% -g cmake_find_package -o use_lmfit=False
   - >-
-    cmake .
-    -Bfull
+    cmake ..
     -A%PLATFORM%
     -DCMAKE_INSTALL_PREFIX=%APPVEYOR_BUILD_FOLDER%\full_install
     -T %toolset%
     -DUSE_PRIVATE_NR2=ON
+    -DUSE_LMFIT=OFF
     -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
-  - cd %APPVEYOR_BUILD_FOLDER%\full
   - cmake --build . --config %CONFIGURATION% --target ALL_BUILD
   - cmake --build . --config %CONFIGURATION% --target INSTALL
 
 after_build:
-  # FOR DEPLOYMENT
-  - cd %APPVEYOR_BUILD_FOLDER%
-  - mkdir deployment
-  # zip the files for the deployment
-  - cd %APPVEYOR_BUILD_FOLDER%\opensource_install
-  - 7z a %OPENSOURCE_EXTENDED_NAME%.zip bin\* lib\* include\*  # zip
-  - cd %APPVEYOR_BUILD_FOLDER%\full_install
-  - 7z a %FULL_EXTENDED_NAME%.zip bin\* lib\* include\*  # zip
-  # copy the files for the deployment
-  - copy %APPVEYOR_BUILD_FOLDER%\opensource_install\%OPENSOURCE_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%OPENSOURCE_EXTENDED_NAME%.zip
-  - copy %APPVEYOR_BUILD_FOLDER%\full_install\%FULL_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%FULL_EXTENDED_NAME%.zip
+  # TODO: enable DEPLOYMENT
+#  # FOR DEPLOYMENT
+#  - cd %APPVEYOR_BUILD_FOLDER%
+#  - mkdir deployment
+#  # zip the files for the deployment
+#  - cd %APPVEYOR_BUILD_FOLDER%\opensource_install
+#  - 7z a %OPENSOURCE_EXTENDED_NAME%.zip bin\* lib\* include\*  # zip
+#  - cd %APPVEYOR_BUILD_FOLDER%\full_install
+#  - 7z a %FULL_EXTENDED_NAME%.zip bin\* lib\* include\*  # zip
+#  # copy the files for the deployment
+#  - copy %APPVEYOR_BUILD_FOLDER%\opensource_install\%OPENSOURCE_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%OPENSOURCE_EXTENDED_NAME%.zip
+#  - copy %APPVEYOR_BUILD_FOLDER%\full_install\%FULL_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%FULL_EXTENDED_NAME%.zip
 
 test_script:
   - cd %APPVEYOR_BUILD_FOLDER%\opensource_install\tests\

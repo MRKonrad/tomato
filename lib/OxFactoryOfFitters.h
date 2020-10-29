@@ -43,8 +43,13 @@ namespace Ox {
     };
 
     static int fittersAvailability[] = {
+#ifdef USE_VNL
             1, // AmoebaVnl
             1, // LevMarVnl
+#else
+            0, // AmoebaVnl
+            0, // LevMarVnl
+#endif
 #ifdef USE_PRIVATE_NR2
             1, // AmoebaPrivateNr2
 #else

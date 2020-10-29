@@ -2,6 +2,7 @@ html
 latex
 thirdparty/lmfit/*
 thirdparty/itk/*
+conan-recipes/*/test_package/build/*
 
 # mac
 *.DS_Store

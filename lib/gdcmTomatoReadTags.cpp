@@ -5,6 +5,9 @@
 #ifndef TOMATO_GDCMTOMATOREADTAGS_H
 #define TOMATO_GDCMTOMATOREADTAGS_H
 
+#include "CmakeConfigForTomato.h"
+#ifdef USE_ITK
+
 #include "gdcmTomatoReadTags.h"
 #include "gdcmReader.h"
 #include "gdcmDataElement.h"
@@ -80,5 +83,7 @@ int gdcmTomatoReadTags(const std::vector<std::pair<int, int> > tags, const std::
 
     return 0; // EXIT_SUCCESS
 }
+
+#endif // USE_ITK
 
 #endif //TOMATO_GDCMTOMATOREADTAGS_H

@@ -29,10 +29,10 @@
 /*    fitters    */
 /* ************* */
 #include "OxFitter.h"
-#ifdef USE_ITK
+#ifdef USE_VNL
 #include "OxFitterAmoebaVnl.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
-#endif // USE_ITK
+#endif // USE_VNL
 #ifdef USE_PRIVATE_NR2
 #include "OxFitterAmoebaPrivateNr2.h"
 #endif //USE_PRIVATE_NR2
@@ -108,10 +108,10 @@ namespace Ox {
     /*    fitters    */
     /* ************* */
     template class TOMATOLIB_EXPORT Fitter<double>;
-#ifdef USE_ITK
+#ifdef USE_VNL
     template class TOMATOLIB_EXPORT FitterAmoebaVnl<double>;
     template class TOMATOLIB_EXPORT FitterLevenbergMarquardtVnl<double>;
-#endif //USE_ITK
+#endif //USE_VNL
 #ifdef USE_PRIVATE_NR2
     template class TOMATOLIB_EXPORT FitterAmoebaPrivateNr2<double>;
 #endif //USE_PRIVATE_NR2
