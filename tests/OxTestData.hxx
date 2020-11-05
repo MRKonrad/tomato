@@ -42,8 +42,8 @@ namespace Ox {
         copyStrVectorToMemberVector(parser._sequences["resultsTwoParam"], _resultsTwoParam);
         copyStrVectorToMemberVector(parser._sequences["resultsThreeParam"], _resultsThreeParam);
 
-        int nInvTimes = _invTimes.size();
-        int nEchoTimes = _echoTimes.size();
+        size_t nInvTimes = _invTimes.size();
+        size_t nEchoTimes = _echoTimes.size();
 
         if (nInvTimes != 0) {
             _nSamples = nInvTimes;

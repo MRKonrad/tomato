@@ -318,7 +318,7 @@ namespace Ox {
             // scaling R2 * 4000
             typedef itk::MultiplyImageFilter< ImageType2D, ImageType2D, ImageType2D > MultiplyImageFilterType;
             typename MultiplyImageFilterType::Pointer multiplyFilter = MultiplyImageFilterType::New();
-            multiplyFilter->SetInput( _imageCalculatorItk->GetR2Image() );
+            multiplyFilter->SetInput( _imageCalculatorItk->GetR2AbsImage() );
             multiplyFilter->SetConstant( 4000 );
 
             OxColorbarFilter->SetInput(multiplyFilter->GetOutput());

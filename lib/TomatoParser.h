@@ -7,13 +7,14 @@
 #ifndef Tomato_TomatoPARSER_H
 #define Tomato_TomatoPARSER_H
 
+#include "CmakeConfigForTomato.h"
+#ifdef USE_YAML
+
 #include <map>
 #include <string>
 #include <vector>
 
 #include "tomatolib_export.h"
-#include "CmakeConfigForTomato.h"
-#ifdef USE_YAML
 
 #include "yaml.h"
 

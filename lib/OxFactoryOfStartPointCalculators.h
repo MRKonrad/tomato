@@ -15,7 +15,7 @@
 namespace Ox {
 
     template<typename TYPE>
-    struct TomatoOptions;
+    class TomatoOptions;
 
     static const char *startPointCalculatorsTypeNames[] = {
             "Basic",

@@ -65,10 +65,11 @@ namespace itk {
         TImageOut1* GetChiSqrtImage();
         TImageOut1* GetSNRImage();
         TImageOut1* GetNShmolliSamplesUsedImage();
-        TImageOut1* GetSD_AImage();
-        TImageOut1* GetSD_BImage();
-        TImageOut1* GetSD_T1Image();
+        TImageOut1* GetDeltaAImage();
+        TImageOut1* GetDeltaBImage();
+        TImageOut1* GetDeltaT1Image();
         TImageOut1* GetT2Image();
+        TImageOut1* GetR2AbsImage();
 
         /** Getters and setters. */
         void SetCalculator(Ox::Calculator<PixelTypeIn>* calculator){

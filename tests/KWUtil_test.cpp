@@ -78,6 +78,66 @@ TEST(KWUtil, dicomTime2Seconds) {
     EXPECT_DOUBLE_EQ(result, dicomTimeSeconds);
 }
 
+TEST(KWUtil, calculateFitError2x2) {
+
+    double J[4*2] = {0.0811, 0.4359, 0.9294, 0.4468, 0.7757, 0.3063, 0.4868, 0.5085};
+    double calculated[2];
+    double correct[2] = {1.9444, 2.9508};
+
+    KWUtil::calculateFitError(4, 2, J, 2., calculated);
+
+    EXPECT_NEAR(calculated[0], correct[0], 1e-3);
+    EXPECT_NEAR(calculated[1], correct[1], 1e-3);
+}
+
+TEST(KWUtil, calculateFitError3x3) {
+
+    double J[7*3] = {
+            0.5108, 0.3507, 0.3012,
+            0.8176, 0.9390, 0.4709,
+            0.7948, 0.8759, 0.2305,
+            0.6443, 0.5502, 0.8443,
+            0.3786, 0.6225, 0.1948,
+            0.8116, 0.5870, 0.2259,
+            0.5328, 0.2077, 0.1707
+    };
+    double calculated[3];
+    double correct[3] = {2.0776, 1.9941, 1.7035};
+
+    KWUtil::calculateFitError(7, 3, J, 2., calculated);
+
+    EXPECT_NEAR(calculated[0], correct[0], 1e-3);
+    EXPECT_NEAR(calculated[1], correct[1], 1e-3);
+    EXPECT_NEAR(calculated[2], correct[2], 1e-3);
+}
+
+TEST(KWUtil, calcMatrixInverse2x2) {
+
+    double matrix[4] = {0.8147, 0.9058, 0.1270, 0.9134};
+    double invMatrixCorrect[4] = {1.4518, -1.4398, -0.2018, 1.2950};
+    double invMatrixCalculated[4];
+
+    EXPECT_EQ(KWUtil::calcMatrixInverse2x2(matrix, invMatrixCalculated), 0); // EXIT_SUCCESS
+
+    EXPECT_NEAR(invMatrixCalculated[0], invMatrixCorrect[0], 1e-3);
+    EXPECT_NEAR(invMatrixCalculated[1], invMatrixCorrect[1], 1e-3);
+    EXPECT_NEAR(invMatrixCalculated[2], invMatrixCorrect[2], 1e-3);
+    EXPECT_NEAR(invMatrixCalculated[3], invMatrixCorrect[3], 1e-3);
+}
+
+TEST(KWUtil, calcMatrixInverse2x2_detZero) {
+
+    double matrix[4] = {1, 1, 2, 2};
+    double invMatrixCalculated[4];
+
+    EXPECT_EQ(KWUtil::calcMatrixInverse2x2(matrix, invMatrixCalculated), 1); // EXIT_FAILURE
+
+    EXPECT_DOUBLE_EQ(invMatrixCalculated[0], 0);
+    EXPECT_DOUBLE_EQ(invMatrixCalculated[1], 0);
+    EXPECT_DOUBLE_EQ(invMatrixCalculated[2], 0);
+    EXPECT_DOUBLE_EQ(invMatrixCalculated[3], 0);
+}
+
 TEST(KWUtil, calcMatrixInverse3x3) {
 
     double matrix[9] = {2, 2, 2, 4, 5, 4, 7, 8, 2};
@@ -126,7 +186,6 @@ TEST(KWUtil, quickSort) {
     EXPECT_DOUBLE_EQ(myarray[2], myarraySorted[2]);
     EXPECT_DOUBLE_EQ(myarray[3], myarraySorted[3]);
     EXPECT_DOUBLE_EQ(myarray[4], myarraySorted[4]);
-
 }
 
 TEST(KWUtil, calcMeanArray) {
@@ -134,7 +193,6 @@ TEST(KWUtil, calcMeanArray) {
     double myarray[5] = {95, -1, -0.1, 3, 1e-2};
 
     EXPECT_DOUBLE_EQ(KWUtil::calcMeanArray(5, myarray), 19.382);
-
 }
 
 TEST(KWUtil, calcMedianArray) {
@@ -142,7 +200,6 @@ TEST(KWUtil, calcMedianArray) {
     double myarray[5] = {95, -1, -0.1, 3, 1e-2};
 
     EXPECT_DOUBLE_EQ(KWUtil::calcMedianArray(5, myarray), 0.01);
-
 }
 
 
