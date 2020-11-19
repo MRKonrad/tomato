@@ -26,12 +26,12 @@ TEST(OxModelT1AdapterLmfitLeastSquares, f) {
     TYPE params[3] = {0, 0, 0};
     TYPE *residualsLmfit = new TYPE[nSamples];
 
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
-    functionsObject.setSignal(testData.getSignalMagPtr());
+    Ox::ModelT1ThreeParam<TYPE> model;
+    model.setNSamples(nSamples);
+    model.setInvTimes(testData.getInvTimesPtr());
+    model.setSignal(testData.getSignalMagPtr());
 
-    Ox::ModelT1AdapterLmfitLeastSquares<TYPE>::calcLSResiduals(params, nSamples, &functionsObject, residualsLmfit, 0);
+    Ox::ModelT1AdapterLmfitLeastSquares<TYPE>::calcLSResiduals(params, nSamples, &model, residualsLmfit, 0);
 
     for (int i = 0; i < nSamples; i++){
         EXPECT_DOUBLE_EQ(residualsLmfit[i], -testData.getSignalMag()[i]);

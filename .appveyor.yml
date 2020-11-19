@@ -14,6 +14,7 @@ init:
 environment:
   toolset: v140 # TODO: go back to v90
   OPENSOURCE_EXTENDED_NAME: TomatoOpenSource_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
+  USEVNL_EXTENDED_NAME: TomatoVnl_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
   FULL_EXTENDED_NAME: TomatoFull_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
   PYTHON: "C:\\Python36"
 
@@ -81,7 +82,7 @@ build_script:
     -DBUILD_SHARED_LIBS=ON
     -DUSE_ITK=OFF
     -DUSE_VNL=ON
-    -DDOWNLOAD_DEPENDENCIES=ON
+    -DDOWNLOAD_DEPENDENCIES=OFF
   - cmake --build . --config %CONFIGURATION% --target ALL_BUILD
   - cmake --build . --config %CONFIGURATION% --target INSTALL
   -
@@ -108,17 +109,19 @@ build_script:
 
 after_build:
   # TODO: enable DEPLOYMENT
-#  # FOR DEPLOYMENT
-#  - cd %APPVEYOR_BUILD_FOLDER%
-#  - mkdir deployment
-#  # zip the files for the deployment
+  # FOR DEPLOYMENT
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - mkdir deployment
+  # zip the files for the deployment
 #  - cd %APPVEYOR_BUILD_FOLDER%\opensource_install
 #  - 7z a %OPENSOURCE_EXTENDED_NAME%.zip bin\* lib\* include\*  # zip
-#  - cd %APPVEYOR_BUILD_FOLDER%\full_itk_install
-#  - 7z a %FULL_EXTENDED_NAME%.zip bin\* lib\* include\*  # zip
-#  # copy the files for the deployment
+  - cd %APPVEYOR_BUILD_FOLDER%\full_vnl_install
+  - 7z a %USEVNL_EXTENDED_NAME%.zip lib\* include\*  # zip
+  - cd %APPVEYOR_BUILD_FOLDER%\full_itk_install
+  - 7z a %FULL_EXTENDED_NAME%.zip bin\* lib\* include\*  # zip
+  # copy the files for the deployment
 #  - copy %APPVEYOR_BUILD_FOLDER%\opensource_install\%OPENSOURCE_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%OPENSOURCE_EXTENDED_NAME%.zip
-#  - copy %APPVEYOR_BUILD_FOLDER%\full_itk_install\%FULL_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%FULL_EXTENDED_NAME%.zip
+  - copy %APPVEYOR_BUILD_FOLDER%\full_itk_install\%FULL_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%FULL_EXTENDED_NAME%.zip
 
 test_script:
   - cd %APPVEYOR_BUILD_FOLDER%\opensource_install\tests\

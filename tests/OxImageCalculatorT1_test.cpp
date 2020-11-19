@@ -46,14 +46,14 @@ TEST(OxImageCalculatorT1, calculate_molli_no_multithread) {
     int nSamples = testImage->getNSamples();
 
     // init the necessary objects
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> model;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1WithSignCheck<TYPE> calculator;
 
     // configure calculator
-    calculator.setModel(&functionsObject);
+    calculator.setModel(&model);
     calculator.setFitter(&fitter);
     calculator.setSignCalculator(&signCalculator);
     calculator.setStartPointCalculator(&startPointCalculator);
@@ -149,14 +149,14 @@ TEST(OxImageCalculatorT1, calculate_shmolli_no_multithread) {
     Ox::TestImage<TYPE> *testImage = new Ox::TestImage<TYPE>(nRows, nCols, filePaths);
 
     // init the necessary objects
-    Ox::ModelT1Shmolli<TYPE> functionsObject;
+    Ox::ModelT1Shmolli<TYPE> model;
     Ox::FitterAmoebaPrivateNr2<TYPE> fitter;
     Ox::SignCalculatorShmolli<TYPE> signCalculator;
     Ox::StartPointCalculatorShmolli<TYPE> startPointCalculator;
     Ox::CalculatorT1Shmolli<TYPE> calculator;
 
     // configure calculator
-    calculator.setModel(&functionsObject);
+    calculator.setModel(&model);
     calculator.setFitter(&fitter);
     calculator.setSignCalculator(&signCalculator);
     calculator.setStartPointCalculator(&startPointCalculator);
@@ -209,14 +209,14 @@ TEST(OxImageCalculatorT1, calculate_molli_multithread_Vnl) {
     Ox::TestImage<TYPE> *testImage = new Ox::TestImage<TYPE>(nRows, nCols, filePaths);
 
     // init the necessary objects
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> model;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1WithSignCheck<TYPE> calculator;
 
     // configure
-    calculator.setModel(&functionsObject);
+    calculator.setModel(&model);
     calculator.setFitter(&fitter);
     calculator.setSignCalculator(&signCalculator);
     calculator.setStartPointCalculator(&startPointCalculator);
@@ -269,14 +269,14 @@ TEST(OxImageCalculatorT1, calculate_molli_multithread_nr2) {
     Ox::TestImage<TYPE> *testImage = new Ox::TestImage<TYPE>(nRows, nCols, filePaths);
 
     // init the necessary objects
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> model;
     Ox::FitterAmoebaPrivateNr2<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1WithSignCheck<TYPE> calculator;
 
     // configure
-    calculator.setModel(&functionsObject);
+    calculator.setModel(&model);
     calculator.setFitter(&fitter);
     calculator.setSignCalculator(&signCalculator);
     calculator.setStartPointCalculator(&startPointCalculator);

@@ -13,6 +13,7 @@
 #include "OxCalculatorT1ShmolliOriginal.h"
 #include "OxCalculatorT2.h"
 #include "OxCalculatorT2Truncation.h"
+#include "OxCalculatorT2TruncationNoise.h"
 #include "OxCalculatorT2Linear.h"
 #endif
 #include "TomatoOptions.h"
@@ -46,6 +47,10 @@ namespace Ox {
             }
             case T2_truncation: {
                 calculator = new CalculatorT2Truncation<TYPE>();
+                break;
+            }
+            case T2_truncation_noise: {
+                calculator = new CalculatorT2TruncationNoise<TYPE>();
                 break;
             }
             case T2_linear: {

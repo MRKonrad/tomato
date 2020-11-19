@@ -94,14 +94,14 @@ TEST(itkPipeline_CalculatorShmolli, calculateShmolliAndCompareWithDicom) {
     KWUtil::copyArrayToArray(nSamples, invTimes, sorterMag->GetInvTimesSorted().data_block());
 
     // init the necessary objects
-    Ox::ModelT1Shmolli<InputPixelType> functionsObject;
+    Ox::ModelT1Shmolli<InputPixelType> model;
     Ox::FitterAmoebaPrivateNr2<InputPixelType> fitter;
     Ox::SignCalculatorShmolli<InputPixelType> signCalculator;
     Ox::StartPointCalculatorShmolli<InputPixelType> startPointCalculator;
     Ox::CalculatorT1Shmolli<InputPixelType> calculatorT1;
 
     // configure calculator
-    calculatorT1.setModel(&functionsObject);
+    calculatorT1.setModel(&model);
     calculatorT1.setFitter(&fitter);
     calculatorT1.setSignCalculator(&signCalculator);
     calculatorT1.setStartPointCalculator(&startPointCalculator);

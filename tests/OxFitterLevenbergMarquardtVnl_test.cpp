@@ -23,13 +23,13 @@ TEST(OxFitterLevenbergMarquardtVnl, performFitting) {
 
     double params[3] = {100, 200, 1200};
 
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
-    functionsObject.setSignal(testData.getSignalPtr());
+    Ox::ModelT1ThreeParam<TYPE> model;
+    model.setNSamples(nSamples);
+    model.setInvTimes(testData.getInvTimesPtr());
+    model.setSignal(testData.getSignalPtr());
 
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
-    fitter.setModel(&functionsObject);
+    fitter.setModel(&model);
     fitter.setParameters(params);
 
     fitter.setVerbose(false);
@@ -53,13 +53,13 @@ TEST(OxFitterLevenbergMarquardtVnl, copyConstructor) {
 
     double params[3] = {100, 200, 1200};
 
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
-    functionsObject.setSignal(testData.getSignalPtr());
+    Ox::ModelT1ThreeParam<TYPE> model;
+    model.setNSamples(nSamples);
+    model.setInvTimes(testData.getInvTimesPtr());
+    model.setSignal(testData.getSignalPtr());
 
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
-    fitter.setModel(&functionsObject);
+    fitter.setModel(&model);
     fitter.setMaxFunctionEvals(123);
     fitter.setParameters(params);
 

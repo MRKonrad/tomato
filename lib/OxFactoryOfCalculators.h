@@ -29,6 +29,7 @@ namespace Ox {
             "T1_SHMOLLI_original",
             "T2",
             "T2_truncation",
+            "T2_truncation_noise",
             "T2_linear"
     };
 
@@ -38,7 +39,8 @@ namespace Ox {
         T1_SHMOLLI_original = 2,
         T2_basic = 3,
         T2_truncation = 4,
-        T2_linear = 5,
+        T2_truncation_noise = 5,
+        T2_linear = 6,
         lastCalculatorType = T2_linear
     };
 
@@ -49,11 +51,13 @@ namespace Ox {
             1, // T1_SHMOLLI_original
             1, // T2_basic
             1, // T2_truncation
+            1, // T2_truncation_noise
             1, // T2_linear
 #else
             0, // T1_SHMOLLI_original
             0, // T2_basic
             0, // T2_truncation
+            0, // T2_truncation_noise
             0, // T2_linear
 #endif
     };
@@ -64,6 +68,7 @@ namespace Ox {
             T1, // T1_SHMOLLI_original
             T2, // T2_basic
             T2, // T2_truncation
+            T2, // T2_truncation_noise
             T2, // T2_linear
     };
 

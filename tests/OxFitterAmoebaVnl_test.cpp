@@ -23,13 +23,13 @@ TEST(OxFitterAmoebaVnl, performFitting) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
-    functionsObject.setSignal(testData.getSignalPtr());
+    Ox::ModelT1ThreeParam<TYPE> model;
+    model.setNSamples(nSamples);
+    model.setInvTimes(testData.getInvTimesPtr());
+    model.setSignal(testData.getSignalPtr());
 
     Ox::FitterAmoebaVnl<TYPE> fitter;
-    fitter.setModel(&functionsObject);
+    fitter.setModel(&model);
     fitter.setParameters(params);
 
     fitter.setVerbose(false);
@@ -52,14 +52,14 @@ TEST(OxFitterAmoebaVnl, copyConstructor) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
-    functionsObject.setSignal(testData.getSignalPtr());
+    Ox::ModelT1ThreeParam<TYPE> model;
+    model.setNSamples(nSamples);
+    model.setInvTimes(testData.getInvTimesPtr());
+    model.setSignal(testData.getSignalPtr());
 
 
     Ox::FitterAmoebaVnl<TYPE> fitter;
-    fitter.setModel(&functionsObject);
+    fitter.setModel(&model);
     fitter.setParameters(params);
     fitter.setMaxFunctionEvals(123);
     fitter.setFTolerance(321);
@@ -92,13 +92,13 @@ TEST(OxFitterAmoebaVnl, disp) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
-    functionsObject.setSignal(testData.getSignalPtr());
+    Ox::ModelT1ThreeParam<TYPE> model;
+    model.setNSamples(nSamples);
+    model.setInvTimes(testData.getInvTimesPtr());
+    model.setSignal(testData.getSignalPtr());
 
     Ox::FitterAmoebaVnl<TYPE> fitter;
-    fitter.setModel(&functionsObject);
+    fitter.setModel(&model);
     fitter.setParameters(params);
 
     testing::internal::CaptureStdout();

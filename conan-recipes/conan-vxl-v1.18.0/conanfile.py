@@ -4,8 +4,11 @@ from conans import ConanFile, CMake, tools
 class VxlConan(ConanFile):
     name = "vxl"
     version = "v1.18.0"
+    license = "https://github.com/vxl/vxl/blob/master/core/vxl_copyright.h"
+    url = "https://vxl.github.io"
+    description = "VXL (the Vision-something-Libraries) is a collection of C++ libraries designed for computer vision research and implementation."
     settings = "os", "compiler", "build_type", "arch"
-    options = {"shared": [True, False]}
+    options = {"shared": [False]}
     default_options = {"shared": False}
     generators = "cmake"
 

@@ -28,13 +28,13 @@ std::map <std::string, double> CalculateShmolli(
 
     // initialise the necessary objects
     Ox::CalculatorT1Shmolli <double> calculatorT1Shmolli;
-    Ox::ModelT1Shmolli <double> functionsObject;
+    Ox::ModelT1Shmolli <double> model;
     Ox::FitterAmoebaPrivateNr2 <double> fitter;
     Ox::SignCalculatorShmolli <double> signCalculator;
     Ox::StartPointCalculatorShmolli <double> startPointCalculator;
 
     // configure
-    calculatorT1Shmolli.setModel(&functionsObject);
+    calculatorT1Shmolli.setModel(&model);
     calculatorT1Shmolli.setFitter(&fitter);
     calculatorT1Shmolli.setSignCalculator(&signCalculator);
     calculatorT1Shmolli.setStartPointCalculator(&startPointCalculator);

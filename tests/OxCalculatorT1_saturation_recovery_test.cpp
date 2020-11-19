@@ -32,14 +32,14 @@ TEST(OxCalculatorT1_saturation_recovery, twoParam) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::ModelT1TwoParam<TYPE> functionsObject;
+    Ox::ModelT1TwoParam<TYPE> model;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
 
     // configure
-    calculatorT1Molli.setModel(&functionsObject);
+    calculatorT1Molli.setModel(&model);
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
@@ -66,14 +66,14 @@ TEST(OxCalculatorT1_saturation_recovery, threeParam) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
+    Ox::ModelT1ThreeParam<TYPE> model;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
 
     // configure
-    calculatorT1Molli.setModel(&functionsObject);
+    calculatorT1Molli.setModel(&model);
     calculatorT1Molli.setFitter(&fitterAmoebaVnl);
     calculatorT1Molli.setSignCalculator(&signCalculator);
     calculatorT1Molli.setStartPointCalculator(&startPointCalculator);

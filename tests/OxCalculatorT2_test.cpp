@@ -27,7 +27,7 @@ TEST(OxCalculatorT2, blood) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::ModelT2ThreeParam<TYPE> functionsObject;
+    Ox::ModelT2ThreeParam<TYPE> model;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2<TYPE> calculatorT2;
@@ -36,7 +36,7 @@ TEST(OxCalculatorT2, blood) {
     TYPE startPoint[] = {1, 100, 50};
     startPointCalculator.setInputStartPoint(startPoint);
     calculatorT2.setStartPointCalculator(&startPointCalculator);
-    calculatorT2.setModel(&functionsObject);
+    calculatorT2.setModel(&model);
     calculatorT2.setFitter(&fitter);
 
     // set the data
@@ -60,7 +60,7 @@ TEST(OxCalculatorT2, myo) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::ModelT2ThreeParam<TYPE> functionsObject;
+    Ox::ModelT2ThreeParam<TYPE> model;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2<TYPE> calculatorT2;
@@ -69,7 +69,7 @@ TEST(OxCalculatorT2, myo) {
     TYPE startPoint[] = {1, 100, 50};
     startPointCalculator.setInputStartPoint(startPoint);
     calculatorT2.setStartPointCalculator(&startPointCalculator);
-    calculatorT2.setModel(&functionsObject);
+    calculatorT2.setModel(&model);
     calculatorT2.setFitter(&fitter);
 
 
@@ -94,7 +94,7 @@ TEST(OxCalculatorT2, myo_3samples) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::ModelT2TwoParam<TYPE> functionsObject;
+    Ox::ModelT2TwoParam<TYPE> model;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2<TYPE> calculatorT2;
@@ -103,7 +103,7 @@ TEST(OxCalculatorT2, myo_3samples) {
     TYPE startPoint[] = { 1, 80 };
     startPointCalculator.setInputStartPoint(startPoint);
     calculatorT2.setStartPointCalculator(&startPointCalculator);
-    calculatorT2.setModel(&functionsObject);
+    calculatorT2.setModel(&model);
     calculatorT2.setFitter(&fitter);
 
     // set the data
@@ -117,25 +117,21 @@ TEST(OxCalculatorT2, myo_3samples) {
     EXPECT_NEAR(calculatorT2.getResults()["T2"], testData.getResultsTwoParam()[1], 2e-1);
 }
 
-TEST(OxCalculatorT2, blood_3samples) {
+TEST(OxCalculatorT2, myocardiumTwoParam) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/T2_blood_3samples.yaml";
+    char filePath [] = "testData/T2_myocardium.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::ModelT2TwoParam<TYPE> functionsObject;
+    Ox::ModelT2TwoParam<TYPE> model;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
-    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2<TYPE> calculatorT2;
 
     // configure
-    TYPE startPoint[] = { 1, 80 };
-    startPointCalculator.setInputStartPoint(startPoint);
-    calculatorT2.setStartPointCalculator(&startPointCalculator);
-    calculatorT2.setModel(&functionsObject);
+    calculatorT2.setModel(&model);
     calculatorT2.setFitter(&fitter);
 
     // set the data
@@ -145,8 +141,72 @@ TEST(OxCalculatorT2, blood_3samples) {
 
     calculatorT2.calculate();
 
-    EXPECT_NEAR(calculatorT2.getResults()["A"],  testData.getResultsTwoParam()[0], 2e-1);
-    EXPECT_NEAR(calculatorT2.getResults()["T2"], testData.getResultsTwoParam()[1], 2e-1);
+    EXPECT_NEAR(calculatorT2.getResults()["deltaA"], 0.02507, 1e-4);
+    EXPECT_NEAR(calculatorT2.getResults()["deltaT2"], 0.02765, 1e-4);
+}
+
+TEST(OxCalculatorT2, myocardiumThreeParam) {
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/T2_myocardium.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    // init the necessary objects
+    Ox::ModelT2ThreeParam<TYPE> model;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
+    Ox::CalculatorT2<TYPE> calculatorT2;
+
+    // configure
+    calculatorT2.setModel(&model);
+    calculatorT2.setFitter(&fitter);
+
+    // set the data
+    calculatorT2.setNSamples(nSamples);
+    calculatorT2.setEchoTimes(testData.getEchoTimesPtr());
+    calculatorT2.setSigMag(testData.getSignalMagPtr());
+
+    calculatorT2.calculate();
+
+    EXPECT_NEAR(calculatorT2.getResults()["deltaA"], 0.01036, 1e-4);
+    EXPECT_NEAR(calculatorT2.getResults()["deltaB"], 0.02802, 1e-4);
+    EXPECT_NEAR(calculatorT2.getResults()["deltaT2"], 0.03368, 1e-4);
+}
+
+TEST(OxCalculatorT2, calculateFitError) {
+
+    typedef double TYPE;
+
+    typedef double TYPE;
+
+    char filePath [] = "testData/T2_blood_3samples.yaml";
+    Ox::TestData<TYPE> testData(filePath);
+    int nSamples = testData.getNSamples();
+
+    double tolerance = 1e-4;
+
+    double correctDeltaA = 0.1515;
+    double correctDeltaT2 = 0.38496;
+
+    // init the necessary objects
+    Ox::ModelT2TwoParam<TYPE> model;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
+    Ox::CalculatorT2<TYPE> calculator;
+
+    // configure
+    calculator.setModel(&model);
+    calculator.setFitter(&fitter);
+
+    // set the data
+    calculator.setNSamples(nSamples);
+    calculator.setEchoTimes(testData.getEchoTimesPtr());
+    calculator.setSigMag(testData.getSignalMagPtr());
+
+    calculator.calculate();
+
+    EXPECT_NEAR(calculator.getResults()["deltaA"], correctDeltaA, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaT2"], correctDeltaT2, tolerance);
 }
 
 TEST(OxCalculatorT2, copyConstructor) {
@@ -158,13 +218,13 @@ TEST(OxCalculatorT2, copyConstructor) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::ModelT2TwoParam<TYPE> functionsObject;
+    Ox::ModelT2TwoParam<TYPE> model;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2<TYPE> calculator;
 
     // configure
-    calculator.setModel(&functionsObject);
+    calculator.setModel(&model);
     calculator.setFitter(&fitterAmoebaVnl);
     calculator.setStartPointCalculator(&startPointCalculator);
 

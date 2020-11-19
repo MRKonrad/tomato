@@ -25,20 +25,20 @@ TEST(OxModelT1AdapterVnlCost, f) {
 
     TYPE params[3] = {0, 0, 0};
 
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    //functionsObject.setParameters(params);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
-    functionsObject.setSignal(testData.getSignalMagPtr());
+    Ox::ModelT1ThreeParam<TYPE> model;
+    model.setNSamples(nSamples);
+    //model.setParameters(params);
+    model.setInvTimes(testData.getInvTimesPtr());
+    model.setSignal(testData.getSignalMagPtr());
 
     Ox::ModelT1AdapterVnlCost functionsAdaptedToVnl(nDims);
-    functionsAdaptedToVnl.setModel(&functionsObject);
+    functionsAdaptedToVnl.setModel(&model);
 
     vnl_vector<TYPE> temp(params, 3);
 
     EXPECT_DOUBLE_EQ(
             functionsAdaptedToVnl.f(temp),
-            functionsObject.calcCostValue(params)
+            model.calcCostValue(params)
     );
 }
 
@@ -53,18 +53,18 @@ TEST(OxModelT1AdapterVnlCost, gradf) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    //functionsObject.setParameters(params);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
-    functionsObject.setSignal(testData.getSignalMagPtr());
+    Ox::ModelT1ThreeParam<TYPE> model;
+    model.setNSamples(nSamples);
+    //model.setParameters(params);
+    model.setInvTimes(testData.getInvTimesPtr());
+    model.setSignal(testData.getSignalMagPtr());
 
     Ox::ModelT1AdapterVnlCost functionsAdaptedToVnl(nDims);
-    functionsAdaptedToVnl.setModel(&functionsObject);
+    functionsAdaptedToVnl.setModel(&model);
 
     // ModelT1ThreeParam results
     TYPE derivative1[] = {0, 0, 0};
-    functionsObject.calcCostDerivative(params, derivative1);
+    model.calcCostDerivative(params, derivative1);
 
     // ModelT1ThreeParam results
     vnl_vector<TYPE> derivative2(3);
@@ -87,14 +87,14 @@ TEST(OxModelT1AdapterVnlCost, fitting) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    //functionsObject.setParameters(params);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
-    functionsObject.setSignal(testData.getSignalPtr());
+    Ox::ModelT1ThreeParam<TYPE> model;
+    model.setNSamples(nSamples);
+    //model.setParameters(params);
+    model.setInvTimes(testData.getInvTimesPtr());
+    model.setSignal(testData.getSignalPtr());
 
     Ox::ModelT1AdapterVnlCost functionsAdaptedToVnl(nDims);
-    functionsAdaptedToVnl.setModel(&functionsObject);
+    functionsAdaptedToVnl.setModel(&model);
 
     vnl_vector<TYPE> paramsVnl(params, 3);
     vnl_amoeba vnlFitter(functionsAdaptedToVnl);

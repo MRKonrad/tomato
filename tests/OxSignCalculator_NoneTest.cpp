@@ -24,13 +24,13 @@ TEST(OxSignCalculator, None) {
         int nSamples = testData.getNSamples();
 
         // init the necessary objects
-        Ox::ModelT1ThreeParam<TYPE> functionsObject;
+        Ox::ModelT1ThreeParam<TYPE> model;
         Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
         Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
         Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
 
         // configure
-        calculatorT1Molli.setModel(&functionsObject);
+        calculatorT1Molli.setModel(&model);
         calculatorT1Molli.setFitter(&fitter);
         calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
 

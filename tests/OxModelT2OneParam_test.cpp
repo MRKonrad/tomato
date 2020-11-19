@@ -17,9 +17,9 @@ TEST(OxModelT2OneParam, calcModelValueNoSignalTest) {
 
     TYPE params[] = {100};
 
-    Ox::ModelT2OneParam<TYPE> functionsObject;
+    Ox::ModelT2OneParam<TYPE> model;
 
-    EXPECT_THROW(functionsObject.calcModelValue(params, 0), std::runtime_error);
+    EXPECT_THROW(model.calcModelValue(params, 0), std::runtime_error);
 }
 
 TEST(OxModelT2OneParam, calcModelValueTest) {
@@ -30,11 +30,11 @@ TEST(OxModelT2OneParam, calcModelValueTest) {
     TYPE signal[] = {100, 40, 30, 10};
     int nSamples = 4;
 
-    Ox::ModelT2OneParam<TYPE> functionsObject;
-    functionsObject.setSignal(signal);
-    functionsObject.setNSamples(nSamples);
+    Ox::ModelT2OneParam<TYPE> model;
+    model.setSignal(signal);
+    model.setNSamples(nSamples);
 
-    EXPECT_DOUBLE_EQ(functionsObject.calcModelValue(params, 0), 100);
+    EXPECT_DOUBLE_EQ(model.calcModelValue(params, 0), 100);
 }
 
 TEST(OxModelT2OneParam, calcLSResidualsTest) {
@@ -47,13 +47,13 @@ TEST(OxModelT2OneParam, calcLSResidualsTest) {
 
     TYPE params[] = {0};
 
-    Ox::ModelT2OneParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    functionsObject.setEchoTimes(testData.getEchoTimesPtr());
-    functionsObject.setSignal(testData.getSignalMagPtr());
+    Ox::ModelT2OneParam<TYPE> model;
+    model.setNSamples(nSamples);
+    model.setEchoTimes(testData.getEchoTimesPtr());
+    model.setSignal(testData.getSignalMagPtr());
 
     TYPE *residuals = new TYPE[nSamples];
-    functionsObject.calcLSResiduals(params, residuals);
+    model.calcLSResiduals(params, residuals);
 
     for (int i = 0; i < nSamples; i++){
         EXPECT_DOUBLE_EQ(residuals[i], -testData.getSignalMag()[i]);
@@ -72,14 +72,14 @@ TEST(OxModelT2OneParam, calcLSJacobianTest) {
 
     TYPE params[] = {150};
 
-    Ox::ModelT2OneParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    functionsObject.setEchoTimes(testData.getEchoTimesPtr());
-    functionsObject.setSignal(testData.getSignalMagPtr());
+    Ox::ModelT2OneParam<TYPE> model;
+    model.setNSamples(nSamples);
+    model.setEchoTimes(testData.getEchoTimesPtr());
+    model.setSignal(testData.getSignalMagPtr());
 
     TYPE jacobian[11];
 
-    functionsObject.calcLSJacobian(params, jacobian);
+    model.calcLSJacobian(params, jacobian);
 
     TYPE correct[] = {0, 0.159229, 0.228185, 0.245253, 0.234309, 0.209862, 0.180447, 0.150845, 0.123526, 0.0995741, 0.0792755};
 
@@ -98,12 +98,12 @@ TEST(OxModelT2OneParam, calcCostValueTest) {
 
     TYPE params[] = {0};
 
-    Ox::ModelT2OneParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    functionsObject.setEchoTimes(testData.getEchoTimesPtr());
-    functionsObject.setSignal(testData.getSignalMagPtr());
+    Ox::ModelT2OneParam<TYPE> model;
+    model.setNSamples(nSamples);
+    model.setEchoTimes(testData.getEchoTimesPtr());
+    model.setSignal(testData.getSignalMagPtr());
 
-    EXPECT_DOUBLE_EQ(functionsObject.calcCostValue(params), 18630.38);
+    EXPECT_DOUBLE_EQ(model.calcCostValue(params), 18630.38);
 }
 
 TEST(OxModelT2OneParam, calcCostDerivativeTest) {
@@ -116,13 +116,13 @@ TEST(OxModelT2OneParam, calcCostDerivativeTest) {
 
     TYPE params[] = {100};
 
-    Ox::ModelT2OneParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    functionsObject.setEchoTimes(testData.getEchoTimesPtr());
-    functionsObject.setSignal(testData.getSignalMagPtr());
+    Ox::ModelT2OneParam<TYPE> model;
+    model.setNSamples(nSamples);
+    model.setEchoTimes(testData.getEchoTimesPtr());
+    model.setSignal(testData.getSignalMagPtr());
 
     TYPE derivative[] = {0};
-    functionsObject.calcCostDerivative(params, derivative);
+    model.calcCostDerivative(params, derivative);
 
     EXPECT_NEAR(derivative[0], -27.600528657790338, 1e-3);
 
@@ -141,34 +141,34 @@ TEST(OxModelT2OneParam, copyConstructor) {
     TYPE newSignal2[11] = {3, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 
     // init the necessary objects
-    Ox::ModelT2OneParam<TYPE> functionsObject;
-    functionsObject.setNSamples(testData.getNSamples());
-    functionsObject.setEchoTimes(testData.getEchoTimesPtr());
-    functionsObject.setSignal(signal);
+    Ox::ModelT2OneParam<TYPE> model;
+    model.setNSamples(testData.getNSamples());
+    model.setEchoTimes(testData.getEchoTimesPtr());
+    model.setSignal(signal);
 
     // copy and set signal
-    Ox::ModelT2OneParam<TYPE> functionsObjectCopy = functionsObject;
-    functionsObjectCopy.setSignal(newSignal);
+    Ox::ModelT2OneParam<TYPE> modelCopy = model;
+    modelCopy.setSignal(newSignal);
 
     // copy and set signal
-    Ox::ModelT2OneParam<TYPE> functionsObjectCopy2(functionsObject);
-    functionsObjectCopy2.setSignal(newSignal2);
+    Ox::ModelT2OneParam<TYPE> modelCopy2(model);
+    modelCopy2.setSignal(newSignal2);
 
     // copy should preserve nSamples
-    EXPECT_EQ(functionsObjectCopy.getNSamples(), nSamples);
-    EXPECT_EQ(functionsObjectCopy2.getNSamples(), nSamples);
+    EXPECT_EQ(modelCopy.getNSamples(), nSamples);
+    EXPECT_EQ(modelCopy2.getNSamples(), nSamples);
 
     // copy should reset echoTimes pointer
-    EXPECT_FALSE(functionsObjectCopy.getEchoTimes());
-    EXPECT_FALSE(functionsObjectCopy2.getEchoTimes());
+    EXPECT_FALSE(modelCopy.getEchoTimes());
+    EXPECT_FALSE(modelCopy2.getEchoTimes());
 
     // copy should not preserve signal pointer
-    EXPECT_NE(functionsObject.getSignal(), functionsObjectCopy.getSignal());
-    EXPECT_NE(functionsObject.getSignal(), functionsObjectCopy2.getSignal());
+    EXPECT_NE(model.getSignal(), modelCopy.getSignal());
+    EXPECT_NE(model.getSignal(), modelCopy2.getSignal());
 
     // check if the new signal pointers were asigned
-    EXPECT_EQ(functionsObjectCopy.getSignal(), newSignal);
-    EXPECT_EQ(functionsObjectCopy2.getSignal(), newSignal2);
+    EXPECT_EQ(modelCopy.getSignal(), newSignal);
+    EXPECT_EQ(modelCopy2.getSignal(), newSignal2);
 
 }
 

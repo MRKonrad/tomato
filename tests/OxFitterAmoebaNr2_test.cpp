@@ -23,13 +23,13 @@ TEST(OxFitterAmoebaNr2, performFitting) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
-    functionsObject.setSignal(testData.getSignalPtr());
+    Ox::ModelT1ThreeParam<TYPE> model;
+    model.setNSamples(nSamples);
+    model.setInvTimes(testData.getInvTimesPtr());
+    model.setSignal(testData.getSignalPtr());
 
     Ox::FitterAmoebaNr2<TYPE> fitterAmoebaNr2;
-    fitterAmoebaNr2.setModel(&functionsObject);
+    fitterAmoebaNr2.setModel(&model);
     fitterAmoebaNr2.setParameters(params);
 
     fitterAmoebaNr2.setVerbose(false);

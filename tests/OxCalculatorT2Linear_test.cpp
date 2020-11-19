@@ -112,13 +112,13 @@ TEST(OxCalculatorT2Linear, copyConstructor) {
     int nSamples = testData.getNSamples();
 
     // init the necessary objects
-    Ox::ModelT2TwoParam<TYPE> functionsObject;
+    Ox::ModelT2TwoParam<TYPE> model;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     //Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2Linear<TYPE> calculator;
 
     // configure
-    calculator.setModel(&functionsObject);
+    calculator.setModel(&model);
     calculator.setFitter(&fitterAmoebaVnl);
     //calculator.setStartPointCalculator(&startPointCalculator);
 

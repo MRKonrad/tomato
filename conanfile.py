@@ -3,14 +3,14 @@ from conans import ConanFile, CMake, tools
 
 class TomatoConan(ConanFile):
     name = "tomato"
-    version = "0.5"
+    version = "0.6.0"
     default_user = "user"
     default_channel = "testing"
-    license = "<MIT>"
-    author = "<Konrad Werys> <konradwerys2@gmail.com>"
-    url = "<https://github.com/MRKonrad/tomato>"
-    description = "<Cardiac MRI map calculation library>"
-    topics = ("<Cardiac MRI>", "<MRI>", "<CMR>", "<paramteric mapping>")
+    license = "MIT"
+    author = "Konrad Werys, konradwerys2@gmail.com"
+    url = "https://github.com/MRKonrad/tomato"
+    description = "Cardiac MRI map calculation library"
+    topics = ("Cardiac MRI", "MRI", "CMR", "paramteric mapping", "T1")
     settings = "os", "compiler", "build_type", "arch"
     options = {
         "shared": [True, False],
@@ -55,10 +55,6 @@ class TomatoConan(ConanFile):
 
         if (tools.os_info.is_linux):
             cmake.definitions["CMAKE_POSITION_INDEPENDENT_CODE"] = "ON"
-
-        # # Windows and shared libs
-        # if (tools.os_info.is_windows):
-        #     cmake.definitions["CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS"] = "ON"
 
         cmake.definitions["USE_ITK"] = self.bool_to_on_off_string(self.options.use_itk)
         cmake.definitions["USE_VNL"] = self.bool_to_on_off_string(self.options.use_vnl)

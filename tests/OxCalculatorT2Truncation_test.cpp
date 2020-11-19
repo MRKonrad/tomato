@@ -10,134 +10,197 @@
 #include "CmakeConfigForTomato.h"
 #ifdef USE_PRIVATE_NR2
 
-#include "OxModelT2TwoParam.h"
-#include "OxModelT2ThreeParam.h"
+#include "OxModelT2TwoParamScale.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
 #include "OxStartPointCalculatorBasic.h"
 #include "OxCalculatorT2Truncation.h"
 
 #ifdef USE_VNL
-TEST(OxCalculatorT2Truncation, blood) {
+TEST(OxCalculatorT2Truncation, highR2_lowT2) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/T2_blood.yaml";
-    Ox::TestData<TYPE> testData(filePath);
-    int nSamples = testData.getNSamples();
-    TYPE noise[] = {2.3, 1.2, 3.2, 1.1, 4.3, 2.3, 1.2, 3.2, 1.1, 4.3, 3.4};
+    TYPE signal[] = {110, 75, 49, 35, 25, 18, 11, 8};
+    TYPE echoTimes[] = {3, 6, 9, 12, 15, 18, 21, 24};
+    int nSamples = 8;
+
+    double tolerance = 1e-4;
+
+    double correctT2 = 7.9055;
+    double correctR2 = 0.9990;
+    double correctNSamplesUsed = 8;
+    double correctExitCondition = 1;
 
     // init the necessary objects
-    Ox::ModelT2ThreeParam<TYPE> functionsObject;
+    Ox::ModelT2TwoParamScale<TYPE> model;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
+    Ox::CalculatorT2Truncation<TYPE> calculator;
+
+    // configure
+    calculator.setModel(&model);
+    calculator.setFitter(&fitter);
+
+    // set the data
+    calculator.setNSamples(nSamples);
+    calculator.setEchoTimes(echoTimes);
+    calculator.setSigMag(signal);
+
+    calculator.calculate();
+
+    EXPECT_NEAR(calculator.getResults()["T2"], correctT2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["R2"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["nSamplesUsed"], correctNSamplesUsed, tolerance);
+    EXPECT_NEAR(calculator.getResults()["exitCondition"], correctExitCondition, tolerance);
+}
+
+TEST(OxCalculatorT2Truncation, highR2_highT2) {
+
+    typedef double TYPE;
+
+    TYPE signal[] = {106, 94, 84, 74, 66, 58, 52, 46};
+    TYPE echoTimes[] = {3, 6, 9, 12, 15, 18, 21, 24};
+    int nSamples = 8;
+
+    double tolerance = 1e-4;
+
+    double correctT2 = 25.1418;
+    double correctR2 = 0.9998;
+    double correctNSamplesUsed = 8;
+    double correctExitCondition = 1;
+
+    // init the necessary objects
+    Ox::ModelT2TwoParamScale<TYPE> model;
     Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2Truncation<TYPE> calculator;
 
     // configure
-    calculator.setModel(&functionsObject);
+    calculator.setModel(&model);
     calculator.setFitter(&fitter);
 
     // set the data
     calculator.setNSamples(nSamples);
-    calculator.setEchoTimes(testData.getEchoTimesPtr());
-    calculator.setSigMag(testData.getSignalMagPtr());
-    calculator.setNoise(noise);
+    calculator.setEchoTimes(echoTimes);
+    calculator.setSigMag(signal);
 
     calculator.calculate();
 
-    EXPECT_NEAR(calculator.getResults()["A"], testData.getResultsThreeParam()[0], 2e-1);
-    EXPECT_NEAR(calculator.getResults()["B"], testData.getResultsThreeParam()[1], 2e-1);
-    EXPECT_NEAR(calculator.getResults()["T2"], testData.getResultsThreeParam()[2], 2e-1);
+    EXPECT_NEAR(calculator.getResults()["T2"], correctT2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["R2"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["nSamplesUsed"], correctNSamplesUsed, tolerance);
+    EXPECT_NEAR(calculator.getResults()["exitCondition"], correctExitCondition, tolerance);
 }
 
-TEST(OxCalculatorT2Truncation, myo) {
+TEST(OxCalculatorT2Truncation, truncationInWork) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/T2_myocardium.yaml";
-    Ox::TestData<TYPE> testData(filePath);
-    int nSamples = testData.getNSamples();
-    TYPE noise[] = {2.3, 1.2, 3.2, 1.1, 4.3, 2.3, 1.2, 3.2, 1.1, 4.3, 3.4};
+    TYPE signal[] = {110, 75, 49, 35, 24, 25, 26, 25};
+    TYPE echoTimes[] = {3, 6, 9, 12, 15, 18, 21, 24};
+    int nSamples = 8;
+
+    double tolerance = 1e-4;
+
+    double correctT2 = 7.6755;
+    double correctR2 = 0.9991;
+    double correctNSamplesUsed = 4;
+    double correctExitCondition = 3;
 
     // init the necessary objects
-    Ox::ModelT2TwoParam<TYPE> functionsObject;
-    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
+    Ox::ModelT2TwoParamScale<TYPE> model;
+    Ox::FitterAmoebaVnl<TYPE> fitter;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2Truncation<TYPE> calculator;
 
     // configure
-    calculator.setModel(&functionsObject);
+    calculator.setModel(&model);
     calculator.setFitter(&fitter);
 
     // set the data
     calculator.setNSamples(nSamples);
-    calculator.setEchoTimes(testData.getEchoTimesPtr());
-    calculator.setSigMag(testData.getSignalMagPtr());
-    calculator.setNoise(noise);
+    calculator.setEchoTimes(echoTimes);
+    calculator.setSigMag(signal);
 
     calculator.calculate();
 
-    EXPECT_NEAR(calculator.getResults()["A"], testData.getResultsTwoParam()[0], 2e-1);
-    EXPECT_NEAR(calculator.getResults()["T2"], testData.getResultsTwoParam()[1], 2e-1);
+    EXPECT_NEAR(calculator.getResults()["T2"], correctT2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["R2"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["nSamplesUsed"], correctNSamplesUsed, tolerance);
+    EXPECT_NEAR(calculator.getResults()["exitCondition"], correctExitCondition, tolerance);
 }
 
-TEST(OxCalculatorT2Truncation, myo_3samples) {
+TEST(OxCalculatorT2Truncation, lowR2_highT2) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/T2_myocardium_3samples.yaml";
-    Ox::TestData<TYPE> testData(filePath);
-    int nSamples = testData.getNSamples();
-    TYPE noise[] = { 2.3, 1.2, 3.2 };
+    TYPE signal[] = {109, 93, 86, 72, 64, 60, 52, 49};
+    TYPE echoTimes[] = {3, 6, 9, 12, 15, 18, 21, 24};
+    int nSamples = 8;
+
+    double tolerance = 1e-4;
+
+    double correctT2 = 25.1101;
+    double correctR2 = 0.9897;
+    double correctNSamplesUsed = 8;
+    double correctExitCondition = 4;
 
     // init the necessary objects
-    Ox::ModelT2TwoParam<TYPE> functionsObject;
-    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
+    Ox::ModelT2TwoParamScale<TYPE> model;
+    Ox::FitterAmoebaVnl<TYPE> fitter;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2Truncation<TYPE> calculator;
 
     // configure
-    calculator.setModel(&functionsObject);
+    calculator.setModel(&model);
     calculator.setFitter(&fitter);
 
     // set the data
     calculator.setNSamples(nSamples);
-    calculator.setEchoTimes(testData.getEchoTimesPtr());
-    calculator.setSigMag(testData.getSignalMagPtr());
-    calculator.setNoise(noise);
+    calculator.setEchoTimes(echoTimes);
+    calculator.setSigMag(signal);
 
     calculator.calculate();
 
-    EXPECT_NEAR(calculator.getResults()["A"], testData.getResultsTwoParam()[0], 2e-1);
-    EXPECT_NEAR(calculator.getResults()["T2"], testData.getResultsTwoParam()[1], 2e-1);
+    EXPECT_NEAR(calculator.getResults()["T2"], correctT2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["R2"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["nSamplesUsed"], correctNSamplesUsed, tolerance);
+    EXPECT_NEAR(calculator.getResults()["exitCondition"], correctExitCondition, tolerance);
 }
 
-TEST(OxCalculatorT2Truncation, blood_3samples) {
+TEST(OxCalculatorT2Truncation, calculateFitError) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/T2_blood_3samples.yaml";
-    Ox::TestData<TYPE> testData(filePath);
-    int nSamples = testData.getNSamples();
-    TYPE noise[] = { 2.3, 1.2, 3.2 };
+    TYPE signal[] = {109, 93, 86, 72, 64, 60, 52, 49};
+    TYPE echoTimes[] = {3, 6, 9, 12, 15, 18, 21, 24};
+    int nSamples = 8;
+
+    double tolerance = 1e-4;
+
+    double correctDeltaB = 2.4428;
+    double correctDeltaT2 = 1.0852;
 
     // init the necessary objects
-    Ox::ModelT2TwoParam<TYPE> functionsObject;
-    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
+    Ox::ModelT2TwoParamScale<TYPE> model;
+    Ox::FitterAmoebaVnl<TYPE> fitter;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2Truncation<TYPE> calculator;
 
     // configure
-    calculator.setModel(&functionsObject);
+    calculator.setModel(&model);
     calculator.setFitter(&fitter);
 
     // set the data
     calculator.setNSamples(nSamples);
-    calculator.setEchoTimes(testData.getEchoTimesPtr());
-    calculator.setSigMag(testData.getSignalMagPtr());
-    calculator.setNoise(noise);
+    calculator.setEchoTimes(echoTimes);
+    calculator.setSigMag(signal);
 
     calculator.calculate();
 
-    EXPECT_NEAR(calculator.getResults()["A"], testData.getResultsTwoParam()[0], 2e-1);
-    EXPECT_NEAR(calculator.getResults()["T2"], testData.getResultsTwoParam()[1], 2e-1);
+    EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaT2"], correctDeltaT2, tolerance);
 }
 
 TEST(OxCalculatorT2Truncation, copyConstructor) {
@@ -147,22 +210,20 @@ TEST(OxCalculatorT2Truncation, copyConstructor) {
     char filePath [] = "testData/T2_blood_3samples.yaml";
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
-    TYPE noise[] = {2.3, 1.2, 3.2, 1.1, 4.3, 2.3, 1.2, 3.2, 1.1, 4.3, 3.4};
 
     // init the necessary objects
-    Ox::ModelT2TwoParam<TYPE> functionsObject;
+    Ox::ModelT2TwoParamScale<TYPE> model;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::CalculatorT2Truncation<TYPE> calculator;
 
     // configure
-    calculator.setModel(&functionsObject);
+    calculator.setModel(&model);
     calculator.setFitter(&fitterAmoebaVnl);
 
     // set the data
     calculator.setNSamples(nSamples);
     calculator.setEchoTimes(testData.getEchoTimesPtr());
     calculator.setSigMag(testData.getSignalMagPtr());
-    calculator.setNoise(noise);
 
     calculator.setMeanCutOff(123);
 
@@ -187,7 +248,6 @@ TEST(OxCalculatorT2Truncation, copyConstructor) {
     EXPECT_TRUE(calculatorCopy.getSignal());
     EXPECT_TRUE(calculatorCopy.getSigns());
     EXPECT_TRUE(calculatorCopy.getStartPoint());
-
 }
 
 #endif // USE_VNL

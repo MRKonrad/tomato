@@ -423,6 +423,15 @@ void KWUtil::printKW(bool doPrint, char* fmt, ...){
 }
 
 template< typename TYPE >
+TYPE KWUtil::calcFeFromT2(TYPE T2){
+    return 45 * std::pow(T2, -1.22);
+}
+
+template< typename TYPE >
+TYPE KWUtil::calcFeErrorFromT2(TYPE T2, TYPE deltaT2){
+    return  45 * 1.22 * std::pow(T2, -2.22) * deltaT2;
+}
+template< typename TYPE >
 int KWUtil::calculateFitError(int nSamples, int nDims, const TYPE* jacobian, TYPE mFuncNorm, TYPE* fitError){
     // compute matrix g=J^{T}J
     TYPE* g = new TYPE[nDims*nDims];

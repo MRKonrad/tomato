@@ -166,6 +166,12 @@ public:
     static TYPE getChiSqrt(TYPE lastFValue, int nSamples);
 
     template< typename TYPE >
+    static TYPE calcFeFromT2(TYPE T2);
+
+    template< typename TYPE >
+    static TYPE calcFeErrorFromT2(TYPE T2, TYPE deltaT2);
+
+    template< typename TYPE >
     static int calculateFitError(int nSamples, int nDims, const TYPE* jacobian, TYPE mFuncNorm, TYPE* fitError);
 
     /**

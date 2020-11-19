@@ -39,7 +39,7 @@ set(CMAKE_PREFIX_PATH  ${CMAKE_BINARY_DIR} ${CMAKE_PREFIX_PATH})
 ### BUILD OPTIONS ###
 #####################
 
-set(USE_ITK OFF CACHE BOOL "Do you want to use ITK?")
+set(USE_ITK ON CACHE BOOL "Do you want to use ITK?")
 set(USE_VNL ON CACHE BOOL "Do you want to use VNL?")
 set(USE_YAML ON CACHE BOOL "Do you want to use yaml?")
 set(USE_LMFIT ON CACHE BOOL "Do you want to use LMFIT?")

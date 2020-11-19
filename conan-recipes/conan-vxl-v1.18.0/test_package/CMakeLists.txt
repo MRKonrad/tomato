@@ -4,6 +4,8 @@ project(PackageTest CXX)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
+include_directories(${CONAN_INCLUDE_DIRS_VXL}/vxl/core)
+include_directories(${CONAN_INCLUDE_DIRS_VXL}/vxl/vcl)
 add_executable(${PROJECT_NAME} example.cpp)
 target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS})
 

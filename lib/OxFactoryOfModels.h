@@ -24,6 +24,7 @@ namespace Ox {
             "ModelT1Shmolli",
             "ModelT2ThreeParam",
             "ModelT2TwoParam",
+            "ModelT2TwoParamScale",
             "ModelT2OneParam"
     };
 
@@ -33,7 +34,8 @@ namespace Ox {
         _ModelT1Shmolli = 2,
         _ModelT2ThreeParam = 3,
         _ModelT2TwoParam = 4,
-        _ModelT2OneParam = 5,
+        _ModelT2TwoParamScale = 5,
+        _ModelT2OneParam = 6,
         lastFunctorType = _ModelT2OneParam
     };
 
@@ -44,10 +46,12 @@ namespace Ox {
 #ifdef USE_PRIVATE_NR2
             1, // ModelT2ThreeParam
             1, // ModelT2TwoParam
+            1, // ModelT2TwoParamScale
             1  // ModelT2OneParam
 #else
             0, // ModelT2ThreeParam
             0, // ModelT2TwoParam
+            0, // ModelT2TwoParamScale
             0  // ModelT2OneParam
 #endif
     };

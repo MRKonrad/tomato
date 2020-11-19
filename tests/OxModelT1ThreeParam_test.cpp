@@ -15,10 +15,10 @@ TEST(OxModelT1ThreeParam, calcModelValueTest) {
 
     TYPE params[3] = {100, 200, 1000};
 
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    //functionsObject.setParameters(params);
+    Ox::ModelT1ThreeParam<TYPE> model;
+    //model.setParameters(params);
 
-    EXPECT_DOUBLE_EQ(functionsObject.calcModelValue(params, 0), -100);
+    EXPECT_DOUBLE_EQ(model.calcModelValue(params, 0), -100);
 }
 
 TEST(OxModelT1ThreeParam, calcLSResidualsTest) {
@@ -31,14 +31,14 @@ TEST(OxModelT1ThreeParam, calcLSResidualsTest) {
 
     TYPE params[3] = {0, 0, 0};
 
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    //functionsObject.setParameters(params);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
-    functionsObject.setSignal(testData.getSignalMagPtr());
+    Ox::ModelT1ThreeParam<TYPE> model;
+    model.setNSamples(nSamples);
+    //model.setParameters(params);
+    model.setInvTimes(testData.getInvTimesPtr());
+    model.setSignal(testData.getSignalMagPtr());
 
     TYPE *residuals = new TYPE[nSamples];
-    functionsObject.calcLSResiduals(params, residuals);
+    model.calcLSResiduals(params, residuals);
 
     for (int i = 0; i < nSamples; i++){
         EXPECT_DOUBLE_EQ(residuals[i], -testData.getSignalMag()[i]);
@@ -57,15 +57,15 @@ TEST(OxModelT1ThreeParam, calcLSJacobianTest) {
 
     TYPE params[3] = {0, 0, 1200};
 
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    //functionsObject.setParameters(params);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
-    functionsObject.setSignal(testData.getSignalMagPtr());
+    Ox::ModelT1ThreeParam<TYPE> model;
+    model.setNSamples(nSamples);
+    //model.setParameters(params);
+    model.setInvTimes(testData.getInvTimesPtr());
+    model.setSignal(testData.getSignalMagPtr());
 
     TYPE jacobian[7*3];
 
-    functionsObject.calcLSJacobian(params, jacobian);
+    model.calcLSJacobian(params, jacobian);
 
     TYPE correct[7*3] = {
             1, -0.920044,   0,
@@ -94,13 +94,13 @@ TEST(OxModelT1ThreeParam, calcCostValueTest) {
 
     TYPE params[3] = {0, 0, 0};
 
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    //functionsObject.setParameters(params);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
-    functionsObject.setSignal(testData.getSignalMagPtr());
+    Ox::ModelT1ThreeParam<TYPE> model;
+    model.setNSamples(nSamples);
+    //model.setParameters(params);
+    model.setInvTimes(testData.getInvTimesPtr());
+    model.setSignal(testData.getSignalMagPtr());
 
-    EXPECT_DOUBLE_EQ(functionsObject.calcCostValue(params), 17169);
+    EXPECT_DOUBLE_EQ(model.calcCostValue(params), 17169);
 }
 
 TEST(OxModelT1ThreeParam, calcCostDerivativeTest) {
@@ -113,14 +113,14 @@ TEST(OxModelT1ThreeParam, calcCostDerivativeTest) {
 
     TYPE params[3] = {100, 200, 1200};
 
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    functionsObject.setNSamples(nSamples);
-    //functionsObject.setParameters(params);
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
-    functionsObject.setSignal(testData.getSignalMagPtr());
+    Ox::ModelT1ThreeParam<TYPE> model;
+    model.setNSamples(nSamples);
+    //model.setParameters(params);
+    model.setInvTimes(testData.getInvTimesPtr());
+    model.setSignal(testData.getSignalMagPtr());
 
     TYPE derivative[] = {0, 0, 0};
-    functionsObject.calcCostDerivative(params, derivative);
+    model.calcCostDerivative(params, derivative);
 
     EXPECT_NEAR(derivative[0], -425.52433072265057, 1e-3);
     EXPECT_NEAR(derivative[1],  588.84996553808264, 1e-3);
@@ -141,34 +141,34 @@ TEST(OxModelT1ThreeParam, copyConstructor) {
     TYPE newSignal2[7] = {3, 2, 3, 4, 5, 6, 7};
 
     // init the necessary objects
-    Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    functionsObject.setNSamples(testData.getNSamples());
-    functionsObject.setInvTimes(testData.getInvTimesPtr());
-    functionsObject.setSignal(signal);
+    Ox::ModelT1ThreeParam<TYPE> model;
+    model.setNSamples(testData.getNSamples());
+    model.setInvTimes(testData.getInvTimesPtr());
+    model.setSignal(signal);
 
     // copy and set signal
-    Ox::ModelT1ThreeParam<TYPE> functionsObjectCopy = functionsObject;
-    functionsObjectCopy.setSignal(newSignal);
+    Ox::ModelT1ThreeParam<TYPE> modelCopy = model;
+    modelCopy.setSignal(newSignal);
 
     // copy and set signal
-    Ox::ModelT1ThreeParam<TYPE> functionsObjectCopy2(functionsObject);
-    functionsObjectCopy2.setSignal(newSignal2);
+    Ox::ModelT1ThreeParam<TYPE> modelCopy2(model);
+    modelCopy2.setSignal(newSignal2);
 
     // copy should preserve nSamples
-    EXPECT_EQ(functionsObjectCopy.getNSamples(), nSamples);
-    EXPECT_EQ(functionsObjectCopy2.getNSamples(), nSamples);
+    EXPECT_EQ(modelCopy.getNSamples(), nSamples);
+    EXPECT_EQ(modelCopy2.getNSamples(), nSamples);
 
     // copy should reset invTimes pointer
-    EXPECT_FALSE(functionsObjectCopy.getInvTimes());
-    EXPECT_FALSE(functionsObjectCopy2.getInvTimes());
+    EXPECT_FALSE(modelCopy.getInvTimes());
+    EXPECT_FALSE(modelCopy2.getInvTimes());
 
     // copy should not preserve signal pointer
-    EXPECT_NE(functionsObject.getSignal(), functionsObjectCopy.getSignal());
-    EXPECT_NE(functionsObject.getSignal(), functionsObjectCopy2.getSignal());
+    EXPECT_NE(model.getSignal(), modelCopy.getSignal());
+    EXPECT_NE(model.getSignal(), modelCopy2.getSignal());
 
     // check if the new signal pointers were asigned
-    EXPECT_EQ(functionsObjectCopy.getSignal(), newSignal);
-    EXPECT_EQ(functionsObjectCopy2.getSignal(), newSignal2);
+    EXPECT_EQ(modelCopy.getSignal(), newSignal);
+    EXPECT_EQ(modelCopy2.getSignal(), newSignal2);
 
 }
 

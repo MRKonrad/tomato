@@ -13,6 +13,7 @@
 #ifdef USE_PRIVATE_NR2
 #include "OxModelT2ThreeParam.h"
 #include "OxModelT2TwoParam.h"
+#include "OxModelT2TwoParamScale.h"
 #include "OxModelT2OneParam.h"
 #endif
 
@@ -37,6 +38,9 @@ namespace Ox {
             }
             case _ModelT2TwoParam: {
                 return new ModelT2TwoParam<TYPE>();
+            }
+            case _ModelT2TwoParamScale: {
+                return new ModelT2TwoParamScale<TYPE>();
             }
             case _ModelT2OneParam: {
                 return new ModelT2OneParam<TYPE>();
