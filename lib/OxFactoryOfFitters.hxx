@@ -7,8 +7,10 @@
 #ifndef Tomato_OXFACTORYOFFitters_HXX
 #define Tomato_OXFACTORYOFFitters_HXX
 
+#ifdef USE_VNL
 #include "OxFitterAmoebaVnl.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
+#endif
 #ifdef USE_PRIVATE_NR2
 #include "OxFitterAmoebaPrivateNr2.h"
 #endif
@@ -30,6 +32,7 @@ namespace Ox {
         Fitter<TYPE> *fitter = 0; //nullpointer
 
         switch (opts->fitting_method){
+#ifdef USE_VNL
             case AmoebaVnl: {
                 fitter = new FitterAmoebaVnl<TYPE>();
                 break;
@@ -38,13 +41,13 @@ namespace Ox {
                 fitter = new FitterLevenbergMarquardtVnl<TYPE>();
                 break;
             }
+#endif
 #ifdef USE_PRIVATE_NR2
             case AmoebaPrivateNr2: {
                 fitter = new FitterAmoebaPrivateNr2<TYPE>();
                 break;
             }
 #endif
-
 #ifdef USE_LMFIT
             case LevMarLmfit: {
                 fitter = new FitterLevenbergMarquardtLmfit<TYPE>();

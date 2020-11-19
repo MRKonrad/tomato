@@ -83,7 +83,7 @@ namespace Ox {
             std::cout << "MaxFunctionEvals: " << getMaxFunctionEvals() << std::endl;
             std::cout << "ThreadId:         " << getThreadId() << std::endl;
             if(_Model) {
-                KWUtil::printArray(_Parameters, _Model->getNDims(), _Parameters, (char*)"\nParameters:  ");
+                KWUtil::printArray(_Parameters != 0, _Model->getNDims(), _Parameters, (char*)"\nParameters:  ");
                 std::cout << "This Fitter contains the following Model object: ";
                 _Model->disp();
             };

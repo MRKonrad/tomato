@@ -20,7 +20,7 @@ namespace itk {
         this->m_LowerLimitOutputIntensity = 0;
 
         this->SetNumberOfRequiredInputs(1);
-        this->SetNumberOfRequiredOutputs(12);
+        this->SetNumberOfRequiredOutputs(13);
         for (unsigned i = 0; i < this->GetNumberOfRequiredOutputs(); ++i) {
             this->SetNthOutput(i, (TImageOut1::New()).GetPointer());
         }
@@ -270,10 +270,11 @@ namespace itk {
             itOutVector[5].Set(LimitResult(calculator->getResults()["ChiSqrt"]));
             itOutVector[6].Set(LimitResult(calculator->getResults()["SNR"]));
             itOutVector[7].Set(LimitResult(calculator->getResults()["NShmolliSamplesUsed"]));
-            itOutVector[8].Set(LimitResult(calculator->getResults()["SD_A"]));
-            itOutVector[9].Set(LimitResult(calculator->getResults()["SD_B"]));
-            itOutVector[10].Set(LimitResult(calculator->getResults()["SD_T1"]));
+            itOutVector[8].Set(LimitResult(calculator->getResults()["deltaA"]));
+            itOutVector[9].Set(LimitResult(calculator->getResults()["deltaB"]));
+            itOutVector[10].Set(LimitResult(calculator->getResults()["deltaT1"]));
             itOutVector[11].Set(LimitResult(calculator->getResults()["T2"]));
+            itOutVector[12].Set(LimitResult(calculator->getResults()["R2Abs"]));
 
             if (calculator->getSigns()) {
                 itOutMagSignRecov.GoToBeginOfLine();
@@ -370,7 +371,7 @@ namespace itk {
     template< typename TImageIn, typename TImageOut1, typename TImageOut2>
     TImageOut1*
     CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
-    ::GetSD_AImage() {
+    ::GetDeltaAImage() {
         return dynamic_cast< TImageOut1 * >(
                 this->ProcessObject::GetOutput(8) );
     }
@@ -378,7 +379,7 @@ namespace itk {
     template< typename TImageIn, typename TImageOut1, typename TImageOut2>
     TImageOut1*
     CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
-    ::GetSD_BImage() {
+    ::GetDeltaBImage() {
         return dynamic_cast< TImageOut1 * >(
                 this->ProcessObject::GetOutput(9) );
     }
@@ -386,7 +387,7 @@ namespace itk {
     template< typename TImageIn, typename TImageOut1, typename TImageOut2>
     TImageOut1*
     CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
-    ::GetSD_T1Image() {
+    ::GetDeltaT1Image() {
         return dynamic_cast< TImageOut1 * >(
                 this->ProcessObject::GetOutput(10) );
     }
@@ -400,10 +401,18 @@ namespace itk {
     }
 
     template< typename TImageIn, typename TImageOut1, typename TImageOut2>
+    TImageOut1*
+    CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
+    ::GetR2AbsImage(){
+        return dynamic_cast< TImageOut1 * >(
+                this->ProcessObject::GetOutput(12) );
+    }
+
+    template< typename TImageIn, typename TImageOut1, typename TImageOut2>
     TImageOut2*
     CalculatorT1ImageFilter<TImageIn, TImageOut1, TImageOut2>
     ::GetMagSignRecovered(){
-        return dynamic_cast< TImageOut2 * >(this->ProcessObject::GetOutput(12) );
+        return dynamic_cast< TImageOut2 * >(this->ProcessObject::GetOutput(13) );
     }
 
 }// end namespace itk

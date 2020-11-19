@@ -23,16 +23,17 @@
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1Shmolli.h"
 #include "OxCalculatorT1ShmolliOriginal.h"
+#include "OxAmoebaSKPold.h"
 #endif //USE_PRIVATE_NR2
 
 /* ************* */
 /*    fitters    */
 /* ************* */
 #include "OxFitter.h"
-#ifdef USE_ITK
+#ifdef USE_VNL
 #include "OxFitterAmoebaVnl.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
-#endif // USE_ITK
+#endif // USE_VNL
 #ifdef USE_PRIVATE_NR2
 #include "OxFitterAmoebaPrivateNr2.h"
 #endif //USE_PRIVATE_NR2
@@ -80,10 +81,14 @@
 #include "OxFactoryOfSignCalculators.h"
 #include "OxFactoryOfStartPointCalculators.h"
 
+/* ******* */
+/* others  */
+/* ******* */
+#include "TomatoOnePixel.h"
+
 /* ********* */
 /*    ITK    */
 /* ********* */
-
 #ifdef USE_ITK
 #include "itkCalculatorT1ImageFilter.h"
 #include "itkColorbar2DImageFilter.h"
@@ -108,10 +113,10 @@ namespace Ox {
     /*    fitters    */
     /* ************* */
     template class TOMATOLIB_EXPORT Fitter<double>;
-#ifdef USE_ITK
+#ifdef USE_VNL
     template class TOMATOLIB_EXPORT FitterAmoebaVnl<double>;
     template class TOMATOLIB_EXPORT FitterLevenbergMarquardtVnl<double>;
-#endif //USE_ITK
+#endif //USE_VNL
 #ifdef USE_PRIVATE_NR2
     template class TOMATOLIB_EXPORT FitterAmoebaPrivateNr2<double>;
 #endif //USE_PRIVATE_NR2
@@ -164,6 +169,14 @@ namespace Ox {
     /* options  */
     /* ********* */
     template class TOMATOLIB_EXPORT TomatoOptions<double>;
+
+    /* ******* */
+    /* others  */
+    /* ******* */
+    template std::map<std::string, double> TOMATOLIB_EXPORT calculateOnePixel(TomatoOptions<double> opts);
+#ifdef USE_YAML
+    template class TOMATOLIB_EXPORT TomatoParser<double>;
+#endif // USE_YAML
 
 } //namespace Ox
 

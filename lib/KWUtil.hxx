@@ -423,6 +423,59 @@ void KWUtil::printKW(bool doPrint, char* fmt, ...){
 }
 
 template< typename TYPE >
+int KWUtil::calculateFitError(int nSamples, int nDims, const TYPE* jacobian, TYPE mFuncNorm, TYPE* fitError){
+    // compute matrix g=J^{T}J
+    TYPE* g = new TYPE[nDims*nDims];
+    TYPE* g_inv = new TYPE[nDims*nDims];
+    for (int i = 0; i < nDims; i++){
+        for (int j = 0; j < nDims; j++){
+            g[j + i * nDims] = 0;
+            for (int k = 0; k < nSamples; k++){
+                g[j + i * nDims] += jacobian[i + k * nDims] * jacobian[j + k * nDims];
+            }
+        }
+    }
+    int exit = 1; // EXIT_FAILURE
+    if (nDims == 2){
+        exit = calcMatrixInverse2x2(g, g_inv);
+    }
+    if (nDims == 3){
+        exit = calcMatrixInverse3x3(g, g_inv);
+    }
+
+    if (exit == 0) { // EXIT SUCCESS
+        for (int i = 0; i < nDims; i++){
+            int pos = i * nDims + i;
+            fitError[i] = mFuncNorm * sqrt(g_inv[pos]/(nSamples-nDims));
+        }
+    }
+
+    delete [] g;
+    delete [] g_inv;
+    return exit;
+}
+
+template< typename TYPE >
+int KWUtil::calcMatrixInverse2x2(const TYPE *matrix, TYPE *matrixInverse){
+
+    for (int i = 0; i < 4; ++i){
+        matrixInverse[i] = 0;
+    }
+
+    const TYPE *a = matrix; // just for shorter equations
+    TYPE det = a[0] * a[3] - a[1] * a[2];
+    if (fabs(det) < std::numeric_limits<TYPE>::min())
+        return 1; // EXIT_FAILURE
+
+    matrixInverse[0] =  a[3]/det;
+    matrixInverse[1] = -a[1]/det;
+    matrixInverse[2] = -a[2]/det;
+    matrixInverse[3] =  a[0]/det;
+
+    return 0; // EXIT_SUCCESS
+}
+
+template< typename TYPE >
 int KWUtil::calcMatrixInverse3x3(const TYPE *matrix, TYPE *matrixInverse){
 
     for (int i = 0; i < 9; ++i){
@@ -457,7 +510,7 @@ template< typename TYPE >
 TYPE KWUtil::MOLLI_min(TYPE a[], int n, int *indm)
 {
     int i=0;
-    short mval=a[0];
+    TYPE mval=a[0];
     *indm=0;
     for (i=0;i<n;i++)if(mval>a[i]){*indm=i;mval=a[i];};
     return(mval);
@@ -467,7 +520,7 @@ template< typename TYPE >
 TYPE KWUtil::MOLLI_max(TYPE a[], int n, int *indm)
 {
     int i=0;
-    short mval=a[0];
+    TYPE mval=a[0];
     *indm=0;
     for (i=0;i<n;i++)if(mval<a[i]){*indm=i;mval=a[i];};
     return(mval);

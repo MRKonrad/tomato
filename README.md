@@ -18,6 +18,28 @@ It contains ShMOLLI implementation as in [this article](https://jcmr-online.biom
 | [Test coverage - Codecov][codecov_link]        | [![codecov][codecov_badge]][codecov_link]             |
 | [Downloads][downloads_link]                    | [![GitHub Releases][downloads_badge]][downloads_link] |
 
+## How to compile
+[CMake](cmake.org) build system and [Conan](conan.io) cpp package manager are recommended. 
+
+1. Get dependencies   
+   In the conan-recipes folder:
+    ```bash
+    conan create conan-gtest-1.8.1 user/testing
+    conan create conan-vxl-2.0.2 user/testing
+    conan create libyaml user/testing
+    conan create lmfit user/testing
+    ```
+2. Build   
+   In the source folder:
+    ```bash
+    mkdir build 
+    cd build
+    conan install ..
+    cmake ..
+    cmake --build .
+    cmake --build --target INSTALL
+    ```
+
 ## TomatoOpenSource and TomatoFull
 **Important**
 
@@ -52,3 +74,6 @@ Please see [contributing.md](contributing.md) and [codeofconduct.md](codeofcondu
 [downloads_badge]: https://img.shields.io/github/downloads/MRKonrad/tomato/total.svg?style=flat-square
 [doxygen_link]: https://mrkonrad.github.io/tomato/html/md__r_e_a_d_m_e.html
 [toamto_docs_link]: https://mrkonrad.github.io/tomato_docs/
+
+conan remove -f tomato
+conan create . cvi/production -s compiler.version=10.0 -e tomato:CC="/opt/local/bin/clang-mp-10" -e tomato:CXX="/opt/local/bin/clang++-mp-10" -s build_type=Release

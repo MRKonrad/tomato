@@ -21,26 +21,35 @@ project(Tomato)
 
 # The version number
 set(Tomato_VERSION_MAJOR 0)
-set(Tomato_VERSION_MINOR 5)
+set(Tomato_VERSION_MINOR 6)
 
 # Compiler flags
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 98 CACHE STRING "")
+set(CXX_STANDARD_98 OFF)
 if(CMAKE_CXX_STANDARD EQUAL 98)
     set(CXX_STANDARD_98 ON) # flag used in the code
 endif()
 
-#############################
-### DOWNLOAD DEPENDENCIES ###
-#############################
+# needed for conan
+set(CMAKE_MODULE_PATH  ${CMAKE_BINARY_DIR} ${CMAKE_MODULE_PATH})
+set(CMAKE_PREFIX_PATH  ${CMAKE_BINARY_DIR} ${CMAKE_PREFIX_PATH})
 
-# scripts to download pre-compiled dependencis, running only if DOWNLOAD_DEPENDENCIES is ON
-set(DOWNLOAD_DEPENDENCIES ON CACHE BOOL "Do you want to download the dependencies?")
-include(cmake/downloadItk.cmake)
-include(cmake/downloadLmfit.cmake)
+#####################
+### BUILD OPTIONS ###
+#####################
+
+set(USE_ITK OFF CACHE BOOL "Do you want to use ITK?")
+set(USE_VNL ON CACHE BOOL "Do you want to use VNL?")
+set(USE_YAML ON CACHE BOOL "Do you want to use yaml?")
+set(USE_LMFIT ON CACHE BOOL "Do you want to use LMFIT?")
+set(USE_TOMATOFIT ON CACHE BOOL "Do you want to use TOMATOFIT?")
+set(DOWNLOAD_DEPENDENCIES OFF CACHE BOOL "Do you want to download the dependencies?")
+set(BUILD_TESTING ON CACHE BOOL "Do you want to build Tomato tests?")
+set(BUILD_APP ON CACHE BOOL "Do you want to build Tomato app?")
 
 ##################
-### list files ###
+### LIST FILES ###
 ##################
 
 # list of source files TODO: do not use glob, as it is not recommended https://cmake.org/cmake/help/latest/command/file.html#filesystem
@@ -48,45 +57,20 @@ file(GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)
 file(GLOB_RECURSE LIB_FILES lib/*.c* lib/*.h* lib/*.t*)
 file(GLOB_RECURSE API_FILES lib/*.h app/*.h lib/KWUtil.hxx)
 
-###############
-### PRIVATE ###
-###############
+#############################
+### DOWNLOAD DEPENDENCIES ###
+#############################
 
-# unfortunately I cannot publish numerical recipes code according to numerical recipes licence
-set(PRIVATE_NR2_DIR ${PROJECT_SOURCE_DIR}/../tomato_private CACHE PATH "")
-set(USE_PRIVATE_NR2 OFF CACHE BOOL "")
-if(USE_PRIVATE_NR2)
-    add_subdirectory(${PRIVATE_NR2_DIR} ${CMAKE_BINARY_DIR}/private)
-    include_directories(${PRIVATE_NR2_DIR}/lib)
-endif()
-
-############
-### YAML ###
-############
-
-set(USE_YAML ON CACHE BOOL "Do you want to use yaml?")
-include(cmake/libyaml.cmake)
-
-###############
-### Fitting ###
-###############
-
-# lmfit currently not on windows
-set(USE_LMFIT ON CACHE BOOL "Do you want to use LMFIT?")
-include(cmake/lmfit.cmake)
-
-set(USE_TOMATOFIT ON CACHE BOOL "Do you want to use TOMATOFIT?")
-include(cmake/tomatofit.cmake)
+include(cmake/downloadItk.cmake)
+include(cmake/downloadLmfit.cmake)
 
 ###########
 ### ITK ###
 ###########
 
-set(USE_ITK ON CACHE BOOL "Do you want to use ITK?")
-
 if(USE_ITK)
     set(USE_ITK OFF)
-    find_package(ITK HINTS ${ITK_DIR_HINTS})
+    find_package(ITK HINTS ${PROJECT_SOURCE_DIR}/thirdParty/itk)
     MESSAGE("ITK version:" ${ITK_VERSION})
     if(ITK_FOUND)
         set(USE_ITK ON)
@@ -100,27 +84,59 @@ endif(USE_ITK)
 ### VNL ###
 ###########
 
-set(USE_VNL ON CACHE BOOL "Do you want to use VNL?")
-
-if(USE_VNL AND NOT USE_ITK)
-    # this option works only with CMAKE_CXX_STANDARD 11 or higher
-    add_subdirectory (${PROJECT_SOURCE_DIR}/thirdParty/vxl)
-    set(VXL_BUILD_CORE_NUMERICS_ONLY ON)
-    include_directories(${PROJECT_BINARY_DIR}/thirdParty/vxl/core)
-    include_directories(${PROJECT_BINARY_DIR}/thirdParty/vxl/vcl)
-    include_directories(${PROJECT_SOURCE_DIR}/thirdParty/vxl/core)
-    set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} vnl vnl_algo)
+if (USE_VNL AND NOT USE_ITK)
+    find_package(vxl REQUIRED)
+    set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} vxl::vxl)
+    include_directories(${vxl_INCLUDE_DIRS}/vxl/core)
+    include_directories(${vxl_INCLUDE_DIRS}/vxl/vcl)
 endif()
+
+############
+### YAML ###
+############
+
+if (USE_YAML)
+    find_package(libyaml REQUIRED)
+    set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} libyaml::libyaml)
+endif()
+
+#############
+### LMFIT ###
+#############
+
+if (USE_LMFIT)
+    find_package(lmfit REQUIRED)
+    set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} lmfit::lmfit)
+endif()
+
+###############
+### PRIVATE ###
+###############
+
+# unfortunately I cannot publish numerical recipes code according to numerical recipes licence
+set(PRIVATE_NR2_DIR ${PROJECT_SOURCE_DIR}/../tomato_private CACHE PATH "")
+set(USE_PRIVATE_NR2 OFF CACHE BOOL "")
+if(USE_PRIVATE_NR2 AND EXISTS ${PRIVATE_NR2_DIR})
+    add_subdirectory(${PRIVATE_NR2_DIR} ${CMAKE_BINARY_DIR}/private)
+    include_directories(${PRIVATE_NR2_DIR}/lib)
+else()
+    set(USE_PRIVATE_NR2 OFF)
+endif()
+
+#################
+### TOMATOFIT ###
+#################
+
+include(cmake/tomatofit.cmake)
 
 ####################
 ### MAIN PROGRAM ###
 ####################
 
-set(Tomato_BUILD_TESTING ON CACHE BOOL "Do you want to build Tomato tests?")
-
-set(BUILD_APP OFF)
-if(USE_ITK AND USE_YAML)
-    set(BUILD_APP ON)
+if (BUILD_APP)
+    if(NOT USE_ITK OR NOT USE_YAML)
+        set(BUILD_APP OFF)
+    endif()
 endif()
 
 MESSAGE("CXX_STANDARD_98:       " ${CXX_STANDARD_98})
@@ -132,7 +148,7 @@ MESSAGE("USE_LMFIT:             " ${USE_LMFIT})
 MESSAGE("USE_TOMATOFIT:         " ${USE_TOMATOFIT})
 MESSAGE("USE_YAML:              " ${USE_YAML})
 MESSAGE("BUILD_APP:             " ${BUILD_APP})
-MESSAGE("Tomato_BUILD_TESTING:  " ${Tomato_BUILD_TESTING})
+MESSAGE("BUILD_TESTING:         " ${BUILD_TESTING})
 MESSAGE("CMAKE_INSTALL_PREFIX:  " ${CMAKE_INSTALL_PREFIX})
 
 # configure a header file to pass some of the CMake settings to the source code
@@ -150,6 +166,7 @@ include_directories("${PROJECT_BINARY_DIR}") # for the configuration header
 
 # target
 add_library(TomatoLib ${LIB_FILES})
+set_target_properties(TomatoLib PROPERTIES LINKER_LANGUAGE CXX)
 
 #link
 target_link_libraries(TomatoLib ${TOMATO_LIBS_TO_LINK})
@@ -170,7 +187,7 @@ if(BUILD_APP)
     include_directories(app)
 
     # target
-    add_executable(TomatoExe ${APP_FILES} ${LIB_FILES})
+    add_executable(TomatoExe ${APP_FILES})
 
     # link
     target_link_libraries(TomatoExe ${TOMATO_LIBS_TO_LINK})
@@ -205,17 +222,7 @@ endif()
 ### TESTING ###
 ###############
 
-if(Tomato_BUILD_TESTING AND USE_YAML)
+if(BUILD_TESTING AND USE_YAML)
     add_subdirectory(tests)
     install(TARGETS TomatoLib DESTINATION tests)
 endif()
-
-##############################
-#### DISPLAY ALL VARIABLES ###
-##############################
-#
-##get_cmake_property (_variableNames VARIABLES)
-##list (SORT _variableNames)
-##foreach (_variableName ${_variableNames})
-##    message (STATUS "${_variableName}=${${_variableName}}")
-##endforeach()

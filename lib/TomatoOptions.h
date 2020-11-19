@@ -23,7 +23,7 @@
 namespace Ox {
 
     template<typename MeasureType>
-    struct TomatoOptions {
+    class TomatoOptions {
 
     public:
         // paths for dicom file based calculation

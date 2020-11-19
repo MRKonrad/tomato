@@ -81,8 +81,6 @@ TEST(OxModelT2OneParam, calcLSJacobianTest) {
 
     functionsObject.calcLSJacobian(params, jacobian);
 
-    KWUtil::printArray(11, jacobian);
-
     TYPE correct[] = {0, 0.159229, 0.228185, 0.245253, 0.234309, 0.209862, 0.180447, 0.150845, 0.123526, 0.0995741, 0.0792755};
 
     for (int iSample = 0; iSample < nSamples; iSample++) {

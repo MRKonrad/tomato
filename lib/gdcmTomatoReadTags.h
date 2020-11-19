@@ -8,8 +8,17 @@
 #include "CmakeConfigForTomato.h"
 
 #ifdef USE_ITK
+#include "tomatolib_export.h"
 
-int gdcmTomatoReadTags(std::vector<std::pair<int, int> > tags, std::string filename, std::string &tagContent, bool verbose = false);
+#include <string>
+#include <vector>
+#include <utility>
+
+int TOMATOLIB_EXPORT gdcmTomatoReadTags(
+        std::vector<std::pair<int, int> > tags,
+        std::string filename,
+        std::string &tagContent,
+        bool verbose);
 
 #endif //USE_ITK
 

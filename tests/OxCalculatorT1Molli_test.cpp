@@ -22,8 +22,6 @@
 #include "itkTimeProbe.h"
 #endif
 
-//TODO: make sure correctSDs are actually correct
-
 #ifdef USE_VNL
 TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
 
@@ -118,26 +116,26 @@ TEST(OxCalculatorT1Molli, calculate_WithoutSigns) {
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1;
 
     // configure
-    calculatorT1Molli.setModel(&functionsObject);
-    calculatorT1Molli.setFitter(&fitterAmoebaVnl);
-    calculatorT1Molli.setSignCalculator(&signCalculator);
-    calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
+    calculatorT1.setModel(&functionsObject);
+    calculatorT1.setFitter(&fitterAmoebaVnl);
+    calculatorT1.setSignCalculator(&signCalculator);
+    calculatorT1.setStartPointCalculator(&startPointCalculator);
 
     // set the data
-    calculatorT1Molli.setNSamples(nSamples);
-    calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
-    calculatorT1Molli.setSigPha(testData.getSignalPhaPtr());
-    calculatorT1Molli.setSigMag(testData.getSignalMagPtr());
+    calculatorT1.setNSamples(nSamples);
+    calculatorT1.setInvTimes(testData.getInvTimesPtr());
+    calculatorT1.setSigPha(testData.getSignalPhaPtr());
+    calculatorT1.setSigMag(testData.getSignalMagPtr());
 
-    calculatorT1Molli.calculate();
+    calculatorT1.calculate();
 
-    EXPECT_NEAR(calculatorT1Molli.getResults()["A"], testData.getResultsMolli()[0], 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults()["B"], testData.getResultsMolli()[1], 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults()["T1star"], testData.getResultsMolli()[2], 1e-2);
-    EXPECT_EQ(calculatorT1Molli.getResults()["timeFlip"], 2);
+    EXPECT_NEAR(calculatorT1.getResults()["A"], testData.getResultsMolli()[0], 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["B"], testData.getResultsMolli()[1], 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["T1star"], testData.getResultsMolli()[2], 1e-2);
+    EXPECT_EQ(calculatorT1.getResults()["timeFlip"], 2);
 }
 #endif
 
@@ -155,25 +153,25 @@ TEST(OxCalculatorT1Molli, calculate_WithSigns) {
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1;
 
     // configure
-    calculatorT1Molli.setModel(&functionsObject);
-    calculatorT1Molli.setFitter(&fitterAmoebaVnl);
-    calculatorT1Molli.setSignCalculator(&signCalculator);
-    calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
+    calculatorT1.setModel(&functionsObject);
+    calculatorT1.setFitter(&fitterAmoebaVnl);
+    calculatorT1.setSignCalculator(&signCalculator);
+    calculatorT1.setStartPointCalculator(&startPointCalculator);
 
     // set the data
-    calculatorT1Molli.setNSamples(nSamples);
-    calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
-    calculatorT1Molli.setSigPha(testData.getSignalPhaPtr());
-    calculatorT1Molli.setSigMag(testData.getSignalMagPtr());
+    calculatorT1.setNSamples(nSamples);
+    calculatorT1.setInvTimes(testData.getInvTimesPtr());
+    calculatorT1.setSigPha(testData.getSignalPhaPtr());
+    calculatorT1.setSigMag(testData.getSignalMagPtr());
 
-    calculatorT1Molli.calculate();
+    calculatorT1.calculate();
 
-    EXPECT_NEAR(calculatorT1Molli.getResults()["A"], testData.getResultsMolli()[0], 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults()["B"], testData.getResultsMolli()[1], 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults()["T1star"], testData.getResultsMolli()[2], 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["A"], testData.getResultsMolli()[0], 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["B"], testData.getResultsMolli()[1], 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["T1star"], testData.getResultsMolli()[2], 1e-2);
 }
 #endif
 
@@ -191,50 +189,49 @@ TEST(OxCalculatorT1Molli, copyConstructor) {
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorRealImag<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1;
 
     // configure
-    calculatorT1Molli.setModel(&functionsObject);
-    calculatorT1Molli.setFitter(&fitterAmoebaVnl);
-    calculatorT1Molli.setSignCalculator(&signCalculator);
-    calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
+    calculatorT1.setModel(&functionsObject);
+    calculatorT1.setFitter(&fitterAmoebaVnl);
+    calculatorT1.setSignCalculator(&signCalculator);
+    calculatorT1.setStartPointCalculator(&startPointCalculator);
 
     // set the data
-    calculatorT1Molli.setNSamples(nSamples);
-    calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
-    calculatorT1Molli.setSigPha(testData.getSignalPhaPtr());
-    calculatorT1Molli.setSigMag(testData.getSignalMagPtr());
+    calculatorT1.setNSamples(nSamples);
+    calculatorT1.setInvTimes(testData.getInvTimesPtr());
+    calculatorT1.setSigPha(testData.getSignalPhaPtr());
+    calculatorT1.setSigMag(testData.getSignalMagPtr());
 
-    calculatorT1Molli.setMeanCutOff(123);
+    calculatorT1.setMeanCutOff(123);
 
-    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1MolliCopy = calculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Copy = calculatorT1;
 
-    EXPECT_EQ( calculatorT1Molli.getMeanCutOff(), calculatorT1MolliCopy.getMeanCutOff());
-    EXPECT_EQ( calculatorT1Molli.getNSamples(), calculatorT1MolliCopy.getNSamples());
-    EXPECT_EQ( calculatorT1Molli.getNDims(), calculatorT1MolliCopy.getNDims());
+    EXPECT_EQ( calculatorT1.getMeanCutOff(), calculatorT1Copy.getMeanCutOff());
+    EXPECT_EQ( calculatorT1.getNSamples(), calculatorT1Copy.getNSamples());
+    EXPECT_EQ( calculatorT1.getNDims(), calculatorT1Copy.getNDims());
 
     // empty object pointers
-    EXPECT_THROW(calculatorT1MolliCopy.getModel(), std::runtime_error);
-    EXPECT_THROW(calculatorT1MolliCopy.getFitter(), std::runtime_error);
+    EXPECT_THROW(calculatorT1Copy.getModel(), std::runtime_error);
+    EXPECT_THROW(calculatorT1Copy.getFitter(), std::runtime_error);
 
     // empty array pointers
-    EXPECT_THROW(calculatorT1MolliCopy.getInvTimes(), std::runtime_error);
-    EXPECT_FALSE(calculatorT1MolliCopy.getRepTimes());
-    EXPECT_FALSE(calculatorT1MolliCopy.getRelAcqTimes());
-    EXPECT_THROW(calculatorT1MolliCopy.getSigMag(), std::runtime_error);
-    EXPECT_FALSE(calculatorT1MolliCopy.getSigPha());
+    EXPECT_THROW(calculatorT1Copy.getInvTimes(), std::runtime_error);
+    EXPECT_FALSE(calculatorT1Copy.getRepTimes());
+    EXPECT_FALSE(calculatorT1Copy.getRelAcqTimes());
+    EXPECT_THROW(calculatorT1Copy.getSigMag(), std::runtime_error);
+    EXPECT_FALSE(calculatorT1Copy.getSigPha());
 
     // non-empty pointers of internal arrays
-    EXPECT_TRUE(calculatorT1MolliCopy.getSignal());
-    EXPECT_TRUE(calculatorT1MolliCopy.getSigns());
-    EXPECT_TRUE(calculatorT1MolliCopy.getStartPoint());
+    EXPECT_TRUE(calculatorT1Copy.getSignal());
+    EXPECT_TRUE(calculatorT1Copy.getSigns());
+    EXPECT_TRUE(calculatorT1Copy.getStartPoint());
 
 }
 #endif
 
 #ifdef USE_VNL
-
-TEST(OxCalculatorT1Molli, correctSDs) {
+TEST(OxCalculatorT1Molli, calculateFitError) {
 
     typedef double TYPE;
 
@@ -244,31 +241,70 @@ TEST(OxCalculatorT1Molli, correctSDs) {
 
     // init the necessary objects
     Ox::ModelT1ThreeParam<TYPE> functionsObject;
-    Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
-    Ox::SignCalculatorRealImag<TYPE> signCalculator;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitterAmoebaVnl;
+    Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1;
 
     // configure
-    calculatorT1Molli.setModel(&functionsObject);
-    calculatorT1Molli.setFitter(&fitterAmoebaVnl);
-    calculatorT1Molli.setSignCalculator(&signCalculator);
-    calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
-    calculatorT1Molli.setDoCalculateSDMap(true);
+    calculatorT1.setModel(&functionsObject);
+    calculatorT1.setFitter(&fitterAmoebaVnl);
+    calculatorT1.setSignCalculator(&signCalculator);
+    calculatorT1.setStartPointCalculator(&startPointCalculator);
 
     // set the data
-    calculatorT1Molli.setNSamples(nSamples);
-    calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
-    calculatorT1Molli.setSigPha(testData.getSignalPhaPtr());
-    calculatorT1Molli.setSigMag(testData.getSignalMagPtr());
+    calculatorT1.setNSamples(nSamples);
+    calculatorT1.setInvTimes(testData.getInvTimesPtr());
+    calculatorT1.setSigPha(testData.getSignalPhaPtr());
+    calculatorT1.setSigMag(testData.getSignalMagPtr());
 
-    calculatorT1Molli.calculate();
+    calculatorT1.calculate();
 
-    EXPECT_NEAR(calculatorT1Molli.getResults()["SD_T1"], 118.33, 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults()["SD_A"], 4.79, 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults()["SD_B"], 5.07, 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["deltaT1"], 675.17, 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["deltaT1star"], 298.23, 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["deltaA"], 5.87, 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["deltaB"], 6.21, 1e-2);
 }
+#endif
 
+
+#ifdef USE_VNL
+TEST(OxCalculatorT1Molli, calculateFitError2) {
+
+    typedef double TYPE;
+
+    double signal[] = {76.7793, 66.6405, 15.8322, 4.97358, 38.978, 62.5192, 76.5024};
+    double times[] = {100, 180, 260, 1030, 1942, 2885, 3820 };
+    int nSamples = 7;
+
+    // init the necessary objects
+    Ox::ModelT1ThreeParam<TYPE> functionsObject;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitterAmoebaVnl;
+    Ox::SignCalculatorNoSign<TYPE> signCalculator;
+    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1;
+
+    // configure
+    calculatorT1.setModel(&functionsObject);
+    calculatorT1.setFitter(&fitterAmoebaVnl);
+    calculatorT1.setSignCalculator(&signCalculator);
+    calculatorT1.setStartPointCalculator(&startPointCalculator);
+
+    // set the data
+    calculatorT1.setNSamples(nSamples);
+    calculatorT1.setInvTimes(times);
+    calculatorT1.setSigMag(signal);
+
+    calculatorT1.calculate();
+
+    EXPECT_NEAR(calculatorT1.getResults()["T1"], 1234.9, 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["deltaT1"], 2017.18, 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["deltaT1star"], 754.25, 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["deltaA"], 28.79, 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["deltaB"], 25.66, 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["R2"], 0.938, 1e-3);
+    EXPECT_NEAR(calculatorT1.getResults()["R2Abs"], 0.765, 1e-3);
+}
 #endif
 
 ////TODO: no difference between 5 samples and 7 samples here.
@@ -292,38 +328,38 @@ TEST(OxCalculatorT1Molli, correctSDs) {
 //    Ox::FitterLevenbergMarquardtVnl<TYPE> fitterAmoebaVnl;
 //    Ox::SignCalculatorRealImag<TYPE> signCalculator;
 //    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-//    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
+//    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1;
 //
 //    // configure
-//    calculatorT1Molli.setModel(&functionsObject);
-//    calculatorT1Molli.setFitter(&fitterAmoebaVnl);
-//    calculatorT1Molli.setSignCalculator(&signCalculator);
-//    calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
+//    calculatorT1.setModel(&functionsObject);
+//    calculatorT1.setFitter(&fitterAmoebaVnl);
+//    calculatorT1.setSignCalculator(&signCalculator);
+//    calculatorT1.setStartPointCalculator(&startPointCalculator);
 //
 //    // set the data
-//    calculatorT1Molli.setNSamples(nSamples5);
-//    calculatorT1Molli.setInvTimes(testData5.getInvTimesPtr());
-//    calculatorT1Molli.setSigPha(testData5.getSignalPhaPtr());
-//    calculatorT1Molli.setSigMag(testData5.getSignalMagPtr());
+//    calculatorT1.setNSamples(nSamples5);
+//    calculatorT1.setInvTimes(testData5.getInvTimesPtr());
+//    calculatorT1.setSigPha(testData5.getSignalPhaPtr());
+//    calculatorT1.setSigMag(testData5.getSignalMagPtr());
 //
 //    printf("\n");
 //    itk::TimeProbe clock;
 //    clock.Start();
 //    for (int i = 0; i < nRepetitions; i++)
-//        calculatorT1Molli.calculate();
+//        calculatorT1.calculate();
 //    clock.Stop();
 //    printf("Calculation5 time: %.12fs.\n", clock.GetTotal());
 //
 //    // set the data
-//    calculatorT1Molli.setNSamples(nSamples7);
-//    calculatorT1Molli.setInvTimes(testData7.getInvTimesPtr());
-//    calculatorT1Molli.setSigPha(testData7.getSignalPhaPtr());
-//    calculatorT1Molli.setSigMag(testData7.getSignalMagPtr());
+//    calculatorT1.setNSamples(nSamples7);
+//    calculatorT1.setInvTimes(testData7.getInvTimesPtr());
+//    calculatorT1.setSigPha(testData7.getSignalPhaPtr());
+//    calculatorT1.setSigMag(testData7.getSignalMagPtr());
 //
 //    clock.Reset();
 //    clock.Start();
 //    for (int i = 0; i < nRepetitions; i++)
-//        calculatorT1Molli.calculate();
+//        calculatorT1.calculate();
 //    clock.Stop();
 //    printf("Calculation7 time: %.12fs.\n", clock.GetTotal());
 //

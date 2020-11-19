@@ -3,15 +3,14 @@
 #------------#
 
 language: cpp
-dist: trusty
+#dist: xenial
 
 os:
-  - linux
+#  - linux
   - osx
 
 compiler:
   - gcc
-  # - clang
 
 # Blacklist the documentation branch
 branches:
@@ -20,9 +19,9 @@ branches:
 
 # Environment variables
 env:
-  matrix:
+  jobs:
     - CXX_STANDARD=98
-    # - CXX_STANDARD=11
+#    - CXX_STANDARD=11
   global:
     - GH_REPO_NAME: Tomato # used in documentation script
     - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile # used in documentation script
@@ -66,12 +65,44 @@ before_install:
   # - zip -r testData.zip tomatoConfig_Shmolli_inputDirPaths.yaml
 
 install:
+  #      pyenv versions;
+  #      pyenv shell 3.6.1; #3.6.9 for trusty #3.7.1 for xenial
+  #      python --version;
+  #      pip --version;
+  #      pip3 --version;
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+      sudo apt-get remove googletest
+      python --version;
+      pyenv versions;
+      pyenv shell 3.7.1;
+      python --version;
+      pip --version;
+      pip3 --version;
+      pip3 install --user conan;
+      conan user;
+    fi
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
+      pip3 install conan;
+      conan user;
+      conan profile new default --detect;
+      conan profile update settings.compiler=apple-clang default;
+      conan profile update settings.compiler.libcxx=libc++ default;
+      conan profile update settings.compiler.version=9.1 default;
+    fi
   # install coverage tools only in linux g++
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
       sudo pip install codecov;
     fi
 
 script:
+  # conan
+  - cd ${TRAVIS_BUILD_DIR}/conan-recipes
+  - conan create conan-libyaml user/testing -s build_type=Release;
+  - conan create conan-lmfit user/testing -s build_type=Release;
+  - conan create conan-vxl-v1.18.0 user/testing -s build_type=Release;
+  - conan create conan-gtest-1.8.1 user/testing -s build_type=Release;
+  - cd ${TRAVIS_BUILD_DIR}
+
   #-----------------------#
   #   Tomato opensource   #
   #-----------------------#
@@ -79,6 +110,7 @@ script:
   # configure and generate opensource
   - mkdir ${TRAVIS_BUILD_DIR}/opensource;
   - cd ${TRAVIS_BUILD_DIR}/opensource;
+  - conan install .. -s build_type=Release -g cmake_find_package
   - >-
     cmake ..
     -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/opensource_install
@@ -90,9 +122,9 @@ script:
   - cmake --build . --config RELEASE
   - cmake --build . --config RELEASE --target install
 
-  #-----------------#
-  #   Tomato full   #
-  #-----------------#
+  #--------------------#
+  #   Tomato full VNL  #
+  #--------------------#
 
   # download tomato_private
   - cd ${TRAVIS_BUILD_DIR}/..
@@ -104,24 +136,54 @@ script:
       cmake .. -DCMAKE_CXX_FLAGS="--coverage" ;
     fi
 
-  # configure and generate full 
-  - mkdir ${TRAVIS_BUILD_DIR}/full;
-  - cd ${TRAVIS_BUILD_DIR}/full;
+  # configure and generate full
+  - mkdir ${TRAVIS_BUILD_DIR}/full
+  - cd ${TRAVIS_BUILD_DIR}/full
+  - conan install .. -s build_type=Release -g cmake_find_package
   - >-
     cmake ..
     -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/full_install
     -DCMAKE_CXX_STANDARD=${CXX_STANDARD}
     -DCMAKE_MACOSX_RPATH=ON
     -DUSE_PRIVATE_NR2=ON
+    -DUSE_ITK=OFF
+    -DDOWNLOAD_DEPENDENCIES=OFF
+    -DBUILD_APP=OFF
 
   # build full
   - cmake --build . --config RELEASE
   - cmake --build . --config RELEASE --target install
 
-  # testing and getting the test coverage
+  #----------------------#
+  #   Tomato full ITK    #
+  #----------------------#
+
+  # configure and generate full
+  - mkdir ${TRAVIS_BUILD_DIR}/full_itk
+  - cd ${TRAVIS_BUILD_DIR}/full_itk
+  - conan install .. -s build_type=Release -g cmake_find_package
+  - >-
+    cmake ..
+    -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/full_itk_install
+    -DCMAKE_CXX_STANDARD=${CXX_STANDARD}
+    -DCMAKE_MACOSX_RPATH=ON
+    -DUSE_PRIVATE_NR2=ON
+    -DUSE_ITK=ON
+    -DDOWNLOAD_DEPENDENCIES=ON
+    -DBUILD_APP=ON
+
+  # build full
+  - cmake --build . --config RELEASE
+  - cmake --build . --config RELEASE --target install
+
+  #--------------------------#
+  #   Testing and coverage   #
+  #--------------------------#
   - cd ${TRAVIS_BUILD_DIR}/opensource_install/tests
   - ./TomatoTests
   - cd ${TRAVIS_BUILD_DIR}/full_install/tests
+  - ./TomatoTests
+  - cd ${TRAVIS_BUILD_DIR}/full_itk_install/tests
   - ./TomatoTests
     
 after_success:
@@ -168,11 +230,11 @@ after_success:
 
 deploy:
   provider: releases
-  api_key:
+  token:
     secure: ${GH_PERSONAL_ACCESS_TOKEN}
   file_glob: true
   file: deployment/*
-  skip_cleanup: true
+  cleanup: false
   overwrite: true
   on:
     tags: true

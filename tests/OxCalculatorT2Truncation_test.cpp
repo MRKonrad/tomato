@@ -26,7 +26,6 @@ TEST(OxCalculatorT2Truncation, blood) {
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
     TYPE noise[] = {2.3, 1.2, 3.2, 1.1, 4.3, 2.3, 1.2, 3.2, 1.1, 4.3, 3.4};
-    //TYPE startPoint[] = {1, 100, 50};
 
     // init the necessary objects
     Ox::ModelT2ThreeParam<TYPE> functionsObject;
@@ -35,7 +34,6 @@ TEST(OxCalculatorT2Truncation, blood) {
     Ox::CalculatorT2Truncation<TYPE> calculator;
 
     // configure
-    //calculator.setStartPointCalculator(&startPointCalculator);
     calculator.setModel(&functionsObject);
     calculator.setFitter(&fitter);
 
@@ -44,7 +42,6 @@ TEST(OxCalculatorT2Truncation, blood) {
     calculator.setEchoTimes(testData.getEchoTimesPtr());
     calculator.setSigMag(testData.getSignalMagPtr());
     calculator.setNoise(noise);
-    //startPointCalculator.setInputStartPoint(startPoint);
 
     calculator.calculate();
 
@@ -61,16 +58,13 @@ TEST(OxCalculatorT2Truncation, myo) {
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
     TYPE noise[] = {2.3, 1.2, 3.2, 1.1, 4.3, 2.3, 1.2, 3.2, 1.1, 4.3, 3.4};
-    //TYPE startPoint[] = {1, 100, 50};
 
     // init the necessary objects
     Ox::ModelT2TwoParam<TYPE> functionsObject;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
-    //Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2Truncation<TYPE> calculator;
 
     // configure
-    //calculator.setStartPointCalculator(&startPointCalculator);
     calculator.setModel(&functionsObject);
     calculator.setFitter(&fitter);
 
@@ -79,7 +73,6 @@ TEST(OxCalculatorT2Truncation, myo) {
     calculator.setEchoTimes(testData.getEchoTimesPtr());
     calculator.setSigMag(testData.getSignalMagPtr());
     calculator.setNoise(noise);
-    //startPointCalculator.setInputStartPoint(startPoint);
 
     calculator.calculate();
 
@@ -95,16 +88,13 @@ TEST(OxCalculatorT2Truncation, myo_3samples) {
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
     TYPE noise[] = { 2.3, 1.2, 3.2 };
-    //TYPE startPoint[] = {500, 80};
 
     // init the necessary objects
     Ox::ModelT2TwoParam<TYPE> functionsObject;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
-    //Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2Truncation<TYPE> calculator;
 
     // configure
-    //calculator.setStartPointCalculator(&startPointCalculator);
     calculator.setModel(&functionsObject);
     calculator.setFitter(&fitter);
 
@@ -113,7 +103,6 @@ TEST(OxCalculatorT2Truncation, myo_3samples) {
     calculator.setEchoTimes(testData.getEchoTimesPtr());
     calculator.setSigMag(testData.getSignalMagPtr());
     calculator.setNoise(noise);
-    //startPointCalculator.setInputStartPoint(startPoint);
 
     calculator.calculate();
 
@@ -129,16 +118,13 @@ TEST(OxCalculatorT2Truncation, blood_3samples) {
     Ox::TestData<TYPE> testData(filePath);
     int nSamples = testData.getNSamples();
     TYPE noise[] = { 2.3, 1.2, 3.2 };
-    //TYPE startPoint[] = { 500, 80 };
 
     // init the necessary objects
     Ox::ModelT2TwoParam<TYPE> functionsObject;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
-    //Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2Truncation<TYPE> calculator;
 
     // configure
-    //calculator.setStartPointCalculator(&startPointCalculator);
     calculator.setModel(&functionsObject);
     calculator.setFitter(&fitter);
 
@@ -146,7 +132,6 @@ TEST(OxCalculatorT2Truncation, blood_3samples) {
     calculator.setNSamples(nSamples);
     calculator.setEchoTimes(testData.getEchoTimesPtr());
     calculator.setSigMag(testData.getSignalMagPtr());
-    //startPointCalculator.setInputStartPoint(startPoint);
     calculator.setNoise(noise);
 
     calculator.calculate();
@@ -167,13 +152,11 @@ TEST(OxCalculatorT2Truncation, copyConstructor) {
     // init the necessary objects
     Ox::ModelT2TwoParam<TYPE> functionsObject;
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
-    //Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2Truncation<TYPE> calculator;
 
     // configure
     calculator.setModel(&functionsObject);
     calculator.setFitter(&fitterAmoebaVnl);
-    //calculator.setStartPointCalculator(&startPointCalculator);
 
     // set the data
     calculator.setNSamples(nSamples);

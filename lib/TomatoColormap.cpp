@@ -24,7 +24,7 @@ std::string getEncodedSting(std::vector < unsigned short > encodeSource){
     char *encodeSourceDataChar = (char*)&encodeSource.front(); // first make sure encodeSource is not empty
 
     // what is the decoded structure length
-    int encodeLenght = gdcm::Base64::GetEncodeLength(encodeSourceDataChar, encodeSource.size()*2);
+    size_t encodeLenght = gdcm::Base64::GetEncodeLength(encodeSourceDataChar, encodeSource.size()*2);
 
     // allocate memory
     char *encodeDestination = new char[encodeLenght];
