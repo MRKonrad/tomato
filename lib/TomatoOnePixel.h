@@ -8,6 +8,7 @@
 #define TOMATO_TOMATOONEPIXEL_H
 
 #include "TomatoOptions.h"
+#include "tomatolib_export.h"
 
 namespace Ox {
     template<typename MeasureType>

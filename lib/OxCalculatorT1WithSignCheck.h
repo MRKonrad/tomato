@@ -53,25 +53,17 @@ namespace Ox {
          * @param parameters
          * @return
          */
-        MeasureType calculateR2AbsFromModel(int nSamples, const MeasureType* invTimes, const MeasureType* signal, const MeasureType* parameters);
+        MeasureType calculateR2FromModel(int nSamples, const MeasureType* invTimes, const MeasureType* signal, const MeasureType* parameters);
 
         /**
-         * calculate covariance matrix needed for SD estimation
-         * @param parameters
-         * @param covarianceMatrix
-         * @return
-         */
-        int calculateCovarianceMatrix(const MeasureType* parameters, MeasureType *covarianceMatrix);
-
-        /**
-         * calculate inverse covariance matrix needed for SD estimation
+         * Calculate goodness of fit map shmolli style
+         * @param nSamples
          * @param invTimes
-         * @param residuals
+         * @param signal
          * @param parameters
-         * @param invCovarianceMatrix
          * @return
          */
-        int calculateInvCovarianceMatrix(const MeasureType* invTimes, const MeasureType* residuals, const MeasureType* parameters, MeasureType *invCovarianceMatrix);
+        MeasureType calculateR2AbsFromModel(int nSamples, const MeasureType* invTimes, const MeasureType* signal, const MeasureType* parameters);
 
         /**
          *

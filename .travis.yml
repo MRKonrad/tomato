@@ -3,10 +3,10 @@
 #------------#
 
 language: cpp
-dist: xenial
+#dist: xenial
 
 os:
-  - linux
+#  - linux
   - osx
 
 compiler:
@@ -122,9 +122,9 @@ script:
   - cmake --build . --config RELEASE
   - cmake --build . --config RELEASE --target install
 
-  #-----------------#
-  #   Tomato full   #
-  #-----------------#
+  #--------------------#
+  #   Tomato full VNL  #
+  #--------------------#
 
   # download tomato_private
   - cd ${TRAVIS_BUILD_DIR}/..
@@ -136,7 +136,7 @@ script:
       cmake .. -DCMAKE_CXX_FLAGS="--coverage" ;
     fi
 
-  # configure and generate full 
+  # configure and generate full
   - mkdir ${TRAVIS_BUILD_DIR}/full
   - cd ${TRAVIS_BUILD_DIR}/full
   - conan install .. -s build_type=Release -g cmake_find_package
@@ -146,15 +146,44 @@ script:
     -DCMAKE_CXX_STANDARD=${CXX_STANDARD}
     -DCMAKE_MACOSX_RPATH=ON
     -DUSE_PRIVATE_NR2=ON
+    -DUSE_ITK=OFF
+    -DDOWNLOAD_DEPENDENCIES=OFF
+    -DBUILD_APP=OFF
 
   # build full
   - cmake --build . --config RELEASE
   - cmake --build . --config RELEASE --target install
 
-  # testing and getting the test coverage
+  #----------------------#
+  #   Tomato full ITK    #
+  #----------------------#
+
+  # configure and generate full
+  - mkdir ${TRAVIS_BUILD_DIR}/full_itk
+  - cd ${TRAVIS_BUILD_DIR}/full_itk
+  - conan install .. -s build_type=Release -g cmake_find_package
+  - >-
+    cmake ..
+    -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/full_itk_install
+    -DCMAKE_CXX_STANDARD=${CXX_STANDARD}
+    -DCMAKE_MACOSX_RPATH=ON
+    -DUSE_PRIVATE_NR2=ON
+    -DUSE_ITK=ON
+    -DDOWNLOAD_DEPENDENCIES=ON
+    -DBUILD_APP=ON
+
+  # build full
+  - cmake --build . --config RELEASE
+  - cmake --build . --config RELEASE --target install
+
+  #--------------------------#
+  #   Testing and coverage   #
+  #--------------------------#
   - cd ${TRAVIS_BUILD_DIR}/opensource_install/tests
   - ./TomatoTests
   - cd ${TRAVIS_BUILD_DIR}/full_install/tests
+  - ./TomatoTests
+  - cd ${TRAVIS_BUILD_DIR}/full_itk_install/tests
   - ./TomatoTests
     
 after_success:

@@ -21,7 +21,7 @@ namespace Ox {
      * @tparam TYPE
      */
     template<typename TYPE>
-    struct TomatoOptions;
+    class TomatoOptions;
 
     static const char *fittersTypeNames[] = {
             "AmoebaVnl",

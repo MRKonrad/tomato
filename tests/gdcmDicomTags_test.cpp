@@ -13,7 +13,7 @@ TEST(GDCMTags, wrong_file){
     std::vector<std::pair<int, int> > tags;
     tags.push_back(std::pair<int, int> (0x0010, 0x1020));
 
-    int gdcmTomatoReadTagsExit = gdcmTomatoReadTags(tags, filename, result);
+    int gdcmTomatoReadTagsExit = gdcmTomatoReadTags(tags, filename, result, false);
 
     ASSERT_EQ(gdcmTomatoReadTagsExit, 1); // EXIT_FAILURE
     ASSERT_STREQ(result.c_str(), "");
@@ -29,7 +29,7 @@ TEST(GDCMTags, wrong_tag){
     std::vector<std::pair<int, int> > tags;
     tags.push_back(std::pair<int, int> (0x9999, 0x1021));
 
-    int gdcmTomatoReadTagsExit = gdcmTomatoReadTags(tags, filename, result);
+    int gdcmTomatoReadTagsExit = gdcmTomatoReadTags(tags, filename, result, false);
 
     ASSERT_EQ(gdcmTomatoReadTagsExit, 1); // EXIT_FAILURE
     ASSERT_STREQ(result.c_str(), "");

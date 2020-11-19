@@ -23,6 +23,7 @@
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1Shmolli.h"
 #include "OxCalculatorT1ShmolliOriginal.h"
+#include "OxAmoebaSKPold.h"
 #endif //USE_PRIVATE_NR2
 
 /* ************* */
@@ -80,10 +81,14 @@
 #include "OxFactoryOfSignCalculators.h"
 #include "OxFactoryOfStartPointCalculators.h"
 
+/* ******* */
+/* others  */
+/* ******* */
+#include "TomatoOnePixel.h"
+
 /* ********* */
 /*    ITK    */
 /* ********* */
-
 #ifdef USE_ITK
 #include "itkCalculatorT1ImageFilter.h"
 #include "itkColorbar2DImageFilter.h"
@@ -164,6 +169,14 @@ namespace Ox {
     /* options  */
     /* ********* */
     template class TOMATOLIB_EXPORT TomatoOptions<double>;
+
+    /* ******* */
+    /* others  */
+    /* ******* */
+    template std::map<std::string, double> TOMATOLIB_EXPORT calculateOnePixel(TomatoOptions<double> opts);
+#ifdef USE_YAML
+    template class TOMATOLIB_EXPORT TomatoParser<double>;
+#endif // USE_YAML
 
 } //namespace Ox
 

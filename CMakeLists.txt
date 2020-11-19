@@ -21,7 +21,7 @@ project(Tomato)
 
 # The version number
 set(Tomato_VERSION_MAJOR 0)
-set(Tomato_VERSION_MINOR 5)
+set(Tomato_VERSION_MINOR 6)
 
 # Compiler flags
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -45,6 +45,8 @@ set(USE_YAML ON CACHE BOOL "Do you want to use yaml?")
 set(USE_LMFIT ON CACHE BOOL "Do you want to use LMFIT?")
 set(USE_TOMATOFIT ON CACHE BOOL "Do you want to use TOMATOFIT?")
 set(DOWNLOAD_DEPENDENCIES OFF CACHE BOOL "Do you want to download the dependencies?")
+set(BUILD_TESTING ON CACHE BOOL "Do you want to build Tomato tests?")
+set(BUILD_APP ON CACHE BOOL "Do you want to build Tomato app?")
 
 ##################
 ### LIST FILES ###
@@ -68,7 +70,7 @@ include(cmake/downloadLmfit.cmake)
 
 if(USE_ITK)
     set(USE_ITK OFF)
-    find_package(ITK HINTS ${ITK_DIR_HINTS})
+    find_package(ITK HINTS ${PROJECT_SOURCE_DIR}/thirdParty/itk)
     MESSAGE("ITK version:" ${ITK_VERSION})
     if(ITK_FOUND)
         set(USE_ITK ON)
@@ -82,7 +84,7 @@ endif(USE_ITK)
 ### VNL ###
 ###########
 
-if (USE_VNL)
+if (USE_VNL AND NOT USE_ITK)
     find_package(vxl REQUIRED)
     set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} vxl::vxl)
     include_directories(${vxl_INCLUDE_DIRS}/vxl/core)
@@ -131,8 +133,6 @@ include(cmake/tomatofit.cmake)
 ### MAIN PROGRAM ###
 ####################
 
-set(BUILD_TESTING ON CACHE BOOL "Do you want to build Tomato tests?")
-set(BUILD_APP ON CACHE BOOL "Do you want to build Tomato app?")
 if (BUILD_APP)
     if(NOT USE_ITK OR NOT USE_YAML)
         set(BUILD_APP OFF)
@@ -187,7 +187,7 @@ if(BUILD_APP)
     include_directories(app)
 
     # target
-    add_executable(TomatoExe ${APP_FILES} ${LIB_FILES})
+    add_executable(TomatoExe ${APP_FILES})
 
     # link
     target_link_libraries(TomatoExe ${TOMATO_LIBS_TO_LINK})

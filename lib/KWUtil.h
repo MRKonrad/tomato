@@ -165,6 +165,20 @@ public:
     template< typename TYPE >
     static TYPE getChiSqrt(TYPE lastFValue, int nSamples);
 
+    template< typename TYPE >
+    static int calculateFitError(int nSamples, int nDims, const TYPE* jacobian, TYPE mFuncNorm, TYPE* fitError);
+
+    /**
+     *
+     * @tparam TYPE
+     * @param matrix - pointer to array with indices [0 1; 2 3]
+     * @param matrixInverse - pointer to with indices [0 1; 2 3]. Fills the inverse matix if
+     * determinant != 0 or zero matrix if det == 0
+     * @return 0 if success, 1 if det == 0
+     */
+    template< typename TYPE >
+    static int calcMatrixInverse2x2(const TYPE *matrix, TYPE *matrixInverse);
+
     /**
      *
      * @tparam TYPE

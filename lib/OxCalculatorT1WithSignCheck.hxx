@@ -118,7 +118,7 @@ namespace Ox {
         MeasureType mse = 1e32;
         MeasureType mseTemp = 1e32;
         MeasureType *tempParameters = new MeasureType[this->_nDims];
-        MeasureType *tempResults = new MeasureType[this->_nDims];
+        MeasureType *calculatedParameters = new MeasureType[this->_nDims];
         int timeFlip = 0;
 
         KWUtil::copyArrayToArray(this->_nDims, tempParameters, this->_StartPoint); // start from the starting point
@@ -136,8 +136,9 @@ namespace Ox {
         this->getFitter()->performFitting();
 
         // save the tempResults at the best tempResults
-        KWUtil::copyArrayToArray(this->_nDims, tempResults, this->getFitter()->getParameters());
+        KWUtil::copyArrayToArray(this->_nDims, calculatedParameters, this->getFitter()->getParameters());
         mse = this->getFitter()->getMse();
+
         // look for better solutions than the above one
         for (int iSwap = 0; iSwap < nSamples; iSwap++) {
 
@@ -161,61 +162,113 @@ namespace Ox {
             // are these the best tempResults?
             if (mseTemp < mse) {
                 // save the tempResults at the best tempResults
-                KWUtil::copyArrayToArray(this->_nDims, tempResults, this->getFitter()->getParameters());
+                KWUtil::copyArrayToArray(this->_nDims, calculatedParameters, this->getFitter()->getParameters());
                 mse = mseTemp;
-                signs[iSwap] = -1;
                 timeFlip = iSwap;
             }
         }
 
-        if (mse != 1e32 && tempResults[0] != 0) {
+        // sign and signal for the best fit
+        for (int i = 0; i < nSamples; i++) signs[i] = 1;
+        for (int i = 0; i < timeFlip + 1; i++) signs[i] = -1;
+        for (int i = 0; i < nSamples; i++) signal[i] = signs[i] * fabs(signal[i]);
+
+        // errors
+        int deltasCalculatedExit = 1;
+        MeasureType *fitDeltas = new MeasureType[this->_nDims];
+        MeasureType *jacobian = new MeasureType[nSamples*this->_nDims];
+        this->getModel()->calcLSJacobian(calculatedParameters, jacobian);
+        deltasCalculatedExit = KWUtil::calculateFitError(
+                nSamples,
+                this->_nDims,
+                jacobian,
+                sqrt(mse*nSamples),
+                fitDeltas);
+        delete [] jacobian;
+
+        if (mse != 1e32 && calculatedParameters[0] != 0) {
             if (this->_nDims == 2) {
-                results["A"] = tempResults[0];
-                results["T1"] = tempResults[1];
-                results["R2"] = calculateR2AbsFromModel(nSamples, invTimes, signal, tempResults);
+                results["A"] = calculatedParameters[0];
+                results["T1"] = calculatedParameters[1];
+                results["R2"] = calculateR2FromModel(nSamples, invTimes, signal, calculatedParameters);
+                results["R2Abs"] = calculateR2AbsFromModel(nSamples, invTimes, signal, calculatedParameters);
                 results["ChiSqrt"] = KWUtil::getChiSqrt(mse*nSamples, nSamples);
                 results["LastValue"] = mse*nSamples;
                 results["timeFlip"] = timeFlip;
+
+                results["deltaA"] = -1;
+                results["deltaT1"] = -1;
+                if (deltasCalculatedExit == 0) {
+                    results["deltaA"] = fitDeltas[0];
+                    results["deltaT1"] = fitDeltas[1];
+                }
             } else if (this->_nDims == 3) {
-                results["T1"] = tempResults[2] * (tempResults[1] / tempResults[0] - 1.);
-                results["R2"] = calculateR2AbsFromModel(nSamples, invTimes, signal, tempResults);
-                results["A"] = tempResults[0];
-                results["B"] = tempResults[1];
-                results["T1star"] = tempResults[2];
+                results["T1"] = calculatedParameters[2] * (calculatedParameters[1] / calculatedParameters[0] - 1.);
+                results["R2"] = calculateR2FromModel(nSamples, invTimes, signal, calculatedParameters);
+                results["R2Abs"] = calculateR2AbsFromModel(nSamples, invTimes, signal, calculatedParameters);
+                results["A"] = calculatedParameters[0];
+                results["B"] = calculatedParameters[1];
+                results["T1star"] = calculatedParameters[2];
                 results["ChiSqrt"] = KWUtil::getChiSqrt(mse*nSamples, nSamples);
                 results["SNR"] = (results["B"] - results["A"]) / (results["ChiSqrt"] + 0.001);
                 results["LastValue"] = mse*nSamples;
                 results["timeFlip"] = timeFlip;
 
-                MeasureType covarianceMatrix[3 * 3];
-                calculateCovarianceMatrix(tempResults, covarianceMatrix);
-                if (covarianceMatrix[4] > 0)
-                    results["SD_A"] = sqrt(covarianceMatrix[4]); //  (1,1)
-                if (covarianceMatrix[8] > 0)
-                    results["SD_B"] = sqrt(covarianceMatrix[8]); //  (2,2)
-                if (covarianceMatrix[0] > 0)
-                    results["SD_T1"] = sqrt(covarianceMatrix[0]); // (0,0)
+                results["deltaA"] = -1;
+                results["deltaB"] = -1;
+                results["deltaT1star"] = -1;
+                results["deltaT1"] = -1;
+                if (deltasCalculatedExit == 0){
+                    results["deltaA"] = fitDeltas[0];
+                    results["deltaB"] = fitDeltas[1];
+                    results["deltaT1star"] = fitDeltas[2];
+                    results["deltaT1"] =
+                            results["deltaT1star"] * (results["B"]/results["A"] - 1)
+                            + results["T1star"] * ( results["deltaB"]/results["A"]
+                            + results["B"]*results["deltaA"]/(results["A"] * results["A"]) );
+                }
             }
-
         }
 
         delete [] tempParameters;
-        delete [] tempResults;
-
+        delete [] calculatedParameters;
+        delete [] fitDeltas;
         return results;
     }
 
     template< typename MeasureType >
     MeasureType
     CalculatorT1WithSignCheck<MeasureType>
-    ::calculateR2AbsFromModel(int nSamples, const MeasureType* times, const MeasureType* signal, const MeasureType* parameters) {
+    ::calculateR2FromModel(int nSamples, const MeasureType* times, const MeasureType* signal, const MeasureType* parameters) {
+
+        MeasureType *fitted  = new MeasureType[nSamples];
+
+        for (int i = 0; i < nSamples; i++){
+            fitted[i] = this->_Model->calcModelValue(parameters, times[i]);
+        }
+
+        double result = KWUtil::calcR2cor(nSamples, fitted, signal);
+
+        delete [] fitted;
+        return result;
+    }
+
+    template< typename MeasureType >
+    MeasureType
+    CalculatorT1WithSignCheck<MeasureType>
+    ::calculateR2AbsFromModel(int nSamples, const MeasureType* invTimes, const MeasureType* signal, const MeasureType* parameters) {
+
 
         MeasureType *absFitted  = new MeasureType[nSamples];
         MeasureType *absYsignal = new MeasureType[nSamples];
 
+        MeasureType A = parameters[0];
+        MeasureType B = parameters[1];
+        MeasureType T1star = parameters[2];
+
         for (int i = 0; i < nSamples; i++){
             MeasureType fitted;
-            fitted = this->_Model->calcModelValue(parameters, times[i]);
+            fitted = A - B * exp(-invTimes[i] / T1star);
             absFitted[i] = fabs(fitted);
             absYsignal[i] = fabs(signal[i]);
         }
@@ -225,107 +278,6 @@ namespace Ox {
         delete[] absFitted;
         delete[] absYsignal;
         return result;
-    }
-
-    template< typename MeasureType >
-    int
-    CalculatorT1WithSignCheck<MeasureType>
-    ::calculateCovarianceMatrix(const MeasureType* parameters, MeasureType *covarianceMatrix) {
-
-        for (int i = 0; i < 3*3; ++i) {
-            covarianceMatrix[i] = 0;
-        }
-
-        if (_DoCalculateSDMap) {
-            int nSamples = this->getNSamples();
-            const MeasureType *invTimes = this->getModel()->getInvTimes();
-
-            MeasureType *residuals = new MeasureType[nSamples];
-            MeasureType invCovarianceMatrix[3 * 3];
-
-            this->getModel()->calcLSResiduals(parameters, residuals);
-
-            calculateInvCovarianceMatrix(invTimes, residuals, parameters, invCovarianceMatrix);
-
-            KWUtil::calcMatrixInverse3x3<MeasureType>(invCovarianceMatrix, covarianceMatrix);
-
-            delete[] residuals;
-        }
-
-        return 0; //EXIT_SUCCESS
-
-    }
-
-    template< typename MeasureType >
-    int
-    CalculatorT1WithSignCheck<MeasureType>
-    ::calculateInvCovarianceMatrix(const MeasureType* invTimes, const MeasureType* residuals, const MeasureType* parameters, MeasureType *invCovarianceMatrix) {
-
-        // invCovarianceMatrix - indexing by column,row
-
-        int nSamples = this->getNSamples();
-        MeasureType A = parameters[0];
-        MeasureType B = parameters[1];
-        MeasureType T1star = parameters[2];
-        MeasureType tempInvCovarianceMatrix[3*3];
-
-        for (int i = 0; i < 3*3; ++i) {
-            invCovarianceMatrix[i] = 0;
-            tempInvCovarianceMatrix[i] = 0;
-        }
-
-        if (fabs(A) < std::numeric_limits<MeasureType>::min())
-            return 1; // EXIT_FAILURE
-        if (fabs(T1star) < std::numeric_limits<MeasureType>::min())
-            return 1; // EXIT_FAILURE
-
-        MeasureType T1 = (B/A-1)*T1star;
-
-        if (fabs(T1) < std::numeric_limits<MeasureType>::min())
-            return 1; // EXIT_FAILURE
-
-        MeasureType dydA = 0;
-        MeasureType dydB = 0;
-        MeasureType dydT1 = 0;
-
-        for (int i = 0; i < nSamples; ++i){
-            MeasureType invTime = invTimes[i];
-            MeasureType myexparg = ( -invTime * ( B/A - 1) / T1);
-
-            if ((myexparg > std::numeric_limits<MeasureType>::max_exponent)
-                || (myexparg < std::numeric_limits<MeasureType>::min_exponent))
-                return 1; //EXIT_FAILURE
-
-            MeasureType myexp = exp (myexparg);
-            dydA  = 1 - B * myexp * invTime * B / ( T1 * A * A);
-            dydB  = -myexp + B * myexp * invTime / ( T1 * A );
-            dydT1 = -B * myexp * invTime * (B/A-1) / ( T1 * T1);
-
-            tempInvCovarianceMatrix[0] += dydT1 * dydT1; // (0,0)
-            tempInvCovarianceMatrix[1] += dydA  * dydT1; // (0,1)
-            tempInvCovarianceMatrix[2] += dydB  * dydT1; // (0,2)
-            tempInvCovarianceMatrix[3] += dydT1 * dydA;  // (1,0)
-            tempInvCovarianceMatrix[4] += dydA  * dydA;  // (1,1)
-            tempInvCovarianceMatrix[5] += dydB  * dydA;  // (1,2)
-            tempInvCovarianceMatrix[6] += dydT1 * dydB;  // (2,0)
-            tempInvCovarianceMatrix[7] += dydA  * dydB;  // (2,1)
-            tempInvCovarianceMatrix[8] += dydB  * dydB;  // (2,2)
-        }
-
-        MeasureType SD = KWUtil::calcStandardDeviationArray<MeasureType>(nSamples, residuals);
-
-        if (fabs(SD) < std::numeric_limits<MeasureType>::min())
-            return 1; //EXIT_FAILURE
-
-        for (int i = 0; i < 3*3; ++i) {
-            tempInvCovarianceMatrix[i] = tempInvCovarianceMatrix[i] / (SD * SD);
-        }
-
-        for (int i = 0; i < 3*3; ++i) {
-            invCovarianceMatrix[i] = tempInvCovarianceMatrix[i];
-        }
-
-        return 0; // EXIT_SUCCESS
     }
 
     template< typename MeasureType >

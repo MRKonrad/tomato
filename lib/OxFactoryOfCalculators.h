@@ -14,7 +14,7 @@
 namespace Ox {
 
     template<typename TYPE>
-    struct TomatoOptions;
+    class TomatoOptions;
 
     enum paramType_t {
         T1 = 0,

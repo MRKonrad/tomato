@@ -56,9 +56,9 @@ class TomatoConan(ConanFile):
         if (tools.os_info.is_linux):
             cmake.definitions["CMAKE_POSITION_INDEPENDENT_CODE"] = "ON"
 
-        # Windows and shared libs
-        if (tools.os_info.is_windows):
-            cmake.definitions["CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS"] = "ON"
+        # # Windows and shared libs
+        # if (tools.os_info.is_windows):
+        #     cmake.definitions["CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS"] = "ON"
 
         cmake.definitions["USE_ITK"] = self.bool_to_on_off_string(self.options.use_itk)
         cmake.definitions["USE_VNL"] = self.bool_to_on_off_string(self.options.use_vnl)

@@ -318,7 +318,7 @@ namespace itk {
         tags.push_back(std::pair<int, int>(0x0021, 0x1189));
 
         std::string tagvalue;
-        if (gdcmTomatoReadTags(tags, reader->GetFileName(), tagvalue) == 0) { // EXIT_SUCCESS
+        if (gdcmTomatoReadTags(tags, reader->GetFileName(), tagvalue, false) == 0) { // EXIT_SUCCESS
             invTime = *(double*)&tagvalue[0];
         }
 
@@ -435,7 +435,7 @@ namespace itk {
         tags.push_back(std::pair<int, int>(0x0020, 0x9158));
 
         std::string tagvalue;
-        if ( gdcmTomatoReadTags(tags, reader->GetFileName(), tagvalue) == 0) { // EXIT_SUCCESS
+        if ( gdcmTomatoReadTags(tags, reader->GetFileName(), tagvalue, false) == 0) { // EXIT_SUCCESS
             std::sscanf(tagvalue.c_str(), "T2 prep. duration = %i ms", &echoTime);
         }
 
