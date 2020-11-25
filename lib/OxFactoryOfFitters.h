@@ -9,7 +9,6 @@
 
 #include "CmakeConfigForTomato.h"
 #include "tomatolib_export.h"
-#include "TomatoOptions.h"
 
 #include "OxFitter.h"
 

@@ -24,6 +24,10 @@
 #include "OxCalculatorT1Shmolli.h"
 #include "OxCalculatorT1ShmolliOriginal.h"
 #include "OxAmoebaSKPold.h"
+#include "OxCalculatorT2.h"
+#include "OxCalculatorT2Linear.h"
+#include "OxCalculatorT2Truncation.h"
+#include "OxCalculatorT2TruncationNoise.h"
 #endif //USE_PRIVATE_NR2
 
 /* ************* */
@@ -41,14 +45,18 @@
 #include "OxFitterLevenbergMarquardtLmfit.h"
 #endif // USE_LMFIT
 
-/* ************* */
-/*   functions   */
-/* ************* */
+/* ********** */
+/*   models   */
+/* ********** */
 #include "OxModel.h"
 #include "OxModelT1TwoParam.h"
 #include "OxModelT1ThreeParam.h"
 #ifdef USE_PRIVATE_NR2
 #include "OxModelT1Shmolli.h"
+#include "OxModelT2OneParam.h"
+#include "OxModelT2TwoParam.h"
+#include "OxModelT2TwoParamScale.h"
+#include "OxModelT2ThreeParam.h"
 #endif //USE_PRIVATE_NR2
 #ifdef USE_LMFIT
 #include "OxModelT1AdapterLmfitLeastSquares.h"
@@ -84,10 +92,11 @@
 /* ******* */
 /* others  */
 /* ******* */
+#include "OxImageCalculatorT1.h"
 #include "TomatoOnePixel.h"
 
 /* ********* */
-/*    ITK    */
+/*    APP    */
 /* ********* */
 #ifdef USE_ITK
 #include "itkCalculatorT1ImageFilter.h"
@@ -95,6 +104,8 @@
 #include "itkNShmolliSamplesUsedTo123ImageFilter.h"
 #include "itkReadFileListFilter.h"
 #include "itkSortInvTimesImageFilter.h"
+#include "Tomato.h"
+#include "OxOriginalShmolliDicomReader.h"
 #endif //USE_ITK
 
 namespace Ox {
@@ -107,6 +118,10 @@ namespace Ox {
 #ifdef USE_PRIVATE_NR2
     template class TOMATOLIB_EXPORT CalculatorT1Shmolli<double>;
     template class TOMATOLIB_EXPORT CalculatorT1ShmolliOriginal<double>;
+    template class TOMATOLIB_EXPORT CalculatorT2<double>;
+    template class TOMATOLIB_EXPORT CalculatorT2Linear<double>;
+    template class TOMATOLIB_EXPORT CalculatorT2Truncation<double>;
+    template class TOMATOLIB_EXPORT CalculatorT2TruncationNoise<double>;
 #endif //USE_PRIVATE_NR2
 
     /* ************* */
@@ -124,14 +139,18 @@ namespace Ox {
     template class TOMATOLIB_EXPORT FitterLevenbergMarquardtLmfit<double>;
 #endif // USE_LMFIT
 
-    /* ************* */
-    /*   functions   */
-    /* ************* */
+    /* ********** */
+    /*   models   */
+    /* ********** */
     template class TOMATOLIB_EXPORT Model<double>;
     template class TOMATOLIB_EXPORT ModelT1TwoParam<double>;
     template class TOMATOLIB_EXPORT ModelT1ThreeParam<double>;
 #ifdef USE_PRIVATE_NR2
     template class TOMATOLIB_EXPORT ModelT1Shmolli<double>;
+    template class TOMATOLIB_EXPORT ModelT2OneParam<double>;
+    template class TOMATOLIB_EXPORT ModelT2TwoParam<double>;
+    template class TOMATOLIB_EXPORT ModelT2TwoParamScale<double>;
+    template class TOMATOLIB_EXPORT ModelT2ThreeParam<double>;
 #endif //USE_PRIVATE_NR2
 #ifdef USE_LMFIT
     template class TOMATOLIB_EXPORT ModelT1AdapterLmfitLeastSquares<double>;
@@ -174,26 +193,34 @@ namespace Ox {
     /* others  */
     /* ******* */
     template std::map<std::string, double> TOMATOLIB_EXPORT calculateOnePixel(TomatoOptions<double> opts);
+    template class TOMATOLIB_EXPORT ImageCalculatorT1<double>;
 #ifdef USE_YAML
     template class TOMATOLIB_EXPORT TomatoParser<double>;
 #endif // USE_YAML
 
 } //namespace Ox
 
-namespace itk {
-
     /* ********* */
-    /*    ITK    */
+    /*    APP    */
     /* ********* */
 #ifdef USE_ITK
+namespace itk {
+    template class TOMATOLIB_EXPORT CalculatorT1ImageFilter< Image<double, 3>, Image<double, 2>, Image<double, 3> >;
     template class TOMATOLIB_EXPORT CalculatorT1ImageFilter< Image<double, 3>, Image<double, 3> >;
+    template class TOMATOLIB_EXPORT Colorbar2DImageFilter< Image<double, 2> >;
     template class TOMATOLIB_EXPORT Colorbar2DImageFilter< Image<double, 3> >;
+    template class TOMATOLIB_EXPORT NShmolliSamplesUsedTo123ImageFilter< Image<double, 2> >;
     template class TOMATOLIB_EXPORT NShmolliSamplesUsedTo123ImageFilter< Image<double, 3> >;
-    //template class TOMATOLIB_EXPORT ReadDirectoryFilter< Image<double, 3> >;
     template class TOMATOLIB_EXPORT ReadFileListFilter< Image<double, 3> >;
     template class TOMATOLIB_EXPORT SortInvTimesImageFilter< Image<double, 3>, Image<double, 3> >;
+} //namespace itk
+
+namespace Ox {
+    template class TOMATOLIB_EXPORT Tomato<double>;
+    template class TOMATOLIB_EXPORT OriginalShmolliDicomReader<double>;
+}
 #endif //USE_ITK
 
-} //namespace itk
+
 
 #endif //TOMATO_TOMATOAPI_H

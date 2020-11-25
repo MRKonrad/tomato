@@ -3,15 +3,24 @@
 ###############
 
 if(BUILD_TESTING)
+
     find_package(gtest REQUIRED)
+
     enable_testing()
 
-    # Test executable
+    # test files
     file(GLOB_RECURSE TESTS_FILES ${PROJECT_SOURCE_DIR}/tests/*.c* ${PROJECT_SOURCE_DIR}/tests/*.h* ${PROJECT_SOURCE_DIR}/tests/*.t*)
 
+    # Test executable
     add_executable(TomatoTests ${TESTS_FILES})
+
+    # link
     target_link_libraries(TomatoTests gtest::gtest)
     target_link_libraries(TomatoTests TomatoLib)
+
+    # for the app tests
+    target_include_directories(TomatoTests PUBLIC "${PROJECT_SOURCE_DIR}/app")
+    add_definitions(-DTOMATOLIB_COMPILED)
 
     # RPATH preparation for the executables
     set_target_properties(TomatoTests PROPERTIES INSTALL_RPATH

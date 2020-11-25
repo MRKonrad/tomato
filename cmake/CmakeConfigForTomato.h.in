@@ -1,6 +1,7 @@
 // the configured options and settings for Tutorial
 #define Tomato_VERSION_MAJOR @Tomato_VERSION_MAJOR@
 #define Tomato_VERSION_MINOR @Tomato_VERSION_MINOR@
+#define Tomato_VERSION_PATCH @Tomato_VERSION_PATCH@
 
 #cmakedefine CXX_STANDARD_98
 #cmakedefine USE_ITK

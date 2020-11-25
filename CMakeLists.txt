@@ -22,6 +22,7 @@ project(Tomato)
 # The version number
 set(Tomato_VERSION_MAJOR 0)
 set(Tomato_VERSION_MINOR 6)
+set(Tomato_VERSION_PATCH 1)
 
 # Compiler flags
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -87,7 +88,7 @@ endif(USE_ITK)
 if (USE_VNL AND NOT USE_ITK)
     find_package(vxl REQUIRED)
     set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} vxl::vxl)
-    include_directories(${vxl_INCLUDE_DIRS}/vxl/core)
+    include_directories(${vxl_INCLUDE_DIRS}/vxl/core) # TODO: fix in vxl conan recipe
     include_directories(${vxl_INCLUDE_DIRS}/vxl/vcl)
 endif()
 
@@ -118,7 +119,6 @@ set(PRIVATE_NR2_DIR ${PROJECT_SOURCE_DIR}/../tomato_private CACHE PATH "")
 set(USE_PRIVATE_NR2 OFF CACHE BOOL "")
 if(USE_PRIVATE_NR2 AND EXISTS ${PRIVATE_NR2_DIR})
     add_subdirectory(${PRIVATE_NR2_DIR} ${CMAKE_BINARY_DIR}/private)
-    include_directories(${PRIVATE_NR2_DIR}/lib)
 else()
     set(USE_PRIVATE_NR2 OFF)
 endif()
@@ -160,15 +160,17 @@ set(API_FILES ${API_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
 ### TOMATOLIB ###
 #################
 
-# include
-include_directories(lib)
-include_directories("${PROJECT_BINARY_DIR}") # for the configuration header
-
 # target
+message("LIB_FILES" ${LIB_FILES})
 add_library(TomatoLib ${LIB_FILES})
 set_target_properties(TomatoLib PROPERTIES LINKER_LANGUAGE CXX)
 
-#link
+# include
+target_include_directories(TomatoLib PUBLIC lib)
+target_include_directories(TomatoLib PUBLIC ${PRIVATE_NR2_DIR}/lib/)
+target_include_directories(TomatoLib PUBLIC "${PROJECT_BINARY_DIR}") # for the configuration header
+
+# link
 target_link_libraries(TomatoLib ${TOMATO_LIBS_TO_LINK})
 set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} TomatoLib)
 
@@ -183,11 +185,11 @@ set(API_FILES ${API_FILES} ${PROJECT_SOURCE_DIR}/cmake/tomatolib_export.h) # to 
 
 if(BUILD_APP)
 
-    # include
-    include_directories(app)
-
     # target
     add_executable(TomatoExe ${APP_FILES})
+
+    # include
+    target_include_directories(TomatoExe PUBLIC app)
 
     # link
     target_link_libraries(TomatoExe ${TOMATO_LIBS_TO_LINK})

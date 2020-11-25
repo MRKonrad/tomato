@@ -7,7 +7,7 @@
 #ifndef Tomato_OxOriginalShmolliDicomReader_HXX
 #define Tomato_OxOriginalShmolliDicomReader_HXX
 
-#include <itkImageFileReaderKW.h>
+#include <itkImageFileReader.h>
 #include "OxOriginalShmolliDicomReader.h"
 
 namespace Ox {
