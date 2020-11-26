@@ -8,6 +8,7 @@
 #define Tomato_OxModel_H
 
 #include "tomatolib_export.h"
+#include <string>
 
 namespace Ox {
 
@@ -73,6 +74,9 @@ namespace Ox {
         virtual void setRepTimes(const MeasureType *_RepTimes) { Model::_RepTimes = _RepTimes; }
         virtual void setRelAcqTimes(const MeasureType *_RelAcqTimes) { Model::_RelAcqTimes = _RelAcqTimes; }
         virtual void setSignal(const MeasureType *_Signal) { Model::_Signal = _Signal; }
+
+        // TODO: make abstract
+        virtual std::string getNthParamName(int nthParam){return "";};
 
         /**
          * \brief show me your ModelT1

@@ -22,7 +22,7 @@ project(Tomato)
 # The version number
 set(Tomato_VERSION_MAJOR 0)
 set(Tomato_VERSION_MINOR 6)
-set(Tomato_VERSION_PATCH 1)
+set(Tomato_VERSION_PATCH 2)
 
 # Compiler flags
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -161,7 +161,6 @@ set(API_FILES ${API_FILES} "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")
 #################
 
 # target
-message("LIB_FILES" ${LIB_FILES})
 add_library(TomatoLib ${LIB_FILES})
 set_target_properties(TomatoLib PROPERTIES LINKER_LANGUAGE CXX)
 

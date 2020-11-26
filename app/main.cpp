@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
         opts.printCurrent();
     }
 
-    printf("\nThank you for using tomato v%d.%d.%d\n", Tomato_VERSION_MAJOR, Tomato_VERSION_MINOR, Tomato_VERSION_PATCH);
+    printf("\nThank you for using TOMATO v%d.%d.%d\n", Tomato_VERSION_MAJOR, Tomato_VERSION_MINOR, Tomato_VERSION_PATCH);
     printf("Konrad Werys 2020\n");
 
     return 0;

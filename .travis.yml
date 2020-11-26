@@ -6,7 +6,7 @@ language: cpp
 dist: xenial
 
 os:
-  - linux
+#  - linux
   - osx
 
 compiler:
@@ -70,6 +70,10 @@ install:
   #      pip --version;
   #      pip3 --version;
   #      conan profile update settings.compiler.libcxx=libstdc++11 default;
+  #      OR
+  #      conan profile update settings.compiler.version=4.9 default;
+  #      conan profile update env.CC=/usr/bin/gcc-4.9 default;
+  #      conan profile update env.CXX=/usr/bin/g++-4.9 default;
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
       sudo apt-get remove googletest
       python --version;
@@ -81,9 +85,7 @@ install:
       pip3 install --user conan;
       conan user;
       conan profile new default --detect;
-      conan profile update settings.compiler.version=4.9 default;
-      conan profile update env.CC=/usr/bin/gcc-4.9 default;
-      conan profile update env.CXX=/usr/bin/g++-4.9 default;
+      conan profile update settings.compiler.libcxx=libstdc++11 default;
     fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
       pip3 install conan;

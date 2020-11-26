@@ -158,7 +158,7 @@ namespace Ox {
     ::printCurrent() {
         printf("\n");
         printf("######################################\n");
-        printf("Tomato CURRENTLY SELECTED options:\n");
+        printf("TOMATO %d.%d.%d CURRENTLY SELECTED options:\n", Tomato_VERSION_MAJOR, Tomato_VERSION_MINOR, Tomato_VERSION_PATCH);
         printf("######################################\n");
         KWUtil::printVectorNewline(" files_magnitude: ", files_magnitude);
         KWUtil::printVectorNewline(" files_phase: ", files_phase);
