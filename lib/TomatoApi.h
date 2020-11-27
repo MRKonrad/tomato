@@ -94,6 +94,9 @@
 /* ******* */
 #include "OxImageCalculatorT1.h"
 #include "TomatoOnePixel.h"
+#ifdef USE_YAML
+#include "TomatoParser.h"
+#endif // USE_YAML
 
 /* ********* */
 /*    APP    */

@@ -2,12 +2,11 @@
 // Created by Konrad Werys on 24.11.20.
 //
 
-#include <gtest/gtest.h>
-
 #include "CmakeConfigForTomato.h"
 
 #ifdef USE_PRIVATE_NR2
 
+#include <gtest/gtest.h>
 #include "OxCalculatorT2.h"
 #include "OxCalculatorT2Linear.h"
 #include "OxCalculatorT2Truncation.h"
@@ -17,17 +16,25 @@
 #include "OxFitterLevenbergMarquardtVnl.h"
 #include "OxStartPointCalculatorBasic.h"
 
-TEST(tomatoGreeting, threeSamples) {
+TEST(tomato, greetingT2) {
     printf("\nThank you for using TOMATO v%d.%d.%d!\n", Tomato_VERSION_MAJOR, Tomato_VERSION_MINOR, Tomato_VERSION_PATCH);
 }
 
-TEST(cviOxCalculatorT2NonLinear, threeSamples) {
+TEST(tomato, T2NonLinearThreeSamples) {
 
     typedef double TYPE;
 
     TYPE signal[] = {679, 610, 536 };
     TYPE time[] = { 0, 25, 55 };
     int nSamples = 3;
+
+    double tolerance = 1e-4;
+
+    double correctB = 679.06579;
+    double correctT2 = 232.60309;
+    double correctR2 = 0.99999;
+    double correctDeltaB = 0.15118;
+    double correctDeltaT2 = 0.38413;
 
     // init the necessary objects
     Ox::ModelT2TwoParamScale<TYPE> model;
@@ -45,17 +52,28 @@ TEST(cviOxCalculatorT2NonLinear, threeSamples) {
 
     calculator.calculate();
 
-    EXPECT_NEAR(calculator.getResults()["B"], 679.08, 1e-1);
-    EXPECT_NEAR(calculator.getResults()["T2"], 232.55, 1e-1);
+    EXPECT_NEAR(calculator.getResults()["B"], correctB, tolerance);
+    EXPECT_NEAR(calculator.getResults()["T2"], correctT2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["R2"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaT2"], correctDeltaT2, tolerance);
 }
 
-TEST(cviOxCalculatorT2Linear, threeSamples) {
+TEST(tomato, T2LinearThreeSamples) {
 
     typedef double TYPE;
 
     TYPE signal[] = {679, 610, 536 };
     TYPE time[] = { 0, 25, 55 };
     int nSamples = 3;
+
+    double tolerance = 1e-4;
+
+    double correctB = 679.08173;
+    double correctT2 = 232.55123;
+    double correctR2 = 0.99999;
+    double correctDeltaB = 0.1646;
+    double correctDeltaT2 = 0.3758;
 
     Ox::CalculatorT2Linear<TYPE> calculator;
 
@@ -66,11 +84,14 @@ TEST(cviOxCalculatorT2Linear, threeSamples) {
 
     calculator.calculate();
 
-    EXPECT_NEAR(calculator.getResults()["B"], 679.08, 1e-1);
-    EXPECT_NEAR(calculator.getResults()["T2"], 232.55, 1e-1);
+    EXPECT_NEAR(calculator.getResults()["B"], correctB, tolerance);
+    EXPECT_NEAR(calculator.getResults()["T2"], correctT2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["R2"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaT2"], correctDeltaT2, tolerance);
 }
 
-TEST(cviOxCalculatorT2StarNoCorrection, eightSamples) {
+TEST(tomato, T2StarNoCorrectionEightSamples) {
 
     typedef double TYPE;
 
@@ -105,7 +126,7 @@ TEST(cviOxCalculatorT2StarNoCorrection, eightSamples) {
     EXPECT_NEAR(calculator.getResults()["R2"], correctR2, tolerance);
 }
 
-TEST(cviOxCalculatorT2StarTruncation, highR2_lowT2) {
+TEST(tomato, T2StarTruncation_highR2_lowT2) {
 
     typedef double TYPE;
 
@@ -144,7 +165,7 @@ TEST(cviOxCalculatorT2StarTruncation, highR2_lowT2) {
     EXPECT_NEAR(calculator.getResults()["exitCondition"], correctExitCondition, tolerance);
 }
 
-TEST(cviOxCalculatorT2StarOffset, eightSamples) {
+TEST(tomato, T2StarOffsetEightSamples) {
 
     typedef double TYPE;
 

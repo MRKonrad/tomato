@@ -1,5 +1,5 @@
 /*!
- * \file OxCalculatorT1Molli_test.cpp
+ * \file OxCalculatorT1WithSignCheck_test.cpp
  * \author Konrad Werys
  * \date 2018/08/01
  */
@@ -23,7 +23,7 @@
 #endif
 
 #ifdef USE_VNL
-TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
+TEST(OxCalculatorT1WithSignCheck, calculate_doNotCalculateIfMaxIterZero) {
 
     typedef double TYPE;
 
@@ -36,31 +36,31 @@ TEST(OxCalculatorT1Molli, calculate_doNotCalculateIfMaxIterZero) {
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1WithSignCheck<TYPE> CalculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculator;
 
     // configure
     fitterAmoebaVnl.setMaxFunctionEvals(0); // I set the maxFunctionEvals to zero
-    CalculatorT1Molli.setModel(&model);
-    CalculatorT1Molli.setFitter(&fitterAmoebaVnl);
-    CalculatorT1Molli.setSignCalculator(&signCalculator);
-    CalculatorT1Molli.setStartPointCalculator(&startPointCalculator);
+    calculator.setModel(&model);
+    calculator.setFitter(&fitterAmoebaVnl);
+    calculator.setSignCalculator(&signCalculator);
+    calculator.setStartPointCalculator(&startPointCalculator);
 
     // set the data
-    CalculatorT1Molli.setNSamples(nSamples);
-    CalculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
-    CalculatorT1Molli.setSigPha(testData.getSignalPhaPtr());
-    CalculatorT1Molli.setSigMag(testData.getSignalMagPtr());
+    calculator.setNSamples(nSamples);
+    calculator.setInvTimes(testData.getInvTimesPtr());
+    calculator.setSigPha(testData.getSignalPhaPtr());
+    calculator.setSigMag(testData.getSignalMagPtr());
 
-    CalculatorT1Molli.calculate();
+    calculator.calculate();
 
-    EXPECT_DOUBLE_EQ(CalculatorT1Molli.getResults()["A"], 0);
-    EXPECT_DOUBLE_EQ(CalculatorT1Molli.getResults()["B"], 0);
-    EXPECT_DOUBLE_EQ(CalculatorT1Molli.getResults()["T1star"], 0);
+    EXPECT_DOUBLE_EQ(calculator.getResults()["A"], 0);
+    EXPECT_DOUBLE_EQ(calculator.getResults()["B"], 0);
+    EXPECT_DOUBLE_EQ(calculator.getResults()["T1star"], 0);
 }
 #endif
 
 #ifdef USE_VNL
-TEST(OxCalculatorT1Molli, calculate_throwIfInvTimesNotSorted) {
+TEST(OxCalculatorT1WithSignCheck, calculate_throwIfInvTimesNotSorted) {
 
     typedef double TYPE;
 
@@ -82,28 +82,28 @@ TEST(OxCalculatorT1Molli, calculate_throwIfInvTimesNotSorted) {
     Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1WithSignCheck<TYPE> CalculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculator;
 
     // configure
-    CalculatorT1Molli.setModel(&model);
-    CalculatorT1Molli.setFitter(&fitterAmoebaVnl);
-    CalculatorT1Molli.setSignCalculator(&signCalculator);
-    CalculatorT1Molli.setStartPointCalculator(&startPointCalculator);
+    calculator.setModel(&model);
+    calculator.setFitter(&fitterAmoebaVnl);
+    calculator.setSignCalculator(&signCalculator);
+    calculator.setStartPointCalculator(&startPointCalculator);
 
     // set the data
-    CalculatorT1Molli.setNSamples(nSamples);
-    CalculatorT1Molli.setInvTimes(invTimesNotSorted);
-    CalculatorT1Molli.setSigPha(testData.getSignalMagPtr());
-    CalculatorT1Molli.setSigMag(testData.getSignalPhaPtr());
+    calculator.setNSamples(nSamples);
+    calculator.setInvTimes(invTimesNotSorted);
+    calculator.setSigPha(testData.getSignalMagPtr());
+    calculator.setSigMag(testData.getSignalPhaPtr());
 
-    EXPECT_THROW(CalculatorT1Molli.calculate(), std::runtime_error);
+    EXPECT_THROW(calculator.calculate(), std::runtime_error);
 
     delete [] invTimesNotSorted;
 }
 #endif
 
 #ifdef USE_VNL
-TEST(OxCalculatorT1Molli, calculate_WithoutSigns) {
+TEST(OxCalculatorT1WithSignCheck, calculate_WithoutSigns) {
 
     typedef double TYPE;
 
@@ -140,7 +140,7 @@ TEST(OxCalculatorT1Molli, calculate_WithoutSigns) {
 #endif
 
 #ifdef USE_VNL
-TEST(OxCalculatorT1Molli, calculate_WithSigns) {
+TEST(OxCalculatorT1WithSignCheck, calculate_WithSigns) {
 
     typedef double TYPE;
 
@@ -176,7 +176,7 @@ TEST(OxCalculatorT1Molli, calculate_WithSigns) {
 #endif
 
 #ifdef USE_VNL
-TEST(OxCalculatorT1Molli, copyConstructor) {
+TEST(OxCalculatorT1WithSignCheck, copyConstructor) {
 
     typedef double TYPE;
 
@@ -231,7 +231,7 @@ TEST(OxCalculatorT1Molli, copyConstructor) {
 #endif
 
 #ifdef USE_VNL
-TEST(OxCalculatorT1Molli, calculateFitError) {
+TEST(OxCalculatorT1WithSignCheck, calculateFitError) {
 
     typedef double TYPE;
 
@@ -269,7 +269,7 @@ TEST(OxCalculatorT1Molli, calculateFitError) {
 
 
 #ifdef USE_VNL
-TEST(OxCalculatorT1Molli, calculateFitError2) {
+TEST(OxCalculatorT1WithSignCheck, calculateFitError2) {
 
     typedef double TYPE;
 
@@ -310,7 +310,7 @@ TEST(OxCalculatorT1Molli, calculateFitError2) {
 ////TODO: no difference between 5 samples and 7 samples here.
 //#ifdef USE_ITK
 //
-//TEST(OxCalculatorT1Molli, samples5) {
+//TEST(OxCalculatorT1WithSignCheck, samples5) {
 //
 //    typedef double TYPE;
 //    int nRepetitions = 10000;

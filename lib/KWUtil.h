@@ -151,6 +151,18 @@ public:
     static double calcR2cor(int nSamples, const TYPE *fitted, const TYPE *ysignal);
 
     template< typename TYPE >
+    static int linearFit(
+            int nSamples,
+            const TYPE *datax,
+            const TYPE *datay,
+            TYPE &a,
+            TYPE &b,
+            TYPE &siga,
+            TYPE &sigb,
+            TYPE &R2,
+            TYPE &chi2);
+
+    template< typename TYPE >
     static double SKPLinReg(const TYPE *datax, const TYPE *datay, int nSamples, TYPE &rslope, TYPE &roffset);
 
     template< typename TYPE >

@@ -78,6 +78,37 @@ TEST(KWUtil, dicomTime2Seconds) {
     EXPECT_DOUBLE_EQ(result, dicomTimeSeconds);
 }
 
+// correct results has been taken from maltab
+// A = [1.47,	1.50,	1.52,	1.55,	1.57,	1.60,	1.63,	1.65,	1.68,	1.70,	1.73,	1.75,	1.78,	1.80,	1.83];                                     % Create Data
+// B = [52.21,	53.12,	54.48,	55.84,	57.20,	58.57,	59.93,	61.29,	63.11,	64.47,	66.28,	68.10,	69.92,	72.19,	74.46];
+// fitlm(A,B)
+TEST(KWUtil, linearFit){
+
+    double datax[] = {1.47,	1.50,	1.52,	1.55,	1.57,	1.60,	1.63,	1.65,	1.68,	1.70,	1.73,	1.75,	1.78,	1.80,	1.83};
+    double datay[] = {52.21,	53.12,	54.48,	55.84,	57.20,	58.57,	59.93,	61.29,	63.11,	64.47,	66.28,	68.10,	69.92,	72.19,	74.46};
+    int nSamples = 15;
+
+    double correct_a = -39.062;
+    double correct_b = 61.272;
+    double correct_siga = 2.938;
+    double correct_sigb = 1.7759;
+    double correct_R2 = 0.9891;
+    double correct_chi2 = 7.4906;
+
+    double tolerance = 1e-3;
+
+    double a, b, siga, sigb, R2, chi2;
+
+    KWUtil::linearFit(nSamples, datax, datay, a, b, siga, sigb, R2, chi2);
+
+    EXPECT_NEAR(a, correct_a, tolerance);
+    EXPECT_NEAR(b, correct_b, tolerance);
+    EXPECT_NEAR(siga, correct_siga, tolerance);
+    EXPECT_NEAR(sigb, correct_sigb, tolerance);
+    EXPECT_NEAR(R2, correct_R2, tolerance);
+    EXPECT_NEAR(chi2, correct_chi2, tolerance);
+}
+
 TEST(KWUtil, calculateFitError2x2) {
 
     double J[4*2] = {0.0811, 0.4359, 0.9294, 0.4468, 0.7757, 0.3063, 0.4868, 0.5085};

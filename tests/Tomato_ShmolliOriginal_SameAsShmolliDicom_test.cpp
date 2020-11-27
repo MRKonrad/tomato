@@ -6,7 +6,6 @@
 
 #include "CmakeConfigForTomato.h"
 #ifdef USE_PRIVATE_NR2
-
 #ifdef USE_ITK
 
 #include "gtest/gtest.h"
@@ -216,6 +215,5 @@ TEST_F(ActeptanceTests_TomatoFixtureTest_originalShmolli, OriginalShmolliSameAsS
 
 }
 
-#endif // USE_PRIVATE_NR2
-
 #endif // USE_ITK
+#endif // USE_PRIVATE_NR2

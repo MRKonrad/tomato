@@ -24,7 +24,6 @@
 #include "itkImageRegionIterator.h"
 #include "itkImageLinearIteratorWithIndex.h"
 
-
 namespace itk {
 
     /**

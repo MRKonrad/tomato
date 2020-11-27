@@ -267,6 +267,61 @@ double KWUtil::calcR2cor(int nSamples, const TYPE *fitted, const TYPE *ysignal){
         return covYF*covYF/(sumYY*sumFF);
 }
 
+// inspired by NR
+template< typename TYPE >
+int KWUtil::linearFit(
+        int nSamples,
+        const TYPE *datax,
+        const TYPE *datay,
+        TYPE &a,
+        TYPE &b,
+        TYPE &siga,
+        TYPE &sigb,
+        TYPE &R2,
+        TYPE &chi2){
+
+    // zero the output variables
+    a = 0;
+    b = 0;
+    siga = 0;
+    sigb = 0;
+    R2 = 0;
+    chi2 = 0;
+
+    // helper variables
+    TYPE Sx = KWUtil::calcSumArray(nSamples, datax);
+    TYPE Sy = KWUtil::calcSumArray(nSamples, datay);
+    TYPE St2 = 0;
+
+    // fitting
+    for (size_t i = 0; i < nSamples; i++){
+        TYPE t = datax[i] - Sx/nSamples;
+        St2 += t * t;
+        b += t * datay[i];
+    }
+    b /= St2;
+    a = (Sy - Sx * b) / nSamples;
+
+    // standard errors
+    for (size_t i = 0; i < nSamples; i++){
+        chi2 += (datay[i] - a - b * datax[i]) * (datay[i] - a - b * datax[i]);
+    }
+    TYPE sigdat = 1;
+    if (nSamples > 2) sigdat = std::sqrt(chi2 / (nSamples - 2));
+    siga = sigdat * std::sqrt((1 + Sx * Sx / (nSamples * St2)) / nSamples);
+    sigb = sigdat * std::sqrt(1 / St2);
+
+    // R2
+    TYPE *fitted = new TYPE[nSamples];
+    for (size_t i = 0; i < nSamples; i++){
+        fitted[i] = a + b * datax[i];
+    }
+    R2 = KWUtil::calcR2cor(nSamples, fitted, datay);
+    delete [] fitted;
+
+    return 0; // EXIT_SUCCESS
+}
+
 template< typename TYPE >
 double KWUtil::SKPLinReg(const TYPE *datax, const TYPE *datay, int nSamples, TYPE &rslope, TYPE &roffset){
     // sets slope and offset and returns pearson's R between two vectors [0:n-1] elements each.
