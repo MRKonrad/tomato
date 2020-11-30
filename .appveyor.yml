@@ -1,7 +1,3 @@
-#------------#
-#   Tomato   #
-#------------#
-
 os:
   - Visual Studio 2015
 
@@ -13,9 +9,6 @@ init:
 # about toolset: https://devblogs.microsoft.com/cppblog/stuck-on-an-older-toolset-version-move-to-visual-studio-2015-without-upgrading-your-toolset/
 environment:
   toolset: v140 # TODO: go back to v90
-  OPENSOURCE_EXTENDED_NAME: TomatoOpenSource_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
-  USEVNL_EXTENDED_NAME: TomatoVnl_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
-  FULL_EXTENDED_NAME: TomatoFull_%APPVEYOR_REPO_TAG_NAME%_Windows_%PLATFORM%
   PYTHON: "C:\\Python36"
 
 platform:
@@ -32,115 +25,10 @@ install:
   - cmd: conan user # Create the conan data directory
   - cmd: conan --version
   - cmd: cd %APPVEYOR_BUILD_FOLDER%/conan-recipes
-  - cmd: conan create conan-libyaml user/testing -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset%
-  # TODO: enable lmfit
-  #  - cmd: conan create conan-lmfit user/testing -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset%
-  - cmd: conan create conan-gtest-1.8.1 user/testing -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset%
-  - cmd: conan create conan-vxl-v1.18.0 user/testing -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset%
-  - cmd: cd %APPVEYOR_BUILD_FOLDER%
 
 build_script:
-
-  #-----------------------#
-  #   Tomato opensource   #
-  #-----------------------#
-
-  # build tomato open source
-  - mkdir %APPVEYOR_BUILD_FOLDER%\opensource
-  - cd %APPVEYOR_BUILD_FOLDER%\opensource
-  - conan install .. -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset% -g cmake_find_package -o use_lmfit=False
-  - >-
-    cmake ..
-    -A%PLATFORM%
-    -DCMAKE_INSTALL_PREFIX=%APPVEYOR_BUILD_FOLDER%\opensource_install
-    -T %toolset%
-    -DUSE_LMFIT=OFF
-    -DBUILD_SHARED_LIBS=ON
-  - cmake --build . --config %CONFIGURATION% --target ALL_BUILD
-  - cmake --build . --config %CONFIGURATION% --target INSTALL
-
-  #--------------------#
-  #   Tomato full VNL  #
-  #--------------------#
-
-  # get private code
-  - cd %APPVEYOR_BUILD_FOLDER%\..
-  - git clone https://MRKonrad:%GH_PERSONAL_ACCESS_TOKEN%@github.com/MRKonrad/tomato_private
-  - cd %APPVEYOR_BUILD_FOLDER%\..
-
-  # build full tomato
-  - mkdir %APPVEYOR_BUILD_FOLDER%\full_vnl
-  - cd %APPVEYOR_BUILD_FOLDER%\full_vnl
-  - conan install .. -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset% -g cmake_find_package -o use_lmfit=False
-  - >-
-    cmake ..
-    -A%PLATFORM%
-    -DCMAKE_INSTALL_PREFIX=%APPVEYOR_BUILD_FOLDER%\full_vnl_install
-    -T %toolset%
-    -DUSE_PRIVATE_NR2=ON
-    -DUSE_LMFIT=OFF
-    -DBUILD_SHARED_LIBS=ON
-    -DUSE_ITK=OFF
-    -DUSE_VNL=ON
-    -DDOWNLOAD_DEPENDENCIES=OFF
-  - cmake --build . --config %CONFIGURATION% --target ALL_BUILD
-  - cmake --build . --config %CONFIGURATION% --target INSTALL
-  -
-  #--------------------#
-  #   Tomato full ITK  #
-  #--------------------#
-
-  # build full tomato
-  - mkdir %APPVEYOR_BUILD_FOLDER%\full_itk
-  - cd %APPVEYOR_BUILD_FOLDER%\full_itk
-  - conan install .. -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset% -g cmake_find_package -o use_lmfit=False -o use_vnl=False
-  - >-
-    cmake ..
-    -A%PLATFORM%
-    -DCMAKE_INSTALL_PREFIX=%APPVEYOR_BUILD_FOLDER%\full_itk_install
-    -T %toolset%
-    -DUSE_PRIVATE_NR2=ON
-    -DUSE_LMFIT=OFF
-    -DBUILD_SHARED_LIBS=ON
-    -DUSE_ITK=ON
-    -DDOWNLOAD_DEPENDENCIES=ON
-  - cmake --build . --config %CONFIGURATION% --target ALL_BUILD
-  - cmake --build . --config %CONFIGURATION% --target INSTALL
-
-after_build:
-  # TODO: enable DEPLOYMENT
-  # FOR DEPLOYMENT
-  - cd %APPVEYOR_BUILD_FOLDER%
-  - mkdir deployment
-  # zip the files for the deployment
-#  - cd %APPVEYOR_BUILD_FOLDER%\opensource_install
-#  - 7z a %OPENSOURCE_EXTENDED_NAME%.zip bin\* lib\* include\*  # zip
-  - cd %APPVEYOR_BUILD_FOLDER%\full_vnl_install
-  - 7z a %USEVNL_EXTENDED_NAME%.zip lib\* include\*  # zip
-  - cd %APPVEYOR_BUILD_FOLDER%\full_itk_install
-  - 7z a %FULL_EXTENDED_NAME%.zip bin\* lib\* include\*  # zip
-  # copy the files for the deployment
-#  - copy %APPVEYOR_BUILD_FOLDER%\opensource_install\%OPENSOURCE_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%OPENSOURCE_EXTENDED_NAME%.zip
-  - copy %APPVEYOR_BUILD_FOLDER%\full_itk_install\%FULL_EXTENDED_NAME%.zip %APPVEYOR_BUILD_FOLDER%\deployment\%FULL_EXTENDED_NAME%.zip
-
-test_script:
-  - cd %APPVEYOR_BUILD_FOLDER%\opensource_install\tests\
-  - TomatoTests.exe
-  - cd %APPVEYOR_BUILD_FOLDER%\full_vnl_install\tests\
-  - TomatoTests.exe
-  - cd %APPVEYOR_BUILD_FOLDER%\full_itk_install\tests\
-  - TomatoTests.exe
-
-artifacts:
-  - path: deployment\*.*
-
-deploy:
-  provider: GitHub
-  auth_token:
-    secure: Nmbbo4JCoK5AuN1ugWmE/c8/BAXlpz8Lb7piWDcAAWnT/GFa7fwL20GbXyU9AZSn
-  draft: false
-  prerelease: false
-  force_update: true
-  on:
-    appveyor_repo_tag: true        # deploy on tag push only
-    configuration: Release
+  - cd %APPVEYOR_BUILD_FOLDER%/conan-recipes
+  - conan create conan-libyaml user/testing -s build_type=%configuration% -s compiler.toolset=%toolset%
+  - conan remote add artifactory https://mrkonrad.jfrog.io/artifactory/api/conan/tomato
+  - conan user -p %JFROG_API_KEY% -r artifactory konradwerys2@gmail.com
+  - conan upload libyaml/0.2.5@user/testing -r artifactory --all
