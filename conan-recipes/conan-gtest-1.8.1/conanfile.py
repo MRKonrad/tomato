@@ -76,7 +76,7 @@ class GTestConan(ConanFile):
             gmock_libs = ['gmock', 'gtest'] if self.options.no_main else ['gmock_main', 'gmock', 'gtest']
             self.cpp_info.libs = ["{}{}".format(lib, self._postfix) for lib in gmock_libs]
         else:
-            gtest_libs = ['gtest'] if self.options.no_main else ['gtest_main' , 'gtest']
+            gtest_libs = ['gtest'] if self.options.no_main else ['gtest_main', 'gtest']
             self.cpp_info.libs = ["{}{}".format(lib, self._postfix) for lib in gtest_libs]
 
         if self.settings.os == "Linux":
