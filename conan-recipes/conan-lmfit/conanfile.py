@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class LmfitConan(ConanFile):
     name = "lmfit"
-    version = "v8.3.0"
+    version = "8.3.0"
     license = "<Put the package license here>"
     author = "<Put your name here> <And your email here>"
     url = "https://jugit.fz-juelich.de/mlz/lmfit.git"
@@ -15,15 +15,12 @@ class LmfitConan(ConanFile):
     generators = "cmake"
 
     def source(self):
-        self.run("git clone --branch {} {} {}".format(self.version, self.url, self.name))
-        ## this does not work on linux
-        ## TODO: try https://askubuntu.com/questions/186847/error-gnutls-handshake-failed-when-connecting-to-https-servers
-        # gittool = tools.Git(folder=self.name, verify_ssl=False)
-        # gittool.clone(self.url)
-        # gittool.checkout(self.version)
+        self.run("git clone --branch v{} {} {}".format(self.version, self.url, self.name))
 
     def _configure_cmake(self):
         cmake = CMake(self)
+        cmake.definitions["LIB_MAN"] = "OFF"
+        cmake.definitions["BUILD_SHARED_LIBS"] = "ON" if self.options.shared else "OFF"
         cmake.configure(source_folder=self.name)
         return cmake
 
@@ -35,14 +32,5 @@ class LmfitConan(ConanFile):
         cmake = self._configure_cmake()
         cmake.install()
 
-    def package(self):
-        self.copy("*.h", dst="include", src="lmfit/lib")
-        self.copy("*lmfit.lib", dst="lib", keep_path=False)
-        self.copy("*.dll", dst="bin", keep_path=False)
-        self.copy("*.so", dst="lib", keep_path=False)
-        self.copy("*.dylib", dst="lib", keep_path=False)
-        self.copy("*.a", dst="lib", keep_path=False)
-
     def package_info(self):
-        self.cpp_info.libs = ["lmfit"]
-
+        self.cpp_info.libs = tools.collect_libs(self)
