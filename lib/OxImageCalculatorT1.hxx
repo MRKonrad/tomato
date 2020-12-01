@@ -166,7 +166,6 @@ namespace Ox {
                 sigPha[iSample] = _imagePha[iSample * (_nCols * _nRows) + pos];
             }
 
-
             calculatorT1->setSigMag(sigMag);
             calculatorT1->setSigPha(sigPha);
 
