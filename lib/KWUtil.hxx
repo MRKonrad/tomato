@@ -267,7 +267,6 @@ double KWUtil::calcR2cor(int nSamples, const TYPE *fitted, const TYPE *ysignal){
         return covYF*covYF/(sumYY*sumFF);
 }
 
-// inspired by NR
 template< typename TYPE >
 int KWUtil::linearFit(
         int nSamples,
@@ -279,7 +278,7 @@ int KWUtil::linearFit(
         TYPE &sigb,
         TYPE &R2,
         TYPE &chi2){
-
+    // inspired by NR
     // zero the output variables
     a = 0;
     b = 0;

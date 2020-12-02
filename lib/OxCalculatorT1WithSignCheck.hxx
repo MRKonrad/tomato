@@ -189,7 +189,7 @@ namespace Ox {
         if (mse != 1e32 && calculatedParameters[0] != 0) {
             if (this->_nDims == 2) {
                 results["A"] = calculatedParameters[0];
-                results["T1"] = calculatedParameters[1];
+                results["T1star"] = calculatedParameters[1];
                 results["R2"] = calculateR2FromModel(nSamples, invTimes, signal, calculatedParameters);
                 results["R2Abs"] = calculateR2AbsFromModel(nSamples, invTimes, signal, calculatedParameters);
                 results["ChiSqrt"] = KWUtil::getChiSqrt(mse*nSamples, nSamples);
@@ -200,7 +200,7 @@ namespace Ox {
                 results["deltaT1"] = -1;
                 if (deltasCalculatedExit == 0) {
                     results["deltaA"] = fitDeltas[0];
-                    results["deltaT1"] = fitDeltas[1];
+                    results["deltaT1star"] = fitDeltas[1];
                 }
             } else if (this->_nDims == 3) {
                 results["T1"] = calculatedParameters[2] * (calculatedParameters[1] / calculatedParameters[0] - 1.);
@@ -268,7 +268,7 @@ namespace Ox {
 
         for (int i = 0; i < nSamples; i++){
             MeasureType fitted;
-            fitted = A - B * exp(-invTimes[i] / T1star);
+            fitted = this->_Model->calcModelValue(parameters, invTimes[i]);
             absFitted[i] = fabs(fitted);
             absYsignal[i] = fabs(signal[i]);
         }
