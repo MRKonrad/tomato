@@ -45,7 +45,6 @@ set(USE_VNL ON CACHE BOOL "Do you want to use VNL?")
 set(USE_YAML ON CACHE BOOL "Do you want to use yaml?")
 set(USE_LMFIT ON CACHE BOOL "Do you want to use LMFIT?")
 set(USE_TOMATOFIT ON CACHE BOOL "Do you want to use TOMATOFIT?")
-set(DOWNLOAD_DEPENDENCIES OFF CACHE BOOL "Do you want to download the dependencies?")
 set(BUILD_TESTING ON CACHE BOOL "Do you want to build Tomato tests?")
 set(BUILD_APP ON CACHE BOOL "Do you want to build Tomato app?")
 
@@ -58,19 +57,13 @@ file(GLOB_RECURSE APP_FILES app/*.c* app/*.h* app/*.t*)
 file(GLOB_RECURSE LIB_FILES lib/*.c* lib/*.h* lib/*.t*)
 file(GLOB_RECURSE API_FILES lib/*.h app/*.h lib/KWUtil.hxx)
 
-#############################
-### DOWNLOAD DEPENDENCIES ###
-#############################
-
-include(cmake/downloadItk.cmake)
-include(cmake/downloadLmfit.cmake)
-
 ###########
 ### ITK ###
 ###########
 
 if(USE_ITK)
     set(USE_ITK OFF)
+    find_package(itk)
     find_package(ITK HINTS ${PROJECT_SOURCE_DIR}/thirdParty/itk)
     MESSAGE("ITK version:" ${ITK_VERSION})
     if(ITK_FOUND)
@@ -140,7 +133,6 @@ if (BUILD_APP)
 endif()
 
 MESSAGE("CXX_STANDARD_98:       " ${CXX_STANDARD_98})
-MESSAGE("DOWNLOAD_DEPENDENCIES: " ${DOWNLOAD_DEPENDENCIES})
 MESSAGE("USE_ITK:               " ${USE_ITK})
 MESSAGE("USE_VNL:               " ${USE_VNL})
 MESSAGE("USE_PRIVATE_NR2:       " ${USE_PRIVATE_NR2})

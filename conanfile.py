@@ -34,7 +34,7 @@ class TomatoConan(ConanFile):
 
     def requirements(self):
         if self.options.use_itk:
-            self.requires("itk/4.12@%s/%s" % (self.user, self.channel))
+            self.requires("itk/4.12.0@%s/%s" % (self.user, self.channel))
         if self.options.use_vnl:
             self.requires("vxl/v1.18.0@%s/%s" % (self.user, self.channel))
         if self.options.use_lmfit:
