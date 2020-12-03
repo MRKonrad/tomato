@@ -10,7 +10,6 @@ class TestPackageConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        cmake.definitions["CMAKE_CXX_FLAGS"] = "-DGTEST_HAS_TR1_TUPLE=0"
         cmake.configure()
         cmake.build()
 

@@ -21,16 +21,14 @@ class GTestConan(ConanFile):
         cmake = CMake(self)
         # TODO: change it in the code as patch
         cmake.definitions["CMAKE_CXX_FLAGS"] = "-DGTEST_HAS_TR1_TUPLE=0"
+        if self.settings.os == "Windows" and self.settings.get_safe("compiler.runtime"):
+            cmake.definitions["gtest_force_shared_crt"] = "MD" in str(self.settings.compiler.runtime)
         cmake.configure(source_folder=self.name)
         return cmake
 
     def build(self):
         cmake = self._configure_cmake()
         cmake.build()
-
-    def package(self):
-        cmake = self._configure_cmake()
-        cmake.install()
 
     def package(self):
         self.copy("*.h", dst="include", src="gtest/include")
@@ -41,5 +39,9 @@ class GTestConan(ConanFile):
         self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
-        self.cpp_info.libs = ["gtest"]
-
+        self.cpp_info.libs = tools.collect_libs(self)
+        self.cpp_info.defines.append("GTEST_HAS_TR1_TUPLE=0")
+        if self.options.shared:
+            self.cpp_info.defines.append("GTEST_LINKED_AS_SHARED_LIBRARY=1")
+        if self.settings.os == "Linux":
+            self.cpp_info.libs.append("pthread")

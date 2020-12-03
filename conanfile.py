@@ -25,7 +25,7 @@ class TomatoConan(ConanFile):
         "shared": False,
         "use_itk": False,
         "use_vnl": True,
-        "use_lmfit": True,
+        "use_lmfit": False,
         "use_yaml": True,
         "build_app": False,
         "build_testing": True,
@@ -34,15 +34,16 @@ class TomatoConan(ConanFile):
 
     def requirements(self):
         if self.options.use_itk:
-            self.requires("itk/4.12.0@%s/%s" % (self.user, self.channel))
-        if self.options.use_vnl:
-            self.requires("vxl/v1.18.0@%s/%s" % (self.user, self.channel))
+            self.requires("itk/4.13.2@%s/%s" % (self.user, self.channel))
+            self.options.use_vnl = True
+        elif self.options.use_vnl:
+            self.requires("vxl/1.18.0@%s/%s" % (self.user, self.channel))
         if self.options.use_lmfit:
-            self.requires("lmfit/v8.3.0@%s/%s" % (self.user, self.channel))
+            self.requires("lmfit/8.3.0@%s/%s" % (self.user, self.channel))
         if self.options.use_yaml:
             self.requires("libyaml/0.2.5@%s/%s" % (self.user, self.channel))
         if self.options.build_testing:
-            self.requires("gtest/1.8.1@%s/%s" % (self.user, self.channel))
+            self.requires("gtest/1.6.0@%s/%s" % (self.user, self.channel))
 
     def source(self):
         self.run("git clone https://github.com/MRKonrad/tomato.git --branch conan")

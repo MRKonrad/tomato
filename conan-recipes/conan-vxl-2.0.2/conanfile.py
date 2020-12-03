@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class VxlConan(ConanFile):
     name = "vxl"
-    version = "v2.0.2"
+    version = "2.0.2"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = {"shared": False}
@@ -13,7 +13,7 @@ class VxlConan(ConanFile):
         url = "https://github.com/vxl/vxl.git"
         gittool = tools.Git(folder=self.name)
         gittool.clone(url)
-        gittool.checkout(self.version)
+        gittool.checkout("v" + self.version)
 
     def _configure_cmake(self):
         cmake = CMake(self)

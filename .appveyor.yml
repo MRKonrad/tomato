@@ -31,13 +31,7 @@ install:
   - "%PYTHON%\\Scripts\\pip.exe install conan"
   - cmd: conan user # Create the conan data directory
   - cmd: conan --version
-  - cmd: cd %APPVEYOR_BUILD_FOLDER%/conan-recipes
-  - cmd: conan create conan-libyaml user/testing -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset%
-  # TODO: enable lmfit
-  #  - cmd: conan create conan-lmfit user/testing -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset%
-  - cmd: conan create conan-gtest-1.8.1 user/testing -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset%
-  - cmd: conan create conan-vxl-v1.18.0 user/testing -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset%
-  - cmd: cd %APPVEYOR_BUILD_FOLDER%
+  - cmd: conan remote add artifactory https://mrkonrad.jfrog.io/artifactory/api/conan/tomato
 
 build_script:
 
@@ -93,7 +87,7 @@ build_script:
   # build full tomato
   - mkdir %APPVEYOR_BUILD_FOLDER%\full_itk
   - cd %APPVEYOR_BUILD_FOLDER%\full_itk
-  - conan install .. -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset% -g cmake_find_package -o use_lmfit=False -o use_vnl=False
+  - conan install .. -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset% -g cmake_find_package -o use_lmfit=False -o use_vnl=False -o use_itk=True
   - >-
     cmake ..
     -A%PLATFORM%
