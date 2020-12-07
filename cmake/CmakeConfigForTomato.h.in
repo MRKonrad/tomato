@@ -3,7 +3,7 @@
 #define Tomato_VERSION_MINOR @Tomato_VERSION_MINOR@
 #define Tomato_VERSION_PATCH @Tomato_VERSION_PATCH@
 
-#cmakedefine CXX_STANDARD_98
+#cmakedefine TOMATO_USES_CXX_STANDARD_98
 #cmakedefine USE_ITK
 #cmakedefine USE_VNL
 #cmakedefine USE_PRIVATE_NR2

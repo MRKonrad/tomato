@@ -22,14 +22,14 @@ project(Tomato)
 # The version number
 set(Tomato_VERSION_MAJOR 0)
 set(Tomato_VERSION_MINOR 6)
-set(Tomato_VERSION_PATCH 2)
+set(Tomato_VERSION_PATCH 4)
 
 # Compiler flags
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 98 CACHE STRING "")
-set(CXX_STANDARD_98 OFF)
+set(TOMATO_USES_CXX_STANDARD_98 OFF)
 if(CMAKE_CXX_STANDARD EQUAL 98)
-    set(CXX_STANDARD_98 ON) # flag used in the code
+    set(TOMATO_USES_CXX_STANDARD_98 ON) # flag used in the code
 endif()
 
 # needed for conan
@@ -132,16 +132,16 @@ if (BUILD_APP)
     endif()
 endif()
 
-MESSAGE("CXX_STANDARD_98:       " ${CXX_STANDARD_98})
-MESSAGE("USE_ITK:               " ${USE_ITK})
-MESSAGE("USE_VNL:               " ${USE_VNL})
-MESSAGE("USE_PRIVATE_NR2:       " ${USE_PRIVATE_NR2})
-MESSAGE("USE_LMFIT:             " ${USE_LMFIT})
-MESSAGE("USE_TOMATOFIT:         " ${USE_TOMATOFIT})
-MESSAGE("USE_YAML:              " ${USE_YAML})
-MESSAGE("BUILD_APP:             " ${BUILD_APP})
-MESSAGE("BUILD_TESTING:         " ${BUILD_TESTING})
-MESSAGE("CMAKE_INSTALL_PREFIX:  " ${CMAKE_INSTALL_PREFIX})
+MESSAGE("TOMATO_USES_CXX_STANDARD_98: " ${TOMATO_USES_CXX_STANDARD_98})
+MESSAGE("USE_ITK:                     " ${USE_ITK})
+MESSAGE("USE_VNL:                     " ${USE_VNL})
+MESSAGE("USE_PRIVATE_NR2:             " ${USE_PRIVATE_NR2})
+MESSAGE("USE_LMFIT:                   " ${USE_LMFIT})
+MESSAGE("USE_TOMATOFIT:               " ${USE_TOMATOFIT})
+MESSAGE("USE_YAML:                    " ${USE_YAML})
+MESSAGE("BUILD_APP:                   " ${BUILD_APP})
+MESSAGE("BUILD_TESTING:               " ${BUILD_TESTING})
+MESSAGE("CMAKE_INSTALL_PREFIX:        " ${CMAKE_INSTALL_PREFIX})
 
 # configure a header file to pass some of the CMake settings to the source code
 configure_file("${PROJECT_SOURCE_DIR}/cmake/CmakeConfigForTomato.h.in" "${PROJECT_BINARY_DIR}/CmakeConfigForTomato.h")

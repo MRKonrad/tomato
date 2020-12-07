@@ -105,9 +105,11 @@ namespace Ox {
           */
         virtual int getNDims() const;
 
+        MeasureType *getParametersAfterFitting() const;
 
         /* ****************** */
         /* ***  SETTERS   *** */
+        /* ****************** */
         /* ****************** */
 
         // setters for the 'has a' classes
@@ -170,6 +172,7 @@ namespace Ox {
             _Signal = 0; // we will be working with this one
             _Signs = 0;  // we will be working with this one
             _StartPoint = 0;
+            _ParametersAfterFitting = 0;
         }
 
         /**
@@ -213,6 +216,7 @@ namespace Ox {
             delete [] _Signal; _Signal = 0;
             delete [] _Signs; _Signs = 0;
             delete [] _StartPoint; _StartPoint = 0;
+            delete [] _ParametersAfterFitting; _ParametersAfterFitting = 0;
          };
 
     protected:
@@ -237,6 +241,7 @@ namespace Ox {
         int _nDims;
         MeasureType _MeanCutOff;
 
+        MeasureType* _ParametersAfterFitting; // size: nDims
         std::map <std::string, MeasureType> _Results;
 
     };

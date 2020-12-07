@@ -42,4 +42,4 @@ class VxlConan(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.libs = ["netlib", "v3p_netlib", "vcl", "vnl", "vnl_algo"]
+        self.cpp_info.libs = tools.collect_libs(self)

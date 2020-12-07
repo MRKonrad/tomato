@@ -237,10 +237,12 @@ namespace Ox {
         } else {
             this->_Results = results0;
             //std::cout << "ShMOLLI calculation error" << std::endl;
-            //throw itk::ExceptionObject(__FILE__, __LINE__, "ShMOLLI calculation error");
         }
         this->_Results["NShmolliSamplesUsed"] = nShmolliSamplesUsed;
         this->_Results["hasBeenCalculated"] = 1;
+        this->_ParametersAfterFitting[0] = this->_Results["A"];
+        this->_ParametersAfterFitting[1] = this->_Results["B"];
+        this->_ParametersAfterFitting[2] = this->_Results["T1star"];
 
         return 0; // EXIT_SUCCESS
     }

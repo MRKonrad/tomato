@@ -640,4 +640,27 @@ std::vector<int> KWUtil::bounds(int parts, int mem) {
     return bnd;
 }
 
+template < typename TYPE >
+bool KWUtil::array_expect_near(
+        int nElements,
+        const TYPE *array1,
+        const TYPE *array2,
+        TYPE abs_error,
+        const std::string& comment) {
+    for (int i = 0; i < nElements; i ++){
+        TYPE abs_diff = std::abs(array1[i] - array2[i]);
+        if ( abs_diff > abs_error){
+            std::cout << std::setprecision(std::numeric_limits<double>::digits10 + 1) <<
+                      "The difference between array1 and array2 at element "
+                      << i << " evaluates to " << abs_diff << " which exceeds tolerance, where\n"
+                      << "array1[" << i << "] evaluates to " << array1[i] << "\n"
+                      << "array2[" << i << "] evaluates to " << array2[i] << "\n"
+                      << "tolerance evaluates to " << abs_error << "\n"
+                      << comment << std::endl;
+            return false;
+        }
+    }
+    return true;
+}
+
 #endif

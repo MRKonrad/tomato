@@ -187,6 +187,7 @@ namespace Ox {
         delete [] jacobian;
 
         if (mse != 1e32 && calculatedParameters[0] != 0) {
+            KWUtil::copyArrayToArray(this->_nDims, this->_ParametersAfterFitting, calculatedParameters);
             if (this->_nDims == 2) {
                 results["A"] = calculatedParameters[0];
                 results["T1star"] = calculatedParameters[1];

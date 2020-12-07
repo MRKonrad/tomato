@@ -263,14 +263,22 @@ namespace Ox {
     ::setNDims(int nDims){
 
         delete [] _StartPoint; _StartPoint = 0;
+        delete [] _ParametersAfterFitting; _ParametersAfterFitting = 0;
 
         Calculator::_nDims = nDims;
 
         _StartPoint = new MeasureType[nDims];
+        _ParametersAfterFitting = new MeasureType[nDims];
 
         for (int i = 0; i < nDims; ++i){
             _StartPoint[i] = 0;
+            _ParametersAfterFitting[i] = 0;
         }
+    }
+
+    template<typename MeasureType>
+    MeasureType *Calculator<MeasureType>::getParametersAfterFitting() const {
+        return _ParametersAfterFitting;
     }
 
     template< typename MeasureType >

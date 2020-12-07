@@ -92,7 +92,7 @@
 /* ******* */
 /* others  */
 /* ******* */
-#include "OxImageCalculatorT1.h"
+#include "OxImageCalculator.h"
 #include "TomatoOnePixel.h"
 #ifdef USE_YAML
 #include "TomatoParser.h"
@@ -196,7 +196,7 @@ namespace Ox {
     /* others  */
     /* ******* */
     template std::map<std::string, double> TOMATOLIB_EXPORT calculateOnePixel(TomatoOptions<double> opts);
-    template class TOMATOLIB_EXPORT ImageCalculatorT1<double>;
+    template class TOMATOLIB_EXPORT ImageCalculator<double>;
 #ifdef USE_YAML
     template class TOMATOLIB_EXPORT TomatoParser<double>;
 #endif // USE_YAML

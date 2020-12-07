@@ -285,6 +285,17 @@ public:
         return fileContent;
     }
 
+    /***********************/
+    /* testing             */
+    /***********************/
+    template< typename TYPE >
+    static bool array_expect_near(
+            int nElements,
+            const TYPE *array1,
+            const TYPE *array2,
+            TYPE abs_error = 0,
+            const std::string& comment = "");
+
     //static bool isFile(const char* path) {
     //    struct stat buf;
     //    stat(path, &buf);

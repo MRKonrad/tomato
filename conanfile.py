@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class TomatoConan(ConanFile):
     name = "tomato"
-    version = "0.6.0"
+    version = "0.6.4"
     default_user = "user"
     default_channel = "testing"
     license = "MIT"
@@ -57,23 +57,18 @@ class TomatoConan(ConanFile):
         if (tools.os_info.is_linux):
             cmake.definitions["CMAKE_POSITION_INDEPENDENT_CODE"] = "ON"
 
-        cmake.definitions["USE_ITK"] = self.bool_to_on_off_string(self.options.use_itk)
-        cmake.definitions["USE_VNL"] = self.bool_to_on_off_string(self.options.use_vnl)
+        # cmake.definitions["CMAKE_CXX_STANDARD"] = "11"
+        cmake.definitions["USE_ITK"] = self.options.use_itk
+        cmake.definitions["USE_VNL"] = self.options.use_vnl
         cmake.definitions["USE_PRIVATE_NR2"] = "ON"
-        cmake.definitions["USE_LMFIT"] = self.bool_to_on_off_string(self.options.use_lmfit)
+        cmake.definitions["USE_LMFIT"] = self.options.use_lmfit
         cmake.definitions["USE_TOMATOFIT"] = "ON"
-        cmake.definitions["USE_YAML"] = self.bool_to_on_off_string(self.options.use_yaml)
-        cmake.definitions["BUILD_APP"] = self.bool_to_on_off_string(self.options.build_app)
-        cmake.definitions["BUILD_TESTING"] = self.bool_to_on_off_string(self.options.build_testing)
+        cmake.definitions["USE_YAML"] = self.options.use_yaml
+        cmake.definitions["BUILD_APP"] = self.options.build_app
+        cmake.definitions["BUILD_TESTING"] = self.options.build_testing
 
         cmake.configure(source_folder="tomato")
         return cmake
-
-    def bool_to_on_off_string(self, value):
-        if value:
-            return "ON"
-        else:
-            return "OFF"
 
     def build(self):
         cmake = self._configure_cmake()
@@ -84,4 +79,4 @@ class TomatoConan(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.libs = ["TomatoLib"]
+        self.cpp_info.libs = tools.collect_libs(self)
