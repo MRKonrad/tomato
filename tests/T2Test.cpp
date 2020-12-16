@@ -139,8 +139,10 @@ TEST(tomato, T2StarNoCorrectionEightSamples) {
     double correctB = 159.9788;
     double correctT2 = 7.9055;
     double correctR2 = 0.9990;
+    double correctFe = 3.6119;
     double correctDeltaB = 2.3782;
     double correctDeltaT2 = 0.1389;
+    double correctDeltaFe = 0.0774;
 
     // init the necessary objects
     Ox::ModelT2TwoParamScale<TYPE> model;
@@ -161,8 +163,10 @@ TEST(tomato, T2StarNoCorrectionEightSamples) {
     EXPECT_NEAR(calculator.getResults()["B"], correctB, tolerance);
     EXPECT_NEAR(calculator.getResults()["T2"], correctT2, tolerance);
     EXPECT_NEAR(calculator.getResults()["R2"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["Fe"], correctFe, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaT2"], correctDeltaT2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaFe"], correctDeltaFe, tolerance);
 }
 
 /**
@@ -190,8 +194,10 @@ TEST(tomato, T2StarTruncation_highR2_lowT2) {
     double correctB = 159.9788;
     double correctT2 = 7.9055;
     double correctR2 = 0.9990;
+    double correctFe = 3.6119;
     double correctDeltaB = 2.3782;
     double correctDeltaT2 = 0.1389;
+    double correctDeltaFe = 0.0774;
     double correctNSamplesUsed = 8;
     double correctExitCondition = 1;
 
@@ -214,8 +220,10 @@ TEST(tomato, T2StarTruncation_highR2_lowT2) {
     EXPECT_NEAR(calculator.getResults()["B"], correctB, tolerance);
     EXPECT_NEAR(calculator.getResults()["T2"], correctT2, tolerance);
     EXPECT_NEAR(calculator.getResults()["R2"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["Fe"], correctFe, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaT2"], correctDeltaT2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaFe"], correctDeltaFe, tolerance);
     EXPECT_NEAR(calculator.getResults()["nSamplesUsed"], correctNSamplesUsed, tolerance);
     EXPECT_NEAR(calculator.getResults()["exitCondition"], correctExitCondition, tolerance);
 }
@@ -248,9 +256,11 @@ TEST(tomato, T2StarOffsetEightSamples) {
     double correctB = 160.6292;
     double correctT2 = 7.56479;
     double correctR2 = 0.9991;
+    double correctFe = 3.8114;
     double correctDeltaOffset = 1.5100;
     double correctDeltaB = 2.4652;
     double correctDeltaT2 = 0.3037;
+    double correctDeltaFe = 0.1866;
 
     // init the necessary objects
     Ox::ModelT2ThreeParam<TYPE> model;
@@ -272,9 +282,11 @@ TEST(tomato, T2StarOffsetEightSamples) {
     EXPECT_NEAR(calculator.getResults()["B"], correctB, tolerance);
     EXPECT_NEAR(calculator.getResults()["T2"], correctT2, tolerance);
     EXPECT_NEAR(calculator.getResults()["R2"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["Fe"], correctFe, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaA"], correctDeltaOffset, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaT2"], correctDeltaT2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaFe"], correctDeltaFe, tolerance);
 }
 
 #endif // USE_VNL

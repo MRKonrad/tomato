@@ -29,6 +29,7 @@ TEST(OxCalculatorT2Truncation, highR2_lowT2) {
 
     double correctT2 = 7.9055;
     double correctR2 = 0.9990;
+    double correctFe = 3.6119;
     double correctNSamplesUsed = 8;
     double correctExitCondition = 1;
 
@@ -51,6 +52,7 @@ TEST(OxCalculatorT2Truncation, highR2_lowT2) {
 
     EXPECT_NEAR(calculator.getResults()["T2"], correctT2, tolerance);
     EXPECT_NEAR(calculator.getResults()["R2"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["Fe"], correctFe, tolerance);
     EXPECT_NEAR(calculator.getResults()["nSamplesUsed"], correctNSamplesUsed, tolerance);
     EXPECT_NEAR(calculator.getResults()["exitCondition"], correctExitCondition, tolerance);
 }
@@ -67,6 +69,7 @@ TEST(OxCalculatorT2Truncation, highR2_highT2) {
 
     double correctT2 = 25.1418;
     double correctR2 = 0.9998;
+    double correctFe = 0.8805;
     double correctNSamplesUsed = 8;
     double correctExitCondition = 1;
 
@@ -89,6 +92,7 @@ TEST(OxCalculatorT2Truncation, highR2_highT2) {
 
     EXPECT_NEAR(calculator.getResults()["T2"], correctT2, tolerance);
     EXPECT_NEAR(calculator.getResults()["R2"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["Fe"], correctFe, tolerance);
     EXPECT_NEAR(calculator.getResults()["nSamplesUsed"], correctNSamplesUsed, tolerance);
     EXPECT_NEAR(calculator.getResults()["exitCondition"], correctExitCondition, tolerance);
 }
@@ -105,6 +109,7 @@ TEST(OxCalculatorT2Truncation, truncationInWork) {
 
     double correctT2 = 7.6755;
     double correctR2 = 0.9991;
+    double correctFe = 3.7444;
     double correctNSamplesUsed = 4;
     double correctExitCondition = 3;
 
@@ -127,6 +132,7 @@ TEST(OxCalculatorT2Truncation, truncationInWork) {
 
     EXPECT_NEAR(calculator.getResults()["T2"], correctT2, tolerance);
     EXPECT_NEAR(calculator.getResults()["R2"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["Fe"], correctFe, tolerance);
     EXPECT_NEAR(calculator.getResults()["nSamplesUsed"], correctNSamplesUsed, tolerance);
     EXPECT_NEAR(calculator.getResults()["exitCondition"], correctExitCondition, tolerance);
 }
@@ -143,6 +149,7 @@ TEST(OxCalculatorT2Truncation, lowR2_highT2) {
 
     double correctT2 = 25.1101;
     double correctR2 = 0.9897;
+    double correctFe = 0.8818;
     double correctNSamplesUsed = 8;
     double correctExitCondition = 4;
 
@@ -165,6 +172,7 @@ TEST(OxCalculatorT2Truncation, lowR2_highT2) {
 
     EXPECT_NEAR(calculator.getResults()["T2"], correctT2, tolerance);
     EXPECT_NEAR(calculator.getResults()["R2"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["Fe"], correctFe, tolerance);
     EXPECT_NEAR(calculator.getResults()["nSamplesUsed"], correctNSamplesUsed, tolerance);
     EXPECT_NEAR(calculator.getResults()["exitCondition"], correctExitCondition, tolerance);
 }
@@ -181,6 +189,7 @@ TEST(OxCalculatorT2Truncation, calculateFitError) {
 
     double correctDeltaB = 2.4428;
     double correctDeltaT2 = 1.0852;
+    double correctDeltaFe = 0.0465;
 
     // init the necessary objects
     Ox::ModelT2TwoParamScale<TYPE> model;
@@ -201,6 +210,7 @@ TEST(OxCalculatorT2Truncation, calculateFitError) {
 
     EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaT2"], correctDeltaT2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaFe"], correctDeltaFe, tolerance);
 }
 
 TEST(OxCalculatorT2Truncation, copyConstructor) {
