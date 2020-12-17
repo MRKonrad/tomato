@@ -31,10 +31,10 @@ namespace Ox {
         void setNCols(int _nCols);
         void setNRows(int _nRows);
         void setNSamples(int _nSamples);
-        void setInvTimes(MeasureType *_invTimes);
-        void setEchoTimes(MeasureType *_echoTimes);
-        void setImageMag(MeasureType *_imageMag);
-        void setImagePha(MeasureType *_imagePha);
+        void setInvTimes(const MeasureType *_invTimes);
+        void setEchoTimes(const MeasureType *_echoTimes);
+        void setImageMag(const MeasureType *_imageMag);
+        void setImagePha(const MeasureType *_imagePha);
         void setImageResultsArray(MeasureType *_imageResultsArray);
         void setImageResultsMap(std::map<std::string, MeasureType *> *imageResultsMap);
 
@@ -52,19 +52,24 @@ namespace Ox {
         virtual int calculateOneThread(int posStart, int posStop);
 
     protected:
+        // input
+        Calculator<MeasureType> *_calculator;
+
         bool _useThreads;
         unsigned _nThreads;
         int _nCols;
         int _nRows;
         int _nSamples;
-        MeasureType* _invTimes; // nSamples
-        MeasureType* _echoTimes; // nSamples
-        MeasureType* _imageMag; // nCols * nRows * nSamples, address [iCol][iRow][iSam] iSample * (nCols*nRows) + iRow * nCols + iCol
-        MeasureType* _imagePha; // nCols * nRows * nSamples, address [iCol][iRow][iSam] iSample * (nCols*nRows) + iRow * nCols + iCol
+        const MeasureType* _invTimes; // nSamples
+        const MeasureType* _echoTimes; // nSamples
+        const MeasureType* _imageMag; // nCols * nRows * nSamples, address [iCol][iRow][iSam] iSample * (nCols*nRows) + iRow * nCols + iCol
+        const MeasureType* _imagePha; // nCols * nRows * nSamples, address [iCol][iRow][iSam] iSample * (nCols*nRows) + iRow * nCols + iCol
+
+        // output
         MeasureType* _imageResultsArray; // nCols * nRows * nDims, address [iCol][iRow][iDim] iDim * (nCols*nRows) + iRow * nCols + iCol
         std::map<std::string, MeasureType*> * _imageResultsMap; // map of arrays, each size nCols * nRows
 
-        Calculator<MeasureType> *_calculator;
+
     };
 
 } // namespace Ox

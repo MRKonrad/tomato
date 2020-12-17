@@ -58,28 +58,28 @@ namespace Ox {
     template<typename MeasureType>
     void
     ImageCalculator<MeasureType>
-    ::setInvTimes( MeasureType *_invTimes) {
+    ::setInvTimes(const MeasureType *_invTimes) {
         ImageCalculator::_invTimes = _invTimes;
     }
 
     template<typename MeasureType>
     void
     ImageCalculator<MeasureType>
-    ::setEchoTimes( MeasureType *_echoTimes) {
+    ::setEchoTimes(const MeasureType *_echoTimes) {
         ImageCalculator::_echoTimes = _echoTimes;
     }
 
     template<typename MeasureType>
     void
     ImageCalculator<MeasureType>
-    ::setImageMag( MeasureType *_imageMag) {
+    ::setImageMag(const MeasureType *_imageMag) {
         ImageCalculator::_imageMag = _imageMag;
     }
 
     template<typename MeasureType>
     void
     ImageCalculator<MeasureType>
-    ::setImagePha( MeasureType *_imagePha) {
+    ::setImagePha(const MeasureType *_imagePha) {
         ImageCalculator::_imagePha = _imagePha;
     }
 

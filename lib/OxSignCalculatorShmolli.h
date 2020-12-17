@@ -51,8 +51,8 @@ namespace Ox {
                 MeasureType phaMax
               );
 
-        virtual int getPhaMin() { return _phaMin; }
-        virtual int getPhaMax() { return _phaMax; }
+        virtual double getPhaMin() { return _phaMin; }
+        virtual double getPhaMax() { return _phaMax; }
 
         virtual void setPhaMin(int _phaMin) { SignCalculatorShmolli::_phaMin = _phaMin; }
         virtual void setPhaMax(int _phaMax) { SignCalculatorShmolli::_phaMax = _phaMax; }

@@ -65,7 +65,7 @@ namespace Ox {
             initPoint[2]=invTimes[indmin]; // T1* estimate in case all else breaks
 
             for ( i = 0; i < nSamples; i++) {
-                lSigns[i]=signs[i];
+                lSigns[i]=(int)signs[i];
                 if(lSigns[i] == 0) lSigns[i] = ( i <= indmin ) ? (-1) : (1); // assume negative sign if before lowest(i.e. possible zero corss) signal
                 lSignal[i] = lSignalAbs[i] * lSigns[i];
                 if(lSignal[i] < signalMin) signalMin = lSignal[i];
