@@ -63,6 +63,9 @@ namespace Ox {
         int number_of_threads;
 
         // export
+        std::string output_map_series_instance_uid;
+        std::string output_fitparams_series_instance_uid;
+        std::string output_magSignRecov_series_instance_uid;
         int output_map_series_number;
         int output_fitparams_series_number;
         int output_magSignRecov_series_number;
@@ -98,6 +101,9 @@ namespace Ox {
             number_of_threads = 0;
 
             // export
+            output_map_series_instance_uid = "";
+            output_fitparams_series_instance_uid = "";
+            output_magSignRecov_series_instance_uid = "";
             output_map_series_number = 0;
             output_fitparams_series_number = 0;
             output_magSignRecov_series_number = 0;

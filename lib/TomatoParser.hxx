@@ -48,55 +48,66 @@ namespace Ox {
                     flagKeyToken = true;
                     break;
                 }
-                case YAML_VALUE_TOKEN:
+                case YAML_VALUE_TOKEN: {
                     break;
+                }
                 case YAML_FLOW_SEQUENCE_START_TOKEN: {
                     flagFlowEntryToken = true;
                     break;
                 }
                 case YAML_FLOW_SEQUENCE_END_TOKEN: {
-
                     flagFlowEntryToken = false;
-
                     if (_sequences.find(lastKeyTokenValue) != _sequences.end()) {
                         _sequences[lastKeyTokenValue] = temp;
                     }
-
                     temp.clear();
-
+                    lastFlowEntryTokenValue = "";
                     break;
                 }
                 case YAML_FLOW_ENTRY_TOKEN: {
                     flagFlowEntryToken = true;
                     break;
                 }
-
                 case YAML_BLOCK_SEQUENCE_START_TOKEN: {
                     flagBlockEntryToken = true;
                     break;
                 }
                 case YAML_BLOCK_END_TOKEN: {
-
                     flagBlockEntryToken = false;
-
                     if ((_sequences.find(lastKeyTokenValue) != _sequences.end()) && (!temp.empty())) {
                         _sequences[lastKeyTokenValue] = temp;
                     }
-
                     temp.clear();
-
+                    lastBlockEntryTokenValue = "";
                     break;
                 }
                 case YAML_BLOCK_ENTRY_TOKEN: {
                     flagBlockEntryToken = true;
                     break;
                 }
-
                 case YAML_SCALAR_TOKEN: {
                     std::string scalar((char *) token.data.scalar.value);
 
                     // store the token name in lastKeyTokenValue or in _scalars
                     if (flagKeyToken) {
+                        // end flow sequence
+                        if (!lastFlowEntryTokenValue.empty()){
+                            flagFlowEntryToken = false;
+                            if (_sequences.find(lastKeyTokenValue) != _sequences.end()) {
+                                _sequences[lastKeyTokenValue] = temp;
+                            }
+                            temp.clear();
+                            lastFlowEntryTokenValue = "";
+                        }
+                        // end block sequence
+                        if (!lastBlockEntryTokenValue.empty()) {
+                            flagBlockEntryToken = false;
+                            if ((_sequences.find(lastKeyTokenValue) != _sequences.end()) && (!temp.empty())) {
+                                _sequences[lastKeyTokenValue] = temp;
+                            }
+                            temp.clear();
+                            lastBlockEntryTokenValue = "";
+                        }
                         flagKeyToken = false;
                         lastKeyTokenValue = scalar;
                     } else {
@@ -118,7 +129,6 @@ namespace Ox {
                         lastBlockEntryTokenValue = scalar;
                         temp.push_back(scalar);
                     }
-
                     break;
                 }
                 default:

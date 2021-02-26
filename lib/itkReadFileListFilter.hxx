@@ -76,6 +76,7 @@ namespace itk {
     vnl_vector<double>
     ReadFileListFilter<TImage>
     ::GetInvTimes(){
+        if (m_FileList.empty()) return vnl_vector<double>();
         vnl_vector<double> invTimesVnl = GetVnlVectorFromStdVector(m_InvTimes);
         vnl_vector<double> invTimesVnl20051572 = GetVnlVectorFromStdVector(m_InvTimes20051572);
         vnl_vector<double> invTimesVnl00211189 = GetVnlVectorFromStdVector(m_InvTimes00211189);
@@ -115,11 +116,18 @@ namespace itk {
             return echoTimesVnl;
         } else if (echoTimesFromImageCommentsVnl.min_value() != echoTimesFromImageCommentsVnl.max_value()) {
             return echoTimesFromImageCommentsVnl;
-        } else if (echoTimes00191016Vnl.min_value() != echoTimes00191016Vnl.max_value()) {
-            return echoTimes00191016Vnl;
+//        } else if (echoTimes00191016Vnl.min_value() != echoTimes00191016Vnl.max_value()) {
+//            return echoTimes00191016Vnl;
         } else if (echoTimes00209158Vnl.min_value() != echoTimes00209158Vnl.max_value()) {
             return echoTimes00209158Vnl;
-        } else {
+        } else if (m_EchoTimes.size() == 3 ){
+            // TODO: fix, this works only in siemens T2 3 sample cases
+            vnl_vector<double> temp(3);
+            temp[0] = 0;
+            temp[1] = 25;
+            temp[2] = 55;
+            return temp;
+        } else{
             return echoTimesVnl;
         }
     }
@@ -292,14 +300,17 @@ namespace itk {
                     dynamic_cast<const MetaDataStringType *>(tagItr->second.GetPointer());
 
             if (entryvalueStr) {
-                std::string decoded;
-                std::string tagvalue = entryvalueStr->GetMetaDataObjectValue();
+//                std::string decoded;
+//                std::string tagvalue = entryvalueStr->GetMetaDataObjectValue();
+//
+//                int dlen = gdcm::Base64::GetDecodeLength(tagvalue.c_str(), tagvalue.size() );
+//                decoded.resize(dlen);
+//                gdcm::Base64::Decode(&decoded[0], decoded.size(), tagvalue.c_str(), tagvalue.size());
+//                float_t * fDecoded = (float_t *)&decoded[0];
+//                invTime = (double)(*fDecoded);
 
-                int dlen = gdcm::Base64::GetDecodeLength(tagvalue.c_str(), tagvalue.size() );
-                decoded.resize(dlen);
-                gdcm::Base64::Decode(&decoded[0], decoded.size(), tagvalue.c_str(), tagvalue.size());
-                float * fDecoded = (float *)&decoded[0];
-                invTime = (double)(*fDecoded);
+                std::string tagvalue = entryvalueStr->GetMetaDataObjectValue();
+                invTime = KWUtil::StringToNumber<double>(tagvalue);
             }
         }
         return invTime;

@@ -191,6 +191,7 @@ namespace Ox {
             if (this->_nDims == 2) {
                 results["A"] = calculatedParameters[0];
                 results["T1star"] = calculatedParameters[1];
+                results["T1"] = calculatedParameters[1];
                 results["R2"] = calculateR2FromModel(nSamples, invTimes, signal, calculatedParameters);
                 results["R2Abs"] = calculateR2AbsFromModel(nSamples, invTimes, signal, calculatedParameters);
                 results["ChiSqrt"] = KWUtil::getChiSqrt(mse*nSamples, nSamples);
@@ -199,8 +200,10 @@ namespace Ox {
 
                 results["deltaA"] = -1;
                 results["deltaT1"] = -1;
+                results["deltaT1star"] = -1;
                 if (deltasCalculatedExit == 0) {
                     results["deltaA"] = fitDeltas[0];
+                    results["deltaT1"] = fitDeltas[1];
                     results["deltaT1star"] = fitDeltas[1];
                 }
             } else if (this->_nDims == 3) {
@@ -258,7 +261,6 @@ namespace Ox {
     MeasureType
     CalculatorT1WithSignCheck<MeasureType>
     ::calculateR2AbsFromModel(int nSamples, const MeasureType* invTimes, const MeasureType* signal, const MeasureType* parameters) {
-
 
         MeasureType *absFitted  = new MeasureType[nSamples];
         MeasureType *absYsignal = new MeasureType[nSamples];

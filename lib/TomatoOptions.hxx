@@ -63,6 +63,9 @@ namespace Ox {
         parser._scalars["use_colorbar"];
         parser._scalars["number_of_threads"];
 
+        parser._scalars["output_map_series_instance_uid"];
+        parser._scalars["output_fitparams_series_instance_uid"];
+        parser._scalars["output_magSignRecov_series_instance_uid"];
         parser._scalars["output_map_series_number"];
         parser._scalars["output_fitparams_series_number"];
         parser._scalars["output_magSignRecov_series_number"];
@@ -80,6 +83,9 @@ namespace Ox {
         dir_output_fitparams = parser._scalars["dir_output_fitparams"];
         dir_output_magSignRecov = parser._scalars["dir_output_magSignRecov"];
 
+        output_map_series_instance_uid = parser._scalars["output_map_series_instance_uid"];
+        output_fitparams_series_instance_uid = parser._scalars["output_fitparams_series_instance_uid"];
+        output_magSignRecov_series_instance_uid = parser._scalars["output_magSignRecov_series_instance_uid"];
         if (!parser._scalars["output_map_series_number"].empty())
             output_map_series_number = KWUtil::StringToNumber<MeasureType>(parser._scalars["output_map_series_number"]);
         if (!parser._scalars["output_fitparams_series_number"].empty())
@@ -166,12 +172,15 @@ namespace Ox {
         KWUtil::printVector(" signal_phase: ", signal_phase);
         printf(  " dir_magnitude: %s ", dir_magnitude.c_str());
         printf("\n dir_phase:     %s ", dir_phase.c_str());
-        printf("\n dir_output_map:       %s ", dir_output_map.c_str());
-        printf("\n dir_output_fitparams: %s ", dir_output_fitparams.c_str());
-        printf("\n dir_output_magSignRecov: %s ", dir_output_magSignRecov.c_str());
-        printf("\n output_map_series_number:       %d", output_map_series_number);
-        printf("\n output_fitparams_series_number: %d", output_fitparams_series_number);
-        printf("\n output_magSignRecov_series_number: %d", output_magSignRecov_series_number);
+        printf("\n dir_output_map:                          %s ", dir_output_map.c_str());
+        printf("\n dir_output_fitparams:                    %s ", dir_output_fitparams.c_str());
+        printf("\n dir_output_magSignRecov:                 %s ", dir_output_magSignRecov.c_str());
+        printf("\n output_map_series_instance_uid:          %s ", output_map_series_instance_uid.c_str());
+        printf("\n output_fitparams_series_instance_uid:    %s ", output_fitparams_series_instance_uid.c_str());
+        printf("\n output_magSignRecov_series_instance_uid: %s ", output_magSignRecov_series_instance_uid.c_str());
+        printf("\n output_map_series_number:                %d ", output_map_series_number);
+        printf("\n output_fitparams_series_number:          %d ", output_fitparams_series_number);
+        printf("\n output_magSignRecov_series_number:       %d ", output_magSignRecov_series_number);
         printf("\n");
         printf("\n");
         Ox::FactoryOfCalculators<double>::disp(parameter_to_map);
@@ -249,6 +258,9 @@ namespace Ox {
         KWUtilYaml::addMapping(&document, mapping_node_number, "dir_output_map", dir_output_map);
         KWUtilYaml::addMapping(&document, mapping_node_number, "dir_output_fitparams", dir_output_fitparams);
         KWUtilYaml::addMapping(&document, mapping_node_number, "dir_output_magSignRecov", dir_output_magSignRecov);
+        KWUtilYaml::addMapping(&document, mapping_node_number, "output_map_series_instance_uid", output_map_series_instance_uid);
+        KWUtilYaml::addMapping(&document, mapping_node_number, "output_fitparams_series_instance_uid", output_fitparams_series_instance_uid);
+        KWUtilYaml::addMapping(&document, mapping_node_number, "output_magSignRecov_series_instance_uid", output_magSignRecov_series_instance_uid);
         KWUtilYaml::addMapping(&document, mapping_node_number, "output_map_series_number", KWUtil::NumberToString(output_map_series_number));
         KWUtilYaml::addMapping(&document, mapping_node_number, "output_fitparams_series_number", KWUtil::NumberToString(output_fitparams_series_number));
         KWUtilYaml::addMapping(&document, mapping_node_number, "output_magSignRecov_series_number", KWUtil::NumberToString(output_magSignRecov_series_number));

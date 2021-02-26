@@ -153,8 +153,14 @@ namespace Ox {
 
         // clone the necessary objects
         Ox::Calculator<MeasureType> *calculator = _calculator->newByCloning();
-        Ox::Model<MeasureType> *functionsObject = _calculator->getModel()->newByCloning();
-        Ox::Fitter<MeasureType> *fitter = _calculator->getFitter()->newByCloning();
+        Ox::Model<MeasureType> *model = 0;
+        if (_calculator->getModel()) {
+            model = _calculator->getModel()->newByCloning();
+        }
+        Ox::Fitter<MeasureType> *fitter = 0;
+        if (_calculator->getFitter()) {
+            fitter = _calculator->getFitter()->newByCloning();
+        }
         Ox::SignCalculator<MeasureType> *signCalculator = 0;
         if (_calculator->getSignCalculator()){
             signCalculator = _calculator->getSignCalculator()->newByCloning();
@@ -165,8 +171,8 @@ namespace Ox {
         }
 
         // configure
-        calculator->setModel(functionsObject);
-        calculator->setFitter(fitter);
+        if (model) calculator->setModel(model);
+        if (fitter) calculator->setFitter(fitter);
         if (signCalculator) calculator->setSignCalculator(signCalculator);
         if (startPointCalculator) calculator->setStartPointCalculator(startPointCalculator);
 
@@ -199,18 +205,9 @@ namespace Ox {
             // store results as map
             if (_imageResultsMap) {
                 // iterate over each pair in the map
-                typename std::map<std::string, MeasureType> resultsMap = calculator->getResults();
-                typename std::map<std::string, MeasureType>::iterator it;
-                for ( it = resultsMap.begin(); it != resultsMap.end(); it++ ){
-                    // find the key
-                    typename std::map<std::string, MeasureType*>::iterator search = _imageResultsMap->find(it->first);
-                    if (search != _imageResultsMap->end()) {
-                        MeasureType *pointer = search->second;
-                        // store the result
-                        if (pointer) {
-                            pointer[pos] = it->second;
-                        }
-                    }
+                typename std::map<std::string, MeasureType*>::iterator it;
+                for ( it = _imageResultsMap->begin(); it != _imageResultsMap->end(); it++ ){
+                    it->second[pos] = calculator->getResults()[it->first];
                 }
             }
 
@@ -219,7 +216,7 @@ namespace Ox {
         }
 
         delete calculator;
-        delete functionsObject;
+        delete model;
         delete fitter;
         delete signCalculator;
         delete startPointCalculator;

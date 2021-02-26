@@ -32,6 +32,9 @@ if(CMAKE_CXX_STANDARD EQUAL 98)
     set(TOMATO_USES_CXX_STANDARD_98 ON) # flag used in the code
 endif()
 
+#-DCMAKE_C_COMPILER="/Library/Developer/CommandLineTools_clang12/usr/bin/clang" -DCMAKE_CXX_COMPILER="/Library/Developer/CommandLineTools_clang12/usr/bin/clang++")
+#set(ENV{SDKROOT} "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk")
+
 # needed for conan
 set(CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR} ${CMAKE_MODULE_PATH})
 set(CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR} ${CMAKE_PREFIX_PATH})
@@ -81,8 +84,7 @@ endif(USE_ITK)
 if (USE_VNL AND NOT USE_ITK)
     find_package(vxl REQUIRED)
     set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} vxl::vxl)
-    include_directories(${vxl_INCLUDE_DIRS}/vxl/core) # TODO: fix in vxl conan recipe
-    include_directories(${vxl_INCLUDE_DIRS}/vxl/vcl)
+    set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} ${vxl_LIBRARIES}) # linux linking problem
 endif()
 
 ############
@@ -188,14 +190,8 @@ if(BUILD_APP)
     # RPATH preparation for the executables
     set_target_properties(TomatoExe PROPERTIES INSTALL_RPATH
             @executable_path
-            @executable_path/lib
-            @executable_path/../lib
             @loader_path
-            @loader_path/lib
-            @loader_path/../lib
-            $ORIGIN
-            $ORIGIN/lib
-            $ORIGIN/../lib/)
+            $ORIGIN)
 endif()
 
 ##################
@@ -203,12 +199,15 @@ endif()
 ##################
 
 install(TARGETS TomatoLib
-            RUNTIME DESTINATION bin
-            LIBRARY DESTINATION lib
-            ARCHIVE DESTINATION lib)
+        RUNTIME DESTINATION bin
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib)
 install(FILES ${API_FILES} DESTINATION include) # headers
 if(BUILD_APP)
     install(TARGETS TomatoExe DESTINATION bin)
+    if(BUILD_SHARED_LIBS)
+        install(TARGETS TomatoLib DESTINATION bin)
+    endif()
 endif()
 
 ###############
@@ -219,3 +218,10 @@ if(BUILD_TESTING AND USE_YAML)
     add_subdirectory(tests)
     install(TARGETS TomatoLib DESTINATION tests)
 endif()
+
+
+get_cmake_property(_variableNames VARIABLES)
+list (SORT _variableNames)
+foreach (_variableName ${_variableNames})
+    message(STATUS "${_variableName}=${${_variableName}}")
+endforeach()

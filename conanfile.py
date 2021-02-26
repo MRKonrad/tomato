@@ -23,7 +23,7 @@ class TomatoConan(ConanFile):
     }
     default_options = {
         "shared": False,
-        "use_itk": False,
+        "use_itk": True,
         "use_vnl": True,
         "use_lmfit": False,
         "use_yaml": True,

@@ -65,7 +65,7 @@ build_script:
   # build full tomato
   - mkdir %APPVEYOR_BUILD_FOLDER%\full_vnl
   - cd %APPVEYOR_BUILD_FOLDER%\full_vnl
-  - conan install .. -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset% -g cmake_find_package -o use_lmfit=False
+  - conan install .. -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset% -g cmake_find_package -o use_lmfit=False -o use_vnl=True -o use_itk=False
   - >-
     cmake ..
     -A%PLATFORM%

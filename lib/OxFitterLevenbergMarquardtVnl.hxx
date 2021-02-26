@@ -41,7 +41,7 @@ namespace Ox {
     ::disp(){
         std::cout << "\nYou called disp() on a FitterLevenbergMarquardtVnl object" << this << "\n";
         std::cout << "It has VnlFitter " << _VnlFitter << std::endl;
-        std::cout << "It has FunctionsAdaptedToVnl " << _FunctionsAdaptedToVnl << std::endl;
+        std::cout << "It has ModelAdaptedToVnl " << _ModelAdaptedToVnl << std::endl;
         std::cout << "It's base class is as follows: ";
 
         Fitter<MeasureType>::disp();
@@ -51,7 +51,7 @@ namespace Ox {
     FitterLevenbergMarquardtVnl<MeasureType>
     ::FitterLevenbergMarquardtVnl() {
         // I cannot initialise _FunctionsAdaptedToVnl here, as I do not know nSamples yet
-        _FunctionsAdaptedToVnl = 0; // nullptr
+        _ModelAdaptedToVnl = 0; // nullptr
         _VnlFitter = 0; // nullptr
     };
 
@@ -59,7 +59,7 @@ namespace Ox {
     FitterLevenbergMarquardtVnl<MeasureType>
     ::FitterLevenbergMarquardtVnl(const FitterLevenbergMarquardtVnl &old) : Fitter<MeasureType>(old){
         // I cannot initialise _FunctionsAdaptedToVnl here, as I do not know nSamples and nDims yet
-        _FunctionsAdaptedToVnl = 0; // nullptr
+        _ModelAdaptedToVnl = 0; // nullptr
         _VnlFitter = 0; // nullptr
     }
 
@@ -67,7 +67,7 @@ namespace Ox {
     template<typename MeasureType>
     FitterLevenbergMarquardtVnl<MeasureType>
     ::~FitterLevenbergMarquardtVnl() {
-        delete _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;
+        delete _ModelAdaptedToVnl; _ModelAdaptedToVnl = 0;
         delete _VnlFitter; _VnlFitter = 0;
     }
 
@@ -84,30 +84,29 @@ namespace Ox {
             doReconfigure = true;
         }
 
-        if (_FunctionsAdaptedToVnl != 0) {
-            if (nSamples != this->_FunctionsAdaptedToVnl->get_number_of_residuals()) {
+        if (_ModelAdaptedToVnl != 0) {
+            if (nSamples != this->_ModelAdaptedToVnl->get_number_of_residuals()) {
                 doReconfigure = true;
             }
         }
-
 
         if (doReconfigure) {
             if (!this->_Model) {
                 throw std::runtime_error("Set the Model object");
             } else {
 
-                delete _FunctionsAdaptedToVnl; _FunctionsAdaptedToVnl = 0;
+                delete _ModelAdaptedToVnl; _ModelAdaptedToVnl = 0;
 
                 if (this->_UseGradient) {
-                    _FunctionsAdaptedToVnl = new ModelT1AdapterVnlLeastSquares(nDims, nSamples, vnl_least_squares_function::use_gradient);
+                    _ModelAdaptedToVnl = new ModelT1AdapterVnlLeastSquares(nDims, nSamples, vnl_least_squares_function::use_gradient);
                 } else {
-                    _FunctionsAdaptedToVnl = new ModelT1AdapterVnlLeastSquares(nDims, nSamples, vnl_least_squares_function::no_gradient);
+                    _ModelAdaptedToVnl = new ModelT1AdapterVnlLeastSquares(nDims, nSamples, vnl_least_squares_function::no_gradient);
                 }
 
-                this->_FunctionsAdaptedToVnl->setModel(this->_Model);
+                this->_ModelAdaptedToVnl->setModel(this->_Model);
 
                 delete _VnlFitter; _VnlFitter = 0;
-                _VnlFitter = new vnl_levenberg_marquardt(*_FunctionsAdaptedToVnl);
+                _VnlFitter = new vnl_levenberg_marquardt(*_ModelAdaptedToVnl);
             }
             _VnlFitter->set_x_tolerance(this->getXTolerance());
             _VnlFitter->set_f_tolerance(this->getFTolerance());

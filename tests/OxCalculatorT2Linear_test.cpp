@@ -135,10 +135,6 @@ TEST(OxCalculatorT2Linear, copyConstructor) {
     EXPECT_EQ(calculator.getNSamples(), calculatorCopy.getNSamples());
     EXPECT_EQ(calculator.getNDims(), calculatorCopy.getNDims());
 
-    // empty object pointers
-    EXPECT_THROW(calculatorCopy.getModel(), std::runtime_error);
-    EXPECT_THROW(calculatorCopy.getFitter(), std::runtime_error);
-
     // empty array pointers
     EXPECT_THROW(calculatorCopy.getEchoTimes(), std::runtime_error);
     EXPECT_FALSE(calculatorCopy.getRepTimes());

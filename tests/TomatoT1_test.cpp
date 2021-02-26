@@ -10,6 +10,13 @@
 #include "gtest/gtest.h"
 #include "Tomato.h"
 
+TEST(ActeptanceTests_TomatoT1Test, readYaml) {
+
+    Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList_noSpaces.yaml");
+    EXPECT_EQ(Tomato_object._opts->files_magnitude.size(), 7);
+
+}
+
 TEST(ActeptanceTests_TomatoT1Test, readAndSortFileList) {
 
     Ox::Tomato<double> Tomato_object("testData/Hcmr_Phantom_1916_Shmolli_192i_e11_fileList.yaml");

@@ -1,0 +1,25 @@
+files_magnitude:
+- "testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0001.dcm"
+- "testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0002.dcm"
+- "testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0003.dcm"
+- "testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0004.dcm"
+- "testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0005.dcm"
+- "testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0006.dcm"
+- "testData/dicom/Hcmr_Phantom_1916_260C/Konrad_Shmolli/ShMOLLI_192i_e11_12/IM-0001-0007.dcm"
+files_phase: []
+dir_output_map: "testData/tomatoOutput_Molli/map"
+output_map_series_number: 9998
+dir_output_fitparams: "testData/tomatoOutput_Molli/fitparams"
+output_fitparams_series_number: 9999
+dir_output_magSignRecov: "testData/tomatoOutput_Molli/dir_output_magSignRecov"
+output_magSignRecov_series_number: 9997
+
+parameter_to_map: T1_MOLLI
+model_type: ModelT1ThreeParam
+fitting_method: LevMarVnl
+max_function_evals: 4000
+fTolerance: 1e-12
+sign_calc_method: RealImag
+start_point_calc_method: Basic
+
+number_of_threads: 0

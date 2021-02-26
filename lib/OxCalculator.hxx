@@ -28,7 +28,7 @@ namespace Ox {
     ::getModel() const {
         if (!_Model) {
             throw std::runtime_error("Calculator: _Model equals 0. Set _Model");
-        };
+        }
         return _Model;
     }
 
@@ -38,7 +38,7 @@ namespace Ox {
     ::getFitter() const {
         if (!_Fitter) {
             throw std::runtime_error("Calculator: _Fitter equals 0. Set _Fitter");
-        };
+        }
         return _Fitter;
     }
 

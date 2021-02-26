@@ -1,10 +1,9 @@
 /*!
- * \file OxCalculatorT1Molli_test.cpp
+ * \file OxCalculatorT1_saturation_recovery_test.cpp
  * \author Konrad Werys
  * \date 2018/08/01
  */
 
-#include <OxFitterLevenbergMarquardtVnl.h>
 #include "gtest/gtest.h"
 #include "OxTestData.h"
 
@@ -13,8 +12,9 @@
 #include "OxModelT1TwoParam.h"
 #include "OxModelT1ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
+#include "OxFitterLevenbergMarquardtVnl.h"
+#include "OxFitterLevenbergMarquardtLmfit.h"
 #include "OxSignCalculatorNoSign.h"
-#include "OxStartPointCalculatorBasic.h"
 #include "OxStartPointCalculatorBasic.h"
 #include "OxCalculatorT1WithSignCheck.h"
 
@@ -33,26 +33,26 @@ TEST(OxCalculatorT1_saturation_recovery, twoParam) {
 
     // init the necessary objects
     Ox::ModelT1TwoParam<TYPE> model;
-    Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculator;
 
     // configure
-    calculatorT1Molli.setModel(&model);
-    calculatorT1Molli.setFitter(&fitterAmoebaVnl);
-    calculatorT1Molli.setSignCalculator(&signCalculator);
-    calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
+    calculator.setModel(&model);
+    calculator.setFitter(&fitter);
+    calculator.setSignCalculator(&signCalculator);
+    calculator.setStartPointCalculator(&startPointCalculator);
 
     // set the data
-    calculatorT1Molli.setNSamples(nSamples);
-    calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
-    calculatorT1Molli.setSigMag(testData.getSignalMagPtr());
+    calculator.setNSamples(nSamples);
+    calculator.setInvTimes(testData.getInvTimesPtr());
+    calculator.setSigMag(testData.getSignalMagPtr());
 
-    calculatorT1Molli.calculate();
+    calculator.calculate();
 
-    EXPECT_NEAR(calculatorT1Molli.getResults()["A"], testData.getResultsTwoParam()[0], 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults()["T1star"], testData.getResultsTwoParam()[1], 1e-2);
+    EXPECT_NEAR(calculator.getResults()["A"], testData.getResultsTwoParam()[0], 1e-2);
+    EXPECT_NEAR(calculator.getResults()["T1star"], testData.getResultsTwoParam()[1], 1e-2);
 }
 #endif
 
@@ -67,27 +67,27 @@ TEST(OxCalculatorT1_saturation_recovery, threeParam) {
 
     // init the necessary objects
     Ox::ModelT1ThreeParam<TYPE> model;
-    Ox::FitterAmoebaVnl<TYPE> fitterAmoebaVnl;
+    Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
-    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1Molli;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculator;
 
     // configure
-    calculatorT1Molli.setModel(&model);
-    calculatorT1Molli.setFitter(&fitterAmoebaVnl);
-    calculatorT1Molli.setSignCalculator(&signCalculator);
-    calculatorT1Molli.setStartPointCalculator(&startPointCalculator);
+    calculator.setModel(&model);
+    calculator.setFitter(&fitter);
+    calculator.setSignCalculator(&signCalculator);
+    calculator.setStartPointCalculator(&startPointCalculator);
 
     // set the data
-    calculatorT1Molli.setNSamples(nSamples);
-    calculatorT1Molli.setInvTimes(testData.getInvTimesPtr());
-    calculatorT1Molli.setSigMag(testData.getSignalMagPtr());
+    calculator.setNSamples(nSamples);
+    calculator.setInvTimes(testData.getInvTimesPtr());
+    calculator.setSigMag(testData.getSignalMagPtr());
 
-    calculatorT1Molli.calculate();
+    calculator.calculate();
 
-    EXPECT_NEAR(calculatorT1Molli.getResults()["A"], testData.getResultsThreeParam()[0], 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults()["B"], testData.getResultsThreeParam()[1], 1e-2);
-    EXPECT_NEAR(calculatorT1Molli.getResults()["T1star"], testData.getResultsThreeParam()[2], 1e-2);
+    EXPECT_NEAR(calculator.getResults()["A"], testData.getResultsThreeParam()[0], 1e-2);
+    EXPECT_NEAR(calculator.getResults()["B"], testData.getResultsThreeParam()[1], 1e-2);
+    EXPECT_NEAR(calculator.getResults()["T1star"], testData.getResultsThreeParam()[2], 1e-2);
 }
 #endif
 

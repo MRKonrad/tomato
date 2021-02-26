@@ -53,9 +53,14 @@ namespace Ox {
 
         // UIDs
         gdcm::UIDGenerator sopuid;
-        std::string sopInstanceUID_T2 = sopuid.Generate();
         gdcm::UIDGenerator suid;
-        std::string seriesUID_T2 = suid.Generate();
+        std::string sopInstanceUID_T2 = sopuid.Generate();
+        std::string seriesUID_T2;
+        if (_opts->output_map_series_instance_uid.empty()){
+            seriesUID_T2 = suid.Generate();
+        } else {
+            seriesUID_T2 = _opts->output_map_series_instance_uid;
+        }
 
         // seriesNumber
         std::string seriesNumber;
@@ -80,7 +85,12 @@ namespace Ox {
         DictionaryType dictionaryOutput_R2(_dictionaryInput);
 
         std::string sopInstanceUID_R2 = sopuid.Generate();
-        std::string seriesUID_R2 = suid.Generate();
+        std::string seriesUID_R2;
+        if (_opts->output_fitparams_series_instance_uid.empty()){
+            seriesUID_R2 = suid.Generate();
+        } else {
+            seriesUID_R2 = _opts->output_map_series_instance_uid;
+        }
 
         itk::ExposeMetaData<std::string>(_dictionaryInput, "0020|0011", seriesNumber);
         if (_opts->output_fitparams_series_number == 0) {

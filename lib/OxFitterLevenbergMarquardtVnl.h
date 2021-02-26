@@ -31,7 +31,7 @@ namespace Ox {
 
         // getters
         ModelT1AdapterVnlLeastSquares *getModelAdaptedToVnl() const {
-            return _FunctionsAdaptedToVnl;
+            return _ModelAdaptedToVnl;
         }
 
         /**
@@ -68,7 +68,7 @@ namespace Ox {
     private:
 
         vnl_levenberg_marquardt *_VnlFitter; // not meant to be see outside
-        ModelT1AdapterVnlLeastSquares *_FunctionsAdaptedToVnl; // not meant to be see outside
+        ModelT1AdapterVnlLeastSquares *_ModelAdaptedToVnl; // not meant to be see outside
 
     };
 

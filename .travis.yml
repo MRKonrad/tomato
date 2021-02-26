@@ -110,8 +110,6 @@ install:
     fi
 
 script:
-
-
   #-----------------------#
   #   Tomato opensource   #
   #-----------------------#
@@ -149,7 +147,7 @@ script:
   # configure and generate full
   - mkdir ${TRAVIS_BUILD_DIR}/full
   - cd ${TRAVIS_BUILD_DIR}/full
-  - conan install .. -s build_type=Release -g cmake_find_package -o use_lmfit=True
+  - conan install .. -s build_type=Release -g cmake_find_package -o use_lmfit=True -o use_vnl=True  -o use_itk=False
   - >-
     cmake ..
     -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/full_install
