@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['imagecalculatort1',['ImageCalculatorT1',['../class_ox_1_1_image_calculator_t1.html',1,'Ox']]],
+  ['imagecalculator',['ImageCalculator',['../class_ox_1_1_image_calculator.html',1,'Ox']]],
   ['imagefilereaderkw',['ImageFileReaderKW',['../classitk_1_1_image_file_reader_k_w.html',1,'itk']]],
   ['imageregiontype',['ImageRegionType',['../classitk_1_1_image_file_reader_k_w.html#aeb29601addf7afcf200728eafc93dccd',1,'itk::ImageFileReaderKW']]],
   ['indextype',['IndexType',['../classitk_1_1_image_file_reader_k_w.html#a9daa1ecf6fe0192e6ea86f9bf9785912',1,'itk::ImageFileReaderKW']]],
-  ['init',['init',['../struct_ox_1_1_tomato_options.html#a76497b53cadad720af7ff0f83b99096b',1,'Ox::TomatoOptions']]],
+  ['init',['init',['../class_ox_1_1_tomato_options.html#ab5ed8e439cf09ed9aca565c1facb5b1a',1,'Ox::TomatoOptions']]],
   ['itkcalculatort1imagefilter_2eh',['itkCalculatorT1ImageFilter.h',['../itk_calculator_t1_image_filter_8h.html',1,'']]],
   ['itkcalculatort1imagefilter_2ehxx',['itkCalculatorT1ImageFilter.hxx',['../itk_calculator_t1_image_filter_8hxx.html',1,'']]],
   ['itknewmacro',['itkNewMacro',['../classitk_1_1_image_file_reader_k_w.html#a4513482202af52da330f62385fe410d2',1,'itk::ImageFileReaderKW']]],

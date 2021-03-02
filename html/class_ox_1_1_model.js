@@ -13,6 +13,7 @@ var class_ox_1_1_model =
     [ "getInvTimes", "class_ox_1_1_model.html#a7c7497927d9aa7f0c3aa5933e4a7ff7d", null ],
     [ "getNDims", "class_ox_1_1_model.html#af457ac73701b13fa1b3af8d800e198dc", null ],
     [ "getNSamples", "class_ox_1_1_model.html#a29715e78ec12b91c56df85fc0f782ea7", null ],
+    [ "getNthParamName", "class_ox_1_1_model.html#a5a6b9c8c5058eb51fd2877aff917cd6d", null ],
     [ "getRelAcqTimes", "class_ox_1_1_model.html#ada677d0048ec4544f8975c44ae3bc3d9", null ],
     [ "getRepTimes", "class_ox_1_1_model.html#ad1ecd4e858e0a5386a27505ec78135c5", null ],
     [ "getSignal", "class_ox_1_1_model.html#ae51878e45fa528e47a457610d857a9bb", null ],

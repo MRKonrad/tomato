@@ -11,5 +11,5 @@ var searchData=
   ['_7estartpointcalculator',['~StartPointCalculator',['../class_ox_1_1_start_point_calculator.html#a210c3312a8926b750dba8e498c6b620a',1,'Ox::StartPointCalculator']]],
   ['_7estartpointcalculatorbasic',['~StartPointCalculatorBasic',['../class_ox_1_1_start_point_calculator_basic.html#a7e55561e008088c26459c210e95b69e1',1,'Ox::StartPointCalculatorBasic']]],
   ['_7estartpointcalculatorshmolli',['~StartPointCalculatorShmolli',['../class_ox_1_1_start_point_calculator_shmolli.html#aaede509b017e5da6102a230ad979539a',1,'Ox::StartPointCalculatorShmolli']]],
-  ['_7etomatooptions',['~TomatoOptions',['../struct_ox_1_1_tomato_options.html#a6f291fb0d37adaf6d4b2167e9c75af3e',1,'Ox::TomatoOptions']]]
+  ['_7etomatooptions',['~TomatoOptions',['../class_ox_1_1_tomato_options.html#a6f291fb0d37adaf6d4b2167e9c75af3e',1,'Ox::TomatoOptions']]]
 ];

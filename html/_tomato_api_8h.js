@@ -1,5 +1,6 @@
 var _tomato_api_8h =
 [
+    [ "calculateOnePixel", "_tomato_api_8h.html#a89daf4ab11c1e0aec11b9679690be662", null ],
     [ "Calculator< double >", "_tomato_api_8h.html#a9b8230abbabcc9e797ae3d9844af1bea", null ],
     [ "CalculatorT1WithSignCheck< double >", "_tomato_api_8h.html#aae555ee9af0ac7c4cd4cecc1122d4065", null ],
     [ "FactoryOfCalculators< double >", "_tomato_api_8h.html#aa83e31e2e31bbebcfed7bde36002a414", null ],
@@ -8,6 +9,7 @@ var _tomato_api_8h =
     [ "FactoryOfSignCalculators< double >", "_tomato_api_8h.html#a7be23962b0520edbf69c2d38e48c4c92", null ],
     [ "FactoryOfStartPointCalculators< double >", "_tomato_api_8h.html#a722c78cb5a6fffc1d703efb7206d40b6", null ],
     [ "Fitter< double >", "_tomato_api_8h.html#a1e4e4356bc0f519c7b33750ff33594f1", null ],
+    [ "ImageCalculator< double >", "_tomato_api_8h.html#a7227014e5544ffecca37fd2ddde67b54", null ],
     [ "Model< double >", "_tomato_api_8h.html#af85883bfc75370cbe7359ce6f2f8f3b4", null ],
     [ "ModelT1ThreeParam< double >", "_tomato_api_8h.html#adab5d5b6b27e41b97f5a0f721da27773", null ],
     [ "ModelT1TwoParam< double >", "_tomato_api_8h.html#ac98a3774331b7076d15797405c01c2f5", null ],

@@ -12,7 +12,7 @@ var hierarchy =
     [ "Ox::FactoryOfSignCalculators< TYPE >", "class_ox_1_1_factory_of_sign_calculators.html", null ],
     [ "Ox::FactoryOfStartPointCalculators< TYPE >", "class_ox_1_1_factory_of_start_point_calculators.html", null ],
     [ "Ox::Fitter< MeasureType >", "class_ox_1_1_fitter.html", null ],
-    [ "Ox::ImageCalculatorT1< MeasureType >", "class_ox_1_1_image_calculator_t1.html", null ],
+    [ "Ox::ImageCalculator< MeasureType >", "class_ox_1_1_image_calculator.html", null ],
     [ "ImageSource", null, [
       [ "itk::ImageFileReaderKW< TOutputImage, ConvertPixelTraits >", "classitk_1_1_image_file_reader_k_w.html", null ]
     ] ],
@@ -34,5 +34,8 @@ var hierarchy =
     ] ],
     [ "Ox::TestData< MeasureType >", "class_ox_1_1_test_data.html", null ],
     [ "Ox::TestImage< MeasureType >", "class_ox_1_1_test_image.html", null ],
-    [ "Ox::TomatoOptions< TYPE >", "struct_ox_1_1_tomato_options.html", null ]
+    [ "Ox::TomatoOptions< MeasureType >", "class_ox_1_1_tomato_options.html", null ],
+    [ "ConanFile", null, [
+      [ "conanfile.TomatoConan", "classconanfile_1_1_tomato_conan.html", null ]
+    ] ]
 ];

@@ -45,8 +45,10 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "OxFitterLevenbergMarquardtLmfit.hxx", "_ox_fitter_levenberg_marquardt_lmfit_8hxx_source.html", null ],
     [ "OxFitterLevenbergMarquardtVnl.h", "_ox_fitter_levenberg_marquardt_vnl_8h.html", null ],
     [ "OxFitterLevenbergMarquardtVnl.hxx", "_ox_fitter_levenberg_marquardt_vnl_8hxx_source.html", null ],
-    [ "OxImageCalculatorT1.h", "_ox_image_calculator_t1_8h_source.html", null ],
-    [ "OxImageCalculatorT1.hxx", "_ox_image_calculator_t1_8hxx_source.html", null ],
+    [ "OxImageCalculator.h", "_ox_image_calculator_8h.html", [
+      [ "ImageCalculator", "class_ox_1_1_image_calculator.html", "class_ox_1_1_image_calculator" ]
+    ] ],
+    [ "OxImageCalculator.hxx", "_ox_image_calculator_8hxx.html", null ],
     [ "OxModel.h", "_ox_model_8h.html", [
       [ "Model", "class_ox_1_1_model.html", "class_ox_1_1_model" ]
     ] ],
@@ -67,6 +69,8 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
       [ "ModelT1TwoParam", "class_ox_1_1_model_t1_two_param.html", "class_ox_1_1_model_t1_two_param" ]
     ] ],
     [ "OxModelT1TwoParam.hxx", "_ox_model_t1_two_param_8hxx.html", null ],
+    [ "OxOriginalShmolliDicomReader.h", "_ox_original_shmolli_dicom_reader_8h.html", null ],
+    [ "OxOriginalShmolliDicomReader.hxx", "_ox_original_shmolli_dicom_reader_8hxx.html", null ],
     [ "OxSignCalculator.h", "_ox_sign_calculator_8h.html", [
       [ "SignCalculator", "class_ox_1_1_sign_calculator.html", "class_ox_1_1_sign_calculator" ]
     ] ],
@@ -88,13 +92,18 @@ var dir_97aefd0d527b934f1d99a682da8fe6a9 =
     [ "OxStartPointCalculatorShmolli.h", "_ox_start_point_calculator_shmolli_8h.html", [
       [ "StartPointCalculatorShmolli", "class_ox_1_1_start_point_calculator_shmolli.html", "class_ox_1_1_start_point_calculator_shmolli" ]
     ] ],
+    [ "Tomato.h", "_tomato_8h.html", null ],
+    [ "Tomato.hxx", "_tomato_8hxx_source.html", null ],
+    [ "Tomato_exportT1.hxx", "_tomato__export_t1_8hxx.html", null ],
+    [ "Tomato_exportT1_magSignRecov.hxx", "_tomato__export_t1__mag_sign_recov_8hxx_source.html", null ],
+    [ "Tomato_exportT2.hxx", "_tomato__export_t2_8hxx.html", null ],
     [ "TomatoApi.cpp", "_tomato_api_8cpp.html", null ],
     [ "TomatoApi.h", "_tomato_api_8h.html", "_tomato_api_8h" ],
     [ "TomatoColormap.cpp", "_tomato_colormap_8cpp.html", null ],
     [ "TomatoColormap.h", "_tomato_colormap_8h.html", null ],
     [ "TomatoOnePixel.h", "_tomato_one_pixel_8h.html", "_tomato_one_pixel_8h" ],
     [ "TomatoOptions.h", "_tomato_options_8h.html", [
-      [ "TomatoOptions", "struct_ox_1_1_tomato_options.html", "struct_ox_1_1_tomato_options" ]
+      [ "TomatoOptions", "class_ox_1_1_tomato_options.html", "class_ox_1_1_tomato_options" ]
     ] ],
     [ "TomatoOptions.hxx", "_tomato_options_8hxx.html", "_tomato_options_8hxx" ],
     [ "TomatoParser.h", "_tomato_parser_8h.html", null ],
