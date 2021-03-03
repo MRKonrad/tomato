@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['enlargeoutputrequestedregion',['EnlargeOutputRequestedRegion',['../classitk_1_1_image_file_reader_k_w.html#a313f37f91aad5e0c91fe9b37b9f1e156',1,'itk::ImageFileReaderKW']]],
-  ['exporttoyaml',['exportToYaml',['../class_ox_1_1_tomato_options.html#a41d923f3ffea2007a75217f4f651219b',1,'Ox::TomatoOptions::exportToYaml()'],['../class_ox_1_1_tomato_options.html#aaa834ee2985662cdefbdbe4279481b33',1,'Ox::TomatoOptions::exportToYaml(std::string filePath)']]]
+  ['fitter',['Fitter',['../class_ox_1_1_fitter.html#a7b42acb389394bc4c496990eea8b9ac9',1,'Ox::Fitter::Fitter()'],['../class_ox_1_1_fitter.html#ac51130b722159f88a0dad59877b76417',1,'Ox::Fitter::Fitter(const Fitter &amp;old)']]],
+  ['functionst1',['FunctionsT1',['../class_ox_1_1_functions_t1.html#a7dae9dc71ec97e9eef1308c9937aaaf0',1,'Ox::FunctionsT1::FunctionsT1()'],['../class_ox_1_1_functions_t1.html#a8b14d232e9136a64ea3ae8f7a162daad',1,'Ox::FunctionsT1::FunctionsT1(const FunctionsT1 &amp;old)']]]
 ];

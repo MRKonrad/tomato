@@ -1,8 +1,8 @@
-<map id="lib/OxFactoryOfStartPointCalculators.h" name="lib/OxFactoryOfStartPointCalculators.h">
-<area shape="rect" id="node4" href="$_ox_start_point_calculator_8h.html" title="OxStartPointCalculator.h" alt="" coords="435,244,602,271"/>
-<area shape="rect" id="node18" href="$_ox_factory_of_start_point_calculators_8hxx.html" title="OxFactoryOfStartPointCalculators.hxx" alt="" coords="418,95,665,121"/>
-<area shape="rect" id="node5" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="481,319,556,345"/>
-<area shape="rect" id="node17" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="998,393,1087,420"/>
-<area shape="rect" id="node19" href="$_ox_start_point_calculator_basic_8h.html" title="OxStartPointCalculatorBasic.h" alt="" coords="419,169,619,196"/>
-<area shape="rect" id="node20" href="$_ox_start_point_calculator_shmolli_8h.html" title="OxStartPointCalculatorShmolli.h" alt="" coords="643,169,853,196"/>
+<map id="app/OxFactoryOfStartPointCalculators.h" name="app/OxFactoryOfStartPointCalculators.h">
+<area shape="rect" id="node3" href="$_ox_start_point_calculator_default2_dims_8h.html" title="OxStartPointCalculatorDefault2\lDims.h" alt="" coords="205,97,411,138"/>
+<area shape="rect" id="node18" href="$_ox_start_point_calculator_default3_dims_8h.html" title="OxStartPointCalculatorDefault3\lDims.h" alt="" coords="435,97,640,138"/>
+<area shape="rect" id="node19" href="$_ox_start_point_calculator_shmolli_8h.html" title="OxStartPointCalculatorShmolli.h" alt="" coords="664,104,873,131"/>
+<area shape="rect" id="node4" href="$_ox_start_point_calculator_8h.html" title="OxStartPointCalculator.h" alt="" coords="454,187,620,213"/>
+<area shape="rect" id="node5" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="500,261,573,288"/>
+<area shape="rect" id="node17" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="1017,336,1105,363"/>
 </map>
