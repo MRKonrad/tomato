@@ -17,6 +17,10 @@
 
 cmake_minimum_required(VERSION 2.8)
 
+#-DCMAKE_C_COMPILER="/Library/Developer/CommandLineTools_clang12/usr/bin/clang" -DCMAKE_CXX_COMPILER="/Library/Developer/CommandLineTools_clang12/usr/bin/clang++"
+#set(ENV{SDKROOT} "/Library/Developer/CommandLineTools_clang12/SDKs/MacOSX10.15.sdk")
+#set(CMAKE_OSX_DEPLOYMENT_TARGET CACHE STRING "10.15")
+
 project(Tomato)
 
 # The version number
@@ -31,9 +35,6 @@ set(TOMATO_USES_CXX_STANDARD_98 OFF)
 if(CMAKE_CXX_STANDARD EQUAL 98)
     set(TOMATO_USES_CXX_STANDARD_98 ON) # flag used in the code
 endif()
-
-#-DCMAKE_C_COMPILER="/Library/Developer/CommandLineTools_clang12/usr/bin/clang" -DCMAKE_CXX_COMPILER="/Library/Developer/CommandLineTools_clang12/usr/bin/clang++")
-#set(ENV{SDKROOT} "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk")
 
 # needed for conan
 set(CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR} ${CMAKE_MODULE_PATH})
@@ -218,10 +219,3 @@ if(BUILD_TESTING AND USE_YAML)
     add_subdirectory(tests)
     install(TARGETS TomatoLib DESTINATION tests)
 endif()
-
-
-get_cmake_property(_variableNames VARIABLES)
-list (SORT _variableNames)
-foreach (_variableName ${_variableNames})
-    message(STATUS "${_variableName}=${${_variableName}}")
-endforeach()

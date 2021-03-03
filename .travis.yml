@@ -136,7 +136,7 @@ script:
 
   # download tomato_private
   - cd ${TRAVIS_BUILD_DIR}/..
-  - git clone https://MRKonrad:${GH_PERSONAL_ACCESS_TOKEN}@github.com/MRKonrad/tomato_private
+  - git clone -b T2 https://MRKonrad:${GH_PERSONAL_ACCESS_TOKEN}@github.com/MRKonrad/tomato_private
 
   # add coverage option (only in linux g++)
   - if [ "$EXTENDED_BUILD" == "ON" ]; then

@@ -59,7 +59,7 @@ build_script:
 
   # get private code
   - cd %APPVEYOR_BUILD_FOLDER%\..
-  - git clone https://MRKonrad:%GH_PERSONAL_ACCESS_TOKEN%@github.com/MRKonrad/tomato_private
+  - git clone -b T2 https://MRKonrad:%GH_PERSONAL_ACCESS_TOKEN%@github.com/MRKonrad/tomato_private
   - cd %APPVEYOR_BUILD_FOLDER%\..
 
   # build full tomato
