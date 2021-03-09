@@ -107,9 +107,13 @@ TEST(OxCalculatorT2Truncation, truncationInWork) {
 
     double tolerance = 1e-4;
 
+    double correctB = 162.6716;
+    double correctDeltaB = 2.9064;
     double correctT2 = 7.6755;
+    double correctDeltaT2 = 0.1864;
     double correctR2 = 0.9991;
     double correctFe = 3.7444;
+    double correctDeltaFe = 0.1109;
     double correctNSamplesUsed = 4;
     double correctExitCondition = 3;
 
@@ -130,9 +134,13 @@ TEST(OxCalculatorT2Truncation, truncationInWork) {
 
     calculator.calculate();
 
+    EXPECT_NEAR(calculator.getResults()["B"], correctB, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
     EXPECT_NEAR(calculator.getResults()["T2"], correctT2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaT2"], correctDeltaT2, tolerance);
     EXPECT_NEAR(calculator.getResults()["R2"], correctR2, tolerance);
     EXPECT_NEAR(calculator.getResults()["Fe"], correctFe, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaFe"], correctDeltaFe, tolerance);
     EXPECT_NEAR(calculator.getResults()["nSamplesUsed"], correctNSamplesUsed, tolerance);
     EXPECT_NEAR(calculator.getResults()["exitCondition"], correctExitCondition, tolerance);
 }

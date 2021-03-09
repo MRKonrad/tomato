@@ -17,16 +17,12 @@
 
 cmake_minimum_required(VERSION 2.8)
 
-#-DCMAKE_C_COMPILER="/Library/Developer/CommandLineTools_clang12/usr/bin/clang" -DCMAKE_CXX_COMPILER="/Library/Developer/CommandLineTools_clang12/usr/bin/clang++"
-#set(ENV{SDKROOT} "/Library/Developer/CommandLineTools_clang12/SDKs/MacOSX10.15.sdk")
-#set(CMAKE_OSX_DEPLOYMENT_TARGET CACHE STRING "10.15")
-
 project(Tomato)
 
 # The version number
 set(Tomato_VERSION_MAJOR 0)
 set(Tomato_VERSION_MINOR 6)
-set(Tomato_VERSION_PATCH 4)
+set(Tomato_VERSION_PATCH 5)
 
 # Compiler flags
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

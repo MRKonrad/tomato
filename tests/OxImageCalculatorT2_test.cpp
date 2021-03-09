@@ -18,7 +18,85 @@
 #include "OxCalculatorT2Linear.h"
 
 #ifdef USE_VNL
-TEST(OxImageCalculatorT2, calculateNonLinear) {
+
+TEST(OxImageCalculatorT2, calculateNonLinear3samples) {
+
+    bool useThreads = true;
+#ifdef TOMATO_USES_CXX_STANDARD_98
+    useThreads = false;
+#endif
+
+    typedef double TYPE;
+
+    int nRows = 11;
+    int nCols = 1;
+    int nSamples = 3;
+
+    // input data
+    TYPE magData[] = {
+            679, 679, 679, 679, 679, 679, 679, 679, 679, 679, 679,
+            610, 610, 610, 610, 610, 610, 610, 610, 610, 610, 610,
+            536, 536, 536, 536, 536, 536, 536, 536, 536, 536, 536,
+    };
+    TYPE echoTimes[] = {0, 25, 55};
+
+    // correct values
+    TYPE tolerance = 1e-4;
+    std::map <std::string, std::vector<TYPE> > correctMap;
+    correctMap["B"] = std::vector<TYPE>(nCols * nRows, 679.06579);
+    correctMap["T2"] = std::vector<TYPE>(nCols * nRows, 232.60309);
+    correctMap["R2"] = std::vector<TYPE>(nCols * nRows, 0.99999);
+    correctMap["deltaB"] = std::vector<TYPE>(nCols * nRows, 0.15118);
+    correctMap["deltaT2"] = std::vector<TYPE>(nCols * nRows, 0.38413);
+
+    // init the necessary objects
+    Ox::ModelT2TwoParamScale<TYPE> model;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
+    Ox::CalculatorT2<TYPE> calculator;
+
+    // configure
+    calculator.setModel(&model);
+    calculator.setFitter(&fitter);
+
+    // image calculator
+    Ox::ImageCalculator<TYPE> imageCalculator;
+    imageCalculator.setCalculator(&calculator);
+    imageCalculator.setEchoTimes(echoTimes);
+    imageCalculator.setImageMag(magData);
+    imageCalculator.setNCols(nCols);
+    imageCalculator.setNRows(nRows);
+    imageCalculator.setNSamples(nSamples);
+    imageCalculator.setUseThreads(useThreads);
+    imageCalculator.setNThreads(3);
+
+    // results array have to be allocated and calculated
+    std::map <std::string, TYPE *> resultsMap;
+    resultsMap["B"] = new TYPE[nCols*nRows];
+    resultsMap["T2"] = new TYPE[nCols*nRows];
+    resultsMap["R2"] = new TYPE[nCols*nRows];
+    resultsMap["deltaB"] = new TYPE[nCols*nRows];
+    resultsMap["deltaT2"] = new TYPE[nCols*nRows];
+    imageCalculator.setImageResultsMap(&resultsMap);
+
+    // calculate
+    imageCalculator.calculate();
+
+    // compare
+    EXPECT_TRUE(KWUtil::array_expect_near(nCols*nRows, correctMap["B"].data(), resultsMap["B"], tolerance, "B"));
+    EXPECT_TRUE(KWUtil::array_expect_near(nCols*nRows, correctMap["T2"].data(), resultsMap["T2"], tolerance, "T2"));
+    EXPECT_TRUE(KWUtil::array_expect_near(nCols*nRows, correctMap["R2"].data(), resultsMap["R2"], tolerance, "R2"));
+    EXPECT_TRUE(KWUtil::array_expect_near(nCols*nRows, correctMap["deltaB"].data(), resultsMap["deltaB"], tolerance, "deltaB"));
+    EXPECT_TRUE(KWUtil::array_expect_near(nCols*nRows, correctMap["deltaT2"].data(), resultsMap["deltaT2"], tolerance, "deltaT2"));
+
+    // clean up
+    delete [] resultsMap["B"];
+    delete [] resultsMap["T2"];
+    delete [] resultsMap["R2"];
+    delete [] resultsMap["deltaB"];
+    delete [] resultsMap["deltaT2"];
+}
+
+TEST(OxImageCalculatorT2, calculateNonLinear8samples) {
 
     bool useThreads = true;
 #ifdef TOMATO_USES_CXX_STANDARD_98

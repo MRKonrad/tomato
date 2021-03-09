@@ -89,7 +89,7 @@ namespace Ox {
 
         virtual MeasureType *getSigns() const;
 
-        virtual MeasureType * getStartPoint() ;
+        virtual MeasureType *getStartPoint() ;
 
         virtual MeasureType getMeanCutOff() const;
 

@@ -13,14 +13,8 @@
 #include "OxModelT1ThreeParam.h"
 #include "OxFitterAmoebaVnl.h"
 #include "OxFitterLevenbergMarquardtVnl.h"
-#include "OxFitterLevenbergMarquardtLmfit.h"
-#include "OxSignCalculatorNoSign.h"
 #include "OxStartPointCalculatorBasic.h"
 #include "OxCalculatorT1WithSignCheck.h"
-
-#ifdef USE_ITK
-#include "itkTimeProbe.h"
-#endif
 
 #ifdef USE_VNL
 TEST(OxCalculatorT1_saturation_recovery, twoParam) {
@@ -34,14 +28,12 @@ TEST(OxCalculatorT1_saturation_recovery, twoParam) {
     // init the necessary objects
     Ox::ModelT1TwoParam<TYPE> model;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
-    Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1WithSignCheck<TYPE> calculator;
 
     // configure
     calculator.setModel(&model);
     calculator.setFitter(&fitter);
-    calculator.setSignCalculator(&signCalculator);
     calculator.setStartPointCalculator(&startPointCalculator);
 
     // set the data
@@ -68,14 +60,12 @@ TEST(OxCalculatorT1_saturation_recovery, threeParam) {
     // init the necessary objects
     Ox::ModelT1ThreeParam<TYPE> model;
     Ox::FitterAmoebaVnl<TYPE> fitter;
-    Ox::SignCalculatorNoSign<TYPE> signCalculator;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT1WithSignCheck<TYPE> calculator;
 
     // configure
     calculator.setModel(&model);
     calculator.setFitter(&fitter);
-    calculator.setSignCalculator(&signCalculator);
     calculator.setStartPointCalculator(&startPointCalculator);
 
     // set the data

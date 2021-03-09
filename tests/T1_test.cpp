@@ -51,12 +51,12 @@ TEST(tomato, T1Molli) {
     double correctB = 122.5215;
     double correctT1star = 919.9441;
     double correctT1 = 885.7032;
-    double correctR2 = 0.9845;
+    double correctR2Abs = 0.9845;
     double correctDeltaA = 1.6070;
     double correctDeltaB = 2.4948;
     double correctDeltaT1star = 77.9145;
     double correctDeltaT1 = 158.2645;
-    double correctTimeFilp = 0;
+    double correctTimeFlip = 0;
 
     // init the necessary objects
     Ox::ModelT1ThreeParam<TYPE> model;
@@ -82,12 +82,12 @@ TEST(tomato, T1Molli) {
     EXPECT_NEAR(calculator.getResults()["B"], correctB, tolerance);
     EXPECT_NEAR(calculator.getResults()["T1star"], correctT1star, tolerance);
     EXPECT_NEAR(calculator.getResults()["T1"], correctT1, tolerance);
-    EXPECT_NEAR(calculator.getResults()["R2Abs"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["R2Abs"], correctR2Abs, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaA"], correctDeltaA, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaT1star"], correctDeltaT1star, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaT1"], correctDeltaT1, tolerance);
-    EXPECT_NEAR(calculator.getResults()["timeFlip"], correctTimeFilp, tolerance);
+    EXPECT_NEAR(calculator.getResults()["timeFlip"], correctTimeFlip, tolerance);
 }
 
 /**
@@ -119,12 +119,12 @@ TEST(tomato, T1Molli_calculateSign) {
     double correctB = 122.5215;
     double correctT1star = 919.9441;
     double correctT1 = 885.7032;
-    double correctR2 = 0.9845;
+    double correctR2Abs = 0.9845;
     double correctDeltaA = 1.6070;
     double correctDeltaB = 2.4948;
     double correctDeltaT1star = 77.9145;
     double correctDeltaT1 = 158.2645;
-    double correctTimeFilp = 2;
+    double correctTimeFlip = 2;
 
     // init the necessary objects
     Ox::ModelT1ThreeParam<TYPE> model;
@@ -150,12 +150,12 @@ TEST(tomato, T1Molli_calculateSign) {
     EXPECT_NEAR(calculator.getResults()["B"], correctB, tolerance);
     EXPECT_NEAR(calculator.getResults()["T1star"], correctT1star, tolerance);
     EXPECT_NEAR(calculator.getResults()["T1"], correctT1, tolerance);
-    EXPECT_NEAR(calculator.getResults()["R2Abs"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["R2Abs"], correctR2Abs, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaA"], correctDeltaA, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaT1star"], correctDeltaT1star, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaT1"], correctDeltaT1, tolerance);
-    EXPECT_NEAR(calculator.getResults()["timeFlip"], correctTimeFilp, tolerance);
+    EXPECT_NEAR(calculator.getResults()["timeFlip"], correctTimeFlip, tolerance);
 }
 
 TEST(tomato, T1Shmolli_calculateSignWithoutPhase) {
@@ -172,12 +172,12 @@ TEST(tomato, T1Shmolli_calculateSignWithoutPhase) {
     double correctB = 124.1296;
     double correctT1star = 964.3718;
     double correctT1 = 937.3275;
-    double correctR2 = 0.9998;
+    double correctR2Abs = 0.9998;
     double correctDeltaA = 0.1144;
     double correctDeltaB = 0.1775;
     double correctDeltaT1star = 5.5996;
     double correctDeltaT1 = 11.6167;
-    double correctTimeFilp = 1;
+    double correctTimeFlip = 1;
 
     // init the necessary objects
     Ox::ModelT1Shmolli<TYPE> model;
@@ -203,12 +203,12 @@ TEST(tomato, T1Shmolli_calculateSignWithoutPhase) {
     EXPECT_NEAR(calculator.getResults()["B"], correctB, tolerance);
     EXPECT_NEAR(calculator.getResults()["T1star"], correctT1star, tolerance);
     EXPECT_NEAR(calculator.getResults()["T1"], correctT1, tolerance);
-    EXPECT_NEAR(calculator.getResults()["R2Abs"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["R2Abs"], correctR2Abs, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaA"], correctDeltaA, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaT1star"], correctDeltaT1star, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaT1"], correctDeltaT1, tolerance);
-    EXPECT_NEAR(calculator.getResults()["timeFlip"], correctTimeFilp, tolerance);
+    EXPECT_NEAR(calculator.getResults()["timeFlip"], correctTimeFlip, tolerance);
 }
 
 TEST(tomato, T1Shmolli_calculateSignWithPhase) {
@@ -226,12 +226,12 @@ TEST(tomato, T1Shmolli_calculateSignWithPhase) {
     double correctB = 124.1296;
     double correctT1star = 964.3718;
     double correctT1 = 937.3275;
-    double correctR2 = 0.9998;
+    double correctR2Abs = 0.9998;
     double correctDeltaA = 0.1144;
     double correctDeltaB = 0.1775;
     double correctDeltaT1star = 5.5996;
     double correctDeltaT1 = 11.6167;
-    double correctTimeFilp = 0;
+    double correctTimeFlip = 0;
 
     // init the necessary objects
     Ox::ModelT1Shmolli<TYPE> model;
@@ -258,12 +258,12 @@ TEST(tomato, T1Shmolli_calculateSignWithPhase) {
     EXPECT_NEAR(calculator.getResults()["B"], correctB, tolerance);
     EXPECT_NEAR(calculator.getResults()["T1star"], correctT1star, tolerance);
     EXPECT_NEAR(calculator.getResults()["T1"], correctT1, tolerance);
-    EXPECT_NEAR(calculator.getResults()["R2Abs"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["R2Abs"], correctR2Abs, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaA"], correctDeltaA, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaT1star"], correctDeltaT1star, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaT1"], correctDeltaT1, tolerance);
-    EXPECT_NEAR(calculator.getResults()["timeFlip"], correctTimeFilp, tolerance);
+    EXPECT_NEAR(calculator.getResults()["timeFlip"], correctTimeFlip, tolerance);
 }
 
 /**
@@ -293,7 +293,7 @@ TEST(tomato, T1Sasha_2param) {
 
     double correctA = 602.0598;
     double correctT1star = 1889.6967;
-    double correctR2 = 0.9998;
+    double correctR2Abs = 0.9998;
     double correctDeltaA = 1.0461;
     double correctDeltaT1star = 6.9727;
 
@@ -319,7 +319,7 @@ TEST(tomato, T1Sasha_2param) {
 
     EXPECT_NEAR(calculator.getResults()["A"], correctA, tolerance);
     EXPECT_NEAR(calculator.getResults()["T1star"], correctT1star, tolerance);
-    EXPECT_NEAR(calculator.getResults()["R2Abs"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["R2Abs"], correctR2Abs, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaA"], correctDeltaA, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaT1star"], correctDeltaT1star, tolerance);
 }
@@ -352,7 +352,7 @@ TEST(tomato, T1Sasha_3param) {
     double correctA = 601.9936;
     double correctB = 602.4841;
     double correctT1star = 1883.2353;
-    double correctR2 = 0.9998;
+    double correctR2Abs = 0.9998;
     double correctDeltaA = 1.0913;
     double correctDeltaB = 1.3024;
     double correctDeltaT1star = 13.0698;
@@ -380,7 +380,7 @@ TEST(tomato, T1Sasha_3param) {
     EXPECT_NEAR(calculator.getResults()["A"], correctA, tolerance);
     EXPECT_NEAR(calculator.getResults()["B"], correctB, tolerance);
     EXPECT_NEAR(calculator.getResults()["T1star"], correctT1star, tolerance);
-    EXPECT_NEAR(calculator.getResults()["R2Abs"], correctR2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["R2Abs"], correctR2Abs, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaA"], correctDeltaA, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
     EXPECT_NEAR(calculator.getResults()["deltaT1star"], correctDeltaT1star, tolerance);

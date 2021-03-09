@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class TomatoConan(ConanFile):
     name = "tomato"
-    version = "0.6.4"
+    version = "0.6.5"
     default_user = "user"
     default_channel = "testing"
     license = "MIT"
