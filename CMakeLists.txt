@@ -17,6 +17,9 @@
 
 cmake_minimum_required(VERSION 2.8)
 
+#set(ENV{SDKROOT} "/Library/Developer/CommandLineTools_clang12/SDKs/MacOSX10.15.sdk")
+#set(CMAKE_OSX_DEPLOYMENT_TARGET CACHE STRING "10.15")
+
 project(Tomato)
 
 # The version number

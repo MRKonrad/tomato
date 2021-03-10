@@ -113,12 +113,12 @@ script:
   #-----------------------#
   #   Tomato opensource   #
   #-----------------------#
-
+  - cd ${TRAVIS_BUILD_DIR}
+  - conan create . user/testing -s build_type=Release -o tomato:build_testing=True -o tomato:use_yaml=True
   # configure and generate opensource
   - mkdir ${TRAVIS_BUILD_DIR}/opensource;
   - cd ${TRAVIS_BUILD_DIR}/opensource;
-  - conan profile show default;
-  - conan install .. -s build_type=Release -g cmake_find_package -o use_lmfit=True --profile=default
+  - conan install .. -s build_type=Release -g cmake_find_package -o use_lmfit=True -o use_yaml=True -o build_testing=True
   - >-
     cmake ..
     -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/opensource_install
@@ -147,7 +147,7 @@ script:
   # configure and generate full
   - mkdir ${TRAVIS_BUILD_DIR}/full
   - cd ${TRAVIS_BUILD_DIR}/full
-  - conan install .. -s build_type=Release -g cmake_find_package -o use_lmfit=True -o use_vnl=True  -o use_itk=False
+  - conan install .. -s build_type=Release -g cmake_find_package -o use_lmfit=True -o use_vnl=True -o use_itk=False -o use_yaml=True -o build_testing=True
   - >-
     cmake ..
     -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/full_install
@@ -169,7 +169,7 @@ script:
   # configure and generate full
   - mkdir ${TRAVIS_BUILD_DIR}/full_itk
   - cd ${TRAVIS_BUILD_DIR}/full_itk
-  - conan install .. -s build_type=Release -g cmake_find_package -o use_itk=True -o use_lmfit=True
+  - conan install .. -s build_type=Release -g cmake_find_package -o use_itk=True -o use_lmfit=True -o use_yaml=True -o build_testing=True
   - >-
     cmake ..
     -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/full_itk_install

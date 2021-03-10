@@ -143,7 +143,7 @@ namespace Ox {
 
         MeasureType _XTolerance;
         MeasureType _FTolerance;
-        unsigned int _MaxFunctionEvals;
+        int _MaxFunctionEvals;
         bool _UseGradient;
         unsigned int _ThreadId;
         bool _Verbose;

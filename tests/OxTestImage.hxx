@@ -29,7 +29,7 @@ namespace Ox {
     ::init(int nRows, int nCols, std::vector <std::string> filesPaths, std::vector<int> invTimesOrder) {
         _nCols = nCols;
         _nRows = nRows;
-        int nTissues = filesPaths.size();
+        size_t nTissues = filesPaths.size();
         std::vector< TestData <MeasureType> > TestDataVector; // vector with TestData objects
 
         // I do want to have less 'tissues' (TestData objects) than Columns, just for the sake of simplicity
@@ -38,18 +38,18 @@ namespace Ox {
         }
 
         // populate TestDataVector
-        for (int i = 0; i < nTissues; ++i){
+        for (size_t i = 0; i < nTissues; ++i){
             TestDataVector.push_back(TestData<MeasureType>((char*)filesPaths.at(i).c_str()));
         }
 
         // check if invTimes are equal
-        for (int i = 1; i < nTissues; ++i){
+        for (size_t i = 1; i < nTissues; ++i){
             if(!(TestDataVector.at(i).getInvTimes() == TestDataVector.at(i-1).getInvTimes())){
                 throw std::runtime_error("InvTimes are different");
             }
         }
         std::vector<MeasureType> invTimesWithoutOrder = TestDataVector.at(0).getInvTimes();
-        _nSamples = invTimesWithoutOrder.size();
+        _nSamples = (int)invTimesWithoutOrder.size();
 
         if (invTimesOrder.empty()){
             // _invTimes = 1,2,3, ... , nSamples
@@ -59,7 +59,7 @@ namespace Ox {
             }
         }
 
-        if (invTimesOrder.size() != _nSamples){
+        if (invTimesOrder.size() != (size_t)_nSamples){
             throw std::runtime_error("invTimesOrder size is different than the input files nSamples");
         }
 
@@ -77,7 +77,7 @@ namespace Ox {
         _imageResultsShmolli = new MeasureType[_nRows*_nCols*3];
 
         // how to divide the memory?
-        std::vector<int> ranges = KWUtil::bounds<int>(nTissues, _nCols);
+        std::vector<int> ranges = KWUtil::bounds<int>((int)nTissues, _nCols);
 
 //        std::cout << std::endl;
 //        std::cout << std::endl;
@@ -172,7 +172,5 @@ namespace Ox {
     }
 
 } // namespace Ox
-
-
 
 #endif //Tomato_OXTESTImage_HXX

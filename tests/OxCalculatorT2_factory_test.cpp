@@ -29,7 +29,7 @@ std::map <std::string, double> CalculateT2UsingFactory(Ox::TomatoOptions<double>
     calculator->setFitter(fitter);
 
     // set the data
-    calculator->setNSamples(options.echo_times.size());
+    calculator->setNSamples((int)options.echo_times.size());
     calculator->setEchoTimes(&options.echo_times[0]);
     calculator->setSigMag(sigMag);
 

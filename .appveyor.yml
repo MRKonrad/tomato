@@ -34,6 +34,8 @@ install:
   - cmd: conan remote add artifactory https://mrkonrad.jfrog.io/artifactory/api/conan/tomato
 
 build_script:
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - conan create . user/testing -s build_type=Release -o tomato:build_testing=True -o tomato:use_tomato_private=True
 
   #-----------------------#
   #   Tomato opensource   #
@@ -42,7 +44,7 @@ build_script:
   # build tomato open source
   - mkdir %APPVEYOR_BUILD_FOLDER%\opensource
   - cd %APPVEYOR_BUILD_FOLDER%\opensource
-  - conan install .. -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset% -g cmake_find_package -o use_lmfit=False
+  - conan install .. -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset% -g cmake_find_package -o use_lmfit=False -o use_yaml=True -o build_testing=True
   - >-
     cmake ..
     -A%PLATFORM%
@@ -65,7 +67,7 @@ build_script:
   # build full tomato
   - mkdir %APPVEYOR_BUILD_FOLDER%\full_vnl
   - cd %APPVEYOR_BUILD_FOLDER%\full_vnl
-  - conan install .. -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset% -g cmake_find_package -o use_lmfit=False -o use_vnl=True -o use_itk=False
+  - conan install .. -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset% -g cmake_find_package -o use_lmfit=False -o use_vnl=True -o use_itk=False -o use_yaml=True -o build_testing=True
   - >-
     cmake ..
     -A%PLATFORM%
@@ -87,7 +89,7 @@ build_script:
   # build full tomato
   - mkdir %APPVEYOR_BUILD_FOLDER%\full_itk
   - cd %APPVEYOR_BUILD_FOLDER%\full_itk
-  - conan install .. -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset% -g cmake_find_package -o use_lmfit=False -o use_vnl=False -o use_itk=True
+  - conan install .. -s build_type=%CONFIGURATION% -s compiler.toolset=%toolset% -g cmake_find_package -o use_lmfit=False -o use_vnl=False -o use_itk=True -o use_yaml=True -o build_testing=True
   - >-
     cmake ..
     -A%PLATFORM%

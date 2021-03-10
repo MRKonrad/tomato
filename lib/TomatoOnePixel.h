@@ -22,7 +22,7 @@ namespace Ox {
         StartPointCalculator<MeasureType> *startPointCalculator = FactoryOfStartPointCalculators<MeasureType>::newByFactory(&opts);
 
         if (opts.signal_magnitude.size() > 0) {
-            calculator->setNSamples(opts.signal_magnitude.size());
+            calculator->setNSamples((int)opts.signal_magnitude.size());
             calculator->setSigMag(&(opts.signal_magnitude)[0]);
         } else {
             throw std::runtime_error("\nNo magnitude signal, I cannot calculate anything");

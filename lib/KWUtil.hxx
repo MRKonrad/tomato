@@ -527,7 +527,7 @@ int KWUtil::calcMatrixInverse2x2(const TYPE *matrix, TYPE *matrixInverse){
 
     const TYPE *a = matrix; // just for shorter equations
     TYPE det = a[0] * a[3] - a[1] * a[2];
-    if (fabs(det) < std::numeric_limits<TYPE>::min())
+    if (fabs(det) < std::numeric_limits<TYPE>::min() || det==0)
         return 1; // EXIT_FAILURE
 
     matrixInverse[0] =  a[3]/det;

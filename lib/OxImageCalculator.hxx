@@ -129,7 +129,7 @@ namespace Ox {
             std::vector<int> limits = KWUtil::bounds<MeasureType>(concurentThreadsSupported, _nCols * _nRows);
 
             // threaded loop
-            for (int i = 0; i < concurentThreadsSupported; ++i){
+            for (unsigned i = 0; i < concurentThreadsSupported; ++i){
                 threads.push_back(std::thread(&ImageCalculator<MeasureType>::calculateOneThread, this, limits[i], limits[i+1]));
             }
 

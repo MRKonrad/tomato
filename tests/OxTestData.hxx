@@ -42,8 +42,8 @@ namespace Ox {
         copyStrVectorToMemberVector(parser._sequences["resultsTwoParam"], _resultsTwoParam);
         copyStrVectorToMemberVector(parser._sequences["resultsThreeParam"], _resultsThreeParam);
 
-        size_t nInvTimes = _invTimes.size();
-        size_t nEchoTimes = _echoTimes.size();
+        int nInvTimes = (int)_invTimes.size();
+        int nEchoTimes = (int)_echoTimes.size();
 
         if (nInvTimes != 0) {
             _nSamples = nInvTimes;
@@ -76,7 +76,7 @@ namespace Ox {
     TestData<MeasureType>
     ::printVector(std::vector<TYPE> myVector, std::string myVectorName){
         std::cout << myVectorName << " =";
-        for (int i = 0; i < myVector.size(); ++i) {
+        for (size_t i = 0; i < myVector.size(); ++i) {
             std::cout << std::setw(7) << myVector[i];
         }
         std::cout << std::endl;
@@ -88,7 +88,7 @@ namespace Ox {
     ::copyStrVectorToMemberVector(std::vector<std::string> strVector, std::vector<MeasureType> &memberVector) {
 
         //memberVector.resize(strVector.size());
-        for (unsigned int i = 0; i < strVector.size(); ++i) {
+        for (size_t i = 0; i < strVector.size(); ++i) {
             memberVector.push_back(KWUtil::StringToNumber<MeasureType>(strVector[i]));
         }
     }

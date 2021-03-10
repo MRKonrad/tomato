@@ -223,9 +223,9 @@ TEST(OxCalculatorT1WithSignCheck, copyConstructor) {
     EXPECT_FALSE(calculatorT1Copy.getSigPha());
 
     // non-empty pointers of internal arrays
-    EXPECT_TRUE(calculatorT1Copy.getSignal());
-    EXPECT_TRUE(calculatorT1Copy.getSigns());
-    EXPECT_TRUE(calculatorT1Copy.getStartPoint());
+    EXPECT_TRUE(calculatorT1Copy.getSignal() != 0);
+    EXPECT_TRUE(calculatorT1Copy.getSigns() != 0);
+    EXPECT_TRUE(calculatorT1Copy.getStartPoint() != 0);
 
 }
 #endif

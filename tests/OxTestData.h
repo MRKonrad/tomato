@@ -94,7 +94,7 @@ namespace Ox {
             return &_resultsThreeParam.at(0);
         }
 
-        virtual int getNSamples()  const { return _nSamples; }
+        virtual int getNSamples() const { return _nSamples; }
 
         void copyStrVectorToMemberVector(std::vector<std::string> strVector, std::vector<MeasureType> &memberVector);
 

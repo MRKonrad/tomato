@@ -3,7 +3,7 @@ import os
 from conans import ConanFile, CMake, tools
 
 
-class VxlTestConan(ConanFile):
+class TomatoTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake"
 
@@ -23,4 +23,4 @@ class VxlTestConan(ConanFile):
     def test(self):
         if not tools.cross_building(self.settings):
             os.chdir("bin")
-            self.run(".%sPackageTest" % os.sep)
+            self.run(".%sexample" % os.sep)

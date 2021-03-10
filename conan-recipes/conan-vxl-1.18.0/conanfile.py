@@ -30,6 +30,9 @@ class VxlConan(ConanFile):
         cmake.definitions["VXL_USE_GEOTIFF"] = "OFF"
         cmake.definitions["VXL_USE_LFS"] = "OFF"
 
+        if (tools.os_info.is_linux):
+            cmake.definitions["CMAKE_POSITION_INDEPENDENT_CODE"] = "ON"
+
         cmake.configure(source_folder=self.name)
         return cmake
 
@@ -42,4 +45,9 @@ class VxlConan(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.libs = tools.collect_libs(self)
+        self.cpp_info.libs = ["netlib", "v3p_netlib", "vcl", "vnl", "vnl_algo"]
+        self.cpp_info.includedirs = [
+            'include/vxl/core',
+            'include/vxl/vcl',
+            'include/vxl/v3p/netlib',
+            'include/vxl/v3p']
