@@ -1,0 +1,220 @@
+\hypertarget{classitk_1_1_image_file_reader_k_w}{}\section{itk\+:\+:Image\+File\+Reader\+KW$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$ Class Template Reference}
+\label{classitk_1_1_image_file_reader_k_w}\index{itk\+::\+Image\+File\+Reader\+K\+W$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$@{itk\+::\+Image\+File\+Reader\+K\+W$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$}}
+
+
+Data source that reads image data from a single file.  
+
+
+
+
+{\ttfamily \#include $<$itk\+Image\+File\+Reader\+K\+W.\+h$>$}
+
+
+
+Inheritance diagram for itk\+:\+:Image\+File\+Reader\+KW$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classitk_1_1_image_file_reader_k_w__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for itk\+:\+:Image\+File\+Reader\+KW$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classitk_1_1_image_file_reader_k_w__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{classitk_1_1_image_file_reader_k_w}{Image\+File\+Reader\+KW} \hyperlink{classitk_1_1_image_file_reader_k_w_a6616e1e0fe9f4aceb7f693250b5f5b5c}{Self}
+\item 
+typedef Image\+Source$<$ T\+Output\+Image $>$ {\bfseries Superclass}\hypertarget{classitk_1_1_image_file_reader_k_w_afb5a9f09477bb47f45a4faf6832e74e4}{}\label{classitk_1_1_image_file_reader_k_w_afb5a9f09477bb47f45a4faf6832e74e4}
+
+\item 
+typedef Smart\+Pointer$<$ \hyperlink{classitk_1_1_image_file_reader_k_w_a6616e1e0fe9f4aceb7f693250b5f5b5c}{Self} $>$ {\bfseries Pointer}\hypertarget{classitk_1_1_image_file_reader_k_w_a05a8d76fe334c335c3c432de498ca087}{}\label{classitk_1_1_image_file_reader_k_w_a05a8d76fe334c335c3c432de498ca087}
+
+\item 
+typedef T\+Output\+Image\+::\+Size\+Type \hyperlink{classitk_1_1_image_file_reader_k_w_a7a7f4acf918af20f820cdb57ab4ae18d}{Size\+Type}
+\item 
+typedef T\+Output\+Image\+::\+Index\+Type \hyperlink{classitk_1_1_image_file_reader_k_w_a9daa1ecf6fe0192e6ea86f9bf9785912}{Index\+Type}
+\item 
+typedef T\+Output\+Image\+::\+Region\+Type \hyperlink{classitk_1_1_image_file_reader_k_w_aeb29601addf7afcf200728eafc93dccd}{Image\+Region\+Type}
+\item 
+typedef T\+Output\+Image\+::\+Internal\+Pixel\+Type \hyperlink{classitk_1_1_image_file_reader_k_w_a3bc68922731e94450245260bc9eced45}{Output\+Image\+Pixel\+Type}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classitk_1_1_image_file_reader_k_w_a4513482202af52da330f62385fe410d2}{itk\+New\+Macro} (\hyperlink{classitk_1_1_image_file_reader_k_w_a6616e1e0fe9f4aceb7f693250b5f5b5c}{Self})
+\item 
+\hyperlink{classitk_1_1_image_file_reader_k_w_a47c81c07c8aee4750469f79c97076e87}{itk\+Type\+Macro} (\hyperlink{classitk_1_1_image_file_reader_k_w}{Image\+File\+Reader\+KW}, Image\+Source)
+\item 
+\hyperlink{classitk_1_1_image_file_reader_k_w_ab33b100a76cddfc01310a5b167994cd7}{itk\+Set\+Get\+Decorated\+Input\+Macro} (File\+Name, std\+::string)
+\item 
+void \hyperlink{classitk_1_1_image_file_reader_k_w_a5f6df1f414ee32ffc1a7042a2ac7769d}{Set\+Image\+IO} (Image\+I\+O\+Base $\ast$image\+IO)
+\item 
+{\bfseries itk\+Get\+Modifiable\+Object\+Macro} (Image\+IO, Image\+I\+O\+Base)\hypertarget{classitk_1_1_image_file_reader_k_w_a34921bf522b330b9d2a6904019fea262}{}\label{classitk_1_1_image_file_reader_k_w_a34921bf522b330b9d2a6904019fea262}
+
+\item 
+\hyperlink{classitk_1_1_image_file_reader_k_w_adabd23848a1de6aaefe2108eed86de30}{itk\+Set\+Macro} (Use\+Streaming, bool)
+\item 
+{\bfseries itk\+Get\+Const\+Reference\+Macro} (Use\+Streaming, bool)\hypertarget{classitk_1_1_image_file_reader_k_w_aa762efa75974bceb3af017e411962d01}{}\label{classitk_1_1_image_file_reader_k_w_aa762efa75974bceb3af017e411962d01}
+
+\item 
+{\bfseries itk\+Boolean\+Macro} (Use\+Streaming)\hypertarget{classitk_1_1_image_file_reader_k_w_a024a210a9cf0362a910f08efce300ce9}{}\label{classitk_1_1_image_file_reader_k_w_a024a210a9cf0362a910f08efce300ce9}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Print\+Self} (std\+::ostream \&os, Indent indent) const I\+T\+K\+\_\+\+O\+V\+E\+R\+R\+I\+DE\hypertarget{classitk_1_1_image_file_reader_k_w_abeb559364dac015e1430ef6fa0086d33}{}\label{classitk_1_1_image_file_reader_k_w_abeb559364dac015e1430ef6fa0086d33}
+
+\item 
+void \hyperlink{classitk_1_1_image_file_reader_k_w_a36590b67313b769b377ab84dab64e6dc}{Do\+Convert\+Buffer} (void $\ast$buffer, size\+\_\+t number\+Of\+Pixels)
+\item 
+void \hyperlink{classitk_1_1_image_file_reader_k_w_a68e1c6d1289530941de1424844f481b5}{Test\+File\+Existance\+And\+Readability} ()
+\item 
+virtual void \hyperlink{classitk_1_1_image_file_reader_k_w_a5fc2235fca283e451de26035fd237cda}{Generate\+Output\+Information} (void) I\+T\+K\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+virtual void \hyperlink{classitk_1_1_image_file_reader_k_w_a313f37f91aad5e0c91fe9b37b9f1e156}{Enlarge\+Output\+Requested\+Region} (Data\+Object $\ast$output) I\+T\+K\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+virtual void \hyperlink{classitk_1_1_image_file_reader_k_w_a1096f13bf512a24092565fa6a3a82508}{Generate\+Data} () I\+T\+K\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Image\+I\+O\+Base\+::\+Pointer {\bfseries m\+\_\+\+Image\+IO}\hypertarget{classitk_1_1_image_file_reader_k_w_ad8257c25171cf6c698f19ece08189535}{}\label{classitk_1_1_image_file_reader_k_w_ad8257c25171cf6c698f19ece08189535}
+
+\item 
+bool {\bfseries m\+\_\+\+User\+Specified\+Image\+IO}\hypertarget{classitk_1_1_image_file_reader_k_w_ab7a9a3dacdffcbfca83153ff40665ac4}{}\label{classitk_1_1_image_file_reader_k_w_ab7a9a3dacdffcbfca83153ff40665ac4}
+
+\item 
+bool {\bfseries m\+\_\+\+Use\+Streaming}\hypertarget{classitk_1_1_image_file_reader_k_w_a7b56980da3e50436905c3ae5731fc557}{}\label{classitk_1_1_image_file_reader_k_w_a7b56980da3e50436905c3ae5731fc557}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T\+Output\+Image, typename Convert\+Pixel\+Traits = Default\+Convert\+Pixel\+Traits$<$                    typename T\+Output\+Image\+::\+I\+O\+Pixel\+Type $>$$>$\\*
+class itk\+::\+Image\+File\+Reader\+K\+W$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$}
+
+Data source that reads image data from a single file. 
+
+This source object is a general filter to read data from a variety of file formats. It works with a Image\+I\+O\+Base subclass to actually do the reading of the data. Object factory machinery can be used to automatically create the Image\+I\+O\+Base, or the Image\+I\+O\+Base can be manually created and set. Note that this class reads data from a single file; if you wish to read data from a series of files use Image\+Series\+Reader.
+
+T\+Output\+Image is the type expected by the external users of the filter. If data stored in the file is stored in a different format then specified by T\+Output\+Image, than this filter converts data between the file type and the external expected type. The Convert\+Traits template argument is used to do the conversion.
+
+A Pluggable factory pattern is used this allows different kinds of readers to be registered (even at run time) without having to modify the code in this class. Normally just setting the File\+Name with the appropriate suffix is enough to get the reader to instantiate the correct Image\+IO and read the file properly. However, some files (like raw binary format) have no accepted suffix, so you will have to manually create the Image\+IO instance of the write type.
+
+\begin{DoxySeeAlso}{See also}
+Image\+Series\+Reader 
+
+Image\+I\+O\+Base
+\end{DoxySeeAlso}
+\{I\+O/\+Read\+Vector\+Image,Read an image file with an unknown number of components\} \{I\+O/\+Read\+Unknown\+Image\+Type,Read an image file without knowing its type before hand\} \{I\+O/\+Image\+File\+Reader\+KW,Read an image\}  
+
+\subsection{Member Typedef Documentation}
+\index{itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}!Image\+Region\+Type@{Image\+Region\+Type}}
+\index{Image\+Region\+Type@{Image\+Region\+Type}!itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}}
+\subsubsection[{\texorpdfstring{Image\+Region\+Type}{ImageRegionType}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Output\+Image , typename Convert\+Pixel\+Traits  = Default\+Convert\+Pixel\+Traits$<$                    typename T\+Output\+Image\+::\+I\+O\+Pixel\+Type $>$$>$ typedef T\+Output\+Image\+::\+Region\+Type {\bf itk\+::\+Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+::{\bf Image\+Region\+Type}}\hypertarget{classitk_1_1_image_file_reader_k_w_aeb29601addf7afcf200728eafc93dccd}{}\label{classitk_1_1_image_file_reader_k_w_aeb29601addf7afcf200728eafc93dccd}
+The region of the output image. \index{itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}!Index\+Type@{Index\+Type}}
+\index{Index\+Type@{Index\+Type}!itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}}
+\subsubsection[{\texorpdfstring{Index\+Type}{IndexType}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Output\+Image , typename Convert\+Pixel\+Traits  = Default\+Convert\+Pixel\+Traits$<$                    typename T\+Output\+Image\+::\+I\+O\+Pixel\+Type $>$$>$ typedef T\+Output\+Image\+::\+Index\+Type {\bf itk\+::\+Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+::{\bf Index\+Type}}\hypertarget{classitk_1_1_image_file_reader_k_w_a9daa1ecf6fe0192e6ea86f9bf9785912}{}\label{classitk_1_1_image_file_reader_k_w_a9daa1ecf6fe0192e6ea86f9bf9785912}
+The size of the output image. \index{itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}!Output\+Image\+Pixel\+Type@{Output\+Image\+Pixel\+Type}}
+\index{Output\+Image\+Pixel\+Type@{Output\+Image\+Pixel\+Type}!itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}}
+\subsubsection[{\texorpdfstring{Output\+Image\+Pixel\+Type}{OutputImagePixelType}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Output\+Image , typename Convert\+Pixel\+Traits  = Default\+Convert\+Pixel\+Traits$<$                    typename T\+Output\+Image\+::\+I\+O\+Pixel\+Type $>$$>$ typedef T\+Output\+Image\+::\+Internal\+Pixel\+Type {\bf itk\+::\+Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+::{\bf Output\+Image\+Pixel\+Type}}\hypertarget{classitk_1_1_image_file_reader_k_w_a3bc68922731e94450245260bc9eced45}{}\label{classitk_1_1_image_file_reader_k_w_a3bc68922731e94450245260bc9eced45}
+The pixel type of the output image. \index{itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}!Self@{Self}}
+\index{Self@{Self}!itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}}
+\subsubsection[{\texorpdfstring{Self}{Self}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Output\+Image , typename Convert\+Pixel\+Traits  = Default\+Convert\+Pixel\+Traits$<$                    typename T\+Output\+Image\+::\+I\+O\+Pixel\+Type $>$$>$ typedef {\bf Image\+File\+Reader\+KW} {\bf itk\+::\+Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+::{\bf Self}}\hypertarget{classitk_1_1_image_file_reader_k_w_a6616e1e0fe9f4aceb7f693250b5f5b5c}{}\label{classitk_1_1_image_file_reader_k_w_a6616e1e0fe9f4aceb7f693250b5f5b5c}
+Standard class typedefs. \index{itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}!Size\+Type@{Size\+Type}}
+\index{Size\+Type@{Size\+Type}!itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}}
+\subsubsection[{\texorpdfstring{Size\+Type}{SizeType}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Output\+Image , typename Convert\+Pixel\+Traits  = Default\+Convert\+Pixel\+Traits$<$                    typename T\+Output\+Image\+::\+I\+O\+Pixel\+Type $>$$>$ typedef T\+Output\+Image\+::\+Size\+Type {\bf itk\+::\+Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+::{\bf Size\+Type}}\hypertarget{classitk_1_1_image_file_reader_k_w_a7a7f4acf918af20f820cdb57ab4ae18d}{}\label{classitk_1_1_image_file_reader_k_w_a7a7f4acf918af20f820cdb57ab4ae18d}
+The size of the output image. 
+
+\subsection{Member Function Documentation}
+\index{itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}!Do\+Convert\+Buffer@{Do\+Convert\+Buffer}}
+\index{Do\+Convert\+Buffer@{Do\+Convert\+Buffer}!itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}}
+\subsubsection[{\texorpdfstring{Do\+Convert\+Buffer(void $\ast$buffer, size\+\_\+t number\+Of\+Pixels)}{DoConvertBuffer(void *buffer, size_t numberOfPixels)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Output\+Image , typename Convert\+Pixel\+Traits $>$ void {\bf itk\+::\+Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+::Do\+Convert\+Buffer (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{buffer, }
+\item[{size\+\_\+t}]{number\+Of\+Pixels}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classitk_1_1_image_file_reader_k_w_a36590b67313b769b377ab84dab64e6dc}{}\label{classitk_1_1_image_file_reader_k_w_a36590b67313b769b377ab84dab64e6dc}
+Convert a block of pixels from one type to another. \index{itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}!Enlarge\+Output\+Requested\+Region@{Enlarge\+Output\+Requested\+Region}}
+\index{Enlarge\+Output\+Requested\+Region@{Enlarge\+Output\+Requested\+Region}!itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}}
+\subsubsection[{\texorpdfstring{Enlarge\+Output\+Requested\+Region(\+Data\+Object $\ast$output) I\+T\+K\+\_\+\+O\+V\+E\+R\+R\+I\+DE}{EnlargeOutputRequestedRegion(DataObject *output) ITK_OVERRIDE}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Output\+Image , typename Convert\+Pixel\+Traits $>$ void {\bf itk\+::\+Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+::Enlarge\+Output\+Requested\+Region (
+\begin{DoxyParamCaption}
+\item[{Data\+Object $\ast$}]{output}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classitk_1_1_image_file_reader_k_w_a313f37f91aad5e0c91fe9b37b9f1e156}{}\label{classitk_1_1_image_file_reader_k_w_a313f37f91aad5e0c91fe9b37b9f1e156}
+Give the reader a chance to indicate that it will produce more output than it was requested to produce. \hyperlink{classitk_1_1_image_file_reader_k_w}{Image\+File\+Reader\+KW} cannot currently read a portion of an image (since the Image\+IO objects cannot read a portion of an image), so the \hyperlink{classitk_1_1_image_file_reader_k_w}{Image\+File\+Reader\+KW} must enlarge the Requested\+Region to the size of the image on disk. \index{itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}!Generate\+Data@{Generate\+Data}}
+\index{Generate\+Data@{Generate\+Data}!itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}}
+\subsubsection[{\texorpdfstring{Generate\+Data() I\+T\+K\+\_\+\+O\+V\+E\+R\+R\+I\+DE}{GenerateData() ITK_OVERRIDE}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Output\+Image , typename Convert\+Pixel\+Traits $>$ void {\bf itk\+::\+Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+::Generate\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classitk_1_1_image_file_reader_k_w_a1096f13bf512a24092565fa6a3a82508}{}\label{classitk_1_1_image_file_reader_k_w_a1096f13bf512a24092565fa6a3a82508}
+Does the real work. \index{itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}!Generate\+Output\+Information@{Generate\+Output\+Information}}
+\index{Generate\+Output\+Information@{Generate\+Output\+Information}!itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}}
+\subsubsection[{\texorpdfstring{Generate\+Output\+Information(void) I\+T\+K\+\_\+\+O\+V\+E\+R\+R\+I\+DE}{GenerateOutputInformation(void) ITK_OVERRIDE}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Output\+Image , typename Convert\+Pixel\+Traits $>$ void {\bf itk\+::\+Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+::Generate\+Output\+Information (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classitk_1_1_image_file_reader_k_w_a5fc2235fca283e451de26035fd237cda}{}\label{classitk_1_1_image_file_reader_k_w_a5fc2235fca283e451de26035fd237cda}
+Prepare the allocation of the output image during the first back propagation of the pipeline. \index{itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}!itk\+New\+Macro@{itk\+New\+Macro}}
+\index{itk\+New\+Macro@{itk\+New\+Macro}!itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}}
+\subsubsection[{\texorpdfstring{itk\+New\+Macro(\+Self)}{itkNewMacro(Self)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Output\+Image , typename Convert\+Pixel\+Traits  = Default\+Convert\+Pixel\+Traits$<$                    typename T\+Output\+Image\+::\+I\+O\+Pixel\+Type $>$$>$ {\bf itk\+::\+Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+::itk\+New\+Macro (
+\begin{DoxyParamCaption}
+\item[{{\bf Self}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classitk_1_1_image_file_reader_k_w_a4513482202af52da330f62385fe410d2}{}\label{classitk_1_1_image_file_reader_k_w_a4513482202af52da330f62385fe410d2}
+Method for creation through the object factory. \index{itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}!itk\+Set\+Get\+Decorated\+Input\+Macro@{itk\+Set\+Get\+Decorated\+Input\+Macro}}
+\index{itk\+Set\+Get\+Decorated\+Input\+Macro@{itk\+Set\+Get\+Decorated\+Input\+Macro}!itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}}
+\subsubsection[{\texorpdfstring{itk\+Set\+Get\+Decorated\+Input\+Macro(\+File\+Name, std\+::string)}{itkSetGetDecoratedInputMacro(FileName, std::string)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Output\+Image , typename Convert\+Pixel\+Traits  = Default\+Convert\+Pixel\+Traits$<$                    typename T\+Output\+Image\+::\+I\+O\+Pixel\+Type $>$$>$ {\bf itk\+::\+Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+::itk\+Set\+Get\+Decorated\+Input\+Macro (
+\begin{DoxyParamCaption}
+\item[{File\+Name}]{, }
+\item[{std\+::string}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classitk_1_1_image_file_reader_k_w_ab33b100a76cddfc01310a5b167994cd7}{}\label{classitk_1_1_image_file_reader_k_w_ab33b100a76cddfc01310a5b167994cd7}
+Specify the file to read. This is forwarded to the IO instance. \index{itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}!itk\+Set\+Macro@{itk\+Set\+Macro}}
+\index{itk\+Set\+Macro@{itk\+Set\+Macro}!itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}}
+\subsubsection[{\texorpdfstring{itk\+Set\+Macro(\+Use\+Streaming, bool)}{itkSetMacro(UseStreaming, bool)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Output\+Image , typename Convert\+Pixel\+Traits  = Default\+Convert\+Pixel\+Traits$<$                    typename T\+Output\+Image\+::\+I\+O\+Pixel\+Type $>$$>$ {\bf itk\+::\+Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+::itk\+Set\+Macro (
+\begin{DoxyParamCaption}
+\item[{Use\+Streaming}]{, }
+\item[{bool}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classitk_1_1_image_file_reader_k_w_adabd23848a1de6aaefe2108eed86de30}{}\label{classitk_1_1_image_file_reader_k_w_adabd23848a1de6aaefe2108eed86de30}
+Set the stream On or Off \index{itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}!itk\+Type\+Macro@{itk\+Type\+Macro}}
+\index{itk\+Type\+Macro@{itk\+Type\+Macro}!itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}}
+\subsubsection[{\texorpdfstring{itk\+Type\+Macro(\+Image\+File\+Reader\+K\+W, Image\+Source)}{itkTypeMacro(ImageFileReaderKW, ImageSource)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Output\+Image , typename Convert\+Pixel\+Traits  = Default\+Convert\+Pixel\+Traits$<$                    typename T\+Output\+Image\+::\+I\+O\+Pixel\+Type $>$$>$ {\bf itk\+::\+Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+::itk\+Type\+Macro (
+\begin{DoxyParamCaption}
+\item[{{\bf Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$}]{, }
+\item[{Image\+Source}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classitk_1_1_image_file_reader_k_w_a47c81c07c8aee4750469f79c97076e87}{}\label{classitk_1_1_image_file_reader_k_w_a47c81c07c8aee4750469f79c97076e87}
+Run-\/time type information (and related methods). \index{itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}!Set\+Image\+IO@{Set\+Image\+IO}}
+\index{Set\+Image\+IO@{Set\+Image\+IO}!itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}}
+\subsubsection[{\texorpdfstring{Set\+Image\+I\+O(\+Image\+I\+O\+Base $\ast$image\+I\+O)}{SetImageIO(ImageIOBase *imageIO)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Output\+Image , typename Convert\+Pixel\+Traits $>$ void {\bf itk\+::\+Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+::Set\+Image\+IO (
+\begin{DoxyParamCaption}
+\item[{Image\+I\+O\+Base $\ast$}]{image\+IO}
+\end{DoxyParamCaption}
+)}\hypertarget{classitk_1_1_image_file_reader_k_w_a5f6df1f414ee32ffc1a7042a2ac7769d}{}\label{classitk_1_1_image_file_reader_k_w_a5f6df1f414ee32ffc1a7042a2ac7769d}
+Set/\+Get the Image\+IO helper class. Often this is created via the object factory mechanism that determines whether a particular Image\+IO can read a certain file. This method provides a way to get the Image\+IO instance that is created. Or you can directly specify the Image\+IO to use to read a particular file in case the factory mechanism will not work properly (e.\+g., unknown or unusual extension). \index{itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}!Test\+File\+Existance\+And\+Readability@{Test\+File\+Existance\+And\+Readability}}
+\index{Test\+File\+Existance\+And\+Readability@{Test\+File\+Existance\+And\+Readability}!itk\+::\+Image\+File\+Reader\+KW@{itk\+::\+Image\+File\+Reader\+KW}}
+\subsubsection[{\texorpdfstring{Test\+File\+Existance\+And\+Readability()}{TestFileExistanceAndReadability()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Output\+Image , typename Convert\+Pixel\+Traits $>$ void {\bf itk\+::\+Image\+File\+Reader\+KW}$<$ T\+Output\+Image, Convert\+Pixel\+Traits $>$\+::Test\+File\+Existance\+And\+Readability (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classitk_1_1_image_file_reader_k_w_a68e1c6d1289530941de1424844f481b5}{}\label{classitk_1_1_image_file_reader_k_w_a68e1c6d1289530941de1424844f481b5}
+Test whether the given filename exist and it is readable, this is intended to be called before attempting to use Image\+IO classes for actually reading the file. If the file doesn\textquotesingle{}t exist or it is not readable, and exception with an approriate message will be thrown. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/itk\+Image\+File\+Reader\+K\+W.\+h\item 
+lib/itk\+Image\+File\+Reader\+K\+W.\+hxx\end{DoxyCompactItemize}
