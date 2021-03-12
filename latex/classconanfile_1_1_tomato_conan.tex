@@ -26,6 +26,9 @@ Collaboration diagram for conanfile.\+Tomato\+Conan\+:
 def {\bfseries requirements} (self)\hypertarget{classconanfile_1_1_tomato_conan_a494a7b4df997b45646bd2b0db4a1e82e}{}\label{classconanfile_1_1_tomato_conan_a494a7b4df997b45646bd2b0db4a1e82e}
 
 \item 
+def {\bfseries build\+\_\+requirements} (self)\hypertarget{classconanfile_1_1_tomato_conan_a615493b8d9b64df099ec8049067dda29}{}\label{classconanfile_1_1_tomato_conan_a615493b8d9b64df099ec8049067dda29}
+
+\item 
 def {\bfseries source} (self)\hypertarget{classconanfile_1_1_tomato_conan_a49a99296bd0b5ca80e884e800eb7c32b}{}\label{classconanfile_1_1_tomato_conan_a49a99296bd0b5ca80e884e800eb7c32b}
 
 \item 
@@ -53,10 +56,10 @@ string {\bfseries default\+\_\+user} = \char`\"{}user\char`\"{}\hypertarget{clas
 string {\bfseries default\+\_\+channel} = \char`\"{}testing\char`\"{}\hypertarget{classconanfile_1_1_tomato_conan_ab7a270678d4bf3094ee5fbecf7361e78}{}\label{classconanfile_1_1_tomato_conan_ab7a270678d4bf3094ee5fbecf7361e78}
 
 \item 
-string {\bfseries license} = \char`\"{}M\+IT\char`\"{}\hypertarget{classconanfile_1_1_tomato_conan_ac0f0743fe288011bbc028362204d495f}{}\label{classconanfile_1_1_tomato_conan_ac0f0743fe288011bbc028362204d495f}
+string {\bfseries license} = \char`\"{}M\+IT $<$https\+://github.\+com/M\+R\+Konrad/tomato/blob/master/L\+I\+C\+E\+N\+SE$>$\char`\"{}\hypertarget{classconanfile_1_1_tomato_conan_ac0f0743fe288011bbc028362204d495f}{}\label{classconanfile_1_1_tomato_conan_ac0f0743fe288011bbc028362204d495f}
 
 \item 
-string {\bfseries author} = \char`\"{}Konrad Werys, konradwerys2@gmail.\+com\char`\"{}\hypertarget{classconanfile_1_1_tomato_conan_a059e432130ff22b36078bed2140ec9dc}{}\label{classconanfile_1_1_tomato_conan_a059e432130ff22b36078bed2140ec9dc}
+string {\bfseries author} = \char`\"{}$<$Konrad Werys$>$, $<$konradwerys2@gmail.\+com$>$\char`\"{}\hypertarget{classconanfile_1_1_tomato_conan_a059e432130ff22b36078bed2140ec9dc}{}\label{classconanfile_1_1_tomato_conan_a059e432130ff22b36078bed2140ec9dc}
 
 \item 
 string {\bfseries url} = \char`\"{}https\+://github.\+com/M\+R\+Konrad/tomato\char`\"{}\hypertarget{classconanfile_1_1_tomato_conan_af61fca8c34aeba497300fad37bf7d35b}{}\label{classconanfile_1_1_tomato_conan_af61fca8c34aeba497300fad37bf7d35b}
@@ -69,6 +72,9 @@ tuple {\bfseries topics} = (\char`\"{}Cardiac M\+RI\char`\"{}, \char`\"{}M\+RI\c
 
 \item 
 string {\bfseries settings} = \char`\"{}os\char`\"{}\hypertarget{classconanfile_1_1_tomato_conan_a6d2ca4c580877cac66ca1341ca2ca85a}{}\label{classconanfile_1_1_tomato_conan_a6d2ca4c580877cac66ca1341ca2ca85a}
+
+\item 
+bool {\bfseries short\+\_\+paths} = True\hypertarget{classconanfile_1_1_tomato_conan_a963c532fc8be673d7f60c73ec8a77585}{}\label{classconanfile_1_1_tomato_conan_a963c532fc8be673d7f60c73ec8a77585}
 
 \item 
 dictionary {\bfseries options}
@@ -94,7 +100,8 @@ string {\bfseries generators} = \char`\"{}cmake\+\_\+find\+\_\+package\char`\"{}
 6         \textcolor{stringliteral}{"use\_yaml"}: \textcolor{keyword}{False},
 7         \textcolor{stringliteral}{"build\_app"}: \textcolor{keyword}{False},
 8         \textcolor{stringliteral}{"build\_testing"}: \textcolor{keyword}{False},
-9     \}
+9         \textcolor{stringliteral}{"use\_tomato\_private"}: \textcolor{keyword}{False},
+10     \}
 \end{DoxyCode}
 \index{conanfile\+::\+Tomato\+Conan@{conanfile\+::\+Tomato\+Conan}!options@{options}}
 \index{options@{options}!conanfile\+::\+Tomato\+Conan@{conanfile\+::\+Tomato\+Conan}}
@@ -109,7 +116,8 @@ string {\bfseries generators} = \char`\"{}cmake\+\_\+find\+\_\+package\char`\"{}
 6         \textcolor{stringliteral}{"use\_yaml"}: [\textcolor{keyword}{True}, \textcolor{keyword}{False}],
 7         \textcolor{stringliteral}{"build\_app"}: [\textcolor{keyword}{True}, \textcolor{keyword}{False}],
 8         \textcolor{stringliteral}{"build\_testing"}: [\textcolor{keyword}{True}, \textcolor{keyword}{False}],
-9     \}
+9         \textcolor{stringliteral}{"use\_tomato\_private"}: [\textcolor{keyword}{True}, \textcolor{keyword}{False}],
+10     \}
 \end{DoxyCode}
 
 
