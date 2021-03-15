@@ -28,7 +28,7 @@ var class_ox_1_1_test_data =
     [ "printVector", "class_ox_1_1_test_data.html#a3de0e44dba2bd5e3b7556d662575378a", null ],
     [ "_echoTimes", "class_ox_1_1_test_data.html#aaffd834afe5a5ceb48eb84a9268d0d68", null ],
     [ "_invTimes", "class_ox_1_1_test_data.html#a4a72325aa7d38c4cac1762a47b7eed1a", null ],
-    [ "_nSamples", "class_ox_1_1_test_data.html#abcc5ee3036e60ac4e9529984b711b847", null ],
+    [ "_nSamples", "class_ox_1_1_test_data.html#a41f65fef5fa534f713cb8a229e5ae14d", null ],
     [ "_resultsMolli", "class_ox_1_1_test_data.html#a91ae0ccd1b9dea3b83bfc4d7c300dbb0", null ],
     [ "_resultsShmolli", "class_ox_1_1_test_data.html#ac549cebd93bd96747a68e3680442adfd", null ],
     [ "_resultsThreeParam", "class_ox_1_1_test_data.html#aeaaf28f493e2add7c05a2418b5ed993d", null ],
