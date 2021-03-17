@@ -4,7 +4,10 @@
  * \date 2018/08/22
  */
 
+#include "CmakeConfigForTomato.h"
 #include "gtest/gtest.h"
+
+#ifdef USE_YAML
 #include "OxTestData.h"
 
 #include "OxStartPointCalculatorBasic.h"
@@ -71,3 +74,5 @@ TEST(OxStartPointCalculatorBasic, calculateStartPoint_3d) {
     EXPECT_EQ(calculatedStartPoint[2], 2);
 
 }
+
+#endif // USE_YAML

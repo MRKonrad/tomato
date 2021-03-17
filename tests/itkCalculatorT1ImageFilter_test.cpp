@@ -7,6 +7,7 @@
 
 #include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
+#ifdef USE_YAML
 
 #include "OxTestItkImagesFactory.h"
 #include "OxModelT1ThreeParam.h"
@@ -166,5 +167,6 @@ TEST(itkCalculatorT1ImageFilter, calculate_no_phase_given) {
     EXPECT_LE(diff->GetMaximumDifference(), 1e-2);
 }
 
-#endif //USE_ITK
+#endif // USE_YAML
+#endif // USE_ITK
 

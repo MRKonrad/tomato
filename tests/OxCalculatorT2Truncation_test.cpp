@@ -225,9 +225,9 @@ TEST(OxCalculatorT2Truncation, copyConstructor) {
 
     typedef double TYPE;
 
-    char filePath [] = "testData/T2_blood_3samples.yaml";
-    Ox::TestData<TYPE> testData(filePath);
-    int nSamples = testData.getNSamples();
+    TYPE signal[] = {109, 93, 86, 72, 64, 60, 52, 49};
+    TYPE echoTimes[] = {3, 6, 9, 12, 15, 18, 21, 24};
+    int nSamples = 8;
 
     // init the necessary objects
     Ox::ModelT2TwoParamScale<TYPE> model;
@@ -240,8 +240,8 @@ TEST(OxCalculatorT2Truncation, copyConstructor) {
 
     // set the data
     calculator.setNSamples(nSamples);
-    calculator.setEchoTimes(testData.getEchoTimesPtr());
-    calculator.setSigMag(testData.getSignalMagPtr());
+    calculator.setEchoTimes(echoTimes);
+    calculator.setSigMag(signal);
 
     calculator.setMeanCutOff(123);
 

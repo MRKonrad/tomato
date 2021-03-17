@@ -4,7 +4,10 @@
  * \date 2018/07/29
  */
 
+#include "CmakeConfigForTomato.h"
 #include "gtest/gtest.h"
+
+#ifdef USE_YAML
 #include "OxTestData.h"
 
 #include "OxModelT1TwoParam.h"
@@ -171,3 +174,4 @@ TEST(OxModelT1TwoParam, copyConstructor) {
 
 }
 
+#endif // USE_YAML

@@ -13,6 +13,7 @@
 #include "CmakeConfigForTomato.h"
 
 #ifdef USE_VNL
+#ifdef USE_YAML
 TEST(OxFitterAmoebaVnl, performFitting) {
 
     typedef double TYPE;
@@ -110,4 +111,5 @@ TEST(OxFitterAmoebaVnl, disp) {
 
 #endif // _WIN32
 
+#endif // USE_YAML
 #endif // USE_VNL

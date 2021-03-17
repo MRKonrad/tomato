@@ -10,6 +10,7 @@
 #include "CmakeConfigForTomato.h"
 #ifdef USE_PRIVATE_NR2
 #ifdef USE_VNL
+#ifdef USE_YAML
 
 #include "TomatoOptions.h"
 #include "OxFactoryOfCalculators.h"
@@ -60,6 +61,6 @@ TEST(OxCalculatorT2_factory, blood) {
     EXPECT_NEAR(results["T2"], 50, 1e-1);
 }
 
-
+#endif // USE_YAML
 #endif // USE_VNL
 #endif // USE_PRIVATE_NR2

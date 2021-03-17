@@ -214,7 +214,7 @@ endif()
 ### TESTING ###
 ###############
 
-if(BUILD_TESTING AND USE_YAML)
+if(BUILD_TESTING)
     add_subdirectory(tests)
     install(TARGETS TomatoLib DESTINATION tests)
 endif()

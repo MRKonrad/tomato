@@ -17,6 +17,7 @@
 #include "OxStartPointCalculatorBasic.h"
 
 #ifdef USE_PRIVATE_NR2
+#ifdef USE_YAML
 #include "OxCalculatorT1Shmolli.h"
 #include "OxModelT1Shmolli.h"
 #include "OxFitterAmoebaPrivateNr2.h"
@@ -315,4 +316,5 @@ TEST(OxCalculatorT1Shmolli, copyConstructor) {
 }
 #endif
 
+#endif // USE_YAML
 #endif // USE_PRIVATE_NR2

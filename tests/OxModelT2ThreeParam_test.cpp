@@ -4,12 +4,13 @@
  * \date 2018/07/29
  */
 
+#include "CmakeConfigForTomato.h"
 #include "gtest/gtest.h"
+
+#ifdef USE_YAML
 #include "OxTestData.h"
 
-#include "CmakeConfigForTomato.h"
 #ifdef USE_PRIVATE_NR2
-
 #include "OxModelT2ThreeParam.h"
 
 TEST(OxModelT2ThreeParam, calcModelValueTest) {
@@ -174,4 +175,5 @@ TEST(OxModelT2ThreeParam, copyConstructor) {
 
 }
 
+#endif // USE_YAML
 #endif // USE_PRIVATE_NR2

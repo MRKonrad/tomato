@@ -6,6 +6,7 @@
 
 #include "CmakeConfigForTomato.h"
 #ifdef USE_TOMATOFIT
+#ifdef USE_YAML
 
 #include "gtest/gtest.h"
 #include "OxTestData.h"
@@ -37,4 +38,5 @@ TEST(OxModelT1AdapterTomatoFitLeastSquares, f) {
 
 }
 
-#endif //USE_TOMATOFIT
+#endif // USE_YAML
+#endif // USE_TOMATOFIT

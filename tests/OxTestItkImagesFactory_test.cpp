@@ -6,6 +6,7 @@
 
 #include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
+#ifdef USE_YAML
 
 #include "gtest/gtest.h"
 #include "OxTestItkImagesFactory.h"
@@ -46,5 +47,6 @@ TEST(OxTestItkImagesFactory, generateImagesWithoutErrros) {
 
 }
 
-#endif //USE_ITK
+#endif // USE_YAML
+#endif // USE_ITK
 

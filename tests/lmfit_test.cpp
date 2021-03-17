@@ -84,12 +84,13 @@ void evaluate_T1(const double *parameters, int nSamples, const void *data_void, 
         double measured = data[i+nSamples];
         double calculated = 0;
 
-        calculated = A - B * exp( -invTime/ T1star );
+        calculated = A - B * std::exp( -invTime/ T1star );
 
         residuals[i] = calculated - measured;
     }
 }
 
+#ifdef USE_YAML
 TEST(lmfit, simpleT1_test) {
 
     bool verbose = false;
@@ -154,5 +155,6 @@ TEST(lmfit, simpleT1_test) {
     EXPECT_NEAR(parameters[1], testData.getResultsMolli()[1], 1e-2);
     EXPECT_NEAR(parameters[2], testData.getResultsMolli()[2], 1e-2);
 }
+#endif // USE_YAML
 
 #endif // USE_LMFIT

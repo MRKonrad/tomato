@@ -9,6 +9,7 @@
 
 #include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
+#ifdef USE_YAML
 
 #include "itkImage.h"
 #include "itkImageRegionIteratorWithIndex.h"
@@ -61,6 +62,7 @@ namespace Ox {
 
 #include "OxTestItkImagesFactory.hxx"
 
-#endif //USE_ITK
+#endif // USE_YAML
+#endif // USE_ITK
 
-#endif //Tomato_itkOxTestItkImagesFactory_H
+#endif // Tomato_itkOxTestItkImagesFactory_H

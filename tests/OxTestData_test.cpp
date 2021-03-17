@@ -4,7 +4,11 @@
  * \date 2018/08/19
  */
 
+#include "CmakeConfigForTomato.h"
 #include "gtest/gtest.h"
+
+#ifdef USE_YAML
+
 #include "OxTestData.h"
 
 #include "TomatoParser.h"
@@ -41,3 +45,5 @@ TEST(OxTestData, read_file) {
         EXPECT_EQ(testData.getResultsShmolli()[i], resultsShmolliVec[i]);
     }
 }
+
+#endif // USE_YAML

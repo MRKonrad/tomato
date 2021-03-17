@@ -7,6 +7,9 @@
 #ifndef Tomato_OXTESTImage_HXX
 #define Tomato_OXTESTImage_HXX
 
+#include "CmakeConfigForTomato.h"
+
+#ifdef USE_YAML
 
 namespace Ox {
 
@@ -173,4 +176,5 @@ namespace Ox {
 
 } // namespace Ox
 
+#endif // USE_YAML
 #endif //Tomato_OXTESTImage_HXX

@@ -17,6 +17,7 @@
 #include "OxCalculatorT1WithSignCheck.h"
 
 #include "OxImageCalculator.h"
+#ifdef USE_YAML
 
 #ifdef USE_PRIVATE_NR2
 #include "OxCalculatorT1Shmolli.h"
@@ -315,5 +316,7 @@ TEST(OxImageCalculator, calculate_molli_multithread_nr2) {
     delete testImage;
     delete [] imageResults;
 }
-#endif //USE_PRIVATE_NR2
-#endif //TOMATO_USES_CXX_STANDARD_98
+#endif // USE_PRIVATE_NR2
+#endif // TOMATO_USES_CXX_STANDARD_98
+
+#endif // USE_YAML

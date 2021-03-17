@@ -17,6 +17,7 @@
 #include "OxCalculatorT1WithSignCheck.h"
 
 #ifdef USE_VNL
+#ifdef USE_YAML
 TEST(OxCalculatorT1_saturation_recovery, twoParam) {
 
     typedef double TYPE;
@@ -46,9 +47,11 @@ TEST(OxCalculatorT1_saturation_recovery, twoParam) {
     EXPECT_NEAR(calculator.getResults()["A"], testData.getResultsTwoParam()[0], 1e-2);
     EXPECT_NEAR(calculator.getResults()["T1star"], testData.getResultsTwoParam()[1], 1e-2);
 }
-#endif
+#endif // USE_YAML
+#endif // USE_VNL
 
 #ifdef USE_VNL
+#ifdef USE_YAML
 TEST(OxCalculatorT1_saturation_recovery, threeParam) {
 
     typedef double TYPE;
@@ -79,7 +82,9 @@ TEST(OxCalculatorT1_saturation_recovery, threeParam) {
     EXPECT_NEAR(calculator.getResults()["B"], testData.getResultsThreeParam()[1], 1e-2);
     EXPECT_NEAR(calculator.getResults()["T1star"], testData.getResultsThreeParam()[2], 1e-2);
 }
-#endif
+#endif // USE_YAML
+#endif // USE_VNL
+
 
 
 

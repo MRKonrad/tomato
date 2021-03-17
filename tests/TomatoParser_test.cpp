@@ -4,7 +4,10 @@
  * \date 2018/08/19
  */
 
+#include "CmakeConfigForTomato.h"
 #include "gtest/gtest.h"
+
+#ifdef USE_YAML
 
 #include "TomatoParser.h"
 
@@ -32,4 +35,6 @@ TEST(TomatoParser, parse_yaml_file) {
         EXPECT_EQ(parser._sequences["signalMag"][i], truth[i]);
     }
 }
+
+#endif // USE_YAML
 

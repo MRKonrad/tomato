@@ -6,6 +6,7 @@
 
 #include "CmakeConfigForTomato.h"
 #ifdef USE_VNL
+#ifdef USE_YAML
 
 #include "gtest/gtest.h"
 #include "OxTestData.h"
@@ -118,4 +119,6 @@ TEST(OxModelT1AdapterVnlLeastSquares, fitting) {
     EXPECT_NEAR(paramsVnl[1], testData.getResultsMolli()[1], 1e-2);
     EXPECT_NEAR(paramsVnl[2], testData.getResultsMolli()[2], 1e-2);
 }
-#endif //USE_VNL
+
+#endif // USE_YAML
+#endif // USE_VNL

@@ -22,6 +22,8 @@
 #include "itkTimeProbe.h"
 #endif
 
+#ifdef USE_YAML
+
 #ifdef USE_VNL
 TEST(OxCalculatorT1WithSignCheck, calculate_doNotCalculateIfMaxIterZero) {
 
@@ -366,3 +368,5 @@ TEST(OxCalculatorT1WithSignCheck, calculateFitError2) {
 //}
 //
 //#endif
+
+#endif // USE_YAML

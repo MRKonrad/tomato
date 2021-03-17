@@ -6,6 +6,7 @@
 
 #include "CmakeConfigForTomato.h"
 #ifdef USE_LMFIT
+#ifdef USE_YAML
 
 #include "gtest/gtest.h"
 #include "OxTestData.h"
@@ -39,4 +40,5 @@ TEST(OxModelT1AdapterLmfitLeastSquares, f) {
     delete [] residualsLmfit;
 }
 
-#endif //USE_Lmfit
+#endif // USE_YAML
+#endif // USE_Lmfit

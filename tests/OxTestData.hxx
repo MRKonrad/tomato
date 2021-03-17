@@ -7,6 +7,10 @@
 #ifndef Tomato_OXTESTDATA_HXX
 #define Tomato_OXTESTDATA_HXX
 
+#include "CmakeConfigForTomato.h"
+
+#ifdef USE_YAML
+
 
 namespace Ox {
 
@@ -111,6 +115,6 @@ namespace Ox {
 
 } // namespace Ox
 
-
+#endif // USE_YAML
 
 #endif //Tomato_OXTESTDATA_HXX

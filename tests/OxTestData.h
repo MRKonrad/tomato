@@ -7,6 +7,10 @@
 #ifndef Tomato_OXTESTDATA_H
 #define Tomato_OXTESTDATA_H
 
+#include "CmakeConfigForTomato.h"
+
+#ifdef USE_YAML
+
 #include "TomatoParser.h"
 
 #include "yaml.h"
@@ -122,5 +126,7 @@ namespace Ox {
 } // namespace Ox
 
 #include "OxTestData.hxx"
+
+#endif // USE_YAML
 
 #endif //Tomato_OXTESTDATA_H

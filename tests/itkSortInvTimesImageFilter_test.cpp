@@ -6,6 +6,7 @@
 
 #include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
+#ifdef USE_YAML
 
 #include "OxTestItkImagesFactory.h"
 #include "OxModelT1ThreeParam.h"
@@ -83,4 +84,5 @@ TEST(itkSortInvTimesImageFilter, sortInvTimesAndMag) {
     ASSERT_EQ(diff->GetNumberOfPixelsWithDifferences(), 0);
 }
 
+#endif // USE_YAML
 #endif // USE_ITK

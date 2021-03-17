@@ -13,6 +13,7 @@
 #include "TomatoOnePixel.h"
 
 #ifdef USE_VNL
+#ifdef USE_YAML
 
 TEST(TomatoOnePixel, T1_blood) {
 
@@ -75,4 +76,5 @@ TEST(TomatoOnePixel, T2_blood) {
 }
 #endif // USE_PRIVATE_NR2
 
+#endif // USE_YAML
 #endif // USE_VNL

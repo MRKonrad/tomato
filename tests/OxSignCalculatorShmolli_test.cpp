@@ -5,8 +5,9 @@
  */
 
 #include "CmakeConfigForTomato.h"
-
 #include "gtest/gtest.h"
+
+#ifdef USE_YAML
 #include "OxTestData.h"
 
 #ifdef USE_PRIVATE_NR2
@@ -131,3 +132,4 @@ TEST(OxSignCalculatorShmolli, copConstructor) {
 }
 
 #endif // USE_PRIVATE_NR2
+#endif // USE_YAML

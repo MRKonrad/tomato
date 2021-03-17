@@ -4,7 +4,10 @@
  * \date 2018/08/01
  */
 
+#include "CmakeConfigForTomato.h"
 #include "gtest/gtest.h"
+
+#ifdef USE_YAML
 #include "OxTestData.h"
 
 #include "OxSignCalculatorRealImag.h"
@@ -151,5 +154,4 @@ TEST(OxSignCalculatorRealImag, copyConstructor) {
     delete [] signs;
 }
 
-
-
+#endif // USE_YAML

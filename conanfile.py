@@ -1,5 +1,5 @@
 from conans import ConanFile, CMake, tools, RunEnvironment
-import os, subprocess
+import os
 
 class TomatoConan(ConanFile):
     name = "tomato"
@@ -45,9 +45,6 @@ class TomatoConan(ConanFile):
             self.requires("lmfit/8.3.0@%s/%s" % (self.user, self.channel))
         if self.options.use_yaml:
             self.requires("libyaml/0.2.5@%s/%s" % (self.user, self.channel))
-        if self.options.build_testing:
-            self.requires("libyaml/0.2.5@%s/%s" % (self.user, self.channel))
-            self.options.use_yaml = True
 
     def build_requirements(self):
         if self.options.build_testing:

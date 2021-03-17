@@ -10,6 +10,7 @@
 #include "OxTestData.h"
 
 #ifdef USE_PRIVATE_NR2
+#ifdef USE_YAML
 #include "OxModelT1Shmolli.h"
 
 TEST(OxModelT1Shmolli, calcModelValueTest) {
@@ -170,4 +171,5 @@ TEST(OxModelT1Shmolli, copyConstructor) {
 
 }
 
+#endif // USE_YAML
 #endif // USE_PRIVATE_NR2

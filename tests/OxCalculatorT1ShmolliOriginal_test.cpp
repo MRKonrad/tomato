@@ -7,6 +7,7 @@
 #include "CmakeConfigForTomato.h"
 #ifdef USE_ITK
 #ifdef USE_PRIVATE_NR2
+#ifdef USE_YAML
 
 #include "gtest/gtest.h"
 #include "OxTestData.h"
@@ -65,5 +66,6 @@ TEST(OxCalculatorT1ShmolliOriginal, myocardium_test) {
 
 }
 
+#endif // USE_YAML
 #endif // USE_PRIVATE_NR2
 #endif // USE_ITK
