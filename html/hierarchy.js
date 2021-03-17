@@ -32,8 +32,6 @@ var hierarchy =
       [ "Ox::StartPointCalculatorBasic< MeasureType >", "class_ox_1_1_start_point_calculator_basic.html", null ],
       [ "Ox::StartPointCalculatorShmolli< MeasureType >", "class_ox_1_1_start_point_calculator_shmolli.html", null ]
     ] ],
-    [ "Ox::TestData< MeasureType >", "class_ox_1_1_test_data.html", null ],
-    [ "Ox::TestImage< MeasureType >", "class_ox_1_1_test_image.html", null ],
     [ "Ox::TomatoOptions< MeasureType >", "class_ox_1_1_tomato_options.html", null ],
     [ "ConanFile", null, [
       [ "conanfile.TomatoConan", "classconanfile_1_1_tomato_conan.html", null ]

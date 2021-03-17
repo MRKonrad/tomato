@@ -28,8 +28,6 @@ var annotated_dup =
       [ "StartPointCalculator", "class_ox_1_1_start_point_calculator.html", "class_ox_1_1_start_point_calculator" ],
       [ "StartPointCalculatorBasic", "class_ox_1_1_start_point_calculator_basic.html", "class_ox_1_1_start_point_calculator_basic" ],
       [ "StartPointCalculatorShmolli", "class_ox_1_1_start_point_calculator_shmolli.html", "class_ox_1_1_start_point_calculator_shmolli" ],
-      [ "TestData", "class_ox_1_1_test_data.html", "class_ox_1_1_test_data" ],
-      [ "TestImage", "class_ox_1_1_test_image.html", "class_ox_1_1_test_image" ],
       [ "TomatoOptions", "class_ox_1_1_tomato_options.html", "class_ox_1_1_tomato_options" ]
     ] ],
     [ "CalculatorT1", "class_calculator_t1.html", null ],
