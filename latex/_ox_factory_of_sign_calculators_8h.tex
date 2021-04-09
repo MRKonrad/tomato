@@ -1,11 +1,10 @@
-\hypertarget{_ox_factory_of_sign_calculators_8h}{\section{app/\-Ox\-Factory\-Of\-Sign\-Calculators.h File Reference}
-\label{_ox_factory_of_sign_calculators_8h}\index{app/\-Ox\-Factory\-Of\-Sign\-Calculators.\-h@{app/\-Ox\-Factory\-Of\-Sign\-Calculators.\-h}}
-}
-{\ttfamily \#include \char`\"{}Cmake\-Config\-For\-Tomato.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Ox\-Sign\-Calculator\-No\-Sign.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Ox\-Sign\-Calculator\-Real\-Imag.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Ox\-Sign\-Calculator\-Shmolli.\-h\char`\"{}}\\*
-Include dependency graph for Ox\-Factory\-Of\-Sign\-Calculators.\-h\-:
+\hypertarget{_ox_factory_of_sign_calculators_8h}{}\section{lib/\+Ox\+Factory\+Of\+Sign\+Calculators.h File Reference}
+\label{_ox_factory_of_sign_calculators_8h}\index{lib/\+Ox\+Factory\+Of\+Sign\+Calculators.\+h@{lib/\+Ox\+Factory\+Of\+Sign\+Calculators.\+h}}
+{\ttfamily \#include \char`\"{}Cmake\+Config\+For\+Tomato.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tomatolib\+\_\+export.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Ox\+Sign\+Calculator.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Ox\+Factory\+Of\+Sign\+Calculators.\+hxx\char`\"{}}\\*
+Include dependency graph for Ox\+Factory\+Of\+Sign\+Calculators.\+h\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -13,29 +12,33 @@ Include dependency graph for Ox\-Factory\-Of\-Sign\-Calculators.\-h\-:
 \includegraphics[width=350pt]{_ox_factory_of_sign_calculators_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\-:
+This graph shows which files directly or indirectly include this file\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=321pt]{_ox_factory_of_sign_calculators_8h__dep__incl}
+\includegraphics[width=350pt]{_ox_factory_of_sign_calculators_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \hyperlink{struct_ox_1_1_tomato_options}{Ox\-::\-Tomato\-Options$<$ T\-Y\-P\-E $>$}
+class \hyperlink{class_ox_1_1_tomato_options}{Ox\+::\+Tomato\+Options$<$ Measure\+Type $>$}
 \item 
-class \hyperlink{class_ox_1_1_factory_of_sign_calculators}{Ox\-::\-Factory\-Of\-Sign\-Calculators$<$ T\-Y\-P\-E $>$}
+class \hyperlink{class_ox_1_1_factory_of_sign_calculators}{Ox\+::\+Factory\+Of\+Sign\+Calculators$<$ T\+Y\+P\+E $>$}
 \end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum {\bfseries sign\-Calculators\-Type\-\_\-t} \{ {\bfseries No\-Sign} = 0, 
-{\bfseries Real\-Imag} = 1, 
-{\bfseries Mag\-Phase} = 2, 
-{\bfseries last\-Sign\-Calculator\-Type} = Mag\-Phase
- \}
+enum {\bfseries sign\+Calculators\+Type\+\_\+t} \{ \\*
+{\bfseries No\+Sign} = 0, 
+{\bfseries Real\+Imag} = 1, 
+{\bfseries Mag\+Phase} = 2, 
+{\bfseries None} = 3, 
+\\*
+{\bfseries last\+Sign\+Calculator\+Type} = None
+ \}\hypertarget{_ox_factory_of_sign_calculators_8h_af818b4a70179bb0e5a637432d058b858}{}\label{_ox_factory_of_sign_calculators_8h_af818b4a70179bb0e5a637432d058b858}
+
 \end{DoxyCompactItemize}
 
 
