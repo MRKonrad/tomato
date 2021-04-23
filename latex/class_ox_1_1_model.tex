@@ -1,0 +1,259 @@
+\hypertarget{class_ox_1_1_model}{}\section{Ox\+:\+:Model$<$ Measure\+Type $>$ Class Template Reference}
+\label{class_ox_1_1_model}\index{Ox\+::\+Model$<$ Measure\+Type $>$@{Ox\+::\+Model$<$ Measure\+Type $>$}}
+
+
+Container for a model function, cost function and Least-\/\+Squares function. And derivatives.  
+
+
+
+
+{\ttfamily \#include $<$Ox\+Model.\+h$>$}
+
+
+
+Inheritance diagram for Ox\+:\+:Model$<$ Measure\+Type $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_ox_1_1_model__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual Measure\+Type \hyperlink{class_ox_1_1_model_ae3a3f5bfeefd8a8c0c012e1761eac1f5}{calc\+Model\+Value} (const Measure\+Type $\ast$parameters, Measure\+Type time)=0
+\item 
+virtual void \hyperlink{class_ox_1_1_model_a17e0ef71135350d4f61bef2a097fb586}{calc\+L\+S\+Residuals} (const Measure\+Type $\ast$parameters, Measure\+Type $\ast$residuals)=0
+\item 
+virtual Measure\+Type \hyperlink{class_ox_1_1_model_aa5997cea7114d0e323e79956adb13ba4}{calc\+Cost\+Value} (const Measure\+Type $\ast$parameters)=0
+\item 
+virtual void \hyperlink{class_ox_1_1_model_a274f0efdbbc364e82bba7470f933eecd}{calc\+Cost\+Derivative} (const Measure\+Type $\ast$parameters, Measure\+Type $\ast$derivative)=0
+\item 
+virtual void \hyperlink{class_ox_1_1_model_a4cadb65b8416b4b30e91bf6db00737f3}{calc\+L\+S\+Jacobian} (const Measure\+Type $\ast$parameters, Measure\+Type $\ast$jacobian)=0
+\item 
+virtual int {\bfseries get\+N\+Samples} ()\hypertarget{class_ox_1_1_model_a29715e78ec12b91c56df85fc0f782ea7}{}\label{class_ox_1_1_model_a29715e78ec12b91c56df85fc0f782ea7}
+
+\item 
+virtual const Measure\+Type $\ast$ {\bfseries get\+Inv\+Times} () const \hypertarget{class_ox_1_1_model_a7c7497927d9aa7f0c3aa5933e4a7ff7d}{}\label{class_ox_1_1_model_a7c7497927d9aa7f0c3aa5933e4a7ff7d}
+
+\item 
+virtual const Measure\+Type $\ast$ {\bfseries get\+Echo\+Times} () const \hypertarget{class_ox_1_1_model_a1606369f7a57a69c9944a54a135bc1f4}{}\label{class_ox_1_1_model_a1606369f7a57a69c9944a54a135bc1f4}
+
+\item 
+virtual const Measure\+Type $\ast$ {\bfseries get\+Rep\+Times} () const \hypertarget{class_ox_1_1_model_ad1ecd4e858e0a5386a27505ec78135c5}{}\label{class_ox_1_1_model_ad1ecd4e858e0a5386a27505ec78135c5}
+
+\item 
+virtual const Measure\+Type $\ast$ {\bfseries get\+Rel\+Acq\+Times} () const \hypertarget{class_ox_1_1_model_ada677d0048ec4544f8975c44ae3bc3d9}{}\label{class_ox_1_1_model_ada677d0048ec4544f8975c44ae3bc3d9}
+
+\item 
+virtual const Measure\+Type $\ast$ {\bfseries get\+Signal} () const \hypertarget{class_ox_1_1_model_ae51878e45fa528e47a457610d857a9bb}{}\label{class_ox_1_1_model_ae51878e45fa528e47a457610d857a9bb}
+
+\item 
+virtual int {\bfseries get\+N\+Dims} ()\hypertarget{class_ox_1_1_model_af457ac73701b13fa1b3af8d800e198dc}{}\label{class_ox_1_1_model_af457ac73701b13fa1b3af8d800e198dc}
+
+\item 
+void {\bfseries set\+N\+Samples} (int \+\_\+n\+Samples)\hypertarget{class_ox_1_1_model_a9e37f6db1210b7b4a58d7ad38ba6b422}{}\label{class_ox_1_1_model_a9e37f6db1210b7b4a58d7ad38ba6b422}
+
+\item 
+virtual void {\bfseries set\+Inv\+Times} (const Measure\+Type $\ast$\+\_\+\+Inv\+Times)\hypertarget{class_ox_1_1_model_a2db9a20a6915dc41bce2deecec7c390a}{}\label{class_ox_1_1_model_a2db9a20a6915dc41bce2deecec7c390a}
+
+\item 
+virtual void {\bfseries set\+Echo\+Times} (const Measure\+Type $\ast$\+\_\+\+Echo\+Times)\hypertarget{class_ox_1_1_model_ac63fba341cfe586ec210f59fcdc0d715}{}\label{class_ox_1_1_model_ac63fba341cfe586ec210f59fcdc0d715}
+
+\item 
+virtual void {\bfseries set\+Rep\+Times} (const Measure\+Type $\ast$\+\_\+\+Rep\+Times)\hypertarget{class_ox_1_1_model_af272a398debaf156f345d85940bec556}{}\label{class_ox_1_1_model_af272a398debaf156f345d85940bec556}
+
+\item 
+virtual void {\bfseries set\+Rel\+Acq\+Times} (const Measure\+Type $\ast$\+\_\+\+Rel\+Acq\+Times)\hypertarget{class_ox_1_1_model_a534bfcec58d93c7002a6c0eb4d58ed88}{}\label{class_ox_1_1_model_a534bfcec58d93c7002a6c0eb4d58ed88}
+
+\item 
+virtual void {\bfseries set\+Signal} (const Measure\+Type $\ast$\+\_\+\+Signal)\hypertarget{class_ox_1_1_model_abb7eddc8c8c4ac94ab921158ce3a38a3}{}\label{class_ox_1_1_model_abb7eddc8c8c4ac94ab921158ce3a38a3}
+
+\item 
+virtual std\+::string {\bfseries get\+Nth\+Param\+Name} (int nth\+Param)\hypertarget{class_ox_1_1_model_a5a6b9c8c5058eb51fd2877aff917cd6d}{}\label{class_ox_1_1_model_a5a6b9c8c5058eb51fd2877aff917cd6d}
+
+\item 
+virtual void \hyperlink{class_ox_1_1_model_ae2c46e9820947efd450a93aaf53a0db5}{disp} ()\hypertarget{class_ox_1_1_model_ae2c46e9820947efd450a93aaf53a0db5}{}\label{class_ox_1_1_model_ae2c46e9820947efd450a93aaf53a0db5}
+
+\begin{DoxyCompactList}\small\item\em show me your Model\+T1 \end{DoxyCompactList}\item 
+void \hyperlink{class_ox_1_1_model_a8186fd758a6f94d9e3af204b6c1aac3c}{set\+All\+Pointers\+To\+Null} ()\hypertarget{class_ox_1_1_model_a8186fd758a6f94d9e3af204b6c1aac3c}{}\label{class_ox_1_1_model_a8186fd758a6f94d9e3af204b6c1aac3c}
+
+\begin{DoxyCompactList}\small\item\em set all the pointers to zero \end{DoxyCompactList}\item 
+\hyperlink{class_ox_1_1_model_a73f93cd40d0eddc1d3ff474fc2505fc2}{Model} ()\hypertarget{class_ox_1_1_model_a73f93cd40d0eddc1d3ff474fc2505fc2}{}\label{class_ox_1_1_model_a73f93cd40d0eddc1d3ff474fc2505fc2}
+
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\hyperlink{class_ox_1_1_model_a01911912db830e4814645a675990a906}{Model} (const \hyperlink{class_ox_1_1_model}{Model} \&old)
+\begin{DoxyCompactList}\small\item\em copy constructor keeps only \+\_\+n\+Samples and \+\_\+n\+Dims \end{DoxyCompactList}\item 
+virtual \hyperlink{class_ox_1_1_model}{Model}$<$ Measure\+Type $>$ $\ast$ \hyperlink{class_ox_1_1_model_a694868476dd17a4d203f4ebc57047d2f}{new\+By\+Cloning} ()=0
+\item 
+virtual \hyperlink{class_ox_1_1_model_a6353ac7352cdbbed2d00d9ed9e697c88}{$\sim$\+Model} ()\hypertarget{class_ox_1_1_model_a6353ac7352cdbbed2d00d9ed9e697c88}{}\label{class_ox_1_1_model_a6353ac7352cdbbed2d00d9ed9e697c88}
+
+\begin{DoxyCompactList}\small\item\em do not forget about the virtual destructor, see \href{https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors}{\tt https\+://stackoverflow.\+com/questions/461203/when-\/to-\/use-\/virtual-\/destructors} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const Measure\+Type $\ast$ {\bfseries \+\_\+\+Inv\+Times}\hypertarget{class_ox_1_1_model_a20eb4db9cd1fa1cd0fa4b46e06e08d9c}{}\label{class_ox_1_1_model_a20eb4db9cd1fa1cd0fa4b46e06e08d9c}
+
+\item 
+const Measure\+Type $\ast$ {\bfseries \+\_\+\+Echo\+Times}\hypertarget{class_ox_1_1_model_a7b00c7d8554d101dfdf86b2013200983}{}\label{class_ox_1_1_model_a7b00c7d8554d101dfdf86b2013200983}
+
+\item 
+const Measure\+Type $\ast$ {\bfseries \+\_\+\+Rep\+Times}\hypertarget{class_ox_1_1_model_af2c4ac111d41ce5b6d5ca9f66ad36918}{}\label{class_ox_1_1_model_af2c4ac111d41ce5b6d5ca9f66ad36918}
+
+\item 
+const Measure\+Type $\ast$ {\bfseries \+\_\+\+Rel\+Acq\+Times}\hypertarget{class_ox_1_1_model_a093e159893a4ebf36452e470cda9a4d1}{}\label{class_ox_1_1_model_a093e159893a4ebf36452e470cda9a4d1}
+
+\item 
+const Measure\+Type $\ast$ {\bfseries \+\_\+\+Signal}\hypertarget{class_ox_1_1_model_a810156ed7ea865fa0980e6b05128a80c}{}\label{class_ox_1_1_model_a810156ed7ea865fa0980e6b05128a80c}
+
+\item 
+int {\bfseries \+\_\+n\+Samples}\hypertarget{class_ox_1_1_model_a1eb1604ca7c4587d4cb66ccc1d068adc}{}\label{class_ox_1_1_model_a1eb1604ca7c4587d4cb66ccc1d068adc}
+
+\item 
+int {\bfseries \+\_\+n\+Dims}\hypertarget{class_ox_1_1_model_ae7c67e12cb601aafcce580b008d918cd}{}\label{class_ox_1_1_model_ae7c67e12cb601aafcce580b008d918cd}
+
+\item 
+Measure\+Type $\ast$ {\bfseries \+\_\+\+Residuals}\hypertarget{class_ox_1_1_model_a4f95dba7c1751745f8087e6cb98ba486}{}\label{class_ox_1_1_model_a4f95dba7c1751745f8087e6cb98ba486}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Measure\+Type$>$\\*
+class Ox\+::\+Model$<$ Measure\+Type $>$}
+
+Container for a model function, cost function and Least-\/\+Squares function. And derivatives. 
+
+Here model function is defined -\/ \hyperlink{class_ox_1_1_model_ae3a3f5bfeefd8a8c0c012e1761eac1f5}{calc\+Model\+Value()}. Fitting algorithms based on optimisation need a cost function -\/ \hyperlink{class_ox_1_1_model_aa5997cea7114d0e323e79956adb13ba4}{calc\+Cost\+Value()}. Fitting algorithms based on least squares need a residuals calculation -\/ \hyperlink{class_ox_1_1_model_a17e0ef71135350d4f61bef2a097fb586}{calc\+L\+S\+Residuals()}. Some fitting algorithms use derivatives, hence \hyperlink{class_ox_1_1_model_a4cadb65b8416b4b30e91bf6db00737f3}{calc\+L\+S\+Jacobian()} and \hyperlink{class_ox_1_1_model_a274f0efdbbc364e82bba7470f933eecd}{calc\+Cost\+Derivative()}. The member variables are pointers to c-\/arrays, we need to know how many samples we want to process. That\textquotesingle{}s the n\+Samples defined in the constructor. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Measure\+Type} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Ox\+::\+Model@{Ox\+::\+Model}!Model@{Model}}
+\index{Model@{Model}!Ox\+::\+Model@{Ox\+::\+Model}}
+\subsubsection[{\texorpdfstring{Model(const Model \&old)}{Model(const Model &old)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\+Type $>$ {\bf Ox\+::\+Model}$<$ Measure\+Type $>$\+::{\bf Model} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Model}$<$ Measure\+Type $>$ \&}]{old}
+\end{DoxyParamCaption}
+)}\hypertarget{class_ox_1_1_model_a01911912db830e4814645a675990a906}{}\label{class_ox_1_1_model_a01911912db830e4814645a675990a906}
+
+
+copy constructor keeps only \+\_\+n\+Samples and \+\_\+n\+Dims 
+
+
+\begin{DoxyParams}{Parameters}
+{\em old} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Ox\+::\+Model@{Ox\+::\+Model}!calc\+Cost\+Derivative@{calc\+Cost\+Derivative}}
+\index{calc\+Cost\+Derivative@{calc\+Cost\+Derivative}!Ox\+::\+Model@{Ox\+::\+Model}}
+\subsubsection[{\texorpdfstring{calc\+Cost\+Derivative(const Measure\+Type $\ast$parameters, Measure\+Type $\ast$derivative)=0}{calcCostDerivative(const MeasureType *parameters, MeasureType *derivative)=0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\+Type$>$ virtual void {\bf Ox\+::\+Model}$<$ Measure\+Type $>$\+::calc\+Cost\+Derivative (
+\begin{DoxyParamCaption}
+\item[{const Measure\+Type $\ast$}]{parameters, }
+\item[{Measure\+Type $\ast$}]{derivative}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_ox_1_1_model_a274f0efdbbc364e82bba7470f933eecd}{}\label{class_ox_1_1_model_a274f0efdbbc364e82bba7470f933eecd}
+calc\+Cost\+Derivative the most important function of this class 
+\begin{DoxyParams}{Parameters}
+{\em derivative} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_ox_1_1_model_t1_shmolli_afaadbc879361f3ea674fe79a9fc1cf49}{Ox\+::\+Model\+T1\+Shmolli$<$ Measure\+Type $>$}, \hyperlink{class_ox_1_1_model_t1_three_param_a7bd09162c315aa491af661cf8d88bcdd}{Ox\+::\+Model\+T1\+Three\+Param$<$ Measure\+Type $>$}, and \hyperlink{class_ox_1_1_model_t1_two_param_a328e0fdc6b5769ecc3327596c9b12be3}{Ox\+::\+Model\+T1\+Two\+Param$<$ Measure\+Type $>$}.
+
+\index{Ox\+::\+Model@{Ox\+::\+Model}!calc\+Cost\+Value@{calc\+Cost\+Value}}
+\index{calc\+Cost\+Value@{calc\+Cost\+Value}!Ox\+::\+Model@{Ox\+::\+Model}}
+\subsubsection[{\texorpdfstring{calc\+Cost\+Value(const Measure\+Type $\ast$parameters)=0}{calcCostValue(const MeasureType *parameters)=0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\+Type$>$ virtual Measure\+Type {\bf Ox\+::\+Model}$<$ Measure\+Type $>$\+::calc\+Cost\+Value (
+\begin{DoxyParamCaption}
+\item[{const Measure\+Type $\ast$}]{parameters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_ox_1_1_model_aa5997cea7114d0e323e79956adb13ba4}{}\label{class_ox_1_1_model_aa5997cea7114d0e323e79956adb13ba4}
+calc\+Cost\+Value the most important function of this class \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_ox_1_1_model_t1_shmolli_a0f9b89832a6321b5b54abb9e219e803d}{Ox\+::\+Model\+T1\+Shmolli$<$ Measure\+Type $>$}, \hyperlink{class_ox_1_1_model_t1_three_param_ad417e4455caae28f1364f82b5f8f37d5}{Ox\+::\+Model\+T1\+Three\+Param$<$ Measure\+Type $>$}, and \hyperlink{class_ox_1_1_model_t1_two_param_ab4ec672167094e84f2fddc5d052d528c}{Ox\+::\+Model\+T1\+Two\+Param$<$ Measure\+Type $>$}.
+
+\index{Ox\+::\+Model@{Ox\+::\+Model}!calc\+L\+S\+Jacobian@{calc\+L\+S\+Jacobian}}
+\index{calc\+L\+S\+Jacobian@{calc\+L\+S\+Jacobian}!Ox\+::\+Model@{Ox\+::\+Model}}
+\subsubsection[{\texorpdfstring{calc\+L\+S\+Jacobian(const Measure\+Type $\ast$parameters, Measure\+Type $\ast$jacobian)=0}{calcLSJacobian(const MeasureType *parameters, MeasureType *jacobian)=0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\+Type$>$ virtual void {\bf Ox\+::\+Model}$<$ Measure\+Type $>$\+::calc\+L\+S\+Jacobian (
+\begin{DoxyParamCaption}
+\item[{const Measure\+Type $\ast$}]{parameters, }
+\item[{Measure\+Type $\ast$}]{jacobian}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_ox_1_1_model_a4cadb65b8416b4b30e91bf6db00737f3}{}\label{class_ox_1_1_model_a4cadb65b8416b4b30e91bf6db00737f3}
+calc\+L\+S\+Jacobian the most important function of this class 
+\begin{DoxyParams}{Parameters}
+{\em jacobian} & -\/ 2d matrix stored as 1d array \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_ox_1_1_model_t1_shmolli_a667e5c9088ba65e0cba506246671e3da}{Ox\+::\+Model\+T1\+Shmolli$<$ Measure\+Type $>$}, \hyperlink{class_ox_1_1_model_t1_three_param_a2b6268cb77c6a9d95c7861641cd3a2d5}{Ox\+::\+Model\+T1\+Three\+Param$<$ Measure\+Type $>$}, and \hyperlink{class_ox_1_1_model_t1_two_param_af5952a47062e6edffe78f8594cc220e4}{Ox\+::\+Model\+T1\+Two\+Param$<$ Measure\+Type $>$}.
+
+\index{Ox\+::\+Model@{Ox\+::\+Model}!calc\+L\+S\+Residuals@{calc\+L\+S\+Residuals}}
+\index{calc\+L\+S\+Residuals@{calc\+L\+S\+Residuals}!Ox\+::\+Model@{Ox\+::\+Model}}
+\subsubsection[{\texorpdfstring{calc\+L\+S\+Residuals(const Measure\+Type $\ast$parameters, Measure\+Type $\ast$residuals)=0}{calcLSResiduals(const MeasureType *parameters, MeasureType *residuals)=0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\+Type$>$ virtual void {\bf Ox\+::\+Model}$<$ Measure\+Type $>$\+::calc\+L\+S\+Residuals (
+\begin{DoxyParamCaption}
+\item[{const Measure\+Type $\ast$}]{parameters, }
+\item[{Measure\+Type $\ast$}]{residuals}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_ox_1_1_model_a17e0ef71135350d4f61bef2a097fb586}{}\label{class_ox_1_1_model_a17e0ef71135350d4f61bef2a097fb586}
+calc\+L\+S\+Residuals the most important function of this class 
+\begin{DoxyParams}{Parameters}
+{\em residuals} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_ox_1_1_model_t1_shmolli_ae393758f44f51e2fddae4c3c919fe4db}{Ox\+::\+Model\+T1\+Shmolli$<$ Measure\+Type $>$}, \hyperlink{class_ox_1_1_model_t1_three_param_abef151c12e9b7d49e23955dd1ae9c992}{Ox\+::\+Model\+T1\+Three\+Param$<$ Measure\+Type $>$}, and \hyperlink{class_ox_1_1_model_t1_two_param_a8c02d34fac5a35310f6ee60209f70d45}{Ox\+::\+Model\+T1\+Two\+Param$<$ Measure\+Type $>$}.
+
+\index{Ox\+::\+Model@{Ox\+::\+Model}!calc\+Model\+Value@{calc\+Model\+Value}}
+\index{calc\+Model\+Value@{calc\+Model\+Value}!Ox\+::\+Model@{Ox\+::\+Model}}
+\subsubsection[{\texorpdfstring{calc\+Model\+Value(const Measure\+Type $\ast$parameters, Measure\+Type time)=0}{calcModelValue(const MeasureType *parameters, MeasureType time)=0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\+Type$>$ virtual Measure\+Type {\bf Ox\+::\+Model}$<$ Measure\+Type $>$\+::calc\+Model\+Value (
+\begin{DoxyParamCaption}
+\item[{const Measure\+Type $\ast$}]{parameters, }
+\item[{Measure\+Type}]{time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_ox_1_1_model_ae3a3f5bfeefd8a8c0c012e1761eac1f5}{}\label{class_ox_1_1_model_ae3a3f5bfeefd8a8c0c012e1761eac1f5}
+calc\+Model\+Value the most important function of this class 
+\begin{DoxyParams}{Parameters}
+{\em time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+model(time) 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_ox_1_1_model_t1_shmolli_a72576d4db2ff938037c3d9d4fe25b9d7}{Ox\+::\+Model\+T1\+Shmolli$<$ Measure\+Type $>$}, \hyperlink{class_ox_1_1_model_t1_three_param_a4b2e40499a77399cc3dd74fbe9a02aee}{Ox\+::\+Model\+T1\+Three\+Param$<$ Measure\+Type $>$}, and \hyperlink{class_ox_1_1_model_t1_two_param_aaa8218e3d53e1913589d272bcbb62b47}{Ox\+::\+Model\+T1\+Two\+Param$<$ Measure\+Type $>$}.
+
+\index{Ox\+::\+Model@{Ox\+::\+Model}!new\+By\+Cloning@{new\+By\+Cloning}}
+\index{new\+By\+Cloning@{new\+By\+Cloning}!Ox\+::\+Model@{Ox\+::\+Model}}
+\subsubsection[{\texorpdfstring{new\+By\+Cloning()=0}{newByCloning()=0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Measure\+Type$>$ virtual {\bf Model}$<$Measure\+Type$>$$\ast$ {\bf Ox\+::\+Model}$<$ Measure\+Type $>$\+::new\+By\+Cloning (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_ox_1_1_model_a694868476dd17a4d203f4ebc57047d2f}{}\label{class_ox_1_1_model_a694868476dd17a4d203f4ebc57047d2f}
+cloning \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_ox_1_1_model_t1_shmolli_a846fb817183738d5c2b3f9f126c1597b}{Ox\+::\+Model\+T1\+Shmolli$<$ Measure\+Type $>$}, \hyperlink{class_ox_1_1_model_t1_three_param_afc6ffe41934c513e12a45cc5821fddca}{Ox\+::\+Model\+T1\+Three\+Param$<$ Measure\+Type $>$}, and \hyperlink{class_ox_1_1_model_t1_two_param_aa090c6834141f00a966eebd6b0415e44}{Ox\+::\+Model\+T1\+Two\+Param$<$ Measure\+Type $>$}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{_ox_model_8h}{Ox\+Model.\+h}\item 
+lib/Ox\+Model.\+hxx\end{DoxyCompactItemize}
