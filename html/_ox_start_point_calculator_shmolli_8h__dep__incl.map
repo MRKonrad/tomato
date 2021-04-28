@@ -1,10 +1,6 @@
 <map id="lib/OxStartPointCalculatorShmolli.h" name="lib/OxStartPointCalculatorShmolli.h">
-<area shape="rect" id="node2" href="$_ox_factory_of_start_point_calculators_8hxx.html" title="lib/OxFactoryOfStartPoint\lCalculators.hxx" alt="" coords="270,95,442,136"/>
-<area shape="rect" id="node3" href="$_ox_factory_of_start_point_calculators_8h.html" title="lib/OxFactoryOfStartPoint\lCalculators.h" alt="" coords="270,184,442,225"/>
-<area shape="rect" id="node4" href="$_tomato_options_8h.html" title="lib/TomatoOptions.h" alt="" coords="205,273,344,300"/>
-<area shape="rect" id="node7" href="$_tomato_api_8h.html" title="lib/TomatoApi.h" alt="" coords="245,497,358,524"/>
-<area shape="rect" id="node5" href="$_ox_factory_of_calculators_8hxx.html" title="lib/OxFactoryOfCalculators.hxx" alt="" coords="5,348,211,375"/>
-<area shape="rect" id="node9" href="$_tomato_one_pixel_8h.html" title="lib/TomatoOnePixel.h" alt="" coords="228,423,375,449"/>
-<area shape="rect" id="node6" href="$_ox_factory_of_calculators_8h.html" title="lib/OxFactoryOfCalculators.h" alt="" coords="13,423,203,449"/>
-<area shape="rect" id="node8" href="$_tomato_api_8cpp.html" title="lib/TomatoApi.cpp" alt="" coords="238,572,365,599"/>
+<area shape="rect" id="node2" href="$_ox_factory_of_start_point_calculators_8h.html" title="app/OxFactoryOfStartPoint\lCalculators.h" alt="" coords="125,97,304,138"/>
+<area shape="rect" id="node3" href="$_tomato_options_8h.html" title="app/TomatoOptions.h" alt="" coords="141,187,288,213"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="app/main.cpp" alt="" coords="5,261,104,288"/>
+<area shape="rect" id="node5" href="$_ox_factory_of_fitters_8h.html" title="app/OxFactoryOfFitters.h" alt="" coords="129,261,300,288"/>
 </map>

@@ -1,9 +1,8 @@
-<map id="lib/OxFactoryOfSignCalculators.h" name="lib/OxFactoryOfSignCalculators.h">
-<area shape="rect" id="node4" href="$_ox_sign_calculator_8h.html" title="OxSignCalculator.h" alt="" coords="467,229,602,256"/>
-<area shape="rect" id="node18" href="$_ox_factory_of_sign_calculators_8hxx.html" title="OxFactoryOfSignCalculators.hxx" alt="" coords="403,80,618,107"/>
-<area shape="rect" id="node5" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="497,304,572,331"/>
-<area shape="rect" id="node17" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="1014,379,1103,405"/>
-<area shape="rect" id="node19" href="$_ox_sign_calculator_no_sign_8h.html" title="OxSignCalculatorNoSign.h" alt="" coords="421,155,600,181"/>
-<area shape="rect" id="node20" href="$_ox_sign_calculator_real_imag_8h.html" title="OxSignCalculatorRealImag.h" alt="" coords="206,155,397,181"/>
-<area shape="rect" id="node21" href="$_ox_sign_calculator_shmolli_8h.html" title="OxSignCalculatorShmolli.h" alt="" coords="624,155,803,181"/>
+<map id="app/OxFactoryOfSignCalculators.h" name="app/OxFactoryOfSignCalculators.h">
+<area shape="rect" id="node3" href="$_ox_sign_calculator_no_sign_8h.html" title="OxSignCalculatorNoSign.h" alt="" coords="429,80,608,107"/>
+<area shape="rect" id="node18" href="$_ox_sign_calculator_real_imag_8h.html" title="OxSignCalculatorRealImag.h" alt="" coords="214,80,404,107"/>
+<area shape="rect" id="node19" href="$_ox_sign_calculator_shmolli_8h.html" title="OxSignCalculatorShmolli.h" alt="" coords="632,80,811,107"/>
+<area shape="rect" id="node4" href="$_ox_sign_calculator_8h.html" title="OxSignCalculator.h" alt="" coords="451,155,585,181"/>
+<area shape="rect" id="node5" href="$_k_w_util_8h_source.html" title="KWUtil.h" alt="" coords="481,229,555,256"/>
+<area shape="rect" id="node17" href="$_k_w_util_8hxx_source.html" title="KWUtil.hxx" alt="" coords="998,304,1087,331"/>
 </map>
