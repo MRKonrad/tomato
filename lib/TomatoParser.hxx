@@ -147,32 +147,6 @@ namespace Ox {
         return 0; // EXIT_SUCCESS
     }
 
-    template<typename MeasureType>
-    void
-    TomatoParser<MeasureType>
-    ::disp(){
-
-        for (SequenceMapType::iterator it=_sequences.begin(); it!=_sequences.end(); ++it) {
-            printVector<std::string>(it->second, it->first );
-        }
-        for (ScalarMapType::iterator it=_scalars.begin(); it!=_scalars.end(); ++it) {
-            std::cout << it->first << " = " << it->second << '\n';
-        }
-    }
-
-    template<typename MeasureType>
-    template< typename TYPE >
-    void
-    TomatoParser<MeasureType>
-    ::printVector(std::vector<TYPE> myVector, std::string myVectorName){
-        std::cout << myVectorName << " =" << std::endl;
-        for (int i = 0; i < myVector.size(); ++i) {
-            //std::cout << std::setw(7) << myVector[i];
-            std::cout << "  " << myVector[i] << std::endl;
-        }
-        //std::cout << std::endl;
-    }
-
 } // namespace Ox
 
 #endif //Tomato_TomatoPARSER_H

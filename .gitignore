@@ -3,6 +3,9 @@ latex
 thirdparty/lmfit/*
 thirdparty/itk/*
 conan-recipes/*/test_package/build/*
+/reports/
+/coverage/
+coverage.sh
 
 # mac
 *.DS_Store

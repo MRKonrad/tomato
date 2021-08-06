@@ -36,7 +36,6 @@ TEST(OxCalculatorT2Truncation, highR2_lowT2) {
     // init the necessary objects
     Ox::ModelT2TwoParamScale<TYPE> model;
     Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
-    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2Truncation<TYPE> calculator;
 
     // configure
@@ -76,7 +75,6 @@ TEST(OxCalculatorT2Truncation, highR2_highT2) {
     // init the necessary objects
     Ox::ModelT2TwoParamScale<TYPE> model;
     Ox::FitterAmoebaVnl<TYPE> fitter;
-    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2Truncation<TYPE> calculator;
 
     // configure
@@ -120,7 +118,6 @@ TEST(OxCalculatorT2Truncation, truncationInWork) {
     // init the necessary objects
     Ox::ModelT2TwoParamScale<TYPE> model;
     Ox::FitterAmoebaVnl<TYPE> fitter;
-    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2Truncation<TYPE> calculator;
 
     // configure
@@ -164,7 +161,6 @@ TEST(OxCalculatorT2Truncation, lowR2_highT2) {
     // init the necessary objects
     Ox::ModelT2TwoParamScale<TYPE> model;
     Ox::FitterAmoebaVnl<TYPE> fitter;
-    Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2Truncation<TYPE> calculator;
 
     // configure
@@ -202,12 +198,48 @@ TEST(OxCalculatorT2Truncation, calculateFitError) {
     // init the necessary objects
     Ox::ModelT2TwoParamScale<TYPE> model;
     Ox::FitterAmoebaVnl<TYPE> fitter;
+    Ox::CalculatorT2Truncation<TYPE> calculator;
+
+    // configure
+    calculator.setModel(&model);
+    calculator.setFitter(&fitter);
+
+    // set the data
+    calculator.setNSamples(nSamples);
+    calculator.setEchoTimes(echoTimes);
+    calculator.setSigMag(signal);
+
+    calculator.calculate();
+
+    EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaT2"], correctDeltaT2, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaFe"], correctDeltaFe, tolerance);
+}
+
+TEST(OxCalculatorT2Truncation, startPointCalculator) {
+
+    typedef double TYPE;
+
+    TYPE signal[] = {109, 93, 86, 72, 64, 60, 52, 49};
+    TYPE echoTimes[] = {3, 6, 9, 12, 15, 18, 21, 24};
+    int nSamples = 8;
+
+    double tolerance = 1e-4;
+
+    double correctDeltaB = 2.4428;
+    double correctDeltaT2 = 1.0852;
+    double correctDeltaFe = 0.0465;
+
+    // init the necessary objects
+    Ox::ModelT2TwoParamScale<TYPE> model;
+    Ox::FitterAmoebaVnl<TYPE> fitter;
     Ox::StartPointCalculatorBasic<TYPE> startPointCalculator;
     Ox::CalculatorT2Truncation<TYPE> calculator;
 
     // configure
     calculator.setModel(&model);
     calculator.setFitter(&fitter);
+    calculator.setStartPointCalculator(&startPointCalculator);
 
     // set the data
     calculator.setNSamples(nSamples);

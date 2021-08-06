@@ -234,4 +234,11 @@ TEST(KWUtil, calcMedianArray) {
     EXPECT_DOUBLE_EQ(KWUtil::calcMedianArray(5, myarray), 0.01);
 }
 
+TEST(KWUtil, array_expect_near){
+    double myarray1[5] = {1, 2, 3, 4, 5};
+    double myarray2[5] = {1.5, 2, 3, 4, 5};
+    double tolerance = .1;
+    EXPECT_NO_THROW(KWUtil::array_expect_near(5, myarray1, myarray2, tolerance));
+}
+
 

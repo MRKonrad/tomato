@@ -164,13 +164,13 @@ namespace Ox {
                 // save the tempResults at the best tempResults
                 KWUtil::copyArrayToArray(this->_nDims, calculatedParameters, this->getFitter()->getParameters());
                 mse = mseTemp;
-                timeFlip = iSwap;
+                timeFlip = iSwap + 1;
             }
         }
 
         // sign and signal for the best fit
         for (int i = 0; i < nSamples; i++) signs[i] = 1;
-        for (int i = 0; i < timeFlip + 1; i++) signs[i] = -1;
+        for (int i = 0; i < timeFlip; i++) signs[i] = -1;
         for (int i = 0; i < nSamples; i++) signal[i] = signs[i] * fabs(signal[i]);
 
         // errors

@@ -124,7 +124,7 @@ TEST(tomato, T1Molli_calculateSign) {
     double correctDeltaB = 2.4948;
     double correctDeltaT1star = 77.9145;
     double correctDeltaT1 = 158.2645;
-    double correctTimeFlip = 2;
+    double correctTimeFlip = 3;
 
     // init the necessary objects
     Ox::ModelT1ThreeParam<TYPE> model;
@@ -177,7 +177,7 @@ TEST(tomato, T1Shmolli_calculateSignWithoutPhase) {
     double correctDeltaB = 0.1775;
     double correctDeltaT1star = 5.5996;
     double correctDeltaT1 = 11.6167;
-    double correctTimeFlip = 1;
+    double correctTimeFlip = 2;
 
     // init the necessary objects
     Ox::ModelT1Shmolli<TYPE> model;

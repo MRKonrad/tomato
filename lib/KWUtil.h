@@ -255,35 +255,35 @@ public:
 #endif
     }
 
-    // http://www.cplusplus.com/reference/string/string/find_last_of/
-    static void splitFilename (const std::string& str, std::string &path, std::string &file) {
-        //std::cout << "Splitting: " << str << '\n';
-        std::size_t found = str.find_last_of("/\\");
-        path = str.substr(0,found);
-        file = str.substr(found+1);
-    }
-
-    // http://www.cplusplus.com/doc/tutorial/files/
-    static std::vector <std::string> readFile(const std::string filePath){
-        std::vector <std::string> fileContent;
-        std::string line;
-
-        try {
-            std::ifstream myfile(filePath.c_str());
-            if (myfile.is_open()) {
-                while (getline(myfile, line)) {
-                    fileContent.push_back(line);
-                }
-                myfile.close();
-            } else {
-                printf("Unable to open file: %s", filePath.c_str() );
-            }
-        } catch (const std::exception& e) {
-            std::cout << e.what() << std::endl;
-            printf("Unable to read the file: %s", filePath.c_str() );
-        }
-        return fileContent;
-    }
+//    // http://www.cplusplus.com/reference/string/string/find_last_of/
+//    static void splitFilename (const std::string& str, std::string &path, std::string &file) {
+//        //std::cout << "Splitting: " << str << '\n';
+//        std::size_t found = str.find_last_of("/\\");
+//        path = str.substr(0,found);
+//        file = str.substr(found+1);
+//    }
+//
+//    // http://www.cplusplus.com/doc/tutorial/files/
+//    static std::vector <std::string> readFile(const std::string filePath){
+//        std::vector <std::string> fileContent;
+//        std::string line;
+//
+//        try {
+//            std::ifstream myfile(filePath.c_str());
+//            if (myfile.is_open()) {
+//                while (getline(myfile, line)) {
+//                    fileContent.push_back(line);
+//                }
+//                myfile.close();
+//            } else {
+//                printf("Unable to open file: %s", filePath.c_str() );
+//            }
+//        } catch (const std::exception& e) {
+//            std::cout << e.what() << std::endl;
+//            printf("Unable to read the file: %s", filePath.c_str() );
+//        }
+//        return fileContent;
+//    }
 
     /***********************/
     /* testing             */

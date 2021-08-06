@@ -15,7 +15,7 @@
 #
 # Konrad Werys
 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8.12)
 
 #set(ENV{SDKROOT} "/Library/Developer/CommandLineTools_clang12/SDKs/MacOSX10.15.sdk")
 #set(CMAKE_OSX_DEPLOYMENT_TARGET CACHE STRING "10.15")
@@ -47,7 +47,6 @@ set(USE_ITK ON CACHE BOOL "Do you want to use ITK?")
 set(USE_VNL ON CACHE BOOL "Do you want to use VNL?")
 set(USE_YAML ON CACHE BOOL "Do you want to use yaml?")
 set(USE_LMFIT ON CACHE BOOL "Do you want to use LMFIT?")
-set(USE_TOMATOFIT ON CACHE BOOL "Do you want to use TOMATOFIT?")
 set(BUILD_TESTING ON CACHE BOOL "Do you want to build Tomato tests?")
 set(BUILD_APP ON CACHE BOOL "Do you want to build Tomato app?")
 
@@ -92,8 +91,12 @@ endif()
 ############
 
 if (USE_YAML)
-    find_package(libyaml REQUIRED)
-    set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} libyaml::libyaml)
+    set(USE_YAML OFF)
+    find_package(libyaml QUIET)
+    if(LIBYAML_FOUND)
+        set(USE_YAML ON)
+        set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} libyaml::libyaml)
+    endif()
 endif()
 
 #############
@@ -101,8 +104,12 @@ endif()
 #############
 
 if (USE_LMFIT)
-    find_package(lmfit REQUIRED)
-    set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} lmfit::lmfit)
+    set(USE_LMFIT OFF)
+    find_package(lmfit QUIET)
+    if(LMFIT_FOUND)
+        set(USE_LMFIT ON)
+        set(TOMATO_LIBS_TO_LINK ${TOMATO_LIBS_TO_LINK} lmfit::lmfit)
+    endif()
 endif()
 
 ###############
@@ -111,7 +118,7 @@ endif()
 
 # unfortunately I cannot publish numerical recipes code according to numerical recipes licence
 set(PRIVATE_NR2_DIR ${PROJECT_SOURCE_DIR}/../tomato_private CACHE PATH "")
-set(USE_PRIVATE_NR2 OFF CACHE BOOL "")
+set(USE_PRIVATE_NR2 ON CACHE BOOL "")
 if(USE_PRIVATE_NR2 AND EXISTS ${PRIVATE_NR2_DIR})
     add_subdirectory(${PRIVATE_NR2_DIR} ${CMAKE_BINARY_DIR}/private)
 else()
@@ -139,7 +146,6 @@ MESSAGE("USE_ITK:              " ${USE_ITK})
 MESSAGE("USE_VNL:              " ${USE_VNL})
 MESSAGE("USE_PRIVATE_NR2:      " ${USE_PRIVATE_NR2})
 MESSAGE("USE_LMFIT:            " ${USE_LMFIT})
-MESSAGE("USE_TOMATOFIT:        " ${USE_TOMATOFIT})
 MESSAGE("USE_YAML:             " ${USE_YAML})
 MESSAGE("BUILD_APP:            " ${BUILD_APP})
 MESSAGE("BUILD_TESTING:        " ${BUILD_TESTING})

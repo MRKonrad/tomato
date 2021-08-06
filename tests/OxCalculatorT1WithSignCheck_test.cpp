@@ -137,7 +137,7 @@ TEST(OxCalculatorT1WithSignCheck, calculate_WithoutSigns) {
     EXPECT_NEAR(calculatorT1.getResults()["A"], testData.getResultsMolli()[0], 1e-2);
     EXPECT_NEAR(calculatorT1.getResults()["B"], testData.getResultsMolli()[1], 1e-2);
     EXPECT_NEAR(calculatorT1.getResults()["T1star"], testData.getResultsMolli()[2], 1e-2);
-    EXPECT_EQ(calculatorT1.getResults()["timeFlip"], 2);
+    EXPECT_EQ(calculatorT1.getResults()["timeFlip"], 3);
 }
 #endif
 
@@ -174,6 +174,41 @@ TEST(OxCalculatorT1WithSignCheck, calculate_WithSigns) {
     EXPECT_NEAR(calculatorT1.getResults()["A"], testData.getResultsMolli()[0], 1e-2);
     EXPECT_NEAR(calculatorT1.getResults()["B"], testData.getResultsMolli()[1], 1e-2);
     EXPECT_NEAR(calculatorT1.getResults()["T1star"], testData.getResultsMolli()[2], 1e-2);
+}
+#endif
+
+#ifdef USE_VNL
+TEST(OxCalculatorT1WithSignCheck, calculate_WithSigns2) {
+
+    typedef double TYPE;
+
+    double signal[] = { 712, 869, 1040, 5620, 5750, 5840, 5910, 5910, 5970, 5910, 5960 };
+    double times[] = { 240, 250, 260, 1233, 1282, 1307, 2230, 2321, 2347, 3378, 4405 };
+    int nSamples = 11;
+
+    // init the necessary objects
+    Ox::ModelT1ThreeParam<TYPE> model;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
+    Ox::SignCalculatorNoSign<TYPE> signCalculator;
+    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1;
+
+    // configure
+    calculatorT1.setModel(&model);
+    calculatorT1.setFitter(&fitter);
+    calculatorT1.setSignCalculator(&signCalculator);
+
+    // set the data
+    calculatorT1.setNSamples(nSamples);
+    calculatorT1.setInvTimes(times);
+    calculatorT1.setSigMag(signal);
+
+    calculatorT1.calculate();
+
+    EXPECT_NEAR(calculatorT1.getResults()["A"], 5939.7346, 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["B"], 11065.5078, 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["T1star"], 319.8782, 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["T1"], 276.0432, 1e-2);
+    EXPECT_NEAR(calculatorT1.getResults()["timeFlip"], 0, 1e-2);
 }
 #endif
 
@@ -269,7 +304,6 @@ TEST(OxCalculatorT1WithSignCheck, calculateFitError) {
 }
 #endif
 
-
 #ifdef USE_VNL
 TEST(OxCalculatorT1WithSignCheck, calculateFitError2) {
 
@@ -308,6 +342,20 @@ TEST(OxCalculatorT1WithSignCheck, calculateFitError2) {
     EXPECT_NEAR(calculatorT1.getResults()["R2Abs"], 0.765, 1e-3);
 }
 #endif
+
+TEST(OxCalculatorT1WithSignCheck, disp) {
+
+    typedef double TYPE;
+    TYPE signal[] = {76.7793, 66.6405, 15.8322, 4.97358, 38.978, 62.5192, 76.5024};
+    TYPE times[] = {100, 180, 260, 1030, 1942, 2885, 3820 };
+    int nSamples = 7;
+
+    Ox::CalculatorT1WithSignCheck<TYPE> calculatorT1;
+    calculatorT1.setNSamples(nSamples);
+    calculatorT1.setInvTimes(times);
+    calculatorT1.setSigMag(signal);
+    EXPECT_NO_THROW(calculatorT1.disp());
+}
 
 ////TODO: no difference between 5 samples and 7 samples here.
 //#ifdef USE_ITK

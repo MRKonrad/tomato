@@ -69,38 +69,38 @@ public:
         return 0; // EXIT_SUCCESS
     }
 
-    static void printNodes(const yaml_document_t *document){
-        yaml_node_pair_t *pair;
-        yaml_node_item_t *item;
-        yaml_node_t *node;
-        int nn;
-        for (node = document->nodes.start; node < document->nodes.top; node ++) {
-            nn = node - document->nodes.start + 1;
-            switch (node->type) {
-                case YAML_SCALAR_NODE:
-                    printf("node %d node->type %d node->tag %s %d %s %c\n", nn, node->type, node->tag,
-                           (int)node->data.scalar.length, node->data.scalar.value,
-                           node->data.scalar.style);
-                    break;
-                case YAML_MAPPING_NODE:
-                    for (pair = node->data.mapping.pairs.start;
-                         pair < node->data.mapping.pairs.top; pair++) {
-                        printf("node %d node->type %d node->tag %s pair->key %d pair->value %d\n", nn,
-                               node->type, node->tag, pair->key, pair->value);
-                    }
-                    break;
-                case YAML_SEQUENCE_NODE:
-                    for (item = node->data.sequence.items.start;
-                         item < node->data.sequence.items.top; item++) {
-                        printf("node %d node->type %d node->tag %s item %d\n", nn, node->type, node->tag,
-                               *item);
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
+//    static void printNodes(const yaml_document_t *document){
+//        yaml_node_pair_t *pair;
+//        yaml_node_item_t *item;
+//        yaml_node_t *node;
+//        int nn;
+//        for (node = document->nodes.start; node < document->nodes.top; node ++) {
+//            nn = node - document->nodes.start + 1;
+//            switch (node->type) {
+//                case YAML_SCALAR_NODE:
+//                    printf("node %d node->type %d node->tag %s %d %s %c\n", nn, node->type, node->tag,
+//                           (int)node->data.scalar.length, node->data.scalar.value,
+//                           node->data.scalar.style);
+//                    break;
+//                case YAML_MAPPING_NODE:
+//                    for (pair = node->data.mapping.pairs.start;
+//                         pair < node->data.mapping.pairs.top; pair++) {
+//                        printf("node %d node->type %d node->tag %s pair->key %d pair->value %d\n", nn,
+//                               node->type, node->tag, pair->key, pair->value);
+//                    }
+//                    break;
+//                case YAML_SEQUENCE_NODE:
+//                    for (item = node->data.sequence.items.start;
+//                         item < node->data.sequence.items.top; item++) {
+//                        printf("node %d node->type %d node->tag %s item %d\n", nn, node->type, node->tag,
+//                               *item);
+//                    }
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
+//    }
 };
 
 //#undef YAML_BUFFER_SIZE
