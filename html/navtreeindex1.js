@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"class_ox_1_1_calculator.html#a40c854c0d75685ecc1da531f7400e3b1":[3,0,2,0,32],
+"class_ox_1_1_calculator.html#a4a3762f0c260cb0e34f72e40a7329d27":[3,0,2,0,0],
 "class_ox_1_1_calculator.html#a4b04d48cb906764aa235c387b631dca4":[3,0,2,0,16],
 "class_ox_1_1_calculator.html#a4ee7fdeb4009d2e433ef6a566768eb25":[3,0,2,0,19],
 "class_ox_1_1_calculator.html#a51fb95a1a68b1e14b659761c1f64aaab":[3,0,2,0,35],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "class_ox_1_1_sign_calculator_shmolli.html#a5a5f6cf4ced27205484d352d1976adfc":[3,0,2,17,4],
 "class_ox_1_1_sign_calculator_shmolli.html#a6ecfab9fb03fec0e62ad4951d5ab6c1b":[3,0,2,17,0],
 "class_ox_1_1_sign_calculator_shmolli.html#a9d9cd9b7107e43b4762846f54ff023d4":[3,0,2,17,5],
-"class_ox_1_1_sign_calculator_shmolli.html#aacfc207842127c87086f5595b9188acd":[3,0,2,17,7],
-"class_ox_1_1_sign_calculator_shmolli.html#ab981a3a9790976de560609860f455edd":[3,0,2,17,2],
-"class_ox_1_1_sign_calculator_shmolli.html#ae5b6751ae99992cc2075f0dc4b729605":[3,0,2,17,1]
+"class_ox_1_1_sign_calculator_shmolli.html#aacfc207842127c87086f5595b9188acd":[3,0,2,17,7]
 };

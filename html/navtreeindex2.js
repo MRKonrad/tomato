@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"class_ox_1_1_sign_calculator_shmolli.html#ab981a3a9790976de560609860f455edd":[3,0,2,17,2],
+"class_ox_1_1_sign_calculator_shmolli.html#ae5b6751ae99992cc2075f0dc4b729605":[3,0,2,17,1],
 "class_ox_1_1_start_point_calculator.html":[3,0,2,18],
 "class_ox_1_1_start_point_calculator.html#a00a48e8845623b57e414380924a3f82b":[3,0,2,18,9],
 "class_ox_1_1_start_point_calculator.html#a01bcfb382bec0c4c28ae2bb5783b458c":[3,0,2,18,6],
