@@ -26,19 +26,19 @@ namespace Ox {
         virtual ~ImageCalculator(){};
 
         // setters
-        void setUseThreads(bool _useThreads);
+        void setUseThreads(bool useThreads);
         void setNThreads(int nThreads);
-        void setNCols(int _nCols);
-        void setNRows(int _nRows);
-        void setNSamples(int _nSamples);
-        void setInvTimes(const MeasureType *_invTimes);
-        void setEchoTimes(const MeasureType *_echoTimes);
-        void setImageMag(const MeasureType *_imageMag);
-        void setImagePha(const MeasureType *_imagePha);
-        void setImageResultsArray(MeasureType *_imageResultsArray);
+        void setNCols(int nCols);
+        void setNRows(int nRows);
+        void setNSamples(int nSamples);
+        void setInvTimes(const MeasureType *invTimes);
+        void setEchoTimes(const MeasureType *echoTimes);
+        void setImageMag(const MeasureType *imageMag);
+        void setImagePha(const MeasureType *imagePha);
+        void setImageResultsArray(MeasureType *imageResultsArray);
         void setImageResultsMap(std::map<std::string, MeasureType *> *imageResultsMap);
 
-        void setCalculator(Calculator<MeasureType> *_calculator);
+        void setCalculator(Calculator<MeasureType> *calculator);
 
         // getters
         MeasureType *getImageResultsArray() const;

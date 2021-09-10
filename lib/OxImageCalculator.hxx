@@ -30,71 +30,71 @@ namespace Ox {
     template<typename MeasureType>
     void
     ImageCalculator<MeasureType>
-    ::setUseThreads(bool _useThreads) {
-        ImageCalculator::_useThreads = _useThreads;
+    ::setUseThreads(bool useThreads) {
+        ImageCalculator::_useThreads = useThreads;
     }
 
     template<typename MeasureType>
     void
     ImageCalculator<MeasureType>
-    ::setNCols(int _nCols) {
-        ImageCalculator::_nCols = _nCols;
+    ::setNCols(int nCols) {
+        ImageCalculator::_nCols = nCols;
     }
 
     template<typename MeasureType>
     void
     ImageCalculator<MeasureType>
-    ::setNRows(int _nRows) {
-        ImageCalculator::_nRows = _nRows;
+    ::setNRows(int nRows) {
+        ImageCalculator::_nRows = nRows;
     }
 
     template<typename MeasureType>
     void
     ImageCalculator<MeasureType>
-    ::setNSamples(int _nSamples) {
-        ImageCalculator::_nSamples = _nSamples;
+    ::setNSamples(int nSamples) {
+        ImageCalculator::_nSamples = nSamples;
     }
 
     template<typename MeasureType>
     void
     ImageCalculator<MeasureType>
-    ::setInvTimes(const MeasureType *_invTimes) {
-        ImageCalculator::_invTimes = _invTimes;
+    ::setInvTimes(const MeasureType *invTimes) {
+        ImageCalculator::_invTimes = invTimes;
     }
 
     template<typename MeasureType>
     void
     ImageCalculator<MeasureType>
-    ::setEchoTimes(const MeasureType *_echoTimes) {
-        ImageCalculator::_echoTimes = _echoTimes;
+    ::setEchoTimes(const MeasureType *echoTimes) {
+        ImageCalculator::_echoTimes = echoTimes;
     }
 
     template<typename MeasureType>
     void
     ImageCalculator<MeasureType>
-    ::setImageMag(const MeasureType *_imageMag) {
-        ImageCalculator::_imageMag = _imageMag;
+    ::setImageMag(const MeasureType *imageMag) {
+        ImageCalculator::_imageMag = imageMag;
     }
 
     template<typename MeasureType>
     void
     ImageCalculator<MeasureType>
-    ::setImagePha(const MeasureType *_imagePha) {
-        ImageCalculator::_imagePha = _imagePha;
+    ::setImagePha(const MeasureType *imagePha) {
+        ImageCalculator::_imagePha = imagePha;
     }
 
     template<typename MeasureType>
     void
     ImageCalculator<MeasureType>
-    ::setImageResultsArray(MeasureType *_imageResultsArray) {
-        ImageCalculator::_imageResultsArray = _imageResultsArray;
+    ::setImageResultsArray(MeasureType *imageResultsArray) {
+        ImageCalculator::_imageResultsArray = imageResultsArray;
     }
 
     template<typename MeasureType>
     void
     ImageCalculator<MeasureType>
-    ::setCalculator(Calculator <MeasureType> *_calculator) {
-        ImageCalculator::_calculator = _calculator;
+    ::setCalculator(Calculator <MeasureType> *calculator) {
+        ImageCalculator::_calculator = calculator;
     }
 
     template<typename MeasureType>

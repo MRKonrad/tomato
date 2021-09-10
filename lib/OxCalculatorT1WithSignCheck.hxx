@@ -299,8 +299,8 @@ namespace Ox {
     }
 
     template<typename MeasureType>
-    void CalculatorT1WithSignCheck<MeasureType>::setDoCalculateSDMap(bool _DoCalculateSDMap) {
-        CalculatorT1WithSignCheck::_DoCalculateSDMap = _DoCalculateSDMap;
+    void CalculatorT1WithSignCheck<MeasureType>::setDoCalculateSDMap(bool doCalculateSDMap) {
+        CalculatorT1WithSignCheck::_DoCalculateSDMap = doCalculateSDMap;
     }
 
 
