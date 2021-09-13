@@ -17,7 +17,6 @@ It contains Sh\+M\+O\+L\+LI implementation as in \href{https://jcmr-online.biome
 \href{https://doi.org/10.1016/j.softx.2019.100369}{\tt D\+OI} &\PBS\centering \href{https://doi.org/10.1016/j.softx.2019.100369}{\tt } \\\cline{1-2}
 \href{https://travis-ci.org/MRKonrad/tomato}{\tt O\+S\+X/\+Linux build -\/ Travis} &\PBS\centering \href{https://travis-ci.org/MRKonrad/tomato}{\tt } \\\cline{1-2}
 \href{https://ci.appveyor.com/project/MRKonrad/tomato}{\tt Windows build -\/ App\+Veyor} &\PBS\centering \href{https://ci.appveyor.com/project/MRKonrad/tomato}{\tt } \\\cline{1-2}
-\href{https://www.codacy.com/app/MRKonrad/tomato?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MRKonrad/tomato&amp;utm_campaign=Badge_Grade}{\tt Code quality -\/ Codacy} &\PBS\centering \href{https://www.codacy.com/app/MRKonrad/tomato?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MRKonrad/tomato&amp;utm_campaign=Badge_Grade}{\tt } \\\cline{1-2}
 \href{https://codecov.io/gh/MRKonrad/tomato}{\tt Test coverage -\/ Codecov} &\PBS\centering \href{https://codecov.io/gh/MRKonrad/tomato}{\tt } \\\cline{1-2}
 \href{https://github.com/MRKonrad/tomato/releases}{\tt Downloads} &\PBS\centering \href{https://github.com/MRKonrad/tomato/releases}{\tt } \\\cline{1-2}
 \end{longtabu}
@@ -46,7 +45,5 @@ Please see \hyperlink{md_contributing}{contributing.md} and \hyperlink{md_codeof
 
 \begin{DoxyItemize}
 \item Problem\+: missing msvcp140.\+dll
-\item Solution\+: Download \href{https://www.microsoft.com/en-us/download/details.aspx?id=48145}{\tt https\+://www.\+microsoft.\+com/en-\/us/download/details.\+aspx?id=48145} as suggested in \href{https://stackoverflow.com/questions/32998902/msvcp140-dll-missing}{\tt https\+://stackoverflow.\+com/questions/32998902/msvcp140-\/dll-\/missing}
+\item Solution\+: Download \href{https://www.microsoft.com/en-us/download/details.aspx?id=48145}{\tt https\+://www.\+microsoft.\+com/en-\/us/download/details.\+aspx?id=48145} as suggested in \href{https://stackoverflow.com/questions/32998902/msvcp140-dll-missing}{\tt https\+://stackoverflow.\+com/questions/32998902/msvcp140-\/dll-\/missing} 
 \end{DoxyItemize}
-
-conan remove -\/f tomato conan create . cvi/production -\/s compiler.\+version=10.\+0 -\/e tomato\+:CC=\char`\"{}/opt/local/bin/clang-\/mp-\/10\char`\"{} -\/e tomato\+:C\+XX=\char`\"{}/opt/local/bin/clang++-\/mp-\/10\char`\"{} -\/s build\+\_\+type=Release 

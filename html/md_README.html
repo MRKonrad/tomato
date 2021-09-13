@@ -117,8 +117,6 @@ $(document).ready(function(){initNavTree('md_README.html','');});
 <tr>
 <td><a href="https://ci.appveyor.com/project/MRKonrad/tomato">Windows build - AppVeyor</a> </td><td align="center"><a href="https://ci.appveyor.com/project/MRKonrad/tomato"></a> </td></tr>
 <tr>
-<td><a href="https://www.codacy.com/app/MRKonrad/tomato?utm_source=github.com&amp;amp;utm_medium=referral&amp;amp;utm_content=MRKonrad/tomato&amp;amp;utm_campaign=Badge_Grade">Code quality - Codacy</a> </td><td align="center"><a href="https://www.codacy.com/app/MRKonrad/tomato?utm_source=github.com&amp;amp;utm_medium=referral&amp;amp;utm_content=MRKonrad/tomato&amp;amp;utm_campaign=Badge_Grade"></a> </td></tr>
-<tr>
 <td><a href="https://codecov.io/gh/MRKonrad/tomato">Test coverage - Codecov</a> </td><td align="center"><a href="https://codecov.io/gh/MRKonrad/tomato"></a> </td></tr>
 <tr>
 <td><a href="https://github.com/MRKonrad/tomato/releases">Downloads</a> </td><td align="center"><a href="https://github.com/MRKonrad/tomato/releases"></a> </td></tr>
@@ -137,9 +135,8 @@ $(document).ready(function(){initNavTree('md_README.html','');});
 <h2>Troubleshooting</h2>
 <ul>
 <li>Problem: missing msvcp140.dll</li>
-<li>Solution: Download <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145">https://www.microsoft.com/en-us/download/details.aspx?id=48145</a> as suggested in <a href="https://stackoverflow.com/questions/32998902/msvcp140-dll-missing">https://stackoverflow.com/questions/32998902/msvcp140-dll-missing</a></li>
+<li>Solution: Download <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145">https://www.microsoft.com/en-us/download/details.aspx?id=48145</a> as suggested in <a href="https://stackoverflow.com/questions/32998902/msvcp140-dll-missing">https://stackoverflow.com/questions/32998902/msvcp140-dll-missing</a> </li>
 </ul>
-<p>conan remove -f tomato conan create . cvi/production -s compiler.version=10.0 -e tomato:CC="/opt/local/bin/clang-mp-10" -e tomato:CXX="/opt/local/bin/clang++-mp-10" -s build_type=Release </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
