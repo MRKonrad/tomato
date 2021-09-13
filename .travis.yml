@@ -136,13 +136,7 @@ script:
 
   # download tomato_private
   - cd ${TRAVIS_BUILD_DIR}/..
-  - git clone -b T2 https://MRKonrad:${GH_PERSONAL_ACCESS_TOKEN}@github.com/MRKonrad/tomato_private
-
-  # add coverage option (only in linux g++)
-  - if [ "$EXTENDED_BUILD" == "ON" ]; then
-      cd ${TRAVIS_BUILD_DIR}/opensource
-      cmake .. -DCMAKE_CXX_FLAGS="--coverage" ;
-    fi
+  - git clone https://MRKonrad:${GH_PERSONAL_ACCESS_TOKEN}@github.com/MRKonrad/tomato_private
 
   # configure and generate full
   - mkdir ${TRAVIS_BUILD_DIR}/full
@@ -180,6 +174,11 @@ script:
     -DDOWNLOAD_DEPENDENCIES=ON
     -DBUILD_APP=ON
 
+  # add coverage option (only in linux g++)
+  - if [ "$EXTENDED_BUILD" == "ON" ]; then
+    cmake .. -DCMAKE_CXX_FLAGS="--coverage" ;
+    fi
+
   # build full
   - cmake --build . --config RELEASE
   - cmake --build . --config RELEASE --target install
@@ -197,7 +196,7 @@ script:
 after_success:
   # Run coverage analysis only in linux g++. Eval because travis wants to parse -- as part of yaml block
   - if [ "$EXTENDED_BUILD" == "ON" ]; then
-      cd ${TRAVIS_BUILD_DIR}/full ;
+      cd ${TRAVIS_BUILD_DIR}/full_itk ;
       cp ${TRAVIS_BUILD_DIR}/scriptsBuild/generateTestCoverageReport.sh generateTestCoverageReport.sh;
       sh generateTestCoverageReport.sh;
       ls;
@@ -247,9 +246,3 @@ deploy:
   on:
     tags: true
     condition: ${DEPLOY_BUILD} == "ON" # I guess I have to pick one compiler
-
-notifications:
-  slack:
-    rooms:
-      - secure: ljyKu/sP6Ha9o4lZejENiPEhhVL1xQ86YTvywg7/jOSIV7xXy2xDULz6qsZxAi6TcGgPTLGQzb2ydFnHfe5bThW9klOzxTw8Ru+/DfDiPSk3mV3ylVDO6gcwCqoWbc63HGub90wRaEc1mLfp8NAnCq2nOayT7eHBzS2ABKNd0SwS9onaDnbOIIoXdZYw1z1mvOWrUrFErFHv8jeQ0l1MEOWaGGzttpZXB+ZwHOlaSACBCcNH6ZYZqUs9nsyBDa33GI4ktgIlkCeMahsix8ZbaoSE0rWXq5AvO93DhyjPUI3obFHysjI2eQSnMU652ASWOAqMVoHCGSURSvOobCEbVq2OmYfq77UF+ntS2rdQccKE4DEC8A2YN9xNY3H+Coiw2C+NadETxixp0n0byPBUBopg7Jb3iGj76KuEpk5qVzu4xCwJiRPek9o5t8v34+y979Xn9e4wnMN4sN8xS364qU/innBJkZgbYtXolFhX/GA5gglA3PZVq5XdMs16sWxwrG0uRgSsOdz0dhIh6Q2QBYISnjdCj+mJ4PQ+/PNl3nbjq7LGYH19oNV3G8gTZQDHFYWEL6DB517caeKiMZFT6JOgwK5Dd/+JEOuBjUkyP3CuMH8VfB6vrTsmpV3SkaizujCB+LUnzMtFdGOJ3KEhR5OS9pq6nwAW1AYOMTAcT+s=
-    on_success: always
