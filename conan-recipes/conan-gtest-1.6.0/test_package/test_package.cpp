@@ -42,14 +42,14 @@ public:
 
 #endif
 
-//TEST(SalutationTest, Static) {
-//
-//#ifdef WITH_GMOCK
-//  MockExample m;
-//#endif
-//
-//  EXPECT_EQ(string("Hello World!"), Salutation::greet("World"));
-//}
+TEST(SalutationTest, Static) {
+
+#ifdef WITH_GMOCK
+  MockExample m;
+#endif
+
+  EXPECT_EQ(string("Hello World!"), Salutation::greet("World"));
+}
 
 #if GTEST_HAS_COMBINE
 #include "prime_tables.h"

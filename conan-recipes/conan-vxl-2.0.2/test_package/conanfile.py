@@ -21,6 +21,6 @@ class VxlTestConan(ConanFile):
         self.copy('*.so*', dst='bin', src='lib')
 
     def test(self):
-        if not tools.cross_building(self.settings):
+        if not tools.cross_building(self):
             os.chdir("bin")
             self.run(".%sPackageTest" % os.sep)

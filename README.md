@@ -14,7 +14,6 @@ It contains ShMOLLI implementation as in [this article](https://jcmr-online.biom
 | [DOI][doi_link]                                | [![DOI][doi_badge]][doi_link]                         |
 | [OSX/Linux build - Travis][travis_link]        | [![Travis (.org)][travis_badge]][travis_link]         |
 | [Windows build - AppVeyor][appveyor_link]      | [![AppVeyor][appveyor_badge]][appveyor_link]          |
-| [Code quality - Codacy][codacy_link]           | [![Codacy Badge][codacy_badge]][codacy_link]          |
 | [Test coverage - Codecov][codecov_link]        | [![codecov][codecov_badge]][codecov_link]             |
 | [Downloads][downloads_link]                    | [![GitHub Releases][downloads_badge]][downloads_link] |
 
@@ -66,14 +65,9 @@ Please see [contributing.md](contributing.md) and [codeofconduct.md](codeofcondu
 [travis_badge]: https://img.shields.io/travis/MRKonrad/tomato/master.svg?style=flat-square
 [appveyor_link]: https://ci.appveyor.com/project/MRKonrad/tomato
 [appveyor_badge]: https://img.shields.io/appveyor/ci/MRKonrad/tomato/master.svg?style=flat-square
-[codacy_link]: https://www.codacy.com/app/MRKonrad/tomato?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MRKonrad/tomato&amp;utm_campaign=Badge_Grade
-[codacy_badge]: https://img.shields.io/codacy/grade/1ca5a2f31ee040cc9258fc5018e51c1e?style=flat-square
 [codecov_link]: https://codecov.io/gh/MRKonrad/tomato
 [codecov_badge]: https://img.shields.io/codecov/c/github/MRKonrad/tomato.svg?style=flat-square
 [downloads_link]: https://github.com/MRKonrad/tomato/releases
 [downloads_badge]: https://img.shields.io/github/downloads/MRKonrad/tomato/total.svg?style=flat-square
 [doxygen_link]: https://mrkonrad.github.io/tomato/html/md__r_e_a_d_m_e.html
 [toamto_docs_link]: https://mrkonrad.github.io/tomato_docs/
-
-conan remove -f tomato
-conan create . cvi/production -s compiler.version=10.0 -e tomato:CC="/opt/local/bin/clang-mp-10" -e tomato:CXX="/opt/local/bin/clang++-mp-10" -s build_type=Release

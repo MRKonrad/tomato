@@ -21,6 +21,7 @@ class GTestConan(ConanFile):
         cmake = CMake(self)
         # TODO: change it in the code as patch
         cmake.definitions["CMAKE_CXX_FLAGS"] = "-DGTEST_HAS_TR1_TUPLE=0"
+        # cmake.definitions["CMAKE_CXX_STANDARD"] = "98"
         if self.settings.os == "Windows" and self.settings.get_safe("compiler.runtime"):
             cmake.definitions["gtest_force_shared_crt"] = "MD" in str(self.settings.compiler.runtime)
         cmake.configure(source_folder=self.name)
