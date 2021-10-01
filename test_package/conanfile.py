@@ -10,8 +10,6 @@ class TomatoTestConan(ConanFile):
     def build(self):
         cmake = CMake(self)
         cmake.definitions["CONAN_DISABLE_CHECK_COMPILER"] = "ON"
-        # Current dir is "test_package/build/<build_id>" and CMakeLists.txt is
-        # in "test_package"
         cmake.configure()
         cmake.build()
 

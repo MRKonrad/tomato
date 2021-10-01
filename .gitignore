@@ -2,6 +2,7 @@ html
 latex
 thirdparty/lmfit/*
 thirdparty/itk/*
+test_package/build/*
 conan-recipes/*/test_package/build/*
 /reports/
 /coverage/

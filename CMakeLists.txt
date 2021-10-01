@@ -25,7 +25,7 @@ project(Tomato)
 # The version number
 set(Tomato_VERSION_MAJOR 0)
 set(Tomato_VERSION_MINOR 6)
-set(Tomato_VERSION_PATCH 5)
+set(Tomato_VERSION_PATCH 6)
 
 # Compiler flags
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -224,3 +224,12 @@ if(BUILD_TESTING)
     add_subdirectory(tests)
     install(TARGETS TomatoLib DESTINATION tests)
 endif()
+
+##
+#set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+##if(CMAKE_COMPILER_IS_GNUCXX)
+#    include(CodeCoverage)
+#    setup_target_for_coverage_lcov(
+#            NAME ${PROJECT_NAME}Coverage
+#            EXECUTABLE ${PROJECT_NAME}Tests)
+#endif()

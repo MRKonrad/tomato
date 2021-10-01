@@ -177,7 +177,189 @@ TEST(tomato, T1Shmolli_calculateSignWithoutPhase) {
     double correctDeltaB = 0.1775;
     double correctDeltaT1star = 5.5996;
     double correctDeltaT1 = 11.6167;
-    double correctTimeFlip = 2;
+    double correctTimeFlip = 3;
+
+    // init the necessary objects
+    Ox::ModelT1Shmolli<TYPE> model;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
+    Ox::SignCalculatorNoSign<TYPE> signCalculator;
+    Ox::StartPointCalculatorShmolli<TYPE> startPointCalculator;
+    Ox::CalculatorT1Shmolli<TYPE> calculator;
+
+    // configure
+    calculator.setModel(&model);
+    calculator.setFitter(&fitter);
+    calculator.setSignCalculator(&signCalculator);
+    calculator.setStartPointCalculator(&startPointCalculator);
+
+    // set the data
+    calculator.setNSamples(nSamples);
+    calculator.setInvTimes(time);
+    calculator.setSigMag(signal);
+
+    calculator.calculate();
+
+    EXPECT_NEAR(calculator.getResults()["A"], correctA, tolerance);
+    EXPECT_NEAR(calculator.getResults()["B"], correctB, tolerance);
+    EXPECT_NEAR(calculator.getResults()["T1star"], correctT1star, tolerance);
+    EXPECT_NEAR(calculator.getResults()["T1"], correctT1, tolerance);
+    EXPECT_NEAR(calculator.getResults()["R2Abs"], correctR2Abs, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaA"], correctDeltaA, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaT1star"], correctDeltaT1star, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaT1"], correctDeltaT1, tolerance);
+    EXPECT_NEAR(calculator.getResults()["timeFlip"], correctTimeFlip, tolerance);
+}
+
+// results from tomato
+TEST(tomato, T1Shmolli_calculateSignWithoutPhase_5samples) {
+
+    typedef double TYPE;
+
+    TYPE signal[] = {
+        95.665639445300456,
+        53.529532614278374,
+        13.85130970724191,
+        128.0945043656908,
+        156.30662557781201,
+        159.62223934257833,
+        160.15511042629686 };
+    TYPE time[] = { 100, 180, 260, 1000, 1900, 2800, 3700 };
+    int nSamples = 7;
+
+    double tolerance = 1e-2;
+
+    double correctA = 160.2188;
+    double correctB = 322.2685;
+    double correctT1star = 433.5508;
+    double correctT1 = 438.5053;
+    double correctR2Abs = 0.9998;
+    double correctDeltaA = 0.0674;
+    double correctDeltaB = 0.1775;
+    double correctDeltaT1star = 0.8256;
+    double correctDeltaT1 = 1.7039;
+    double correctTimeFlip = 1;
+
+    // init the necessary objects
+    Ox::ModelT1Shmolli<TYPE> model;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
+    Ox::SignCalculatorNoSign<TYPE> signCalculator;
+    Ox::StartPointCalculatorShmolli<TYPE> startPointCalculator;
+    Ox::CalculatorT1Shmolli<TYPE> calculator;
+
+    // configure
+    calculator.setModel(&model);
+    calculator.setFitter(&fitter);
+    calculator.setSignCalculator(&signCalculator);
+    calculator.setStartPointCalculator(&startPointCalculator);
+
+    // set the data
+    calculator.setNSamples(nSamples);
+    calculator.setInvTimes(time);
+    calculator.setSigMag(signal);
+
+    calculator.calculate();
+
+    EXPECT_NEAR(calculator.getResults()["A"], correctA, tolerance);
+    EXPECT_NEAR(calculator.getResults()["B"], correctB, tolerance);
+    EXPECT_NEAR(calculator.getResults()["T1star"], correctT1star, tolerance);
+    EXPECT_NEAR(calculator.getResults()["T1"], correctT1, tolerance);
+    EXPECT_NEAR(calculator.getResults()["R2Abs"], correctR2Abs, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaA"], correctDeltaA, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaT1star"], correctDeltaT1star, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaT1"], correctDeltaT1, tolerance);
+    EXPECT_NEAR(calculator.getResults()["timeFlip"], correctTimeFlip, tolerance);
+}
+
+TEST(tomato, T1Shmolli_calculateSignWithoutPhase_6samples) {
+
+    typedef double TYPE;
+
+    TYPE signal[] = {
+        197.59609868043603,
+        135.06540447504304,
+        23.955249569707401,
+        24.962134251290877,
+        62.294320137693632,
+        111.68445209409064,
+        140.4084911072863};
+    TYPE time[] = { 100, 180, 260, 1000, 1900, 2800, 3700 };
+    int nSamples = 7;
+
+    double tolerance = 1e-2;
+
+    double correctA = 169.0853;
+    double correctB = 392.4758;
+    double correctT1star = 1441.06949;
+    double correctT1 = 1903.8977;
+    double correctR2Abs = 0.9998;
+    double correctDeltaA = 4.1456;
+    double correctDeltaB = 4.083;
+    double correctDeltaT1star = 43.2234;
+    double correctDeltaT1 = 173.9150;
+    double correctTimeFlip = 4;
+
+    // init the necessary objects
+    Ox::ModelT1Shmolli<TYPE> model;
+    Ox::FitterLevenbergMarquardtVnl<TYPE> fitter;
+    Ox::SignCalculatorNoSign<TYPE> signCalculator;
+    Ox::StartPointCalculatorShmolli<TYPE> startPointCalculator;
+    Ox::CalculatorT1Shmolli<TYPE> calculator;
+
+    // configure
+    calculator.setModel(&model);
+    calculator.setFitter(&fitter);
+    calculator.setSignCalculator(&signCalculator);
+    calculator.setStartPointCalculator(&startPointCalculator);
+
+    // set the data
+    calculator.setNSamples(nSamples);
+    calculator.setInvTimes(time);
+    calculator.setSigMag(signal);
+
+    calculator.calculate();
+
+    EXPECT_NEAR(calculator.getResults()["A"], correctA, tolerance);
+    EXPECT_NEAR(calculator.getResults()["B"], correctB, tolerance);
+    EXPECT_NEAR(calculator.getResults()["T1star"], correctT1star, tolerance);
+    EXPECT_NEAR(calculator.getResults()["T1"], correctT1, tolerance);
+    EXPECT_NEAR(calculator.getResults()["R2Abs"], correctR2Abs, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaA"], correctDeltaA, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaB"], correctDeltaB, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaT1star"], correctDeltaT1star, tolerance);
+    EXPECT_NEAR(calculator.getResults()["deltaT1"], correctDeltaT1, tolerance);
+    EXPECT_NEAR(calculator.getResults()["timeFlip"], correctTimeFlip, tolerance);
+}
+
+TEST(tomato, T1Shmolli_calculateSignWithoutPhase_7samples) {
+
+    typedef double TYPE;
+
+    TYPE signal[] = {
+        89.360373295046656,
+        8.201722900215362,
+        81.208183776022977,
+        261.15290739411341,
+        270.49353912419241,
+        269.98456568557071,
+        270.83237616654702,
+    };
+    TYPE time[] = { 100, 180, 260, 1000, 1900, 2800, 3700  };
+    int nSamples = 7;
+
+    double tolerance = 1e-2;
+
+    double correctA = 270.6357;
+    double correctB = 537.7456;
+    double correctT1star = 249.7954;
+    double correctT1 = 246.5412;
+    double correctR2Abs = 0.9998;
+    double correctDeltaA = 0.3358;
+    double correctDeltaB = 1.8499;
+    double correctDeltaT1star = 1.4237;
+    double correctDeltaT1 = 3.7284;
+    double correctTimeFlip = 1;
 
     // init the necessary objects
     Ox::ModelT1Shmolli<TYPE> model;

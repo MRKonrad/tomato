@@ -193,6 +193,10 @@ namespace Ox {
             nShmolliSamplesUsed = 5;
             T1temp = results5["T1"];
             chiTemp = results5["ChiSqrt"]; // legacy
+            if (results5["timeFlip"] == 0) // because signs5[0] = -1;
+            {
+                results5["timeFlip"] = 1;
+            }
         } else {
             chiTemp = results5["LastValue"]; // legacy, very small amount of pixels (3) influenced by it
         }
@@ -227,9 +231,17 @@ namespace Ox {
 
         // assign output values
         if      (nShmolliSamplesUsed == 5) {
+            if (results5["timeFlip"] > 1)
+            {
+                results5["timeFlip"] = results5["timeFlip"] + 2;
+            }
             this->_Results = results5;
         }
         else if (nShmolliSamplesUsed == 6) {
+            if (results6["timeFlip"] > 1)
+            {
+                results6["timeFlip"] = results6["timeFlip"] + 1;
+            }
             this->_Results = results6;
         }
         else if (nShmolliSamplesUsed == 7) {
